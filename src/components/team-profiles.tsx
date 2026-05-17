@@ -14,14 +14,14 @@ function TeamCard({
 
   return (
     <article
-      className={`glass-panel flex h-full rounded-[2rem] ${
+      className={`flex h-full rounded-[2rem] border border-[#d9d2c5] bg-[linear-gradient(180deg,#fbf7ef_0%,#f2eadc_100%)] shadow-[0_26px_80px_rgba(17,35,42,0.10)] ${
         isFeatured
           ? "flex-col gap-6 p-7 md:p-8 xl:flex-row xl:items-start"
           : "flex-col gap-5 p-6 md:p-7"
       }`}
     >
       <div
-        className={`relative shrink-0 overflow-hidden rounded-[1.5rem] border border-foreground/10 bg-white/70 ${
+        className={`relative shrink-0 overflow-hidden rounded-[1.5rem] border border-[#d9d2c5] bg-[#f8f2e8] ${
           isFeatured
             ? "aspect-[4/4.4] w-full xl:h-[17rem] xl:w-[15rem]"
             : "aspect-[4/4.4] w-full"
@@ -70,16 +70,6 @@ function TeamCard({
           {member.summary}
         </p>
 
-        <div className="mt-6 flex flex-wrap gap-2.5">
-          {member.skills.slice(0, isFeatured ? 4 : 3).map((skill) => (
-            <span
-              key={skill}
-              className="rounded-full border border-foreground/10 bg-white/70 px-3.5 py-2 text-[0.96rem] text-foreground"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
       </div>
     </article>
   );

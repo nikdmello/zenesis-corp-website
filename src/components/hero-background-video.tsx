@@ -44,6 +44,7 @@ export function HeroBackgroundVideo({
       playsInline
       preload="auto"
       poster={poster}
+      suppressHydrationWarning
       className={className}
       aria-hidden="true"
     >

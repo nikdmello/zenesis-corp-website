@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment, useEffect, useState, type ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import { ConsultationFormButton } from "@/components/consultation-form";
 import { contactDetails, navigation, whatsappHref } from "@/lib/site-content";
 
@@ -13,40 +13,18 @@ type SiteShellProps = {
 
 export function SiteShell({ children, currentPath }: SiteShellProps) {
   const shellWidthClass = "max-w-[100rem]";
-  const [headerVisible, setHeaderVisible] = useState(true);
-
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-
-    function handleScroll() {
-      const currentScrollY = window.scrollY;
-      const scrollingUp = currentScrollY < lastScrollY;
-      const nearTop = currentScrollY < 24;
-
-      setHeaderVisible(nearTop || scrollingUp);
-      lastScrollY = currentScrollY;
-    }
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
-    <div className="relative isolate min-h-screen overflow-x-hidden">
+    <div className="relative isolate min-h-screen overflow-x-clip">
       <div
         aria-hidden="true"
         className="site-background pointer-events-none fixed inset-0 -z-10"
       />
       <header
-        className={`fixed left-0 right-0 top-0 z-50 border-b border-white/14 bg-[rgba(17,35,42,0.62)] shadow-[0_14px_40px_rgba(7,21,27,0.16)] backdrop-blur-xl transition-transform duration-300 ease-out ${
-          headerVisible ? "translate-y-0" : "-translate-y-full"
-        }`}
+        className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[rgba(12,27,34,0.82)] shadow-[0_16px_42px_rgba(7,21,27,0.16)] backdrop-blur-xl"
       >
         <div
-          className={`mx-auto flex ${shellWidthClass} items-center justify-between px-6 py-2.5 md:grid md:grid-cols-[auto_1fr_auto] md:items-center md:px-12 xl:px-16`}
+          className={`mx-auto flex ${shellWidthClass} items-center justify-between px-6 py-3.5 md:grid md:grid-cols-[auto_1fr_auto] md:items-center md:px-12 xl:px-16`}
         >
           <Link href="/" className="flex items-center gap-3">
             <span
@@ -65,23 +43,32 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
               <Image
                 src="/zenesis-logo-full.png"
                 alt="Zenesis Corporation"
-                width={300}
-                height={72}
-                className="h-8 w-auto object-contain brightness-0 invert"
+                width={360}
+                height={88}
+                className="h-10 w-auto object-contain brightness-0 invert lg:h-11"
                 priority
               />
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-1 justify-self-center rounded-full px-1 py-0.5 text-[1.03rem] font-semibold text-white/90 md:flex">
+          <nav className="hidden items-center gap-3 justify-self-center px-1 py-0.5 text-[1.14rem] font-semibold text-white/95 md:flex xl:text-[1.16rem]">
             {navigation.map((item) => {
-              const isActive = item.href === currentPath;
+              const isActive =
+                item.href === currentPath ||
+                ("groups" in item &&
+                  (currentPath === item.href ||
+                    item.groups.some((group) =>
+                      group.links.some((link) => link.href === currentPath),
+                    )));
               if ("groups" in item) {
+                const isServicesMenu = item.label === "Services";
+                const groupCount = item.groups.length;
+
                 return (
                   <div key={item.href} className="group relative">
                     <Link
                       href={item.href}
-                      className={`group inline-flex items-center gap-1 px-3 py-1 transition-colors hover:text-white ${
+                      className={`group inline-flex items-center gap-1.5 px-2 py-2.5 transition-colors duration-200 hover:text-white ${
                         isActive ? "text-white" : ""
                       }`}
                     >
@@ -101,34 +88,68 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
 
                     <div
                       className={`pointer-events-none absolute left-1/2 top-full -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 ease-out group-hover:pointer-events-auto group-hover:opacity-100 ${
-                        item.groups.length > 1 ? "w-[31rem]" : "w-[20rem]"
+                        isServicesMenu
+                          ? "w-[45rem]"
+                          : groupCount > 2
+                            ? "w-[28rem]"
+                            : groupCount > 1
+                              ? "w-[25rem]"
+                              : "w-[16.5rem]"
                       }`}
                     >
-                      <div className="overflow-hidden rounded-[1.5rem] border border-white/12 bg-[rgba(17,35,42,0.96)] p-4 shadow-[0_28px_80px_rgba(7,21,27,0.38)] backdrop-blur-xl">
+                      <div
+                          className={`overflow-hidden rounded-[1.25rem] border border-white/10 bg-[rgba(15,31,39,0.98)] shadow-[0_24px_64px_rgba(7,21,27,0.32)] backdrop-blur-xl ${
+                          isServicesMenu ? "p-5" : "p-2.75"
+                        }`}
+                      >
                         <div
-                          className={`grid gap-5 ${
-                            item.groups.length > 1 ? "md:grid-cols-2" : "md:grid-cols-1"
+                          className={`grid gap-2.5 ${
+                            isServicesMenu
+                              ? "md:grid-cols-3 md:gap-0"
+                              : groupCount > 1
+                                ? "md:grid-cols-2"
+                                : "md:grid-cols-1"
                           }`}
                         >
                           {item.groups.map((group) => (
                             <div
                               key={group.title}
-                              className="rounded-[1.2rem] border border-white/8 bg-white/4 p-3.5"
+                              className={
+                                isServicesMenu
+                                  ? "px-4 py-1 first:pl-0 last:pr-0 md:border-l md:border-white/10 md:first:border-l-0 md:pl-5 md:first:pl-0 md:pr-5 md:last:pr-0"
+                                  : "rounded-[0.95rem] border border-white/8 bg-white/[0.04] p-3"
+                              }
                             >
-                              <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-white/48">
-                                {group.title}
-                              </p>
-                              <div className="mt-3 flex flex-col">
+                              {isServicesMenu ? (
+                                <Link
+                                  href={getServiceGroupHref(group.title)}
+                                  className="group/title block text-[1.24rem] font-semibold tracking-[-0.02em] text-white transition-colors hover:text-white/82"
+                                >
+                                  <span className="relative inline-block">
+                                    {group.title}
+                                    <span
+                                      aria-hidden="true"
+                                      className="absolute left-0 top-full mt-[2px] h-[1.5px] w-0 bg-current opacity-80 transition-[width,opacity] duration-300 ease-out group-hover/title:w-full"
+                                    />
+                                  </span>
+                                </Link>
+                              ) : (
+                                <p className="whitespace-nowrap text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-white/52">
+                                  {group.title}
+                                </p>
+                              )}
+                              <div className={`flex flex-col ${isServicesMenu ? "mt-4 gap-1" : "mt-3"}`}>
                                 {group.links.map((link) => (
                                   <Link
-                                    key={link.href}
+                                    key={`${group.title}-${link.label}-${link.href}`}
                                     href={link.href}
-                                    className="group/link flex items-center justify-between rounded-[0.9rem] px-2.5 py-2.5 text-[0.98rem] text-white/82 transition-colors hover:bg-white/6 hover:text-white"
+                                    className={`rounded-[0.8rem] transition-all duration-200 hover:bg-white/7 hover:text-white ${
+                                      isServicesMenu
+                                        ? "px-0 py-2 text-[1.06rem] font-medium leading-[1.45] text-white/72 hover:px-3 hover:text-white"
+                                        : "px-2.75 py-2.25 text-[0.98rem] text-white/90"
+                                    }`}
                                   >
-                                    <span>{link.label}</span>
-                                    <span className="text-white/28 transition-transform duration-200 group-hover/link:translate-x-0.5 group-hover/link:text-white/56">
-                                      →
-                                    </span>
+                                    <span className="block tracking-[-0.01em]">{link.label}</span>
                                   </Link>
                                 ))}
                               </div>
@@ -145,7 +166,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`group px-3 py-1 transition-colors hover:text-white ${
+                  className={`group px-2 py-2.5 transition-colors duration-200 hover:text-white ${
                     isActive ? "text-white" : ""
                   }`}
                 >
@@ -164,11 +185,16 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
           </nav>
 
           <div className="flex items-center gap-2 justify-self-end">
-            <div className="hidden items-center gap-3 rounded-full border border-white/12 bg-white/8 px-3.5 py-1.5 text-[0.92rem] font-medium text-white/88 lg:flex">
+            <div className="hidden items-center gap-3 rounded-full border border-white/12 bg-white/8 px-3.75 py-1.75 text-[1rem] font-medium text-white/92 lg:flex">
               <a
-                href="tel:+971589142200"
-                className="transition-colors hover:text-white"
+                href={whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2.5 transition-colors hover:text-white"
               >
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_18px_rgba(37,211,102,0.22)]">
+                  <WhatsAppIcon className="h-4 w-4 shrink-0 fill-current" />
+                </span>
                 +971 58 914 2200
               </a>
               <span className="h-3 w-px bg-white/16" />
@@ -181,7 +207,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
             </div>
             <details className="relative md:hidden">
               <summary
-                className="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-[1rem] text-white marker:content-none"
+                className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-white/12 bg-white/8 text-white shadow-[0_10px_24px_rgba(7,21,27,0.16)] marker:content-none"
               >
                 <span className="sr-only">Open navigation menu</span>
                 <span className="flex flex-col gap-1.5">
@@ -197,42 +223,45 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                 </span>
               </summary>
 
-              <div className="absolute right-0 top-[calc(100%+0.75rem)] w-64 rounded-[1.5rem] border border-foreground/10 bg-[rgba(255,252,248,0.96)] p-3 shadow-[0_24px_60px_rgba(17,35,42,0.14)] backdrop-blur-xl">
-                <nav className="flex flex-col gap-1">
+              <div className="absolute right-0 top-[calc(100%+0.85rem)] max-h-[calc(100dvh-5rem)] w-[19.75rem] overflow-y-auto rounded-[1.6rem] border border-white/10 bg-[rgba(15,31,39,0.985)] p-4 shadow-[0_24px_60px_rgba(7,21,27,0.28)] backdrop-blur-xl">
+                <p className="eyebrow px-1 text-white/48">Menu</p>
+                <nav className="mt-3 flex flex-col !text-white">
                   {navigation.map((item) => {
-                    const isActive = item.href === currentPath;
                     if ("groups" in item) {
                       return (
                         <details
                           key={item.href}
-                          className="rounded-[1rem] border border-foreground/10 bg-white/28"
+                          className="border-b border-white/8 py-1.5 last:border-b-0"
                         >
-                          <summary className="flex cursor-pointer list-none items-center justify-between rounded-[1rem] px-4 py-3 text-[0.98rem] font-medium text-foreground transition-colors hover:bg-white/56 marker:content-none">
+                          <summary className="flex cursor-pointer list-none items-center justify-between rounded-[0.95rem] px-3 py-3 text-[1.12rem] font-semibold !text-white transition-colors hover:bg-white/6 marker:content-none">
                             <span>{item.label}</span>
-                            <ChevronDownIcon className="h-4 w-4 text-foreground/60" />
+                            <ChevronDownIcon className="h-4 w-4 text-white/56" />
                           </summary>
-                          <div className="flex flex-col gap-3 px-3 pb-3">
-                            <Link
-                              href={item.href}
-                              className={`rounded-[0.95rem] px-3 py-2.5 text-[0.96rem] transition-colors hover:bg-white ${
-                                isActive
-                                  ? "text-foreground"
-                                  : "text-muted"
-                              }`}
-                            >
-                              Overview
-                            </Link>
-                            {item.groups.map((group) => (
-                              <div key={group.title} className="rounded-[1rem] bg-white p-2">
-                                <p className="px-2 pb-1 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted">
-                                  {group.title}
-                                </p>
-                                <div className="flex flex-col">
+                          <div className="flex flex-col gap-3 px-3 pb-3 pt-1">
+                            <div className="grid gap-0">
+                              {item.groups.map((group) => (
+                              <div
+                                key={group.title}
+                                className="border-b border-white/8 py-3 last:border-b-0"
+                              >
+                                <Link
+                                  href={getServiceGroupHref(group.title)}
+                                  className="group/title block px-1"
+                                >
+                                  <span className="relative inline-block text-[1.08rem] font-semibold tracking-[-0.02em] !text-white">
+                                    {group.title}
+                                    <span
+                                      aria-hidden="true"
+                                      className="absolute left-0 top-full mt-[2px] h-[1.5px] w-0 bg-current opacity-80 transition-[width,opacity] duration-300 ease-out group-hover/title:w-full"
+                                    />
+                                  </span>
+                                </Link>
+                                <div className="mt-2.5 flex flex-col gap-0.5">
                                   {group.links.map((link) => (
                                     <Link
-                                      key={link.href}
+                                      key={`${group.title}-${link.label}-${link.href}`}
                                       href={link.href}
-                                      className="rounded-[0.9rem] px-2 py-2.5 text-[0.96rem] text-foreground/82 transition-colors hover:bg-background hover:text-foreground"
+                                      className="rounded-[0.9rem] px-3 py-2.5 text-[1.01rem] font-medium leading-6 !text-white/88 transition-all duration-200 hover:bg-white/7 hover:!text-white hover:pl-4"
                                     >
                                       {link.label}
                                     </Link>
@@ -240,6 +269,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                                 </div>
                               </div>
                             ))}
+                            </div>
                           </div>
                         </details>
                       );
@@ -249,9 +279,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className={`rounded-[1rem] px-4 py-3 text-[0.98rem] transition-colors hover:bg-white ${
-                          isActive ? "text-foreground" : "text-muted"
-                        }`}
+                        className="border-b border-white/8 px-3 py-4 text-[1.08rem] font-medium !text-white transition-colors hover:bg-white/6 last:border-b-0"
                       >
                         {item.label}
                       </Link>
@@ -260,24 +288,6 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                 </nav>
               </div>
             </details>
-
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noreferrer"
-              className="group rounded-full border border-[#1da851] bg-[#25D366] px-3.5 py-1.5 text-[0.88rem] font-semibold !text-white shadow-[0_10px_24px_rgba(37,211,102,0.18)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5d] md:px-4"
-            >
-              <span className="flex items-center gap-2">
-                <WhatsAppIcon className="h-4 w-4 shrink-0 fill-current" />
-                <span className="relative inline-block">
-                  WhatsApp
-                  <span
-                    aria-hidden="true"
-                    className="absolute left-0 top-full mt-[2px] h-[1.5px] w-0 bg-current opacity-80 transition-[width,opacity] duration-300 ease-out group-hover:w-full"
-                  />
-                </span>
-              </span>
-            </a>
           </div>
         </div>
       </header>
@@ -291,8 +301,9 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
       <footer
         className={`mx-auto w-full ${shellWidthClass} px-6 pb-8 md:px-12 xl:px-16`}
       >
-        <div className="grid gap-8 border-t border-foreground/10 py-8 md:grid-cols-[1fr_1.25fr_1fr]">
-          <div>
+        <div className="rounded-[2rem] border border-foreground/10 bg-[linear-gradient(180deg,rgba(255,253,250,0.92)_0%,rgba(245,239,228,0.98)_100%)] px-6 py-8 shadow-[0_22px_70px_rgba(17,35,42,0.08)] md:px-8 md:py-9">
+        <div className="grid gap-10 md:grid-cols-[0.95fr_1.15fr_0.9fr] md:gap-8">
+          <div className="pr-2">
             <Image
               src="/zenesis-logo-full.png"
               alt="Zenesis Corporation"
@@ -300,36 +311,58 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
               height={72}
               className="h-10 w-auto object-contain"
             />
-            <p className="mt-3 max-w-md text-[1.04rem] leading-8 text-muted">
+            <p className="mt-4 max-w-md text-[1.08rem] leading-8 text-foreground/78">
               Business setup, accounting and tax, and corporate support for
               companies operating through Dubai and the UAE.
             </p>
           </div>
 
-          <div>
-            <p className="eyebrow text-muted">Navigation</p>
-            <div className="mt-4 grid gap-4">
-              {navigation.map((item) => (
-                <div key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-[1.02rem] font-semibold text-foreground/88 transition-colors hover:text-foreground"
+          <div className="md:border-l md:border-r md:border-foreground/10 md:px-8">
+            <p className="text-[1.2rem] font-semibold tracking-[-0.03em] text-[#244ba8]">
+              Navigation
+            </p>
+            <div className="mt-5 grid gap-5">
+              {navigation.map((item) => {
+                const isActive =
+                  item.href === currentPath ||
+                  ("groups" in item &&
+                    (currentPath === item.href ||
+                      item.groups.some((group) =>
+                        group.links.some((link) => link.href === currentPath),
+                      )));
+
+                return "groups" in item ? (
+                  <details
+                    key={item.href}
+                    className="pt-1 first:pt-0"
                   >
-                    {item.label}
-                  </Link>
-                  {"groups" in item ? (
-                    <div className="mt-2 grid gap-2">
+                    <summary className="inline-flex cursor-pointer list-none items-center gap-2 marker:content-none">
+                      <Link
+                        href={item.href}
+                        className={`text-[1.08rem] font-semibold tracking-[-0.02em] transition-colors hover:text-foreground ${
+                          isActive ? "text-foreground" : "text-foreground/88"
+                        }`}
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        {item.label}
+                      </Link>
+                      <ChevronDownIcon className="h-4 w-4 shrink-0 text-foreground/48 transition-transform duration-200 group-open:rotate-180" />
+                    </summary>
+                    <div className="mt-3 grid gap-3 pl-1">
                       {item.groups.map((group) => (
                         <div key={group.title}>
-                          <p className="text-[0.76rem] font-semibold uppercase tracking-[0.18em] text-muted">
+                          <Link
+                            href={getServiceGroupHref(group.title)}
+                            className="inline-flex text-[0.96rem] font-semibold tracking-[-0.02em] text-foreground/78 transition-colors hover:text-foreground"
+                          >
                             {group.title}
-                          </p>
+                          </Link>
                           <div className="mt-1.5 grid gap-1.5">
                             {group.links.map((link) => (
                               <Link
-                                key={link.href}
+                                key={`${group.title}-${link.label}-${link.href}`}
                                 href={link.href}
-                                className="pl-3 text-[0.98rem] leading-7 text-foreground/82 transition-colors hover:text-foreground"
+                                className="pl-3 text-[1.02rem] leading-7 text-foreground/82 transition-colors hover:text-foreground"
                               >
                                 {link.label}
                               </Link>
@@ -338,39 +371,59 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                         </div>
                       ))}
                     </div>
-                  ) : null}
-                </div>
-              ))}
+                  </details>
+                ) : (
+                  <div key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-[1.08rem] font-semibold tracking-[-0.02em] text-foreground/88 transition-colors hover:text-foreground"
+                    >
+                      {item.label}
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           <div>
-            <p className="eyebrow text-muted">Contact</p>
-            <div className="mt-4 grid gap-3">
+            <p className="text-[1.2rem] font-semibold tracking-[-0.03em] text-[#244ba8]">
+              Contact
+            </p>
+            <div className="mt-5 grid gap-4">
               {contactDetails.map((item) => {
                 const isEmail = item.label === "Email";
-                const isPhone =
-                  item.label === "Main line" || item.label === "Mobile / WhatsApp";
+                const isWhatsApp = item.label === "Mobile / WhatsApp";
+                const isPhone = item.label === "Main line";
                 const href = isEmail
                   ? `mailto:${item.value}`
+                  : isWhatsApp
+                    ? whatsappHref
                   : isPhone
                     ? `tel:${item.value.replace(/\s+/g, "")}`
                     : null;
 
                 return (
-                  <div key={item.label}>
-                    <p className="text-[0.76rem] font-semibold uppercase tracking-[0.18em] text-muted">
+                  <div key={item.label} className="rounded-[1rem] border border-foreground/8 bg-white/42 px-4 py-3.5">
+                    <p className="text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-muted">
                       {item.label}
                     </p>
                     {href ? (
                       <a
                         href={href}
-                        className="mt-1 block text-[1.02rem] font-medium leading-7 text-foreground/88 transition-colors hover:text-foreground"
+                        target={isWhatsApp ? "_blank" : undefined}
+                        rel={isWhatsApp ? "noreferrer" : undefined}
+                        className="mt-2 inline-flex items-center gap-2.5 text-[1.06rem] font-medium leading-7 text-foreground/88 transition-colors hover:text-foreground"
                       >
+                        {isWhatsApp ? (
+                          <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_18px_rgba(37,211,102,0.18)]">
+                            <WhatsAppIcon className="h-4 w-4 shrink-0 fill-current" />
+                          </span>
+                        ) : null}
                         {item.value}
                       </a>
                     ) : (
-                      <p className="mt-1 text-[1.02rem] leading-7 text-foreground/88">
+                      <p className="mt-2 text-[1.06rem] leading-7 text-foreground/88">
                         {item.value}
                       </p>
                     )}
@@ -380,9 +433,25 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
             </div>
           </div>
         </div>
+        </div>
       </footer>
     </div>
   );
+}
+
+function getServiceGroupHref(groupTitle: string) {
+  switch (groupTitle) {
+    case "Business Setup":
+      return "/business-setup";
+    case "Accounting and Tax":
+      return "/accounting-tax";
+    case "Corporate Support":
+      return "/contact";
+    case "Visa and Banking":
+      return "/visa-and-banking";
+    default:
+      return "/";
+  }
 }
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -424,6 +493,8 @@ type PageIntroProps = {
   backgroundImageSrc?: string;
   backgroundImageAlt?: string;
   backgroundImagePosition?: string;
+  backgroundImageMode?: "full" | "ambient";
+  ambientImageClassName?: string;
   contentClassName?: string;
   highlights?: readonly {
     icon: string;
@@ -444,6 +515,8 @@ export function PageIntro({
   backgroundImageSrc,
   backgroundImageAlt,
   backgroundImagePosition,
+  backgroundImageMode = "full",
+  ambientImageClassName,
   contentClassName,
   highlights,
   ctaHref,
@@ -452,6 +525,8 @@ export function PageIntro({
   secondaryLabel,
 }: PageIntroProps) {
   const hasBackgroundImage = Boolean(backgroundImageSrc);
+  const usesFullBackgroundImage = hasBackgroundImage && backgroundImageMode === "full";
+  const usesAmbientBackgroundImage = hasBackgroundImage && backgroundImageMode === "ambient";
   const breadcrumbItems = Array.isArray(breadcrumb) ? breadcrumb : null;
   const breadcrumbText = typeof breadcrumb === "string" ? breadcrumb : null;
   const shouldOpenConsultationForm =
@@ -462,12 +537,14 @@ export function PageIntro({
   return (
     <section
       className={
-        hasBackgroundImage
+        usesFullBackgroundImage
           ? "relative left-1/2 -mt-10 w-screen -translate-x-1/2 overflow-hidden pt-20 pb-10 md:-mt-14 md:pt-28 md:pb-16"
-          : "relative left-1/2 -mt-px w-screen -translate-x-1/2 border-b border-foreground/8 bg-[#f5efe4] pt-24 pb-10 md:pt-28 md:pb-12"
+          : usesAmbientBackgroundImage
+            ? "relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden border-b border-foreground/8 bg-[#f5efe4] pt-24 pb-10 md:pt-28 md:pb-12"
+            : "relative left-1/2 -mt-px w-screen -translate-x-1/2 border-b border-foreground/8 bg-[#f5efe4] pt-24 pb-10 md:pt-28 md:pb-12"
       }
     >
-      {hasBackgroundImage ? (
+      {usesFullBackgroundImage ? (
         <>
           <div className="absolute inset-0 bg-[#11232a]" />
           <div className="absolute inset-0">
@@ -483,17 +560,47 @@ export function PageIntro({
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,35,42,0.88)_0%,rgba(17,35,42,0.66)_48%,rgba(17,35,42,0.72)_100%)] md:bg-[linear-gradient(90deg,rgba(17,35,42,0.94)_0%,rgba(17,35,42,0.86)_28%,rgba(17,35,42,0.42)_58%,rgba(17,35,42,0.14)_100%)]" />
         </>
       ) : null}
+      {usesAmbientBackgroundImage ? (
+        <div
+          className={[
+            "pointer-events-none absolute inset-y-0 right-0 w-[100%] overflow-hidden",
+            ambientImageClassName ?? "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        >
+          <div
+            className="absolute inset-0 opacity-[0.92] md:opacity-[0.98]"
+            style={{
+              WebkitMaskImage:
+                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 16%, rgba(0,0,0,0.34) 24%, rgba(0,0,0,0.68) 32%, #000 40%)",
+              maskImage:
+                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 16%, rgba(0,0,0,0.34) 24%, rgba(0,0,0,0.68) 32%, #000 40%)",
+            }}
+          >
+            <Image
+              src={backgroundImageSrc!}
+              alt={backgroundImageAlt ?? ""}
+              fill
+              priority
+              sizes="100vw"
+              className={`object-contain object-right-top md:scale-[1.08] md:object-cover lg:scale-[1.12] xl:scale-[1.16] saturate-[0.94] contrast-[0.98] ${backgroundImagePosition ?? "object-[100%_100%]"}`}
+            />
+          </div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_44%,rgba(36,75,168,0.12),transparent_30%),linear-gradient(180deg,rgba(245,239,228,0.02)_0%,rgba(245,239,228,0.08)_72%,rgba(245,239,228,0.22)_100%)]" />
+        </div>
+      ) : null}
 
       <div
         className={`relative z-10 ${
-          hasBackgroundImage
+          usesFullBackgroundImage
             ? "mx-auto flex min-h-[calc(100svh-7.5rem)] w-full max-w-[100rem] flex-col justify-between gap-10 px-6 pt-10 md:px-12 md:pt-16 xl:px-20"
             : "mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20"
         }`}
       >
         <div
           className={[
-            hasBackgroundImage
+            usesFullBackgroundImage
               ? "mt-auto max-w-[48rem] border-l-4 border-[#244ba8] pl-5 pb-10 sm:pl-6 md:pl-7 md:pb-14"
               : "max-w-[64rem] border-l-4 border-[#244ba8] pl-5 sm:pl-6 md:pl-7",
             contentClassName ?? "",
@@ -505,7 +612,7 @@ export function PageIntro({
             breadcrumbItems ? (
               <div
                 className={`relative z-20 eyebrow flex flex-wrap items-center gap-2 pointer-events-auto ${
-                  hasBackgroundImage ? "text-white/68" : "text-[#244ba8]"
+                  usesFullBackgroundImage ? "text-white/68" : "text-[#244ba8]"
                 }`}
               >
                 {breadcrumbItems.map((item, index) => (
@@ -513,8 +620,8 @@ export function PageIntro({
                     {item.href ? (
                       <Link
                         href={item.href}
-                        className={`relative z-20 inline-flex cursor-pointer pointer-events-auto transition-colors ${
-                          hasBackgroundImage
+                          className={`relative z-20 inline-flex cursor-pointer pointer-events-auto transition-colors ${
+                          usesFullBackgroundImage
                             ? "hover:text-white"
                             : "hover:text-[#1b3c86]"
                         }`}
@@ -533,7 +640,7 @@ export function PageIntro({
             ) : (
               <p
                 className={`eyebrow ${
-                  hasBackgroundImage ? "text-white/68" : "text-[#244ba8]"
+                  usesFullBackgroundImage ? "text-white/68" : "text-[#244ba8]"
                 }`}
               >
                 {breadcrumbText}
@@ -543,7 +650,7 @@ export function PageIntro({
           {eyebrow ? (
             <p
               className={`eyebrow ${
-                hasBackgroundImage ? "hero-reveal text-white/78" : "text-accent"
+                usesFullBackgroundImage ? "hero-reveal text-white/78" : "text-accent"
               } ${breadcrumb ? "mt-5" : ""}`}
             >
               {eyebrow}
@@ -551,25 +658,25 @@ export function PageIntro({
           ) : null}
           <h1
             className={`${eyebrow ? "mt-6" : breadcrumb ? "mt-5" : "mt-0"} max-w-[16ch] text-[3.4rem] font-semibold leading-[0.94] tracking-[-0.04em] sm:max-w-[17ch] sm:text-[4.3rem] lg:max-w-[18ch] lg:text-[4.85rem] ${
-              hasBackgroundImage ? "text-white" : "text-foreground"
-            } ${hasBackgroundImage ? "hero-reveal hero-reveal-1" : ""}`}
+              usesFullBackgroundImage ? "text-white" : "text-foreground"
+            } ${usesFullBackgroundImage ? "hero-reveal hero-reveal-1" : ""}`}
           >
             {title}
           </h1>
           {description ? (
             <p
               className={`mt-6 max-w-3xl text-[1.14rem] font-medium leading-8 md:text-[1.28rem] md:leading-9 ${
-                hasBackgroundImage ? "text-white/88" : "text-muted"
-              } ${hasBackgroundImage ? "hero-reveal hero-reveal-2" : ""}`}
+                usesFullBackgroundImage ? "text-white/88" : "text-muted"
+              } ${usesFullBackgroundImage ? "hero-reveal hero-reveal-2" : ""}`}
             >
               {description}
             </p>
           ) : null}
         </div>
 
-        <div className={hasBackgroundImage ? "mt-auto" : ""}>
+        <div className={usesFullBackgroundImage ? "mt-auto" : ""}>
           {(ctaHref || secondaryHref) && (
-            <div className={`flex flex-col gap-4 sm:flex-row ${hasBackgroundImage ? "hero-reveal hero-reveal-3" : "mt-9"}`}>
+            <div className={`flex flex-col gap-4 sm:flex-row ${usesFullBackgroundImage ? "hero-reveal hero-reveal-3" : "mt-9"}`}>
               {ctaHref && ctaLabel ? (
                 shouldOpenConsultationForm ? (
                   <ConsultationFormButton
@@ -590,7 +697,7 @@ export function PageIntro({
                 <Link
                   href={secondaryHref}
                   className={`rounded-full px-6 py-3 text-center text-sm font-semibold transition-colors ${
-                    hasBackgroundImage
+                    usesFullBackgroundImage
                       ? "border border-white/24 bg-white/12 !text-white backdrop-blur-md hover:bg-white/20"
                       : "border border-[#244ba8] bg-[#244ba8] !text-white hover:bg-[#1b3c86]"
                   }`}
@@ -604,7 +711,7 @@ export function PageIntro({
           {highlights?.length ? (
             <div
               className={`mt-6 grid gap-0 overflow-hidden ${
-                hasBackgroundImage
+                usesFullBackgroundImage
                   ? "hero-reveal hero-reveal-4 gap-3 sm:grid-cols-3"
                   : "gap-3 sm:grid-cols-3"
               }`}
@@ -613,7 +720,7 @@ export function PageIntro({
                 <div
                   key={`${item.label}-${item.value}`}
                   className={`px-4 py-4 backdrop-blur-sm ${
-                    hasBackgroundImage
+                    usesFullBackgroundImage
                       ? "rounded-[1.4rem] border border-white/22 bg-[#11232a]/76 text-white shadow-[0_18px_50px_rgba(0,0,0,0.18)]"
                       : "rounded-[1.4rem] border border-white/60 bg-white/55"
                   }`}
@@ -621,18 +728,18 @@ export function PageIntro({
                   <div className="flex items-center gap-3">
                     <span
                       className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-xl ${
-                        hasBackgroundImage ? "bg-white/12" : "bg-[rgba(36,75,168,0.1)]"
+                        usesFullBackgroundImage ? "bg-white/12" : "bg-[rgba(36,75,168,0.1)]"
                       }`}
                     >
                       {item.icon}
                     </span>
                     <div>
-                      <p className={`eyebrow ${hasBackgroundImage ? "text-white/66" : "text-muted"}`}>
+                      <p className={`eyebrow ${usesFullBackgroundImage ? "text-white/66" : "text-muted"}`}>
                         {item.label}
                       </p>
                       <p
                         className={`mt-1 text-sm font-semibold tracking-normal ${
-                          hasBackgroundImage ? "text-white" : "text-foreground"
+                          usesFullBackgroundImage ? "text-white" : "text-foreground"
                         }`}
                       >
                         {item.value}
@@ -653,18 +760,24 @@ type SectionHeadingProps = {
   eyebrow: string;
   title: string;
   description?: string;
+  eyebrowClassName?: string;
   titleClassName?: string;
+  descriptionClassName?: string;
 };
 
 export function SectionHeading({
   eyebrow,
   title,
   description,
+  eyebrowClassName,
   titleClassName,
+  descriptionClassName,
 }: SectionHeadingProps) {
   return (
     <div className="max-w-5xl">
-      <p className="eyebrow text-accent">{eyebrow}</p>
+      <p className={["eyebrow text-accent", eyebrowClassName ?? ""].filter(Boolean).join(" ")}>
+        {eyebrow}
+      </p>
       <h2
         className={[
           "section-title mt-4 font-semibold text-foreground",
@@ -676,7 +789,14 @@ export function SectionHeading({
         {title}
       </h2>
       {description ? (
-        <p className="mt-4 max-w-4xl text-[1.16rem] leading-8 text-muted md:text-[1.24rem] md:leading-9">
+        <p
+          className={[
+            "mt-4 max-w-4xl text-[1.16rem] leading-8 text-muted md:text-[1.24rem] md:leading-9",
+            descriptionClassName ?? "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        >
           {description}
         </p>
       ) : null}

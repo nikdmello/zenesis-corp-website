@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useId, useState, type FormEvent } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { createPortal } from "react-dom";
 
 const whatsappNumber = "971589142200";
-const scrollPromptStorageKey = "zenesis-consultation-scroll-prompt-seen";
+const homepageConsultationPromptSeenKey = "zenesis-homepage-consultation-prompt-seen";
 const enquiryShortcuts = [
   {
-    label: "New company setup",
+    label: "Business setup",
     value:
       "I need help setting up a new company in the UAE and choosing the right route for the business.",
   },
@@ -18,19 +18,24 @@ const enquiryShortcuts = [
       "I would like guidance on whether mainland or free zone setup is a better fit for how I plan to operate.",
   },
   {
-    label: "Banking and visa support",
+    label: "Golden Visa and company visas",
     value:
-      "I need support with business banking, visa requirements, and the practical steps after company formation.",
+      "I need help with Golden Visa eligibility, company visa support, or the related residency steps in the UAE.",
   },
   {
-    label: "Corporate tax and VAT",
+    label: "Business banking support",
+    value:
+      "I need support with business banking, KYC documents, and the practical next steps after company formation.",
+  },
+  {
+    label: "Accounting, VAT, and corporate tax",
     value:
       "I need help with corporate tax, VAT, registrations, or filing support for a UAE business.",
   },
   {
-    label: "Bookkeeping and reporting",
+    label: "Corporate support and renewals",
     value:
-      "I need bookkeeping, reporting, or recurring finance support to keep the business organized and compliant.",
+      "I need help with renewals, company changes, PRO support, or ongoing corporate administration in the UAE.",
   },
   {
     label: "General consultation",
@@ -42,20 +47,22 @@ const enquiryShortcuts = [
 function buildEnquiryMessage(
   selectedShortcutLabels: string[],
   presetEnquiry?: string,
+  additionalNote?: string,
 ) {
   const selectedShortcuts = enquiryShortcuts.filter((item) =>
     selectedShortcutLabels.includes(item.label),
   );
 
+  const trimmedAdditionalNote = additionalNote?.trim();
+
   if (!selectedShortcuts.length) {
-    return presetEnquiry ?? "";
+    const fallbackLines = [presetEnquiry?.trim(), trimmedAdditionalNote].filter(Boolean);
+    return fallbackLines.join("\n\n");
   }
 
   const lines = [
     "I would like help with the following:",
     ...selectedShortcuts.map((item) => `- ${item.label}`),
-    "",
-    ...selectedShortcuts.map((item) => item.value),
   ];
 
   if (
@@ -63,6 +70,10 @@ function buildEnquiryMessage(
     !selectedShortcuts.some((item) => item.value === presetEnquiry)
   ) {
     lines.push("", presetEnquiry);
+  }
+
+  if (trimmedAdditionalNote) {
+    lines.push("", `Additional note: ${trimmedAdditionalNote}`);
   }
 
   return lines.join("\n");
@@ -327,7 +338,6 @@ export function ConsultationFormButton({
       </button>
 
       <ConsultationModal
-        key={`${isOpen ? "open" : "closed"}-${presetEnquiry ?? "default"}`}
         isOpen={isOpen}
         onOpenChange={setIsOpen}
         presetEnquiry={presetEnquiry}
@@ -336,25 +346,44 @@ export function ConsultationFormButton({
   );
 }
 
-export function ConsultationScrollPrompt() {
+type ConsultationFormButtonWithScrollPromptProps = ConsultationFormProps;
+
+export function ConsultationFormButtonWithScrollPrompt({
+  label,
+  className,
+  presetEnquiry,
+}: ConsultationFormButtonWithScrollPromptProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const hasTriggeredRef = useRef(false);
 
   useEffect(() => {
-    if (sessionStorage.getItem(scrollPromptStorageKey)) {
-      return;
+    try {
+      if (window.sessionStorage.getItem(homepageConsultationPromptSeenKey) === "true") {
+        hasTriggeredRef.current = true;
+        return;
+      }
+    } catch {
+      // Ignore storage access issues and fall back to in-memory behavior.
     }
 
-    function onScroll() {
-      const triggerPoint = Math.min(window.innerHeight * 0.42, 360);
-
-      if (window.scrollY < triggerPoint) {
+    const onScroll = () => {
+      if (hasTriggeredRef.current) {
         return;
       }
 
-      sessionStorage.setItem(scrollPromptStorageKey, "true");
+      if (window.scrollY < 72) {
+        return;
+      }
+
+      hasTriggeredRef.current = true;
+      try {
+        window.sessionStorage.setItem(homepageConsultationPromptSeenKey, "true");
+      } catch {
+        // Ignore storage access issues and still allow the modal to open.
+      }
       setIsOpen(true);
       window.removeEventListener("scroll", onScroll);
-    }
+    };
 
     window.addEventListener("scroll", onScroll, { passive: true });
 
@@ -362,11 +391,34 @@ export function ConsultationScrollPrompt() {
   }, []);
 
   return (
-    <ConsultationModal
-      key={isOpen ? "scroll-open" : "scroll-closed"}
-      isOpen={isOpen}
-      onOpenChange={setIsOpen}
-    />
+    <>
+      <button
+        type="button"
+        className={className}
+        onClick={() => {
+          try {
+            window.sessionStorage.setItem(homepageConsultationPromptSeenKey, "true");
+          } catch {
+            // Ignore storage access issues and still allow the modal to open.
+          }
+          hasTriggeredRef.current = true;
+          setIsOpen(true);
+        }}
+      >
+        {label}
+      </button>
+
+      <ConsultationModal
+        isOpen={isOpen}
+        onOpenChange={(nextIsOpen) => {
+          if (!nextIsOpen) {
+            hasTriggeredRef.current = true;
+          }
+          setIsOpen(nextIsOpen);
+        }}
+        presetEnquiry={presetEnquiry}
+      />
+    </>
   );
 }
 
@@ -381,19 +433,22 @@ export function ConsultationInlinePanel({
   const countryCodeId = useId();
   const mobileId = useId();
   const emailId = useId();
-  const messageId = useId();
+  const noteId = useId();
   const [selectedCountryLabel, setSelectedCountryLabel] = useState<string>(
     countryCodes[0].label,
   );
   const [selectedShortcutLabels, setSelectedShortcutLabels] = useState<string[]>(
     [],
   );
-  const [enquiryValue, setEnquiryValue] = useState(
-    buildEnquiryMessage([], presetEnquiry),
-  );
+  const [additionalNote, setAdditionalNote] = useState("");
   const selectedCountryValue =
     countryCodes.find((item) => item.label === selectedCountryLabel)?.value ??
     "+971";
+  const enquiryValue = useMemo(
+    () =>
+      buildEnquiryMessage(selectedShortcutLabels, presetEnquiry, additionalNote),
+    [additionalNote, presetEnquiry, selectedShortcutLabels],
+  );
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -403,7 +458,7 @@ export function ConsultationInlinePanel({
     const countryCode = String(form.get("countryCode") ?? "+971").trim();
     const mobile = String(form.get("mobile") ?? "").trim();
     const email = String(form.get("email") ?? "").trim();
-    const enquiry = String(form.get("enquiry") ?? "").trim();
+    const enquiry = enquiryValue.trim();
 
     const message = [
       "Hello Zenesis, I would like to request a consultation.",
@@ -444,11 +499,11 @@ export function ConsultationInlinePanel({
       <div className="p-6 md:p-8">
         <div className="mt-7 grid gap-4">
           <div className="grid gap-2">
-            <p className="text-sm font-semibold text-foreground">
+            <p className="text-[1.02rem] font-semibold text-foreground md:text-[1.08rem]">
               What do you need help with?
             </p>
-            <p className="text-sm leading-6 text-muted">
-              Select the topics that apply, then edit the enquiry if needed.
+            <p className="text-sm leading-6 text-muted md:text-[0.98rem]">
+              Select the topics that apply and we will build the message for you.
             </p>
             <div className="flex flex-wrap gap-2">
               {enquiryShortcuts.map((item) => (
@@ -463,9 +518,8 @@ export function ConsultationInlinePanel({
                       : [...selectedShortcutLabels, item.label];
 
                     setSelectedShortcutLabels(nextLabels);
-                    setEnquiryValue(buildEnquiryMessage(nextLabels, presetEnquiry));
                   }}
-                  className={`rounded-full border px-3.5 py-2 text-sm font-medium transition-colors ${
+                  className={`rounded-full border px-4 py-2.5 text-[0.98rem] font-medium transition-colors ${
                     selectedShortcutLabels.includes(item.label)
                       ? "border-accent bg-[rgba(36,75,168,0.08)] text-accent"
                       : "border-foreground/10 bg-white text-foreground hover:border-accent/40 hover:bg-[rgba(36,75,168,0.04)]"
@@ -556,18 +610,20 @@ export function ConsultationInlinePanel({
             />
           </label>
 
-          <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={messageId}>
-            Enquiry
+          <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={noteId}>
+            <span>
+              Additional note <span className="font-normal text-muted">(optional)</span>
+            </span>
             <textarea
-              id={messageId}
-              name="enquiry"
-              value={enquiryValue}
-              onChange={(event) => setEnquiryValue(event.currentTarget.value)}
-              rows={4}
+              id={noteId}
+              value={additionalNote}
+              onChange={(event) => setAdditionalNote(event.currentTarget.value)}
+              rows={2}
               className="resize-none rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
-              placeholder="Tell us what you need help with."
+              placeholder="Add any short detail you want included."
             />
           </label>
+
         </div>
 
         <button
@@ -596,28 +652,22 @@ function ConsultationModal({
   const countryCodeId = useId();
   const mobileId = useId();
   const emailId = useId();
-  const messageId = useId();
-  const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
+  const noteId = useId();
   const [selectedCountryLabel, setSelectedCountryLabel] = useState<string>(
     countryCodes[0].label,
   );
   const [selectedShortcutLabels, setSelectedShortcutLabels] = useState<string[]>(
     [],
   );
-  const [enquiryValue, setEnquiryValue] = useState(
-    buildEnquiryMessage([], presetEnquiry),
-  );
+  const [additionalNote, setAdditionalNote] = useState("");
   const selectedCountryValue =
     countryCodes.find((item) => item.label === selectedCountryLabel)?.value ??
     "+971";
-
-  useEffect(() => {
-    const frameId = window.requestAnimationFrame(() => {
-      setPortalTarget(document.body);
-    });
-
-    return () => window.cancelAnimationFrame(frameId);
-  }, []);
+  const enquiryValue = useMemo(
+    () =>
+      buildEnquiryMessage(selectedShortcutLabels, presetEnquiry, additionalNote),
+    [additionalNote, presetEnquiry, selectedShortcutLabels],
+  );
 
   useEffect(() => {
     if (!isOpen) {
@@ -647,7 +697,7 @@ function ConsultationModal({
     const countryCode = String(form.get("countryCode") ?? "+971").trim();
     const mobile = String(form.get("mobile") ?? "").trim();
     const email = String(form.get("email") ?? "").trim();
-    const enquiry = String(form.get("enquiry") ?? "").trim();
+    const enquiry = enquiryValue.trim();
 
     const message = [
       "Hello Zenesis, I would like to request a consultation.",
@@ -668,33 +718,57 @@ function ConsultationModal({
     onOpenChange(false);
   }
 
-  if (!isOpen || !portalTarget) {
+  function closeModal() {
+    onOpenChange(false);
+  }
+
+  if (!isOpen || typeof document === "undefined") {
     return null;
   }
 
   return createPortal(
     <div
-      className="consultation-backdrop fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-[#11232a]/78 px-3 py-3 backdrop-blur-md md:px-5 md:py-8"
+      className="consultation-backdrop fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-[#11232a]/78 px-3 py-2 backdrop-blur-md md:items-center md:px-5 md:py-8"
       role="dialog"
       aria-modal="true"
       aria-labelledby="consultation-form-title"
+      onPointerDown={(event) => {
+        if (event.target === event.currentTarget) {
+          closeModal();
+        }
+      }}
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) {
-          onOpenChange(false);
+          closeModal();
         }
       }}
     >
       <form
         onSubmit={onSubmit}
-        className="consultation-panel flex max-h-[calc(100svh-0.75rem)] w-full max-w-4xl flex-col overflow-hidden rounded-[1.4rem] border border-white/20 bg-[#fffdfa] shadow-[0_36px_120px_rgba(0,0,0,0.34)] md:max-h-[calc(100svh-2rem)] md:rounded-[1.75rem]"
+        className="consultation-panel flex min-h-0 max-h-[calc(100dvh-1rem)] w-full max-w-4xl flex-col overflow-hidden rounded-[1.4rem] border border-white/20 bg-[#fffdfa] shadow-[0_36px_120px_rgba(0,0,0,0.34)] md:max-h-[calc(100dvh-2rem)] md:max-w-[42rem] md:rounded-[1.55rem]"
       >
-        <div className="relative overflow-hidden border-b border-white/10 bg-[#11232a] px-5 pb-5 pt-5 text-white md:px-8 md:pb-7 md:pt-7">
+        <div className="relative shrink-0 overflow-hidden border-b border-white/10 bg-[#11232a] px-5 pb-4 pt-4 text-white md:px-6 md:pb-5 md:pt-5">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(36,75,168,0.48),transparent_32%),linear-gradient(145deg,rgba(255,255,255,0.08),transparent_42%)]" />
           <button
             type="button"
             aria-label="Close consultation form"
-            className="absolute right-6 top-6 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/16 bg-white/10 text-lg leading-none text-white shadow-sm transition-colors hover:bg-white/16 md:right-8 md:top-8"
-            onClick={() => onOpenChange(false)}
+            className="absolute right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-white/16 bg-white/10 text-lg leading-none text-white shadow-sm transition-all hover:bg-white/16 active:scale-95 active:bg-white/24 md:right-6 md:top-6"
+            onPointerDown={(event) => {
+              event.stopPropagation();
+            }}
+            onPointerUp={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              closeModal();
+            }}
+            onMouseDown={(event) => {
+              event.stopPropagation();
+            }}
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              closeModal();
+            }}
           >
             ×
           </button>
@@ -705,27 +779,27 @@ function ConsultationModal({
               alt="Zenesis Corporation"
               width={300}
               height={72}
-              className="h-8 w-auto object-contain brightness-0 invert md:h-10"
+              className="h-8 w-auto object-contain brightness-0 invert md:h-8"
               priority
             />
             <h2
               id="consultation-form-title"
-              className="mt-4 text-[1.75rem] font-semibold leading-tight tracking-normal text-white md:mt-5 md:text-4xl"
+              className="mt-3 text-[1.55rem] font-semibold leading-tight tracking-normal text-white md:mt-4 md:text-[2rem]"
             >
               Schedule a free consultation
             </h2>
           </div>
         </div>
 
-        <div className="relative overflow-y-auto p-5 md:p-8">
+        <div className="relative min-h-0 overflow-y-auto p-4 md:p-5">
 
-        <div className="grid gap-3 md:gap-4">
+        <div className="grid gap-3 md:gap-3.5">
           <div className="grid gap-2">
-            <p className="text-sm font-semibold text-foreground">
+            <p className="text-[1.02rem] font-semibold text-foreground md:text-[1.08rem]">
               What do you need help with?
             </p>
-            <p className="text-sm leading-6 text-muted">
-              Select the topics that apply, then edit the enquiry if needed.
+            <p className="text-sm leading-6 text-muted md:text-[0.98rem] md:leading-6">
+              Select the topics that apply and we will build the message for you.
             </p>
             <div className="flex flex-wrap gap-2">
               {enquiryShortcuts.map((item) => (
@@ -740,9 +814,8 @@ function ConsultationModal({
                       : [...selectedShortcutLabels, item.label];
 
                     setSelectedShortcutLabels(nextLabels);
-                    setEnquiryValue(buildEnquiryMessage(nextLabels, presetEnquiry));
                   }}
-                  className={`rounded-full border px-3 py-1.5 text-[0.92rem] font-medium transition-colors md:px-3.5 md:py-2 md:text-sm ${
+                  className={`rounded-full border px-4 py-2.5 text-[0.98rem] font-medium transition-colors md:px-4 md:py-2 md:text-[0.95rem] ${
                     selectedShortcutLabels.includes(item.label)
                       ? "border-accent bg-[rgba(36,75,168,0.08)] text-accent"
                       : "border-foreground/10 bg-white text-foreground hover:border-accent/40 hover:bg-[rgba(36,75,168,0.04)]"
@@ -754,16 +827,30 @@ function ConsultationModal({
             </div>
           </div>
 
-          <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={nameId}>
-            Name
-            <input
-              id={nameId}
-              name="name"
-              required
-              className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
-              autoComplete="name"
-            />
-          </label>
+          <div className="grid gap-3 md:grid-cols-2">
+            <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={nameId}>
+              Name
+              <input
+                id={nameId}
+                name="name"
+                required
+                className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                autoComplete="name"
+              />
+            </label>
+
+            <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={emailId}>
+              Email
+              <input
+                id={emailId}
+                name="email"
+                type="email"
+                required
+                className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                autoComplete="email"
+              />
+            </label>
+          </div>
 
           <div className="grid gap-2">
             <p className="text-sm font-semibold text-foreground">Mobile number</p>
@@ -821,41 +908,31 @@ function ConsultationModal({
             </div>
           </div>
 
-          <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={emailId}>
-            Email
-            <input
-              id={emailId}
-              name="email"
-              type="email"
-              required
-              className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
-              autoComplete="email"
+          <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={noteId}>
+            <span>
+              Additional note <span className="font-normal text-muted">(optional)</span>
+            </span>
+            <textarea
+              id={noteId}
+              value={additionalNote}
+              onChange={(event) => setAdditionalNote(event.currentTarget.value)}
+              rows={2}
+              className="resize-none rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+              placeholder="Add any short detail you want included."
             />
           </label>
 
-          <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={messageId}>
-            Enquiry
-            <textarea
-              id={messageId}
-              name="enquiry"
-              value={enquiryValue}
-              onChange={(event) => setEnquiryValue(event.currentTarget.value)}
-              rows={4}
-              className="min-h-[8.5rem] resize-y rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)] md:min-h-[12rem] md:rows-[7]"
-              placeholder="Tell us what you need help with."
-            />
-          </label>
         </div>
 
         <button
           type="submit"
-          className="mt-5 w-full rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold !text-white shadow-[0_16px_36px_rgba(37,211,102,0.24)] transition-colors hover:bg-[#1ebe5d] md:mt-6"
+          className="mt-5 w-full rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold !text-white shadow-[0_16px_36px_rgba(37,211,102,0.24)] transition-colors hover:bg-[#1ebe5d] md:mt-5"
         >
           Submit via WhatsApp
         </button>
         </div>
       </form>
     </div>,
-    portalTarget,
+    document.body
   );
 }

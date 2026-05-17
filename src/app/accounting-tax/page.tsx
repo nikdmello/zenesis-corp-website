@@ -167,24 +167,28 @@ export default function AccountingTaxPage() {
     <SiteShell currentPath="/accounting-tax">
       <PageIntro
         eyebrow="Accounting & Tax"
-        title="Accounting and tax support in the UAE."
+        title="Accounting and tax"
+        backgroundImageSrc="/accounting-and-tax-bg.png"
+        backgroundImageAlt="Zenesis Accounting and Tax page background"
+        backgroundImagePosition="!object-[100%_100%]"
+        backgroundImageMode="ambient"
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto grid w-full max-w-[100rem] gap-6 px-6 md:px-12 lg:grid-cols-[0.95fr_1.05fr] xl:px-20">
-        <div className="glass-panel h-full rounded-[2rem] p-8 md:p-10">
-          <p className="eyebrow text-accent">Accounting & Tax</p>
-          <h2 className="section-title mt-4 font-semibold text-foreground">
-            Keep records clean and filings under control.
+        <div className="h-full rounded-[2rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#fffdfa_0%,#f5efe4_100%)] p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
+          <p className="eyebrow text-[#244ba8]">Accounting & Tax</p>
+          <h2 className="section-title mt-4 font-semibold text-[#11232a]">
+            Overview
           </h2>
-          <p className="mt-5 max-w-3xl text-[1.18rem] leading-9 text-muted">
+          <p className="mt-5 max-w-3xl text-[1.18rem] leading-9 text-[#11232a]">
             UAE businesses are expected to maintain accurate financial
             records, file required tax returns, and stay ready for regulatory
             review. Zenesis helps businesses keep their books organized,
             manage VAT and corporate tax obligations, and reduce the risk of
             missed deadlines or inaccurate filings.
           </p>
-          <p className="mt-4 max-w-3xl text-[1.14rem] leading-8 text-muted">
+          <p className="mt-4 max-w-3xl text-[1.14rem] leading-8 text-[#11232a]">
             Whether you are newly incorporated or already operating, the team
             can support your day-to-day accounting and ongoing tax compliance.
           </p>
@@ -195,7 +199,7 @@ export default function AccountingTaxPage() {
                 href={item.href}
                 className="rounded-[1.2rem] border border-foreground/10 bg-white/80 px-5 py-5"
               >
-                <h3 className="text-[1.02rem] font-semibold leading-7 text-foreground">
+                <h3 className="overflow-hidden text-ellipsis whitespace-nowrap text-[1.02rem] font-semibold leading-7 text-foreground">
                   {item.title}
                 </h3>
                 <p className="mt-3 text-[1.02rem] leading-7 text-muted">
@@ -224,14 +228,14 @@ export default function AccountingTaxPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Who It Helps"
-            title="Who usually needs this."
+            title="Who it's for"
             description="These are the businesses most likely to need structured help across corporate tax, VAT, bookkeeping, and reporting."
           />
 
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {whoWeHelp.map((item) => (
               <article key={item.title} className="glass-panel rounded-[1.75rem] p-7">
-                <h3 className="text-2xl font-semibold tracking-[-0.04em] !text-foreground">
+                <h3 className="overflow-hidden text-ellipsis whitespace-nowrap text-[1.18rem] font-semibold tracking-[-0.04em] !text-foreground md:text-[1.24rem] xl:text-[1.3rem]">
                   {item.title}
                 </h3>
                 <p className="mt-4 max-w-2xl text-[1.12rem] leading-8 !text-foreground/92">
@@ -247,7 +251,7 @@ export default function AccountingTaxPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Service Lines"
-            title="The core accounting and tax services."
+            title="Core services"
             description="Each service line is a concrete part of the compliance and reporting stack."
           />
 
@@ -255,7 +259,7 @@ export default function AccountingTaxPage() {
             {accountingServices.map((item) => (
               <Link key={item.title} href={item.href} className="glass-panel rounded-[1.75rem] p-7 transition-transform duration-200 hover:-translate-y-1">
                 <p className="eyebrow text-warm">Accounting and tax</p>
-                <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-foreground">
+                <h3 className="mt-4 overflow-hidden text-ellipsis whitespace-nowrap text-[1.18rem] font-semibold tracking-[-0.04em] text-foreground md:text-[1.24rem] xl:text-[1.3rem]">
                   {item.title}
                 </h3>
                 <p className="mt-4 max-w-2xl text-[1.12rem] leading-8 text-muted">
@@ -281,14 +285,14 @@ export default function AccountingTaxPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Why Zenesis"
-            title="Compliance support built around your business."
+            title="How Zenesis helps"
             description="The goal is not just to file. It is to keep the business organized enough that filing, review, and future growth become easier."
           />
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {whyZenesis.map((item) => (
               <article key={item.title} className="glass-panel rounded-[1.75rem] p-7">
-                <h3 className="text-2xl font-semibold tracking-[-0.04em] !text-foreground">
+                <h3 className="overflow-hidden text-ellipsis whitespace-nowrap text-[1.18rem] font-semibold tracking-[-0.04em] !text-foreground md:text-[1.24rem] xl:text-[1.3rem]">
                   {item.title}
                 </h3>
                 <p className="mt-4 text-[1.12rem] leading-8 !text-foreground/92">
@@ -304,7 +308,7 @@ export default function AccountingTaxPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Working Rhythm"
-            title="How the work usually moves."
+            title="Process"
             description="Most businesses need the same practical rhythm: review the current position, prepare properly, file accurately, and keep the records ready for what comes next."
           />
 
@@ -314,7 +318,7 @@ export default function AccountingTaxPage() {
                 <p className="text-sm font-semibold tracking-[0.24em] text-accent">
                   {item.step}
                 </p>
-                <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-foreground">
+                <h3 className="mt-4 overflow-hidden text-ellipsis whitespace-nowrap text-[1.18rem] font-semibold tracking-[-0.04em] text-foreground md:text-[1.24rem] xl:text-[1.3rem]">
                   {item.title}
                 </h3>
                 <p className="mt-4 text-[1.12rem] leading-8 text-muted">
@@ -331,7 +335,7 @@ export default function AccountingTaxPage() {
           <article className="glass-panel rounded-[2rem] p-8 md:p-10">
             <p className="eyebrow text-accent">Next Step</p>
             <h2 className="section-title mt-4 font-semibold !text-foreground">
-              Need help getting your accounts and tax filings in order?
+              Talk to Zenesis
             </h2>
             <p className="mt-5 max-w-4xl text-[1.18rem] leading-9 !text-foreground/92">
               Whether you need monthly bookkeeping, VAT filing, corporate tax

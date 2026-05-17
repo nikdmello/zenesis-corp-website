@@ -47,7 +47,7 @@ export default async function InsightArticlePage({
 
   return (
     <SiteShell currentPath="/insights">
-      <article className="mx-auto w-full max-w-4xl">
+      <article className="mx-auto w-full max-w-[62rem]">
         <div className="mt-4">
           <Link
             href="/insights"
@@ -66,23 +66,23 @@ export default async function InsightArticlePage({
           <h1 className="mt-6 max-w-[15ch] text-[3.45rem] font-semibold leading-[0.96] tracking-[-0.05em] text-foreground sm:text-[4.35rem]">
             {post.title}
           </h1>
-          <p className="mt-6 max-w-4xl text-[1.18rem] leading-8 text-muted md:text-[1.32rem] md:leading-9">
+          <p className="mt-6 max-w-4xl text-[1.18rem] font-medium leading-8 text-foreground/82 md:text-[1.32rem] md:leading-9">
             {post.description}
           </p>
         </header>
 
-        <div className="glass-panel relative mt-10 overflow-hidden rounded-[2.25rem]">
+        <div className="relative mt-10 overflow-hidden rounded-[2.1rem] border border-[#ddd3c6] bg-[#f7f1e6] p-3 shadow-[0_16px_48px_rgba(17,35,42,0.08)]">
           <Image
             src={post.heroImageSrc}
             alt={post.heroImageAlt}
             width={1600}
             height={900}
-            className="aspect-[16/8.5] w-full object-cover"
+            className="aspect-[16/8.5] w-full rounded-[1.55rem] object-cover"
             priority
           />
         </div>
 
-        <div className="mt-12 space-y-12">
+        <div className="mt-12 max-w-3xl space-y-12">
           {post.sections.map((section) => (
             <section key={section.title}>
               <h2 className="text-[2.15rem] font-semibold tracking-[-0.05em] text-foreground">
@@ -107,7 +107,7 @@ export default async function InsightArticlePage({
                   {section.bullets.map((item) => (
                     <li
                       key={item}
-                      className="flex gap-3 rounded-[1.4rem] border border-foreground/10 bg-white/65 px-5 py-4 text-base leading-7 text-foreground"
+                      className="flex gap-3 rounded-[1.25rem] border border-foreground/10 bg-[#f7f5f0] px-5 py-4 text-base leading-7 text-foreground"
                     >
                       <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-accent" />
                       <span>{item}</span>
@@ -117,7 +117,7 @@ export default async function InsightArticlePage({
               ) : null}
 
               {section.table ? (
-                <div className="mt-6 overflow-hidden rounded-[1.6rem] border border-foreground/10 bg-white/72">
+                <div className="mt-6 overflow-hidden rounded-[1.6rem] border border-foreground/10 bg-[#f7f5f0]">
                   <div className="overflow-x-auto">
                     <table className="min-w-full border-collapse">
                       <thead>
@@ -158,7 +158,7 @@ export default async function InsightArticlePage({
         </div>
 
         {post.closingParagraphs?.length ? (
-          <section className="glass-panel mt-14 rounded-[2rem] p-7 md:p-8">
+          <section className="mt-14 max-w-3xl rounded-[2rem] border border-foreground/10 bg-[#f7f5f0] p-7 shadow-[0_16px_40px_rgba(17,35,42,0.06)] md:p-8">
             <h2 className="text-[2.15rem] font-semibold tracking-[-0.05em] text-foreground">
               Final Thoughts
             </h2>

@@ -38,32 +38,30 @@ export default function AboutPage() {
     <SiteShell currentPath="/about">
       <PageIntro
         eyebrow="About Zenesis"
-        title="Business setup and compliance support in the UAE."
+        title="About"
+        backgroundImageSrc="/about-bg.png"
+        backgroundImageAlt="Zenesis About page background"
+        backgroundImagePosition="!object-[100%_100%]"
+        backgroundImageMode="ambient"
       />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 text-white md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <article className="rounded-[2rem] border border-white/10 bg-white/8 p-8 shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10">
-            <p className="eyebrow text-white/58">Company story</p>
-            <h2 className="section-title mt-4 font-semibold text-white">
-              Company formation first. Ongoing support after.
+          <article className="rounded-[2rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#fffdfa_0%,#f5efe4_100%)] p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
+            <p className="eyebrow text-[#244ba8]">Company story</p>
+            <h2 className="section-title mt-4 font-semibold text-[#11232a]">
+              Who we are
             </h2>
-            <div className="mt-6">
-              <span className="inline-flex rounded-full border border-white/10 bg-white/8 px-4 py-2 text-sm font-medium text-white/82">
-                Dubai
-              </span>
-            </div>
-            <div className="mt-6 max-w-[88rem] space-y-5 text-[1.16rem] leading-9 text-white/94 md:text-[1.22rem]">
+            <div className="mt-6 max-w-[88rem] space-y-5 text-[1.18rem] font-medium leading-9 text-[#11232a] md:text-[1.24rem]">
               <p>
                 Zenesis Corporation supports entrepreneurs, investors, SMEs, and
                 international businesses with company formation, accounting, tax,
                 visas, banking support, and ongoing compliance in the UAE.
               </p>
               <p>
-                Originally incorporated in the UAE in 2005 and later
-                incorporated in the DMCC Free Zone in 2009, Zenessis has more
-                than 20 years of experience helping businesses navigate the UAE
-                market with clarity and confidence.
+                Founded in the UAE in 2005, Zenesis has more than 21 years of
+                experience helping businesses navigate the UAE market with
+                clarity and confidence.
               </p>
               <p>
                 The firm began with offshore incorporation work and expanded
@@ -72,9 +70,9 @@ export default function AboutPage() {
                 needs evolved with the UAE market.
               </p>
               <p>
-                The approach is simple: understand the client’s goals, recommend
-                the right structure, and manage the process with transparency
-                from start to finish.
+                Zenesis starts by understanding the client&apos;s goals, then
+                recommends the right structure and manages the process with
+                transparency from start to finish.
               </p>
             </div>
           </article>
@@ -86,7 +84,7 @@ export default function AboutPage() {
           <div className="mb-8 max-w-4xl">
             <p className="eyebrow text-accent">Working style</p>
             <h2 className="section-title mt-4 font-semibold text-foreground">
-              How Zenesis works with clients.
+              How we work
             </h2>
           </div>
 
@@ -100,7 +98,7 @@ export default function AboutPage() {
                 <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-white">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-base leading-7 text-white/88">
+                <p className="mt-4 text-[1.14rem] font-medium leading-8 text-white/94 md:text-[1.18rem]">
                   {item.description}
                 </p>
               </article>
@@ -115,7 +113,7 @@ export default function AboutPage() {
                   <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-base leading-7 text-white/88">
+                  <p className="mt-4 text-[1.14rem] font-medium leading-8 text-white/94">
                     {item.description}
                   </p>
                 </article>
@@ -138,7 +136,7 @@ export default function AboutPage() {
           <div className="max-w-4xl">
             <p className="eyebrow text-white/58">Our Team</p>
             <h2 className="section-title mt-4 font-semibold text-white">
-              Leadership across corporate services, tax, people, and risk.
+              Leadership
             </h2>
             <p className="mt-4 max-w-3xl text-[1.18rem] leading-9 text-white/94">
               The leadership team brings cross-border experience in incorporation,
@@ -156,7 +154,7 @@ export default function AboutPage() {
           <article className="rounded-[2rem] border border-white/10 bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10">
             <p className="eyebrow text-white/58">Next Step</p>
             <h2 className="section-title mt-4 font-semibold text-white">
-              Planning to start or restructure your business in the UAE?
+              Talk to Zenesis
             </h2>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-white/94">
               Tell us what you want to achieve, and our team will guide you

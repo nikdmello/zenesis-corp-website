@@ -2,56 +2,53 @@ export const navigation = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   {
-    label: "Business Setup",
-    href: "/business-setup",
+    label: "Services",
+    href: "/#services",
     groups: [
       {
-        title: "Company Formation",
+        title: "Business Setup",
         links: [
-          { label: "Mainland / Onshore", href: "/mainland" },
-          { label: "Free Zones", href: "/free-zones" },
-          { label: "Offshore", href: "/offshore" },
+          { label: "Mainland setup", href: "/mainland" },
+          { label: "Free zone setup", href: "/free-zones" },
+          { label: "Offshore setup", href: "/offshore" },
+          {
+            label: "Document attestation",
+            href: "/document-attestation-services-in-uae",
+          },
         ],
       },
       {
-        title: "Services",
+        title: "Accounting and Tax",
         links: [
           {
-            label: "Document Attestation",
-            href: "/document-attestation-services-in-uae",
+            label: "Bookkeeping",
+            href: "/professional-bookkeeping-services-in-dubai",
+          },
+          { label: "VAT filing", href: "/vat-filing-services-in-the-uae" },
+          {
+            label: "Corporate tax registration",
+            href: "/corporate-tax-registration-in-the-uae",
           },
           {
-            label: "Bank Account Support",
-            href: "/open-a-bank-account-easily",
+            label: "Corporate tax filing",
+            href: "/corporate-tax-filing-services-in-the-uae",
           },
-          { label: "UAE Company Visa", href: "/uae-company-visa" },
+        ],
+      },
+      {
+        title: "Visa and Banking",
+        links: [
           {
             label: "Golden Visa",
             href: "/golden-visa-services-in-the-uae",
           },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Accounting & Tax",
-    href: "/accounting-tax",
-    groups: [
-      {
-        title: "Services",
-        links: [
           {
-            label: "Corporate Tax Registration",
-            href: "/corporate-tax-registration-in-the-uae",
+            label: "Company visas",
+            href: "/uae-company-visa",
           },
           {
-            label: "Corporate Tax Filing",
-            href: "/corporate-tax-filing-services-in-the-uae",
-          },
-          { label: "VAT Filing", href: "/vat-filing-services-in-the-uae" },
-          {
-            label: "Bookkeeping",
-            href: "/professional-bookkeeping-services-in-dubai",
+            label: "Banking support",
+            href: "/open-a-bank-account-easily",
           },
         ],
       },
@@ -80,7 +77,7 @@ export const featuredProfile = {
   title: "Cecilia D'Cunha featured in Global Leaders Today",
   publication: "Global Leaders Today",
   dateLabel: "November 15, 2024",
-  href: "https://globalleaderstoday.online/cecilia-dcunha-pioneering-business-leader-transforming-the-uaes-corporate-landscape/",
+  href: "/featured-profile",
   imageSrc: "/cecilia-dcunha-global-leaders.png",
   imageAlt: "Global Leaders Today feature on Cecilia D'Cunha",
   summary:
@@ -214,19 +211,9 @@ export const testimonials = [
       "They were extremely helpful and efficient in setting up my company and getting my visa processed in time.",
   },
   {
-    name: "Rhea DSouza",
+    name: "Mr Ramzi Ghurani",
     quote:
-      "The team at Zenesis are knowledgeable and reliable consultants to work with.",
-  },
-  {
-    name: "Shams Dharamshi",
-    quote:
-      "The Zenesis team is efficient and knowledgeable, reducing the hassle and burden on us.",
-  },
-  {
-    name: "Ray Hogan",
-    quote:
-      "Cecilia and the team really take the time to understand our clients' individual needs and deliver a first-class solution.",
+      "Zenesis gave our family a clear understanding of the process, timing, and costs involved and got everything ready in time.",
   },
   {
     name: "Mr Premnath Kapoor",
@@ -234,11 +221,91 @@ export const testimonials = [
       "Their response to our queries was very quick and their services were prompt and efficient.",
   },
   {
+    name: "Mr Rajiv Shah",
+    quote:
+      "Their advice is impartial, informative and, most importantly, tailored to the client’s specific needs.",
+  },
+  {
+    name: "Mr Divakar Rao",
+    quote:
+      "Their professionalism and efficiency can be trusted, which also reflects in the cost-effective services they provide.",
+  },
+  {
     name: "Hoshedar Cooper",
     quote:
       "A very reliable and efficient service provider for offshore company requirements in the United Arab Emirates.",
   },
+  {
+    name: "Thanseer Alifca",
+    quote:
+      "It was so helpful to create a plan for new company formation in Dubai’s JLT Free Zone and map out the actions needed for the startup.",
+  },
+  {
+    name: "Simon Marriott",
+    quote:
+      "Their knowledge of requirements, procedures, and timescales was entirely accurate and they clearly had a strong working relationship with the Free Zone.",
+  },
+  {
+    name: "Rhea DSouza",
+    quote:
+      "The team at Zenesis are knowledgeable and reliable consultants to work with.",
+  },
+  {
+    name: "Ray Hogan",
+    quote:
+      "Cecilia and the team really take the time to understand our clients' individual needs and deliver a first-class solution.",
+  },
+  {
+    name: "Parag Paresh And Co",
+    quote:
+      "We are very happy with the consistently good services of the Zenesis team.",
+  },
+  {
+    name: "Veronica Odeja",
+    quote:
+      "The ideas, expertise, and skills they brought to our project gave our team immense knowledge and know-how.",
+  },
+  {
+    name: "Shams Dharamshi",
+    quote:
+      "The Zenesis team is efficient and knowledgeable, reducing the hassle and burden on us.",
+  },
+  {
+    name: "D Singh",
+    quote:
+      "The Zenesis team is accessible and responsive and always provides an effective solution for clients’ needs.",
+  },
+  {
+    name: "Mohammed Muqthar",
+    quote:
+      "They were transparent throughout my Dubai Free Zone company formation and offered a good quote too.",
+  },
+  {
+    name: "Gnanasundaram Thanaseelan",
+    quote: "Best and prompt service within a committed time frame.",
+  },
+  {
+    name: "Al Khayam Exhibition",
+    quote:
+      "Highly recommended for company formation services, with economical charges and very well-trained consultants.",
+  },
+  {
+    name: "Ajay Gupta",
+    quote: "Work ethics, proper guidance, and timely service.",
+  },
+  {
+    name: "Nisha Vs",
+    quote:
+      "Excellent consultants who have never disappointed us over the last three years.",
+  },
+  {
+    name: "Hasan Rangoonwalla",
+    quote:
+      "They have a good understanding of the client's requirements and are a good team to work with.",
+  },
 ] as const;
+
+export type Testimonial = (typeof testimonials)[number];
 
 export const articleHighlights = [
   {
@@ -278,7 +345,7 @@ export const teamMembers = [
       "GDArch, CMCA, AMS, LSM, PCAM, D. Litt. Chief Executive Officer",
     imageSrc: "/Jeevan_DMello.png",
     summary:
-      "An architect with an international, award-winning career across architectural design, customer experience, community management, real estate management, and international relations.",
+      "Chief Executive Officer with an international, award-winning career across architectural design, customer experience, community management, real estate management, and international relations.",
     paragraphs: [
       "Jeevan is widely regarded as a foundational figure in community management in the Middle East. Across major roles with Emaar Properties and Nakheel Properties, he managed large-scale portfolios including Burj Khalifa, Downtown Dubai, Palm Jumeirah, Jumeirah Islands, International City, and Nad Al Sheba villas.",
       "His professional record includes multiple international firsts in community association management certifications, senior institute roles in the USA, and recognition across the UAE, USA, India, Italy, Spain, Argentina, Chile, Cuba, and Colombia. He also received a Doctor of Letters from Azteca University in Mexico and was appointed Full Professor of Real Estate Management.",
@@ -332,8 +399,7 @@ export const teamMembers = [
   },
   {
     name: "Glenita D'Souza",
-    credentials:
-      "CA Intermediate (IPCC), BCom, Diploma in Indian and Foreign Accounting",
+    credentials: "CA Intermediate (IPCC), BCom",
     imageSrc: "/Glenita_D'Souza.png",
     summary:
       "Accounts Manager and Compliance Officer with more than 6 years of hands-on experience across accounting, taxation, company administration, VAT, corporate tax, and UAE free zone setup.",
@@ -356,8 +422,7 @@ export const teamMembers = [
   },
   {
     name: "Emma Magati",
-    credentials:
-      "MBA, ACCA Finalist, CPA Finalist, BCom Finance, Google Digital Skills, Generative AI Certified",
+    credentials: "MBA, ACCA Finalist, CPA Finalist, BCom Finance",
     imageSrc: "/Emma_Magati.png",
     summary:
       "Business Setup Expert and Accounts Manager with extensive experience across UAE free zone, mainland, and offshore company formation, regulatory compliance, and financial reporting.",
