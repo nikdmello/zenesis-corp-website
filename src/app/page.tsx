@@ -2,16 +2,15 @@ import NextImage from "next/image";
 import Link from "next/link";
 import {
   ConsultationFormButton,
-  ConsultationScrollPrompt,
+  ConsultationFormButtonWithScrollPrompt,
 } from "@/components/consultation-form";
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
-import { LayeredServicesShowcase } from "@/components/layered-services-showcase";
+import { HomepageReviewsCarousel } from "@/components/homepage-reviews-carousel";
+import { HomepageServiceTile } from "@/components/homepage-service-tile";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SectionHeading, SiteShell } from "@/components/site-shell";
 import {
   featuredProfile,
-  googleMapsEmbedHref,
-  googleReviewsHref,
   testimonials,
   whatsappHref,
 } from "@/lib/site-content";
@@ -19,13 +18,8 @@ import { insightPosts } from "@/lib/insights";
 
 const trustSignals = [
   {
-    icon: "🇦🇪",
-    label: "Founded",
-    value: "UAE · 2005",
-  },
-  {
     icon: "🏅",
-    label: "Global Recognition",
+    label: "Excellence in company formation",
     value: "Excellence in Company Formation Award",
     detail: "Dubai, UAE · 2025",
   },
@@ -34,119 +28,127 @@ const trustSignals = [
     label: "Featured Profile",
     value: "Cecilia D'Cunha in Global Leaders Today.",
     detail:
-      "An external profile on the founder's background in offshore incorporation, UAE business setup, and corporate compliance.",
+      "A full-length profile on Cecilia D'Cunha covering her early offshore incorporation work, her move into the UAE in 1998, and the leadership path that led to Zenesis.",
   },
 ] as const;
 
 const customerPaths = [
   {
     eyebrow: "Business Setup",
-    title: "Set up the right UAE structure",
-    description:
-      "Compare mainland, free zone, and offshore routes with practical guidance on licensing, banking, visas, and post-setup requirements.",
+    title: "Business setup",
     href: "/business-setup",
-    cta: "Explore setup options",
+    cta: "Explore business setup",
     imageSrc: "/business-setup.jpg",
     imageAlt: "Business advisors discussing UAE company formation",
     offerings: [
       {
-        title: "Mainland formation",
-        description:
-          "Choose mainland if you need local trading, hiring, and broader operating flexibility.",
+        icon: "🏢",
+        title: "Mainland",
+        description: "Set up a company for local UAE trading and operations.",
+        href: "/mainland",
       },
       {
-        title: "Free zone setup",
-        description:
-          "Compare free zones by package, visas, ownership, and operating fit.",
+        icon: "🗂",
+        title: "Free zone",
+        description: "Choose the right free zone, package, and licensing route.",
+        href: "/free-zones",
       },
       {
-        title: "Offshore structuring",
-        description:
-          "Use offshore where holding assets or managing ownership matters more than local trading.",
+        icon: "🌐",
+        title: "Offshore",
+        description: "Use offshore structures for holding and international ownership needs.",
+        href: "/offshore",
       },
     ],
   },
   {
     eyebrow: "Accounting & Tax",
-    title: "Keep tax and records under control",
-    description:
-      "Handle bookkeeping, VAT, corporate tax registration, and annual filing with cleaner records and clearer deadlines.",
+    title: "Accounting and tax",
     href: "/accounting-tax",
     cta: "Explore accounting and tax",
     imageSrc: "/accounting-and-tax.jpg",
     imageAlt: "Professionals reviewing business documents",
     offerings: [
       {
-        title: "Bookkeeping and reporting",
-        description:
-          "Keep books and reporting clean instead of catching up at year end.",
+        icon: "📒",
+        title: "Bookkeeping",
+        description: "Keep records, books, and reports current through the year.",
+        href: "/professional-bookkeeping-services-in-dubai",
       },
       {
-        title: "VAT filing support",
-        description:
-          "Keep VAT returns, invoice checks, and reconciliations under control.",
+        icon: "🧾",
+        title: "VAT filing",
+        description: "Prepare VAT returns and keep VAT records in order.",
+        href: "/vat-filing-services-in-the-uae",
       },
       {
-        title: "Corporate tax support",
-        description:
-          "Handle registration, filing, and tax work without breaking operating continuity.",
+        icon: "📑",
+        title: "Corporate tax",
+        description: "Handle registration, filing, and annual tax compliance.",
+        href: "/corporate-tax-registration-in-the-uae",
       },
     ],
   },
   {
-    eyebrow: "Corporate Services",
-    title: "Manage corporate actions and renewals",
-    description:
-      "Use one point of coordination for renewals, shareholder records, annual requirements, and practical admin support around the company.",
-    href: "/contact",
-    cta: "Explore corporate services",
-    imageSrc: "/professional-meeting.jpg",
-    imageAlt: "Business advisor coordinating corporate support",
-    offerings: [
-      {
-        title: "Renewals and annual actions",
-        description:
-          "Keep renewals and annual actions from slipping.",
-      },
-      {
-        title: "Shareholder and governance support",
-        description:
-          "Manage shareholder records, changes, and related corporate actions through one team.",
-      },
-      {
-        title: "Practical company administration",
-        description:
-          "Offload the company tasks that keep pulling founders out of the business.",
-      },
-    ],
-  },
-  {
-    eyebrow: "Investor & Residency",
-    title: "Plan visa, banking, and Golden Visa support",
-    description:
-      "Support founders and investors with business banking guidance, company visa support, and residency pathways tied to how the business will operate.",
-    href: "/contact",
-    cta: "Explore investor and residency support",
+    eyebrow: "Visa and Banking",
+    title: "Visa and Banking",
+    href: "/visa-and-banking",
+    cta: "Explore visa and banking",
     imageSrc: "/contact-consultation.jpg",
     imageAlt: "Business advisor speaking with a client about residency and banking",
     offerings: [
       {
-        title: "Business banking guidance",
-        description:
-          "Prepare for bank account opening with clearer KYC expectations.",
+        icon: "⭐",
+        title: "Golden Visa",
+        description: "Check eligibility and prepare the right Golden Visa route.",
+        href: "/golden-visa-services-in-the-uae",
       },
       {
-        title: "Company visa support",
-        description:
-          "Move through company visa steps with clearer approvals and residency support.",
+        icon: "🪪",
+        title: "Company visa",
+        description: "Handle company visa processing, approvals, and Emirates ID steps.",
+        href: "/uae-company-visa",
       },
       {
-        title: "Golden Visa pathways",
-        description:
-          "Check whether a Golden Visa route fits and how to apply.",
+        icon: "🏦",
+        title: "Banking support",
+        description: "Prepare KYC documents and support the bank account opening process.",
+        href: "/open-a-bank-account-easily",
       },
     ],
   },
+  {
+    eyebrow: "Corporate Support",
+    title: "Corporate support",
+    href: "/contact",
+    cta: "Discuss corporate support",
+    imageSrc: "/professional-meeting.jpg",
+    imageAlt: "Business advisor coordinating corporate support",
+    offerings: [
+      {
+        icon: "🔄",
+        title: "License renewals",
+        description: "Keep trade license renewals and annual deadlines on track.",
+      },
+      {
+        icon: "📂",
+        title: "PRO services",
+        description: "Handle government paperwork, approvals, and related submissions.",
+      },
+      {
+        icon: "🗃",
+        title: "Company changes",
+        description: "Manage company amendments, shareholder changes, and records.",
+      },
+    ],
+  },
+] as const;
+
+const heroServices = [
+  { title: "Business setup", label: "Service", href: "/business-setup" },
+  { title: "Accounting and tax", label: "Service", href: "/accounting-tax" },
+  { title: "Corporate support", label: "Service", href: "/contact" },
+  { title: "Visa and banking", label: "Service", href: "/visa-and-banking" },
 ] as const;
 
 const homepageFaqs = [
@@ -198,14 +200,11 @@ const homepageFaqs = [
 ] as const;
 
 export default function Home() {
-  const googleReviewsLink = googleReviewsHref;
   const googleReviewCountLabel = "480+ reviews";
-  const [foundedTrustSignal, featuredTrustSignal, leadershipFeatureSignal] = trustSignals;
-  const supportingTrustSignals = [foundedTrustSignal] as const;
+  const [featuredTrustSignal, leadershipFeatureSignal] = trustSignals;
 
   return (
     <SiteShell currentPath="/">
-      <ConsultationScrollPrompt />
       <div className="relative z-10">
         <section className="photo-hero relative left-1/2 -mt-10 min-h-[100svh] w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] text-white md:-mt-14">
           <div className="absolute inset-0">
@@ -218,9 +217,9 @@ export default function Home() {
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#11232a] via-[#11232a]/84 to-transparent" />
 
           <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[100rem] items-center px-6 pb-16 pt-32 md:px-12 md:pb-20 md:pt-36 xl:px-20">
-            <div className="max-w-[58rem] rounded-[1.8rem] border border-white/10 bg-[rgba(17,35,42,0.36)] px-5 py-6 shadow-[0_20px_44px_rgba(7,21,27,0.16)] backdrop-blur-sm sm:px-6 md:!rounded-none md:!border-transparent md:!bg-transparent md:px-0 md:py-0 md:!shadow-none md:backdrop-blur-none">
-              <div className="border-l-4 border-[#244ba8] pl-5 sm:pl-6 md:pl-7">
-              <div className="hero-reveal hero-reveal-1 mb-7">
+            <div className="max-w-[58rem] rounded-[1.8rem] border border-white/10 bg-[rgba(17,35,42,0.38)] px-5 py-6 shadow-[0_20px_44px_rgba(7,21,27,0.16)] backdrop-blur-sm sm:px-6 md:!rounded-none md:!border-transparent md:!bg-transparent md:px-0 md:py-0 md:!shadow-none md:backdrop-blur-none">
+              <div className="pl-5 sm:pl-6 md:pl-7">
+              <div className="hero-reveal hero-reveal-1 mb-6">
                 <NextImage
                   src="/zenesis-logo-full.png"
                   alt="Zenesis Corporation"
@@ -230,35 +229,53 @@ export default function Home() {
                   priority
                 />
               </div>
-              <h1 className="hero-reveal hero-reveal-1 max-w-[13ch] text-[3.35rem] font-semibold leading-[0.94] tracking-[-0.04em] text-white sm:max-w-[14ch] sm:text-[4.35rem] lg:max-w-[15ch] lg:text-[5.15rem]">
-                Business setup, accounting and tax, and corporate support.
+              <h1 className="hero-reveal hero-reveal-1 max-w-[13ch] text-[3.1rem] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:max-w-[14ch] sm:text-[4.1rem] lg:max-w-[15ch] lg:text-[5rem]">
+                20+ years of business setup in Dubai
               </h1>
-              <p className="hero-reveal hero-reveal-2 mt-6 max-w-[36rem] text-lg font-medium leading-8 text-white/86 md:text-[1.24rem] md:leading-9">
-                20+ years helping businesses set up, stay compliant, and keep
-                moving in the UAE.
-              </p>
-              <a
-                href={googleReviewsLink}
-                target="_blank"
-                rel="noreferrer"
-                className="hero-reveal hero-reveal-3 mt-7 inline-flex w-fit items-center gap-3 text-white transition-all duration-200 hover:-translate-y-0.5 hover:opacity-84"
-              >
-                <NextImage
-                  src="/google.png"
-                  alt="Google reviews"
-                  width={168}
-                  height={72}
-                  className="h-12 w-auto object-contain md:h-14"
-                />
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-white/82 md:text-base">
-                  <span className="border-b border-white/35 pb-0.5 transition-colors duration-200 hover:border-white/70">
-                    {googleReviewCountLabel}
-                  </span>
-                  <span aria-hidden="true">↗</span>
+
+              <div className="hero-reveal hero-reveal-2 mt-7 grid max-w-[28rem] grid-cols-1 gap-3.5 md:max-w-[26rem]">
+                {heroServices.map((service, index) => (
+                  <div
+                    key={service.title}
+                    className="group flex min-h-[4.8rem] items-center gap-4 rounded-[1.45rem] border border-white/14 bg-[linear-gradient(135deg,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.06)_100%)] px-4.5 py-3 text-white shadow-[0_18px_38px_rgba(7,21,27,0.16)] backdrop-blur-md transition-transform duration-200 hover:-translate-y-0.5 md:min-h-[5rem] md:px-5.5"
+                  >
+                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[1rem] border border-white/14 bg-white/10 text-[0.84rem] font-bold tracking-[0.12em] text-white md:h-11 md:w-11 md:text-[0.9rem]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="eyebrow text-[0.66rem] tracking-[0.18em] text-white/54">
+                        {service.label}
+                      </p>
+                      <p className="mt-1 text-[1.16rem] font-bold leading-6 tracking-[-0.03em] text-white md:text-[1.32rem] md:leading-7">
+                        {service.title}
+                      </p>
+                    </div>
+                    <Link
+                      href={service.href}
+                      aria-label={`Go to ${service.title}`}
+                      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/8 text-[1rem] !text-white/84 transition-transform duration-200 hover:translate-x-0.5 hover:!text-white"
+                    >
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+              <div className="hero-reveal hero-reveal-3 mt-7 inline-flex h-16 w-fit items-center gap-3 text-white md:h-[4.5rem] md:gap-4">
+                <div className="origin-left scale-[1.22] md:scale-[1.28]">
+                  <NextImage
+                    src="/google.png"
+                    alt="Google reviews"
+                    width={168}
+                    height={72}
+                    className="h-12 w-auto object-contain md:h-14"
+                  />
+                </div>
+                <span className="inline-flex min-w-max items-center gap-2 whitespace-nowrap pl-4 text-[1rem] font-semibold text-white/88 md:pl-5 md:text-[1.14rem]">
+                  <span>{googleReviewCountLabel}</span>
                 </span>
-              </a>
+              </div>
               <div className="hero-reveal hero-reveal-3 mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <ConsultationFormButton
+                <ConsultationFormButtonWithScrollPrompt
                   label="Schedule a Free Consultation"
                   className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3.5 text-center text-sm font-semibold tracking-[0.01em] !text-[#07151b] shadow-[0_18px_44px_rgba(17,35,42,0.12)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white/92 sm:text-base"
                 />
@@ -268,27 +285,104 @@ export default function Home() {
           </div>
         </section>
 
-        <LayeredServicesShowcase items={customerPaths} />
+        <section
+          id="services"
+          className="relative left-1/2 w-screen -translate-x-1/2 scroll-mt-28 py-14 text-[#07151b] md:py-16 xl:py-12"
+        >
+          <div className="mx-auto w-full max-w-[108rem] px-6 md:px-12 xl:px-16 2xl:px-18">
+            <div className="py-5 md:py-6 xl:py-4">
+              <p className="eyebrow text-[#244ba8]">Services</p>
+              <h2 className="section-title mt-4 font-semibold text-[#07151b] md:text-[3rem] xl:mt-3 xl:text-[2.95rem] xl:whitespace-nowrap">
+                Our services
+              </h2>
+            </div>
+
+            <div className="mt-8 grid gap-4 lg:grid-cols-2 xl:mt-6 xl:grid-cols-4 xl:gap-2.5 2xl:gap-3">
+              {customerPaths.map((item) => (
+                <div
+                  key={item.eyebrow}
+                  className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-[#d9d2c5] bg-white shadow-[0_22px_70px_rgba(17,35,42,0.10)]"
+                >
+                  <Link
+                    href={item.href}
+                    className="group relative block h-[18.5rem] overflow-hidden md:h-[20rem] xl:h-[14.5rem]"
+                  >
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-[1.02]"
+                      style={{ backgroundImage: `url(${item.imageSrc})` }}
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,35,42,0.34)_0%,rgba(17,35,42,0.5)_38%,rgba(17,35,42,0.88)_100%)]" />
+                    <div className="relative z-10 flex h-full items-end px-6 pb-6 md:px-7 md:pb-7">
+                      <div>
+                        <h3 className="max-w-[24ch] text-[2.5rem] font-semibold leading-[0.95] tracking-[-0.055em] text-white transition-transform duration-200 group-hover:-translate-y-0.5 md:text-[2.95rem] xl:max-w-none xl:text-[1.92rem] xl:whitespace-nowrap">
+                          {item.title}
+                        </h3>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <div className="flex grow flex-col p-4 sm:p-5 md:p-6 lg:p-7 xl:p-6">
+                    <div className="grid grow gap-4 md:grid-cols-3 md:items-stretch xl:grid-cols-1 xl:gap-4">
+                      {item.offerings.map((offering, offeringIndex) => {
+                        return (
+                          <HomepageServiceTile
+                            key={offering.title}
+                            icon={String(offeringIndex + 1).padStart(2, "0")}
+                            title={offering.title}
+                            description={offering.description}
+                            href={
+                              "href" in offering && typeof offering.href === "string"
+                                ? offering.href
+                                : undefined
+                            }
+                          />
+                        );
+                      })}
+                    </div>
+
+                    <div className="mt-auto pt-5">
+                      <Link
+                        href={item.href}
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#11232a] px-4 py-2.5 text-[0.95rem] font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#18343d] md:w-auto xl:px-5 xl:py-2.5 xl:text-[0.94rem]"
+                      >
+                        {item.cta}
+                        <span aria-hidden="true">→</span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
       <section className="relative left-1/2 mt-10 w-screen -translate-x-1/2 bg-[#11232a] py-16 md:mt-12 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <div className="mb-10 md:mb-12">
-            <p className="eyebrow text-white/58">Why Zenesis</p>
+            <p className="eyebrow text-white/58">Zenesis Awards</p>
             <h2 className="mt-4 text-[clamp(2.4rem,3.2vw,3.75rem)] font-semibold leading-[0.94] tracking-[-0.06em] text-white xl:whitespace-nowrap">
-              Award-winning guidance. 
-              20+ years of experience.
+              Awards and recognition
             </h2>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr] xl:gap-6">
+          <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr] xl:gap-6">
             <div className="relative rounded-[2rem] border border-[#d8d0c2] bg-[#f5efe4] px-6 py-6 text-[#11232a] shadow-[0_28px_90px_rgba(17,35,42,0.18)] md:px-7 md:py-7">
               <span className="absolute right-6 top-6 flex h-14 w-14 items-center justify-center rounded-full bg-[#11232a]/8 text-[1.65rem] md:right-7 md:top-7">
                 {featuredTrustSignal.icon}
               </span>
               <div className="pr-20">
+                <div className="flex flex-wrap gap-2.5">
+                  <span className="inline-flex rounded-full border border-[#244ba8]/14 bg-[#244ba8]/8 px-4 py-2 text-[0.82rem] font-semibold uppercase tracking-[0.16em] text-[#244ba8]">
+                    21 years of experience
+                  </span>
+                  <span className="inline-flex rounded-full border border-[#11232a]/10 bg-[#11232a]/6 px-4 py-2 text-[0.82rem] font-semibold uppercase tracking-[0.16em] text-[#11232a]">
+                    Award-winning
+                  </span>
+                </div>
                 <div>
-                  <p className="eyebrow text-muted">{featuredTrustSignal.label}</p>
+                  <p className="eyebrow mt-5 text-muted">{featuredTrustSignal.label}</p>
                   <p className="mt-4 max-w-[16ch] text-[2rem] font-semibold leading-[0.98] tracking-[-0.05em] text-foreground md:text-[2.35rem]">
                     {featuredTrustSignal.value}
                   </p>
@@ -297,86 +391,54 @@ export default function Home() {
                       {featuredTrustSignal.detail}
                     </p>
                   ) : null}
+                  <p className="mt-5 max-w-2xl text-[1.08rem] leading-8 text-muted md:text-[1.12rem]">
+                    Recognition like this reflects long-running work across
+                    company formation, corporate support, and client execution
+                    in the UAE.
+                  </p>
                 </div>
               </div>
             </div>
 
-            <div className="grid gap-4">
-              {supportingTrustSignals.map((item) => {
-                const cardContent = (
-                  <>
-                    <span className="absolute right-6 top-6 flex h-14 w-14 items-center justify-center rounded-full bg-[#11232a]/8 text-[1.65rem] md:right-7 md:top-7">
-                      {item.icon}
-                    </span>
-                    <div className="pr-18">
-                      <div>
-                        <p className="eyebrow text-muted">{item.label}</p>
-                        <p className="mt-4 text-[1.8rem] font-semibold leading-[0.98] tracking-[-0.05em] text-foreground md:text-[2.05rem]">
-                          {item.value}
-                        </p>
-                        {"detail" in item && typeof item.detail === "string" ? (
-                          <p className="mt-4 max-w-[28rem] text-base leading-7 text-muted">
-                            {item.detail}
-                          </p>
-                        ) : null}
-                      </div>
-                    </div>
-                  </>
-                );
-
-                return (
-                  <div
-                    key={item.label}
-                    className="relative rounded-[1.75rem] border border-[#d8d0c2] bg-[#f5efe4] px-6 py-6 text-[#11232a] shadow-[0_20px_70px_rgba(17,35,42,0.14)] md:px-7 md:py-7"
-                  >
-                    {cardContent}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <Link
-            href={featuredProfile.href}
-            target="_blank"
-            rel="noreferrer"
-            className="group mt-10 block rounded-[2rem] border border-[#d8d0c2] bg-[#f5efe4] p-4 text-[#11232a] shadow-[0_24px_80px_rgba(17,35,42,0.18)] transition-transform duration-200 hover:-translate-y-0.5 md:p-5"
-          >
-            <div className="overflow-hidden rounded-[1.5rem] border border-[#ddd1c2] bg-white shadow-[0_12px_28px_rgba(17,35,42,0.12)]">
-              <div className="px-5 py-5 md:px-6 md:py-6">
-                <div className="flex items-start justify-between gap-6">
-                  <div className="max-w-4xl">
-                    <p className="eyebrow text-muted">
-                      {leadershipFeatureSignal.label}
-                    </p>
-                    <h3 className="mt-4 text-[clamp(1.9rem,2.6vw,2.7rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-foreground">
-                      {leadershipFeatureSignal.value}
-                    </h3>
-                    {"detail" in leadershipFeatureSignal &&
-                    typeof leadershipFeatureSignal.detail === "string" ? (
-                      <p className="mt-4 max-w-3xl text-[1.08rem] leading-8 text-muted md:text-[1.12rem]">
-                        {leadershipFeatureSignal.detail}
+            <Link
+              href={featuredProfile.href}
+              className="group block rounded-[1.7rem] border border-[#d8d0c2] bg-[#f5efe4] p-3 text-[#11232a] shadow-[0_20px_60px_rgba(17,35,42,0.16)] transition-transform duration-200 hover:-translate-y-0.5 md:p-4"
+            >
+              <div className="overflow-hidden rounded-[1.3rem] border border-[#ddd1c2] bg-white shadow-[0_12px_28px_rgba(17,35,42,0.12)]">
+                <div className="px-4 py-4 md:px-5 md:py-5">
+                  <div className="flex items-start justify-between gap-6">
+                    <div className="max-w-4xl">
+                      <p className="eyebrow text-muted">
+                        {leadershipFeatureSignal.label}
                       </p>
-                    ) : null}
+                      <h3 className="mt-3 text-[clamp(1.55rem,2.15vw,2.15rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-foreground">
+                        {leadershipFeatureSignal.value}
+                      </h3>
+                      {"detail" in leadershipFeatureSignal &&
+                      typeof leadershipFeatureSignal.detail === "string" ? (
+                        <p className="mt-3 max-w-3xl text-[1rem] leading-7 text-muted md:text-[1.05rem]">
+                          {leadershipFeatureSignal.detail}
+                        </p>
+                      ) : null}
+                    </div>
+                    <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#11232a]/8 text-[1.4rem]">
+                      {leadershipFeatureSignal.icon}
+                    </span>
                   </div>
-                  <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#11232a]/8 text-[1.65rem]">
-                    {leadershipFeatureSignal.icon}
-                  </span>
+                </div>
+                <div className="overflow-hidden border-t border-[#ece4d8]">
+                  <NextImage
+                    src={featuredProfile.imageSrc}
+                    alt={featuredProfile.imageAlt}
+                    width={2300}
+                    height={1800}
+                    className="aspect-[23/13] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01] md:aspect-[23/12]"
+                  />
                 </div>
               </div>
-              <div className="overflow-hidden border-t border-[#ece4d8]">
-                <NextImage
-                  src={featuredProfile.imageSrc}
-                  alt={featuredProfile.imageAlt}
-                  width={2300}
-                  height={1800}
-                  className="aspect-[23/12] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01] md:aspect-[23/11]"
-                />
-              </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
+
         </ScrollReveal>
 
         <ScrollReveal>
@@ -432,75 +494,31 @@ export default function Home() {
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
-          <SectionHeading
-            eyebrow="Google Reviews"
-            title="What clients say."
-          />
+          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+            <SectionHeading
+              eyebrow="Google Reviews"
+              title="Client reviews"
+            />
+            <div className="flex items-center gap-4 md:shrink-0">
+              <NextImage
+                src="/google.png"
+                alt="Google reviews"
+                width={168}
+                height={72}
+                className="h-14 w-auto object-contain md:h-16"
+              />
+              <div>
+                <p className="text-[1.35rem] font-semibold tracking-[-0.03em] text-[#11232a] md:text-[1.55rem]">
+                  {googleReviewCountLabel}
+                </p>
+              </div>
+            </div>
+          </div>
         </ScrollReveal>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-[1.18fr_0.82fr] xl:gap-8">
-          <div className="grid gap-4 md:grid-cols-2">
-            {testimonials.map((item, index) => (
-              <ScrollReveal
-                key={item.name}
-                className="h-full"
-                delay={index * 80}
-              >
-                <a
-                  href={googleReviewsHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group block min-h-full rounded-[1.5rem] border border-white/10 bg-[#11232a] p-5 text-white shadow-[0_20px_60px_rgba(0,0,0,0.16)] transition-transform duration-200 hover:-translate-y-1"
-                >
-                  <p className="text-[1.12rem] leading-8 text-white">
-                    &ldquo;{item.quote}&rdquo;
-                  </p>
-                  <div className="mt-6 flex items-center justify-between gap-4">
-                    <p className="text-sm font-semibold tracking-[-0.02em] text-white">
-                      {item.name}
-                    </p>
-                  </div>
-                </a>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <ScrollReveal delay={120}>
-            <aside className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#11232a] p-3 text-white shadow-[0_20px_60px_rgba(0,0,0,0.16)]">
-              <div className="flex flex-wrap items-center justify-between gap-3 px-3 pb-4 pt-2">
-                <div className="rounded-[1.1rem] border border-white/10 bg-white/8 px-4 py-3">
-                  <div className="flex items-center gap-3">
-                    <NextImage
-                      src="/google.png"
-                      alt="Google reviews"
-                      width={168}
-                      height={72}
-                      className="h-12 w-auto object-contain md:h-14"
-                    />
-                    <span className="text-sm font-semibold tracking-[-0.02em] text-white">
-                      {googleReviewCountLabel}
-                    </span>
-                  </div>
-                </div>
-                <a
-                  href={googleReviewsLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-sm font-semibold text-white transition-colors hover:text-white/76"
-                >
-                  {googleReviewCountLabel} on Google ↗
-                </a>
-              </div>
-              <div className="overflow-hidden rounded-[1.25rem] border border-white/10">
-                <iframe
-                  src={googleMapsEmbedHref}
-                  title="Zenesis location on Google Maps"
-                  className="h-[24rem] w-full border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-            </aside>
+        <div className="mt-8">
+          <ScrollReveal>
+            <HomepageReviewsCarousel testimonials={testimonials} />
           </ScrollReveal>
         </div>
         </div>
@@ -510,8 +528,9 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <SectionHeading
-            eyebrow="Insights"
-            title="Reading before you decide."
+            eyebrow="Zenesis Blog"
+            eyebrowClassName="!text-white"
+            title="Latest blog posts"
             titleClassName="!text-white"
           />
         </ScrollReveal>
@@ -539,15 +558,18 @@ export default function Home() {
                     <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgba(17,35,42,0.46)_100%)]" />
                   </div>
                   <div className="flex flex-1 flex-col p-3 pt-6">
-                  <p className="eyebrow text-muted">{item.category}</p>
+                  <p className="eyebrow text-muted">Blog post</p>
                   <h3 className="mt-5 text-2xl font-semibold leading-tight tracking-[-0.03em] text-foreground">
                     {item.title}
                   </h3>
+                  <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-muted/80">
+                    {item.category}
+                  </p>
                   <p className="mt-4 flex-1 text-[1.12rem] leading-8 text-muted">
                     {item.description}
                   </p>
                   <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors group-hover:text-accent-strong">
-                    Explore this topic
+                    Read blog post
                     <span aria-hidden="true">→</span>
                   </span>
                   </div>
@@ -574,13 +596,17 @@ export default function Home() {
               <div className="relative z-10 max-w-3xl">
                 <p className="eyebrow text-muted">Ready to Start</p>
                 <h2 className="section-title mt-4 font-semibold text-foreground">
-                  Get a recommendation before you commit.
+                  Get a recommendation before you commit
                 </h2>
-                <p className="mt-5 max-w-3xl text-[1.18rem] leading-9 text-muted">
+                <p className="mt-5 max-w-3xl text-[1.24rem] font-semibold leading-9 text-foreground/90 md:text-[1.32rem]">
                   Tell Zenesis what you want to build, where you plan to
                   operate, and what support you need next.
                 </p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                  <ConsultationFormButton
+                    label="Schedule a Free Consultation"
+                    className="rounded-full bg-[#11232a] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#18343d]"
+                  />
                   <a
                     href={whatsappHref}
                     target="_blank"
@@ -589,12 +615,6 @@ export default function Home() {
                   >
                     Message on WhatsApp
                   </a>
-                  <Link
-                    href="/contact"
-                    className="rounded-full border border-[#11232a]/12 bg-[#11232a]/6 px-6 py-3 text-center text-sm font-semibold !text-[#11232a] transition-colors hover:bg-[#11232a]/10"
-                  >
-                    View Contact Options
-                  </Link>
                 </div>
               </div>
             </section>
@@ -608,7 +628,8 @@ export default function Home() {
         <section>
           <SectionHeading
             eyebrow="FAQ"
-            title="Common setup questions."
+            eyebrowClassName="!text-white"
+            title="Questions"
             titleClassName="!text-white"
           />
 

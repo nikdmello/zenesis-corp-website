@@ -19,135 +19,150 @@ export default function InsightsPage() {
     <SiteShell currentPath="/insights">
       <PageIntro
         eyebrow="Insights"
-        title="Guidance on setup, tax, and compliance in the UAE."
+        title="Insights"
+        description="Published guidance from Zenesis on UAE tax, compliance, and operating decisions."
+        backgroundImageSrc="/insights-bg.png"
+        backgroundImageAlt="Zenesis Insights page background"
+        backgroundImagePosition="!object-[100%_100%]"
+        backgroundImageMode="ambient"
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            eyebrow="Published Articles"
-            title="Current articles on tax and compliance."
-            description="Read Zenesis guidance on corporate tax groups, financial-year compliance, and free zone tax treatment in the UAE."
+            eyebrow="Zenesis Blog"
+            title="Latest from Zenesis"
+            description="Useful reading on corporate tax, free zone rules, and compliance timing in the UAE."
+            eyebrowClassName="!text-white/62"
+            titleClassName="!text-white"
+            descriptionClassName="!text-white/92"
           />
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="mt-10 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
             <Link
               href={`/insights/${featuredPost.slug}`}
-              className="premium-card glass-panel group grid gap-6 rounded-[2rem] p-5 transition-transform duration-300 hover:-translate-y-1"
+              className="group grid overflow-hidden rounded-[2rem] border border-[#ddd3c6] bg-[#f7f1e6] shadow-[0_22px_70px_rgba(17,35,42,0.08)] transition-transform duration-300 hover:-translate-y-1 md:grid-cols-[0.92fr_1.08fr]"
             >
-              <div className="relative overflow-hidden rounded-[1.5rem] bg-[#11232a]">
+              <div className="relative min-h-[18rem] overflow-hidden bg-[#11232a] md:min-h-full">
                 <Image
                   src={featuredPost.heroImageSrc}
                   alt={featuredPost.heroImageAlt}
-                  width={1080}
-                  height={700}
-                  className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  fill
+                  sizes="(min-width: 1024px) 42vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgba(17,35,42,0.34)_100%)]" />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,35,42,0.08)_0%,rgba(17,35,42,0.36)_100%)]" />
               </div>
 
-              <div className="flex flex-col justify-center p-2 md:p-4">
-                <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
-                  <p className="eyebrow text-accent">Latest Article</p>
+              <div className="flex flex-col justify-center px-6 py-7 md:px-8 md:py-8">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.95rem] text-foreground/68">
+                  <p className="eyebrow text-[#244ba8]">Featured article</p>
+                  <span>{featuredPost.category}</span>
                   <span>{featuredPost.dateLabel}</span>
                 </div>
-                <h2 className="mt-4 text-[clamp(2rem,3vw,3rem)] font-semibold leading-[1] tracking-[-0.04em] text-foreground">
+                <h2 className="mt-5 max-w-[14ch] text-[2.4rem] font-semibold leading-[0.96] tracking-[-0.05em] text-foreground md:text-[2.9rem]">
                   {featuredPost.title}
                 </h2>
-                <p className="mt-4 text-sm font-medium text-muted">
-                  {featuredPost.author}
-                </p>
-                <p className="mt-5 max-w-3xl text-[1.14rem] leading-8 text-muted">
+                <p className="mt-5 text-[1.1rem] font-medium leading-8 text-foreground/82 md:text-[1.16rem]">
                   {featuredPost.description}
                 </p>
-                <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors group-hover:text-accent-strong">
+                <p className="mt-4 text-[0.96rem] font-semibold text-foreground/62">
+                  By {featuredPost.author}
+                </p>
+                <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#244ba8] transition-colors group-hover:text-[#1b3c86]">
                   Read article
                   <span aria-hidden="true">→</span>
                 </span>
               </div>
             </Link>
 
-            <article className="glass-panel rounded-[2rem] p-7 md:p-8">
-              <p className="eyebrow text-accent">What You Will Find</p>
-              <h2 className="section-title mt-4 font-semibold text-foreground">
-                Topics businesses usually need explained clearly.
+            <aside className="rounded-[2rem] border border-foreground/10 bg-[#f7f5f0] p-7 shadow-[0_18px_50px_rgba(17,35,42,0.06)] md:p-8">
+              <p className="eyebrow text-[#244ba8]">What you will find</p>
+              <h2 className="mt-4 text-[2rem] font-semibold leading-[0.98] tracking-[-0.04em] text-foreground">
+                Practical blog posts
               </h2>
-              <div className="mt-6 space-y-4 text-[1.14rem] leading-8 text-muted">
-                <p>
-                  The articles focus on the questions that affect how businesses
-                  structure operations, plan filings, and stay compliant in the
-                  UAE.
-                </p>
-                <p>
-                  That includes corporate tax grouping, financial-year timing,
-                  free zone treatment, and other operating decisions where the
-                  implications need to be understood before action is taken.
-                </p>
+              <p className="mt-5 text-[1.08rem] leading-8 text-foreground/76">
+                These articles are written for founders and operators who need
+                the implications explained clearly before they make a filing,
+                structuring, or setup decision.
+              </p>
+              <div className="mt-8 space-y-3.5">
+                {[
+                  "Corporate tax structure and group treatment",
+                  "Financial-year timing and compliance planning",
+                  "Free zone rules and operating decisions",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex gap-3 rounded-[1.2rem] border border-foreground/10 bg-white/82 px-4 py-4"
+                  >
+                    <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[#244ba8]" />
+                    <span className="text-[1rem] font-medium leading-7 text-foreground/86">
+                      {item}
+                    </span>
+                  </div>
+                ))}
               </div>
-              <div className="mt-8 grid gap-3">
-                <div className="rounded-[1.2rem] border border-foreground/10 bg-white/75 px-4 py-4">
-                  <p className="eyebrow text-muted">Latest topic</p>
-                  <p className="mt-2 text-base font-semibold text-foreground">
-                    {featuredPost.category}
+              <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                <div className="rounded-[1.2rem] border border-foreground/10 bg-white/82 px-4 py-4">
+                  <p className="eyebrow text-muted">Published now</p>
+                  <p className="mt-2 text-[1.08rem] font-semibold text-foreground">
+                    {insightPosts.length} articles live
                   </p>
                 </div>
-                <div className="rounded-[1.2rem] border border-foreground/10 bg-white/75 px-4 py-4">
-                  <p className="eyebrow text-muted">Current reading</p>
-                  <p className="mt-2 text-base font-semibold text-foreground">
-                    3 published articles
-                  </p>
-                </div>
-                <div className="rounded-[1.2rem] border border-foreground/10 bg-white/75 px-4 py-4">
-                  <p className="eyebrow text-muted">Covered areas</p>
-                  <p className="mt-2 text-base font-semibold text-foreground">
-                    Tax groups, financial year, free zones
+                <div className="rounded-[1.2rem] border border-foreground/10 bg-white/82 px-4 py-4">
+                  <p className="eyebrow text-muted">Primary author</p>
+                  <p className="mt-2 text-[1.08rem] font-semibold text-foreground">
+                    {featuredPost.author}
                   </p>
                 </div>
               </div>
-            </article>
+            </aside>
           </div>
+        </div>
+      </section>
 
-          <div className="mt-16">
-            <SectionHeading
-              eyebrow="Article Archive"
-              title="More articles from Zenesis."
-              description="Browse the latest written guidance on compliance timing, tax treatment, and operating decisions in the UAE."
-            />
-          </div>
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <SectionHeading
+            eyebrow="Archive"
+            title="More articles"
+            description="Browse the latest written guidance on compliance timing, tax treatment, and operating decisions in the UAE."
+          />
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {remainingPosts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/insights/${post.slug}`}
-                className="premium-card glass-panel group flex min-h-full flex-col rounded-[1.75rem] p-4 transition-transform duration-300 hover:-translate-y-1"
+                className="group overflow-hidden rounded-[1.8rem] border border-[#ddd3c6] bg-white shadow-[0_18px_54px_rgba(17,35,42,0.08)] transition-transform duration-300 hover:-translate-y-1"
               >
-                <div className="relative overflow-hidden rounded-[1.35rem] bg-[#11232a]">
+                <div className="relative overflow-hidden bg-[#11232a]">
                   <Image
                     src={post.heroImageSrc}
                     alt={post.heroImageAlt}
-                    width={640}
-                    height={420}
-                    className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    width={960}
+                    height={620}
+                    className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgba(17,35,42,0.46)_100%)]" />
                 </div>
 
-                <div className="flex flex-1 flex-col p-3 pt-6">
-                  <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
-                    <p className="eyebrow text-accent">{post.category}</p>
+                <div className="px-5 py-6 md:px-6 md:py-7">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.94rem] text-foreground/66">
+                    <p className="eyebrow text-[#244ba8]">Blog post</p>
+                    <span>{post.category}</span>
                     <span>{post.dateLabel}</span>
                   </div>
-                  <h2 className="mt-5 text-2xl font-semibold leading-tight tracking-[-0.03em] text-foreground">
+                  <h2 className="mt-4 text-[2rem] font-semibold leading-[1] tracking-[-0.04em] text-foreground">
                     {post.title}
                   </h2>
-                  <p className="mt-4 text-sm font-medium text-muted">
-                    {post.author}
-                  </p>
-                  <p className="mt-4 flex-1 text-[1.12rem] leading-8 text-muted">
+                  <p className="mt-4 text-[1.08rem] leading-8 text-foreground/76">
                     {post.description}
                   </p>
-                  <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors group-hover:text-accent-strong">
+                  <p className="mt-4 text-[0.96rem] font-semibold text-foreground/62">
+                    By {post.author}
+                  </p>
+                  <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#244ba8] transition-colors group-hover:text-[#1b3c86]">
                     Read article
                     <span aria-hidden="true">→</span>
                   </span>
@@ -158,33 +173,50 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20 [&_.text-muted]:text-white/94">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            eyebrow="Featured Profile"
-            title="Cecilia D'Cunha in Global Leaders Today."
-            description="An external profile on the founder's background in offshore incorporation, UAE business setup, and corporate compliance."
+            eyebrow="Leadership"
+            title="Featured profile"
+            description="A full-length profile on Cecilia D'Cunha covering her early offshore incorporation work, her move into the UAE in 1998, and the leadership path that led to Zenesis."
+            eyebrowClassName="!text-white/62"
             titleClassName="!text-white"
+            descriptionClassName="!text-white/92"
           />
 
-          <a
+          <Link
             href={featuredProfile.href}
-            target="_blank"
-            rel="noreferrer"
             className="group mt-10 block transition-transform duration-300 hover:-translate-y-1"
           >
-            <div className="rounded-[1.75rem] border border-[#d8d0c2] bg-[#efe6d6] p-4 shadow-[0_22px_70px_rgba(17,35,42,0.12)]">
-              <div className="overflow-hidden rounded-[1.35rem] border border-[#ddd1c2] bg-white shadow-[0_12px_28px_rgba(17,35,42,0.12)]">
-                <Image
-                  src={featuredProfile.imageSrc}
-                  alt={featuredProfile.imageAlt}
-                  width={2300}
-                  height={1800}
-                  className="aspect-[23/18] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
-                />
+            <div className="rounded-[1.8rem] border border-[#ddd3c6] bg-[#f7f1e6] p-4 shadow-[0_20px_60px_rgba(17,35,42,0.08)]">
+              <div className="grid gap-5 md:grid-cols-[0.95fr_1.05fr] md:items-center">
+                <div className="overflow-hidden rounded-[1.4rem] border border-[#ddd1c2] bg-white shadow-[0_12px_28px_rgba(17,35,42,0.10)]">
+                  <Image
+                    src={featuredProfile.imageSrc}
+                    alt={featuredProfile.imageAlt}
+                    width={2300}
+                    height={1800}
+                    className="aspect-[23/18] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
+                  />
+                </div>
+                <div className="px-2 py-2 md:px-4">
+                  <p className="eyebrow text-[#244ba8]">Global Leaders Today</p>
+                  <h2 className="mt-4 text-[2.2rem] font-semibold leading-[0.98] tracking-[-0.05em] text-foreground md:text-[2.7rem]">
+                    Cecilia D&apos;Cunha
+                  </h2>
+                  <p className="mt-5 text-[1.1rem] leading-8 text-foreground/76">
+                    Read the full leadership profile covering Cecilia&apos;s
+                    early offshore incorporation work, her move into the UAE in
+                    1998, and the experience that shaped Zenesis.
+                  </p>
+                  <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#244ba8] transition-colors group-hover:text-[#1b3c86]">
+                    Read profile
+                    <span aria-hidden="true">→</span>
+                  </span>
+                </div>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       </section>
     </SiteShell>

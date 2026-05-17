@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { ConsultationFormButton } from "@/components/consultation-form";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import {
@@ -52,7 +53,7 @@ const setupRoutes = [
 
 const essentialServices = [
   {
-    title: "Document Attestation Services in UAE",
+    title: "Document Attestation",
     href: "/document-attestation-services-in-uae",
     description:
       "Personal, educational, and commercial documents often need formal attestation before UAE authorities will accept them.",
@@ -63,7 +64,7 @@ const essentialServices = [
     ],
   },
   {
-    title: "UAE Business Bank Account",
+    title: "Business Banking",
     href: "/open-a-bank-account-easily",
     description:
       "Business owners usually need banking support soon after choosing the formation route, especially when KYC and documentation requirements affect timing.",
@@ -74,7 +75,7 @@ const essentialServices = [
     ],
   },
   {
-    title: "UAE Company Visa",
+    title: "Company Visa",
     href: "/uae-company-visa",
     description:
       "A company visa is usually one of the first follow-on needs after setup for founders and employees who need to live and work in the UAE.",
@@ -85,14 +86,14 @@ const essentialServices = [
     ],
   },
   {
-    title: "UAE Golden Visa",
-    href: "/golden-visa-services-in-the-uae",
+    title: "Visa and Banking",
+    href: "/visa-and-banking",
     description:
-      "Golden Visa support matters when founders, investors, and senior professionals want residency planning tied to their business or long-term UAE presence.",
+      "Residency and banking support matters when founders, investors, and teams need visas or account opening tied to business setup.",
     points: [
-      "Review investor and entrepreneur routes tied to business activity and long-term UAE presence",
-      "Assess professional categories across fields such as medicine, engineering, IT, and research",
-      "Support creative, cultural, and other qualifying routes where the profile fits the criteria",
+      "Plan Golden Visa, company visa, and family residency needs in the right sequence",
+      "Prepare banking and KYC documentation alongside the company structure",
+      "Reduce delays by connecting residency and banking steps to the setup timeline",
     ],
   },
 ] as const;
@@ -165,17 +166,21 @@ export default function BusinessSetupPage() {
     <SiteShell currentPath="/business-setup">
       <PageIntro
         eyebrow="Business Setup"
-        title="Business setup support across the UAE."
+        title="Business setup"
+        backgroundImageSrc="/business-setup-bg.png"
+        backgroundImageAlt="Zenesis Business Setup page background"
+        backgroundImagePosition="!object-[100%_100%]"
+        backgroundImageMode="ambient"
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <article className="glass-panel rounded-[2rem] p-8 md:p-10">
-            <p className="eyebrow text-accent">Business Setup</p>
-            <h2 className="section-title mt-4 font-semibold text-foreground">
-              Pick the right setup route first.
+          <article className="rounded-[2rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#fffdfa_0%,#f5efe4_100%)] p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
+            <p className="eyebrow text-[#244ba8]">Business Setup</p>
+            <h2 className="section-title mt-4 font-semibold text-[#11232a]">
+              Overview
             </h2>
-            <div className="mt-5 max-w-[84rem] space-y-5 text-[1.16rem] leading-9 text-muted md:text-[1.22rem]">
+            <div className="mt-5 max-w-[84rem] space-y-5 text-[1.2rem] font-medium leading-9 text-[#11232a] md:text-[1.26rem]">
               <p>
                 Setting up a company in the UAE is not just about getting a trade
                 license. The right structure depends on your business activity,
@@ -199,7 +204,7 @@ export default function BusinessSetupPage() {
             <h2 className="section-title mt-4 font-semibold text-foreground">
               Dubai Company Formation
             </h2>
-            <p className="mt-4 max-w-3xl text-[1.14rem] leading-8 text-muted">
+            <p className="mt-4 max-w-3xl text-[1.18rem] font-medium leading-8 text-foreground/88">
               Most enquiries start with one decision: mainland, free zone, or
               offshore. Those three routes shape licensing, visas, banking, and
               how the company operates after formation.
@@ -209,9 +214,15 @@ export default function BusinessSetupPage() {
                 <Link
                   key={route.title}
                   href={route.href}
-                  className="rounded-[1.2rem] border border-foreground/10 bg-white/70 px-4 py-4 text-base font-medium text-foreground"
+                  className="group flex items-center justify-between rounded-[1.2rem] border border-[#d7cfc2] bg-[linear-gradient(180deg,#fffdfa_0%,#f7f1e7_100%)] px-5 py-4 text-[1.04rem] font-semibold text-foreground shadow-[0_10px_30px_rgba(17,35,42,0.07)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/22 hover:bg-white"
                 >
-                  {route.title}
+                  <span>{route.title}</span>
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#244ba8]/14 bg-[#244ba8]/8 text-[1rem] font-semibold text-[#244ba8] transition-transform duration-200 group-hover:translate-x-0.5"
+                  >
+                    →
+                  </span>
                 </Link>
               ))}
             </div>
@@ -222,7 +233,7 @@ export default function BusinessSetupPage() {
             <h2 className="section-title mt-4 font-semibold text-foreground">
               Support after formation
             </h2>
-            <p className="mt-4 max-w-3xl text-[1.14rem] leading-8 text-muted">
+            <p className="mt-4 max-w-3xl text-[1.18rem] font-medium leading-8 text-foreground/88">
               Company setup is usually only the first step. Most clients also
               need banking, visas, attestation, and residency support once the
               structure is chosen.
@@ -232,9 +243,15 @@ export default function BusinessSetupPage() {
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="rounded-[1.2rem] border border-foreground/10 bg-white/70 px-4 py-4 text-base font-medium text-foreground"
+                  className="group flex items-center justify-between rounded-[1.2rem] border border-[#d7cfc2] bg-[linear-gradient(180deg,#fffdfa_0%,#f7f1e7_100%)] px-5 py-4 text-[1.04rem] font-semibold text-foreground shadow-[0_10px_30px_rgba(17,35,42,0.07)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/22 hover:bg-white"
                 >
-                  {item.title}
+                  <span>{item.title}</span>
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#244ba8]/14 bg-[#244ba8]/8 text-[1rem] font-semibold text-[#244ba8] transition-transform duration-200 group-hover:translate-x-0.5"
+                  >
+                    →
+                  </span>
                 </Link>
               ))}
             </div>
@@ -245,111 +262,115 @@ export default function BusinessSetupPage() {
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            eyebrow="Company Formation"
-            title="The three main setup options."
+            eyebrow="Setup Options"
+            eyebrowClassName="text-[#244ba8]"
+            title="Main routes"
           />
 
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {setupRoutes.map((route) => (
-              <article
+              <BusinessSetupRouteCard
                 key={route.title}
-                className="glass-panel flex h-full flex-col rounded-[2rem] p-7 md:p-8"
-              >
-                <p className="eyebrow text-accent">Company formation</p>
-                <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-foreground">
-                  {route.title}
-                </h3>
-                <p className="mt-4 text-base font-semibold leading-7 text-foreground/92">
-                  {route.bestFor}
-                </p>
-                <p className="mt-5 text-[1.12rem] leading-8 text-muted">
-                  {route.description}
-                </p>
-                <div className="mt-6 space-y-3">
-                  {route.points.map((point) => (
-                    <div
-                      key={point}
-                      className="rounded-[1.2rem] border border-foreground/10 bg-white/80 px-5 py-4 text-[1.02rem] leading-7 text-foreground"
-                    >
-                      {point}
-                    </div>
-                  ))}
-                </div>
-              </article>
+                eyebrow="Setup Option"
+                title={route.title}
+                href={route.href}
+                frontSummary={route.bestFor}
+                backDescription={route.description}
+                points={route.points}
+                ctaLabel="View route"
+              />
             ))}
           </div>
         </div>
       </section>
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
-        <div className="mx-auto grid w-full max-w-[100rem] items-start gap-5 px-6 md:px-12 lg:grid-cols-[1.1fr_0.9fr] xl:px-20">
-          <article className="glass-panel h-fit rounded-[2rem] p-7 md:p-8">
-            <p className="eyebrow text-accent">Comparison</p>
+        <div className="mx-auto grid w-full max-w-[100rem] items-stretch gap-5 px-6 md:px-12 lg:grid-cols-[1.1fr_0.9fr] xl:px-20">
+          <article className="glass-panel h-full rounded-[2rem] p-7 md:p-8">
+            <p className="eyebrow !text-[#244ba8]">Comparison</p>
             <h2 className="section-title mt-4 font-semibold !text-foreground">
-              Start with what the business needs to do.
+              Route comparison
             </h2>
-            <div className="mt-6 space-y-4">
-              {routeSignals.map((item) => (
+            <p className="mt-4 max-w-3xl text-[1.14rem] font-medium leading-8 !text-foreground/90">
+              Use these quick route signals to narrow the setup path before you compare licenses,
+              visas, banking, and ongoing compliance.
+            </p>
+            <div className="mt-7 space-y-3.5">
+              {routeSignals.map((item, index) => (
                 <div
                   key={item.title}
-                  className="rounded-[1.35rem] border border-foreground/10 bg-white/70 p-5"
+                  className="grid gap-4 rounded-[1.45rem] border border-foreground/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.86)_0%,rgba(245,239,228,0.98)_100%)] p-5 shadow-[0_12px_34px_rgba(17,35,42,0.09)] md:grid-cols-[auto_1fr]"
                 >
-                  <h3 className="text-lg font-semibold tracking-[-0.03em] !text-foreground">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-base leading-7 !text-foreground/92">
-                    {item.description}
-                  </p>
+                  <div className="flex items-start">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#244ba8]/14 bg-[#244ba8]/8 text-sm font-semibold text-[#244ba8]">
+                      0{index + 1}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="text-[1.14rem] font-semibold tracking-[-0.03em] !text-foreground md:text-[1.18rem]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-[1.08rem] font-medium leading-7 !text-foreground/92">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
           </article>
 
-          <article className="glass-panel h-fit rounded-[2rem] p-7 md:p-8">
-            <p className="eyebrow text-accent">Formation reference</p>
+          <article className="glass-panel h-full rounded-[2rem] p-7 md:p-8">
+            <p className="eyebrow !text-[#244ba8]">Formation reference</p>
             <h2 className="section-title mt-4 font-semibold !text-foreground">
-              Structures, zones, and offshore options.
+              Route reference
             </h2>
-
-            <div className="mt-6">
-              <p className="eyebrow !text-muted">Structures</p>
-              <div className="mt-3 flex flex-wrap gap-3">
-                {setupStructures.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-foreground/10 bg-white/70 px-4 py-2 text-sm text-foreground"
-                  >
-                    {item}
-                  </span>
-                ))}
+            <div className="mt-7 grid gap-4">
+              <div className="rounded-[1.35rem] border border-foreground/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.84)_0%,rgba(245,239,228,0.96)_100%)] p-5 shadow-[0_10px_28px_rgba(17,35,42,0.08)]">
+                <p className="eyebrow !text-muted">Structures</p>
+                <ul className="mt-3 space-y-2.5 text-[1.04rem] leading-7 !text-foreground/92">
+                  {setupStructures.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-[#244ba8]"
+                      >
+                      </span>
+                      <span className="font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
 
-            <div className="mt-8">
-              <p className="eyebrow text-muted">Popular free zones</p>
-              <div className="mt-3 flex flex-wrap gap-3">
-                {freeZoneExamples.slice(0, 6).map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-foreground/10 bg-white/70 px-4 py-2 text-sm text-foreground"
-                  >
-                    {item}
-                  </span>
-                ))}
+              <div className="rounded-[1.35rem] border border-foreground/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.84)_0%,rgba(245,239,228,0.96)_100%)] p-5 shadow-[0_10px_28px_rgba(17,35,42,0.08)]">
+                <p className="eyebrow !text-muted">Popular free zones</p>
+                <ul className="mt-3 space-y-2.5 text-[1.04rem] leading-7 !text-foreground/92">
+                  {freeZoneExamples.slice(0, 6).map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-[#244ba8]"
+                      >
+                      </span>
+                      <span className="font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
 
-            <div className="mt-8">
-              <p className="eyebrow text-muted">Offshore options</p>
-              <div className="mt-3 flex flex-wrap gap-3">
-                {offshoreOptions.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-foreground/10 bg-white/70 px-4 py-2 text-sm text-foreground"
-                  >
-                    {item}
-                  </span>
-                ))}
+              <div className="rounded-[1.35rem] border border-foreground/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.84)_0%,rgba(245,239,228,0.96)_100%)] p-5 shadow-[0_10px_28px_rgba(17,35,42,0.08)]">
+                <p className="eyebrow !text-muted">Offshore options</p>
+                <ul className="mt-3 space-y-2.5 text-[1.04rem] leading-7 !text-foreground/92">
+                  {offshoreOptions.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-[#244ba8]"
+                      >
+                      </span>
+                      <span className="font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </article>
@@ -359,32 +380,23 @@ export default function BusinessSetupPage() {
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            eyebrow="Services"
-            title="Everything you may need after setup."
-            description="These services usually come immediately after the route decision, so they belong on the page."
+            eyebrow="After Setup"
+            eyebrowClassName="text-[#244ba8]"
+            title="After setup"
           />
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {essentialServices.map((item) => (
-              <article key={item.title} className="glass-panel rounded-[1.75rem] p-7">
-                <p className="eyebrow text-warm">Essential service</p>
-                <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-foreground">
-                  {item.title}
-                </h3>
-                <p className="mt-4 max-w-2xl text-[1.12rem] leading-8 text-muted">
-                  {item.description}
-                </p>
-                <div className="mt-5 space-y-3">
-                  {item.points.map((point) => (
-                    <div
-                      key={point}
-                      className="rounded-[1.1rem] border border-foreground/10 bg-white/80 px-5 py-4 text-[1.02rem] leading-7 text-foreground"
-                    >
-                      {point}
-                    </div>
-                  ))}
-                </div>
-              </article>
+          <div className="mt-10 grid gap-5 lg:grid-cols-2 xl:grid-cols-4">
+            {essentialServices.map((service) => (
+              <BusinessSetupRouteCard
+                key={service.title}
+                eyebrow="Essential Service"
+                title={service.title}
+                href={service.href}
+                frontSummary={service.description}
+                points={service.points}
+                ctaLabel="Open service"
+                variant="essential"
+              />
             ))}
           </div>
         </div>
@@ -394,20 +406,22 @@ export default function BusinessSetupPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Setup Process"
-            title="Our business setup process."
-            description="From first conversation to operating company, this is the practical flow most clients want to understand."
+            title="Process"
           />
+          <p className="mt-5 max-w-4xl text-[1.14rem] font-medium leading-8 text-white/88 md:text-[1.2rem]">
+            From first conversation to operating company, this is the practical flow most clients want to understand.
+          </p>
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {processSteps.map((item) => (
-              <article key={item.step} className="glass-panel rounded-[1.75rem] p-7">
-                <p className="text-sm font-semibold tracking-[0.24em] text-accent">
+              <article key={item.step} className="glass-panel rounded-[1.75rem] p-8 md:p-9">
+                <p className="text-[0.95rem] font-semibold tracking-[0.24em] text-accent">
                   {item.step}
                 </p>
-                <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] !text-foreground">
+                <h3 className="mt-4 text-[1.32rem] font-semibold leading-tight tracking-[-0.04em] !text-foreground md:text-[1.4rem] xl:text-[1.46rem]">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-base leading-7 !text-foreground/92">
+                <p className="mt-4 text-[1.14rem] font-medium leading-8 !text-foreground/94 md:text-[1.18rem]">
                   {item.description}
                 </p>
               </article>
@@ -421,9 +435,9 @@ export default function BusinessSetupPage() {
           <article className="glass-panel rounded-[2rem] p-8 md:p-10">
             <p className="eyebrow text-accent">Next Step</p>
             <h2 className="section-title mt-4 font-semibold text-foreground">
-              Not sure which company setup option is right for you?
+              Talk to Zenesis
             </h2>
-            <p className="mt-5 max-w-4xl text-[1.18rem] leading-9 text-muted">
+            <p className="mt-5 max-w-4xl text-[1.22rem] font-medium leading-9 text-foreground/88">
               Share your business activity, ownership needs, and visa
               requirements. Zenesis will help you compare the right mainland,
               free zone, or offshore route.

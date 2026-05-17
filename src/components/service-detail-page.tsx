@@ -3,6 +3,7 @@ import { PageIntro, SiteShell } from "@/components/site-shell";
 import type { ServiceDetailConfig } from "@/lib/service-pages";
 
 export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
+  const hasAmbientIntro = Boolean(config.introBackgroundImageSrc);
   return (
     <SiteShell currentPath={config.currentPath}>
       <PageIntro
@@ -14,16 +15,35 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
           { label: config.eyebrow, href: `/${config.slug}` },
         ]}
         title={config.title}
+        backgroundImageSrc={config.introBackgroundImageSrc}
+        backgroundImageAlt={config.introBackgroundImageAlt}
+        backgroundImagePosition={config.introBackgroundImagePosition}
+        backgroundImageMode={config.introBackgroundImageSrc ? "ambient" : undefined}
+        ambientImageClassName={config.introAmbientImageClassName}
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section
+        className={`relative left-1/2 -mt-px w-screen -translate-x-1/2 py-16 md:py-20 ${
+          hasAmbientIntro ? "bg-[#11232a]" : "bg-[#f5efe4]"
+        }`}
+      >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <article className="glass-panel rounded-[2rem] p-8 md:p-10">
-            <p className="eyebrow text-accent">{config.eyebrow}</p>
-            <h2 className="section-title mt-4 font-semibold text-foreground">
+          <article
+            className={
+              hasAmbientIntro
+                ? "rounded-[2rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#fffdfa_0%,#f5efe4_100%)] p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10"
+                : "glass-panel rounded-[2rem] p-8 md:p-10"
+            }
+          >
+            <p className={`eyebrow ${hasAmbientIntro ? "text-[#244ba8]" : "text-accent"}`}>{config.eyebrow}</p>
+            <h2 className={`section-title mt-4 font-semibold ${hasAmbientIntro ? "text-[#11232a]" : "text-foreground"}`}>
               {config.introTitle}
             </h2>
-            <div className="mt-5 max-w-[88rem] space-y-5 text-[1.16rem] leading-9 text-muted md:text-[1.22rem]">
+            <div
+              className={`mt-5 max-w-[88rem] space-y-5 text-[1.16rem] leading-9 md:text-[1.22rem] ${
+                hasAmbientIntro ? "text-[#11232a]" : "text-muted"
+              }`}
+            >
               {config.introParagraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -52,9 +72,9 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
           </article>
 
           <article className="glass-panel rounded-[2rem] p-8 md:p-10">
-            <p className="eyebrow text-accent">Need help deciding?</p>
+            <p className="eyebrow text-accent">Next Step</p>
             <h2 className="section-title mt-4 font-semibold text-foreground">
-              {config.supportTitle ?? "Tell Zenesis what you need the structure or service to do."}
+              {config.supportTitle ?? "Talk to Zenesis"}
             </h2>
             <div className="mt-5 max-w-[44rem] space-y-5 text-[1.16rem] leading-9 text-muted md:text-[1.22rem]">
               {(config.supportParagraphs ?? [
