@@ -13,6 +13,35 @@ type SiteShellProps = {
 
 export function SiteShell({ children, currentPath }: SiteShellProps) {
   const shellWidthClass = "max-w-[100rem]";
+  const isHomepage = currentPath === "/";
+
+  const handleServicesNavClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (!isHomepage || href !== "/#services") {
+      return;
+    }
+
+    event.preventDefault();
+
+    const servicesSection = document.getElementById("services");
+    const header = document.querySelector("header");
+
+    if (!servicesSection) {
+      return;
+    }
+
+    const headerOffset = header instanceof HTMLElement ? header.offsetHeight + 8 : 88;
+    const targetTop =
+      servicesSection.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+    window.history.replaceState(null, "", "/#services");
+    window.scrollTo({
+      top: Math.max(0, targetTop),
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="relative isolate min-h-screen overflow-x-clip">
@@ -68,6 +97,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                   <div key={item.href} className="group relative">
                     <Link
                       href={item.href}
+                      onClick={(event) => handleServicesNavClick(event, item.href)}
                       className={`group inline-flex items-center gap-1.5 px-2 py-2.5 transition-colors duration-200 hover:text-white ${
                         isActive ? "text-white" : ""
                       }`}
@@ -166,6 +196,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={(event) => handleServicesNavClick(event, item.href)}
                   className={`group px-2 py-2.5 transition-colors duration-200 hover:text-white ${
                     isActive ? "text-white" : ""
                   }`}
@@ -279,6 +310,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                       <Link
                         key={item.href}
                         href={item.href}
+                        onClick={(event) => handleServicesNavClick(event, item.href)}
                         className="border-b border-white/8 px-3 py-4 text-[1.08rem] font-medium !text-white transition-colors hover:bg-white/6 last:border-b-0"
                       >
                         {item.label}
@@ -553,7 +585,9 @@ export function PageIntro({
               alt={backgroundImageAlt ?? ""}
               fill
               priority
-              sizes="100vw"
+              fetchPriority="high"
+              quality={72}
+              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 78vw, 62vw"
               className={`hero-image translate-x-[12%] scale-110 object-cover saturate-[1.04] contrast-[1.04] md:translate-x-[18%] md:scale-110 ${backgroundImagePosition ?? "object-center"}`}
             />
           </div>
@@ -563,19 +597,19 @@ export function PageIntro({
       {usesAmbientBackgroundImage ? (
         <div
           className={[
-            "pointer-events-none absolute inset-y-0 right-0 w-[100%] overflow-hidden",
+            "pointer-events-none absolute inset-y-0 right-0 w-[68%] overflow-hidden md:w-[52%] lg:w-[54%] xl:w-[56%]",
             ambientImageClassName ?? "",
           ]
             .filter(Boolean)
             .join(" ")}
         >
           <div
-            className="absolute inset-0 opacity-[0.92] md:opacity-[0.98]"
+            className="absolute inset-0 opacity-[0.56] md:opacity-[0.98]"
             style={{
               WebkitMaskImage:
-                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 16%, rgba(0,0,0,0.34) 24%, rgba(0,0,0,0.68) 32%, #000 40%)",
+                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 20%, rgba(0,0,0,0.42) 34%, rgba(0,0,0,0.78) 50%, #000 64%)",
               maskImage:
-                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 16%, rgba(0,0,0,0.34) 24%, rgba(0,0,0,0.68) 32%, #000 40%)",
+                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 20%, rgba(0,0,0,0.42) 34%, rgba(0,0,0,0.78) 50%, #000 64%)",
             }}
           >
             <Image
@@ -583,8 +617,10 @@ export function PageIntro({
               alt={backgroundImageAlt ?? ""}
               fill
               priority
-              sizes="100vw"
-              className={`object-contain object-right-top md:scale-[1.08] md:object-cover lg:scale-[1.12] xl:scale-[1.16] saturate-[0.94] contrast-[0.98] ${backgroundImagePosition ?? "object-[100%_100%]"}`}
+              fetchPriority="high"
+              quality={68}
+              sizes="(max-width: 767px) 92vw, (max-width: 1279px) 54vw, 50vw"
+              className={`object-cover object-right-top saturate-[0.94] contrast-[0.98] ${backgroundImagePosition ?? "object-[100%_100%]"}`}
             />
           </div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_44%,rgba(36,75,168,0.12),transparent_30%),linear-gradient(180deg,rgba(245,239,228,0.02)_0%,rgba(245,239,228,0.08)_72%,rgba(245,239,228,0.22)_100%)]" />

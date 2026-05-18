@@ -20,7 +20,6 @@ export default function InsightsPage() {
       <PageIntro
         eyebrow="Insights"
         title="Insights"
-        description="Published guidance from Zenesis on UAE tax, compliance, and operating decisions."
         backgroundImageSrc="/insights-bg.png"
         backgroundImageAlt="Zenesis Insights page background"
         backgroundImagePosition="!object-[100%_100%]"
@@ -102,20 +101,6 @@ export default function InsightsPage() {
                     </span>
                   </div>
                 ))}
-              </div>
-              <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-                <div className="rounded-[1.2rem] border border-foreground/10 bg-white/82 px-4 py-4">
-                  <p className="eyebrow text-muted">Published now</p>
-                  <p className="mt-2 text-[1.08rem] font-semibold text-foreground">
-                    {insightPosts.length} articles live
-                  </p>
-                </div>
-                <div className="rounded-[1.2rem] border border-foreground/10 bg-white/82 px-4 py-4">
-                  <p className="eyebrow text-muted">Primary author</p>
-                  <p className="mt-2 text-[1.08rem] font-semibold text-foreground">
-                    {featuredPost.author}
-                  </p>
-                </div>
               </div>
             </aside>
           </div>
