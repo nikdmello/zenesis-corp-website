@@ -47,8 +47,8 @@ export default async function InsightArticlePage({
 
   return (
     <SiteShell currentPath="/insights">
-      <article className="mx-auto w-full max-w-[62rem]">
-        <div className="mt-4">
+      <article className="mx-auto mt-10 w-full max-w-[62rem] md:mt-12">
+        <div>
           <Link
             href="/insights"
             className="text-sm font-semibold text-accent transition-colors hover:text-accent-strong"

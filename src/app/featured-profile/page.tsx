@@ -69,8 +69,8 @@ const finalQuote =
 export default function FeaturedProfilePage() {
   return (
     <SiteShell currentPath="/insights">
-      <article className="mx-auto w-full max-w-5xl">
-        <div className="mt-4">
+      <article className="mx-auto mt-10 w-full max-w-5xl md:mt-12">
+        <div>
           <Link
             href="/insights"
             className="text-sm font-semibold text-accent transition-colors hover:text-accent-strong"

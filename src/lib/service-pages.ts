@@ -233,7 +233,6 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     introBackgroundImageSrc: "/visa-and-banking-bg.png",
     introBackgroundImageAlt: "Zenesis Visa and Banking page background",
     introBackgroundImagePosition: "!object-[100%_100%]",
-    introAmbientImageClassName: "bottom-[-8rem] md:bottom-[-10rem]",
     introTitle: "Overview",
     introParagraphs: [
       "Visa and banking needs usually begin as soon as the company structure is clear. Founders may need residency, teams may need company visas, and banks may need a stronger KYC pack before an account can move forward.",

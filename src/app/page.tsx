@@ -219,7 +219,7 @@ export default function Home() {
           <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[100rem] items-center px-6 pb-16 pt-32 md:px-12 md:pb-20 md:pt-36 xl:px-20">
             <div className="max-w-[58rem] rounded-[1.8rem] border border-white/10 bg-[rgba(17,35,42,0.38)] px-5 py-6 shadow-[0_20px_44px_rgba(7,21,27,0.16)] backdrop-blur-sm sm:px-6 md:!rounded-none md:!border-transparent md:!bg-transparent md:px-0 md:py-0 md:!shadow-none md:backdrop-blur-none">
               <div className="pl-5 sm:pl-6 md:pl-7">
-              <div className="hero-reveal hero-reveal-1 mb-6">
+              <div className="hero-reveal hero-reveal-1 mb-6 flex justify-center md:block">
                 <NextImage
                   src="/zenesis-logo-full.png"
                   alt="Zenesis Corporation"
@@ -229,15 +229,15 @@ export default function Home() {
                   priority
                 />
               </div>
-              <h1 className="hero-reveal hero-reveal-1 max-w-[13ch] text-[3.1rem] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:max-w-[14ch] sm:text-[4.1rem] lg:max-w-[15ch] lg:text-[5rem]">
+              <h1 className="hero-reveal hero-reveal-1 mx-auto max-w-[13ch] text-center text-[3.1rem] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:max-w-[14ch] sm:text-[4.1rem] md:mx-0 md:text-left lg:max-w-[15ch] lg:text-[5rem]">
                 20+ years of business setup in Dubai
               </h1>
 
-              <div className="hero-reveal hero-reveal-2 mt-7 grid max-w-[28rem] grid-cols-1 gap-3.5 md:max-w-[26rem]">
+              <div className="hero-reveal hero-reveal-2 mt-7 grid max-w-[28rem] grid-cols-1 gap-3.5 md:mx-0 md:max-w-[26rem]">
                 {heroServices.map((service, index) => (
                   <div
                     key={service.title}
-                    className="group flex min-h-[4.8rem] items-center gap-4 rounded-[1.45rem] border border-white/14 bg-[linear-gradient(135deg,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.06)_100%)] px-4.5 py-3 text-white shadow-[0_18px_38px_rgba(7,21,27,0.16)] backdrop-blur-md transition-transform duration-200 hover:-translate-y-0.5 md:min-h-[5rem] md:px-5.5"
+                    className="group mx-auto flex min-h-[4.8rem] w-full items-center gap-4 rounded-[1.45rem] border border-white/14 bg-[linear-gradient(135deg,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.06)_100%)] px-4.5 py-3 text-white shadow-[0_18px_38px_rgba(7,21,27,0.16)] backdrop-blur-md transition-transform duration-200 hover:-translate-y-0.5 md:mx-0 md:min-h-[5rem] md:px-5.5"
                   >
                     <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[1rem] border border-white/14 bg-white/10 text-[0.84rem] font-bold tracking-[0.12em] text-white md:h-11 md:w-11 md:text-[0.9rem]">
                       {String(index + 1).padStart(2, "0")}
@@ -260,7 +260,13 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="hero-reveal hero-reveal-3 mt-7 inline-flex h-16 w-fit items-center gap-3 text-white md:h-[4.5rem] md:gap-4">
+              <div className="hero-reveal hero-reveal-3 mt-9 flex flex-col items-center gap-4 sm:flex-row sm:items-center md:items-start">
+                <ConsultationFormButtonWithScrollPrompt
+                  label="Schedule a Free Consultation"
+                  className="inline-flex min-h-12 w-fit items-center justify-center self-center whitespace-nowrap rounded-full bg-white px-5 py-3.5 text-center text-sm font-semibold tracking-[0.01em] !text-[#07151b] shadow-[0_18px_44px_rgba(17,35,42,0.12)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white/92 sm:px-7 sm:text-base md:self-auto"
+                />
+              </div>
+              <div className="hero-reveal hero-reveal-3 mt-4 flex h-16 w-full items-center justify-center gap-3 text-white md:inline-flex md:h-[4.5rem] md:w-fit md:justify-start md:gap-4">
                 <div className="origin-left scale-[1.22] md:scale-[1.28]">
                   <NextImage
                     src="/google.png"
@@ -274,12 +280,6 @@ export default function Home() {
                   <span>{googleReviewCountLabel}</span>
                 </span>
               </div>
-              <div className="hero-reveal hero-reveal-3 mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <ConsultationFormButtonWithScrollPrompt
-                  label="Schedule a Free Consultation"
-                  className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3.5 text-center text-sm font-semibold tracking-[0.01em] !text-[#07151b] shadow-[0_18px_44px_rgba(17,35,42,0.12)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white/92 sm:text-base"
-                />
-              </div>
             </div>
             </div>
           </div>
@@ -287,7 +287,7 @@ export default function Home() {
 
         <section
           id="services"
-          className="relative left-1/2 w-screen -translate-x-1/2 scroll-mt-28 py-14 text-[#07151b] md:py-16 xl:py-12"
+          className="relative left-1/2 w-screen -translate-x-1/2 scroll-mt-20 md:scroll-mt-24 py-14 text-[#07151b] md:py-16 xl:py-12"
         >
           <div className="mx-auto w-full max-w-[108rem] px-6 md:px-12 xl:px-16 2xl:px-18">
             <div className="py-5 md:py-6 xl:py-4">
