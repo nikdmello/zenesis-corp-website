@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ConsultationFormButton } from "@/components/consultation-form";
+import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
+import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 
 const accountingServices = [
   {
@@ -100,6 +101,11 @@ const whyZenesis = [
     description:
       "From setup to bookkeeping, VAT, corporate tax, banking, visas, and renewals.",
   },
+  {
+    title: "Practical Guidance",
+    description:
+      "Clear support on what needs to happen next, so filings, records, and follow-up decisions stay manageable.",
+  },
 ] as const;
 
 const workingRhythm = [
@@ -166,9 +172,12 @@ export default function AccountingTaxPage() {
   return (
     <SiteShell currentPath="/accounting-tax">
       <PageIntro
-        eyebrow="Accounting & Tax"
+        breadcrumb={[
+          { label: "Services", href: "/#services" },
+          { label: "Accounting and tax" },
+        ]}
         title="Accounting and tax"
-        backgroundImageSrc="/accounting-and-tax-bg.png"
+        backgroundImageSrc="/accounting-and-tax-bg.webp"
         backgroundImageAlt="Zenesis Accounting and Tax page background"
         backgroundImagePosition="!object-[100%_100%]"
         backgroundImageMode="ambient"
@@ -197,14 +206,20 @@ export default function AccountingTaxPage() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="rounded-[1.2rem] border border-foreground/10 bg-white/80 px-5 py-5"
+                className="group flex h-full flex-col justify-between rounded-[1.2rem] border border-foreground/10 bg-white/88 px-5 py-5 shadow-[0_10px_28px_rgba(17,35,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/22 hover:bg-white"
               >
-                <h3 className="overflow-hidden text-ellipsis whitespace-nowrap text-[1.02rem] font-semibold leading-7 text-foreground">
+                <div>
+                <h3 className="text-[1.02rem] font-semibold leading-7 text-foreground">
                   {item.title}
                 </h3>
                 <p className="mt-3 text-[1.02rem] leading-7 text-muted">
                   {item.description}
                 </p>
+                </div>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#244ba8] transition-colors group-hover:text-[#1b3c86]">
+                  Open service
+                  <span aria-hidden="true">→</span>
+                </span>
               </Link>
             ))}
           </div>
@@ -213,7 +228,7 @@ export default function AccountingTaxPage() {
         <div className="relative mx-auto w-full max-w-[26rem] lg:max-w-none">
           <div className="glass-panel relative aspect-[4/5] overflow-hidden rounded-[2.25rem]">
             <Image
-              src="/corporate-tax.jpg"
+              src="/corporate-tax.webp"
               alt="Professional reviewing financial documents at a desk"
               fill
               sizes="(min-width: 1024px) 42vw, 100vw"
@@ -255,27 +270,18 @@ export default function AccountingTaxPage() {
             description="Each service line is a concrete part of the compliance and reporting stack."
           />
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {accountingServices.map((item) => (
-              <Link key={item.title} href={item.href} className="glass-panel rounded-[1.75rem] p-7 transition-transform duration-200 hover:-translate-y-1">
-                <p className="eyebrow text-warm">Accounting and tax</p>
-                <h3 className="mt-4 overflow-hidden text-ellipsis whitespace-nowrap text-[1.18rem] font-semibold tracking-[-0.04em] text-foreground md:text-[1.24rem] xl:text-[1.3rem]">
-                  {item.title}
-                </h3>
-                <p className="mt-4 max-w-2xl text-[1.12rem] leading-8 text-muted">
-                  {item.description}
-                </p>
-                <div className="mt-5 space-y-3">
-                  {item.points.map((point) => (
-                    <div
-                      key={point}
-                      className="rounded-[1.1rem] border border-foreground/10 bg-white/80 px-5 py-4 text-[1.02rem] leading-7 text-foreground"
-                    >
-                      {point}
-                    </div>
-                  ))}
-                </div>
-              </Link>
+              <BusinessSetupRouteCard
+                key={item.title}
+                eyebrow="Core Service"
+                title={item.title}
+                href={item.href}
+                frontSummary={item.description}
+                points={item.points}
+                ctaLabel="Open service"
+                variant="essential"
+              />
             ))}
           </div>
         </div>
@@ -332,23 +338,17 @@ export default function AccountingTaxPage() {
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <article className="glass-panel rounded-[2rem] p-8 md:p-10">
-            <p className="eyebrow text-accent">Next Step</p>
-            <h2 className="section-title mt-4 font-semibold !text-foreground">
-              Talk to Zenesis
-            </h2>
-            <p className="mt-5 max-w-4xl text-[1.18rem] leading-9 !text-foreground/92">
-              Whether you need monthly bookkeeping, VAT filing, corporate tax
-              registration, or annual tax filing, Zenesis can help you stay
-              organized and compliant.
-            </p>
-            <div className="mt-8">
-              <ConsultationFormButton
-                label="Schedule a Free Consultation"
-                className="inline-flex rounded-full bg-[#244ba8] px-6 py-3 text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b3c86]"
-              />
-            </div>
-          </article>
+          <TalkToZenesisPanel
+            wrapperClassName="glass-panel rounded-[2rem] p-8 md:p-10"
+            eyebrowClassName="eyebrow !text-[#244ba8]"
+            titleClassName="section-title mt-4 font-semibold !text-foreground"
+            textClassName="text-[1.18rem] leading-9 !text-foreground/92"
+            paragraphs={[
+              "Whether you need monthly bookkeeping, VAT filing, corporate tax registration, or annual tax filing, Zenesis can help you stay organized and compliant.",
+            ]}
+            buttonClassName="inline-flex rounded-full bg-[#244ba8] px-6 py-3 text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b3c86]"
+            imageClassName="object-cover object-[74%_center]"
+          />
         </div>
       </section>
     </SiteShell>

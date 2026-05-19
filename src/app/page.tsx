@@ -9,6 +9,7 @@ import { HomepageReviewsCarousel } from "@/components/homepage-reviews-carousel"
 import { HomepageServiceTile } from "@/components/homepage-service-tile";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SectionHeading, SiteShell } from "@/components/site-shell";
+import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import {
   featuredProfile,
   testimonials,
@@ -38,7 +39,7 @@ const customerPaths = [
     title: "Business setup",
     href: "/business-setup",
     cta: "Explore business setup",
-    imageSrc: "/business-setup.jpg",
+    imageSrc: "/business-setup.webp",
     imageAlt: "Business advisors discussing UAE company formation",
     offerings: [
       {
@@ -66,7 +67,7 @@ const customerPaths = [
     title: "Accounting and tax",
     href: "/accounting-tax",
     cta: "Explore accounting and tax",
-    imageSrc: "/accounting-and-tax.jpg",
+    imageSrc: "/accounting-and-tax.webp",
     imageAlt: "Professionals reviewing business documents",
     offerings: [
       {
@@ -94,7 +95,7 @@ const customerPaths = [
     title: "Visa and Banking",
     href: "/visa-and-banking",
     cta: "Explore visa and banking",
-    imageSrc: "/contact-consultation.jpg",
+    imageSrc: "/contact-consultation.webp",
     imageAlt: "Business advisor speaking with a client about residency and banking",
     offerings: [
       {
@@ -122,7 +123,7 @@ const customerPaths = [
     title: "Corporate support",
     href: "/contact",
     cta: "Discuss corporate support",
-    imageSrc: "/professional-meeting.jpg",
+    imageSrc: "/professional-meeting.webp",
     imageAlt: "Business advisor coordinating corporate support",
     offerings: [
       {
@@ -209,7 +210,7 @@ export default function Home() {
         <section className="photo-hero relative left-1/2 -mt-10 min-h-[100svh] w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] text-white md:-mt-14">
           <div className="absolute inset-0">
             <HeroBackgroundVideo
-              src="/homepage-video.mp4"
+              src="/homepage.webm"
               className="h-full w-full object-cover object-[66%_30%] saturate-[1.05] contrast-[1.04] md:[mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.12)_16%,rgba(0,0,0,0.42)_26%,rgba(0,0,0,0.78)_38%,black_50%)] md:object-[76%_28%] lg:object-[82%_27%]"
             />
           </div>
@@ -221,7 +222,7 @@ export default function Home() {
               <div className="pl-5 sm:pl-6 md:pl-7">
               <div className="hero-reveal hero-reveal-1 mb-6 flex justify-center md:block">
                 <NextImage
-                  src="/zenesis-logo-full.png"
+                  src="/zenesis-logo-full.webp"
                   alt="Zenesis Corporation"
                   width={340}
                   height={82}
@@ -269,7 +270,7 @@ export default function Home() {
               <div className="hero-reveal hero-reveal-3 mt-4 flex h-16 w-full items-center justify-center gap-3 text-white md:inline-flex md:h-[4.5rem] md:w-fit md:justify-start md:gap-4">
                 <div className="origin-left scale-[1.22] md:scale-[1.28]">
                   <NextImage
-                    src="/google.png"
+                    src="/google.webp"
                     alt="Google reviews"
                     width={168}
                     height={72}
@@ -287,7 +288,7 @@ export default function Home() {
 
         <section
           id="services"
-          className="relative left-1/2 w-screen -translate-x-1/2 scroll-mt-20 md:scroll-mt-24 py-14 text-[#07151b] md:py-16 xl:py-12"
+          className="relative left-1/2 w-screen -translate-x-1/2 scroll-mt-14 md:scroll-mt-18 py-14 text-[#07151b] md:py-16 xl:py-12"
         >
           <div className="mx-auto w-full max-w-[108rem] px-6 md:px-12 xl:px-16 2xl:px-18">
             <div className="py-5 md:py-6 xl:py-4">
@@ -446,17 +447,17 @@ export default function Home() {
             <div className="grid gap-4 md:grid-cols-3">
               {[
                 {
-                  src: "/zenesis-award1.png",
+                  src: "/zenesis-award1.webp",
                   alt: "Zenesis team receiving company formation award in Dubai",
                   className: "aspect-[4/5]",
                 },
                 {
-                  src: "/zenesis-award2.png",
+                  src: "/zenesis-award2.webp",
                   alt: "Zenesis award recognition ceremony moment",
                   className: "aspect-[4/5]",
                 },
                 {
-                  src: "/zenesis-award3.png",
+                  src: "/zenesis-award3.webp",
                   alt: "Zenesis representatives holding company award",
                   className: "aspect-[4/5]",
                 },
@@ -476,9 +477,9 @@ export default function Home() {
                     }
                     className="object-cover object-center"
                     style={
-                      image.src === "/zenesis-award1.png"
+                      image.src === "/zenesis-award1.webp"
                         ? { objectPosition: "54% center" }
-                        : image.src === "/zenesis-award3.png"
+                        : image.src === "/zenesis-award3.webp"
                           ? { objectPosition: "center 42%" }
                           : undefined
                     }
@@ -501,7 +502,7 @@ export default function Home() {
             />
             <div className="flex items-center gap-4 md:shrink-0">
               <NextImage
-                src="/google.png"
+                src="/google.webp"
                 alt="Google reviews"
                 width={168}
                 height={72}
@@ -584,25 +585,17 @@ export default function Home() {
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <ScrollReveal>
-            <section className="relative overflow-hidden rounded-[2rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_32px_110px_rgba(17,35,42,0.14)] md:p-10">
-              <NextImage
-                src="/contact-consultation.jpg"
-                alt="Professionals in a client advisory setting"
-                fill
-                sizes="(min-width: 1280px) 72rem, (min-width: 768px) calc(100vw - 5rem), calc(100vw - 3rem)"
-                className="object-cover object-[70%_center] opacity-[0.96]"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(245,239,228,0.96)_0%,rgba(245,239,228,0.9)_34%,rgba(245,239,228,0.74)_62%,rgba(245,239,228,0.34)_100%)] md:bg-[linear-gradient(90deg,rgba(245,239,228,0.74)_0%,rgba(245,239,228,0.54)_28%,rgba(245,239,228,0.14)_58%,transparent_82%)]" />
-              <div className="relative z-10 max-w-3xl">
-                <p className="eyebrow text-muted">Ready to Start</p>
-                <h2 className="section-title mt-4 font-semibold text-foreground">
-                  Get a recommendation before you commit
-                </h2>
-                <p className="mt-5 max-w-3xl text-[1.24rem] font-semibold leading-9 text-foreground/90 md:text-[1.32rem]">
-                  Tell Zenesis what you want to build, where you plan to
-                  operate, and what support you need next.
-                </p>
-                <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <TalkToZenesisPanel
+              wrapperClassName="rounded-[2rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_32px_110px_rgba(17,35,42,0.14)] md:p-10"
+              eyebrowClassName="eyebrow text-muted"
+              titleClassName="section-title mt-4 font-semibold text-foreground"
+              textClassName="text-[1.24rem] font-semibold leading-9 text-foreground/90 md:text-[1.32rem]"
+              title="Talk to Zenesis"
+              paragraphs={[
+                "Tell Zenesis what you want to build, where you plan to operate, and what support you need next.",
+              ]}
+              actions={
+                <div className="flex flex-col gap-4 sm:flex-row">
                   <ConsultationFormButton
                     label="Schedule a Free Consultation"
                     className="rounded-full bg-[#11232a] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#18343d]"
@@ -616,8 +609,9 @@ export default function Home() {
                     Message on WhatsApp
                   </a>
                 </div>
-              </div>
-            </section>
+              }
+              imageClassName="object-cover object-[74%_center]"
+            />
           </ScrollReveal>
         </div>
       </section>

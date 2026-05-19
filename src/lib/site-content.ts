@@ -78,7 +78,7 @@ export const featuredProfile = {
   publication: "Global Leaders Today",
   dateLabel: "November 15, 2024",
   href: "/featured-profile",
-  imageSrc: "/cecilia-dcunha-global-leaders.png",
+  imageSrc: "/cecilia-dcunha-global-leaders.webp",
   imageAlt: "Global Leaders Today feature on Cecilia D'Cunha",
   summary:
     "A full-length profile on Cecilia D'Cunha covering her early offshore incorporation work, her move into the UAE in 1998, and the leadership path that led to Zenesis.",
@@ -116,7 +116,7 @@ export const formationOptions = [
   {
     title: "Free Zone",
     description:
-      "Free zone setup suits founders who want 100 per cent foreign ownership, simplified setup, and a choice of zones including DMCC, Dubai South, IFZA, Meydan, Shams, and RAKEZ.",
+      "Free zone setup suits founders who want 100% foreign ownership, simplified setup, and a choice of zones including DMCC, Dubai South, IFZA, Meydan, Shams, and RAKEZ.",
   },
   {
     title: "Offshore",
@@ -201,6 +201,21 @@ export const contactDetails = [
     label: "Office",
     value:
       "Suite 1006, Tiffany Tower, Jumeirah Lake Towers, POB 476476, Dubai, United Arab Emirates",
+  },
+] as const;
+
+export const socialLinks = [
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/ZenesisCorp/",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/zenesiscorp/",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/zenesiscorp",
   },
 ] as const;
 
@@ -314,7 +329,7 @@ export const articleHighlights = [
     summary:
       "A practical overview of when multiple UAE entities can be treated as one taxable group, what the ownership requirements look like, and where grouping can simplify compliance.",
     href: "/accounting-tax",
-    imageSrc: "/corporate-tax.jpg",
+    imageSrc: "/corporate-tax.webp",
     imageAlt: "Professionals reviewing finance and tax documents",
   },
   {
@@ -323,7 +338,7 @@ export const articleHighlights = [
     summary:
       "A breakdown of how the financial year drives filing cadence, reporting rhythm, and the timing of tax obligations across the UAE compliance cycle.",
     href: "/accounting-tax",
-    imageSrc: "/financial-year.jpg",
+    imageSrc: "/financial-year.webp",
     imageAlt: "Business advisor discussing compliance planning",
   },
   {
@@ -333,35 +348,17 @@ export const articleHighlights = [
     summary:
       "A focused look at qualifying activity, mainland interaction, and the practical implications of updated free zone tax treatment for founders and operating companies.",
     href: "/business-setup",
-    imageSrc: "/free-zone.jpg",
+    imageSrc: "/free-zone.webp",
     imageAlt: "Business professionals in a Dubai advisory meeting",
   },
 ] as const;
 
 export const teamMembers = [
   {
-    name: "Prof. Jeevan D'Mello",
-    credentials:
-      "GDArch, CMCA, AMS, LSM, PCAM, D. Litt. Chief Executive Officer",
-    imageSrc: "/Jeevan_DMello.png",
-    summary:
-      "Chief Executive Officer with an international, award-winning career across architectural design, customer experience, community management, real estate management, and international relations.",
-    paragraphs: [
-      "Jeevan is widely regarded as a foundational figure in community management in the Middle East. Across major roles with Emaar Properties and Nakheel Properties, he managed large-scale portfolios including Burj Khalifa, Downtown Dubai, Palm Jumeirah, Jumeirah Islands, International City, and Nad Al Sheba villas.",
-      "His professional record includes multiple international firsts in community association management certifications, senior institute roles in the USA, and recognition across the UAE, USA, India, Italy, Spain, Argentina, Chile, Cuba, and Colombia. He also received a Doctor of Letters from Azteca University in Mexico and was appointed Full Professor of Real Estate Management.",
-    ],
-    skills: [
-      "Real Estate Management",
-      "Business Transformation",
-      "Customer Experience",
-      "Business Incubation",
-      "Training and Mentoring",
-    ],
-  },
-  {
     name: "Cecilia D'Cunha",
-    credentials: "BCom, LLB, ACS, Director - Corporate Services",
-    imageSrc: "/Cecilia_DCunha.png",
+    title: "Founder",
+    credentials: "BCom, LLB, ACS",
+    imageSrc: "/Cecilia_DCunha.webp",
     summary:
       "A qualified Chartered Secretary with degrees in Commerce and Law, with more than 30 years of experience across offshore incorporation, UAE company setup, and corporate compliance.",
     paragraphs: [
@@ -380,27 +377,29 @@ export const teamMembers = [
     ],
   },
   {
-    name: "Sajal Arora",
-    credentials: "BCom, CA, CFA, Director - Accountancy and Taxation",
-    imageSrc: "/Sajal_Arora.png",
+    name: "Prof. Jeevan D'Mello",
+    title: "Chief Executive Officer",
+    credentials: "GDArch, CMCA, AMS, LSM, PCAM, D. Litt.",
+    imageSrc: "/Jeevan_DMello.webp",
     summary:
-      "A Dubai-based Chartered Accountant with more than 13 years of experience across integrated finance, taxation, auditing, banking, treasury, costing, and project financing.",
+      "Chief Executive Officer with an international, award-winning career across architectural design, customer experience, community management, real estate management, and international relations.",
     paragraphs: [
-      "Sajal has worked across multiple industries and organizational levels, helping companies strengthen systems, processes, and long-term financial discipline. His experience includes work with Eagle Hills Properties, Drake and Scull International, Grand Hotel India, Walmart India, and Bharti Airtel.",
-      "He brings particular depth in tax structuring and statutory compliance, and he is also the author of the Middle East's first published book on VAT.",
+      "Jeevan is widely regarded as a foundational figure in community management in the Middle East. Across major roles with Emaar Properties and Nakheel Properties, he managed large-scale portfolios including Burj Khalifa, Downtown Dubai, Palm Jumeirah, Jumeirah Islands, International City, and Nad Al Sheba villas.",
+      "His professional record includes multiple international firsts in community association management certifications, senior institute roles in the USA, and recognition across the UAE, USA, India, Italy, Spain, Argentina, Chile, Cuba, and Colombia. He also received a Doctor of Letters from Azteca University in Mexico and was appointed Full Professor of Real Estate Management.",
     ],
     skills: [
-      "Accounting and Auditing",
-      "Costs and Budgeting",
-      "VAT Services",
-      "Reviews and Due Diligence",
-      "Training",
+      "Real Estate Management",
+      "Business Transformation",
+      "Customer Experience",
+      "Business Incubation",
+      "Training and Mentoring",
     ],
   },
   {
     name: "Glenita D'Souza",
+    title: "Accounts Manager and Compliance Officer",
     credentials: "CA Intermediate (IPCC), BCom",
-    imageSrc: "/Glenita_D'Souza.png",
+    imageSrc: "/Glenita_D'Souza.webp",
     summary:
       "Accounts Manager and Compliance Officer with more than 6 years of hands-on experience across accounting, taxation, company administration, VAT, corporate tax, and UAE free zone setup.",
     paragraphs: [
@@ -422,8 +421,9 @@ export const teamMembers = [
   },
   {
     name: "Emma Magati",
+    title: "Business Setup Expert and Accounts Manager",
     credentials: "MBA, ACCA Finalist, CPA Finalist, BCom Finance",
-    imageSrc: "/Emma_Magati.png",
+    imageSrc: "/Emma_Magati.webp",
     summary:
       "Business Setup Expert and Accounts Manager with extensive experience across UAE free zone, mainland, and offshore company formation, regulatory compliance, and financial reporting.",
     paragraphs: [
@@ -441,6 +441,25 @@ export const teamMembers = [
       "Client Management",
       "Payroll Processing",
       "Business Process Improvement",
+    ],
+  },
+  {
+    name: "Sajal Arora",
+    title: "Director - Accountancy and Taxation",
+    credentials: "BCom, CA, CFA",
+    imageSrc: "/Sajal_Arora.webp",
+    summary:
+      "A Dubai-based Chartered Accountant with more than 13 years of experience across integrated finance, taxation, auditing, banking, treasury, costing, and project financing.",
+    paragraphs: [
+      "Sajal has worked across multiple industries and organizational levels, helping companies strengthen systems, processes, and long-term financial discipline. His experience includes work with Eagle Hills Properties, Drake and Scull International, Grand Hotel India, Walmart India, and Bharti Airtel.",
+      "He brings particular depth in tax structuring and statutory compliance, and he is also the author of the Middle East's first published book on VAT.",
+    ],
+    skills: [
+      "Accounting and Auditing",
+      "Costs and Budgeting",
+      "VAT Services",
+      "Reviews and Due Diligence",
+      "Training",
     ],
   },
 ] as const;

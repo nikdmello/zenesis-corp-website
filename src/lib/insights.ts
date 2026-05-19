@@ -31,7 +31,7 @@ export const insightPosts: InsightPost[] = [
       "A practical overview of what corporate tax groups are, who can form them, why they matter, the core eligibility rules, and the tradeoffs businesses should weigh before choosing this structure.",
     dateLabel: "April, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: "/corporate-tax.jpg",
+    heroImageSrc: "/corporate-tax.webp",
     heroImageAlt: "Professionals reviewing finance and tax documents",
     sections: [
       {
@@ -131,7 +131,7 @@ export const insightPosts: InsightPost[] = [
       "How the financial year anchors corporate tax, VAT timing, audits, group reporting, and compliance planning for UAE businesses.",
     dateLabel: "April, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: "/financial-year.jpg",
+    heroImageSrc: "/financial-year.webp",
     heroImageAlt: "Business advisor discussing compliance planning",
     sections: [
       {
@@ -234,7 +234,7 @@ export const insightPosts: InsightPost[] = [
       "A founder-focused look at the 2025 clarifications around qualifying activity, economic substance, commodity trading, and the practical risks of losing 0% treatment.",
     dateLabel: "January, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: "/free-zone.jpg",
+    heroImageSrc: "/free-zone.webp",
     heroImageAlt: "Business professionals in a Dubai advisory meeting",
     sections: [
       {
