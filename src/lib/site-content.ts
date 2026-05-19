@@ -219,6 +219,47 @@ export const socialLinks = [
   },
 ] as const;
 
+export const partnerLogos = [
+  {
+    label: "Administrapolis",
+    src: "/partners/administrapolis.webp",
+    isEmphasized: true,
+  },
+  {
+    label: "Cortem",
+    src: "/partners/cortem-v2.webp",
+    isEmphasized: true,
+  },
+  {
+    label: "Deyaar",
+    src: "/partners/deyaar.webp",
+    isEmphasized: true,
+  },
+  {
+    label: "Fortes",
+    src: "/partners/fortes.webp",
+  },
+  {
+    label: "Megafincas",
+    src: "/partners/megafincas.webp",
+    isEmphasized: true,
+  },
+  {
+    label: "RERA",
+    src: "/partners/rera.webp",
+    isEmphasized: true,
+  },
+  {
+    label: "Sobha",
+    src: "/partners/sobha.webp",
+    isEmphasized: true,
+  },
+  {
+    label: "WESN International",
+    src: "/partners/wesn-intl.webp",
+  },
+] as const;
+
 export const testimonials = [
   {
     name: "Mr Martin Bruce",

@@ -152,15 +152,14 @@ export default function AboutPage() {
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <TalkToZenesisPanel
-            wrapperClassName="rounded-[2rem] border border-white/10 bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10"
+            wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10"
             eyebrowClassName="eyebrow text-white/58"
             titleClassName="section-title mt-4 font-semibold text-white"
             textClassName="text-lg leading-8 text-white/94"
             paragraphs={[
               "Tell us what you want to achieve, and our team will guide you through the right setup, documents, costs, and next steps.",
             ]}
-            buttonClassName="inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#11232a] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white/90"
-            overlayClassName="bg-[linear-gradient(180deg,rgba(17,35,42,0.94)_0%,rgba(17,35,42,0.88)_34%,rgba(17,35,42,0.7)_62%,rgba(17,35,42,0.32)_100%)] md:bg-[linear-gradient(90deg,rgba(17,35,42,0.98)_0%,rgba(17,35,42,0.95)_34%,rgba(17,35,42,0.72)_58%,rgba(17,35,42,0.22)_78%,transparent_92%)]"
+            buttonClassName="inline-flex rounded-full bg-[#244ba8] px-6 py-3 text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b3c86]"
             imageClassName="object-cover object-[72%_center]"
           />
         </div>

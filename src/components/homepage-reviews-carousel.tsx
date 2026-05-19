@@ -146,13 +146,13 @@ export function HomepageReviewsCarousel({
                   href={googleReviewsHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex h-full min-h-[18rem] flex-col rounded-[1.7rem] border border-white/10 bg-[#11232a] p-6 text-white transition-transform duration-200 hover:-translate-y-1 md:min-h-[19.5rem] md:p-7 xl:min-h-[21rem]"
+                  className="group flex h-full min-h-[18rem] flex-col rounded-[1.7rem] border border-[#d8d0c2] bg-[#f5efe4] p-6 text-[#11232a] transition-transform duration-200 hover:-translate-y-1 md:min-h-[19.5rem] md:p-7 xl:min-h-[21rem]"
                 >
-                  <p className="text-[1.18rem] leading-8 text-white md:text-[1.24rem] md:leading-9">
+                  <p className="text-[1.18rem] leading-8 text-[#11232a] md:text-[1.24rem] md:leading-9">
                     &ldquo;{item.quote}&rdquo;
                   </p>
                   <div className="mt-auto pt-8 flex items-center justify-between gap-4">
-                    <p className="text-[0.98rem] font-semibold tracking-[-0.02em] text-white md:text-[1.02rem]">
+                    <p className="text-[0.98rem] font-semibold tracking-[-0.02em] text-[#11232a] md:text-[1.02rem]">
                       {item.name}
                     </p>
                   </div>
@@ -174,7 +174,7 @@ export function HomepageReviewsCarousel({
                 : Math.max(0, currentIndex - 1),
             )
           }
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#11232a]/16 bg-transparent text-[#11232a] transition-colors hover:border-[#11232a]/32 hover:text-[#18343d] disabled:cursor-not-allowed disabled:opacity-35"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/18 bg-transparent text-white transition-colors hover:border-white/36 hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
         >
           <span aria-hidden="true">←</span>
         </button>
@@ -191,8 +191,8 @@ export function HomepageReviewsCarousel({
               onClick={() => scrollToPage(pageIndex)}
               className={`h-2.5 rounded-full transition-all duration-200 ${
                 isActive
-                  ? "w-8 bg-[#11232a]"
-                  : "w-2.5 bg-[#11232a]/26 hover:bg-[#11232a]/42"
+                  ? "w-8 bg-white"
+                  : "w-2.5 bg-white/28 hover:bg-white/42"
               }`}
             />
           );
@@ -209,7 +209,7 @@ export function HomepageReviewsCarousel({
                 : Math.min(lastPageIndex, currentIndex + 1),
             )
           }
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#11232a]/16 bg-transparent text-[#11232a] transition-colors hover:border-[#11232a]/32 hover:text-[#18343d] disabled:cursor-not-allowed disabled:opacity-35"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/18 bg-transparent text-white transition-colors hover:border-white/36 hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
         >
           <span aria-hidden="true">→</span>
         </button>

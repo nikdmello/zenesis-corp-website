@@ -660,8 +660,7 @@ export function PageIntro({
               src={backgroundImageSrc!}
               alt={backgroundImageAlt ?? ""}
               fill
-              priority
-              fetchPriority="high"
+              preload
               quality={72}
               sizes="(max-width: 767px) 100vw, (max-width: 1279px) 78vw, 62vw"
               className={`hero-image translate-x-[12%] scale-110 object-cover saturate-[1.04] contrast-[1.04] md:translate-x-[18%] md:scale-110 ${backgroundImagePosition ?? "object-center"}`}
@@ -692,8 +691,7 @@ export function PageIntro({
               src={backgroundImageSrc!}
               alt={backgroundImageAlt ?? ""}
               fill
-              priority
-              fetchPriority="high"
+              preload
               quality={68}
               sizes="(max-width: 767px) 92vw, (max-width: 1279px) 54vw, 50vw"
               className={`object-cover object-right-top saturate-[0.94] contrast-[0.98] ${backgroundImagePosition ?? "object-[100%_100%]"}`}

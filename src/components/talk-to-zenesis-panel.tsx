@@ -1,6 +1,9 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
-import { ConsultationFormButton } from "@/components/consultation-form";
+import {
+  ConsultationFormButton,
+  WhatsAppCueIcon,
+} from "@/components/consultation-form";
 
 type TalkToZenesisPanelProps = {
   eyebrowClassName: string;
@@ -26,7 +29,7 @@ export function TalkToZenesisPanel({
   title = "Talk to Zenesis",
   eyebrow = "Next Step",
   actions,
-  overlayClassName = "bg-[linear-gradient(180deg,rgba(245,239,228,0.96)_0%,rgba(245,239,228,0.9)_34%,rgba(245,239,228,0.74)_62%,rgba(245,239,228,0.34)_100%)] md:bg-[linear-gradient(90deg,rgba(245,239,228,0.96)_0%,rgba(245,239,228,0.92)_30%,rgba(245,239,228,0.72)_54%,rgba(245,239,228,0.24)_74%,transparent_90%)]",
+  overlayClassName = "bg-[linear-gradient(180deg,rgba(17,35,42,0.94)_0%,rgba(17,35,42,0.88)_34%,rgba(17,35,42,0.7)_62%,rgba(17,35,42,0.32)_100%)] md:bg-[linear-gradient(90deg,rgba(17,35,42,0.98)_0%,rgba(17,35,42,0.95)_34%,rgba(17,35,42,0.72)_58%,rgba(17,35,42,0.22)_78%,transparent_92%)]",
   imageClassName = "object-cover object-[72%_center]",
 }: TalkToZenesisPanelProps) {
   const renderedActions =
@@ -35,6 +38,7 @@ export function TalkToZenesisPanel({
       <ConsultationFormButton
         label="Schedule a Free Consultation"
         className={buttonClassName}
+        leadingIcon={<WhatsAppCueIcon />}
       />
     ) : null);
 
@@ -42,14 +46,16 @@ export function TalkToZenesisPanel({
     <article
       className={`relative overflow-hidden ${wrapperClassName} !border-transparent`}
     >
-      <Image
-        src="/talk-to-zenesis.webp"
-        alt="Zenesis consultation meeting"
-        fill
-        sizes="(min-width: 1280px) 72rem, (min-width: 768px) calc(100vw - 5rem), calc(100vw - 3rem)"
-        className={imageClassName}
-      />
-      <div className={`absolute inset-0 ${overlayClassName}`} />
+      <div className="absolute inset-0 overflow-hidden md:inset-y-0 md:right-0 md:left-auto md:w-1/2">
+        <Image
+          src="/talk-to-zenesis.webp"
+          alt="Zenesis consultation meeting"
+          fill
+          sizes="(min-width: 1280px) 36rem, (min-width: 768px) 50vw, 100vw"
+          className={imageClassName}
+        />
+        <div className={`absolute inset-0 ${overlayClassName}`} />
+      </div>
       <div className="relative z-10 max-w-[44rem]">
         <p className={eyebrowClassName}>{eyebrow}</p>
         <h2 className={titleClassName}>{title}</h2>
