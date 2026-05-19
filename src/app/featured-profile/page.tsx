@@ -85,7 +85,7 @@ export default function FeaturedProfilePage() {
             <span>{featuredProfile.dateLabel}</span>
           </div>
           <h1 className="mt-6 text-[3.3rem] font-semibold leading-[0.96] tracking-[-0.05em] text-foreground sm:text-[4.15rem] xl:whitespace-nowrap">
-            Cecilia D&apos;Cunha in Global Leaders Today.
+            Cecilia D&apos;Cunha in Global Leaders Today
           </h1>
           <p className="mt-6 max-w-4xl text-[1.18rem] leading-8 text-muted md:text-[1.32rem] md:leading-9">
             {featuredProfile.summary}

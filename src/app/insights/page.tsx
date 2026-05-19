@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
+import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { featuredProfile } from "@/lib/site-content";
 import { insightPosts } from "@/lib/insights";
 
@@ -202,6 +203,22 @@ export default function InsightsPage() {
               </div>
             </div>
           </Link>
+        </div>
+      </section>
+
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <TalkToZenesisPanel
+            wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10"
+            eyebrowClassName="eyebrow text-white/58"
+            titleClassName="section-title mt-4 font-semibold text-white"
+            textClassName="text-[1.18rem] leading-9 text-white/94 md:text-[1.22rem]"
+            paragraphs={[
+              "If you want help understanding how a filing, structure, or compliance change affects the business in practice, Zenesis can help you work through the right next step.",
+            ]}
+            buttonClassName="inline-flex rounded-full bg-[#244ba8] px-6 py-3 text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b3c86]"
+            imageClassName="object-cover object-[74%_center]"
+          />
         </div>
       </section>
     </SiteShell>

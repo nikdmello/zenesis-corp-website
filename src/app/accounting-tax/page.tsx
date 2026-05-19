@@ -336,13 +336,13 @@ export default function AccountingTaxPage() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <TalkToZenesisPanel
-            wrapperClassName="glass-panel rounded-[2rem] p-8 md:p-10"
-            eyebrowClassName="eyebrow !text-[#244ba8]"
-            titleClassName="section-title mt-4 font-semibold !text-foreground"
-            textClassName="text-[1.18rem] leading-9 !text-foreground/92"
+            wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10"
+            eyebrowClassName="eyebrow text-white/58"
+            titleClassName="section-title mt-4 font-semibold text-white"
+            textClassName="text-[1.18rem] leading-9 text-white/94"
             paragraphs={[
               "Whether you need monthly bookkeeping, VAT filing, corporate tax registration, or annual tax filing, Zenesis can help you stay organized and compliant.",
             ]}

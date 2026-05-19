@@ -96,7 +96,7 @@ export default function ContactPage() {
 
             <article className="glass-panel rounded-[1.6rem] p-6">
               <p className="eyebrow text-accent">Social Media</p>
-              <div className="flex flex-wrap gap-3">
+              <div className="mt-4 flex flex-wrap gap-3">
                 {socialLinks.map((item) => (
                   <a
                     key={item.label}

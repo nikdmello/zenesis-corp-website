@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   ConsultationFormButton,
   ConsultationFormButtonWithScrollPrompt,
+  WhatsAppCueIcon,
 } from "@/components/consultation-form";
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { HomepageReviewsCarousel } from "@/components/homepage-reviews-carousel";
@@ -12,8 +13,8 @@ import { SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import {
   featuredProfile,
+  partnerLogos,
   testimonials,
-  whatsappHref,
 } from "@/lib/site-content";
 import { insightPosts } from "@/lib/insights";
 
@@ -27,7 +28,7 @@ const trustSignals = [
   {
     icon: "📰",
     label: "Featured Profile",
-    value: "Cecilia D'Cunha in Global Leaders Today.",
+    value: "Cecilia D'Cunha in Global Leaders Today",
     detail:
       "A full-length profile on Cecilia D'Cunha covering her early offshore incorporation work, her move into the UAE in 1998, and the leadership path that led to Zenesis.",
   },
@@ -92,7 +93,7 @@ const customerPaths = [
   },
   {
     eyebrow: "Visa and Banking",
-    title: "Visa and Banking",
+    title: "Visa and banking",
     href: "/visa-and-banking",
     cta: "Explore visa and banking",
     imageSrc: "/contact-consultation.webp",
@@ -202,7 +203,7 @@ const homepageFaqs = [
 
 export default function Home() {
   const googleReviewCountLabel = "480+ reviews";
-  const [featuredTrustSignal, leadershipFeatureSignal] = trustSignals;
+  const [, leadershipFeatureSignal] = trustSignals;
 
   return (
     <SiteShell currentPath="/">
@@ -314,9 +315,9 @@ export default function Home() {
                       style={{ backgroundImage: `url(${item.imageSrc})` }}
                     />
                     <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,35,42,0.34)_0%,rgba(17,35,42,0.5)_38%,rgba(17,35,42,0.88)_100%)]" />
-                    <div className="relative z-10 flex h-full items-end px-6 pb-6 md:px-7 md:pb-7">
-                      <div>
-                        <h3 className="max-w-[24ch] text-[2.5rem] font-semibold leading-[0.95] tracking-[-0.055em] text-white transition-transform duration-200 group-hover:-translate-y-0.5 md:text-[2.95rem] xl:max-w-none xl:text-[1.92rem] xl:whitespace-nowrap">
+                    <div className="relative z-10 flex h-full items-end justify-center px-6 pb-6 text-center md:px-7 md:pb-7">
+                      <div className="w-full">
+                        <h3 className="mx-auto max-w-[24ch] text-[2.5rem] font-semibold leading-[0.95] tracking-[-0.055em] text-white transition-transform duration-200 group-hover:-translate-y-0.5 md:text-[2.95rem] xl:max-w-none xl:text-[1.92rem] xl:whitespace-nowrap">
                           {item.title}
                         </h3>
                       </div>
@@ -325,11 +326,10 @@ export default function Home() {
 
                   <div className="flex grow flex-col p-4 sm:p-5 md:p-6 lg:p-7 xl:p-6">
                     <div className="grid grow gap-4 md:grid-cols-3 md:items-stretch xl:grid-cols-1 xl:gap-4">
-                      {item.offerings.map((offering, offeringIndex) => {
+                      {item.offerings.map((offering) => {
                         return (
                           <HomepageServiceTile
                             key={offering.title}
-                            icon={String(offeringIndex + 1).padStart(2, "0")}
                             title={offering.title}
                             description={offering.description}
                             href={
@@ -342,7 +342,7 @@ export default function Home() {
                       })}
                     </div>
 
-                    <div className="mt-auto pt-5">
+                    <div className="mt-auto flex justify-center pt-5">
                       <Link
                         href={item.href}
                         className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#11232a] px-4 py-2.5 text-[0.95rem] font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#18343d] md:w-auto xl:px-5 xl:py-2.5 xl:text-[0.94rem]"
@@ -368,42 +368,21 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr] xl:gap-6">
-            <div className="relative rounded-[2rem] border border-[#d8d0c2] bg-[#f5efe4] px-6 py-6 text-[#11232a] shadow-[0_28px_90px_rgba(17,35,42,0.18)] md:px-7 md:py-7">
-              <span className="absolute right-6 top-6 flex h-14 w-14 items-center justify-center rounded-full bg-[#11232a]/8 text-[1.65rem] md:right-7 md:top-7">
-                {featuredTrustSignal.icon}
-              </span>
-              <div className="pr-20">
-                <div className="flex flex-wrap gap-2.5">
-                  <span className="inline-flex rounded-full border border-[#244ba8]/14 bg-[#244ba8]/8 px-4 py-2 text-[0.82rem] font-semibold uppercase tracking-[0.16em] text-[#244ba8]">
-                    21 years of experience
-                  </span>
-                  <span className="inline-flex rounded-full border border-[#11232a]/10 bg-[#11232a]/6 px-4 py-2 text-[0.82rem] font-semibold uppercase tracking-[0.16em] text-[#11232a]">
-                    Award-winning
-                  </span>
-                </div>
-                <div>
-                  <p className="eyebrow mt-5 text-muted">{featuredTrustSignal.label}</p>
-                  <p className="mt-4 max-w-[16ch] text-[2rem] font-semibold leading-[0.98] tracking-[-0.05em] text-foreground md:text-[2.35rem]">
-                    {featuredTrustSignal.value}
-                  </p>
-                  {"detail" in featuredTrustSignal ? (
-                    <p className="mt-4 text-xs uppercase tracking-[0.18em] text-foreground/72">
-                      {featuredTrustSignal.detail}
-                    </p>
-                  ) : null}
-                  <p className="mt-5 max-w-2xl text-[1.08rem] leading-8 text-muted md:text-[1.12rem]">
-                    Recognition like this reflects long-running work across
-                    company formation, corporate support, and client execution
-                    in the UAE.
-                  </p>
-                </div>
-              </div>
+          <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-start xl:gap-6">
+            <div className="overflow-hidden rounded-[2rem] border border-[#d8d0c2] bg-[#f5efe4] shadow-[0_28px_90px_rgba(17,35,42,0.18)]">
+              <NextImage
+                src="/zenesis-award.webp"
+                alt="Zenesis award recognition poster for excellence in company formation"
+                width={1400}
+                height={1400}
+                className="block aspect-square w-full object-cover"
+                sizes="(min-width: 1024px) 44vw, 100vw"
+              />
             </div>
 
             <Link
               href={featuredProfile.href}
-              className="group block rounded-[1.7rem] border border-[#d8d0c2] bg-[#f5efe4] p-3 text-[#11232a] shadow-[0_20px_60px_rgba(17,35,42,0.16)] transition-transform duration-200 hover:-translate-y-0.5 md:p-4"
+              className="group block overflow-hidden rounded-[1.7rem] border border-[#d8d0c2] bg-[#f5efe4] text-[#11232a] shadow-[0_20px_60px_rgba(17,35,42,0.16)] transition-transform duration-200 hover:-translate-y-0.5"
             >
               <div className="overflow-hidden rounded-[1.3rem] border border-[#ddd1c2] bg-white shadow-[0_12px_28px_rgba(17,35,42,0.12)]">
                 <div className="px-4 py-4 md:px-5 md:py-5">
@@ -433,7 +412,7 @@ export default function Home() {
                     alt={featuredProfile.imageAlt}
                     width={2300}
                     height={1800}
-                    className="aspect-[23/13] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01] md:aspect-[23/12]"
+                    className="block aspect-[4/3] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
                   />
                 </div>
               </div>
@@ -443,8 +422,8 @@ export default function Home() {
         </ScrollReveal>
 
         <ScrollReveal>
-          <div className="mt-10 rounded-[2rem] border border-[#d8d0c2] bg-white p-4 shadow-[0_20px_70px_rgba(17,35,42,0.14)] md:p-5">
-            <div className="grid gap-4 md:grid-cols-3">
+          <div className="mt-10 rounded-[1.8rem] border border-[#ddd3c6] bg-white p-2.5 shadow-[0_18px_56px_rgba(17,35,42,0.12)] md:p-3">
+            <div className="grid gap-2.5 md:grid-cols-3">
               {[
                 {
                   src: "/zenesis-award1.webp",
@@ -464,7 +443,7 @@ export default function Home() {
               ].map((image) => (
                 <div
                   key={image.src}
-                  className={`relative overflow-hidden rounded-[1.6rem] border border-[#e8ddcc] bg-white shadow-[0_16px_44px_rgba(17,35,42,0.10)] ${
+                  className={`relative overflow-hidden rounded-[1.3rem] border border-[#ece3d7] bg-white shadow-[0_10px_28px_rgba(17,35,42,0.08)] ${
                     image.className ?? ""
                   }`}
                 >
@@ -494,11 +473,50 @@ export default function Home() {
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <ScrollReveal>
+            <div className="max-w-[50rem]">
+              <p className="eyebrow text-[#244ba8]">Partners</p>
+              <h2 className="section-title mt-4 font-semibold text-[#07151b]">
+                Our partners
+              </h2>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+              {partnerLogos.map((logo) => (
+                <div
+                  key={logo.label}
+                  className="flex min-h-[9rem] items-center justify-center rounded-[1.55rem] border border-[#ddd3c6] bg-white px-4 py-5 shadow-[0_18px_48px_rgba(17,35,42,0.08)] transition-transform duration-200 hover:-translate-y-0.5 md:min-h-[9.5rem]"
+                >
+                  <NextImage
+                    src={logo.src}
+                    alt={`${logo.label} logo`}
+                    width={320}
+                    height={140}
+                    sizes="(min-width: 1024px) 18vw, (min-width: 640px) 40vw, 70vw"
+                    className={`w-auto max-w-full object-contain opacity-90 ${
+                      "isEmphasized" in logo && logo.isEmphasized
+                        ? "h-24 md:h-[5.5rem]"
+                        : "h-20 md:h-[4.75rem]"
+                    }`}
+                  />
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <SectionHeading
               eyebrow="Google Reviews"
+              eyebrowClassName="!text-white"
               title="Client reviews"
+              titleClassName="!text-white"
             />
             <div className="flex items-center gap-4 md:shrink-0">
               <NextImage
@@ -509,7 +527,7 @@ export default function Home() {
                 className="h-14 w-auto object-contain md:h-16"
               />
               <div>
-                <p className="text-[1.35rem] font-semibold tracking-[-0.03em] text-[#11232a] md:text-[1.55rem]">
+                <p className="text-[1.35rem] font-semibold tracking-[-0.03em] text-white md:text-[1.55rem]">
                   {googleReviewCountLabel}
                 </p>
               </div>
@@ -525,14 +543,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <SectionHeading
             eyebrow="Zenesis Blog"
-            eyebrowClassName="!text-white"
             title="Latest blog posts"
-            titleClassName="!text-white"
           />
         </ScrollReveal>
 
@@ -582,40 +598,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <ScrollReveal>
-            <TalkToZenesisPanel
-              wrapperClassName="rounded-[2rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_32px_110px_rgba(17,35,42,0.14)] md:p-10"
-              eyebrowClassName="eyebrow text-muted"
-              titleClassName="section-title mt-4 font-semibold text-foreground"
-              textClassName="text-[1.24rem] font-semibold leading-9 text-foreground/90 md:text-[1.32rem]"
-              title="Talk to Zenesis"
-              paragraphs={[
-                "Tell Zenesis what you want to build, where you plan to operate, and what support you need next.",
-              ]}
-              actions={
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <ConsultationFormButton
-                    label="Schedule a Free Consultation"
-                    className="rounded-full bg-[#11232a] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#18343d]"
-                  />
-                  <a
-                    href={whatsappHref}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-full bg-[#25D366] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5d]"
-                  >
-                    Message on WhatsApp
-                  </a>
-                </div>
-              }
-              imageClassName="object-cover object-[74%_center]"
-            />
-          </ScrollReveal>
-        </div>
-      </section>
-
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
@@ -649,6 +631,33 @@ export default function Home() {
           </div>
         </section>
         </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <ScrollReveal>
+            <TalkToZenesisPanel
+              wrapperClassName="rounded-[2rem] bg-[#11232a] p-7 text-white shadow-[0_32px_110px_rgba(17,35,42,0.18)] md:p-10"
+              eyebrowClassName="eyebrow text-white/58"
+              titleClassName="section-title mt-4 font-semibold text-white"
+              textClassName="text-[1.24rem] font-semibold leading-9 text-white/94 md:text-[1.32rem]"
+              title="Talk to Zenesis"
+              paragraphs={[
+                "Tell Zenesis what you want to build, where you plan to operate, and what support you need next.",
+              ]}
+              actions={
+                <div className="flex flex-col gap-4 sm:flex-row">
+                  <ConsultationFormButton
+                    label="Schedule a Free Consultation"
+                    className="rounded-full bg-[#244ba8] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b3c86]"
+                    leadingIcon={<WhatsAppCueIcon />}
+                  />
+                </div>
+              }
+              imageClassName="object-cover object-[74%_center]"
+            />
+          </ScrollReveal>
         </div>
       </section>
       </div>
