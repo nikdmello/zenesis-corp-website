@@ -1,8 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
-import { ConsultationFormButton } from "@/components/consultation-form";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
+import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import {
   freeZoneExamples,
   offshoreOptions,
@@ -165,9 +165,12 @@ export default function BusinessSetupPage() {
   return (
     <SiteShell currentPath="/business-setup">
       <PageIntro
-        eyebrow="Business Setup"
+        breadcrumb={[
+          { label: "Services", href: "/#services" },
+          { label: "Business setup" },
+        ]}
         title="Business setup"
-        backgroundImageSrc="/business-setup-bg.png"
+        backgroundImageSrc="/business-setup-bg.webp"
         backgroundImageAlt="Zenesis Business Setup page background"
         backgroundImagePosition="!object-[100%_100%]"
         backgroundImageMode="ambient"
@@ -432,23 +435,17 @@ export default function BusinessSetupPage() {
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <article className="glass-panel rounded-[2rem] p-8 md:p-10">
-            <p className="eyebrow text-accent">Next Step</p>
-            <h2 className="section-title mt-4 font-semibold text-foreground">
-              Talk to Zenesis
-            </h2>
-            <p className="mt-5 max-w-4xl text-[1.22rem] font-medium leading-9 text-foreground/88">
-              Share your business activity, ownership needs, and visa
-              requirements. Zenesis will help you compare the right mainland,
-              free zone, or offshore route.
-            </p>
-            <div className="mt-8">
-              <ConsultationFormButton
-                label="Schedule a Free Consultation"
-                className="inline-flex rounded-full bg-[#244ba8] px-6 py-3 text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b3c86]"
-              />
-            </div>
-          </article>
+          <TalkToZenesisPanel
+            wrapperClassName="glass-panel rounded-[2rem] p-8 md:p-10"
+            eyebrowClassName="eyebrow text-accent"
+            titleClassName="section-title mt-4 font-semibold text-foreground"
+            textClassName="text-[1.22rem] font-medium leading-9 text-foreground/88"
+            paragraphs={[
+              "Share your business activity, ownership needs, and visa requirements. Zenesis will help you compare the right mainland, free zone, or offshore route.",
+            ]}
+            buttonClassName="inline-flex rounded-full bg-[#244ba8] px-6 py-3 text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b3c86]"
+            imageClassName="object-cover object-[74%_center]"
+          />
         </div>
       </section>
     </SiteShell>

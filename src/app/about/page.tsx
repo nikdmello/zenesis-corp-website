@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Fragment } from "react";
-import { ConsultationFormButton } from "@/components/consultation-form";
 import { PageIntro, SiteShell } from "@/components/site-shell";
+import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { TeamProfiles } from "@/components/team-profiles";
 
 const howWeWork = [
@@ -39,7 +39,7 @@ export default function AboutPage() {
       <PageIntro
         eyebrow="About Zenesis"
         title="About"
-        backgroundImageSrc="/about-bg.png"
+        backgroundImageSrc="/about-bg.webp"
         backgroundImageAlt="Zenesis About page background"
         backgroundImagePosition="!object-[100%_100%]"
         backgroundImageMode="ambient"
@@ -151,22 +151,18 @@ export default function AboutPage() {
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <article className="rounded-[2rem] border border-white/10 bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10">
-            <p className="eyebrow text-white/58">Next Step</p>
-            <h2 className="section-title mt-4 font-semibold text-white">
-              Talk to Zenesis
-            </h2>
-              <p className="mt-5 max-w-3xl text-lg leading-8 text-white/94">
-              Tell us what you want to achieve, and our team will guide you
-              through the right setup, documents, costs, and next steps.
-            </p>
-            <div className="mt-8">
-              <ConsultationFormButton
-                label="Schedule a Free Consultation"
-                className="inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#11232a] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white/90"
-              />
-            </div>
-          </article>
+          <TalkToZenesisPanel
+            wrapperClassName="rounded-[2rem] border border-white/10 bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10"
+            eyebrowClassName="eyebrow text-white/58"
+            titleClassName="section-title mt-4 font-semibold text-white"
+            textClassName="text-lg leading-8 text-white/94"
+            paragraphs={[
+              "Tell us what you want to achieve, and our team will guide you through the right setup, documents, costs, and next steps.",
+            ]}
+            buttonClassName="inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#11232a] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white/90"
+            overlayClassName="bg-[linear-gradient(180deg,rgba(17,35,42,0.94)_0%,rgba(17,35,42,0.88)_34%,rgba(17,35,42,0.7)_62%,rgba(17,35,42,0.32)_100%)] md:bg-[linear-gradient(90deg,rgba(17,35,42,0.98)_0%,rgba(17,35,42,0.95)_34%,rgba(17,35,42,0.72)_58%,rgba(17,35,42,0.22)_78%,transparent_92%)]"
+            imageClassName="object-cover object-[72%_center]"
+          />
         </div>
       </section>
     </SiteShell>

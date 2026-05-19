@@ -28,7 +28,7 @@ export function BusinessSetupRouteCard({
   const isEssential = variant === "essential";
   const frameHeightClass = isEssential
     ? "min-h-[30rem] md:min-h-[34rem] xl:min-h-[40rem]"
-    : "min-h-[36rem] md:min-h-[36rem]";
+    : "min-h-[36rem] md:min-h-[38rem]";
 
   return (
     <div
@@ -106,7 +106,7 @@ export function BusinessSetupRouteCard({
             <Link
               href={href}
               onClick={(event) => event.stopPropagation()}
-              className={`inline-flex items-center gap-2 rounded-full bg-[#244ba8] font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b3c86] ${isEssential ? "px-4 py-2 text-[0.94rem]" : "px-5 py-3 text-sm"}`}
+              className={`inline-flex items-center gap-2 rounded-full bg-[#244ba8] font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b3c86] ${isEssential ? "px-4 py-2 text-[0.94rem]" : "px-5 py-3 text-sm md:px-4.5 md:py-2.5 md:text-[0.94rem]"}`}
             >
               <span>{ctaLabel}</span>
               <span aria-hidden="true">→</span>

@@ -16,6 +16,7 @@ export function HeroBackgroundVideo({
   playbackRate = 1,
 }: HeroBackgroundVideoProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const sourceType = src.endsWith(".webm") ? "video/webm" : "video/mp4";
 
   useEffect(() => {
     const video = videoRef.current;
@@ -42,13 +43,13 @@ export function HeroBackgroundVideo({
       muted
       loop
       playsInline
-      preload="auto"
+      preload="metadata"
       poster={poster}
       suppressHydrationWarning
       className={className}
       aria-hidden="true"
     >
-      <source src={src} type="video/mp4" />
+      <source src={src} type={sourceType} />
     </video>
   );
 }

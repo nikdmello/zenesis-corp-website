@@ -42,24 +42,35 @@ function TeamCard({
 
       <div className="min-w-0 flex-1">
         <p className="eyebrow text-accent">Leadership</p>
-        <h3
-          className={`mt-3 font-semibold tracking-[-0.05em] text-foreground ${
-            isFeatured
-              ? "text-[2.15rem] md:text-[2.35rem]"
-              : "text-[1.95rem] md:text-[2.1rem]"
-          }`}
-        >
-          {member.name}
-        </h3>
-        <p
-          className={`mt-3 text-muted ${
-            isFeatured
-              ? "text-[1.08rem] leading-8 md:text-[1.12rem]"
-              : "text-[1.04rem] leading-8"
-          }`}
-        >
-          {member.credentials}
-        </p>
+        <div className="mt-3">
+          <h3
+            className={`font-semibold tracking-[-0.05em] text-foreground ${
+              isFeatured
+                ? "text-[2.15rem] md:text-[2.35rem]"
+                : "text-[1.95rem] md:text-[2.1rem]"
+            }`}
+          >
+            {member.name}
+          </h3>
+          <p
+            className={`mt-2 font-semibold tracking-[-0.01em] text-foreground ${
+              isFeatured
+                ? "text-[1.06rem] leading-7 md:text-[1.1rem]"
+                : "text-[1.01rem] leading-7"
+            }`}
+          >
+            {member.title}
+          </p>
+          <p
+            className={`mt-1 text-[#5d6b71] ${
+              isFeatured
+                ? "text-[0.98rem] leading-7 md:text-[1.02rem]"
+                : "text-[0.95rem] leading-7"
+            }`}
+          >
+            {member.credentials}
+          </p>
+        </div>
         <p
           className={`mt-4 text-muted ${
             isFeatured
