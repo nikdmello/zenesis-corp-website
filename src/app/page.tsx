@@ -46,19 +46,19 @@ const customerPaths = [
       {
         icon: "🏢",
         title: "Mainland",
-        description: "Set up a company for local UAE trading and operations.",
+        description: "For local UAE trading and operations.",
         href: "/mainland",
       },
       {
         icon: "🗂",
         title: "Free zone",
-        description: "Choose the right free zone, package, and licensing route.",
+        description: "For packaged setup and foreign ownership.",
         href: "/free-zones",
       },
       {
         icon: "🌐",
         title: "Offshore",
-        description: "Use offshore structures for holding and international ownership needs.",
+        description: "For holding and international ownership.",
         href: "/offshore",
       },
     ],
@@ -74,19 +74,19 @@ const customerPaths = [
       {
         icon: "📒",
         title: "Bookkeeping",
-        description: "Keep records, books, and reports current through the year.",
+        description: "Keep records and reports current.",
         href: "/professional-bookkeeping-services-in-dubai",
       },
       {
         icon: "🧾",
         title: "VAT filing",
-        description: "Prepare VAT returns and keep VAT records in order.",
+        description: "Prepare returns and keep VAT records in order.",
         href: "/vat-filing-services-in-the-uae",
       },
       {
         icon: "📑",
         title: "Corporate tax",
-        description: "Handle registration, filing, and annual tax compliance.",
+        description: "Handle registration, filing, and annual compliance.",
         href: "/corporate-tax-registration-in-the-uae",
       },
     ],
@@ -102,19 +102,19 @@ const customerPaths = [
       {
         icon: "⭐",
         title: "Golden Visa",
-        description: "Check eligibility and prepare the right Golden Visa route.",
+        description: "Check eligibility and prepare the right route.",
         href: "/golden-visa-services-in-the-uae",
       },
       {
         icon: "🪪",
         title: "Company visa",
-        description: "Handle company visa processing, approvals, and Emirates ID steps.",
+        description: "Handle processing, approvals, and Emirates ID.",
         href: "/uae-company-visa",
       },
       {
         icon: "🏦",
         title: "Banking support",
-        description: "Prepare KYC documents and support the bank account opening process.",
+        description: "Prepare KYC and support account opening.",
         href: "/open-a-bank-account-easily",
       },
     ],
@@ -130,17 +130,17 @@ const customerPaths = [
       {
         icon: "🔄",
         title: "License renewals",
-        description: "Keep trade license renewals and annual deadlines on track.",
+        description: "Keep renewals and annual deadlines on track.",
       },
       {
         icon: "📂",
         title: "PRO services",
-        description: "Handle government paperwork, approvals, and related submissions.",
+        description: "Handle government paperwork and approvals.",
       },
       {
         icon: "🗃",
         title: "Company changes",
-        description: "Manage company amendments, shareholder changes, and records.",
+        description: "Manage amendments, shareholder changes, and records.",
       },
     ],
   },
@@ -325,7 +325,7 @@ export default function Home() {
                   </Link>
 
                   <div className="flex grow flex-col p-4 sm:p-5 md:p-6 lg:p-7 xl:p-6">
-                    <div className="grid grow gap-4 md:grid-cols-3 md:items-stretch xl:grid-cols-1 xl:gap-4">
+                    <div className="grid grow gap-3 md:grid-cols-3 md:items-stretch xl:grid-cols-1 xl:gap-3">
                       {item.offerings.map((offering) => {
                         return (
                           <HomepageServiceTile
@@ -345,7 +345,7 @@ export default function Home() {
                     <div className="mt-auto flex justify-center pt-5">
                       <Link
                         href={item.href}
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#11232a] px-4 py-2.5 text-[0.95rem] font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#18343d] md:w-auto xl:px-5 xl:py-2.5 xl:text-[0.94rem]"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#11232a] px-4 py-2.75 text-[0.96rem] font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#18343d] md:w-auto xl:px-5 xl:text-[0.95rem]"
                       >
                         {item.cta}
                         <span aria-hidden="true">→</span>
@@ -475,9 +475,9 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <ScrollReveal>
             <div className="max-w-[50rem]">
-              <p className="eyebrow text-[#244ba8]">Partners</p>
+              <p className="eyebrow text-[#244ba8]">Clients</p>
               <h2 className="section-title mt-4 font-semibold text-[#07151b]">
-                Our partners
+                Our clients
               </h2>
             </div>
           </ScrollReveal>
