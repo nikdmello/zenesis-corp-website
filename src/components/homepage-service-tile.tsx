@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
 
 type HomepageServiceTileProps = {
   title: string;
@@ -14,66 +11,41 @@ export function HomepageServiceTile({
   description,
   href,
 }: HomepageServiceTileProps) {
-  const [expanded, setExpanded] = useState(false);
-
-  const frontVisibility = expanded ? "opacity-0" : "opacity-100";
-  const detailVisibility = expanded ? "opacity-100" : "opacity-0";
-
-  const frontFace = (
-    <div
-      className={`absolute inset-0 flex items-center justify-center px-4 py-4 text-center transition-opacity duration-300 md:px-5 md:py-5 md:group-hover:opacity-0 ${frontVisibility}`}
-    >
+  const content = (
+    <>
       <div className="min-w-0 flex-1">
-        <p className="max-w-[18ch] text-[1.34rem] font-bold leading-[1.15] tracking-[-0.04em] text-white md:max-w-[19ch] md:text-[1.48rem] md:leading-[1.18] xl:text-[1.38rem]">
+        <p className="text-[1.1rem] font-bold leading-6 tracking-[-0.03em] text-white md:text-[1.15rem]">
           {title}
         </p>
-      </div>
-    </div>
-  );
-
-  const detailFace = (
-    <div
-      className={`absolute inset-0 px-4 py-4 text-center transition-opacity duration-300 md:px-5 md:py-5 md:group-hover:opacity-100 ${detailVisibility}`}
-    >
-      <div className="flex h-full items-center justify-center">
-        <p className="max-w-[23ch] text-[1.1rem] font-medium leading-7 text-white/90 md:text-[1.08rem] md:leading-[1.65]">
+        <p className="mt-1.5 max-w-[34ch] text-[0.96rem] font-medium leading-6 text-white/82 md:text-[0.98rem]">
           {description}
         </p>
       </div>
-    </div>
+      {href ? (
+        <span
+          aria-hidden="true"
+          className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/8 text-[1rem] text-white/78 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-white"
+        >
+          →
+        </span>
+      ) : null}
+    </>
   );
 
   if (href) {
     return (
-      <div className="group relative h-full">
-        <Link
-          href={href}
-          className="relative flex h-full min-h-[8rem] w-full overflow-hidden rounded-[1.2rem] border border-[#1b2f37] bg-[linear-gradient(180deg,#173039_0%,#11232a_100%)] shadow-[0_14px_34px_rgba(17,35,42,0.14)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/35 md:min-h-[9rem]"
-        >
-          {frontFace}
-          {detailFace}
-        </Link>
-      </div>
+      <Link
+        href={href}
+        className="group flex min-h-[7rem] w-full items-start gap-4 rounded-[1.15rem] border border-[#20363f] bg-[linear-gradient(180deg,#173039_0%,#11232a_100%)] px-4 py-4 text-left shadow-[0_12px_28px_rgba(17,35,42,0.12)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/32 hover:bg-[linear-gradient(180deg,#1a3640_0%,#132830_100%)] md:min-h-[7.1rem] md:px-4.5"
+      >
+        {content}
+      </Link>
     );
   }
 
   return (
-    <div className="group relative h-full">
-      <button
-        type="button"
-        aria-expanded={expanded}
-        onClick={() => {
-          if (typeof window !== "undefined" && window.innerWidth >= 768) {
-            return;
-          }
-
-          setExpanded((current) => !current);
-        }}
-        className="relative flex h-full min-h-[8rem] w-full overflow-hidden rounded-[1.2rem] border border-[#1b2f37] bg-[linear-gradient(180deg,#173039_0%,#11232a_100%)] shadow-[0_14px_34px_rgba(17,35,42,0.14)] md:min-h-[9rem]"
-      >
-        {frontFace}
-        {detailFace}
-      </button>
+    <div className="flex min-h-[7rem] w-full items-start gap-4 rounded-[1.15rem] border border-[#20363f] bg-[linear-gradient(180deg,#173039_0%,#11232a_100%)] px-4 py-4 text-left shadow-[0_12px_28px_rgba(17,35,42,0.12)] md:min-h-[7.1rem] md:px-4.5">
+      {content}
     </div>
   );
 }
