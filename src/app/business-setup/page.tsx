@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
+import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import {
@@ -212,22 +212,15 @@ export default function BusinessSetupPage() {
               offshore. Those three routes shape licensing, visas, banking, and
               how the company operates after formation.
             </p>
-            <div className="mt-6 grid gap-3">
-              {setupRoutes.map((route) => (
-                <Link
-                  key={route.title}
-                  href={route.href}
-                  className="group flex items-center justify-between rounded-[1.2rem] border border-[#d7cfc2] bg-[linear-gradient(180deg,#fffdfa_0%,#f7f1e7_100%)] px-5 py-4 text-[1.04rem] font-semibold text-foreground shadow-[0_10px_30px_rgba(17,35,42,0.07)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/22 hover:bg-white"
-                >
-                  <span>{route.title}</span>
-                  <span
-                    aria-hidden="true"
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#244ba8]/14 bg-[#244ba8]/8 text-[1rem] font-semibold text-[#244ba8] transition-transform duration-200 group-hover:translate-x-0.5"
-                  >
-                    →
-                  </span>
-                </Link>
-              ))}
+            <div className="mt-6">
+              <ServiceSubpageLinks
+                items={setupRoutes.map((route) => ({
+                  label: route.title,
+                  href: route.href,
+                  description: route.description,
+                }))}
+                columnsClassName="md:grid-cols-3"
+              />
             </div>
           </article>
 
@@ -241,22 +234,15 @@ export default function BusinessSetupPage() {
               need banking, visas, attestation, and residency support once the
               structure is chosen.
             </p>
-            <div className="mt-6 grid gap-3">
-              {essentialServices.map((item) => (
-                <Link
-                  key={item.title}
-                  href={item.href}
-                  className="group flex items-center justify-between rounded-[1.2rem] border border-[#d7cfc2] bg-[linear-gradient(180deg,#fffdfa_0%,#f7f1e7_100%)] px-5 py-4 text-[1.04rem] font-semibold text-foreground shadow-[0_10px_30px_rgba(17,35,42,0.07)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/22 hover:bg-white"
-                >
-                  <span>{item.title}</span>
-                  <span
-                    aria-hidden="true"
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#244ba8]/14 bg-[#244ba8]/8 text-[1rem] font-semibold text-[#244ba8] transition-transform duration-200 group-hover:translate-x-0.5"
-                  >
-                    →
-                  </span>
-                </Link>
-              ))}
+            <div className="mt-6">
+              <ServiceSubpageLinks
+                items={essentialServices.map((item) => ({
+                  label: item.title,
+                  href: item.href,
+                  description: item.description,
+                }))}
+                columnsClassName="md:grid-cols-2"
+              />
             </div>
           </article>
         </div>

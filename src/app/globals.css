@@ -107,11 +107,11 @@ a {
 }
 
 .eyebrow {
-  font-family: var(--font-plex-mono), monospace;
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  display: none !important;
+}
+
+.eyebrow + * {
+  margin-top: 0 !important;
 }
 
 .hero-image {

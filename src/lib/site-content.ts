@@ -365,7 +365,7 @@ export type Testimonial = (typeof testimonials)[number];
 
 export const articleHighlights = [
   {
-    category: "Corporate Tax",
+    category: "Accounting and Tax",
     title: "A Complete Guide to Corporate Tax Groups in the UAE",
     summary:
       "A practical overview of when multiple UAE entities can be treated as one taxable group, what the ownership requirements look like, and where grouping can simplify compliance.",
@@ -374,7 +374,7 @@ export const articleHighlights = [
     imageAlt: "Professionals reviewing finance and tax documents",
   },
   {
-    category: "Compliance",
+    category: "Accounting and Tax",
     title: "Financial Year 2026 in the UAE: A Complete Compliance Guide for Businesses",
     summary:
       "A breakdown of how the financial year drives filing cadence, reporting rhythm, and the timing of tax obligations across the UAE compliance cycle.",
@@ -383,7 +383,7 @@ export const articleHighlights = [
     imageAlt: "Business advisor discussing compliance planning",
   },
   {
-    category: "Free Zone",
+    category: "Business Setup",
     title:
       "UAE Free Zone Corporate Tax Rules Clarified: What Businesses Need to Know in 2026",
     summary:

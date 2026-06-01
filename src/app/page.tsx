@@ -7,6 +7,7 @@ import {
 } from "@/components/consultation-form";
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { HomepageReviewsCarousel } from "@/components/homepage-reviews-carousel";
+import { HomepageInsightsCarousel } from "@/components/homepage-insights-carousel";
 import { HomepageServiceTile } from "@/components/homepage-service-tile";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SectionHeading, SiteShell } from "@/components/site-shell";
@@ -361,9 +362,46 @@ export default function Home() {
       <section className="relative left-1/2 mt-10 w-screen -translate-x-1/2 bg-[#11232a] py-16 md:mt-12 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
+          <div className="max-w-[50rem]">
+            <p className="eyebrow text-white/58">Clients</p>
+            <h2 className="section-title mt-4 font-semibold text-white">
+              Our clients
+            </h2>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+            {partnerLogos.map((logo) => (
+              <div
+                key={logo.label}
+                className="flex min-h-[9rem] items-center justify-center rounded-[1.55rem] border border-white/10 bg-white/88 px-4 py-5 transition-transform duration-200 hover:-translate-y-0.5 md:min-h-[9.5rem]"
+              >
+                <NextImage
+                  src={logo.src}
+                  alt={`${logo.label} logo`}
+                  width={320}
+                  height={140}
+                  sizes="(min-width: 1024px) 18vw, (min-width: 640px) 40vw, 70vw"
+                  className={`w-auto max-w-full object-contain opacity-90 ${
+                    "isEmphasized" in logo && logo.isEmphasized
+                      ? "h-24 md:h-[5.5rem]"
+                      : "h-20 md:h-[4.75rem]"
+                  }`}
+                />
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+        <ScrollReveal>
           <div className="mb-10 md:mb-12">
-            <p className="eyebrow text-white/58">Zenesis Awards</p>
-            <h2 className="mt-4 text-[clamp(2.4rem,3.2vw,3.75rem)] font-semibold leading-[0.94] tracking-[-0.06em] text-white xl:whitespace-nowrap">
+            <p className="eyebrow text-[#244ba8]">Zenesis Awards</p>
+            <h2 className="mt-4 text-[clamp(2.4rem,3.2vw,3.75rem)] font-semibold leading-[0.94] tracking-[-0.06em] text-[#07151b] xl:whitespace-nowrap">
               Awards and recognition
             </h2>
           </div>
@@ -412,7 +450,7 @@ export default function Home() {
                     alt={featuredProfile.imageAlt}
                     width={2300}
                     height={1800}
-                    className="block aspect-[4/3] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
+                    className="block aspect-[4/3.18] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
                   />
                 </div>
               </div>
@@ -471,43 +509,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <ScrollReveal>
-            <div className="max-w-[50rem]">
-              <p className="eyebrow text-[#244ba8]">Clients</p>
-              <h2 className="section-title mt-4 font-semibold text-[#07151b]">
-                Our clients
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
-              {partnerLogos.map((logo) => (
-                <div
-                  key={logo.label}
-                  className="flex min-h-[9rem] items-center justify-center rounded-[1.55rem] border border-[#ddd3c6] bg-white px-4 py-5 shadow-[0_18px_48px_rgba(17,35,42,0.08)] transition-transform duration-200 hover:-translate-y-0.5 md:min-h-[9.5rem]"
-                >
-                  <NextImage
-                    src={logo.src}
-                    alt={`${logo.label} logo`}
-                    width={320}
-                    height={140}
-                    sizes="(min-width: 1024px) 18vw, (min-width: 640px) 40vw, 70vw"
-                    className={`w-auto max-w-full object-contain opacity-90 ${
-                      "isEmphasized" in logo && logo.isEmphasized
-                        ? "h-24 md:h-[5.5rem]"
-                        : "h-20 md:h-[4.75rem]"
-                    }`}
-                  />
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
@@ -547,53 +548,15 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <SectionHeading
-            eyebrow="Zenesis Blog"
+            eyebrow="Blog"
             title="Latest blog posts"
           />
         </ScrollReveal>
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          {insightPosts.map((item, index) => (
-            <ScrollReveal
-              key={item.title}
-              className="h-full"
-              delay={index * 90}
-            >
-              <Link
-                href={`/insights/${item.slug}`}
-                className="premium-card group flex min-h-full flex-col rounded-[1.75rem] border border-[#d8d0c2] bg-[#f5efe4] p-4 text-[#11232a] shadow-[0_24px_80px_rgba(17,35,42,0.14)] transition-transform duration-300 hover:-translate-y-1"
-              >
-                <div className="relative z-10 flex min-h-full flex-col">
-                  <div className="relative overflow-hidden rounded-[1.35rem] bg-[#11232a]">
-                    <NextImage
-                      src={item.heroImageSrc}
-                      alt={item.heroImageAlt}
-                      width={640}
-                      height={420}
-                      className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                    />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgba(17,35,42,0.46)_100%)]" />
-                  </div>
-                  <div className="flex flex-1 flex-col p-3 pt-6">
-                  <p className="eyebrow text-muted">Blog post</p>
-                  <h3 className="mt-5 text-2xl font-semibold leading-tight tracking-[-0.03em] text-foreground">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-muted/80">
-                    {item.category}
-                  </p>
-                  <p className="mt-4 flex-1 text-[1.12rem] leading-8 text-muted">
-                    {item.description}
-                  </p>
-                  <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors group-hover:text-accent-strong">
-                    Read blog post
-                    <span aria-hidden="true">→</span>
-                  </span>
-                  </div>
-                </div>
-              </Link>
-            </ScrollReveal>
-          ))}
+        <div className="mt-10">
+          <ScrollReveal>
+            <HomepageInsightsCarousel posts={insightPosts} />
+          </ScrollReveal>
         </div>
         </div>
       </section>
@@ -605,7 +568,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="FAQ"
             eyebrowClassName="!text-white"
-            title="Questions"
+            title="FAQ"
             titleClassName="!text-white"
           />
 

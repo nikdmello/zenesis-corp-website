@@ -146,13 +146,13 @@ export function HomepageReviewsCarousel({
                   href={googleReviewsHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex h-full min-h-[18rem] flex-col rounded-[1.7rem] border border-[#d8d0c2] bg-[#f5efe4] p-6 text-[#11232a] transition-transform duration-200 hover:-translate-y-1 md:min-h-[19.5rem] md:p-7 xl:min-h-[21rem]"
+                  className="group flex h-full min-h-[13.75rem] flex-col rounded-[1.7rem] border border-[#d8d0c2] bg-[#f5efe4] p-5 text-[#11232a] transition-transform duration-200 hover:-translate-y-1 md:min-h-[14.75rem] md:p-6 xl:min-h-[15.75rem]"
                 >
-                  <p className="text-[1.18rem] leading-8 text-[#11232a] md:text-[1.24rem] md:leading-9">
+                  <p className="text-[1.08rem] leading-7 text-[#11232a] md:text-[1.14rem] md:leading-8">
                     &ldquo;{item.quote}&rdquo;
                   </p>
-                  <div className="mt-auto pt-8 flex items-center justify-between gap-4">
-                    <p className="text-[0.98rem] font-semibold tracking-[-0.02em] text-[#11232a] md:text-[1.02rem]">
+                  <div className="mt-auto flex items-center justify-between gap-4 pt-6">
+                    <p className="text-[0.96rem] font-semibold tracking-[-0.02em] text-[#11232a] md:text-[1rem]">
                       {item.name}
                     </p>
                   </div>

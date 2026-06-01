@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
+import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 
@@ -201,27 +201,14 @@ export default function AccountingTaxPage() {
             Whether you are newly incorporated or already operating, the team
             can support your day-to-day accounting and ongoing tax compliance.
           </p>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            {reportingNeeds.map((item) => (
-              <Link
-                key={item.title}
-                href={item.href}
-                className="group flex h-full flex-col justify-between rounded-[1.2rem] border border-foreground/10 bg-white/88 px-5 py-5 shadow-[0_10px_28px_rgba(17,35,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/22 hover:bg-white"
-              >
-                <div>
-                <h3 className="text-[1.02rem] font-semibold leading-7 text-foreground">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-[1.02rem] leading-7 text-muted">
-                  {item.description}
-                </p>
-                </div>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#244ba8] transition-colors group-hover:text-[#1b3c86]">
-                  Open service
-                  <span aria-hidden="true">→</span>
-                </span>
-              </Link>
-            ))}
+          <div className="mt-6">
+            <ServiceSubpageLinks
+              items={reportingNeeds.map((item) => ({
+                label: item.title,
+                href: item.href,
+                description: item.description,
+              }))}
+            />
           </div>
         </div>
 
