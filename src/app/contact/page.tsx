@@ -46,7 +46,9 @@ export default function ContactPage() {
                       rel="noreferrer"
                       className="glass-panel group rounded-[1.4rem] p-6 transition-transform duration-200 hover:-translate-y-0.5"
                     >
-                      <p className="eyebrow text-muted">{item.label}</p>
+                      <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
+                        {item.label}
+                      </h2>
                       <p className="mt-4 text-[1.02rem] font-semibold leading-7 tracking-[-0.03em] text-foreground md:text-[1.08rem]">
                         {item.value}
                       </p>
@@ -67,7 +69,9 @@ export default function ContactPage() {
                       rel="noreferrer"
                       className="glass-panel group rounded-[1.4rem] p-6 transition-transform duration-200 hover:-translate-y-0.5"
                     >
-                      <p className="eyebrow text-muted">{item.label}</p>
+                      <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
+                        {item.label}
+                      </h2>
                       <div className="mt-4 flex items-center gap-3">
                         <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_24px_rgba(37,211,102,0.22)]">
                           <WhatsAppIcon className="h-5 w-5 fill-current" />
@@ -85,7 +89,9 @@ export default function ContactPage() {
                     key={item.label}
                     className="glass-panel rounded-[1.4rem] p-6"
                   >
-                    <p className="eyebrow text-muted">{item.label}</p>
+                    <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
+                      {item.label}
+                    </h2>
                     <p className="mt-4 text-[1.12rem] font-semibold leading-8 tracking-[-0.03em] text-foreground md:text-[1.18rem]">
                       {item.value}
                     </p>
@@ -95,7 +101,9 @@ export default function ContactPage() {
             </div>
 
             <article className="glass-panel rounded-[1.6rem] p-6">
-              <p className="eyebrow text-accent">Social Media</p>
+              <h2 className="text-[1.24rem] font-semibold tracking-[-0.04em] text-foreground md:text-[1.32rem]">
+                Social Media
+              </h2>
               <div className="mt-4 flex flex-wrap gap-3">
                 {socialLinks.map((item) => (
                   <a
@@ -117,10 +125,12 @@ export default function ContactPage() {
             <article className="glass-panel overflow-hidden rounded-[2rem] p-4 md:p-5">
               <div className="flex items-center justify-between gap-4 px-2 pb-4 pt-1">
                 <div>
-                  <p className="eyebrow text-accent">Office Map</p>
-                  <h2 className="mt-3 text-[clamp(1.7rem,2.6vw,2.6rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-foreground">
-                    Visit the Dubai office.
+                  <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
+                    Office Map
                   </h2>
+                  <p className="mt-3 text-[clamp(1.7rem,2.6vw,2.6rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-foreground">
+                    Visit the Dubai office.
+                  </p>
                 </div>
                 <a
                   href={googleMapsHref}

@@ -1,4 +1,5 @@
 import { PageIntro, SiteShell } from "@/components/site-shell";
+import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import type { ServiceDetailConfig } from "@/lib/service-pages";
 
@@ -71,6 +72,12 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
+
+            {config.subpageLinks?.length ? (
+              <div className="mt-8">
+                <ServiceSubpageLinks items={config.subpageLinks} columnsClassName="md:grid-cols-3" />
+              </div>
+            ) : null}
           </article>
         </div>
       </section>

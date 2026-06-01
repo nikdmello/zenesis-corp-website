@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ServiceSubpageLinkItem } from "@/components/service-subpage-links";
 
 type ServiceKnowledgeSection = {
   title: string;
@@ -8,7 +9,7 @@ type ServiceKnowledgeSection = {
 
 export type ServiceDetailConfig = {
   slug: string;
-  currentPath: "/business-setup" | "/accounting-tax";
+  currentPath: "/business-setup" | "/accounting-tax" | "/visa-and-banking";
   title: string;
   eyebrow: string;
   description: string;
@@ -20,6 +21,7 @@ export type ServiceDetailConfig = {
   introAmbientImageClassName?: string;
   introTitle: string;
   introParagraphs: string[];
+  subpageLinks?: ServiceSubpageLinkItem[];
   knowledgeSections?: ServiceKnowledgeSection[];
   pointsTitle: string;
   points: string[];
@@ -279,7 +281,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
   },
   "open-a-bank-account-easily": {
     slug: "open-a-bank-account-easily",
-    currentPath: "/business-setup",
+    currentPath: "/visa-and-banking",
     title: "Bank account support",
     eyebrow: "Bank Accounts",
     description:
@@ -339,7 +341,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
   },
   "uae-company-visa": {
     slug: "uae-company-visa",
-    currentPath: "/business-setup",
+    currentPath: "/visa-and-banking",
     title: "Company visa",
     eyebrow: "Company Visa",
     description:
@@ -398,7 +400,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
   },
   "visa-and-banking": {
     slug: "visa-and-banking",
-    currentPath: "/business-setup",
+    currentPath: "/visa-and-banking",
     title: "Visa and banking",
     eyebrow: "Visa and Banking",
     description:
@@ -412,6 +414,26 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     introParagraphs: [
       "Visa and banking needs usually begin as soon as the company structure is clear. Founders may need residency, teams may need company visas, and banks may need a stronger KYC pack before an account can move forward.",
       "Zenesis helps connect those steps properly so residency planning, company visa support, and business banking are handled as one practical flow instead of separate delays after setup.",
+    ],
+    subpageLinks: [
+      {
+        label: "Bank account support",
+        href: "/open-a-bank-account-easily",
+        description:
+          "Prepare KYC and account-opening support around the actual company structure.",
+      },
+      {
+        label: "Company visa",
+        href: "/uae-company-visa",
+        description:
+          "Handle founder and employee residency steps, medicals, and Emirates ID follow-through.",
+      },
+      {
+        label: "Golden Visa",
+        href: "/golden-visa-services-in-the-uae",
+        description:
+          "Review eligibility routes and document planning for long-term UAE residency.",
+      },
     ],
     pointsTitle: "What we handle",
     points: [
@@ -436,7 +458,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
   },
   "golden-visa-services-in-the-uae": {
     slug: "golden-visa-services-in-the-uae",
-    currentPath: "/business-setup",
+    currentPath: "/visa-and-banking",
     title: "Golden Visa",
     eyebrow: "Golden Visa",
     description:

@@ -8,7 +8,7 @@ import { featuredProfile } from "@/lib/site-content";
 export const metadata: Metadata = {
   title: "Cecilia D'Cunha in Global Leaders Today | Zenesis Corporation",
   description:
-    "An internal feature on Cecilia D'Cunha covering her background in offshore incorporation, UAE business setup, and corporate compliance.",
+    "An editorial feature on Cecilia D'Cunha covering her background in offshore incorporation, UAE business setup, and corporate compliance.",
 };
 
 const profileHighlights = [
@@ -69,135 +69,153 @@ const finalQuote =
 export default function FeaturedProfilePage() {
   return (
     <SiteShell currentPath="/insights">
-      <article className="mx-auto mt-10 w-full max-w-5xl md:mt-12">
-        <div>
-          <Link
-            href="/insights"
-            className="text-sm font-semibold text-accent transition-colors hover:text-accent-strong"
-          >
-            ← Back to Insights
-          </Link>
-        </div>
+      <article>
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] py-14 text-white md:py-18">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(36,75,168,0.24),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_44%)]" />
+          <div className="relative mx-auto w-full max-w-[88rem] px-6 md:px-10 xl:px-16">
+            <Link
+              href="/insights"
+              className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/8 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/12"
+            >
+              <span aria-hidden="true">←</span>
+              Back to Insights
+            </Link>
 
-        <header className="mt-8">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.96rem] text-muted">
-            <span>{featuredProfile.publication}</span>
-            <span>{featuredProfile.dateLabel}</span>
+            <header className="mt-8 max-w-[62rem]">
+              <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.98rem] text-white/72">
+                <span className="text-white">Leadership Feature</span>
+                <span aria-hidden="true" className="text-white/34">
+                  •
+                </span>
+                <span>{featuredProfile.publication}</span>
+                <span aria-hidden="true" className="text-white/34">
+                  •
+                </span>
+                <span>{featuredProfile.dateLabel}</span>
+              </div>
+              <h1 className="mt-7 max-w-[13ch] text-[3.25rem] font-semibold leading-[0.92] tracking-[-0.06em] text-white sm:text-[4.2rem] md:text-[5rem]">
+                Cecilia D&apos;Cunha in Global Leaders Today
+              </h1>
+              <p className="mt-7 max-w-4xl text-[1.16rem] font-medium leading-8 text-white/86 md:text-[1.28rem] md:leading-9">
+                {featuredProfile.summary}
+              </p>
+            </header>
           </div>
-          <h1 className="mt-6 text-[3.3rem] font-semibold leading-[0.96] tracking-[-0.05em] text-foreground sm:text-[4.15rem] xl:whitespace-nowrap">
-            Cecilia D&apos;Cunha in Global Leaders Today
-          </h1>
-          <p className="mt-6 max-w-4xl text-[1.18rem] leading-8 text-muted md:text-[1.32rem] md:leading-9">
-            {featuredProfile.summary}
-          </p>
-        </header>
+        </section>
 
-        <div className="glass-panel relative mt-10 overflow-hidden rounded-[2.25rem]">
-          <Image
-            src={featuredProfile.imageSrc}
-            alt={featuredProfile.imageAlt}
-            width={2300}
-            height={1800}
-            className="h-auto w-full object-contain"
-            priority
-          />
-        </div>
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-8 md:py-10">
+          <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 xl:px-16">
+            <div className="relative overflow-hidden rounded-[2.2rem] border border-[#ddd3c6] bg-[#f7f1e6] p-3 shadow-[0_18px_52px_rgba(17,35,42,0.08)]">
+              <Image
+                src={featuredProfile.imageSrc}
+                alt={featuredProfile.imageAlt}
+                width={2300}
+                height={1800}
+                className="h-auto w-full rounded-[1.7rem] object-contain"
+                priority
+              />
+            </div>
+          </div>
+        </section>
 
-        <section className="mt-12">
-          <h2 className="text-[2.15rem] font-semibold tracking-[-0.05em] text-foreground">
-            Profile Highlights
-          </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {profileHighlights.map((item) => (
-              <div
-                key={item}
-                className="rounded-[1.5rem] border border-[#d8d0c2] bg-[#f7f1e7] px-5 py-5 shadow-[0_16px_42px_rgba(17,35,42,0.08)]"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#244ba8] text-sm font-semibold text-white">
-                    ✓
-                  </span>
-                  <p className="text-[1.04rem] leading-7 text-foreground md:text-[1.08rem]">
-                    {item}
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-14 md:py-18">
+          <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 xl:px-16">
+            <div className="mx-auto max-w-3xl space-y-14">
+              <section>
+                <h2 className="text-[2.05rem] font-semibold leading-[1.02] tracking-[-0.05em] text-foreground md:text-[2.2rem]">
+                  Profile Highlights
+                </h2>
+                <ul className="mt-6 space-y-3">
+                  {profileHighlights.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 rounded-[1.25rem] border border-[#e7ded1] bg-[#faf7f2] px-5 py-4 text-[1rem] leading-7 text-foreground shadow-[0_8px_20px_rgba(17,35,42,0.03)]"
+                    >
+                      <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              {articleSections.map((section) => (
+                <section key={section.title}>
+                  <h2 className="text-[2.05rem] font-semibold leading-[1.02] tracking-[-0.05em] text-foreground md:text-[2.2rem]">
+                    {section.title}
+                  </h2>
+                  <div className="mt-5 space-y-5">
+                    {section.paragraphs.map((paragraph) => (
+                      <p
+                        key={paragraph}
+                        className="text-[1.08rem] leading-8 text-foreground/80 md:text-[1.15rem] md:leading-9"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                  {"quote" in section && section.quote ? (
+                    <blockquote className="mt-6 rounded-[1.6rem] border border-[#e4dbce] bg-[#fcfbf8] px-6 py-5 text-[1.08rem] leading-8 text-foreground md:text-[1.12rem] md:leading-9">
+                      &ldquo;{section.quote}&rdquo;
+                    </blockquote>
+                  ) : null}
+                </section>
+              ))}
+
+              <section className="rounded-[2rem] border border-[#e7ded1] bg-[#f8f5ef] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">
+                <h2 className="text-[2.05rem] font-semibold tracking-[-0.05em] text-foreground md:text-[2.2rem]">
+                  Why this matters for clients
+                </h2>
+                <div className="mt-5 space-y-5">
+                  <p className="text-[1.08rem] leading-8 text-foreground/80 md:text-[1.15rem] md:leading-9">
+                    Cecilia&apos;s background is not just a personal profile. It explains why
+                    Zenesis is able to guide businesses through company formation,
+                    structuring, banking coordination, visas, and compliance with a
+                    practical understanding of how these steps connect in real life.
+                  </p>
+                  <p className="text-[1.08rem] leading-8 text-foreground/80 md:text-[1.15rem] md:leading-9">
+                    For founders, investors, and operating companies, that experience
+                    is useful when the goal is to make the right setup decision early
+                    and avoid fragmented execution later.
                   </p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              </section>
 
-        <section className="mt-14 space-y-12">
-          {articleSections.map((section) => (
-            <section key={section.title}>
-              <h2 className="text-[2.15rem] font-semibold tracking-[-0.05em] text-foreground">
-                {section.title}
-              </h2>
-              <div className="mt-5 space-y-5">
-                {section.paragraphs.map((paragraph) => (
-                  <p
-                    key={paragraph}
-                    className="text-[1.16rem] leading-9 text-muted md:text-[1.22rem]"
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-              {"quote" in section && section.quote ? (
-                <blockquote className="mt-6 rounded-[1.6rem] border border-[#d8d0c2] bg-[#f7f1e7] px-6 py-5 text-[1.08rem] leading-8 text-foreground md:text-[1.12rem] md:leading-9">
-                  &ldquo;{section.quote}&rdquo;
+              <section className="rounded-[2rem] border border-[#e7ded1] bg-[#f8f5ef] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">
+                <h2 className="text-[2.05rem] font-semibold tracking-[-0.05em] text-foreground md:text-[2.2rem]">
+                  Her Advice
+                </h2>
+                <blockquote className="mt-5 text-[1.12rem] leading-8 text-foreground md:text-[1.18rem] md:leading-9">
+                  &ldquo;{finalQuote}&rdquo;
                 </blockquote>
-              ) : null}
-            </section>
-          ))}
-        </section>
-
-        <section className="glass-panel mt-14 rounded-[2rem] p-7 md:p-8">
-          <h2 className="text-[2.15rem] font-semibold tracking-[-0.05em] text-foreground">
-            Why this matters for clients
-          </h2>
-          <div className="mt-5 space-y-5">
-            <p className="text-[1.16rem] leading-9 text-muted md:text-[1.22rem]">
-              Cecilia&apos;s background is not just a personal profile. It explains why
-              Zenesis is able to guide businesses through company formation,
-              structuring, banking coordination, visas, and compliance with a
-              practical understanding of how these steps connect in real life.
-            </p>
-            <p className="text-[1.16rem] leading-9 text-muted md:text-[1.22rem]">
-              For founders, investors, and operating companies, that experience
-              is useful when the goal is to make the right setup decision early
-              and avoid fragmented execution later.
-            </p>
+              </section>
+            </div>
           </div>
         </section>
 
-        <section className="mt-14 rounded-[2rem] border border-[#d8d0c2] bg-[#f7f1e7] p-7 shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-8">
-          <p className="eyebrow text-accent">Her Advice</p>
-          <blockquote className="mt-4 text-[1.2rem] leading-9 text-foreground md:text-[1.26rem]">
-            &ldquo;{finalQuote}&rdquo;
-          </blockquote>
-        </section>
-
-        <section className="mt-14 rounded-[2rem] bg-[#11232a] p-7 text-white shadow-[0_28px_90px_rgba(17,35,42,0.18)] md:p-8">
-          <p className="eyebrow text-white/58">Next Step</p>
-          <h2 className="mt-4 text-[2.2rem] font-semibold tracking-[-0.05em] text-white">
-            Discuss your setup or compliance needs with Zenesis.
-          </h2>
-          <p className="mt-5 max-w-4xl text-[1.16rem] leading-9 text-white/94 md:text-[1.22rem]">
-            If you are comparing company setup routes, working through banking
-            or visa steps, or need help with ongoing compliance in the UAE,
-            the useful next move is a direct consultation.
-          </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <ConsultationFormButton
-              label="Schedule a Free Consultation"
-              className="inline-flex rounded-full bg-[#25D366] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5d]"
-            />
-            <Link
-              href="/about"
-              className="rounded-full border border-white/20 bg-white/10 px-6 py-3 text-center text-sm font-semibold !text-white backdrop-blur-md transition-colors hover:bg-white/[0.18]"
-            >
-              View About Zenesis
-            </Link>
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-14 text-white md:py-16">
+          <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 xl:px-16">
+            <div className="rounded-[2rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-7 shadow-[0_28px_90px_rgba(17,35,42,0.18)] md:p-8">
+              <h2 className="max-w-[18ch] text-[2.2rem] font-semibold tracking-[-0.05em] text-white">
+                Discuss your setup or compliance needs with Zenesis.
+              </h2>
+              <p className="mt-5 max-w-4xl text-[1.16rem] leading-9 text-white/94 md:text-[1.22rem]">
+                If you are comparing company setup routes, working through banking
+                or visa steps, or need help with ongoing compliance in the UAE,
+                the useful next move is a direct consultation.
+              </p>
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+                <ConsultationFormButton
+                  label="Schedule a Free Consultation"
+                  className="inline-flex rounded-full bg-[#25D366] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5d]"
+                />
+                <Link
+                  href="/about"
+                  className="rounded-full border border-white/20 bg-white/10 px-6 py-3 text-center text-sm font-semibold !text-white backdrop-blur-md transition-colors hover:bg-white/[0.18]"
+                >
+                  View About Zenesis
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
       </article>
