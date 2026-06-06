@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CardAccent } from "@/components/site-shell";
 import { teamMembers } from "@/lib/site-content";
 
 type TeamMember = (typeof teamMembers)[number];
@@ -14,17 +15,17 @@ function TeamCard({
 
   return (
     <article
-      className={`flex h-full rounded-[2rem] border border-[#d9d2c5] bg-[linear-gradient(180deg,#fbf7ef_0%,#f2eadc_100%)] shadow-[0_26px_80px_rgba(17,35,42,0.10)] ${
+      className={`flex h-full rounded-[2rem] border border-[#d9d2c5] bg-white shadow-[0_26px_80px_rgba(17,35,42,0.10)] ${
         isFeatured
           ? "flex-col gap-6 p-7 md:p-8 xl:flex-row xl:items-start"
           : "flex-col gap-5 p-6 md:p-7"
       }`}
     >
       <div
-        className={`relative shrink-0 overflow-hidden rounded-[1.5rem] border border-[#d9d2c5] bg-[#f8f2e8] ${
+        className={`relative shrink-0 overflow-hidden rounded-[1.5rem] border border-[#d9d2c5] bg-[#f8f8f6] ${
           isFeatured
             ? "aspect-[4/4.4] w-full xl:h-[17rem] xl:w-[15rem]"
-            : "aspect-[4/4.4] w-full"
+            : "aspect-[4/3.75] w-full"
         }`}
       >
         <Image
@@ -41,8 +42,8 @@ function TeamCard({
       </div>
 
       <div className="min-w-0 flex-1">
-        <p className="eyebrow text-accent">Leadership</p>
-        <div className="mt-3">
+        <div>
+          <CardAccent />
           <h3
             className={`font-semibold tracking-[-0.05em] text-foreground ${
               isFeatured

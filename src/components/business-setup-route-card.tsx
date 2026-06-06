@@ -1,12 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { CardAccent } from "@/components/site-shell";
 
 type BusinessSetupRouteCardProps = {
-  eyebrow?: string;
   title: string;
   href: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   frontSummary: string;
   backDescription?: string;
   points: readonly string[];
@@ -15,9 +20,12 @@ type BusinessSetupRouteCardProps = {
 };
 
 export function BusinessSetupRouteCard({
-  eyebrow = "Setup Option",
   title,
   href,
+  imageSrc,
+  imageAlt,
+  imageWidth = 1920,
+  imageHeight = 1303,
   frontSummary,
   backDescription,
   points,
@@ -26,9 +34,12 @@ export function BusinessSetupRouteCard({
 }: BusinessSetupRouteCardProps) {
   const [expanded, setExpanded] = useState(false);
   const isEssential = variant === "essential";
+  const hasImage = !isEssential && Boolean(imageSrc && imageAlt);
   const frameHeightClass = isEssential
     ? "min-h-[30rem] md:min-h-[34rem] xl:min-h-[40rem]"
-    : "min-h-[36rem] md:min-h-[38rem]";
+    : hasImage
+      ? "min-h-[36rem] md:min-h-[39rem]"
+      : "min-h-[36rem] md:min-h-[38rem]";
 
   return (
     <div
@@ -49,18 +60,50 @@ export function BusinessSetupRouteCard({
         style={{ transform: expanded ? "rotateY(180deg)" : "rotateY(0deg)" }}
       >
         <div
-          className="absolute inset-0 flex h-full w-full flex-col justify-center overflow-hidden rounded-[2rem] border border-[#dcd3c6] bg-[linear-gradient(180deg,#fffdfa_0%,#f5efe4_100%)] px-7 py-8 text-center shadow-[0_16px_44px_rgba(17,35,42,0.09)] md:px-8 md:py-10 [backface-visibility:hidden]"
+          className={`absolute inset-0 flex h-full w-full flex-col overflow-hidden rounded-[2rem] border border-[#dcd3c6] shadow-[0_16px_44px_rgba(17,35,42,0.09)] [backface-visibility:hidden] ${
+            hasImage
+              ? "bg-white text-left"
+              : "justify-center bg-[linear-gradient(180deg,#fffdfa_0%,#f5efe4_100%)] px-7 py-8 text-center md:px-8 md:py-10"
+          }`}
         >
-          <span className="eyebrow mx-auto text-[#244ba8]">{eyebrow}</span>
-          <div className="mt-6 flex flex-1 flex-col items-center justify-center">
-            <h3 className="max-w-[12ch] text-[2.15rem] font-semibold leading-[1.02] tracking-[-0.045em] text-[#07151b] md:text-[2.3rem]">
+          {hasImage ? (
+            <div className="overflow-hidden">
+              <Image
+                src={imageSrc!}
+                alt={imageAlt!}
+                width={imageWidth}
+                height={imageHeight}
+                className="aspect-[16/10] w-full object-cover object-center"
+              />
+            </div>
+          ) : null}
+
+          <div
+            className={`flex flex-1 flex-col ${hasImage ? "items-start justify-start px-5 py-5 md:px-6 md:py-6" : "mt-6 items-center justify-center"}`}
+          >
+            <CardAccent />
+            <h3
+              className={`font-semibold leading-[1.02] tracking-[-0.045em] text-[#07151b] ${
+                hasImage
+                  ? "max-w-[13ch] text-[1.8rem] md:text-[2rem]"
+                  : "max-w-[12ch] text-[2.15rem] md:text-[2.3rem]"
+              }`}
+            >
               {title}
             </h3>
-            <p className="mt-5 max-w-[28ch] text-[1.14rem] font-semibold leading-8 text-[#11232a] md:text-[1.14rem]">
+            <p
+              className={`mt-5 text-[1.14rem] font-semibold leading-8 text-[#11232a] md:text-[1.14rem] ${
+                hasImage ? "max-w-none" : "max-w-[28ch]"
+              }`}
+            >
               {frontSummary}
             </p>
           </div>
-          <div className="mt-6 flex items-center justify-center gap-2 text-sm font-semibold text-[#244ba8]">
+          <div
+            className={`mt-6 flex items-center gap-2 text-sm font-semibold text-[#244ba8] ${
+              hasImage ? "justify-start px-5 pb-5 md:px-6 md:pb-6" : "justify-center"
+            }`}
+          >
             <span>View details</span>
             <span
               aria-hidden="true"
@@ -75,8 +118,8 @@ export function BusinessSetupRouteCard({
           className={`absolute inset-0 flex h-full w-full flex-col overflow-hidden rounded-[2rem] border border-[#dcd3c6] bg-[linear-gradient(180deg,#fffdfa_0%,#f5efe4_100%)] shadow-[0_16px_44px_rgba(17,35,42,0.09)] [backface-visibility:hidden] [transform:rotateY(180deg)] ${isEssential ? "p-5 md:p-6 xl:p-7" : "p-5 md:p-8"}`}
         >
           <div>
-            <p className="eyebrow text-[#244ba8]">{eyebrow}</p>
-            <h3 className={`mt-4 font-semibold tracking-[-0.04em] text-[#07151b] ${isEssential ? "text-[1.22rem] leading-[1.15] md:text-[1.34rem]" : "text-[1.44rem] leading-[1.08] md:text-[1.5rem]"}`}>
+            <CardAccent />
+            <h3 className={`font-semibold tracking-[-0.04em] text-[#07151b] ${isEssential ? "text-[1.22rem] leading-[1.15] md:text-[1.34rem]" : "text-[1.44rem] leading-[1.08] md:text-[1.5rem]"}`}>
               {title}
             </h3>
           </div>

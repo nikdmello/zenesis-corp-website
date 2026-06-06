@@ -38,7 +38,7 @@ export function TalkToZenesisPanel({
       <ConsultationFormButton
         label="Schedule a Free Consultation"
         className={buttonClassName}
-        leadingIcon={<WhatsAppCueIcon />}
+        leadingIcon={<WhatsAppCueIcon inverse />}
       />
     ) : null);
 

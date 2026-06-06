@@ -2,8 +2,10 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
-import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
+import { CardAccent, PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
+import { versionedAssetPath } from "@/lib/asset-paths";
+import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
 
 const accountingServices = [
   {
@@ -162,11 +164,7 @@ const reportingNeeds = [
   },
 ] as const;
 
-export const metadata: Metadata = {
-  title: "Accounting & Tax | Zenesis Corporation",
-  description:
-    "Zenesis accounting and tax services across corporate tax registration, corporate tax filing, VAT filing, bookkeeping, and reporting support.",
-};
+export const metadata: Metadata = toMetadata(legacyRouteMeta.accountingTax);
 
 export default function AccountingTaxPage() {
   return (
@@ -185,9 +183,9 @@ export default function AccountingTaxPage() {
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto grid w-full max-w-[100rem] gap-6 px-6 md:px-12 lg:grid-cols-[0.95fr_1.05fr] xl:px-20">
-        <div className="h-full rounded-[2rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#fffdfa_0%,#f5efe4_100%)] p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
-          <p className="eyebrow text-[#244ba8]">Accounting & Tax</p>
-          <h2 className="section-title mt-4 font-semibold text-[#11232a]">
+        <div className="h-full rounded-[2rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
+          <CardAccent />
+          <h2 className="section-title font-semibold text-[#11232a]">
             Overview
           </h2>
           <p className="mt-5 max-w-3xl text-[1.18rem] leading-9 text-[#11232a]">
@@ -213,9 +211,9 @@ export default function AccountingTaxPage() {
         </div>
 
         <div className="relative mx-auto w-full max-w-[26rem] lg:max-w-none">
-          <div className="glass-panel relative aspect-[4/5] overflow-hidden rounded-[2.25rem]">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2.25rem] border border-[#d8d0c2] bg-white shadow-[0_22px_70px_rgba(17,35,42,0.14)]">
             <Image
-              src="/corporate-tax.webp"
+              src={versionedAssetPath("/corporate-tax.webp")}
               alt="Professional reviewing financial documents at a desk"
               fill
               sizes="(min-width: 1024px) 42vw, 100vw"
@@ -236,7 +234,8 @@ export default function AccountingTaxPage() {
 
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {whoWeHelp.map((item) => (
-              <article key={item.title} className="glass-panel rounded-[1.75rem] p-7">
+              <article key={item.title} className="rounded-[1.75rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)]">
+                <CardAccent />
                 <h3 className="overflow-hidden text-ellipsis whitespace-nowrap text-[1.18rem] font-semibold tracking-[-0.04em] !text-foreground md:text-[1.24rem] xl:text-[1.3rem]">
                   {item.title}
                 </h3>
@@ -261,7 +260,6 @@ export default function AccountingTaxPage() {
             {accountingServices.map((item) => (
               <BusinessSetupRouteCard
                 key={item.title}
-                eyebrow="Core Service"
                 title={item.title}
                 href={item.href}
                 frontSummary={item.description}
@@ -284,7 +282,8 @@ export default function AccountingTaxPage() {
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {whyZenesis.map((item) => (
-              <article key={item.title} className="glass-panel rounded-[1.75rem] p-7">
+              <article key={item.title} className="rounded-[1.75rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)]">
+                <CardAccent />
                 <h3 className="overflow-hidden text-ellipsis whitespace-nowrap text-[1.18rem] font-semibold tracking-[-0.04em] !text-foreground md:text-[1.24rem] xl:text-[1.3rem]">
                   {item.title}
                 </h3>
@@ -307,10 +306,10 @@ export default function AccountingTaxPage() {
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {workingRhythm.map((item) => (
-              <article key={item.step} className="glass-panel rounded-[1.75rem] p-7">
-                <p className="text-sm font-semibold tracking-[0.24em] text-accent">
+              <article key={item.step} className="rounded-[1.75rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)]">
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#8d7453]/18 bg-[#8d7453]/10 text-sm font-semibold tracking-[0.08em] text-[#8d7453]">
                   {item.step}
-                </p>
+                </div>
                 <h3 className="mt-4 overflow-hidden text-ellipsis whitespace-nowrap text-[1.18rem] font-semibold tracking-[-0.04em] text-foreground md:text-[1.24rem] xl:text-[1.3rem]">
                   {item.title}
                 </h3>
@@ -333,7 +332,7 @@ export default function AccountingTaxPage() {
             paragraphs={[
               "Whether you need monthly bookkeeping, VAT filing, corporate tax registration, or annual tax filing, Zenesis can help you stay organized and compliant.",
             ]}
-            buttonClassName="inline-flex rounded-full bg-[#244ba8] px-6 py-3 text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b3c86]"
+            buttonClassName="inline-flex rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5d]"
             imageClassName="object-cover object-[74%_center]"
           />
         </div>
