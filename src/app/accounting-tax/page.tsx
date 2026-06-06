@@ -1,10 +1,8 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { CardAccent, PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
-import { versionedAssetPath } from "@/lib/asset-paths";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
 
 const accountingServices = [
@@ -182,45 +180,37 @@ export default function AccountingTaxPage() {
       />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
-        <div className="mx-auto grid w-full max-w-[100rem] gap-6 px-6 md:px-12 lg:grid-cols-[0.95fr_1.05fr] xl:px-20">
-        <div className="h-full rounded-[2rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
-          <CardAccent />
-          <h2 className="section-title font-semibold text-[#11232a]">
-            Overview
-          </h2>
-          <p className="mt-5 max-w-3xl text-[1.18rem] leading-9 text-[#11232a]">
-            UAE businesses are expected to maintain accurate financial
-            records, file required tax returns, and stay ready for regulatory
-            review. Zenesis helps businesses keep their books organized,
-            manage VAT and corporate tax obligations, and reduce the risk of
-            missed deadlines or inaccurate filings.
-          </p>
-          <p className="mt-4 max-w-3xl text-[1.14rem] leading-8 text-[#11232a]">
-            Whether you are newly incorporated or already operating, the team
-            can support your day-to-day accounting and ongoing tax compliance.
-          </p>
-          <div className="mt-6">
-            <ServiceSubpageLinks
-              items={reportingNeeds.map((item) => ({
-                label: item.title,
-                href: item.href,
-                description: item.description,
-              }))}
-            />
-          </div>
-        </div>
-
-        <div className="relative mx-auto w-full max-w-[26rem] lg:max-w-none">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2.25rem] border border-[#d8d0c2] bg-white shadow-[0_22px_70px_rgba(17,35,42,0.14)]">
-            <Image
-              src={versionedAssetPath("/corporate-tax.webp")}
-              alt="Professional reviewing financial documents at a desk"
-              fill
-              sizes="(min-width: 1024px) 42vw, 100vw"
-              className="object-cover object-center"
-            />
-          </div>
-        </div>
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <article className="rounded-[2rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
+            <CardAccent />
+            <h2 className="section-title font-semibold text-[#11232a]">
+              Overview
+            </h2>
+            <div className="mt-5 max-w-[88rem] space-y-5 text-[1.16rem] leading-9 text-[#11232a] md:text-[1.22rem]">
+              <p>
+              UAE businesses are expected to maintain accurate financial
+              records, file required tax returns, and stay ready for regulatory
+              review. Zenesis helps businesses keep their books organized,
+              manage VAT and corporate tax obligations, and reduce the risk of
+              missed deadlines or inaccurate filings.
+              </p>
+              <p>
+                Whether you are newly incorporated or already operating, the team
+                can support your day-to-day accounting and ongoing tax compliance.
+              </p>
+            </div>
+            <div className="mt-8 rounded-[1.6rem] border border-[#d8d0c2] bg-white p-4 shadow-[0_10px_28px_rgba(17,35,42,0.06)] md:p-5">
+              <ServiceSubpageLinks
+                items={reportingNeeds.map((item) => ({
+                  label: item.title,
+                  href: item.href,
+                  description: item.description,
+                }))}
+                columnsClassName="sm:grid-cols-2 lg:grid-cols-4"
+                variant="compact"
+              />
+            </div>
+          </article>
         </div>
       </section>
 
