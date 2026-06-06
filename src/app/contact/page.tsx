@@ -18,7 +18,7 @@ export default function ContactPage() {
       <PageIntro
         eyebrow="Contact Zenesis"
         title="Contact us"
-        backgroundImageSrc="/contact-bg.webp"
+        backgroundImageSrc="/backgrounds/contact-bg.webp"
         backgroundImageAlt="Zenesis Contact page background"
         backgroundImagePosition="!object-[100%_100%]"
         backgroundImageMode="ambient"
