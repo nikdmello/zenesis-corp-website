@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import type { ServiceSubpageLinkItem } from "@/components/service-subpage-links";
+import { versionedAssetPath } from "@/lib/asset-paths";
+import { legacyRouteMeta, legacyServiceMeta, toMetadata } from "@/lib/legacy-meta";
 
 type ServiceKnowledgeSection = {
   title: string;
@@ -43,7 +45,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Mainland",
     description:
       "Support for businesses that want UAE market access, local operating flexibility, and the right mainland structure from the start.",
-    backgroundImageSrc: "/business-setup.webp",
+    backgroundImageSrc: versionedAssetPath("/business-setup.webp"),
     backgroundImageAlt: "Professionals reviewing mainland setup options in Dubai",
     introTitle: "Overview",
     introParagraphs: [
@@ -92,9 +94,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/business-setup",
     backLabel: "Back to Business Setup",
     metadata: {
-      title: "Mainland | Zenesis Corporation",
-      description:
-        "Mainland company setup support in Dubai and the UAE through Zenesis Corporation.",
+      ...toMetadata(legacyServiceMeta.mainland),
     },
   },
   "free-zones": {
@@ -104,7 +104,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Free Zones",
     description:
       "Compare the free zones that matter for your activity, package fit, ownership model, visas, and operating needs.",
-    backgroundImageSrc: "/free-zone.webp",
+    backgroundImageSrc: versionedAssetPath("/free-zone.webp"),
     backgroundImageAlt: "Business professionals discussing free zone setup options",
     introTitle: "Overview",
     introParagraphs: [
@@ -153,9 +153,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/business-setup",
     backLabel: "Back to Business Setup",
     metadata: {
-      title: "Free Zones | Zenesis Corporation",
-      description:
-        "Free zone company setup support across DMCC, Dubai South, IFZA, Meydan, Shams, RAKEZ, and other UAE free zones.",
+      ...toMetadata(legacyServiceMeta["free-zones"]),
     },
   },
   offshore: {
@@ -165,7 +163,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Offshore",
     description:
       "Use offshore structures for holding, ownership, and international arrangements that do not depend on day-to-day local UAE operations.",
-    backgroundImageSrc: "/business-setup.webp",
+    backgroundImageSrc: versionedAssetPath("/business-setup.webp"),
     backgroundImageAlt: "Advisors discussing offshore structuring options",
     introTitle: "Overview",
     introParagraphs: [
@@ -214,9 +212,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/business-setup",
     backLabel: "Back to Business Setup",
     metadata: {
-      title: "Offshore | Zenesis Corporation",
-      description:
-        "Offshore company setup support through JAFZA, RAK ICC, and Ajman offshore routes.",
+      ...toMetadata(legacyServiceMeta.offshore),
     },
   },
   "document-attestation-services-in-uae": {
@@ -226,7 +222,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Document Attestation",
     description:
       "Get personal, educational, and commercial documents attested for UAE use with a process that is handled clearly from review through MOFA.",
-    backgroundImageSrc: "/contact-consultation.webp",
+    backgroundImageSrc: versionedAssetPath("/contact-consultation.webp"),
     backgroundImageAlt: "Professional document review for UAE attestation support",
     introTitle: "Overview",
     introParagraphs: [
@@ -274,9 +270,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/business-setup",
     backLabel: "Back to Business Setup",
     metadata: {
-      title: "Document Attestation Services in UAE | Zenesis Corporation",
-      description:
-        "UAE document attestation support for personal, educational, and commercial records.",
+      ...toMetadata(legacyServiceMeta["document-attestation-services-in-uae"]),
     },
   },
   "open-a-bank-account-easily": {
@@ -286,7 +280,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Bank Accounts",
     description:
       "Support for UAE and international bank account opening, with KYC preparation and practical coordination around the company structure.",
-    backgroundImageSrc: "/professional-meeting.webp",
+    backgroundImageSrc: versionedAssetPath("/professional-meeting.webp"),
     backgroundImageAlt: "Professional meeting about business banking support",
     introTitle: "Overview",
     introParagraphs: [
@@ -334,9 +328,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/visa-and-banking",
     backLabel: "Back to Visa and Banking",
     metadata: {
-      title: "Open a Bank Account Easily | Zenesis Corporation",
-      description:
-        "UAE and international bank account support through Zenesis Corporation.",
+      ...toMetadata(legacyServiceMeta["open-a-bank-account-easily"]),
     },
   },
   "uae-company-visa": {
@@ -346,7 +338,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Company Visa",
     description:
       "Plan company visa support in line with business setup, labor approvals, medical steps, Emirates ID, and residency needs.",
-    backgroundImageSrc: "/contact-consultation.webp",
+    backgroundImageSrc: versionedAssetPath("/contact-consultation.webp"),
     backgroundImageAlt: "Business visa consultation in the UAE",
     introTitle: "Overview",
     introParagraphs: [
@@ -393,9 +385,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/visa-and-banking",
     backLabel: "Back to Visa and Banking",
     metadata: {
-      title: "UAE Company Visa | Zenesis Corporation",
-      description:
-        "UAE company visa support from setup through approvals, medical, Emirates ID, and visa stamping.",
+      ...toMetadata(legacyServiceMeta["uae-company-visa"]),
     },
   },
   "visa-and-banking": {
@@ -405,7 +395,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Visa and Banking",
     description:
       "Support across Golden Visa, company visas, and business banking, with the right sequence for residency, documentation, and account opening.",
-    backgroundImageSrc: "/contact-consultation.webp",
+    backgroundImageSrc: versionedAssetPath("/contact-consultation.webp"),
     backgroundImageAlt: "Client consultation about UAE visa and banking support",
     introBackgroundImageSrc: "/visa-and-banking-bg.webp",
     introBackgroundImageAlt: "Zenesis Visa and Banking page background",
@@ -451,9 +441,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/business-setup",
     backLabel: "Back to Business Setup",
     metadata: {
-      title: "Visa and Banking Services in the UAE | Zenesis Corporation",
-      description:
-        "Visa and banking support across Golden Visa, company visa processing, and business banking for UAE founders and businesses.",
+      ...toMetadata(legacyRouteMeta.visaAndBanking),
     },
   },
   "golden-visa-services-in-the-uae": {
@@ -463,7 +451,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Golden Visa",
     description:
       "Support for Golden Visa eligibility, document planning, submissions, family sponsorship, and post-approval follow-through.",
-    backgroundImageSrc: "/contact-consultation.webp",
+    backgroundImageSrc: versionedAssetPath("/contact-consultation.webp"),
     backgroundImageAlt: "Client consultation about UAE Golden Visa support",
     introTitle: "Overview",
     introParagraphs: [
@@ -510,9 +498,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/visa-and-banking",
     backLabel: "Back to Visa and Banking",
     metadata: {
-      title: "Golden Visa Services in the UAE | Zenesis Corporation",
-      description:
-        "Golden Visa support for investors, entrepreneurs, professionals, and families in the UAE.",
+      ...toMetadata(legacyRouteMeta.goldenVisaServices),
     },
   },
   "corporate-tax-registration-in-the-uae": {
@@ -522,7 +508,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Corporate Tax Registration",
     description:
       "Get the corporate tax registration process organized correctly, from eligibility review and document collection through EmaraTax submission support.",
-    backgroundImageSrc: "/corporate-tax.webp",
+    backgroundImageSrc: versionedAssetPath("/corporate-tax.webp"),
     backgroundImageAlt: "Corporate tax registration review meeting",
     introTitle: "Overview",
     introParagraphs: [
@@ -569,9 +555,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/accounting-tax",
     backLabel: "Back to Accounting & Tax",
     metadata: {
-      title: "Corporate Tax Registration in the UAE | Zenesis Corporation",
-      description:
-        "Corporate tax registration support through eligibility review, EmaraTax setup, submission support, and post-registration guidance.",
+      ...toMetadata(legacyServiceMeta["corporate-tax-registration-in-the-uae"]),
     },
   },
   "corporate-tax-filing-services-in-the-uae": {
@@ -581,7 +565,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Corporate Tax Filing",
     description:
       "Prepare annual corporate tax filings with cleaner records, clearer calculations, FTA portal submission support, and steadier deadline management.",
-    backgroundImageSrc: "/corporate-tax.webp",
+    backgroundImageSrc: versionedAssetPath("/corporate-tax.webp"),
     backgroundImageAlt: "Advisors reviewing corporate tax filing work",
     introTitle: "Overview",
     introParagraphs: [
@@ -628,9 +612,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/accounting-tax",
     backLabel: "Back to Accounting & Tax",
     metadata: {
-      title: "Corporate Tax Filing Services in the UAE | Zenesis Corporation",
-      description:
-        "Corporate tax filing support across calculations, FTA portal filing, deadline management, and documentation support.",
+      ...toMetadata(legacyServiceMeta["corporate-tax-filing-services-in-the-uae"]),
     },
   },
   "vat-filing-services-in-the-uae": {
@@ -640,7 +622,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "VAT Filing",
     description:
       "Keep VAT returns accurate, timely, and better supported by reconciliations, invoice checks, payment follow-through, and audit-ready records.",
-    backgroundImageSrc: "/financial-year.webp",
+    backgroundImageSrc: versionedAssetPath("/financial-year.webp"),
     backgroundImageAlt: "Professionals handling VAT filing and reconciliation",
     introTitle: "Overview",
     introParagraphs: [
@@ -687,9 +669,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/accounting-tax",
     backLabel: "Back to Accounting & Tax",
     metadata: {
-      title: "VAT Filing Services in the UAE | Zenesis Corporation",
-      description:
-        "VAT filing support for UAE businesses across return preparation, reconciliations, payment support, and audit documentation.",
+      ...toMetadata(legacyServiceMeta["vat-filing-services-in-the-uae"]),
     },
   },
   "professional-bookkeeping-services-in-dubai": {
@@ -699,7 +679,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Bookkeeping",
     description:
       "Keep records cleaner and more usable with weekly or monthly bookkeeping, reconciliations, reporting, payroll support, and audit-ready organization.",
-    backgroundImageSrc: "/accounting-and-tax.webp",
+    backgroundImageSrc: versionedAssetPath("/accounting-and-tax.webp"),
     backgroundImageAlt: "Bookkeeping and reporting support in Dubai",
     introTitle: "Overview",
     introParagraphs: [
@@ -746,9 +726,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/accounting-tax",
     backLabel: "Back to Accounting & Tax",
     metadata: {
-      title: "Professional Bookkeeping Services in Dubai | Zenesis Corporation",
-      description:
-        "Professional bookkeeping support in Dubai across recurring records, reporting, payroll, and audit-ready organization.",
+      ...toMetadata(legacyServiceMeta["professional-bookkeeping-services-in-dubai"]),
     },
   },
 };

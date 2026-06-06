@@ -379,7 +379,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
           </div>
 
           <div className="md:border-l md:border-r md:border-foreground/10 md:px-8">
-            <p className="text-[1.2rem] font-semibold tracking-[-0.03em] text-[#244ba8]">
+            <p className="text-[1.2rem] font-semibold tracking-[-0.03em] text-[#8d7453]">
               Navigation
             </p>
             <div className="mt-5 grid gap-5">
@@ -448,7 +448,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
           </div>
 
           <div>
-            <p className="text-[1.2rem] font-semibold tracking-[-0.03em] text-[#244ba8]">
+            <p className="text-[1.2rem] font-semibold tracking-[-0.03em] text-[#8d7453]">
               Contact
             </p>
             <div className="mt-5 grid gap-4">
@@ -465,7 +465,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                     : null;
 
                 return (
-                  <div key={item.label} className="rounded-[1rem] border border-foreground/8 bg-white/42 px-4 py-3.5">
+                  <div key={item.label} className="rounded-[1rem] border border-foreground/8 bg-white px-4 py-3.5 shadow-[0_8px_20px_rgba(17,35,42,0.05)]">
                     <p className="text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-muted">
                       {item.label}
                     </p>
@@ -492,7 +492,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                 );
               })}
             </div>
-            <div className="mt-4 rounded-[1rem] border border-foreground/8 bg-white/42 px-4 py-3.5">
+            <div className="mt-4 rounded-[1rem] border border-foreground/8 bg-white px-4 py-3.5 shadow-[0_8px_20px_rgba(17,35,42,0.05)]">
               <p className="text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-muted">
                 Social Media
               </p>
@@ -504,7 +504,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={item.label}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-foreground/8 bg-white/48 text-[#11232a] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:text-[#244ba8]"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-foreground/8 bg-[#f8f5ef] text-[#11232a] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:text-[#244ba8]"
                   >
                     {item.label === "Facebook" ? <FacebookIcon className="h-5 w-5 fill-current" /> : null}
                     {item.label === "LinkedIn" ? <LinkedInIcon className="h-5 w-5 fill-current" /> : null}
@@ -882,6 +882,10 @@ type SectionHeadingProps = {
   descriptionClassName?: string;
 };
 
+type CardAccentProps = {
+  className?: string;
+};
+
 export function SectionHeading({
   eyebrow,
   title,
@@ -897,7 +901,7 @@ export function SectionHeading({
       </p>
       <h2
         className={[
-          "section-title mt-4 font-semibold text-foreground",
+          "section-title font-semibold text-foreground",
           titleClassName ?? "",
         ]
           .filter(Boolean)
@@ -918,5 +922,16 @@ export function SectionHeading({
         </p>
       ) : null}
     </div>
+  );
+}
+
+export function CardAccent({ className }: CardAccentProps) {
+  return (
+    <div
+      aria-hidden="true"
+      className={["mb-5 h-1.5 w-16 rounded-full bg-[#8d7453]", className ?? ""]
+        .filter(Boolean)
+        .join(" ")}
+    />
   );
 }

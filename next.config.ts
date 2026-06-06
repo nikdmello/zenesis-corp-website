@@ -1,9 +1,24 @@
 import type { NextConfig } from "next";
 
+const currentAssetVersion = "20260606b";
+
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["192.168.8.67", "192.168.8.69"],
   images: {
     qualities: [68, 75],
+    localPatterns: [
+      {
+        pathname: "/**",
+        search: "",
+      },
+      {
+        pathname: "/**",
+        search: `?v=${currentAssetVersion}`,
+      },
+      {
+        pathname: "/**",
+      },
+    ],
   },
   async redirects() {
     return [

@@ -146,12 +146,12 @@ export function HomepageReviewsCarousel({
                   href={googleReviewsHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex h-full min-h-[13.75rem] flex-col rounded-[1.7rem] border border-[#d8d0c2] bg-[#f5efe4] p-5 text-[#11232a] transition-transform duration-200 hover:-translate-y-1 md:min-h-[14.75rem] md:p-6 xl:min-h-[15.75rem]"
+                  className="group flex h-full min-h-[12rem] flex-col rounded-[1.7rem] border border-[#d8d0c2] bg-white p-5 text-[#11232a] transition-transform duration-200 hover:-translate-y-1 md:min-h-[12.9rem] md:p-5.5 xl:min-h-[13.8rem]"
                 >
                   <p className="text-[1.08rem] leading-7 text-[#11232a] md:text-[1.14rem] md:leading-8">
                     &ldquo;{item.quote}&rdquo;
                   </p>
-                  <div className="mt-auto flex items-center justify-between gap-4 pt-6">
+                  <div className="mt-auto flex items-center justify-between gap-4 pt-4.5">
                     <p className="text-[0.96rem] font-semibold tracking-[-0.02em] text-[#11232a] md:text-[1rem]">
                       {item.name}
                     </p>

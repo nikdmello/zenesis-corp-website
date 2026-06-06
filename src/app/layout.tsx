@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { legacyRouteMeta } from "@/lib/legacy-meta";
 import "./globals.css";
 
 const siteUrl =
@@ -24,13 +25,11 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Zenesis Corporation | Dubai, UAE",
-  description:
-    "Business setup, accounting and tax, and corporate support in Dubai, United Arab Emirates.",
+  title: legacyRouteMeta.home.title,
+  description: legacyRouteMeta.home.description,
   openGraph: {
-    title: "Zenesis Corporation | Dubai, UAE",
-    description:
-      "Business setup, accounting and tax, and corporate support in Dubai, United Arab Emirates.",
+    title: legacyRouteMeta.home.title,
+    description: legacyRouteMeta.home.description,
     url: "/",
     siteName: "Zenesis Corporation",
     type: "website",
@@ -45,9 +44,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zenesis Corporation | Dubai, UAE",
-    description:
-      "Business setup, accounting and tax, and corporate support in Dubai, United Arab Emirates.",
+    title: legacyRouteMeta.home.title,
+    description: legacyRouteMeta.home.description,
     images: ["/twitter-image.png"],
   },
 };

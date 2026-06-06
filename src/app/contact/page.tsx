@@ -8,12 +8,9 @@ import {
   socialLinks,
   whatsappHref,
 } from "@/lib/site-content";
+import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
 
-export const metadata: Metadata = {
-  title: "Contact | Zenesis Corporation",
-  description:
-    "Contact Zenesis Corporation in Dubai, UAE using the company office address, phone numbers, and email details.",
-};
+export const metadata: Metadata = toMetadata(legacyRouteMeta.contact);
 
 export default function ContactPage() {
   return (
@@ -44,7 +41,7 @@ export default function ContactPage() {
                       href={googleMapsHref}
                       target="_blank"
                       rel="noreferrer"
-                      className="glass-panel group rounded-[1.4rem] p-6 transition-transform duration-200 hover:-translate-y-0.5"
+                      className="group rounded-[1.4rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)] transition-transform duration-200 hover:-translate-y-0.5"
                     >
                       <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
                         {item.label}
@@ -67,7 +64,7 @@ export default function ContactPage() {
                       href={whatsappHref}
                       target="_blank"
                       rel="noreferrer"
-                      className="glass-panel group rounded-[1.4rem] p-6 transition-transform duration-200 hover:-translate-y-0.5"
+                      className="group rounded-[1.4rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)] transition-transform duration-200 hover:-translate-y-0.5"
                     >
                       <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
                         {item.label}
@@ -87,7 +84,7 @@ export default function ContactPage() {
                 return (
                   <div
                     key={item.label}
-                    className="glass-panel rounded-[1.4rem] p-6"
+                    className="rounded-[1.4rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)]"
                   >
                     <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
                       {item.label}
@@ -100,7 +97,7 @@ export default function ContactPage() {
               })}
             </div>
 
-            <article className="glass-panel rounded-[1.6rem] p-6">
+            <article className="rounded-[1.6rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)]">
               <h2 className="text-[1.24rem] font-semibold tracking-[-0.04em] text-foreground md:text-[1.32rem]">
                 Social Media
               </h2>
@@ -111,7 +108,7 @@ export default function ContactPage() {
                     href={item.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-3 rounded-full border border-foreground/10 bg-white/68 px-4 py-3 text-[1rem] font-semibold text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/20 hover:text-[#244ba8]"
+                    className="inline-flex items-center gap-3 rounded-full border border-foreground/10 bg-[#f8f5ef] px-4 py-3 text-[1rem] font-semibold text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/20 hover:text-[#244ba8]"
                   >
                     {item.label === "Facebook" ? <FacebookIcon className="h-5 w-5 fill-current" /> : null}
                     {item.label === "LinkedIn" ? <LinkedInIcon className="h-5 w-5 fill-current" /> : null}
@@ -122,7 +119,7 @@ export default function ContactPage() {
               </div>
             </article>
 
-            <article className="glass-panel overflow-hidden rounded-[2rem] p-4 md:p-5">
+            <article className="overflow-hidden rounded-[2rem] border border-[#d8d0c2] bg-white p-4 shadow-[0_18px_50px_rgba(17,35,42,0.14)] md:p-5">
               <div className="flex items-center justify-between gap-4 px-2 pb-4 pt-1">
                 <div>
                   <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">

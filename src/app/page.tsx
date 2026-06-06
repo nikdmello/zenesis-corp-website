@@ -10,8 +10,9 @@ import { HomepageReviewsCarousel } from "@/components/homepage-reviews-carousel"
 import { HomepageInsightsCarousel } from "@/components/homepage-insights-carousel";
 import { HomepageServiceTile } from "@/components/homepage-service-tile";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { SectionHeading, SiteShell } from "@/components/site-shell";
+import { CardAccent, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
+import { versionedAssetPath } from "@/lib/asset-paths";
 import {
   featuredProfile,
   partnerLogos,
@@ -41,7 +42,7 @@ const customerPaths = [
     title: "Business setup",
     href: "/business-setup",
     cta: "Explore business setup",
-    imageSrc: "/business-setup.webp",
+    imageSrc: versionedAssetPath("/business-setup.webp"),
     imageAlt: "Business advisors discussing UAE company formation",
     offerings: [
       {
@@ -69,7 +70,7 @@ const customerPaths = [
     title: "Accounting and tax",
     href: "/accounting-tax",
     cta: "Explore accounting and tax",
-    imageSrc: "/accounting-and-tax.webp",
+    imageSrc: versionedAssetPath("/accounting-and-tax.webp"),
     imageAlt: "Professionals reviewing business documents",
     offerings: [
       {
@@ -97,7 +98,7 @@ const customerPaths = [
     title: "Visa and banking",
     href: "/visa-and-banking",
     cta: "Explore visa and banking",
-    imageSrc: "/contact-consultation.webp",
+    imageSrc: versionedAssetPath("/contact-consultation.webp"),
     imageAlt: "Business advisor speaking with a client about residency and banking",
     offerings: [
       {
@@ -125,7 +126,7 @@ const customerPaths = [
     title: "Corporate support",
     href: "/contact",
     cta: "Discuss corporate support",
-    imageSrc: "/professional-meeting.webp",
+    imageSrc: versionedAssetPath("/professional-meeting.webp"),
     imageAlt: "Business advisor coordinating corporate support",
     offerings: [
       {
@@ -236,31 +237,27 @@ export default function Home() {
                 20+ years of business setup in Dubai
               </h1>
 
-              <div className="hero-reveal hero-reveal-2 mt-7 grid max-w-[28rem] grid-cols-1 gap-3.5 md:mx-0 md:max-w-[26rem]">
+              <div className="hero-reveal hero-reveal-2 mt-7 grid max-w-[21.75rem] grid-cols-1 gap-3.5 md:mx-0 md:max-w-[21.5rem]">
                 {heroServices.map((service, index) => (
-                  <div
+                  <Link
                     key={service.title}
-                    className="group mx-auto flex min-h-[4.8rem] w-full items-center gap-4 rounded-[1.45rem] border border-white/14 bg-[linear-gradient(135deg,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.06)_100%)] px-4.5 py-3 text-white shadow-[0_18px_38px_rgba(7,21,27,0.16)] backdrop-blur-md transition-transform duration-200 hover:-translate-y-0.5 md:mx-0 md:min-h-[5rem] md:px-5.5"
+                    href={service.href}
+                    aria-label={`Go to ${service.title}`}
+                    className="group mx-auto flex min-h-[4.15rem] w-full items-center gap-3 rounded-[1.35rem] border border-white/14 bg-[linear-gradient(135deg,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.06)_100%)] px-4 py-3 text-white shadow-[0_18px_38px_rgba(7,21,27,0.16)] backdrop-blur-md transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0.08)_100%)] md:mx-0 md:min-h-[4.3rem] md:px-4.5"
                   >
-                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[1rem] border border-white/14 bg-white/10 text-[0.84rem] font-bold tracking-[0.12em] text-white md:h-11 md:w-11 md:text-[0.9rem]">
+                    <span className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] text-white/52 md:text-[0.74rem]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <div className="min-w-0 flex-1">
-                      <p className="eyebrow text-[0.66rem] tracking-[0.18em] text-white/54">
-                        {service.label}
-                      </p>
-                      <p className="mt-1 text-[1.16rem] font-bold leading-6 tracking-[-0.03em] text-white md:text-[1.32rem] md:leading-7">
-                        {service.title}
-                      </p>
-                    </div>
-                    <Link
-                      href={service.href}
-                      aria-label={`Go to ${service.title}`}
-                      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/8 text-[1rem] !text-white/84 transition-transform duration-200 hover:translate-x-0.5 hover:!text-white"
+                    <span className="min-w-0 flex-1 text-[1.22rem] font-semibold leading-6 tracking-[-0.03em] text-white md:text-[1.38rem] md:leading-7">
+                      {service.title}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-[1.08rem] text-white/82 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-white"
                     >
                       <span aria-hidden="true">→</span>
-                    </Link>
-                  </div>
+                    </span>
+                  </Link>
                 ))}
               </div>
               <div className="hero-reveal hero-reveal-3 mt-9 flex flex-col items-center gap-4 sm:flex-row sm:items-center md:items-start">
@@ -292,12 +289,14 @@ export default function Home() {
           id="services"
           className="relative left-1/2 w-screen -translate-x-1/2 scroll-mt-14 md:scroll-mt-18 py-14 text-[#07151b] md:py-16 xl:py-12"
         >
-          <div className="mx-auto w-full max-w-[108rem] px-6 md:px-12 xl:px-16 2xl:px-18">
-            <div className="py-5 md:py-6 xl:py-4">
-              <p className="eyebrow text-[#244ba8]">Services</p>
-              <h2 className="section-title mt-4 font-semibold text-[#07151b] md:text-[3rem] xl:mt-3 xl:text-[2.95rem] xl:whitespace-nowrap">
+          <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+            <div className="max-w-5xl py-5 md:py-6 xl:py-4">
+              <h2 className="section-title font-semibold text-[#07151b] md:text-[3rem] xl:text-[2.95rem] xl:whitespace-nowrap">
                 Our services
               </h2>
+              <p className="mt-4 max-w-4xl text-[1.16rem] leading-8 text-muted md:text-[1.24rem] md:leading-9">
+                Core support across business setup, accounting and tax, visa and banking, and ongoing corporate requirements in the UAE.
+              </p>
             </div>
 
             <div className="mt-8 grid gap-4 lg:grid-cols-2 xl:mt-6 xl:grid-cols-4 xl:gap-2.5 2xl:gap-3">
@@ -312,20 +311,20 @@ export default function Home() {
                   >
                     <div
                       aria-hidden="true"
-                      className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-[1.02]"
+                      className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                       style={{ backgroundImage: `url(${item.imageSrc})` }}
                     />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,35,42,0.34)_0%,rgba(17,35,42,0.5)_38%,rgba(17,35,42,0.88)_100%)]" />
-                    <div className="relative z-10 flex h-full items-end justify-center px-6 pb-6 text-center md:px-7 md:pb-7">
-                      <div className="w-full">
-                        <h3 className="mx-auto max-w-[24ch] text-[2.5rem] font-semibold leading-[0.95] tracking-[-0.055em] text-white transition-transform duration-200 group-hover:-translate-y-0.5 md:text-[2.95rem] xl:max-w-none xl:text-[1.92rem] xl:whitespace-nowrap">
-                          {item.title}
-                        </h3>
-                      </div>
-                    </div>
                   </Link>
 
                   <div className="flex grow flex-col p-4 sm:p-5 md:p-6 lg:p-7 xl:p-6">
+                    <div className="mb-5">
+                      <CardAccent />
+                      <Link href={item.href} className="group inline-block">
+                        <h3 className="text-[2.05rem] font-semibold leading-[0.95] tracking-[-0.05em] text-[#07151b] transition-transform duration-200 group-hover:-translate-y-0.5 md:text-[2.3rem] xl:text-[1.78rem] xl:whitespace-nowrap">
+                          {item.title}
+                        </h3>
+                      </Link>
+                    </div>
                     <div className="grid grow gap-3 md:grid-cols-3 md:items-stretch xl:grid-cols-1 xl:gap-3">
                       {item.offerings.map((offering) => {
                         return (
@@ -363,10 +362,12 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <div className="max-w-[50rem]">
-            <p className="eyebrow text-white/58">Clients</p>
-            <h2 className="section-title mt-4 font-semibold text-white">
+            <h2 className="section-title font-semibold text-white">
               Our clients
             </h2>
+            <p className="mt-4 max-w-4xl text-[1.16rem] leading-8 text-white/88 md:text-[1.24rem] md:leading-9">
+              Organizations and operators Zenesis supports across incorporation, compliance, residency, and ongoing business administration.
+            </p>
           </div>
         </ScrollReveal>
 
@@ -375,7 +376,7 @@ export default function Home() {
             {partnerLogos.map((logo) => (
               <div
                 key={logo.label}
-                className="flex min-h-[9rem] items-center justify-center rounded-[1.55rem] border border-white/10 bg-white/88 px-4 py-5 transition-transform duration-200 hover:-translate-y-0.5 md:min-h-[9.5rem]"
+                className="flex min-h-[9rem] items-center justify-center rounded-[1.55rem] border border-[#d8d0c2] bg-white px-4 py-5 transition-transform duration-200 hover:-translate-y-0.5 md:min-h-[9.5rem]"
               >
                 <NextImage
                   src={logo.src}
@@ -400,10 +401,12 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <div className="mb-10 md:mb-12">
-            <p className="eyebrow text-[#244ba8]">Zenesis Awards</p>
-            <h2 className="mt-4 text-[clamp(2.4rem,3.2vw,3.75rem)] font-semibold leading-[0.94] tracking-[-0.06em] text-[#07151b] xl:whitespace-nowrap">
+            <h2 className="text-[clamp(2.4rem,3.2vw,3.75rem)] font-semibold leading-[0.94] tracking-[-0.06em] text-[#07151b] xl:whitespace-nowrap">
               Awards and recognition
             </h2>
+            <p className="mt-4 max-w-4xl text-[1.16rem] leading-8 text-muted md:text-[1.24rem] md:leading-9">
+              Recognition that reflects Zenesis work in company formation and the leadership profile behind the firm.
+            </p>
           </div>
 
           <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-start xl:gap-6">
@@ -518,6 +521,8 @@ export default function Home() {
               eyebrowClassName="!text-white"
               title="Client reviews"
               titleClassName="!text-white"
+              description="Recent client feedback on responsiveness, setup support, tax handling, and the practical follow-through clients needed after formation."
+              descriptionClassName="!text-white/88"
             />
             <div className="flex items-center gap-4 md:shrink-0">
               <NextImage
@@ -550,6 +555,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Blog"
             title="Latest blog posts"
+            description="Recent guidance on business setup, accounting and tax, and visa and banking questions for UAE founders and operators."
           />
         </ScrollReveal>
 
@@ -570,13 +576,15 @@ export default function Home() {
             eyebrowClassName="!text-white"
             title="FAQ"
             titleClassName="!text-white"
+            description="Common questions on setup routes, structures, visas, banking, attestation, and ongoing compliance in the UAE."
+            descriptionClassName="!text-white/88"
           />
 
           <div className="mt-10 grid gap-3">
             {homepageFaqs.map((item) => (
               <details
                 key={item.question}
-                className="group rounded-[1.35rem] border border-[#d8d0c2] bg-[#f5efe4] px-5 py-4 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)]"
+                className="group rounded-[1.35rem] border border-[#d8d0c2] bg-white px-5 py-4 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)]"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 marker:content-none">
                   <h3 className="text-lg font-semibold tracking-[-0.03em] text-foreground">
@@ -613,8 +621,8 @@ export default function Home() {
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <ConsultationFormButton
                     label="Schedule a Free Consultation"
-                    className="rounded-full bg-[#244ba8] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b3c86]"
-                    leadingIcon={<WhatsAppCueIcon />}
+                    className="rounded-full bg-[#25D366] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5d]"
+                    leadingIcon={<WhatsAppCueIcon inverse />}
                   />
                 </div>
               }

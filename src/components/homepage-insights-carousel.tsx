@@ -211,15 +211,18 @@ export function HomepageInsightsCarousel({
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgba(17,35,42,0.46)_100%)]" />
                     </div>
                     <div className="flex flex-1 flex-col p-3 pt-6">
-                      <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.88rem] text-muted/84">
+                      <div className="min-h-[2.25rem] flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.88rem] text-muted/84">
+                        <span className="text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                          {item.category}
+                        </span>
+                        <span aria-hidden="true" className="text-muted/34">
+                          •
+                        </span>
                         <span>{item.dateLabel}</span>
                       </div>
-                      <h3 className="mt-4 text-2xl font-semibold leading-tight tracking-[-0.03em] text-foreground">
+                      <h3 className="mt-4 min-h-[5.25rem] text-2xl font-semibold leading-[1.05] tracking-[-0.03em] text-foreground">
                         {item.title}
                       </h3>
-                      <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-muted/80">
-                        {item.category}
-                      </p>
                       <p className="mt-4 flex-1 text-[1.08rem] leading-8 text-muted">
                         {item.description}
                       </p>

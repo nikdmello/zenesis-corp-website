@@ -370,7 +370,7 @@ export const articleHighlights = [
     summary:
       "A practical overview of when multiple UAE entities can be treated as one taxable group, what the ownership requirements look like, and where grouping can simplify compliance.",
     href: "/accounting-tax",
-    imageSrc: "/corporate-tax.webp",
+    imageSrc: versionedAssetPath("/corporate-tax.webp"),
     imageAlt: "Professionals reviewing finance and tax documents",
   },
   {
@@ -379,7 +379,7 @@ export const articleHighlights = [
     summary:
       "A breakdown of how the financial year drives filing cadence, reporting rhythm, and the timing of tax obligations across the UAE compliance cycle.",
     href: "/accounting-tax",
-    imageSrc: "/financial-year.webp",
+    imageSrc: versionedAssetPath("/financial-year.webp"),
     imageAlt: "Business advisor discussing compliance planning",
   },
   {
@@ -389,7 +389,7 @@ export const articleHighlights = [
     summary:
       "A focused look at qualifying activity, mainland interaction, and the practical implications of updated free zone tax treatment for founders and operating companies.",
     href: "/business-setup",
-    imageSrc: "/free-zone.webp",
+    imageSrc: versionedAssetPath("/free-zone.webp"),
     imageAlt: "Business professionals in a Dubai advisory meeting",
   },
 ] as const;
@@ -534,3 +534,4 @@ export const setupStructures = [
   "Private Shareholding Company (PrJSC)",
   "Joint Venture",
 ] as const;
+import { versionedAssetPath } from "@/lib/asset-paths";

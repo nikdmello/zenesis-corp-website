@@ -1,3 +1,5 @@
+import { versionedAssetPath } from "@/lib/asset-paths";
+
 export type InsightSection = {
   title: string;
   paragraphs?: string[];
@@ -24,6 +26,374 @@ export type InsightPost = {
 
 export const insightPosts: InsightPost[] = [
   {
+    slug: "corporate-tax-mistakes-trigger-audits-uae",
+    category: "Accounting and Tax",
+    title: "8 Corporate Tax Mistakes That Trigger Audits in the UAE",
+    description:
+      "The most common corporate tax compliance mistakes that attract scrutiny from the Federal Tax Authority, and how businesses can reduce audit risk in the UAE.",
+    dateLabel: "June 5, 2026",
+    author: "Cecilia D'Cunha",
+    heroImageSrc: versionedAssetPath("/audit-red-flags.webp"),
+    heroImageAlt: "Business professionals reviewing audit red flags and tax documents",
+    sections: [
+      {
+        title: "Introduction",
+        paragraphs: [
+          "The introduction of Corporate Tax in the UAE has fundamentally changed how businesses operate, report profits, and maintain financial transparency. While the UAE remains one of the most business-friendly and competitive destinations globally, companies that fail to comply with these tax regulations can quickly attract unwanted scrutiny from the Federal Tax Authority (FTA).",
+          "Many business owners assume audits are reserved exclusively for large conglomerates. In reality, startups, SMEs, freelancers, and mainland or free zone companies alike face rigorous tax audits due to simple, preventable compliance mistakes.",
+          "If you are operating in the UAE, understanding these common corporate tax pitfalls is your best defense against steep administrative penalties, investigations, and reputational risks.",
+        ],
+      },
+      {
+        title: "1. Poor Financial Record Keeping",
+        paragraphs: [
+          "One of the most immediate triggers for a tax audit is sub-standard bookkeeping. The UAE Corporate Tax framework strictly requires businesses to maintain clear, accurate financial records for at least 7 years.",
+          "Incomplete or inconsistent records suggest to authorities that a business is either unorganized or actively concealing data. Utilizing professional accounting support and deploying proper ERP or cloud accounting software is no longer optional. It is a baseline survival requirement for UAE businesses.",
+        ],
+        bullets: [
+          "Failing to maintain updated, contemporaneous accounting records",
+          "Mixing personal and business expenses in a single account",
+          "Issuing inaccurate or non-compliant invoices",
+          "Missing supporting documentation such as receipts, delivery notes, and contracts",
+          "Neglecting to perform regular bank statement reconciliations",
+        ],
+      },
+      {
+        title: "2. Misclassifying Business Expenses",
+        paragraphs: [
+          "Some companies, intentionally or unintentionally, classify personal or non-deductible expenses as operational costs to artificially reduce their taxable profits.",
+          "The FTA examines deductions closely. Improper deductions are among the easiest discrepancies for tax auditors to identify. Working with experienced tax advisors ensures expenses are categorized accurately under the law.",
+        ],
+        bullets: [
+          "Claiming personal travel or family vacations as business trips",
+          "Listing personal vehicles as company assets without proper mileage logs",
+          "Writing off entertainment expenses without documenting the business purpose or client details",
+          "Including household or family expenses in corporate accounts",
+        ],
+      },
+      {
+        title: "3. Ignoring Transfer Pricing Rules",
+        paragraphs: [
+          "Businesses that operate with related entities, sister companies, subsidiaries, or international branches must comply strictly with transfer pricing regulations. The law requires all transactions between connected parties to be conducted at arm's length, meaning the pricing must mirror what independent businesses would charge each other on the open market.",
+          "The FTA actively monitors and investigates companies that price intercompany dealings in a way that appears artificial or unsupported.",
+          "Even small and medium enterprises can fall under transfer pricing requirements depending on their corporate structure and intercompany transactions.",
+        ],
+        bullets: [
+          "Artificially shifting profits to low-tax entities or specific free zones",
+          "Underpricing or overpricing intercompany services, loans, and goods",
+          "Lacking mandatory transfer pricing documentation such as Local Files and Master Files",
+          "Using inconsistent pricing structures across the corporate group",
+        ],
+      },
+      {
+        title: "4. Late Corporate Tax Registration",
+        paragraphs: [
+          "There is a dangerous assumption among some entrepreneurs that corporate tax registration is voluntary, or only triggers once a specific revenue milestone is reached.",
+          "In reality, every taxable person, including Free Zone companies and individuals conducting business activities in the UAE, must register for Corporate Tax within the specific timelines mandated by the FTA.",
+          "Missing your registration deadline or filing your returns late carries immediate administrative penalties. A history of non-compliance also raises your risk profile significantly and increases the probability of a comprehensive tax audit.",
+        ],
+      },
+      {
+        title: "5. Free Zone Tax Misunderstandings",
+        paragraphs: [
+          "Free Zones offer major commercial advantages, but their tax incentives are heavily conditional. A common and costly mistake is assuming that simply being registered in a Free Zone guarantees a 0% tax rate on all income.",
+          "To qualify for the 0% rate, a Free Zone entity must meet strict criteria to be deemed a Qualifying Free Zone Person. This includes maintaining adequate substance in the UAE and properly distinguishing between Qualifying Income and Non-Qualifying Income, such as certain mainland UAE transactions.",
+          "A qualified business setup consultant in Dubai can help structure operations correctly to preserve Free Zone tax benefits lawfully.",
+        ],
+        bullets: [
+          "Assuming all Free Zone income is automatically tax-free",
+          "Assuming no accounting records are required because the entity sits in a free zone",
+          "Assuming mainland transactions are exempt from standard corporate tax rates",
+          "Assuming corporate tax filings are unnecessary even though annual filing remains mandatory",
+        ],
+      },
+      {
+        title: "6. Cash Transactions Without Documentation",
+        paragraphs: [
+          "Operating heavily in cash without an airtight paper trail is an open invitation for an FTA audit. Because cash leaves room for unrecorded revenue, tax authorities view undocumented cash flows with high suspicion.",
+          "To mitigate this risk, businesses should minimize reliance on cash, enforce strict invoicing protocols, and transition to transparent digital payment tracking wherever possible.",
+        ],
+        bullets: [
+          "Unexplained large cash deposits into corporate bank accounts",
+          "Missing sequential invoices matching retail or wholesale trade volumes",
+          "Revenue inconsistencies compared to industry benchmarks",
+          "Mismatches between supplier payments and physical inventory levels",
+        ],
+      },
+      {
+        title: "7. Underreporting Revenue",
+        paragraphs: [
+          "Intentionally underreporting revenue to lower tax liability is a severe compliance violation. The UAE's modern banking systems, invoicing software, VAT filings, and financial monitoring tools are highly interconnected, making revenue manipulation much easier for authorities to detect than ever before.",
+          "The UAE's compliance ecosystem is highly sophisticated, meaning accurate, transparent reporting is the only viable long-term strategy.",
+        ],
+        bullets: [
+          "Gross revenue mismatches between corporate tax returns and statutory filings",
+          "Sudden unexplained profit drops or margin fluctuations while operational scale remains unchanged",
+          "Unusual expense spikes at the end of the financial year",
+          "Corporate bank deposits that consistently exceed the total revenue declared on tax forms",
+        ],
+      },
+      {
+        title: "8. Failure to Maintain VAT and Corporate Tax Alignment",
+        paragraphs: [
+          "Your financial data does not exist in isolation. One of the primary tools the FTA uses to identify audit targets is cross-checking data across different tax disciplines.",
+          "If your quarterly VAT returns show massive sales volumes, but your annual Corporate Tax return reports unusually low profits or heavy losses, the system flags the contradiction.",
+        ],
+        bullets: [
+          "Complete consistency across all tax reporting platforms",
+          "Integrated accounting setups where VAT and Corporate Tax data pull from the same source of truth",
+          "Thorough documentation explaining legitimate differences between VAT-taxable supplies and corporate taxable income",
+        ],
+      },
+      {
+        title: "Why Professional Business Consulting Matters",
+        paragraphs: [
+          "Most audit-triggering mistakes do not stem from bad intentions. They happen because fast-growing companies focus entirely on sales and market share while neglecting their back-office compliance systems.",
+          "Navigating the intersection of company formation, corporate structuring, and tax compliance requires expert oversight. Professional business setup consultants in Dubai help businesses structure operations properly from day one, maintain accounting accuracy, handle filings and disclosures seamlessly, and reduce audit risk while building a scalable and transparent financial system.",
+        ],
+        bullets: [
+          "Structure operations properly from day one to optimize the tax position",
+          "Ensure full tax compliance with VAT, Corporate Tax, and Transfer Pricing rules",
+          "Maintain accounting accuracy by setting up FTA-compliant bookkeeping frameworks",
+          "Handle regulatory filings and disclosures seamlessly while avoiding late fees",
+          "Reduce audit risk while building a scalable and transparent financial system",
+        ],
+      },
+    ],
+    closingParagraphs: [
+      "Corporate Tax compliance is now a permanent pillar of doing business in the UAE. The companies most at risk are rarely the corporate giants with dedicated tax departments. They are the scaling SMEs and growing enterprises that lack rigorous financial systems and professional guidance.",
+      "By maintaining transparent records, understanding the nuances of the law, and collaborating with established corporate advisors, businesses can insulate themselves from audit risk and build a more sustainable and compliant enterprise in the UAE market.",
+    ],
+    closingCta:
+      "If you want to reduce audit risk before the next filing cycle, Zenesis can help review the structure, records, and tax process behind the business.",
+  },
+  {
+    slug: "business-consultant-beyond-company-registration",
+    category: "Business Setup",
+    title: "The Strategic Reality: The Role of a Business Consultant Beyond Company Registration",
+    description:
+      "Why company registration is only the first milestone, and how a strategic business consultant helps businesses structure, scale, bank, and stay compliant in the UAE.",
+    dateLabel: "May 21, 2026",
+    author: "Cecilia D'Cunha",
+    heroImageSrc: versionedAssetPath("/strategic-reality.webp"),
+    heroImageAlt: "Business consultant advising founders in a strategic planning session",
+    sections: [
+      {
+        title: "Introduction",
+        paragraphs: [
+          "For many entrepreneurs entering the UAE market, the term business setup consultant is often misunderstood. Most assume that a consultant's job begins and ends with the administrative mechanics of business formation, such as processing trade licenses, handling visa applications, and compiling basic paperwork.",
+          "While company formation is certainly part of the process, the modern regulatory landscape demands a far more strategic approach.",
+          "Today, a true business consultant does not just help you launch a company. They ensure the enterprise can operate efficiently, scale sustainably, maintain airtight compliance, and avoid devastating financial pitfalls. In a highly competitive global hub, the role has evolved from a simple service provider into a long-term strategic growth partner.",
+        ],
+      },
+      {
+        title: "Why Basic Setup Support Is No Longer Enough",
+        paragraphs: [
+          "The UAE is home to more than 1.4 million active corporate entities, fuelled by SME growth and digital innovation. That expansion has brought a much more sophisticated regulatory environment.",
+          "Entrepreneurs no longer just need a trade license. They must navigate a strict 9% Corporate Tax framework, ongoing VAT commitments, rigorous Anti-Money Laundering and Know Your Customer banking standards, and mandatory compliance filings such as ESR and UBO registers.",
+          "In this environment, starting a company is relatively straightforward. The real challenge is building a stable, scalable, and compliant corporate structure.",
+        ],
+      },
+      {
+        title: "The Core Strategic Pillars of Modern Corporate Advisory",
+        paragraphs: [
+          "To understand how a professional advisory firm protects and scales an enterprise, it helps to look at five core functions that go well beyond simple registration.",
+        ],
+      },
+      {
+        title: "1. Pre-Incorporation Structure Planning",
+        bullets: [
+          "Jurisdiction Mapping: determining whether a Mainland or Free Zone setup best serves the operating model and target audience",
+          "License Architecture: selecting the precise business activities required to ensure smoother banking and fewer operational restrictions",
+          "Futureproofing: structuring shareholding patterns and corporate divisions to accommodate future investor capital or ownership changes",
+        ],
+      },
+      {
+        title: "2. Navigating the Evolving Regulatory and Tax Landscape",
+        paragraphs: [
+          "The UAE's regulatory framework now matches the standards of leading global financial centres. Failing to maintain those standards can lead to serious fines or even operational disruption.",
+        ],
+        bullets: [
+          "Building bookkeeping and accounting systems that meet FTA audit standards",
+          "Managing timely corporate tax registrations, filings, and structured disclosures",
+          "Ensuring alignment between quarterly VAT returns and annual corporate tax filings",
+        ],
+      },
+      {
+        title: "3. Overcoming Corporate Banking Barriers",
+        paragraphs: [
+          "Securing a corporate bank account in the UAE has become one of the most challenging hurdles for new businesses because of strict global compliance rules. A consultant's role here goes well beyond introductions.",
+        ],
+        bullets: [
+          "Assembling complete, bank-ready compliance files that show business legitimacy clearly",
+          "Drafting comprehensive corporate profiles and verified revenue projections for KYC review",
+          "Matching the industry risk profile and minimum balance expectations with the right institution",
+        ],
+      },
+      {
+        title: "4. Designing Operational Scalability and Growth Systems",
+        paragraphs: [
+          "A growth-focused consultant looks past launch and helps startups and SMEs transition into more efficient enterprises. This is especially important for digital agencies, e-commerce brands, and international service businesses that need legal, operational, and financial systems to scale cleanly.",
+        ],
+        bullets: [
+          "Structuring legal frameworks to onboard employees, secure visas, and manage corporate growth",
+          "Streamlining operational systems and automation workflows",
+          "Providing financial forecasting models to monitor burn rate and preserve runway",
+        ],
+      },
+      {
+        title: "5. Acting as an Essential Local Bridge for International Founders",
+        paragraphs: [
+          "For entrepreneurs entering from India, Europe, the UK, North America, and other markets, adapting to a new business culture can be difficult. A Dubai-based consultant often becomes the local ground team that bridges legal, cultural, and operational gaps.",
+          "That ongoing advisory relationship often extends into annual renewals, compliance monitoring, and introductions to trusted local service providers and networks.",
+        ],
+      },
+      {
+        title: "The Cost of Cheap Setups",
+        paragraphs: [
+          "Opting for the cheapest available license without thinking through banking restrictions or tax consequences is one of the most common first-time founder mistakes.",
+          "Correcting the wrong structure, changing activities mid-year, or appealing compliance penalties often costs far more than structuring the business properly from the beginning.",
+        ],
+      },
+      {
+        title: "What to Look for in a Strategic Partner",
+        bullets: [
+          "Prioritise tax and banking viability before registration, not just speed of license issuance",
+          "Customise the structure around a 3 to 5 year growth plan instead of using a fixed package",
+          "Provide support after setup through compliance, accounting, and renewals",
+          "Understand digital, SaaS, and cross-border business models instead of treating every setup the same way",
+        ],
+      },
+      {
+        title: "The Zenesis Corp Approach",
+        paragraphs: [
+          "At Zenesis Corp, company registration is only the first milestone. Backed by more than 20 years of expertise in corporate structuring, the team provides end-to-end consulting designed for modern and ambitious enterprises.",
+          "From initial jurisdiction mapping and corporate tax planning to complex banking navigation and operational automation strategy, the goal is to build the foundations a business needs to scale safely while staying compliant.",
+        ],
+      },
+    ],
+    closingParagraphs: [
+      "The UAE remains an exceptionally business-friendly market, but compliance can no longer be treated as an afterthought. As regulations tighten and competition intensifies, having a knowledgeable partner in your corner becomes more important.",
+      "The true value of a business consultant lies in helping transform a raw commercial idea into a structured, scalable, and audit-ready corporate asset. By partnering with experienced advisors from day one, founders protect capital, accelerate timelines, and build on a stronger foundation.",
+    ],
+    closingCta:
+      "If you want to compare the right structure before paperwork starts, Zenesis can help map the setup around how the business actually needs to operate and grow.",
+  },
+  {
+    slug: "why-first-time-entrepreneurs-are-choosing-uae",
+    category: "Business Setup",
+    title: "Why First-Time Entrepreneurs Are Choosing the UAE",
+    description:
+      "Why first-time founders are using the UAE as a global launchpad for faster setup, stronger market access, tax efficiency, and cleaner scaling.",
+    dateLabel: "May 4, 2026",
+    author: "Cecilia D'Cunha",
+    heroImageSrc: versionedAssetPath("/first-time-entrepreneurs.webp"),
+    heroImageAlt: "First-time entrepreneurs planning a new business launch in the UAE",
+    sections: [
+      {
+        title: "Introduction",
+        paragraphs: [
+          "The UAE has undergone a profound economic evolution. It is no longer just a playground for multinational conglomerates and ultra-high-net-worth investors. It has rapidly transformed into one of the world's most attractive ecosystems for first-time entrepreneurs, freelancers, tech startups, and digital creators.",
+          "Today, founders from India, Europe, the UK, Africa, and Southeast Asia are bypassing more traditional startup hubs. They are moving to the UAE not only for tax efficiency, but for operational velocity, friction-free scalability, and seamless global market access.",
+        ],
+      },
+      {
+        title: "The UAE's Entrepreneurial Boom by the Numbers",
+        paragraphs: [
+          "The metrics tracking the UAE's startup landscape show how strongly entrepreneurship is now built into the market.",
+        ],
+        bullets: [
+          "More than 1.4 million active companies now operate within the UAE",
+          "250,000 new business licenses were issued in 2025 alone",
+          "94% to 95% of all corporate entities are SMEs",
+          "1 in 5 adults in the UAE are engaged in launching or managing a new venture",
+          "The UAE consistently ranks at the top globally for entrepreneurship in GEM rankings",
+          "Major financial hubs such as DIFC have recorded near 40% growth in new company registrations",
+        ],
+      },
+      {
+        title: "1. Velocity: A Frictionless Setup Process",
+        paragraphs: [
+          "In many traditional jurisdictions, incorporating a business, securing visas, and establishing banking can take months. The UAE has systematically re-engineered that process.",
+          "Through modern digital frameworks, founders can move through company registration, residency visas, and banking much faster. For a first-time founder, that can mean moving from concept to global invoicing in a fraction of the usual time.",
+        ],
+      },
+      {
+        title: "2. Unmatched Strategic and Geographic Connectivity",
+        paragraphs: [
+          "Operating from the UAE gives a startup day-one access to a major footprint spanning Europe, Asia, Africa, and the broader GCC.",
+          "Positioned between major global time zones, founders can manage client relationships across regions in a single business day. That advantage is reinforced by strong aviation links, maritime logistics, and digital infrastructure.",
+        ],
+      },
+      {
+        title: "3. Capital Optimization Through Tax Efficiency",
+        paragraphs: [
+          "For an early-stage business, cash flow is everything. The UAE's tax landscape helps founders protect margin and reinvest earlier.",
+        ],
+        bullets: [
+          "0% personal income tax",
+          "A competitive 9% corporate tax framework",
+          "Potential exemptions for qualifying Free Zone entities",
+          "The ability to reinvest more early-stage capital into product, marketing, infrastructure, and key hires",
+        ],
+      },
+      {
+        title: "4. A Native Ecosystem for Digital-First Businesses",
+        paragraphs: [
+          "The UAE has positioned itself at the forefront of the digital economy and built regulatory structures and free zone options that work well for modern business models.",
+          "The government's commitment to this space is clear. Through forward-thinking Golden Visa programs and dedicated tech hubs, the country has built an ideal environment for online-first enterprises.",
+        ],
+        bullets: [
+          "SaaS and AI startups",
+          "E-commerce and D2C brands",
+          "FinTech innovators and digital asset platforms",
+          "Global consultants, coaches, and remote agencies",
+          "Independent freelancers and content creators",
+        ],
+      },
+      {
+        title: "5. Proximity to Global Venture Capital",
+        paragraphs: [
+          "The UAE has become a regional magnet for international investment. That matters because raising seed capital or Series A funding is much harder in isolated markets.",
+          "From Hub71 in Abu Dhabi to Dubai's family offices, sovereign wealth networks, and angel ecosystems, investment access is increasingly part of the market itself. High-profile startup summits and localized pitch days also help bridge the gap between first-time founders and institutional investors.",
+        ],
+      },
+      {
+        title: "6. Enterprise-Grade Infrastructure for Small Teams",
+        paragraphs: [
+          "The UAE lets lean teams project a more polished operating profile from day one. Founders have access to stronger co-working ecosystems, payment infrastructure, banking options, and digital government services.",
+          "That means less time is lost to fragmented utilities and administrative friction, and more time can go into building revenue and product.",
+        ],
+      },
+      {
+        title: "7. Vision 2030: A Government-Backed Commitment",
+        paragraphs: [
+          "Unlike markets affected by regulatory volatility, the UAE has made entrepreneurship a clear part of its macroeconomic strategy.",
+          "With a stated target of expanding the SME ecosystem to 1 million companies by 2030, the legal environment continues to move in a founder-friendly direction through reforms such as 100% foreign ownership in many mainland sectors and longer-term self-sponsored residency options.",
+        ],
+      },
+      {
+        title: "The Strategic Value of Expert Guidance",
+        paragraphs: [
+          "Even in a streamlined market, first-time founders still need to make critical early decisions. Choosing the wrong structure or misreading compliance requirements can create avoidable delays and rework.",
+          "This is where working with a specialized corporate advisor becomes invaluable.",
+        ],
+        bullets: [
+          "Jurisdiction Mapping: choosing between Mainland and Free Zone based on target audience",
+          "License Architecture: selecting the right activities to avoid future banking friction",
+          "Corporate Banking Navigation: preparing bank-ready compliance files for smoother approval",
+          "Tax and AML Alignment: designing a structure that remains compliant with VAT and Corporate Tax rules",
+        ],
+      },
+    ],
+    closingParagraphs: [
+      "The UAE has dismantled many of the traditional barriers to entry that used to slow first-time founders down. By combining fast setup, tax efficiency, investment access, and strong infrastructure, it has built a serious commercial launch environment.",
+      "For entrepreneurs trying to build a scalable and globally credible business from a position of strength, the UAE is no longer just a destination. It is a launchpad.",
+    ],
+    closingCta:
+      "If you are comparing the UAE with another launch market, Zenesis can help you work through the setup route, operating model, and next practical steps more clearly.",
+  },
+  {
     slug: "complete-guide-to-corporate-tax-groups-uae",
     category: "Accounting and Tax",
     title: "A Complete Guide to Corporate Tax Groups in the UAE",
@@ -31,7 +401,7 @@ export const insightPosts: InsightPost[] = [
       "A practical overview of what corporate tax groups are, who can form them, why they matter, the core eligibility rules, and the tradeoffs businesses should weigh before choosing this structure.",
     dateLabel: "April 20, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: "/corporate-tax.webp",
+    heroImageSrc: versionedAssetPath("/corporate-tax.webp"),
     heroImageAlt: "Professionals reviewing finance and tax documents",
     sections: [
       {
@@ -131,7 +501,7 @@ export const insightPosts: InsightPost[] = [
       "How the financial year anchors corporate tax, VAT timing, audits, group reporting, and compliance planning for UAE businesses.",
     dateLabel: "April 15, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: "/financial-year.webp",
+    heroImageSrc: versionedAssetPath("/financial-year.webp"),
     heroImageAlt: "Business advisor discussing compliance planning",
     sections: [
       {
@@ -234,7 +604,7 @@ export const insightPosts: InsightPost[] = [
       "A founder-focused look at the 2025 clarifications around qualifying activity, economic substance, commodity trading, and the practical risks of losing 0% treatment.",
     dateLabel: "January 20, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: "/free-zone.webp",
+    heroImageSrc: versionedAssetPath("/free-zone.webp"),
     heroImageAlt: "Business professionals in a Dubai advisory meeting",
     sections: [
       {
@@ -317,7 +687,7 @@ export const insightPosts: InsightPost[] = [
       "What rising corporate tax registrations say about UAE compliance expectations, and the practical steps businesses should take now.",
     dateLabel: "January 20, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: "/corporate-tax.webp",
+    heroImageSrc: versionedAssetPath("/corporate-tax.webp"),
     heroImageAlt: "Professionals reviewing UAE corporate tax documentation",
     sections: [
       {
@@ -394,7 +764,7 @@ export const insightPosts: InsightPost[] = [
       "A practical look at the 2025 visa changes and what they mean for founders, skilled professionals, and people planning a longer-term UAE move.",
     dateLabel: "September 19, 2025",
     author: "Cecilia D'Cunha",
-    heroImageSrc: "/contact-consultation.webp",
+    heroImageSrc: versionedAssetPath("/contact-consultation.webp"),
     heroImageAlt: "Advisors discussing UAE visa and residency planning",
     sections: [
       {
@@ -464,7 +834,7 @@ export const insightPosts: InsightPost[] = [
       "A practical guide to the common mistakes founders make when entering the Dubai market, and how to avoid costly setup and compliance missteps.",
     dateLabel: "September 18, 2025",
     author: "Cecilia D'Cunha",
-    heroImageSrc: "/business-setup.webp",
+    heroImageSrc: versionedAssetPath("/business-setup.webp"),
     heroImageAlt: "Business founders discussing company setup in Dubai",
     sections: [
       {
@@ -546,7 +916,7 @@ export const insightPosts: InsightPost[] = [
       "An evergreen guide to what the Dubai Golden Visa is, who it is designed for, the main eligibility routes, and how to approach the process more carefully.",
     dateLabel: "August 29, 2022",
     author: "Cecilia D'Cunha",
-    heroImageSrc: "/contact-consultation.webp",
+    heroImageSrc: versionedAssetPath("/contact-consultation.webp"),
     heroImageAlt: "Advisor discussing Dubai Golden Visa planning",
     sections: [
       {
