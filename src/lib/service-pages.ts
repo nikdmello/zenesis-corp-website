@@ -397,7 +397,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "Support across Golden Visa, company visas, and business banking, with the right sequence for residency, documentation, and account opening.",
     backgroundImageSrc: versionedAssetPath("/contact-consultation.webp"),
     backgroundImageAlt: "Client consultation about UAE visa and banking support",
-    introBackgroundImageSrc: "/visa-and-banking-bg.webp",
+    introBackgroundImageSrc: "/backgrounds/visa-and-banking-bg.webp",
     introBackgroundImageAlt: "Zenesis Visa and Banking page background",
     introBackgroundImagePosition: "!object-[100%_100%]",
     introTitle: "Overview",

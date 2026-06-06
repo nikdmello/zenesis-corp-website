@@ -399,7 +399,7 @@ export const teamMembers = [
     name: "Cecilia D'Cunha",
     title: "Founder",
     credentials: "BCom, LLB, ACS",
-    imageSrc: "/Cecilia_DCunha.webp",
+    imageSrc: "/people/Cecilia_DCunha.webp",
     summary:
       "A qualified Chartered Secretary with degrees in Commerce and Law, with more than 30 years of experience across offshore incorporation, UAE company setup, and corporate compliance.",
     paragraphs: [
@@ -421,7 +421,7 @@ export const teamMembers = [
     name: "Prof. Jeevan D'Mello",
     title: "Chief Executive Officer",
     credentials: "GDArch, CMCA, AMS, LSM, PCAM, D. Litt.",
-    imageSrc: "/Jeevan_DMello.webp",
+    imageSrc: "/people/Jeevan_DMello.webp",
     summary:
       "Chief Executive Officer with an international, award-winning career across architectural design, customer experience, community management, real estate management, and international relations.",
     paragraphs: [
@@ -440,7 +440,7 @@ export const teamMembers = [
     name: "Glenita D'Souza",
     title: "Accounts Manager and Compliance Officer",
     credentials: "CA Intermediate (IPCC), BCom",
-    imageSrc: "/Glenita_D'Souza.webp",
+    imageSrc: "/people/Glenita_D'Souza.webp",
     summary:
       "Accounts Manager and Compliance Officer with more than 6 years of hands-on experience across accounting, taxation, company administration, VAT, corporate tax, and UAE free zone setup.",
     paragraphs: [
@@ -464,7 +464,7 @@ export const teamMembers = [
     name: "Emma Magati",
     title: "Business Setup Expert and Accounts Manager",
     credentials: "MBA, ACCA Finalist, CPA Finalist, BCom Finance",
-    imageSrc: "/Emma_Magati.webp",
+    imageSrc: "/people/Emma_Magati.webp",
     summary:
       "Business Setup Expert and Accounts Manager with extensive experience across UAE free zone, mainland, and offshore company formation, regulatory compliance, and financial reporting.",
     paragraphs: [
@@ -488,7 +488,7 @@ export const teamMembers = [
     name: "Sajal Arora",
     title: "Director - Accountancy and Taxation",
     credentials: "BCom, CA, CFA",
-    imageSrc: "/Sajal_Arora.webp",
+    imageSrc: "/people/Sajal_Arora.webp",
     summary:
       "A Dubai-based Chartered Accountant with more than 13 years of experience across integrated finance, taxation, auditing, banking, treasury, costing, and project financing.",
     paragraphs: [

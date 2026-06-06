@@ -36,7 +36,7 @@ export default function InsightsPage() {
       <PageIntro
         eyebrow="Insights"
         title="Insights"
-        backgroundImageSrc="/insights-bg.webp"
+        backgroundImageSrc="/backgrounds/insights-bg.webp"
         backgroundImageAlt="Zenesis Insights page background"
         backgroundImagePosition="!object-[100%_100%]"
         backgroundImageMode="ambient"

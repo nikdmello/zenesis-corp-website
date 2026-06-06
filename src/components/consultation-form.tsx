@@ -804,7 +804,7 @@ function ConsultationModal({
 
           <div className="relative z-10 pr-14">
             <Image
-              src="/zenesis-logo-full.webp"
+              src="/logos/zenesis-logo-full.webp"
               alt="Zenesis Corporation"
               width={300}
               height={72}

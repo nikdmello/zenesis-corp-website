@@ -181,7 +181,7 @@ export default function BusinessSetupPage() {
           { label: "Business setup" },
         ]}
         title="Business setup"
-        backgroundImageSrc="/business-setup-bg.webp"
+        backgroundImageSrc="/backgrounds/business-setup-bg.webp"
         backgroundImageAlt="Zenesis Business Setup page background"
         backgroundImagePosition="!object-[100%_100%]"
         backgroundImageMode="ambient"

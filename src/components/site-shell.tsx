@@ -89,7 +89,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
           <Link href="/" className="flex items-center gap-3">
             <span className="md:hidden">
               <Image
-                src="/zenesis-logo-full.webp"
+                src="/logos/zenesis-logo-full.webp"
                 alt="Zenesis Corporation"
                 width={220}
                 height={54}
@@ -99,7 +99,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
             </span>
             <span className="hidden md:block">
               <Image
-                src="/zenesis-logo-full.webp"
+                src="/logos/zenesis-logo-full.webp"
                 alt="Zenesis Corporation"
                 width={360}
                 height={88}
@@ -366,7 +366,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
         <div className="grid gap-10 md:grid-cols-[0.95fr_1.15fr_0.9fr] md:gap-8">
           <div className="pr-2">
             <Image
-              src="/zenesis-logo-full.webp"
+              src="/logos/zenesis-logo-full.webp"
               alt="Zenesis Corporation"
               width={300}
               height={72}

@@ -225,7 +225,7 @@ export default function Home() {
               <div className="pl-5 sm:pl-6 md:pl-7">
               <div className="hero-reveal hero-reveal-1 mb-6 flex justify-center md:block">
                 <NextImage
-                  src="/zenesis-logo-full.webp"
+                    src="/logos/zenesis-logo-full.webp"
                   alt="Zenesis Corporation"
                   width={340}
                   height={82}

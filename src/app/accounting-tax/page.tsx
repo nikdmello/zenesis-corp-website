@@ -175,7 +175,7 @@ export default function AccountingTaxPage() {
           { label: "Accounting and tax" },
         ]}
         title="Accounting and tax"
-        backgroundImageSrc="/accounting-and-tax-bg.webp"
+        backgroundImageSrc="/backgrounds/accounting-and-tax-bg.webp"
         backgroundImageAlt="Zenesis Accounting and Tax page background"
         backgroundImagePosition="!object-[100%_100%]"
         backgroundImageMode="ambient"
