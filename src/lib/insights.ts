@@ -33,7 +33,7 @@ export const insightPosts: InsightPost[] = [
       "The most common corporate tax compliance mistakes that attract scrutiny from the Federal Tax Authority, and how businesses can reduce audit risk in the UAE.",
     dateLabel: "June 5, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/audit-red-flags.webp"),
+    heroImageSrc: versionedAssetPath("/insights/audit-red-flags.webp"),
     heroImageAlt: "Business professionals reviewing audit red flags and tax documents",
     sections: [
       {
@@ -175,7 +175,7 @@ export const insightPosts: InsightPost[] = [
       "Why company registration is only the first milestone, and how a strategic business consultant helps businesses structure, scale, bank, and stay compliant in the UAE.",
     dateLabel: "May 21, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/strategic-reality.webp"),
+    heroImageSrc: versionedAssetPath("/insights/strategic-reality.webp"),
     heroImageAlt: "Business consultant advising founders in a strategic planning session",
     sections: [
       {
@@ -287,7 +287,7 @@ export const insightPosts: InsightPost[] = [
       "Why first-time founders are using the UAE as a global launchpad for faster setup, stronger market access, tax efficiency, and cleaner scaling.",
     dateLabel: "May 4, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/first-time-entrepreneurs.webp"),
+    heroImageSrc: versionedAssetPath("/insights/first-time-entrepreneurs.webp"),
     heroImageAlt: "First-time entrepreneurs planning a new business launch in the UAE",
     sections: [
       {
@@ -916,8 +916,8 @@ export const insightPosts: InsightPost[] = [
       "An evergreen guide to what the Dubai Golden Visa is, who it is designed for, the main eligibility routes, and how to approach the process more carefully.",
     dateLabel: "August 29, 2022",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/contact-consultation.webp"),
-    heroImageAlt: "Advisor discussing Dubai Golden Visa planning",
+    heroImageSrc: versionedAssetPath("/insights/golden-visa-guide.webp"),
+    heroImageAlt: "Advisor discussing Dubai Golden Visa eligibility and residency planning",
     sections: [
       {
         title: "What the Golden Visa Is",
