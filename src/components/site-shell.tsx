@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment, type ReactNode, useEffect } from "react";
 import { ConsultationFormButton } from "@/components/consultation-form";
+import { SiteSearchForm } from "@/components/site-search-form";
 import { contactDetails, navigation, socialLinks, whatsappHref } from "@/lib/site-content";
 
 type SiteShellProps = {
@@ -245,7 +246,10 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
           </nav>
 
           <div className="flex items-center gap-2 justify-self-end">
-            <div className="hidden items-center gap-3 rounded-full border border-white/12 bg-white/8 px-3.75 py-1.75 text-[1rem] font-medium text-white/92 lg:flex">
+            <div className="hidden lg:block">
+              <SiteSearchForm compact className="w-[15.25rem] xl:w-[16.5rem]" />
+            </div>
+            <div className="hidden h-11 items-center gap-3 rounded-full border border-white/12 bg-white/8 px-4 text-[1rem] font-medium text-white/92 shadow-[0_10px_24px_rgba(7,21,27,0.16)] lg:flex">
               <a
                 href={whatsappHref}
                 target="_blank"
@@ -285,6 +289,9 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
 
               <div className="absolute right-0 top-[calc(100%+0.85rem)] max-h-[calc(100dvh-5rem)] w-[19.75rem] overflow-y-auto rounded-[1.6rem] border border-white/10 bg-[rgba(15,31,39,0.985)] p-4 shadow-[0_24px_60px_rgba(7,21,27,0.28)] backdrop-blur-xl">
                 <p className="eyebrow px-1 text-white/48">Menu</p>
+                <div className="mt-3">
+                  <SiteSearchForm compact className="w-full" />
+                </div>
                 <nav className="mt-3 flex flex-col !text-white">
                   {navigation.map((item) => {
                     if ("groups" in item) {
