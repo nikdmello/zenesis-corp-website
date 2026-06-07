@@ -247,24 +247,24 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
 
           <div className="flex items-center gap-2 justify-self-end">
             <div className="hidden lg:block">
-              <SiteSearchForm compact className="w-[15.25rem] xl:w-[16.5rem]" />
+              <SiteSearchForm compact className="w-[17.5rem] xl:w-[19rem] 2xl:w-[20rem]" />
             </div>
-            <div className="hidden h-11 items-center gap-3 rounded-full border border-white/12 bg-white/8 px-4 text-[1rem] font-medium text-white/92 shadow-[0_10px_24px_rgba(7,21,27,0.16)] lg:flex">
+            <div className="hidden h-11 items-center gap-3 rounded-full border border-white/12 bg-white/8 px-4 text-[0.96rem] font-medium text-white/92 shadow-[0_10px_24px_rgba(7,21,27,0.16)] xl:text-[1rem] lg:flex">
               <a
                 href={whatsappHref}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2.5 transition-colors hover:text-white"
+                className="inline-flex items-center gap-2.5 whitespace-nowrap transition-colors hover:text-white"
               >
                 <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_18px_rgba(37,211,102,0.22)]">
                   <WhatsAppIcon className="h-4 w-4 shrink-0 fill-current" />
                 </span>
-                +971 58 914 2200
+                <span className="hidden xl:inline">+971 58 914 2200</span>
               </a>
-              <span className="h-3 w-px bg-white/16" />
+              <span className="hidden h-3 w-px bg-white/16 2xl:block" />
               <a
                 href="mailto:info@zenesiscorp.com"
-                className="transition-colors hover:text-white"
+                className="hidden whitespace-nowrap transition-colors hover:text-white 2xl:inline-flex"
               >
                 info@zenesiscorp.com
               </a>

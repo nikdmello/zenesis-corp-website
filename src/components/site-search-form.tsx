@@ -126,7 +126,11 @@ export function SiteSearchForm({
       {shouldShowResults ? (
         <div
           id={listboxId}
-          className={`absolute left-0 right-0 top-[calc(100%+0.75rem)] z-[70] overflow-hidden rounded-[1.4rem] border shadow-[0_24px_60px_rgba(7,21,27,0.22)] ${
+          className={`absolute left-0 top-[calc(100%+0.75rem)] z-[70] overflow-hidden rounded-[1.4rem] border shadow-[0_24px_60px_rgba(7,21,27,0.22)] ${
+            compact
+              ? "w-[26rem] max-w-[calc(100vw-2rem)] xl:w-[30rem] 2xl:w-[32rem]"
+              : "right-0 w-full"
+          } ${
             isLight
               ? "border-foreground/10 bg-white"
               : "border-white/10 bg-[rgba(15,31,39,0.985)] text-white backdrop-blur-xl"
@@ -148,14 +152,15 @@ export function SiteSearchForm({
                     }`}
                   >
                     <div
-                      className={`flex flex-wrap items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] ${
+                      title={result.section ? `${result.type} • ${result.section}` : result.type}
+                      className={`flex items-center gap-2 whitespace-nowrap text-[0.72rem] font-semibold uppercase tracking-[0.16em] ${
                         isLight ? "text-[#8d7453]" : "text-white/48"
                       }`}
                     >
-                      <span>{result.type}</span>
+                      <span className="shrink-0">{result.type}</span>
                       {result.section ? (
                         <>
-                          <span className={isLight ? "text-[#8d7453]/52" : "text-white/28"}>
+                          <span className={`shrink-0 ${isLight ? "text-[#8d7453]/52" : "text-white/28"}`}>
                             •
                           </span>
                           <span>{result.section}</span>
@@ -163,7 +168,8 @@ export function SiteSearchForm({
                       ) : null}
                     </div>
                     <div
-                      className={`mt-2 text-[1rem] font-semibold leading-6 tracking-[-0.02em] ${
+                      title={result.title}
+                      className={`mt-2 text-[0.98rem] font-semibold leading-6 tracking-[-0.02em] ${
                         isLight ? "text-foreground" : "text-white"
                       }`}
                     >

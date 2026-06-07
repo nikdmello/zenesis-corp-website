@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CardAccent, PageIntro, SiteShell } from "@/components/site-shell";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
@@ -54,6 +55,25 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
         }`}
       >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          {!config.topLevelService ? (
+            <div className="mb-6 md:mb-8">
+              <nav
+                aria-label="Service breadcrumb"
+                className="inline-flex flex-wrap items-center gap-2 rounded-full border border-[#d8d0c2] bg-white px-4 py-2.5 text-[0.88rem] font-semibold tracking-[-0.01em] text-[#8d7453] shadow-[0_10px_28px_rgba(17,35,42,0.06)] md:px-5 md:text-[0.92rem]"
+              >
+                <Link
+                  href={config.backHref}
+                  className="transition-colors hover:text-[#244ba8]"
+                >
+                  {parentServiceLabel}
+                </Link>
+                <span aria-hidden="true" className="text-[#8d7453]/56">
+                  →
+                </span>
+                <span className="text-foreground">{config.title}</span>
+              </nav>
+            </div>
+          ) : null}
           <article className={`rounded-[2rem] border border-[#d8d0c2] p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10 ${
             config.topLevelService
               ? "bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)]"

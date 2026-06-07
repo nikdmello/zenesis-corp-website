@@ -89,16 +89,22 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                 href={result.href}
                 className="group rounded-[1.75rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_22px_58px_rgba(17,35,42,0.18)]"
               >
-                <div className="flex flex-wrap items-center gap-2 text-[0.84rem] font-semibold uppercase tracking-[0.16em] text-[#8d7453]">
-                  <span>{result.type}</span>
+                <div
+                  title={result.section ? `${result.type} • ${result.section}` : result.type}
+                  className="flex items-center gap-2 whitespace-nowrap text-[0.84rem] font-semibold uppercase tracking-[0.16em] text-[#8d7453]"
+                >
+                  <span className="shrink-0">{result.type}</span>
                   {result.section ? (
                     <>
-                      <span className="text-[#8d7453]/58">•</span>
+                      <span className="shrink-0 text-[#8d7453]/58">•</span>
                       <span>{result.section}</span>
                     </>
                   ) : null}
                 </div>
-                <h2 className="mt-4 text-[1.34rem] font-semibold leading-[1.18] tracking-[-0.04em] text-foreground">
+                <h2
+                  title={result.title}
+                  className="mt-4 text-[1.24rem] font-semibold leading-[1.28] tracking-[-0.035em] text-foreground"
+                >
                   {query ? (
                     <SearchHighlight text={result.title} query={query} />
                   ) : (
