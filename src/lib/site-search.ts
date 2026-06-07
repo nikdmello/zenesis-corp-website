@@ -193,6 +193,45 @@ function tokenize(value: string) {
     .filter(Boolean);
 }
 
+function getTokenVariants(token: string) {
+  const normalizedToken = normalizeText(token);
+  const variants = new Set<string>();
+
+  if (!normalizedToken) {
+    return [];
+  }
+
+  variants.add(normalizedToken);
+
+  if (normalizedToken.endsWith("ies") && normalizedToken.length > 3) {
+    variants.add(`${normalizedToken.slice(0, -3)}y`);
+  }
+
+  if (normalizedToken.endsWith("es") && normalizedToken.length > 3) {
+    variants.add(normalizedToken.slice(0, -2));
+  }
+
+  if (normalizedToken.endsWith("s") && normalizedToken.length > 2) {
+    variants.add(normalizedToken.slice(0, -1));
+  }
+
+  if (!normalizedToken.endsWith("s")) {
+    variants.add(`${normalizedToken}s`);
+  }
+
+  return Array.from(variants).filter(Boolean);
+}
+
+function includesSearchToken(value: string, token: string) {
+  const normalizedValue = normalizeText(value);
+
+  if (!normalizedValue) {
+    return false;
+  }
+
+  return getTokenVariants(token).some((variant) => normalizedValue.includes(variant));
+}
+
 export function tokenizeSearchQuery(value: string) {
   return Array.from(new Set(tokenize(value)));
 }
@@ -202,7 +241,9 @@ function escapeRegExp(value: string) {
 }
 
 export function getHighlightParts(text: string, query: string): HighlightPart[] {
-  const tokens = tokenizeSearchQuery(query)
+  const tokens = Array.from(
+    new Set(tokenizeSearchQuery(query).flatMap((token) => getTokenVariants(token))),
+  )
     .filter((token) => token.length >= 2)
     .sort((a, b) => b.length - a.length);
 
@@ -238,6 +279,7 @@ export function getSearchExcerpt(text: string, query: string, maxLength = 160) {
 
   const lowerText = normalizedText.toLowerCase();
   const matchIndexes = tokens
+    .flatMap((token) => getTokenVariants(token))
     .map((token) => lowerText.indexOf(token))
     .filter((index) => index >= 0)
     .sort((a, b) => a - b);
@@ -272,16 +314,22 @@ export function searchSite(query: string, limit = 24): SearchResult[] {
       const haystack = normalizeText(document.searchText);
 
       let score = 0;
+      let primaryFieldMatches = 0;
+      let bodyFieldMatches = 0;
 
-      if (title === normalizedQuery) {
+      const queryVariants = Array.from(
+        new Set([normalizedQuery, ...queryTokens.flatMap((token) => getTokenVariants(token))]),
+      );
+
+      if (queryVariants.includes(title)) {
         score += 140;
-      } else if (title.startsWith(normalizedQuery)) {
+      } else if (queryVariants.some((variant) => title.startsWith(variant))) {
         score += 95;
-      } else if (title.includes(normalizedQuery)) {
+      } else if (queryVariants.some((variant) => title.includes(variant))) {
         score += 70;
       }
 
-      if (description.includes(normalizedQuery)) {
+      if (queryVariants.some((variant) => description.includes(variant))) {
         score += 24;
       }
 
@@ -289,37 +337,76 @@ export function searchSite(query: string, limit = 24): SearchResult[] {
 
       for (const token of queryTokens) {
         let tokenMatched = false;
+        let matchedPrimary = false;
+        let matchedBody = false;
 
-        if (title.includes(token)) {
-          score += 24;
+        if (includesSearchToken(title, token)) {
+          score += 36;
           tokenMatched = true;
+          matchedPrimary = true;
         }
-        if (section.includes(token)) {
-          score += 12;
+        if (includesSearchToken(section, token)) {
+          score += 18;
           tokenMatched = true;
+          matchedPrimary = true;
         }
-        if (keywordText.includes(token)) {
-          score += 12;
+        if (includesSearchToken(keywordText, token)) {
+          score += 22;
           tokenMatched = true;
+          matchedPrimary = true;
         }
-        if (description.includes(token)) {
-          score += 10;
+        if (includesSearchToken(description, token)) {
+          score += 9;
           tokenMatched = true;
+          matchedBody = true;
         }
-        if (haystack.includes(token)) {
-          score += 5;
+        if (includesSearchToken(haystack, token)) {
+          score += 2;
           tokenMatched = true;
+          matchedBody = true;
         }
 
         if (tokenMatched) {
           matchedTokens += 1;
         }
+        if (matchedPrimary) {
+          primaryFieldMatches += 1;
+        }
+        if (matchedBody) {
+          bodyFieldMatches += 1;
+        }
       }
 
       if (matchedTokens === queryTokens.length) {
-        score += 18;
+        score += 14;
       } else if (matchedTokens === 0) {
         score = 0;
+      }
+
+      if (primaryFieldMatches > 0) {
+        score += 18 + primaryFieldMatches * 8;
+      } else if (bodyFieldMatches > 0) {
+        score -= 18;
+      }
+
+      if (primaryFieldMatches === 0 && bodyFieldMatches > 0 && queryTokens.length <= 2) {
+        score -= 12;
+      }
+
+      if (document.type === "Service" && primaryFieldMatches > 0) {
+        score += 10;
+      }
+
+      if (document.type === "Page" && primaryFieldMatches > 0) {
+        score += 6;
+      }
+
+      if (document.type === "Insight" && primaryFieldMatches > 0) {
+        score += 8;
+      }
+
+      if (document.type === "Insight" && primaryFieldMatches === 0 && bodyFieldMatches > 0) {
+        score -= 8;
       }
 
       return { ...document, score };

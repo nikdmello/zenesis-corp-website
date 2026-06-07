@@ -24,7 +24,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   return (
     <SiteShell currentPath="/search">
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 border-b border-foreground/8 bg-[#f5efe4] pt-24 pb-10 md:pt-28 md:pb-12">
+      <section className="relative z-20 left-1/2 -mt-px w-screen -translate-x-1/2 overflow-visible border-b border-foreground/8 bg-[#f5efe4] pt-24 pb-10 md:pt-28 md:pb-12">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="max-w-[72rem] border-l-4 border-[#244ba8] pl-5 sm:pl-6 md:pl-7">
             <p className="text-[0.82rem] font-semibold uppercase tracking-[0.18em] text-[#244ba8]">
@@ -40,7 +40,6 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
             <div className="mt-8 max-w-[46rem]">
               <SiteSearchForm
                 defaultValue={query}
-                autoFocus
                 theme="light"
                 className="w-full"
               />
@@ -54,7 +53,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
+      <section className="relative z-10 left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow={query ? "Results" : "Browse"}
@@ -64,6 +63,9 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                 ? "Results are pulled from top-level pages, service pages, the featured profile, and insight articles."
                 : "Use these common entry points if you are not sure where to begin."
             }
+            eyebrowClassName="text-white/68"
+            titleClassName="text-white"
+            descriptionClassName="text-white/92"
           />
 
           {query && results.length === 0 ? (
