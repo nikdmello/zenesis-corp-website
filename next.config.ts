@@ -23,8 +23,78 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/home",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/home/",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/about/",
         destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/about-us",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/about-us/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/contact-us",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/contact-us/",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/about-us",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/about-us/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/contact-us",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/contact-us/",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/faqs",
+        destination: "/business-setup",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/faqs/",
+        destination: "/business-setup",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/ourservices/company-formation",
+        destination: "/business-setup",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/ourservices/company-formation/",
+        destination: "/business-setup",
         permanent: true,
       },
       {

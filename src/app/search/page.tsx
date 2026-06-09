@@ -1,14 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SearchHighlight } from "@/components/search-highlight";
 import { SiteSearchForm } from "@/components/site-search-form";
 import { SectionHeading, SiteShell } from "@/components/site-shell";
 import { getSearchExcerpt, getSearchSuggestions, searchSite } from "@/lib/site-search";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Search | Zenesis Corporation",
   description:
     "Search Zenesis pages, services, and insight articles across business setup, accounting and tax, and visa and banking.",
-};
+  path: "/search",
+  noIndex: true,
+});
 
 type SearchPageProps = {
   searchParams: Promise<{

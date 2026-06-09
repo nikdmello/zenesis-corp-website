@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
+import { JsonLd } from "@/components/json-ld";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { CardAccent, PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  getAbsoluteUrl,
+} from "@/lib/seo";
 import {
   freeZoneExamples,
   offshoreOptions,
@@ -170,11 +176,29 @@ const processSteps = [
   },
 ] as const;
 
-export const metadata: Metadata = toMetadata(legacyRouteMeta.businessSetup);
+export const metadata: Metadata = toMetadata(
+  legacyRouteMeta.businessSetup,
+  "/business-setup",
+);
 
 export default function BusinessSetupPage() {
+  const pageSchemas = [
+    buildServiceSchema({
+      title: "Business setup",
+      description: legacyRouteMeta.businessSetup.description,
+      path: "/business-setup",
+    }),
+    buildBreadcrumbSchema([
+      { name: "Home", url: getAbsoluteUrl("/") },
+      { name: "Business setup", url: getAbsoluteUrl("/business-setup") },
+    ]),
+  ];
+
   return (
     <SiteShell currentPath="/business-setup">
+      {pageSchemas.map((schema, index) => (
+        <JsonLd key={index} data={schema} />
+      ))}
       <PageIntro
         breadcrumb={[
           { label: "Services", href: "/#services" },

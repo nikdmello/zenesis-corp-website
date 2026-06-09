@@ -2,9 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/json-ld";
 import { SiteShell } from "@/components/site-shell";
 import { getInsightPost, insightPosts } from "@/lib/insights";
 import { legacyInsightMetaBySlug } from "@/lib/legacy-meta";
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildPageMetadata,
+  getAbsoluteUrl,
+  toIsoDate,
+} from "@/lib/seo";
 
 type InsightArticlePageProps = {
   params: Promise<{
@@ -32,10 +40,13 @@ export async function generateMetadata({
 
   const legacyMeta = legacyInsightMetaBySlug[slug as keyof typeof legacyInsightMetaBySlug];
 
-  return {
+  return buildPageMetadata({
     title: legacyMeta ? legacyMeta.title : `${post.title} | Zenesis Corporation`,
     description: legacyMeta ? legacyMeta.description : post.description,
-  };
+    path: `/insights/${post.slug}`,
+    type: "article",
+    image: post.heroImageSrc,
+  });
 }
 
 export default async function InsightArticlePage({
@@ -48,8 +59,27 @@ export default async function InsightArticlePage({
     notFound();
   }
 
+  const articleSchemas = [
+    buildArticleSchema({
+      title: post.title,
+      description: post.description,
+      path: `/insights/${post.slug}`,
+      image: post.heroImageSrc,
+      publishedTime: toIsoDate(post.dateLabel),
+      authorName: post.author,
+    }),
+    buildBreadcrumbSchema([
+      { name: "Home", url: getAbsoluteUrl("/") },
+      { name: "Insights", url: getAbsoluteUrl("/insights") },
+      { name: post.title, url: getAbsoluteUrl(`/insights/${post.slug}`) },
+    ]),
+  ];
+
   return (
     <SiteShell currentPath="/insights">
+      {articleSchemas.map((schema, index) => (
+        <JsonLd key={index} data={schema} />
+      ))}
       <article>
         <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] py-14 text-white md:py-18">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(36,75,168,0.24),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_44%)]" />

@@ -94,7 +94,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/business-setup",
     backLabel: "Back to Business Setup",
     metadata: {
-      ...toMetadata(legacyServiceMeta.mainland),
+      ...toMetadata(legacyServiceMeta.mainland, "/mainland"),
     },
   },
   "free-zones": {
@@ -153,7 +153,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/business-setup",
     backLabel: "Back to Business Setup",
     metadata: {
-      ...toMetadata(legacyServiceMeta["free-zones"]),
+      ...toMetadata(legacyServiceMeta["free-zones"], "/free-zones"),
     },
   },
   offshore: {
@@ -212,7 +212,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/business-setup",
     backLabel: "Back to Business Setup",
     metadata: {
-      ...toMetadata(legacyServiceMeta.offshore),
+      ...toMetadata(legacyServiceMeta.offshore, "/offshore"),
     },
   },
   "document-attestation-services-in-uae": {
@@ -270,7 +270,10 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/business-setup",
     backLabel: "Back to Business Setup",
     metadata: {
-      ...toMetadata(legacyServiceMeta["document-attestation-services-in-uae"]),
+      ...toMetadata(
+        legacyServiceMeta["document-attestation-services-in-uae"],
+        "/document-attestation-services-in-uae",
+      ),
     },
   },
   "open-a-bank-account-easily": {
@@ -328,7 +331,10 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/visa-and-banking",
     backLabel: "Back to Visa and Banking",
     metadata: {
-      ...toMetadata(legacyServiceMeta["open-a-bank-account-easily"]),
+      ...toMetadata(
+        legacyServiceMeta["open-a-bank-account-easily"],
+        "/open-a-bank-account-easily",
+      ),
     },
   },
   "uae-company-visa": {
@@ -385,7 +391,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/visa-and-banking",
     backLabel: "Back to Visa and Banking",
     metadata: {
-      ...toMetadata(legacyServiceMeta["uae-company-visa"]),
+      ...toMetadata(legacyServiceMeta["uae-company-visa"], "/uae-company-visa"),
     },
   },
   "visa-and-banking": {
@@ -441,7 +447,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/business-setup",
     backLabel: "Back to Business Setup",
     metadata: {
-      ...toMetadata(legacyRouteMeta.visaAndBanking),
+      ...toMetadata(legacyRouteMeta.visaAndBanking, "/visa-and-banking"),
     },
   },
   "golden-visa-services-in-the-uae": {
@@ -498,7 +504,10 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/visa-and-banking",
     backLabel: "Back to Visa and Banking",
     metadata: {
-      ...toMetadata(legacyRouteMeta.goldenVisaServices),
+      ...toMetadata(
+        legacyRouteMeta.goldenVisaServices,
+        "/golden-visa-services-in-the-uae",
+      ),
     },
   },
   "corporate-tax-registration-in-the-uae": {
@@ -555,7 +564,10 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/accounting-tax",
     backLabel: "Back to Accounting & Tax",
     metadata: {
-      ...toMetadata(legacyServiceMeta["corporate-tax-registration-in-the-uae"]),
+      ...toMetadata(
+        legacyServiceMeta["corporate-tax-registration-in-the-uae"],
+        "/corporate-tax-registration-in-the-uae",
+      ),
     },
   },
   "corporate-tax-filing-services-in-the-uae": {
@@ -612,7 +624,10 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/accounting-tax",
     backLabel: "Back to Accounting & Tax",
     metadata: {
-      ...toMetadata(legacyServiceMeta["corporate-tax-filing-services-in-the-uae"]),
+      ...toMetadata(
+        legacyServiceMeta["corporate-tax-filing-services-in-the-uae"],
+        "/corporate-tax-filing-services-in-the-uae",
+      ),
     },
   },
   "vat-filing-services-in-the-uae": {
@@ -669,7 +684,10 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/accounting-tax",
     backLabel: "Back to Accounting & Tax",
     metadata: {
-      ...toMetadata(legacyServiceMeta["vat-filing-services-in-the-uae"]),
+      ...toMetadata(
+        legacyServiceMeta["vat-filing-services-in-the-uae"],
+        "/vat-filing-services-in-the-uae",
+      ),
     },
   },
   "professional-bookkeeping-services-in-dubai": {
@@ -726,7 +744,10 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backHref: "/accounting-tax",
     backLabel: "Back to Accounting & Tax",
     metadata: {
-      ...toMetadata(legacyServiceMeta["professional-bookkeeping-services-in-dubai"]),
+      ...toMetadata(
+        legacyServiceMeta["professional-bookkeeping-services-in-dubai"],
+        "/professional-bookkeeping-services-in-dubai",
+      ),
     },
   },
 };

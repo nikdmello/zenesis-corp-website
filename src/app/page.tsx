@@ -9,6 +9,7 @@ import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { HomepageReviewsCarousel } from "@/components/homepage-reviews-carousel";
 import { HomepageInsightsCarousel } from "@/components/homepage-insights-carousel";
 import { HomepageServiceTile } from "@/components/homepage-service-tile";
+import { JsonLd } from "@/components/json-ld";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { CardAccent, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
@@ -19,6 +20,7 @@ import {
   testimonials,
 } from "@/lib/site-content";
 import { insightPosts } from "@/lib/insights";
+import { buildFaqSchema } from "@/lib/seo";
 
 const trustSignals = [
   {
@@ -206,9 +208,11 @@ const homepageFaqs = [
 export default function Home() {
   const googleReviewCountLabel = "480+ reviews";
   const [, leadershipFeatureSignal] = trustSignals;
+  const faqSchema = buildFaqSchema(homepageFaqs);
 
   return (
     <SiteShell currentPath="/">
+      <JsonLd data={faqSchema} />
       <div className="relative z-10">
         <section className="photo-hero relative left-1/2 -mt-10 min-h-[100svh] w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] text-white md:-mt-14">
           <div className="absolute inset-0">

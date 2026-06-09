@@ -10,7 +10,7 @@ import {
 } from "@/lib/site-content";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
 
-export const metadata: Metadata = toMetadata(legacyRouteMeta.contact);
+export const metadata: Metadata = toMetadata(legacyRouteMeta.contact, "/contact");
 
 export default function ContactPage() {
   return (

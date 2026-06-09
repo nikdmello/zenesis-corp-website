@@ -6,12 +6,14 @@ import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { featuredProfile } from "@/lib/site-content";
 import { insightPosts } from "@/lib/insights";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Insights | Zenesis Corporation",
   description:
     "Zenesis insights across accounting and tax, business setup, and visa and banking topics in the UAE.",
-};
+  path: "/insights",
+});
 
 const categorySummaries = [
   {

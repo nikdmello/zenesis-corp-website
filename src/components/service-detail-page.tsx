@@ -1,8 +1,14 @@
 import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
 import { CardAccent, PageIntro, SiteShell } from "@/components/site-shell";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import type { ServiceDetailConfig } from "@/lib/service-pages";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  getAbsoluteUrl,
+} from "@/lib/seo";
 
 export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
   const hasAmbientIntro = Boolean(config.introBackgroundImageSrc);
@@ -24,8 +30,31 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
       : config.backHref === "/accounting-tax"
         ? "Accounting and tax"
         : "Visa and banking";
+  const canonicalPath = `/${config.slug}`;
+  const serviceSchemas = [
+    buildServiceSchema({
+      title: config.title,
+      description: config.description,
+      path: canonicalPath,
+    }),
+    buildBreadcrumbSchema(
+      config.topLevelService
+        ? [
+            { name: "Home", url: getAbsoluteUrl("/") },
+            { name: config.title, url: getAbsoluteUrl(canonicalPath) },
+          ]
+        : [
+            { name: "Home", url: getAbsoluteUrl("/") },
+            { name: parentServiceLabel, url: getAbsoluteUrl(config.backHref) },
+            { name: config.title, url: getAbsoluteUrl(canonicalPath) },
+          ],
+    ),
+  ];
   return (
     <SiteShell currentPath={config.currentPath}>
+      {serviceSchemas.map((schema, index) => (
+        <JsonLd key={index} data={schema} />
+      ))}
       <PageIntro
         breadcrumb={
           config.hideBreadcrumb

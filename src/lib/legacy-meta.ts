@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 
 export type LegacyMeta = {
   title: string;
@@ -139,9 +140,21 @@ export const legacyInsightMetaBySlug = {
   },
 } satisfies Record<string, LegacyMeta>;
 
-export function toMetadata(meta: LegacyMeta): Metadata {
-  return {
+export function toMetadata(
+  meta: LegacyMeta,
+  path: string,
+  options?: {
+    type?: "website" | "article";
+    image?: string;
+    noIndex?: boolean;
+  },
+): Metadata {
+  return buildPageMetadata({
     title: meta.title,
     description: meta.description,
-  };
+    path,
+    type: options?.type,
+    image: options?.image,
+    noIndex: options?.noIndex,
+  });
 }

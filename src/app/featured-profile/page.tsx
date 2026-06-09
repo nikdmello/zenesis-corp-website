@@ -2,14 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ConsultationFormButton } from "@/components/consultation-form";
+import { JsonLd } from "@/components/json-ld";
 import { SiteShell } from "@/components/site-shell";
 import { featuredProfile } from "@/lib/site-content";
+import {
+  buildBreadcrumbSchema,
+  buildFeaturedProfileSchema,
+  buildPageMetadata,
+  getAbsoluteUrl,
+} from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Cecilia D'Cunha in Global Leaders Today | Zenesis Corporation",
   description:
     "An editorial feature on Cecilia D'Cunha covering her background in offshore incorporation, UAE business setup, and corporate compliance.",
-};
+  path: "/featured-profile",
+  type: "article",
+  image: featuredProfile.imageSrc,
+});
 
 const profileHighlights = [
   "More than 30 years of experience across offshore incorporation and UAE company setup",
@@ -66,9 +76,21 @@ const articleSections = [
 const finalQuote =
   "Yes, you can have it all. You can be a great mom, a great wife, and a great entrepreneur. This does not have to be an either-or choice. Embrace the power of planning, prioritize what truly matters, and surround yourself with a strong support system.";
 
+const featuredProfileSchemas = [
+  buildFeaturedProfileSchema(),
+  buildBreadcrumbSchema([
+    { name: "Home", url: getAbsoluteUrl("/") },
+    { name: "Insights", url: getAbsoluteUrl("/insights") },
+    { name: "Featured profile", url: getAbsoluteUrl("/featured-profile") },
+  ]),
+];
+
 export default function FeaturedProfilePage() {
   return (
     <SiteShell currentPath="/insights">
+      {featuredProfileSchemas.map((schema, index) => (
+        <JsonLd key={index} data={schema} />
+      ))}
       <article>
         <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] py-14 text-white md:py-18">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(36,75,168,0.24),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_44%)]" />

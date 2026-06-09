@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
+import { JsonLd } from "@/components/json-ld";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { CardAccent, PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  getAbsoluteUrl,
+} from "@/lib/seo";
 
 const accountingServices = [
   {
@@ -162,11 +168,29 @@ const reportingNeeds = [
   },
 ] as const;
 
-export const metadata: Metadata = toMetadata(legacyRouteMeta.accountingTax);
+export const metadata: Metadata = toMetadata(
+  legacyRouteMeta.accountingTax,
+  "/accounting-tax",
+);
 
 export default function AccountingTaxPage() {
+  const pageSchemas = [
+    buildServiceSchema({
+      title: "Accounting and tax",
+      description: legacyRouteMeta.accountingTax.description,
+      path: "/accounting-tax",
+    }),
+    buildBreadcrumbSchema([
+      { name: "Home", url: getAbsoluteUrl("/") },
+      { name: "Accounting and tax", url: getAbsoluteUrl("/accounting-tax") },
+    ]),
+  ];
+
   return (
     <SiteShell currentPath="/accounting-tax">
+      {pageSchemas.map((schema, index) => (
+        <JsonLd key={index} data={schema} />
+      ))}
       <PageIntro
         breadcrumb={[
           { label: "Services", href: "/#services" },

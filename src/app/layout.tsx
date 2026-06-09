@@ -2,16 +2,10 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { JsonLd } from "@/components/json-ld";
+import { buildPageMetadata, getOrganizationSchemas, siteUrl } from "@/lib/seo";
 import { legacyRouteMeta } from "@/lib/legacy-meta";
 import "./globals.css";
-
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "https://www.zenesiscorp.com");
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -24,31 +18,15 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
+const organizationSchemas = getOrganizationSchemas();
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: legacyRouteMeta.home.title,
-  description: legacyRouteMeta.home.description,
-  openGraph: {
+  ...buildPageMetadata({
     title: legacyRouteMeta.home.title,
     description: legacyRouteMeta.home.description,
-    url: "/",
-    siteName: "Zenesis Corporation",
-    type: "website",
-    images: [
-      {
-        url: "/opengraph-image.png",
-        width: 1132,
-        height: 311,
-        alt: "Zenesis Corporation",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: legacyRouteMeta.home.title,
-    description: legacyRouteMeta.home.description,
-    images: ["/twitter-image.png"],
-  },
+    path: "/",
+  }),
 };
 
 export default function RootLayout({
@@ -64,6 +42,9 @@ export default function RootLayout({
       className={`${manrope.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        {organizationSchemas.map((schema, index) => (
+          <JsonLd key={index} data={schema} />
+        ))}
         {children}
         <Analytics />
         <SpeedInsights />

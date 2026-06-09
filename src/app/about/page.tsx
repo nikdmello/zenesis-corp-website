@@ -29,7 +29,7 @@ const howWeWork = [
   },
 ] as const;
 
-export const metadata: Metadata = toMetadata(legacyRouteMeta.about);
+export const metadata: Metadata = toMetadata(legacyRouteMeta.about, "/about");
 
 export default function AboutPage() {
   return (
