@@ -217,7 +217,7 @@ export default function Home() {
         <section className="photo-hero relative left-1/2 -mt-10 min-h-[100svh] w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] text-white md:-mt-14">
           <div className="absolute inset-0">
             <HeroBackgroundVideo
-              src="/homepage.webm"
+              src="/zenesis-video.webm"
               className="h-full w-full object-cover object-[66%_30%] saturate-[1.05] contrast-[1.04] md:[mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.12)_16%,rgba(0,0,0,0.42)_26%,rgba(0,0,0,0.78)_38%,black_50%)] md:object-[76%_28%] lg:object-[82%_27%]"
             />
           </div>
@@ -247,17 +247,17 @@ export default function Home() {
                     key={service.title}
                     href={service.href}
                     aria-label={`Go to ${service.title}`}
-                    className="group mx-auto flex min-h-[4.15rem] w-full items-center gap-3 rounded-[1.35rem] border border-white/14 bg-[linear-gradient(135deg,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.06)_100%)] px-4 py-3 text-white shadow-[0_18px_38px_rgba(7,21,27,0.16)] backdrop-blur-md transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0.08)_100%)] md:mx-0 md:min-h-[4.3rem] md:px-4.5"
+                    className="group relative mx-auto flex min-h-[4.15rem] w-full items-center gap-3 overflow-hidden rounded-[1.35rem] border border-white/14 bg-[linear-gradient(135deg,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.06)_100%)] px-4 py-3 text-white shadow-[0_18px_38px_rgba(7,21,27,0.16)] backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:border-[#d8c3a2]/36 hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0.08)_100%)] md:mx-0 md:min-h-[4.3rem] md:px-4.5"
                   >
-                    <span className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] text-white/52 md:text-[0.74rem]">
+                    <span className="inline-flex h-8 min-w-[2.55rem] shrink-0 items-center justify-center rounded-full border border-[#d8c3a2]/28 bg-[rgba(216,195,162,0.14)] px-2 text-[0.74rem] font-semibold tracking-[0.18em] text-[#f0dec0] md:h-[2.1rem] md:min-w-[2.75rem] md:text-[0.76rem]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className="min-w-0 flex-1 text-[1.22rem] font-semibold leading-6 tracking-[-0.03em] text-white md:text-[1.38rem] md:leading-7">
+                    <span className="min-w-0 flex-1 text-[1.22rem] font-semibold leading-6 tracking-[-0.03em] text-white md:text-[1.36rem] md:leading-7">
                       {service.title}
                     </span>
                     <span
                       aria-hidden="true"
-                      className="shrink-0 text-[1.08rem] text-white/82 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-white"
+                      className="relative inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#d8c3a2]/28 bg-[rgba(216,195,162,0.12)] text-[1.02rem] text-[#f3e6d0] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:border-[#d8c3a2]/46 group-hover:bg-[rgba(216,195,162,0.18)] group-hover:text-white"
                     >
                       <span aria-hidden="true">→</span>
                     </span>
