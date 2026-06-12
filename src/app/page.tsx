@@ -9,11 +9,11 @@ import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { HomepageReviewsCarousel } from "@/components/homepage-reviews-carousel";
 import { HomepageInsightsCarousel } from "@/components/homepage-insights-carousel";
 import { HomepageServiceTile } from "@/components/homepage-service-tile";
+import { HomepageServiceVisual } from "@/components/homepage-service-visual";
 import { JsonLd } from "@/components/json-ld";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { CardAccent, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
-import { versionedAssetPath } from "@/lib/asset-paths";
 import {
   featuredProfile,
   partnerLogos,
@@ -44,8 +44,7 @@ const customerPaths = [
     title: "Business setup",
     href: "/business-setup",
     cta: "Explore business setup",
-    imageSrc: versionedAssetPath("/business-setup.webp"),
-    imageAlt: "Business advisors discussing UAE company formation",
+    visual: "business-setup",
     offerings: [
       {
         icon: "🏢",
@@ -72,8 +71,7 @@ const customerPaths = [
     title: "Accounting and tax",
     href: "/accounting-tax",
     cta: "Explore accounting and tax",
-    imageSrc: versionedAssetPath("/accounting-and-tax.webp"),
-    imageAlt: "Professionals reviewing business documents",
+    visual: "accounting-tax",
     offerings: [
       {
         icon: "📒",
@@ -100,8 +98,7 @@ const customerPaths = [
     title: "Visa and banking",
     href: "/visa-and-banking",
     cta: "Explore visa and banking",
-    imageSrc: versionedAssetPath("/contact-consultation.webp"),
-    imageAlt: "Business advisor speaking with a client about residency and banking",
+    visual: "visa-and-banking",
     offerings: [
       {
         icon: "⭐",
@@ -128,8 +125,7 @@ const customerPaths = [
     title: "Corporate support",
     href: "/contact",
     cta: "Discuss corporate support",
-    imageSrc: versionedAssetPath("/professional-meeting.webp"),
-    imageAlt: "Business advisor coordinating corporate support",
+    visual: "corporate-support",
     offerings: [
       {
         icon: "🔄",
@@ -311,13 +307,9 @@ export default function Home() {
                 >
                   <Link
                     href={item.href}
-                    className="group relative block h-[18.5rem] overflow-hidden md:h-[20rem] xl:h-[14.5rem]"
+                    className="group relative block h-[8.75rem] overflow-hidden md:h-[9.5rem] xl:h-[8.6rem]"
                   >
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                      style={{ backgroundImage: `url(${item.imageSrc})` }}
-                    />
+                    <HomepageServiceVisual variant={item.visual} />
                   </Link>
 
                   <div className="flex grow flex-col p-4 sm:p-5 md:p-6 lg:p-7 xl:p-6">
