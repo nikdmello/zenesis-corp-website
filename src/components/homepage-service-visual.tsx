@@ -11,8 +11,8 @@ type HomepageServiceVisualProps = {
 const visualNumbers: Record<HomepageServiceVisualVariant, string> = {
   "business-setup": "01",
   "accounting-tax": "02",
-  "corporate-support": "03",
-  "visa-and-banking": "04",
+  "corporate-support": "04",
+  "visa-and-banking": "03",
 };
 
 export function HomepageServiceVisual({
