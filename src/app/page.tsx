@@ -12,7 +12,7 @@ import { HomepageServiceTile } from "@/components/homepage-service-tile";
 import { HomepageServiceVisual } from "@/components/homepage-service-visual";
 import { JsonLd } from "@/components/json-ld";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { CardAccent, SectionHeading, SiteShell } from "@/components/site-shell";
+import { SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import {
   featuredProfile,
@@ -309,19 +309,11 @@ export default function Home() {
                     href={item.href}
                     className="group relative block h-[8.75rem] overflow-hidden md:h-[9.5rem] xl:h-[8.6rem]"
                   >
-                    <HomepageServiceVisual variant={item.visual} />
+                    <HomepageServiceVisual variant={item.visual} title={item.title} />
                   </Link>
 
                   <div className="flex grow flex-col p-4 sm:p-5 md:p-6 lg:p-7 xl:p-6">
-                    <div className="mb-5">
-                      <CardAccent />
-                      <Link href={item.href} className="group inline-block">
-                        <h3 className="text-[2.05rem] font-semibold leading-[0.95] tracking-[-0.05em] text-[#07151b] transition-transform duration-200 group-hover:-translate-y-0.5 md:text-[2.3rem] xl:text-[1.78rem] xl:whitespace-nowrap">
-                          {item.title}
-                        </h3>
-                      </Link>
-                    </div>
-                    <div className="grid grow gap-3 md:grid-cols-3 md:items-stretch xl:grid-cols-1 xl:gap-3">
+                    <div className="grid grow gap-2.5 md:grid-cols-3 md:items-stretch xl:grid-cols-1 xl:gap-2.5">
                       {item.offerings.map((offering) => {
                         return (
                           <HomepageServiceTile
@@ -338,10 +330,10 @@ export default function Home() {
                       })}
                     </div>
 
-                    <div className="mt-auto flex justify-center pt-5">
+                    <div className="mt-auto flex justify-center pt-4">
                       <Link
                         href={item.href}
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#11232a] px-4 py-2.75 text-[0.96rem] font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#18343d] md:w-auto xl:px-5 xl:text-[0.95rem]"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#11232a] px-4 py-2.5 text-[1rem] font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#18343d] md:w-auto md:px-5 xl:text-[1.02rem]"
                       >
                         {item.cta}
                         <span aria-hidden="true">→</span>

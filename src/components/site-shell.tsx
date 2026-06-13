@@ -377,7 +377,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
               alt="Zenesis Corporation"
               width={300}
               height={72}
-              className="h-10 w-auto object-contain"
+              className="h-10 w-auto object-contain brightness-0 saturate-0"
             />
             <p className="mt-4 max-w-md text-[1.08rem] leading-8 text-foreground/78">
               Business setup, accounting and tax, and corporate support for
