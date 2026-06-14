@@ -258,6 +258,158 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/blogs",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/blogs/",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/landing",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/landing/",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/our_team",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/our_team/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/cecilia-dcunha",
+        destination: "/featured-profile",
+        permanent: true,
+      },
+      {
+        source: "/cecilia-dcunha/",
+        destination: "/featured-profile",
+        permanent: true,
+      },
+      {
+        source: "/prof-jeevan-dmello",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/prof-jeevan-dmello/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/shams-dharamshi",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/shams-dharamshi/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/vasudevan-kidambi",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/vasudevan-kidambi/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/sajal-arora",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/sajal-arora/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/international-development-ireland",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/international-development-ireland/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/vat-registration-services",
+        destination: "/vat-filing-services-in-the-uae",
+        permanent: true,
+      },
+      {
+        source: "/vat-registration-services/",
+        destination: "/vat-filing-services-in-the-uae",
+        permanent: true,
+      },
+      {
+        source: "/corporate-tax-filing-2",
+        destination: "/corporate-tax-filing-services-in-the-uae",
+        permanent: true,
+      },
+      {
+        source: "/corporate-tax-filing-2/",
+        destination: "/corporate-tax-filing-services-in-the-uae",
+        permanent: true,
+      },
+      {
+        source: "/the-small-business-relief-program-in-the-uae-what-smes-need-to-know",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/the-small-business-relief-program-in-the-uae-what-smes-need-to-know/",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/5-learning-platforms-to-boost-your-career",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/5-learning-platforms-to-boost-your-career/",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/can-women-sponsor-others-in-the-uae",
+        destination: "/visa-and-banking",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/can-women-sponsor-others-in-the-uae/",
+        destination: "/visa-and-banking",
+        permanent: true,
+      },
+      {
+        source: "/",
+        has: [{ type: "query", key: "page_id", value: "2" }],
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/",
+        has: [{ type: "query", key: "page_id", value: "1931" }],
+        destination: "/featured-profile",
+        permanent: true,
+      },
+      {
         source:
           "/uae-free-zone-corporate-tax-rules-clarified-what-businesses-need-to-know-in-2026",
         destination: "/insights/uae-free-zone-corporate-tax-rules-clarified-2026",
