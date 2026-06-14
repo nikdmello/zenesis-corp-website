@@ -223,7 +223,7 @@ export default function Home() {
           <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[100rem] items-center px-6 pb-16 pt-32 md:px-12 md:pb-20 md:pt-36 xl:px-20">
             <div className="max-w-[58rem] rounded-[1.8rem] border border-white/10 bg-[rgba(17,35,42,0.38)] px-5 py-6 shadow-[0_20px_44px_rgba(7,21,27,0.16)] backdrop-blur-sm sm:px-6 md:!rounded-none md:!border-transparent md:!bg-transparent md:px-0 md:py-0 md:!shadow-none md:backdrop-blur-none">
               <div className="pl-5 sm:pl-6 md:pl-7">
-              <div className="hero-reveal hero-reveal-1 mb-6 flex justify-center md:block">
+              <div className="hero-reveal hero-reveal-1 mb-6">
                 <NextImage
                     src="/logos/zenesis-logo-full.webp"
                   alt="Zenesis Corporation"
@@ -233,11 +233,11 @@ export default function Home() {
                   priority
                 />
               </div>
-              <h1 className="hero-reveal hero-reveal-1 mx-auto max-w-[13ch] text-center text-[3.1rem] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:max-w-[14ch] sm:text-[4.1rem] md:mx-0 md:text-left lg:max-w-[15ch] lg:text-[5rem]">
+              <h1 className="hero-reveal hero-reveal-1 max-w-[13ch] text-[3.1rem] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:max-w-[14ch] sm:text-[4.1rem] md:mx-0 md:text-left lg:max-w-[15ch] lg:text-[5rem]">
                 20+ years of business setup in Dubai
               </h1>
 
-              <div className="hero-reveal hero-reveal-2 mt-7 grid max-w-[21.75rem] grid-cols-1 gap-3.5 md:mx-0 md:max-w-[21.5rem]">
+              <div className="hero-reveal hero-reveal-2 mt-7 hidden max-w-[21.75rem] grid-cols-1 gap-3.5 md:mx-0 md:grid md:max-w-[21.5rem]">
                 {heroServices.map((service, index) => (
                   <Link
                     key={service.title}
@@ -260,13 +260,13 @@ export default function Home() {
                   </Link>
                 ))}
               </div>
-              <div className="hero-reveal hero-reveal-3 mt-9 flex flex-col items-center gap-4 sm:flex-row sm:items-center md:items-start">
+              <div className="hero-reveal hero-reveal-3 mt-9 flex flex-col gap-4 sm:flex-row sm:items-center md:items-start">
                 <ConsultationFormButtonWithScrollPrompt
                   label="Schedule a Free Consultation"
-                  className="inline-flex min-h-12 w-fit items-center justify-center self-center whitespace-nowrap rounded-full bg-white px-5 py-3.5 text-center text-sm font-semibold tracking-[0.01em] !text-[#07151b] shadow-[0_18px_44px_rgba(17,35,42,0.12)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white/92 sm:px-7 sm:text-base md:self-auto"
+                  className="inline-flex min-h-12 w-fit items-center justify-center whitespace-nowrap rounded-full bg-white px-5 py-3.5 text-sm font-semibold tracking-[0.01em] !text-[#07151b] shadow-[0_18px_44px_rgba(17,35,42,0.12)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white/92 sm:px-7 sm:text-base md:self-auto"
                 />
               </div>
-              <div className="hero-reveal hero-reveal-3 mt-4 flex h-16 w-full items-center justify-center gap-3 text-white md:inline-flex md:h-[4.5rem] md:w-fit md:justify-start md:gap-4">
+              <div className="hero-reveal hero-reveal-3 mt-4 flex h-16 w-full items-center gap-3 text-white md:inline-flex md:h-[4.5rem] md:w-fit md:justify-start md:gap-4">
                 <div className="origin-left scale-[1.22] md:scale-[1.28]">
                   <NextImage
                     src="/google.webp"

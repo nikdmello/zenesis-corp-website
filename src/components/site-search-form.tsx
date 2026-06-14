@@ -80,6 +80,7 @@ export function SiteSearchForm({
       onSubmit={handleSubmit}
       className={`relative ${className ?? ""}`}
       autoComplete="off"
+      suppressHydrationWarning
     >
       <div
         aria-expanded={shouldShowResults}
@@ -101,6 +102,7 @@ export function SiteSearchForm({
           ref={inputRef}
           type="search"
           name="site_search_query"
+          suppressHydrationWarning
           value={query}
           autoFocus={autoFocus}
           autoComplete="off"

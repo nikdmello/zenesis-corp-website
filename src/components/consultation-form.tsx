@@ -763,11 +763,12 @@ function ConsultationModal({
       aria-labelledby="consultation-form-title"
       onPointerDown={(event) => {
         if (event.target === event.currentTarget) {
-          closeModal();
+          event.stopPropagation();
         }
       }}
-      onMouseDown={(event) => {
+      onClick={(event) => {
         if (event.target === event.currentTarget) {
+          event.stopPropagation();
           closeModal();
         }
       }}
@@ -783,14 +784,7 @@ function ConsultationModal({
             aria-label="Close consultation form"
             className="absolute right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-white/16 bg-white/10 text-lg leading-none text-white shadow-sm transition-all hover:bg-white/16 active:scale-95 active:bg-white/24 md:right-6 md:top-6"
             onPointerDown={(event) => {
-              event.stopPropagation();
-            }}
-            onPointerUp={(event) => {
               event.preventDefault();
-              event.stopPropagation();
-              closeModal();
-            }}
-            onMouseDown={(event) => {
               event.stopPropagation();
             }}
             onClick={(event) => {
