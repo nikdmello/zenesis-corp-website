@@ -19,6 +19,7 @@ export function HelpWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
   const widgetRef = useRef<HTMLDivElement | null>(null);
+  const panelBodyRef = useRef<HTMLDivElement | null>(null);
   const selectedTopic = useMemo(
     () => helpTopics.find((topic) => topic.id === selectedTopicId) ?? null,
     [selectedTopicId],
@@ -32,12 +33,14 @@ export function HelpWidget() {
     const handlePointerDown = (event: PointerEvent) => {
       if (!widgetRef.current?.contains(event.target as Node)) {
         setIsOpen(false);
+        setSelectedTopicId(null);
       }
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsOpen(false);
+        setSelectedTopicId(null);
       }
     };
 
@@ -50,26 +53,36 @@ export function HelpWidget() {
     };
   }, [isOpen]);
 
+  const closeHelp = () => {
+    setIsOpen(false);
+    setSelectedTopicId(null);
+  };
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    panelBodyRef.current?.scrollTo({ top: 0, behavior: "auto" });
+  }, [isOpen, selectedTopicId]);
+
   return (
     <div
       ref={widgetRef}
       className="fixed bottom-5 right-5 z-[80] w-fit md:bottom-6 md:right-6"
     >
       {isOpen ? (
-        <div className="absolute bottom-[calc(100%+0.85rem)] right-0 w-[min(24rem,calc(100vw-2rem))] overflow-hidden rounded-[1.65rem] border border-white/10 bg-[rgba(15,31,39,0.98)] text-white shadow-[0_28px_80px_rgba(7,21,27,0.3)] backdrop-blur-xl">
+        <div className="fixed inset-x-3 bottom-[calc(5rem+env(safe-area-inset-bottom,0px))] max-h-[min(36rem,calc(100dvh-7rem))] overflow-hidden rounded-[1.65rem] border border-white/10 bg-[rgba(15,31,39,0.98)] text-white shadow-[0_28px_80px_rgba(7,21,27,0.3)] backdrop-blur-xl sm:absolute sm:inset-x-auto sm:bottom-[calc(100%+0.85rem)] sm:right-0 sm:w-[min(24rem,calc(100vw-2rem))] sm:max-h-none">
           <div className="border-b border-white/8 px-4 py-4 sm:px-5">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-[1.08rem] font-semibold tracking-[-0.03em] text-white">
                   Help
                 </p>
-                <p className="mt-1 text-[0.92rem] leading-6 text-white/62">
-                  Reach Zenesis directly or start with one of the common questions below.
-                </p>
               </div>
               <button
                 type="button"
-                onClick={() => setIsOpen(false)}
+                onClick={closeHelp}
                 className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/72 transition-colors hover:bg-white/8 hover:text-white"
                 aria-label="Close help panel"
               >
@@ -78,7 +91,10 @@ export function HelpWidget() {
             </div>
           </div>
 
-          <div className="max-h-[32rem] overflow-y-auto px-4 py-4 sm:px-5">
+          <div
+            ref={panelBodyRef}
+            className="max-h-[calc(min(36rem,calc(100dvh-7rem))-5.75rem)] overflow-y-auto px-4 py-4 sm:max-h-[32rem] sm:px-5"
+          >
             {!selectedTopic ? (
               <>
                 <div className="rounded-[1.2rem] border border-white/8 bg-white/[0.03] p-4">
@@ -108,9 +124,6 @@ export function HelpWidget() {
                 <div className="mt-5">
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/42">
                     Popular questions
-                  </p>
-                  <p className="mt-2 text-[0.92rem] leading-6 text-white/62">
-                    Start with the question that is closest to what you need.
                   </p>
                   <div className="mt-3 grid gap-2">
                     {quickQuestionTopics.map((topic) => (
@@ -145,7 +158,7 @@ export function HelpWidget() {
                   </p>
                   <Link
                     href={selectedTopic.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={closeHelp}
                     className="mt-4 inline-flex items-center gap-2 text-[0.94rem] font-semibold text-[#f4e7cf] transition-colors hover:text-white"
                   >
                     {selectedTopic.hrefLabel}
@@ -220,9 +233,16 @@ export function HelpWidget() {
 
       <button
         type="button"
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          if (isOpen) {
+            closeHelp();
+            return;
+          }
+
+          setIsOpen(true);
+        }}
         className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-[#11232a] text-left text-white shadow-[0_20px_48px_rgba(7,21,27,0.26)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#173039] sm:w-auto sm:justify-start sm:gap-3 sm:px-4 sm:pr-5"
-        aria-label="Open help panel"
+        aria-label={isOpen ? "Close help panel" : "Open help panel"}
       >
         <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#d8c3a2] text-[#11232a] shadow-[0_8px_18px_rgba(216,195,162,0.25)]">
           <HelpIcon className="h-4.5 w-4.5" />
