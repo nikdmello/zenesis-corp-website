@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment, type ReactNode, useEffect } from "react";
 import { ConsultationFormButton } from "@/components/consultation-form";
+import { HelpWidget } from "@/components/help-widget";
 import { SiteSearchForm } from "@/components/site-search-form";
 import { contactDetails, navigation, socialLinks, whatsappHref } from "@/lib/site-content";
 
@@ -524,6 +525,8 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
         </div>
         </div>
       </footer>
+
+      <HelpWidget />
     </div>
   );
 }
