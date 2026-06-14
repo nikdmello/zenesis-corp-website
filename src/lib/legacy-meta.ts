@@ -8,9 +8,9 @@ export type LegacyMeta = {
 
 export const legacyRouteMeta = {
   home: {
-    title: "Business Setup in Dubai & UAE | Zenesis Corp",
+    title: "Award-Winning Business Setup in Dubai & UAE | Zenesis Corp",
     description:
-      "Zenesis Corp supports business setup in Dubai and across the UAE, with company formation, visa, banking, accounting, tax, and ongoing corporate support.",
+      "Zenesis Corp is an award-winning business setup firm in Dubai and the UAE, supporting company formation, visa, banking, accounting, tax, and ongoing corporate support.",
   },
   about: {
     title: "About Zenesis Corp | Award-Winning Business Consultancy in UAE",
