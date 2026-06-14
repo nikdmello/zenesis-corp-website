@@ -77,7 +77,7 @@ export function HelpWidget() {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-[1.08rem] font-semibold tracking-[-0.03em] text-white">
-                  Help
+                  Need help?
                 </p>
               </div>
               <button
@@ -121,7 +121,7 @@ export function HelpWidget() {
                   </div>
                 </div>
 
-                <div className="mt-5">
+                <div className="mt-5 rounded-[1.2rem] border border-white/8 bg-white/[0.03] p-4">
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/42">
                     Popular questions
                   </p>
@@ -149,7 +149,7 @@ export function HelpWidget() {
               </>
             ) : (
               <>
-                <div className="rounded-[1.3rem] border border-white/8 bg-white/[0.04] p-4">
+                <div className="rounded-[1.2rem] border border-white/8 bg-white/[0.03] p-4">
                   <h3 className="mt-2 text-[1.12rem] font-semibold leading-6 tracking-[-0.03em] text-white">
                     {selectedTopic.title}
                   </h3>
@@ -177,7 +177,7 @@ export function HelpWidget() {
                   </button>
                 </div>
 
-                <div className="mt-5">
+                <div className="mt-5 rounded-[1.2rem] border border-white/8 bg-white/[0.03] p-4">
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/42">
                     More questions
                   </p>
@@ -201,29 +201,27 @@ export function HelpWidget() {
                             <ArrowIcon className="h-3.5 w-3.5" />
                           </span>
                         </button>
-                      ))}
+                    ))}
                   </div>
                 </div>
 
-                <div className="mt-5">
-                  <div className="mt-5">
-                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/42">
-                      Reach Zenesis directly
-                    </p>
+                <div className="mt-5 rounded-[1.2rem] border border-white/8 bg-white/[0.03] p-4">
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/42">
+                    Reach Zenesis directly
+                  </p>
+                  <div className="mt-3 grid gap-2.5">
+                    <ActionLink
+                      href={whatsappHref}
+                      label="Ask on WhatsApp"
+                      external
+                      icon={<WhatsAppBadge />}
+                    />
+                    <ActionLink
+                      href="/contact"
+                      label="Contact Zenesis"
+                      icon={<ArrowIcon className="h-4 w-4" />}
+                    />
                   </div>
-                </div>
-                <div className="mt-3 grid gap-2.5">
-                  <ActionLink
-                    href={whatsappHref}
-                    label="Ask on WhatsApp"
-                    external
-                    icon={<WhatsAppBadge />}
-                  />
-                  <ActionLink
-                    href="/contact"
-                    label="Contact Zenesis"
-                    icon={<ArrowIcon className="h-4 w-4" />}
-                  />
                 </div>
               </>
             )}
@@ -241,20 +239,10 @@ export function HelpWidget() {
 
           setIsOpen(true);
         }}
-        className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-[#11232a] text-left text-white shadow-[0_20px_48px_rgba(7,21,27,0.26)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#173039] sm:w-auto sm:justify-start sm:gap-3 sm:px-4 sm:pr-5"
+        className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-[#11232a] text-white shadow-[0_20px_48px_rgba(7,21,27,0.26)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#173039]"
         aria-label={isOpen ? "Close help panel" : "Open help panel"}
       >
-        <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#d8c3a2] text-[#11232a] shadow-[0_8px_18px_rgba(216,195,162,0.25)]">
-          <HelpIcon className="h-4.5 w-4.5" />
-        </span>
-        <span className="hidden min-w-0 sm:block">
-          <span className="block text-[0.76rem] font-semibold uppercase tracking-[0.16em] text-white/46">
-            Need help?
-          </span>
-          <span className="block text-[0.98rem] font-semibold tracking-[-0.02em] text-white">
-            Ask Zenesis
-          </span>
-        </span>
+        <HelpIcon className="h-9 w-9 text-[#f4e7cf]" />
       </button>
     </div>
   );
@@ -318,7 +306,6 @@ function HelpIcon({ className }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx="10" cy="10" r="8.25" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
