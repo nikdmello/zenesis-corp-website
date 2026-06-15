@@ -146,13 +146,6 @@ const customerPaths = [
   },
 ] as const;
 
-const heroServices = [
-  { title: "Business setup", label: "Service", href: "/business-setup" },
-  { title: "Accounting and tax", label: "Service", href: "/accounting-tax" },
-  { title: "Corporate support", label: "Service", href: "/contact" },
-  { title: "Visa and banking", label: "Service", href: "/visa-and-banking" },
-] as const;
-
 const homepageFaqs = [
   {
     question: "How do I choose between mainland, free zone, and offshore setup?",
@@ -213,74 +206,62 @@ export default function Home() {
         <section className="photo-hero relative left-1/2 -mt-10 min-h-[100svh] w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] text-white md:-mt-14">
           <div className="absolute inset-0">
             <HeroBackgroundVideo
-              src="/zenesis-video.webm"
-              className="h-full w-full object-cover object-[66%_30%] saturate-[1.05] contrast-[1.04] md:[mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.12)_16%,rgba(0,0,0,0.42)_26%,rgba(0,0,0,0.78)_38%,black_50%)] md:object-[76%_28%] lg:object-[82%_27%]"
+              src="/zenesis-video-v2.webm"
+              className="h-full w-full object-cover object-[66%_30%] saturate-[1.05] contrast-[1.04] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0.94)_0%,rgba(0,0,0,0.98)_24%,black_42%,black_100%)] lg:object-[82%_27%]"
             />
           </div>
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,35,42,0.82)_0%,rgba(17,35,42,0.76)_34%,rgba(17,35,42,0.62)_68%,rgba(17,35,42,0.5)_100%)] md:bg-[linear-gradient(90deg,rgba(17,35,42,0.96)_0%,rgba(17,35,42,0.9)_14%,rgba(17,35,42,0.72)_30%,rgba(17,35,42,0.42)_46%,rgba(17,35,42,0.18)_60%,rgba(17,35,42,0.05)_72%,transparent_84%)]" />
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#11232a] via-[#11232a]/84 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#11232a] via-[#11232a]/94 via-36% to-transparent md:h-72" />
 
-          <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[100rem] items-center px-6 pb-16 pt-32 md:px-12 md:pb-20 md:pt-36 xl:px-20">
-            <div className="max-w-[58rem] rounded-[1.8rem] border border-white/10 bg-[rgba(17,35,42,0.38)] px-5 py-6 shadow-[0_20px_44px_rgba(7,21,27,0.16)] backdrop-blur-sm sm:px-6 md:!rounded-none md:!border-transparent md:!bg-transparent md:px-0 md:py-0 md:!shadow-none md:backdrop-blur-none">
-              <div className="pl-5 sm:pl-6 md:pl-7">
-              <div className="hero-reveal hero-reveal-1 mb-6">
-                <NextImage
-                    src="/logos/zenesis-logo-full.webp"
-                  alt="Zenesis Corporation"
-                  width={340}
-                  height={82}
-                  className="h-10 w-auto object-contain brightness-0 invert sm:h-12 md:h-14"
-                  priority
-                />
-              </div>
-              <h1 className="hero-reveal hero-reveal-1 max-w-[13ch] text-[3.1rem] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:max-w-[14ch] sm:text-[4.1rem] md:mx-0 md:text-left lg:max-w-[15ch] lg:text-[5rem]">
-                20+ years of business setup in Dubai
-              </h1>
+          <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[100rem] flex-col justify-end px-5 pb-12 pt-26 md:block md:px-12 md:pb-20 md:pt-12 xl:px-20">
+            <div className="bottom-12 mx-auto w-full md:absolute md:bottom-20 md:left-1/2 md:w-[min(100%-6rem,68rem)] md:-translate-x-1/2 xl:w-[min(100%-10rem,72rem)]">
+              <div className="mx-auto w-full max-w-[48rem] px-0 py-4 sm:px-2 md:max-w-none md:px-0 md:py-0">
+                <h1 className="hero-reveal hero-reveal-1 mx-auto max-w-[12ch] text-center text-[2.45rem] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:max-w-[14ch] sm:text-[clamp(3.2rem,7vw,3.95rem)] lg:max-w-[16ch] lg:text-[clamp(3.3rem,4.5vw,4.45rem)] 2xl:max-w-none 2xl:whitespace-nowrap">
+                  Over 20 years of business setup in Dubai
+                </h1>
 
-              <div className="hero-reveal hero-reveal-2 mt-7 hidden max-w-[21.75rem] grid-cols-1 gap-3.5 md:mx-0 md:grid md:max-w-[21.5rem]">
-                {heroServices.map((service, index) => (
-                  <Link
-                    key={service.title}
-                    href={service.href}
-                    aria-label={`Go to ${service.title}`}
-                    className="group relative mx-auto flex min-h-[4.15rem] w-full items-center gap-3 overflow-hidden rounded-[1.35rem] border border-white/14 bg-[linear-gradient(135deg,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.06)_100%)] px-4 py-3 text-white shadow-[0_18px_38px_rgba(7,21,27,0.16)] backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:border-[#d8c3a2]/36 hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0.08)_100%)] md:mx-0 md:min-h-[4.3rem] md:px-4.5"
-                  >
-                    <span className="inline-flex h-8 min-w-[2.55rem] shrink-0 items-center justify-center rounded-full border border-[#d8c3a2]/28 bg-[rgba(216,195,162,0.14)] px-2 text-[0.74rem] font-semibold tracking-[0.18em] text-[#f0dec0] md:h-[2.1rem] md:min-w-[2.75rem] md:text-[0.76rem]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="min-w-0 flex-1 text-[1.22rem] font-semibold leading-6 tracking-[-0.03em] text-white md:text-[1.36rem] md:leading-7">
-                      {service.title}
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className="relative inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#d8c3a2]/28 bg-[rgba(216,195,162,0.12)] text-[1.02rem] text-[#f3e6d0] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:border-[#d8c3a2]/46 group-hover:bg-[rgba(216,195,162,0.18)] group-hover:text-white"
-                    >
-                      <span aria-hidden="true">→</span>
-                    </span>
-                  </Link>
-                ))}
-              </div>
-              <div className="hero-reveal hero-reveal-3 mt-9 flex flex-col gap-4 sm:flex-row sm:items-center md:items-start">
-                <ConsultationFormButtonWithScrollPrompt
-                  label="Schedule a Free Consultation"
-                  className="inline-flex min-h-12 w-fit items-center justify-center whitespace-nowrap rounded-full bg-white px-5 py-3.5 text-sm font-semibold tracking-[0.01em] !text-[#07151b] shadow-[0_18px_44px_rgba(17,35,42,0.12)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white/92 sm:px-7 sm:text-base md:self-auto"
-                />
-              </div>
-              <div className="hero-reveal hero-reveal-3 mt-4 flex h-16 w-full items-center gap-3 text-white md:inline-flex md:h-[4.5rem] md:w-fit md:justify-start md:gap-4">
-                <div className="origin-left scale-[1.22] md:scale-[1.28]">
-                  <NextImage
-                    src="/google.webp"
-                    alt="Google reviews"
-                    width={168}
-                    height={72}
-                    className="h-12 w-auto object-contain md:h-14"
+                <div className="hero-reveal hero-reveal-2 mx-auto mt-5 flex w-full max-w-[46rem] items-center justify-center gap-1 text-center sm:max-w-[50rem] lg:gap-1.5 2xl:max-w-none">
+                  <span
+                    aria-hidden="true"
+                    className="hero-subtitle-accent h-[2px] w-2.5 shrink-0 sm:w-4 lg:w-5 xl:w-7 2xl:w-10"
+                  />
+                  <p className="hero-subtitle-copy block min-w-0 flex-1 whitespace-normal px-0 text-center text-[#f7efe1] [text-wrap:pretty] 2xl:flex-none 2xl:whitespace-nowrap">
+                    Business setup, corporate tax, visa and banking, and ongoing corporate support
+                  </p>
+                  <span
+                    aria-hidden="true"
+                    className="hero-subtitle-accent h-[2px] w-2.5 shrink-0 sm:w-4 lg:w-5 xl:w-7 2xl:w-10"
                   />
                 </div>
-                <span className="inline-flex min-w-max items-center gap-2 whitespace-nowrap pl-4 text-[1rem] font-semibold text-white/88 md:pl-5 md:text-[1.14rem]">
-                  <span>{googleReviewCountLabel}</span>
-                </span>
               </div>
-            </div>
+
+              <div className="hero-reveal hero-reveal-3 mt-5 flex justify-center md:mt-10">
+                <div className="flex flex-col items-center gap-4">
+                  <ConsultationFormButtonWithScrollPrompt
+                    label="Schedule a Free Consultation"
+                    className="inline-flex min-h-12 w-full max-w-[22rem] items-center justify-center whitespace-nowrap rounded-full bg-white px-5 py-3.5 text-sm font-semibold tracking-[0.01em] !text-[#07151b] shadow-[0_18px_44px_rgba(17,35,42,0.12)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white/92 sm:w-fit sm:max-w-none sm:px-7 sm:text-base"
+                  />
+
+                  <div className="hero-reveal hero-reveal-4 flex items-center gap-3.5 text-white">
+                    <div className="origin-left scale-[0.94] sm:scale-[1.02] md:scale-[1.08]">
+                      <NextImage
+                        src="/google.webp"
+                        alt="Google reviews"
+                        width={168}
+                        height={72}
+                        className="h-9 w-auto object-contain md:h-11"
+                      />
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      className="h-7 w-px shrink-0 bg-white/22"
+                    />
+                    <span className="inline-flex min-w-max items-center whitespace-nowrap text-[0.96rem] md:text-[1.12rem]">
+                      <span className="font-semibold text-white">480+</span>
+                      <span className="ml-1.5 font-medium text-white/76">reviews</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -503,14 +484,35 @@ export default function Home() {
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
+          <SectionHeading
+            eyebrow="Blog"
+            eyebrowClassName="!text-white/68"
+            title="Latest blog posts"
+            titleClassName="!text-white"
+            description="Recent guidance on business setup, accounting and tax, and visa and banking questions for UAE founders and operators."
+            descriptionClassName="!text-white/84"
+          />
+        </ScrollReveal>
+
+        <div className="mt-10">
+          <ScrollReveal>
+            <HomepageInsightsCarousel posts={insightPosts} />
+          </ScrollReveal>
+        </div>
+        </div>
+      </section>
+
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+        <ScrollReveal>
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <SectionHeading
               eyebrow="Google Reviews"
-              eyebrowClassName="!text-white"
+              eyebrowClassName="!text-[#8d7453]"
               title="Client reviews"
-              titleClassName="!text-white"
+              titleClassName="!text-[#07151b]"
               description="Recent client feedback on responsiveness, setup support, tax handling, and the practical follow-through clients needed after formation."
-              descriptionClassName="!text-white/88"
+              descriptionClassName="!text-muted"
             />
             <div className="flex items-center gap-4 md:shrink-0">
               <NextImage
@@ -521,7 +523,7 @@ export default function Home() {
                 className="h-14 w-auto object-contain md:h-16"
               />
               <div>
-                <p className="text-[1.35rem] font-semibold tracking-[-0.03em] text-white md:text-[1.55rem]">
+                <p className="text-[1.35rem] font-semibold tracking-[-0.03em] text-[#07151b] md:text-[1.55rem]">
                   {googleReviewCountLabel}
                 </p>
               </div>
@@ -532,24 +534,6 @@ export default function Home() {
         <div className="mt-8">
           <ScrollReveal>
             <HomepageReviewsCarousel testimonials={testimonials} />
-          </ScrollReveal>
-        </div>
-        </div>
-      </section>
-
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-        <ScrollReveal>
-          <SectionHeading
-            eyebrow="Blog"
-            title="Latest blog posts"
-            description="Recent guidance on business setup, accounting and tax, and visa and banking questions for UAE founders and operators."
-          />
-        </ScrollReveal>
-
-        <div className="mt-10">
-          <ScrollReveal>
-            <HomepageInsightsCarousel posts={insightPosts} />
           </ScrollReveal>
         </div>
         </div>

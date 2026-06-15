@@ -141,8 +141,8 @@ export function HomepageInsightsCarousel({
               }}
               className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                 isActive
-                  ? "bg-[#11232a] text-white"
-                  : "border border-[#d6cdbc] bg-white/70 text-foreground/72 hover:bg-white"
+                  ? "bg-white text-[#11232a]"
+                  : "border border-white/18 bg-white/8 text-white/78 hover:bg-white/14 hover:text-white"
               }`}
             >
               {category}
@@ -251,7 +251,7 @@ export function HomepageInsightsCarousel({
                   : Math.max(0, currentIndex - 1),
               )
             }
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#11232a]/18 bg-[#11232a] text-white transition-colors hover:bg-[#0d1b21] disabled:cursor-not-allowed disabled:opacity-35"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/18 bg-transparent text-white transition-colors hover:border-white/34 hover:bg-white/8 disabled:cursor-not-allowed disabled:opacity-35"
           >
             <span aria-hidden="true">←</span>
           </button>
@@ -268,8 +268,8 @@ export function HomepageInsightsCarousel({
                   onClick={() => scrollToPage(pageIndex)}
                   className={`h-2.5 rounded-full transition-all duration-200 ${
                     isActive
-                      ? "w-8 bg-[#11232a]"
-                      : "w-2.5 bg-[#11232a]/28 hover:bg-[#11232a]/42"
+                      ? "w-8 bg-white"
+                      : "w-2.5 bg-white/30 hover:bg-white/48"
                   }`}
                 />
               );
@@ -286,7 +286,7 @@ export function HomepageInsightsCarousel({
                   : Math.min(lastPageIndex, currentIndex + 1),
               )
             }
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#11232a]/18 bg-[#11232a] text-white transition-colors hover:bg-[#0d1b21] disabled:cursor-not-allowed disabled:opacity-35"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/18 bg-transparent text-white transition-colors hover:border-white/34 hover:bg-white/8 disabled:cursor-not-allowed disabled:opacity-35"
           >
             <span aria-hidden="true">→</span>
           </button>

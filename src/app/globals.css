@@ -138,6 +138,21 @@ a {
   animation-delay: 390ms;
 }
 
+.hero-subtitle-accent {
+  background: linear-gradient(90deg, rgba(183, 145, 86, 0.16) 0%, rgba(216, 195, 162, 0.96) 38%, rgba(248, 235, 208, 0.92) 100%);
+  box-shadow: 0 0 16px rgba(216, 195, 162, 0.14);
+  border-radius: 999px;
+}
+
+.hero-subtitle-copy {
+  color: #f7efe1;
+  font-size: clamp(0.98rem, 1.2vw, 1.34rem);
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: -0.018em;
+  text-shadow: 0 0 18px rgba(244, 231, 207, 0.08);
+}
+
 .tech-hero {
   isolation: isolate;
 }
