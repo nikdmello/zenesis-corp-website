@@ -9,6 +9,11 @@ type ServiceKnowledgeSection = {
   items: string[];
 };
 
+type ServiceDirectAnswer = {
+  question: string;
+  answer: string;
+};
+
 export type ServiceDetailConfig = {
   slug: string;
   currentPath: "/business-setup" | "/accounting-tax" | "/visa-and-banking";
@@ -24,6 +29,8 @@ export type ServiceDetailConfig = {
   introTitle: string;
   introParagraphs: string[];
   subpageLinks?: ServiceSubpageLinkItem[];
+  directAnswers?: ServiceDirectAnswer[];
+  relatedInsightSlugs?: string[];
   knowledgeSections?: ServiceKnowledgeSection[];
   pointsTitle: string;
   points: string[];
@@ -76,6 +83,33 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Potential suitability for government-linked or locally awarded work depending on the activity and setup",
         ],
       },
+    ],
+    directAnswers: [
+      {
+        question: "When is mainland usually the better route?",
+        answer:
+          "Mainland is usually the better route when the business needs direct UAE market access, local client work, wider operating flexibility, or a structure that is not meant to stay inside one free zone ecosystem.",
+      },
+      {
+        question: "Does mainland still mean mandatory UAE local ownership?",
+        answer:
+          "Not always. The current UAE position allows full foreign ownership across many commercial activities, while some strategic or specially regulated activities still follow separate rules. The exact activity matters more than the old one-rule-fits-all assumption.",
+      },
+      {
+        question: "What usually has to be decided before the mainland application starts?",
+        answer:
+          "The business activity, legal form, trade name, office plan, and expected visa path should all be clear first. Those decisions affect the licence route, the authority steps, and what the company can realistically do after approval.",
+      },
+      {
+        question: "Why do some mainland setups slow down after approval?",
+        answer:
+          "The delays usually come from the follow-through work: office formalities, establishment setup, banking expectations, visas, and later tax or compliance steps. A mainland licence on its own does not solve those operational steps unless they are planned early.",
+      },
+    ],
+    relatedInsightSlugs: [
+      "why-first-time-entrepreneurs-are-choosing-uae",
+      "business-consultant-beyond-company-registration",
+      "top-5-mistakes-starting-business-dubai",
     ],
     pointsTitle: "What we handle",
     points: [
@@ -136,6 +170,33 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
     ],
+    directAnswers: [
+      {
+        question: "When is a free zone usually the better route?",
+        answer:
+          "Free zone setup is usually the better route when founders want a structured package, 100% foreign ownership in the relevant free zone vehicle, and a route that fits consulting, digital, trade, media, logistics, or international business models.",
+      },
+      {
+        question: "Can one free zone fit every business equally well?",
+        answer:
+          "No. The right zone depends on the activity, licence scope, visa needs, office rules, banking expectations, and what the business needs to do after formation. A popular zone is not automatically the right zone for the operating model.",
+      },
+      {
+        question: "Can a free zone company sell directly into the UAE mainland?",
+        answer:
+          "Not automatically. Free zone companies are generally built to operate within the free zone and internationally, and direct mainland selling can require an additional structure, permit, or local distribution arrangement depending on the activity and the emirate rules involved.",
+      },
+      {
+        question: "What do founders usually miss when comparing free zones?",
+        answer:
+          "They often compare only setup price. The more important differences are licence fit, visa allocation, office requirements, renewal costs, banking practicality, and whether the zone still works once the business is actually operating.",
+      },
+    ],
+    relatedInsightSlugs: [
+      "uae-free-zone-corporate-tax-rules-clarified-2026",
+      "why-first-time-entrepreneurs-are-choosing-uae",
+      "top-5-mistakes-starting-business-dubai",
+    ],
     pointsTitle: "What we handle",
     points: [
       "Compare zone options by activity, ownership needs, budget, and operational fit",
@@ -195,6 +256,33 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
     ],
+    directAnswers: [
+      {
+        question: "When is offshore usually the right route?",
+        answer:
+          "Offshore is usually the right route when the main goal is holding assets, shares, property-related structures, or international ownership planning rather than running day-to-day operating activity inside the UAE.",
+      },
+      {
+        question: "Can an offshore company trade directly inside the UAE mainland?",
+        answer:
+          "No, not as a normal operating route. Offshore structures are generally not designed for day-to-day local UAE trading, staffing, or office-based operating activity, so they should be chosen for ownership and structuring reasons rather than local market access.",
+      },
+      {
+        question: "What usually drives the choice between JAFZA, RAK ICC, and Ajman Offshore?",
+        answer:
+          "The choice usually depends on what the company is meant to hold, whether Dubai property relevance matters, how the structure will be presented to banks or counterparties, and the practical cost-versus-recognition tradeoff behind the setup.",
+      },
+      {
+        question: "What do people most often misunderstand about offshore structures?",
+        answer:
+          "The biggest misunderstanding is treating offshore like a cheaper version of an operating UAE company. Offshore can be useful, but only when the ownership objective actually fits its limits around local trading, visas, and physical operating presence.",
+      },
+    ],
+    relatedInsightSlugs: [
+      "business-consultant-beyond-company-registration",
+      "why-first-time-entrepreneurs-are-choosing-uae",
+      "top-5-mistakes-starting-business-dubai",
+    ],
     pointsTitle: "What we handle",
     points: [
       "Compare the offshore jurisdictions that suit holding, protection, or international ownership goals, including JAFZA, RAK ICC, and Ajman Offshore",
@@ -252,6 +340,33 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Final MOFA legalization in the UAE so the document can be used officially",
         ],
       },
+    ],
+    directAnswers: [
+      {
+        question: "How do you know whether a document needs attestation for UAE use?",
+        answer:
+          "It depends on what the document is for and where it was issued. Personal, educational, and commercial documents are often rejected by UAE authorities if the required legalization chain has not been completed, so the intended use should be checked before the process starts.",
+      },
+      {
+        question: "Why do attestation cases usually get delayed?",
+        answer:
+          "The biggest delays usually come from starting in the wrong sequence, missing a home-country legalization step, or assuming every document follows the same path. The process becomes much smoother when the required chain is confirmed before the first submission is made.",
+      },
+      {
+        question: "Is MOFA enough on its own?",
+        answer:
+          "Not always. MOFA is often the final UAE step, but many documents first need the correct home-country and embassy or consulate actions before MOFA will recognize the document properly. The full path depends on the issuing country and document type.",
+      },
+      {
+        question: "Which documents most often need this process?",
+        answer:
+          "The most common cases include degrees, diplomas, transcripts, birth and marriage certificates, police clearance documents, powers of attorney, and company records such as incorporation papers or board resolutions. The exact path still depends on the document type and intended use.",
+      },
+    ],
+    relatedInsightSlugs: [
+      "business-consultant-beyond-company-registration",
+      "uae-visa-reforms-2025-entrepreneurs-expats",
+      "complete-dubai-golden-visa-guide",
     ],
     pointsTitle: "What we handle",
     points: [
@@ -315,6 +430,33 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
     ],
+    directAnswers: [
+      {
+        question: "Why do some business bank applications take much longer than expected?",
+        answer:
+          "Banks usually slow down when the KYC pack is weak, the business explanation is vague, the shareholder profile is unclear, or the requested account does not match the company structure. The delay is often less about the form itself and more about how credible and complete the file looks to the bank.",
+      },
+      {
+        question: "Does having the company licence guarantee account approval?",
+        answer:
+          "No. A licence is only one part of the banking review. Banks still assess business activity, shareholder profile, source of funds, expected transaction flow, geography, and the overall KYC risk position before deciding whether to proceed.",
+      },
+      {
+        question: "When does international banking make sense instead of only UAE banking?",
+        answer:
+          "International banking can make sense when the business needs wider currency access, cross-border collections, non-UAE counterparties, or coverage tied to holding and international trade structures. The best route depends on how the company will actually receive, hold, and move funds.",
+      },
+      {
+        question: "What should be prepared before approaching a bank?",
+        answer:
+          "At minimum, the company structure, trade licence, shareholder documents, business profile, source-of-funds explanation, and expected transaction story should be clear. Approaching a bank before those are properly aligned usually creates more rounds of follow-up and delay.",
+      },
+    ],
+    relatedInsightSlugs: [
+      "complete-dubai-golden-visa-guide",
+      "uae-visa-reforms-2025-entrepreneurs-expats",
+      "business-consultant-beyond-company-registration",
+    ],
     pointsTitle: "What we handle",
     points: [
       "Support UAE bank account opening across corporate and related personal banking requirements where applicable",
@@ -376,6 +518,33 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
     ],
+    directAnswers: [
+      {
+        question: "How long is a normal company-sponsored residence visa usually valid?",
+        answer:
+          "The official UAE position is that sponsored residence visas can vary by type and sponsor, and normal employment residence visas are commonly issued on renewable terms. The exact duration and process depend on the issuing authority, emirate, and visa type attached to the company setup.",
+      },
+      {
+        question: "What usually has to be in place before the company visa can move?",
+        answer:
+          "The company registration, trade licence, establishment file, and quota or labour position usually have to be in order first. Trying to push entry permits, medical, or Emirates ID steps before the company-side setup is ready is one of the most common causes of delay.",
+      },
+      {
+        question: "Can founders and employees follow the same visa path?",
+        answer:
+          "Not always in exactly the same way. The broad company-sponsored process can look similar, but the supporting documents, sequencing, and practical follow-through can differ depending on whether the applicant is an owner, partner, manager, or employee.",
+      },
+      {
+        question: "What follow-through work usually gets missed after visa approval?",
+        answer:
+          "The visa itself is only part of the operating setup. Emirates ID, health insurance, banking, family sponsorship where relevant, and renewal tracking all matter if the person is actually going to live and work in the UAE without disruption.",
+      },
+    ],
+    relatedInsightSlugs: [
+      "corporate-tax-mistakes-trigger-audits-uae",
+      "uae-corporate-tax-registrations-cross-640000-businesses",
+      "financial-year-2026-uae-compliance-guide",
+    ],
     pointsTitle: "What we handle",
     points: [
       "Align the visa plan with the trade license, establishment setup, and quota requirements",
@@ -430,6 +599,33 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         description:
           "Review eligibility routes and document planning for long-term UAE residency.",
       },
+    ],
+    directAnswers: [
+      {
+        question: "Which usually comes first: residency planning or banking?",
+        answer:
+          "Usually the company structure comes first, then the visa and banking path is sequenced around it. Banks often want a clear license, shareholder documents, and a stronger KYC pack, while founders and staff may need residency steps moving at the same time.",
+      },
+      {
+        question: "Who usually needs a company visa instead of a Golden Visa?",
+        answer:
+          "A company visa is the normal route for founders and employees who need UAE residency through the business. A Golden Visa is a separate long-term route with five- or ten-year terms depending on the qualifying category and evidence basis.",
+      },
+      {
+        question: "Why do business bank applications get delayed?",
+        answer:
+          "Delays usually come from weak KYC preparation, unclear business activity, missing shareholder documents, or a company structure that does not match how the business is actually meant to operate. The cleaner the file is upfront, the fewer rounds of bank questions follow.",
+      },
+      {
+        question: "What should be ready before starting this process?",
+        answer:
+          "The business activity, ownership structure, passport and company documents, and the practical operating plan should all be clear first. That makes it easier to line up bank expectations, visa requirements, and the order in which the follow-through work should happen.",
+      },
+    ],
+    relatedInsightSlugs: [
+      "corporate-tax-mistakes-trigger-audits-uae",
+      "financial-year-2026-uae-compliance-guide",
+      "complete-guide-to-corporate-tax-groups-uae",
     ],
     pointsTitle: "What we handle",
     points: [
@@ -488,6 +684,33 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Post-approval help around Emirates ID, family sponsorship, and later changes or renewals",
         ],
       },
+    ],
+    directAnswers: [
+      {
+        question: "Is the Golden Visa always a 10-year visa?",
+        answer:
+          "No. The current official position includes both five-year and ten-year Golden Residency routes depending on the category. For example, entrepreneur and some real-estate routes can differ from investor or specialist routes, so the category has to be checked properly first.",
+      },
+      {
+        question: "Who usually qualifies to explore the Golden Visa route?",
+        answer:
+          "The main categories currently include investors, real-estate investors, entrepreneurs, exceptional talents and rare specializations, outstanding students, and certain humanitarian pioneers or frontline heroes. Each route has its own evidence requirements and approval logic.",
+      },
+      {
+        question: "What usually makes a Golden Visa application weak?",
+        answer:
+          "The most common issue is choosing the wrong category or trying to force a profile into a route without the right evidence. Applications work better when the category, supporting documents, and issuing authority path are aligned from the start.",
+      },
+      {
+        question: "What is the practical benefit of the Golden Residency?",
+        answer:
+          "The main benefit is longer-term UAE residency without the normal short-cycle company sponsorship dependency, plus clearer stability for living, working, studying, investing, and planning family residency in the UAE where the category is approved.",
+      },
+    ],
+    relatedInsightSlugs: [
+      "corporate-tax-mistakes-trigger-audits-uae",
+      "financial-year-2026-uae-compliance-guide",
+      "uae-corporate-tax-registrations-cross-640000-businesses",
     ],
     pointsTitle: "What we handle",
     points: [
@@ -549,6 +772,33 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
     ],
+    directAnswers: [
+      {
+        question: "Is corporate tax registration only for large profitable companies?",
+        answer:
+          "No. The current UAE corporate tax framework reaches far beyond only large companies. Mainland businesses, many free zone entities, branches, freelancers, startups, and SMEs may still need to assess whether they must register or notify the FTA of a specific position.",
+      },
+      {
+        question: "What usually goes wrong in the registration stage?",
+        answer:
+          "The most common problems are starting the portal process before the tax position is properly reviewed, using incomplete supporting documents, or treating registration as an isolated form rather than the start of an ongoing filing and record-keeping obligation.",
+      },
+      {
+        question: "What platform is used for UAE corporate tax registration and filing?",
+        answer:
+          "The UAE uses the EmaraTax platform for tax registration, filing returns, making payments, and related Federal Tax Authority digital services. The portal step is important, but the accuracy of the data and documents behind it matters just as much.",
+      },
+      {
+        question: "What should the business understand immediately after registration?",
+        answer:
+          "Registration is not the finish line. Once registered, the business should understand its filing deadlines, supporting records, financial reporting discipline, and the practical compliance work that will be expected when the first return becomes due.",
+      },
+    ],
+    relatedInsightSlugs: [
+      "financial-year-2026-uae-compliance-guide",
+      "corporate-tax-mistakes-trigger-audits-uae",
+      "uae-corporate-tax-registrations-cross-640000-businesses",
+    ],
     pointsTitle: "What we handle",
     points: [
       "Review whether the business should register now and what information needs to support that position",
@@ -607,6 +857,28 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Any tax liability needs to be paid by the deadline to reduce penalty and interest risk",
           "Detailed records and supporting documentation should be retained for the required audit window",
         ],
+      },
+    ],
+    directAnswers: [
+      {
+        question: "When is a UAE corporate tax return usually due?",
+        answer:
+          "The general rule is that the annual corporate tax return is due within nine months after the end of the relevant financial year. That deadline is easier to meet when the books, calculations, and supporting papers are prepared before the filing window becomes urgent.",
+      },
+      {
+        question: "Is corporate tax filing just uploading numbers to the portal?",
+        answer:
+          "No. The portal submission is only the last step. A proper filing depends on clean books, a defensible taxable position, supporting calculations, and documentation that can stand up to later review if the FTA asks questions.",
+      },
+      {
+        question: "What usually creates filing risk even when a business is registered?",
+        answer:
+          "The main risks are weak bookkeeping, rushed year-end calculations, unclear deduction treatment, and missing support behind the return. Registration does not make the annual filing safe if the numbers underneath it are not properly prepared.",
+      },
+      {
+        question: "What should be ready before the return is submitted?",
+        answer:
+          "The financial statements, taxable income review, deduction analysis, any relevant relief or exemption treatment, and the working papers behind the final position should all be ready before the return is filed. Filing first and explaining later is the weak approach.",
       },
     ],
     pointsTitle: "What we handle",
@@ -669,6 +941,28 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
     ],
+    directAnswers: [
+      {
+        question: "Do all UAE businesses file VAT on the same schedule?",
+        answer:
+          "No. Many businesses file quarterly, while some file monthly depending on their FTA-assigned VAT period. The practical point is that the records have to stay ready throughout the period instead of being rebuilt only when the filing deadline arrives.",
+      },
+      {
+        question: "What usually causes VAT mistakes?",
+        answer:
+          "Most VAT mistakes come from poor invoice control, weak reconciliations, late review of purchases and sales, or leaving the filing too close to the deadline. The return is only as reliable as the records and checks behind it.",
+      },
+      {
+        question: "Why do VAT returns become stressful for some businesses?",
+        answer:
+          "They become stressful when the business treats each return as a one-off deadline instead of a recurring process. A steadier month-by-month or quarter-by-quarter rhythm makes the return easier to prepare and less exposed to avoidable errors.",
+      },
+      {
+        question: "What should be checked before a VAT return is filed?",
+        answer:
+          "Sales, purchases, tax invoices, input VAT recovery position, output VAT calculations, and the final payable or refundable balance should all be reviewed and reconciled before submission. That is what makes the return more defensible if the FTA asks questions later.",
+      },
+    ],
     pointsTitle: "What we handle",
     points: [
       "Prepare the VAT return from your sales, purchases, and supporting records",
@@ -727,6 +1021,28 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Support for payroll records and tax-linked readiness",
           "Work within the tools the business already uses, including QuickBooks, Zoho Books, Tally, and Excel",
         ],
+      },
+    ],
+    directAnswers: [
+      {
+        question: "How often should bookkeeping usually be updated?",
+        answer:
+          "That depends on transaction volume and reporting needs, but the practical answer is that the books should be updated regularly enough that VAT, corporate tax, management reporting, and reconciliations never become a year-end reconstruction exercise.",
+      },
+      {
+        question: "What usually goes wrong when bookkeeping is left too late?",
+        answer:
+          "The common problems are missing invoices, unclear bank reconciliations, poor visibility on cash flow, and weak records for VAT or tax filings. Once the books fall behind, every later compliance task becomes slower and more expensive to clean up.",
+      },
+      {
+        question: "Is bookkeeping only about entering transactions?",
+        answer:
+          "No. Good bookkeeping is what makes the records usable for reporting, VAT, corporate tax, audits, and management decisions. The real value is not just posting entries but keeping the financial picture reliable enough to act on.",
+      },
+      {
+        question: "What should a business expect from outsourced bookkeeping?",
+        answer:
+          "A good outsourced setup should keep the books current, reconcile the main accounts, support payroll records where needed, and produce reports that are actually usable for compliance and decision-making rather than just existing for formality.",
       },
     ],
     pointsTitle: "What we handle",

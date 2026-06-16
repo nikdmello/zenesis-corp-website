@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { JsonLd } from "@/components/json-ld";
+import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { CardAccent, PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
 import {
+  buildFaqSchema,
   buildBreadcrumbSchema,
   buildServiceSchema,
   getAbsoluteUrl,
@@ -168,6 +170,29 @@ const reportingNeeds = [
   },
 ] as const;
 
+const directAnswers = [
+  {
+    question: "Does every UAE business need bookkeeping and tax support?",
+    answer:
+      "Not every business has the same filing position, but every operating business needs cleaner records than most founders expect. Bookkeeping is what keeps VAT, corporate tax, reporting, audit readiness, and management visibility from becoming reactive and error-prone later.",
+  },
+  {
+    question: "What usually causes VAT or corporate tax problems first?",
+    answer:
+      "The early problems are usually weak record-keeping, rushed registrations, missing reconciliations, and unclear ownership of deadlines. By the time the filing is due, the real issue is often that the books were never kept in a way that supports the filing properly.",
+  },
+  {
+    question: "When should a business set its reporting rhythm?",
+    answer:
+      "As early as possible. The cleaner approach is to define the monthly, quarterly, and annual reporting rhythm before VAT or corporate tax deadlines become urgent. That makes filings, reviews, and later audits much easier to handle.",
+  },
+  {
+    question: "What records should stay ready at all times?",
+    answer:
+      "At a minimum, keep sales records, purchase records, invoices, bank reconciliations, payroll support where relevant, and the working papers behind VAT and tax calculations in order. Businesses that wait to gather these only at filing time usually create avoidable risk and delay.",
+  },
+] as const;
+
 export const metadata: Metadata = toMetadata(
   legacyRouteMeta.accountingTax,
   "/accounting-tax",
@@ -184,6 +209,7 @@ export default function AccountingTaxPage() {
       { name: "Home", url: getAbsoluteUrl("/") },
       { name: "Accounting and tax", url: getAbsoluteUrl("/accounting-tax") },
     ]),
+    buildFaqSchema(directAnswers),
   ];
 
   return (
@@ -237,6 +263,13 @@ export default function AccountingTaxPage() {
           </article>
         </div>
       </section>
+
+      <ServiceAnswerSection
+        dark
+        title="Direct answers"
+        description="Short answers to the questions businesses usually need clarified before registrations, filings, and reporting work begin."
+        items={directAnswers}
+      />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">

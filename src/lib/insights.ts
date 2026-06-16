@@ -19,6 +19,8 @@ export type InsightPost = {
   author: string;
   heroImageSrc: string;
   heroImageAlt: string;
+  keyTakeaways?: string[];
+  relatedServiceHrefs?: string[];
   sections: InsightSection[];
   closingParagraphs?: string[];
   closingCta?: string;
@@ -35,6 +37,16 @@ export const insightPosts: InsightPost[] = [
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/insights/audit-red-flags.webp"),
     heroImageAlt: "Business professionals reviewing audit red flags and tax documents",
+    keyTakeaways: [
+      "Weak records and rushed filings are still the easiest audit triggers in the UAE.",
+      "Free zone status does not remove the need for proper tax analysis, records, or annual filing.",
+      "VAT data and corporate tax data need to align or the business starts to look risky quickly.",
+    ],
+    relatedServiceHrefs: [
+      "/corporate-tax-registration-in-the-uae",
+      "/corporate-tax-filing-services-in-the-uae",
+      "/professional-bookkeeping-services-in-dubai",
+    ],
     sections: [
       {
         title: "Introduction",
@@ -177,6 +189,16 @@ export const insightPosts: InsightPost[] = [
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/insights/strategic-reality.webp"),
     heroImageAlt: "Business consultant advising founders in a strategic planning session",
+    keyTakeaways: [
+      "Registration is only one part of a viable UAE setup; banking, tax, and operating fit matter just as much.",
+      "The right consultant improves structure quality before the licence is issued, not only after.",
+      "Cheap setup decisions often create more expensive banking and compliance problems later.",
+    ],
+    relatedServiceHrefs: [
+      "/business-setup",
+      "/open-a-bank-account-easily",
+      "/corporate-tax-registration-in-the-uae",
+    ],
     sections: [
       {
         title: "Introduction",
@@ -289,6 +311,16 @@ export const insightPosts: InsightPost[] = [
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/insights/first-time-entrepreneurs.webp"),
     heroImageAlt: "First-time entrepreneurs planning a new business launch in the UAE",
+    keyTakeaways: [
+      "The UAE appeals to first-time founders because setup, residency, and scaling can move faster than in many markets.",
+      "The real advantage comes from choosing the right route, not just incorporating quickly.",
+      "Banking, compliance, and visa planning still need to be built into the launch plan early.",
+    ],
+    relatedServiceHrefs: [
+      "/business-setup",
+      "/free-zones",
+      "/uae-company-visa",
+    ],
     sections: [
       {
         title: "Introduction",
@@ -403,6 +435,16 @@ export const insightPosts: InsightPost[] = [
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/corporate-tax.webp"),
     heroImageAlt: "Professionals reviewing finance and tax documents",
+    keyTakeaways: [
+      "A tax group can simplify filing, but it also changes how the threshold benefit works across entities.",
+      "The 95% ownership, voting, and profit tests are central to eligibility.",
+      "This is a structuring decision, not just a filing preference.",
+    ],
+    relatedServiceHrefs: [
+      "/corporate-tax-registration-in-the-uae",
+      "/corporate-tax-filing-services-in-the-uae",
+      "/accounting-tax",
+    ],
     sections: [
       {
         title: "Introduction",
@@ -503,6 +545,16 @@ export const insightPosts: InsightPost[] = [
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/financial-year.webp"),
     heroImageAlt: "Business advisor discussing compliance planning",
+    keyTakeaways: [
+      "The financial year now drives corporate tax timing, audit timing, and internal reporting pressure in the UAE.",
+      "The filing deadline usually lands nine months after the financial year-end.",
+      "A weak year-end process often creates both VAT and corporate tax problems together.",
+    ],
+    relatedServiceHrefs: [
+      "/corporate-tax-filing-services-in-the-uae",
+      "/vat-filing-services-in-the-uae",
+      "/professional-bookkeeping-services-in-dubai",
+    ],
     sections: [
       {
         title: "Introduction",
@@ -606,6 +658,16 @@ export const insightPosts: InsightPost[] = [
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/free-zone.webp"),
     heroImageAlt: "Business professionals in a Dubai advisory meeting",
+    keyTakeaways: [
+      "Free zone 0% treatment depends on qualifying activity, substance, and cleaner income classification.",
+      "Mainland interaction has become more practical, but it also makes structure and tax planning more sensitive.",
+      "This is no longer a page where founders can rely on broad assumptions about free zone tax benefits.",
+    ],
+    relatedServiceHrefs: [
+      "/free-zones",
+      "/corporate-tax-registration-in-the-uae",
+      "/corporate-tax-filing-services-in-the-uae",
+    ],
     sections: [
       {
         title: "Introduction",
@@ -689,6 +751,16 @@ export const insightPosts: InsightPost[] = [
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/corporate-tax.webp"),
     heroImageAlt: "Professionals reviewing UAE corporate tax documentation",
+    keyTakeaways: [
+      "Registration volume shows that corporate tax is now a normal operating requirement, not an early-transition issue.",
+      "Many businesses are registered but still not filing-ready.",
+      "Books, year-end timing, and free zone classification are where a lot of risk still sits.",
+    ],
+    relatedServiceHrefs: [
+      "/corporate-tax-registration-in-the-uae",
+      "/corporate-tax-filing-services-in-the-uae",
+      "/professional-bookkeeping-services-in-dubai",
+    ],
     sections: [
       {
         title: "Why This Milestone Matters",
@@ -766,6 +838,16 @@ export const insightPosts: InsightPost[] = [
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/contact-consultation.webp"),
     heroImageAlt: "Advisors discussing UAE visa and residency planning",
+    keyTakeaways: [
+      "The 2025 reforms make visa planning more category-specific, not more generic.",
+      "Founders need to align visa planning with setup and relocation timing from the beginning.",
+      "The wrong category choice still creates most of the avoidable delay.",
+    ],
+    relatedServiceHrefs: [
+      "/visa-and-banking",
+      "/uae-company-visa",
+      "/golden-visa-services-in-the-uae",
+    ],
     sections: [
       {
         title: "What Changed in 2025",
@@ -836,6 +918,16 @@ export const insightPosts: InsightPost[] = [
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/business-setup.webp"),
     heroImageAlt: "Business founders discussing company setup in Dubai",
+    keyTakeaways: [
+      "The wrong setup route creates downstream problems in visas, banking, and compliance.",
+      "Licensing cost alone is not the real setup budget.",
+      "Founders save more by structuring well early than by correcting avoidable mistakes later.",
+    ],
+    relatedServiceHrefs: [
+      "/business-setup",
+      "/mainland",
+      "/free-zones",
+    ],
     sections: [
       {
         title: "Why Founders Get This Wrong",
@@ -918,6 +1010,16 @@ export const insightPosts: InsightPost[] = [
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/insights/golden-visa-guide.webp"),
     heroImageAlt: "Advisor discussing Dubai Golden Visa eligibility and residency planning",
+    keyTakeaways: [
+      "The Golden Visa works best when the eligibility category is identified correctly first.",
+      "Long-term residency value comes from stability, but approval still depends on evidence quality.",
+      "Existing UAE company, investment, or employment records often need to be coordinated into the application strategy.",
+    ],
+    relatedServiceHrefs: [
+      "/golden-visa-services-in-the-uae",
+      "/visa-and-banking",
+      "/uae-company-visa",
+    ],
     sections: [
       {
         title: "What the Golden Visa Is",

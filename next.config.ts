@@ -233,7 +233,17 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/topics/accounting",
+        destination: "/accounting-tax",
+        permanent: true,
+      },
+      {
         source: "/topics/business-growth/",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/topics/business-growth",
         destination: "/insights",
         permanent: true,
       },
@@ -243,7 +253,17 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/topics/business-setup",
+        destination: "/business-setup",
+        permanent: true,
+      },
+      {
         source: "/topics/business-visa/",
+        destination: "/visa-and-banking",
+        permanent: true,
+      },
+      {
+        source: "/topics/business-visa",
         destination: "/visa-and-banking",
         permanent: true,
       },
@@ -253,8 +273,78 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/topics/corporate-tax",
+        destination: "/accounting-tax",
+        permanent: true,
+      },
+      {
         source: "/topics/uae-golden-visa/",
         destination: "/golden-visa-services-in-the-uae",
+        permanent: true,
+      },
+      {
+        source: "/topics/uae-golden-visa",
+        destination: "/golden-visa-services-in-the-uae",
+        permanent: true,
+      },
+      {
+        source: "/topics/:path*",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/author/:path*",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/tag/:path*",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/thank-you",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/thank-you/",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/thank-you-2",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/thank-you-2/",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/thanks",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/thanks/",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/public/blog",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/public/blog/",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/:slug(elementor-.*)",
+        destination: "/",
         permanent: true,
       },
       {
@@ -284,6 +374,21 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/our_team/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/customerslider/:path*",
+        destination: "/#client-reviews",
+        permanent: true,
+      },
+      {
+        source: "/employeeslider/:path*",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/aboutslider/:path*",
         destination: "/about",
         permanent: true,
       },
@@ -334,6 +439,46 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/sajal-arora/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/ray-hogan",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/ray-hogan/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/abdul-gaffar",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/abdul-gaffar/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/gnanasundaram-thanaseelan",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/gnanasundaram-thanaseelan/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/parag-paresh-and-co",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/parag-paresh-and-co/",
         destination: "/about",
         permanent: true,
       },

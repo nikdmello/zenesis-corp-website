@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { SiteShell } from "@/components/site-shell";
 import { getInsightPost, insightPosts } from "@/lib/insights";
+import { pickServiceLinks, serviceLinksByCategory } from "@/lib/internal-links";
 import { legacyInsightMetaBySlug } from "@/lib/legacy-meta";
 import {
   buildArticleSchema,
@@ -74,6 +75,22 @@ export default async function InsightArticlePage({
       { name: post.title, url: getAbsoluteUrl(`/insights/${post.slug}`) },
     ]),
   ];
+  const relatedServices =
+    pickServiceLinks(post.category, post.relatedServiceHrefs) ??
+    serviceLinksByCategory[post.category] ??
+    [];
+  const categoryHubHref =
+    post.category === "Accounting and Tax"
+      ? "/accounting-tax"
+      : post.category === "Business Setup"
+        ? "/business-setup"
+        : "/visa-and-banking";
+  const categoryHubLabel =
+    post.category === "Accounting and Tax"
+      ? "View Accounting & Tax"
+      : post.category === "Business Setup"
+        ? "View Business Setup"
+        : "View Visa & Banking";
 
   return (
     <SiteShell currentPath="/insights">
@@ -132,6 +149,55 @@ export default async function InsightArticlePage({
         <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-14 md:py-18">
           <div className="mx-auto w-full max-w-[104rem] px-7 md:px-14 xl:px-24">
             <div className="mx-auto max-w-[62rem] space-y-16">
+              {post.keyTakeaways?.length ? (
+                <section className="rounded-[2rem] border border-[#e7ded1] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">
+                  <h2 className="text-[2.05rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.2rem]">
+                    Key takeaways
+                  </h2>
+                  <ul className="mt-6 space-y-3.5">
+                    {post.keyTakeaways.map((item) => (
+                      <li
+                        key={item}
+                        className="flex gap-3 rounded-[1.35rem] border border-[#e7ded1] bg-white px-5 py-4.5 text-[1.04rem] leading-[1.95rem] text-[#07151b] shadow-[0_8px_20px_rgba(17,35,42,0.03)] md:text-[1.08rem]"
+                      >
+                        <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[#8d7453]" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ) : null}
+
+              {relatedServices.length ? (
+                <section className="rounded-[2rem] border border-[#e7ded1] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">
+                  <h2 className="text-[2.05rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.2rem]">
+                    Useful next step
+                  </h2>
+                  <p className="mt-4 text-[1.1rem] leading-[2rem] text-[#07151b]/84 md:text-[1.16rem] md:leading-[2.1rem]">
+                    If this article matches a real decision you are making, these are the service pages most closely connected to it.
+                  </p>
+                  <div className="mt-6 grid gap-4 md:grid-cols-3">
+                    {relatedServices.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="group rounded-[1.35rem] border border-[#e7ded1] bg-white px-5 py-5 shadow-[0_8px_20px_rgba(17,35,42,0.03)] transition-transform duration-200 hover:-translate-y-0.5"
+                      >
+                        <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+                          Service
+                        </p>
+                        <h3 className="mt-3 text-[1.1rem] font-semibold leading-tight tracking-[-0.03em] text-foreground">
+                          {item.title}
+                        </h3>
+                        <p className="mt-3 text-[0.98rem] leading-7 text-foreground/84">
+                          {item.description}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
+
               {post.sections.map((section) => (
                 <section key={section.title}>
                   <h2 className="text-[2.15rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.35rem]">
@@ -232,6 +298,45 @@ export default async function InsightArticlePage({
           </div>
         </section>
 
+        {relatedServices.length ? (
+          <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-14 md:py-18">
+            <div className="mx-auto w-full max-w-[100rem] px-7 md:px-14 xl:px-24">
+              <div className="mx-auto max-w-[72rem]">
+                <h2 className="text-[2.15rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.35rem]">
+                  Related services
+                </h2>
+                <p className="mt-4 max-w-4xl text-[1.14rem] leading-[2rem] text-[#07151b]/82 md:text-[1.2rem] md:leading-[2.2rem]">
+                  If this topic is relevant to your structure or next step, these are the service pages most closely connected to it.
+                </p>
+              </div>
+
+              <div className="mx-auto mt-10 grid max-w-[72rem] gap-5 md:grid-cols-3">
+                {relatedServices.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="group rounded-[1.75rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.08)] transition-transform duration-200 hover:-translate-y-0.5"
+                  >
+                    <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                      Service
+                    </p>
+                    <h3 className="mt-4 text-[1.26rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="mt-4 text-[1.02rem] leading-7 text-foreground/88">
+                      {item.description}
+                    </p>
+                    <div className="mt-5 inline-flex items-center gap-2 text-[0.98rem] font-semibold text-[#244ba8]">
+                      Open service
+                      <span aria-hidden="true">→</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
+
         <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-14 text-white md:py-16">
           <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 xl:px-16">
             <div className="rounded-[2rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-7 shadow-[0_28px_90px_rgba(17,35,42,0.18)] md:p-8">
@@ -252,10 +357,10 @@ export default async function InsightArticlePage({
                   Contact Zenesis
                 </Link>
                 <Link
-                  href="/accounting-tax"
+                  href={categoryHubHref}
                   className="rounded-full border border-white/20 bg-white/10 px-6 py-3 text-center text-sm font-semibold !text-white backdrop-blur-md transition-colors hover:bg-white/[0.18]"
                 >
-                  View Accounting & Tax
+                  {categoryHubLabel}
                 </Link>
               </div>
             </div>

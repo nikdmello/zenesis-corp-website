@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
+import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { CardAccent, PageIntro, SiteShell } from "@/components/site-shell";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
+import { insightPosts } from "@/lib/insights";
+import { pickInsightLinks } from "@/lib/internal-links";
 import type { ServiceDetailConfig } from "@/lib/service-pages";
 import {
+  buildFaqSchema,
   buildBreadcrumbSchema,
   buildServiceSchema,
   getAbsoluteUrl,
@@ -30,6 +34,11 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
       : config.backHref === "/accounting-tax"
         ? "Accounting and tax"
         : "Visa and banking";
+  const relatedInsights = pickInsightLinks(
+    insightPosts,
+    parentServiceLabel,
+    config.relatedInsightSlugs,
+  );
   const canonicalPath = `/${config.slug}`;
   const serviceSchemas = [
     buildServiceSchema({
@@ -49,6 +58,16 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
             { name: config.title, url: getAbsoluteUrl(canonicalPath) },
           ],
     ),
+    ...(config.directAnswers?.length
+      ? [
+          buildFaqSchema(
+            config.directAnswers.map((item) => ({
+              question: item.question,
+              answer: item.answer,
+            })),
+          ),
+        ]
+      : []),
   ];
   return (
     <SiteShell currentPath={config.currentPath}>
@@ -131,6 +150,15 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
         </div>
       </section>
 
+      {config.directAnswers?.length ? (
+        <ServiceAnswerSection
+          dark
+          title="Direct answers"
+          description="Short answers to the questions founders and operators usually need clarified before the next step."
+          items={config.directAnswers}
+        />
+      ) : null}
+
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="max-w-[56rem]">
@@ -196,6 +224,46 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
           </article>
         </div>
       </section>
+
+      {relatedInsights.length ? (
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+          <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+            <div className="max-w-5xl">
+              <h2 className="section-title font-semibold text-foreground">
+                Related reading
+              </h2>
+              <p className="mt-4 max-w-4xl text-[1.16rem] leading-8 text-muted md:text-[1.24rem] md:leading-9">
+                Useful insight articles that connect the service decision to structure, compliance, or timing questions around it.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {relatedInsights.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/insights/${post.slug}`}
+                  className="group rounded-[1.75rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.08)] transition-transform duration-200 hover:-translate-y-0.5"
+                >
+                  <CardAccent />
+                  <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                    {post.category}
+                  </p>
+                  <h3 className="mt-4 text-[1.28rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">
+                    {post.title}
+                  </h3>
+                  <p className="mt-4 text-[1.02rem] leading-7 text-foreground/88">
+                    {post.description}
+                  </p>
+                  <div className="mt-5 inline-flex items-center gap-2 text-[0.98rem] font-semibold text-[#244ba8]">
+                    Read article
+                    <span aria-hidden="true">→</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">

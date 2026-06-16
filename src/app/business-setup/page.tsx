@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { JsonLd } from "@/components/json-ld";
+import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { CardAccent, PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
 import {
+  buildFaqSchema,
   buildBreadcrumbSchema,
   buildServiceSchema,
   getAbsoluteUrl,
@@ -176,6 +178,29 @@ const processSteps = [
   },
 ] as const;
 
+const directAnswers = [
+  {
+    question: "How do you usually choose between mainland, free zone, and offshore?",
+    answer:
+      "Start with how the business will operate after incorporation. Mainland usually fits businesses that need direct UAE market access. Free zone often fits founder-led, consulting, digital, trade, or international models. Offshore is usually for holding, ownership, or international structuring rather than day-to-day UAE operations.",
+  },
+  {
+    question: "What usually needs to be decided before filing starts?",
+    answer:
+      "The business activity, ownership structure, trade name, visa plan, office position, and likely banking route should all be clear early. Those decisions affect which authority or zone makes sense and what documentation the setup will actually require.",
+  },
+  {
+    question: "What do founders most often underestimate after incorporation?",
+    answer:
+      "Most delays happen after the license is issued, not before. Banking, company visas, Emirates ID steps, renewals, attestation, tax registrations, and record-keeping work all need to be sequenced properly if the company is meant to start operating quickly.",
+  },
+  {
+    question: "When does the cheapest setup route stop being the best route?",
+    answer:
+      "A lower headline setup cost often stops looking attractive when the route creates problems later with visas, office rules, banking expectations, license scope, or renewals. The better question is whether the route still fits once the company starts operating, not just whether the license is issued quickly.",
+  },
+] as const;
+
 export const metadata: Metadata = toMetadata(
   legacyRouteMeta.businessSetup,
   "/business-setup",
@@ -192,6 +217,7 @@ export default function BusinessSetupPage() {
       { name: "Home", url: getAbsoluteUrl("/") },
       { name: "Business setup", url: getAbsoluteUrl("/business-setup") },
     ]),
+    buildFaqSchema(directAnswers),
   ];
 
   return (
@@ -246,6 +272,13 @@ export default function BusinessSetupPage() {
           </div>
         </div>
       </section>
+
+      <ServiceAnswerSection
+        dark
+        title="Direct answers"
+        description="Short answers to the questions that usually shape the setup route before paperwork begins."
+        items={directAnswers}
+      />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto grid w-full max-w-[100rem] gap-5 px-6 md:px-12 lg:grid-cols-2 xl:px-20">

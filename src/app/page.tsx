@@ -366,7 +366,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section
+        id="client-reviews"
+        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20"
+      >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <div className="mb-10 md:mb-12">
