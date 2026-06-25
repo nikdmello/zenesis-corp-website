@@ -3,7 +3,7 @@ import Image from "next/image";
 import {
   ConsultationFormButton,
   WhatsAppCueIcon,
-} from "@/components/consultation-form";
+} from "@/components/consultation-button";
 
 type TalkToZenesisPanelProps = {
   eyebrowClassName: string;

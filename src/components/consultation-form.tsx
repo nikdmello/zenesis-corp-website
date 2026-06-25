@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { createPortal } from "react-dom";
+import { type ConsultationLeadPayload } from "@/lib/consultation-lead";
+import { submitConsultationLeadToZohoWebform } from "@/lib/zoho-webform";
 
 const whatsappNumber = "971589142200";
 const homepageConsultationPromptSeenKey = "zenesis-homepage-consultation-prompt-seen";
@@ -77,6 +79,19 @@ function buildEnquiryMessage(
   }
 
   return lines.join("\n");
+}
+
+function buildWhatsAppConsultationMessage(payload: ConsultationLeadPayload) {
+  return [
+    "Hello Zenesis, I would like to request a consultation.",
+    "",
+    `Name: ${payload.name}`,
+    `Mobile: ${payload.countryCode} ${payload.mobile}`,
+    `Email: ${payload.email}`,
+    payload.enquiry ? `Enquiry: ${payload.enquiry}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
 }
 
 const countryCodes = [
@@ -483,25 +498,23 @@ export function ConsultationInlinePanel({
     event.preventDefault();
 
     const form = new FormData(event.currentTarget);
-    const name = String(form.get("name") ?? "").trim();
-    const countryCode = String(form.get("countryCode") ?? "+971").trim();
-    const mobile = String(form.get("mobile") ?? "").trim();
-    const email = String(form.get("email") ?? "").trim();
-    const enquiry = enquiryValue.trim();
+    const payload: ConsultationLeadPayload = {
+      name: String(form.get("name") ?? "").trim(),
+      countryCode: String(form.get("countryCode") ?? "+971").trim(),
+      mobile: String(form.get("mobile") ?? "").trim(),
+      email: String(form.get("email") ?? "").trim(),
+      enquiry: enquiryValue.trim(),
+      source: "inline-panel",
+      pagePath: window.location.pathname,
+      pageTitle: document.title,
+    };
 
-    const message = [
-      "Hello Zenesis, I would like to request a consultation.",
-      "",
-      `Name: ${name}`,
-      `Mobile: ${countryCode} ${mobile}`,
-      `Email: ${email}`,
-      enquiry ? `Enquiry: ${enquiry}` : "",
-    ]
-      .filter(Boolean)
-      .join("\n");
+    submitConsultationLeadToZohoWebform(payload);
 
     window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+        buildWhatsAppConsultationMessage(payload),
+      )}`,
       "_blank",
       "noopener,noreferrer",
     );
@@ -520,7 +533,7 @@ export function ConsultationInlinePanel({
             Schedule a free consultation.
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-white/88">
-            Send your enquiry through WhatsApp.
+            Share your details here and continue the conversation on WhatsApp.
           </p>
         </div>
       </div>
@@ -659,7 +672,7 @@ export function ConsultationInlinePanel({
           type="submit"
           className="mt-6 w-full rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold !text-white shadow-[0_16px_36px_rgba(37,211,102,0.24)] transition-colors hover:bg-[#1ebe5d]"
         >
-          Submit via WhatsApp
+          Continue on WhatsApp
         </button>
       </div>
     </form>
@@ -672,7 +685,7 @@ type ConsultationModalProps = {
   presetEnquiry?: string;
 };
 
-function ConsultationModal({
+export function ConsultationModal({
   isOpen,
   onOpenChange,
   presetEnquiry,
@@ -722,25 +735,23 @@ function ConsultationModal({
     event.preventDefault();
 
     const form = new FormData(event.currentTarget);
-    const name = String(form.get("name") ?? "").trim();
-    const countryCode = String(form.get("countryCode") ?? "+971").trim();
-    const mobile = String(form.get("mobile") ?? "").trim();
-    const email = String(form.get("email") ?? "").trim();
-    const enquiry = enquiryValue.trim();
+    const payload: ConsultationLeadPayload = {
+      name: String(form.get("name") ?? "").trim(),
+      countryCode: String(form.get("countryCode") ?? "+971").trim(),
+      mobile: String(form.get("mobile") ?? "").trim(),
+      email: String(form.get("email") ?? "").trim(),
+      enquiry: enquiryValue.trim(),
+      source: "modal",
+      pagePath: window.location.pathname,
+      pageTitle: document.title,
+    };
 
-    const message = [
-      "Hello Zenesis, I would like to request a consultation.",
-      "",
-      `Name: ${name}`,
-      `Mobile: ${countryCode} ${mobile}`,
-      `Email: ${email}`,
-      enquiry ? `Enquiry: ${enquiry}` : "",
-    ]
-      .filter(Boolean)
-      .join("\n");
+    submitConsultationLeadToZohoWebform(payload);
 
     window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+        buildWhatsAppConsultationMessage(payload),
+      )}`,
       "_blank",
       "noopener,noreferrer",
     );
@@ -951,7 +962,7 @@ function ConsultationModal({
           type="submit"
           className="mt-5 w-full rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold !text-white shadow-[0_16px_36px_rgba(37,211,102,0.24)] transition-colors hover:bg-[#1ebe5d] md:mt-5"
         >
-          Submit via WhatsApp
+          Continue on WhatsApp
         </button>
         </div>
       </form>

@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, type ReactNode, useEffect } from "react";
-import { ConsultationFormButton } from "@/components/consultation-form";
+import { ConsultationFormButton } from "@/components/consultation-button";
 import { HelpWidget } from "@/components/help-widget";
 import { SiteSearchForm } from "@/components/site-search-form";
 import { contactDetails, navigation, socialLinks, whatsappHref } from "@/lib/site-content";

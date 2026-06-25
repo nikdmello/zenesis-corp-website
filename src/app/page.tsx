@@ -4,7 +4,7 @@ import {
   ConsultationFormButton,
   ConsultationFormButtonWithScrollPrompt,
   WhatsAppCueIcon,
-} from "@/components/consultation-form";
+} from "@/components/consultation-button";
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { HomepageReviewsCarousel } from "@/components/homepage-reviews-carousel";
 import { HomepageInsightsCarousel } from "@/components/homepage-insights-carousel";
@@ -207,7 +207,7 @@ export default function Home() {
           <div className="absolute inset-0">
             <HeroBackgroundVideo
               src="/zenesis-video-v2.webm"
-              className="h-full w-full object-cover object-[66%_30%] saturate-[1.05] contrast-[1.04] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0.94)_0%,rgba(0,0,0,0.98)_24%,black_42%,black_100%)] lg:object-[82%_27%]"
+              className="h-full w-full object-cover object-[66%_30%] lg:object-[82%_27%]"
             />
           </div>
           <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#11232a] via-[#11232a]/94 via-36% to-transparent md:h-72" />
