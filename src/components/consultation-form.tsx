@@ -94,6 +94,16 @@ function buildWhatsAppConsultationMessage(payload: ConsultationLeadPayload) {
     .join("\n");
 }
 
+function openWhatsAppConsultation(payload: ConsultationLeadPayload) {
+  window.open(
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      buildWhatsAppConsultationMessage(payload),
+    )}`,
+    "_blank",
+    "noopener,noreferrer",
+  );
+}
+
 const countryCodes = [
   { label: "🇦🇪 United Arab Emirates (+971)", value: "+971" },
   { label: "🇦🇫 Afghanistan (+93)", value: "+93" },
@@ -485,6 +495,7 @@ export function ConsultationInlinePanel({
     [],
   );
   const [additionalNote, setAdditionalNote] = useState("");
+  const [submittedPayload, setSubmittedPayload] = useState<ConsultationLeadPayload | null>(null);
   const selectedCountryValue =
     countryCodes.find((item) => item.label === selectedCountryLabel)?.value ??
     "+971";
@@ -510,14 +521,7 @@ export function ConsultationInlinePanel({
     };
 
     submitConsultationLeadToZohoWebform(payload);
-
-    window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-        buildWhatsAppConsultationMessage(payload),
-      )}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
+    setSubmittedPayload(payload);
   }
 
   return (
@@ -533,147 +537,181 @@ export function ConsultationInlinePanel({
             Schedule a free consultation.
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-white/88">
-            Share your details here and continue the conversation on WhatsApp.
+            Send your details to Zenesis first, then choose whether you want to continue on WhatsApp.
           </p>
         </div>
       </div>
 
       <div className="p-6 md:p-8">
-        <div className="mt-7 grid gap-4">
-          <div className="grid gap-2">
-            <p className="text-[1.02rem] font-semibold text-foreground md:text-[1.08rem]">
-              What do you need help with?
-            </p>
-            <p className="text-sm leading-6 text-muted md:text-[0.98rem]">
-              Select the topics that apply and we will build the message for you.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {enquiryShortcuts.map((item) => (
-                <button
-                  key={item.label}
-                  type="button"
-                  onClick={() => {
-                    const nextLabels = selectedShortcutLabels.includes(item.label)
-                      ? selectedShortcutLabels.filter(
-                          (label) => label !== item.label,
-                        )
-                      : [...selectedShortcutLabels, item.label];
-
-                    setSelectedShortcutLabels(nextLabels);
-                  }}
-                  className={`rounded-full border px-4 py-2.5 text-[0.98rem] font-medium transition-colors ${
-                    selectedShortcutLabels.includes(item.label)
-                      ? "border-accent bg-[rgba(36,75,168,0.08)] text-accent"
-                      : "border-foreground/10 bg-white text-foreground hover:border-accent/40 hover:bg-[rgba(36,75,168,0.04)]"
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
+        {submittedPayload ? (
+          <div className="grid gap-5">
+            <div className="rounded-[1.5rem] border border-foreground/10 bg-[#f8f5ef] p-5">
+              <p className="text-[1.18rem] font-semibold tracking-[-0.03em] text-foreground">
+                Your enquiry has been sent.
+              </p>
+              <p className="mt-3 text-[1rem] leading-7 text-muted">
+                Zenesis has your details. If you want a faster follow-up, you can continue on WhatsApp now.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => openWhatsAppConsultation(submittedPayload)}
+                className="inline-flex flex-1 items-center justify-center rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold !text-white shadow-[0_16px_36px_rgba(37,211,102,0.24)] transition-colors hover:bg-[#1ebe5d]"
+              >
+                Continue on WhatsApp
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSubmittedPayload(null);
+                  setSelectedShortcutLabels([]);
+                  setAdditionalNote("");
+                }}
+                className="inline-flex flex-1 items-center justify-center rounded-full border border-foreground/12 bg-white px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-[#f8f5ef]"
+              >
+                Send another enquiry
+              </button>
             </div>
           </div>
+        ) : (
+          <>
+            <div className="mt-7 grid gap-4">
+              <div className="grid gap-2">
+                <p className="text-[1.02rem] font-semibold text-foreground md:text-[1.08rem]">
+                  What do you need help with?
+                </p>
+                <p className="text-sm leading-6 text-muted md:text-[0.98rem]">
+                  Select the topics that apply and we will build the message for you.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {enquiryShortcuts.map((item) => (
+                    <button
+                      key={item.label}
+                      type="button"
+                      onClick={() => {
+                        const nextLabels = selectedShortcutLabels.includes(item.label)
+                          ? selectedShortcutLabels.filter(
+                              (label) => label !== item.label,
+                            )
+                          : [...selectedShortcutLabels, item.label];
 
-          <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={nameId}>
-            Name
-            <input
-              id={nameId}
-              name="name"
-              required
-              className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
-              autoComplete="name"
-            />
-          </label>
-
-          <div className="grid gap-2">
-            <p className="text-sm font-semibold text-foreground">Mobile number</p>
-            <div className="grid grid-cols-[7.35rem_minmax(0,1fr)] gap-3 sm:grid-cols-[8.5rem_minmax(0,1fr)]">
-              <label className="sr-only" htmlFor={countryCodeId}>
-                Country code
-              </label>
-              <div className="relative rounded-xl border border-foreground/12 bg-white px-4 py-3 shadow-inner transition-colors focus-within:border-accent focus-within:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]">
-                <span className="block pr-5 text-base font-normal text-foreground">
-                  {getCompactCountryLabel(
-                    selectedCountryLabel,
-                    selectedCountryValue,
-                  )}
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted"
-                >
-                  ▾
-                </span>
-                <select
-                  id={countryCodeId}
-                  name="countryCode"
-                  defaultValue="+971"
-                  aria-label="Country code"
-                  className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
-                  onChange={(event) => {
-                    const selectedOption =
-                      event.currentTarget.selectedOptions[0]?.textContent;
-
-                    if (selectedOption) {
-                      setSelectedCountryLabel(selectedOption);
-                    }
-                  }}
-                >
-                  {countryCodes.map((item) => (
-                    <option key={item.label} value={item.value}>
+                        setSelectedShortcutLabels(nextLabels);
+                      }}
+                      className={`rounded-full border px-4 py-2.5 text-[0.98rem] font-medium transition-colors ${
+                        selectedShortcutLabels.includes(item.label)
+                          ? "border-accent bg-[rgba(36,75,168,0.08)] text-accent"
+                          : "border-foreground/10 bg-white text-foreground hover:border-accent/40 hover:bg-[rgba(36,75,168,0.04)]"
+                      }`}
+                    >
                       {item.label}
-                    </option>
+                    </button>
                   ))}
-                </select>
+                </div>
               </div>
 
-              <label className="sr-only" htmlFor={mobileId}>
-                Mobile number
+              <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={nameId}>
+                Name
+                <input
+                  id={nameId}
+                  name="name"
+                  required
+                  className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                  autoComplete="name"
+                />
               </label>
-              <input
-                id={mobileId}
-                name="mobile"
-                required
-                className="min-w-0 rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
-                autoComplete="tel-national"
-                inputMode="tel"
-              />
+
+              <div className="grid gap-2">
+                <p className="text-sm font-semibold text-foreground">Mobile number</p>
+                <div className="grid grid-cols-[7.35rem_minmax(0,1fr)] gap-3 sm:grid-cols-[8.5rem_minmax(0,1fr)]">
+                  <label className="sr-only" htmlFor={countryCodeId}>
+                    Country code
+                  </label>
+                  <div className="relative rounded-xl border border-foreground/12 bg-white px-4 py-3 shadow-inner transition-colors focus-within:border-accent focus-within:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]">
+                    <span className="block pr-5 text-base font-normal text-foreground">
+                      {getCompactCountryLabel(
+                        selectedCountryLabel,
+                        selectedCountryValue,
+                      )}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted"
+                    >
+                      ▾
+                    </span>
+                    <select
+                      id={countryCodeId}
+                      name="countryCode"
+                      defaultValue="+971"
+                      aria-label="Country code"
+                      className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+                      onChange={(event) => {
+                        const selectedOption =
+                          event.currentTarget.selectedOptions[0]?.textContent;
+
+                        if (selectedOption) {
+                          setSelectedCountryLabel(selectedOption);
+                        }
+                      }}
+                    >
+                      {countryCodes.map((item) => (
+                        <option key={item.label} value={item.value}>
+                          {item.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <label className="sr-only" htmlFor={mobileId}>
+                    Mobile number
+                  </label>
+                  <input
+                    id={mobileId}
+                    name="mobile"
+                    required
+                    className="min-w-0 rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                    autoComplete="tel-national"
+                    inputMode="tel"
+                  />
+                </div>
+              </div>
+
+              <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={emailId}>
+                Email
+                <input
+                  id={emailId}
+                  name="email"
+                  type="email"
+                  required
+                  className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                  autoComplete="email"
+                />
+              </label>
+
+              <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={noteId}>
+                <span>
+                  Additional note <span className="font-normal text-muted">(optional)</span>
+                </span>
+                <textarea
+                  id={noteId}
+                  value={additionalNote}
+                  onChange={(event) => setAdditionalNote(event.currentTarget.value)}
+                  rows={2}
+                  className="resize-none rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                  placeholder="Add any short detail you want included."
+                />
+              </label>
             </div>
-          </div>
 
-          <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={emailId}>
-            Email
-            <input
-              id={emailId}
-              name="email"
-              type="email"
-              required
-              className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
-              autoComplete="email"
-            />
-          </label>
-
-          <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={noteId}>
-            <span>
-              Additional note <span className="font-normal text-muted">(optional)</span>
-            </span>
-            <textarea
-              id={noteId}
-              value={additionalNote}
-              onChange={(event) => setAdditionalNote(event.currentTarget.value)}
-              rows={2}
-              className="resize-none rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
-              placeholder="Add any short detail you want included."
-            />
-          </label>
-
-        </div>
-
-        <button
-          type="submit"
-          className="mt-6 w-full rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold !text-white shadow-[0_16px_36px_rgba(37,211,102,0.24)] transition-colors hover:bg-[#1ebe5d]"
-        >
-          Continue on WhatsApp
-        </button>
+            <button
+              type="submit"
+              className="mt-6 w-full rounded-full bg-[#11232a] px-6 py-3 text-sm font-semibold !text-white shadow-[0_16px_36px_rgba(17,35,42,0.16)] transition-colors hover:bg-[#18343d]"
+            >
+              Submit enquiry
+            </button>
+          </>
+        )}
       </div>
     </form>
   );
@@ -702,6 +740,7 @@ export function ConsultationModal({
     [],
   );
   const [additionalNote, setAdditionalNote] = useState("");
+  const [submittedPayload, setSubmittedPayload] = useState<ConsultationLeadPayload | null>(null);
   const selectedCountryValue =
     countryCodes.find((item) => item.label === selectedCountryLabel)?.value ??
     "+971";
@@ -747,15 +786,7 @@ export function ConsultationModal({
     };
 
     submitConsultationLeadToZohoWebform(payload);
-
-    window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-        buildWhatsAppConsultationMessage(payload),
-      )}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
-    onOpenChange(false);
+    setSubmittedPayload(payload);
   }
 
   function closeModal() {
@@ -826,144 +857,173 @@ export function ConsultationModal({
         </div>
 
         <div className="relative min-h-0 overflow-y-auto p-4 md:p-5">
-
-        <div className="grid gap-3 md:gap-3.5">
-          <div className="grid gap-2">
-            <p className="text-[1.02rem] font-semibold text-foreground md:text-[1.08rem]">
-              What do you need help with?
-            </p>
-            <p className="text-sm leading-6 text-muted md:text-[0.98rem] md:leading-6">
-              Select the topics that apply and we will build the message for you.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {enquiryShortcuts.map((item) => (
+          {submittedPayload ? (
+            <div className="grid gap-5">
+              <div className="rounded-[1.35rem] border border-foreground/10 bg-[#f8f5ef] p-5">
+                <p className="text-[1.18rem] font-semibold tracking-[-0.03em] text-foreground">
+                  Your enquiry has been sent.
+                </p>
+                <p className="mt-3 text-[1rem] leading-7 text-muted">
+                  Zenesis has your details. If you want to continue immediately, you can open WhatsApp now.
+                </p>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
                 <button
-                  key={item.label}
                   type="button"
-                  onClick={() => {
-                    const nextLabels = selectedShortcutLabels.includes(item.label)
-                      ? selectedShortcutLabels.filter(
-                          (label) => label !== item.label,
-                        )
-                      : [...selectedShortcutLabels, item.label];
-
-                    setSelectedShortcutLabels(nextLabels);
-                  }}
-                  className={`rounded-full border px-4 py-2.5 text-[0.98rem] font-medium transition-colors md:px-4 md:py-2 md:text-[0.95rem] ${
-                    selectedShortcutLabels.includes(item.label)
-                      ? "border-accent bg-[rgba(36,75,168,0.08)] text-accent"
-                      : "border-foreground/10 bg-white text-foreground hover:border-accent/40 hover:bg-[rgba(36,75,168,0.04)]"
-                  }`}
+                  onClick={() => openWhatsAppConsultation(submittedPayload)}
+                  className="inline-flex items-center justify-center rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold !text-white shadow-[0_16px_36px_rgba(37,211,102,0.24)] transition-colors hover:bg-[#1ebe5d]"
                 >
-                  {item.label}
+                  Continue on WhatsApp
                 </button>
-              ))}
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  className="inline-flex items-center justify-center rounded-full border border-foreground/12 bg-white px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-[#f8f5ef]"
+                >
+                  Close
+                </button>
+              </div>
             </div>
-          </div>
+          ) : (
+            <>
+              <div className="grid gap-3 md:gap-3.5">
+                <div className="grid gap-2">
+                  <p className="text-[1.02rem] font-semibold text-foreground md:text-[1.08rem]">
+                    What do you need help with?
+                  </p>
+                  <p className="text-sm leading-6 text-muted md:text-[0.98rem] md:leading-6">
+                    Select the topics that apply and we will build the message for you.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {enquiryShortcuts.map((item) => (
+                      <button
+                        key={item.label}
+                        type="button"
+                        onClick={() => {
+                          const nextLabels = selectedShortcutLabels.includes(item.label)
+                            ? selectedShortcutLabels.filter(
+                                (label) => label !== item.label,
+                              )
+                            : [...selectedShortcutLabels, item.label];
 
-          <div className="grid gap-3 md:grid-cols-2">
-            <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={nameId}>
-              Name
-              <input
-                id={nameId}
-                name="name"
-                required
-                className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
-                autoComplete="name"
-              />
-            </label>
+                          setSelectedShortcutLabels(nextLabels);
+                        }}
+                        className={`rounded-full border px-4 py-2.5 text-[0.98rem] font-medium transition-colors md:px-4 md:py-2 md:text-[0.95rem] ${
+                          selectedShortcutLabels.includes(item.label)
+                            ? "border-accent bg-[rgba(36,75,168,0.08)] text-accent"
+                            : "border-foreground/10 bg-white text-foreground hover:border-accent/40 hover:bg-[rgba(36,75,168,0.04)]"
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
-            <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={emailId}>
-              Email
-              <input
-                id={emailId}
-                name="email"
-                type="email"
-                required
-                className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
-                autoComplete="email"
-              />
-            </label>
-          </div>
+                <div className="grid gap-3 md:grid-cols-2">
+                  <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={nameId}>
+                    Name
+                    <input
+                      id={nameId}
+                      name="name"
+                      required
+                      className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                      autoComplete="name"
+                    />
+                  </label>
 
-          <div className="grid gap-2">
-            <p className="text-sm font-semibold text-foreground">Mobile number</p>
-            <div className="grid grid-cols-[7.35rem_minmax(0,1fr)] gap-3 sm:grid-cols-[8.5rem_minmax(0,1fr)]">
-              <label className="sr-only" htmlFor={countryCodeId}>
-                Country code
-              </label>
-              <div className="relative rounded-xl border border-foreground/12 bg-white px-4 py-3 shadow-inner transition-colors focus-within:border-accent focus-within:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]">
-                <span className="block pr-5 text-base font-normal text-foreground">
-                  {getCompactCountryLabel(
-                    selectedCountryLabel,
-                    selectedCountryValue,
-                  )}
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted"
-                >
-                  ▾
-                </span>
-                <select
-                  id={countryCodeId}
-                  name="countryCode"
-                  defaultValue="+971"
-                  aria-label="Country code"
-                  className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
-                  onChange={(event) => {
-                    const selectedOption =
-                      event.currentTarget.selectedOptions[0]?.textContent;
+                  <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={emailId}>
+                    Email
+                    <input
+                      id={emailId}
+                      name="email"
+                      type="email"
+                      required
+                      className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                      autoComplete="email"
+                    />
+                  </label>
+                </div>
 
-                    if (selectedOption) {
-                      setSelectedCountryLabel(selectedOption);
-                    }
-                  }}
-                >
-                  {countryCodes.map((item) => (
-                    <option key={item.label} value={item.value}>
-                      {item.label}
-                    </option>
-                  ))}
-                </select>
+                <div className="grid gap-2">
+                  <p className="text-sm font-semibold text-foreground">Mobile number</p>
+                  <div className="grid grid-cols-[7.35rem_minmax(0,1fr)] gap-3 sm:grid-cols-[8.5rem_minmax(0,1fr)]">
+                    <label className="sr-only" htmlFor={countryCodeId}>
+                      Country code
+                    </label>
+                    <div className="relative rounded-xl border border-foreground/12 bg-white px-4 py-3 shadow-inner transition-colors focus-within:border-accent focus-within:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]">
+                      <span className="block pr-5 text-base font-normal text-foreground">
+                        {getCompactCountryLabel(
+                          selectedCountryLabel,
+                          selectedCountryValue,
+                        )}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted"
+                      >
+                        ▾
+                      </span>
+                      <select
+                        id={countryCodeId}
+                        name="countryCode"
+                        defaultValue="+971"
+                        aria-label="Country code"
+                        className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+                        onChange={(event) => {
+                          const selectedOption =
+                            event.currentTarget.selectedOptions[0]?.textContent;
+
+                          if (selectedOption) {
+                            setSelectedCountryLabel(selectedOption);
+                          }
+                        }}
+                      >
+                        {countryCodes.map((item) => (
+                          <option key={item.label} value={item.value}>
+                            {item.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <label className="sr-only" htmlFor={mobileId}>
+                      Mobile number
+                    </label>
+                    <input
+                      id={mobileId}
+                      name="mobile"
+                      required
+                      className="min-w-0 rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                      autoComplete="tel-national"
+                      inputMode="tel"
+                    />
+                  </div>
+                </div>
+
+                <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={noteId}>
+                  <span>
+                    Additional note <span className="font-normal text-muted">(optional)</span>
+                  </span>
+                  <textarea
+                    id={noteId}
+                    value={additionalNote}
+                    onChange={(event) => setAdditionalNote(event.currentTarget.value)}
+                    rows={2}
+                    className="resize-none rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                    placeholder="Add any short detail you want included."
+                  />
+                </label>
               </div>
 
-              <label className="sr-only" htmlFor={mobileId}>
-                Mobile number
-              </label>
-              <input
-                id={mobileId}
-                name="mobile"
-                required
-                className="min-w-0 rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
-                autoComplete="tel-national"
-                inputMode="tel"
-              />
-            </div>
-          </div>
-
-          <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={noteId}>
-            <span>
-              Additional note <span className="font-normal text-muted">(optional)</span>
-            </span>
-            <textarea
-              id={noteId}
-              value={additionalNote}
-              onChange={(event) => setAdditionalNote(event.currentTarget.value)}
-              rows={2}
-              className="resize-none rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
-              placeholder="Add any short detail you want included."
-            />
-          </label>
-
-        </div>
-
-        <button
-          type="submit"
-          className="mt-5 w-full rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold !text-white shadow-[0_16px_36px_rgba(37,211,102,0.24)] transition-colors hover:bg-[#1ebe5d] md:mt-5"
-        >
-          Continue on WhatsApp
-        </button>
+              <button
+                type="submit"
+                className="mt-5 w-full rounded-full bg-[#11232a] px-6 py-3 text-sm font-semibold !text-white shadow-[0_16px_36px_rgba(17,35,42,0.16)] transition-colors hover:bg-[#18343d] md:mt-5"
+              >
+                Submit enquiry
+              </button>
+            </>
+          )}
         </div>
       </form>
     </div>,
