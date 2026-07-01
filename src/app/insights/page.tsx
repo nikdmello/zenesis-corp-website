@@ -89,7 +89,7 @@ export default function InsightsPage() {
                   alt={featuredPost.heroImageAlt}
                   width={1400}
                   height={920}
-                  className="aspect-[16/11] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  className={`aspect-[16/11] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${featuredPost.heroImageClassName ?? "object-center"}`}
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_38%,rgba(17,35,42,0.48)_100%)]" />
               </div>

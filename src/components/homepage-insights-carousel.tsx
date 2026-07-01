@@ -206,7 +206,7 @@ export function HomepageInsightsCarousel({
                         alt={item.heroImageAlt}
                         width={640}
                         height={420}
-                        className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                        className={`aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] ${item.heroImageClassName ?? "object-center"}`}
                       />
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgba(17,35,42,0.46)_100%)]" />
                     </div>

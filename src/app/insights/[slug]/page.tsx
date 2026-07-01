@@ -138,7 +138,7 @@ export default async function InsightArticlePage({
                   alt={post.heroImageAlt}
                   width={1600}
                   height={900}
-                  className="aspect-[16/8.2] w-full rounded-[1.95rem] object-cover lg:h-full lg:aspect-auto"
+                  className={`aspect-[16/8.2] w-full rounded-[1.95rem] object-cover lg:h-full lg:aspect-auto ${post.heroImageClassName ?? "object-center"}`}
                   priority
                 />
               </div>

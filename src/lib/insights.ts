@@ -1,5 +1,7 @@
 import { versionedAssetPath } from "@/lib/asset-paths";
 
+const insightImageVersion = "20260701b";
+
 export type InsightSection = {
   title: string;
   paragraphs?: string[];
@@ -19,6 +21,7 @@ export type InsightPost = {
   author: string;
   heroImageSrc: string;
   heroImageAlt: string;
+  heroImageClassName?: string;
   keyTakeaways?: string[];
   relatedServiceHrefs?: string[];
   sections: InsightSection[];
@@ -35,8 +38,8 @@ export const insightPosts: InsightPost[] = [
       "The most common corporate tax compliance mistakes that attract scrutiny from the Federal Tax Authority, and how businesses can reduce audit risk in the UAE.",
     dateLabel: "June 5, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/insights/audit-red-flags.webp"),
-    heroImageAlt: "Business professionals reviewing audit red flags and tax documents",
+    heroImageSrc: versionedAssetPath("/insights/corporate-tax-mistakes.webp", insightImageVersion),
+    heroImageAlt: "UAE corporate tax compliance visual for common audit-triggering mistakes",
     keyTakeaways: [
       "Weak records and rushed filings are still the easiest audit triggers in the UAE.",
       "Free zone status does not remove the need for proper tax analysis, records, or annual filing.",
@@ -187,8 +190,8 @@ export const insightPosts: InsightPost[] = [
       "Why company registration is only the first milestone, and how a strategic business consultant helps businesses structure, scale, bank, and stay compliant in the UAE.",
     dateLabel: "May 21, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/insights/strategic-reality.webp"),
-    heroImageAlt: "Business consultant advising founders in a strategic planning session",
+    heroImageSrc: versionedAssetPath("/insights/role-business-consultant.webp", insightImageVersion),
+    heroImageAlt: "Strategic business consulting visual for founders planning growth in the UAE",
     keyTakeaways: [
       "Registration is only one part of a viable UAE setup; banking, tax, and operating fit matter just as much.",
       "The right consultant improves structure quality before the licence is issued, not only after.",
@@ -309,8 +312,9 @@ export const insightPosts: InsightPost[] = [
       "Why first-time founders are using the UAE as a global launchpad for faster setup, stronger market access, tax efficiency, and cleaner scaling.",
     dateLabel: "May 4, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/insights/first-time-entrepreneurs.webp"),
+    heroImageSrc: versionedAssetPath("/insights/first-time-entrepreneurs.webp", insightImageVersion),
     heroImageAlt: "First-time entrepreneurs planning a new business launch in the UAE",
+    heroImageClassName: "object-[82%_center]",
     keyTakeaways: [
       "The UAE appeals to first-time founders because setup, residency, and scaling can move faster than in many markets.",
       "The real advantage comes from choosing the right route, not just incorporating quickly.",
@@ -433,8 +437,8 @@ export const insightPosts: InsightPost[] = [
       "A practical overview of what corporate tax groups are, who can form them, why they matter, the core eligibility rules, and the tradeoffs businesses should weigh before choosing this structure.",
     dateLabel: "April 20, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/corporate-tax.webp"),
-    heroImageAlt: "Professionals reviewing finance and tax documents",
+    heroImageSrc: versionedAssetPath("/insights/corporate-tax-groups.webp", insightImageVersion),
+    heroImageAlt: "UAE corporate tax groups visual showing structured group taxation and compliance",
     keyTakeaways: [
       "A tax group can simplify filing, but it also changes how the threshold benefit works across entities.",
       "The 95% ownership, voting, and profit tests are central to eligibility.",
@@ -543,8 +547,8 @@ export const insightPosts: InsightPost[] = [
       "How the financial year anchors corporate tax, VAT timing, audits, group reporting, and compliance planning for UAE businesses.",
     dateLabel: "April 15, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/financial-year.webp"),
-    heroImageAlt: "Business advisor discussing compliance planning",
+    heroImageSrc: versionedAssetPath("/insights/financial-year-2026-compliance.webp", insightImageVersion),
+    heroImageAlt: "Financial year 2026 compliance visual for UAE reporting, planning, and tax timing",
     keyTakeaways: [
       "The financial year now drives corporate tax timing, audit timing, and internal reporting pressure in the UAE.",
       "The filing deadline usually lands nine months after the financial year-end.",
@@ -656,7 +660,7 @@ export const insightPosts: InsightPost[] = [
       "A founder-focused look at the 2025 clarifications around qualifying activity, economic substance, commodity trading, and the practical risks of losing 0% treatment.",
     dateLabel: "January 20, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/free-zone.webp"),
+    heroImageSrc: versionedAssetPath("/free-zone.webp", insightImageVersion),
     heroImageAlt: "Business professionals in a Dubai advisory meeting",
     keyTakeaways: [
       "Free zone 0% treatment depends on qualifying activity, substance, and cleaner income classification.",
@@ -749,7 +753,7 @@ export const insightPosts: InsightPost[] = [
       "What rising corporate tax registrations say about UAE compliance expectations, and the practical steps businesses should take now.",
     dateLabel: "January 20, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/corporate-tax.webp"),
+    heroImageSrc: versionedAssetPath("/corporate-tax.webp", insightImageVersion),
     heroImageAlt: "Professionals reviewing UAE corporate tax documentation",
     keyTakeaways: [
       "Registration volume shows that corporate tax is now a normal operating requirement, not an early-transition issue.",
@@ -836,8 +840,8 @@ export const insightPosts: InsightPost[] = [
       "A practical look at the 2025 visa changes and what they mean for founders, skilled professionals, and people planning a longer-term UAE move.",
     dateLabel: "September 19, 2025",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/contact-consultation.webp"),
-    heroImageAlt: "Advisors discussing UAE visa and residency planning",
+    heroImageSrc: versionedAssetPath("/insights/uae-visa-reforms.webp", insightImageVersion),
+    heroImageAlt: "UAE visa reforms visual focused on residency changes for entrepreneurs and expats",
     keyTakeaways: [
       "The 2025 reforms make visa planning more category-specific, not more generic.",
       "Founders need to align visa planning with setup and relocation timing from the beginning.",
@@ -916,8 +920,8 @@ export const insightPosts: InsightPost[] = [
       "A practical guide to the common mistakes founders make when entering the Dubai market, and how to avoid costly setup and compliance missteps.",
     dateLabel: "September 18, 2025",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/business-setup.webp"),
-    heroImageAlt: "Business founders discussing company setup in Dubai",
+    heroImageSrc: versionedAssetPath("/insights/mistakes-to-avoid.webp", insightImageVersion),
+    heroImageAlt: "Dubai business setup visual representing common mistakes founders should avoid",
     keyTakeaways: [
       "The wrong setup route creates downstream problems in visas, banking, and compliance.",
       "Licensing cost alone is not the real setup budget.",
@@ -1008,8 +1012,8 @@ export const insightPosts: InsightPost[] = [
       "An evergreen guide to what the Dubai Golden Visa is, who it is designed for, the main eligibility routes, and how to approach the process more carefully.",
     dateLabel: "August 29, 2022",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/insights/golden-visa-guide.webp"),
-    heroImageAlt: "Advisor discussing Dubai Golden Visa eligibility and residency planning",
+    heroImageSrc: versionedAssetPath("/insights/golden-visa-guide.webp", insightImageVersion),
+    heroImageAlt: "Dubai Golden Visa planning visual focused on residency and eligibility guidance",
     keyTakeaways: [
       "The Golden Visa works best when the eligibility category is identified correctly first.",
       "Long-term residency value comes from stability, but approval still depends on evidence quality.",

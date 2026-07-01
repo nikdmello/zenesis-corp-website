@@ -58,7 +58,7 @@ export function InsightsArchive({ posts }: InsightsArchiveProps) {
                 alt={post.heroImageAlt}
                 width={960}
                 height={620}
-                className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                className={`aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${post.heroImageClassName ?? "object-center"}`}
               />
             </div>
 

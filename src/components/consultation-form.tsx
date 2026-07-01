@@ -511,7 +511,7 @@ export function ConsultationInlinePanel({
     const form = new FormData(event.currentTarget);
     const payload: ConsultationLeadPayload = {
       name: String(form.get("name") ?? "").trim(),
-      countryCode: String(form.get("countryCode") ?? "+971").trim(),
+      countryCode: selectedCountryValue,
       mobile: String(form.get("mobile") ?? "").trim(),
       email: String(form.get("email") ?? "").trim(),
       enquiry: enquiryValue.trim(),
@@ -643,20 +643,15 @@ export function ConsultationInlinePanel({
                     <select
                       id={countryCodeId}
                       name="countryCode"
-                      defaultValue="+971"
+                      value={selectedCountryLabel}
                       aria-label="Country code"
                       className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
                       onChange={(event) => {
-                        const selectedOption =
-                          event.currentTarget.selectedOptions[0]?.textContent;
-
-                        if (selectedOption) {
-                          setSelectedCountryLabel(selectedOption);
-                        }
+                        setSelectedCountryLabel(event.currentTarget.value);
                       }}
                     >
                       {countryCodes.map((item) => (
-                        <option key={item.label} value={item.value}>
+                        <option key={item.label} value={item.label}>
                           {item.label}
                         </option>
                       ))}
@@ -776,7 +771,7 @@ export function ConsultationModal({
     const form = new FormData(event.currentTarget);
     const payload: ConsultationLeadPayload = {
       name: String(form.get("name") ?? "").trim(),
-      countryCode: String(form.get("countryCode") ?? "+971").trim(),
+      countryCode: selectedCountryValue,
       mobile: String(form.get("mobile") ?? "").trim(),
       email: String(form.get("email") ?? "").trim(),
       enquiry: enquiryValue.trim(),
@@ -967,20 +962,15 @@ export function ConsultationModal({
                       <select
                         id={countryCodeId}
                         name="countryCode"
-                        defaultValue="+971"
+                        value={selectedCountryLabel}
                         aria-label="Country code"
                         className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
                         onChange={(event) => {
-                          const selectedOption =
-                            event.currentTarget.selectedOptions[0]?.textContent;
-
-                          if (selectedOption) {
-                            setSelectedCountryLabel(selectedOption);
-                          }
+                          setSelectedCountryLabel(event.currentTarget.value);
                         }}
                       >
                         {countryCodes.map((item) => (
-                          <option key={item.label} value={item.value}>
+                          <option key={item.label} value={item.label}>
                             {item.label}
                           </option>
                         ))}
