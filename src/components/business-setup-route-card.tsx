@@ -115,7 +115,7 @@ export function BusinessSetupRouteCard({
         </div>
 
         <div
-          className={`absolute inset-0 flex h-full w-full flex-col overflow-hidden rounded-[2rem] border border-[#dcd3c6] bg-[linear-gradient(180deg,#fffdfa_0%,#f5efe4_100%)] shadow-[0_16px_44px_rgba(17,35,42,0.09)] [backface-visibility:hidden] [transform:rotateY(180deg)] ${isEssential ? "p-5 md:p-6 xl:p-7" : "p-5 md:p-8"}`}
+          className={`absolute inset-0 flex h-full w-full flex-col overflow-hidden rounded-[2rem] border border-[#dcd3c6] bg-white shadow-[0_16px_44px_rgba(17,35,42,0.09)] [backface-visibility:hidden] [transform:rotateY(180deg)] ${isEssential ? "p-5 md:p-6 xl:p-7" : "p-5 md:p-8"}`}
         >
           <div>
             <CardAccent />
@@ -136,8 +136,8 @@ export function BusinessSetupRouteCard({
               key={point}
               className={
                 isEssential
-                  ? "overflow-hidden rounded-[1.15rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,rgba(255,255,255,0.72)_0%,rgba(245,239,228,0.96)_100%)] px-4 py-3 text-[0.98rem] font-medium leading-6 text-[#11232a] shadow-[0_8px_24px_rgba(17,35,42,0.06)] md:text-[1.03rem] md:leading-7"
-                  : "overflow-hidden rounded-[1.15rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,rgba(255,255,255,0.86)_0%,rgba(245,239,228,0.98)_100%)] px-4 py-3 text-[1.02rem] font-medium leading-7 text-[#11232a] shadow-[0_8px_24px_rgba(17,35,42,0.06)]"
+                  ? "overflow-hidden rounded-[1.15rem] border border-[#d8d0c2] bg-white px-4 py-3 text-[0.98rem] font-medium leading-6 text-[#11232a] shadow-[0_8px_24px_rgba(17,35,42,0.06)] md:text-[1.03rem] md:leading-7"
+                  : "overflow-hidden rounded-[1.15rem] border border-[#d8d0c2] bg-white px-4 py-3 text-[1.02rem] font-medium leading-7 text-[#11232a] shadow-[0_8px_24px_rgba(17,35,42,0.06)]"
               }
             >
               {point}

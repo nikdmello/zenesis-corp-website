@@ -1,6 +1,6 @@
 import { versionedAssetPath } from "@/lib/asset-paths";
 
-const insightImageVersion = "20260701b";
+const insightImageVersion = "20260702a";
 
 export type InsightSection = {
   title: string;
@@ -190,7 +190,7 @@ export const insightPosts: InsightPost[] = [
       "Why company registration is only the first milestone, and how a strategic business consultant helps businesses structure, scale, bank, and stay compliant in the UAE.",
     dateLabel: "May 21, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/insights/role-business-consultant.webp", insightImageVersion),
+    heroImageSrc: versionedAssetPath("/insights/strategic-role.webp", insightImageVersion),
     heroImageAlt: "Strategic business consulting visual for founders planning growth in the UAE",
     keyTakeaways: [
       "Registration is only one part of a viable UAE setup; banking, tax, and operating fit matter just as much.",
@@ -660,7 +660,7 @@ export const insightPosts: InsightPost[] = [
       "A founder-focused look at the 2025 clarifications around qualifying activity, economic substance, commodity trading, and the practical risks of losing 0% treatment.",
     dateLabel: "January 20, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/free-zone.webp", insightImageVersion),
+    heroImageSrc: versionedAssetPath("/insights/free-zone-corporate-tax-rules.webp", insightImageVersion),
     heroImageAlt: "Business professionals in a Dubai advisory meeting",
     keyTakeaways: [
       "Free zone 0% treatment depends on qualifying activity, substance, and cleaner income classification.",
@@ -753,7 +753,7 @@ export const insightPosts: InsightPost[] = [
       "What rising corporate tax registrations say about UAE compliance expectations, and the practical steps businesses should take now.",
     dateLabel: "January 20, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/corporate-tax.webp", insightImageVersion),
+    heroImageSrc: versionedAssetPath("/insights/corporate-tax-registrations.webp", insightImageVersion),
     heroImageAlt: "Professionals reviewing UAE corporate tax documentation",
     keyTakeaways: [
       "Registration volume shows that corporate tax is now a normal operating requirement, not an early-transition issue.",

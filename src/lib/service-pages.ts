@@ -24,8 +24,13 @@ export type ServiceDetailConfig = {
   backgroundImageAlt: string;
   introBackgroundImageSrc?: string;
   introBackgroundImageAlt?: string;
+  introBackgroundImageMode?: "full" | "ambient";
   introBackgroundImagePosition?: string;
   introAmbientImageClassName?: string;
+  introContentClassName?: string;
+  overviewImageSrc?: string;
+  overviewImageAlt?: string;
+  overviewImagePosition?: string;
   introTitle: string;
   introParagraphs: string[];
   subpageLinks?: ServiceSubpageLinkItem[];
@@ -52,8 +57,11 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Mainland",
     description:
       "Support for businesses that want UAE market access, local operating flexibility, and the right mainland structure from the start.",
-    backgroundImageSrc: versionedAssetPath("/business-setup.webp"),
+    backgroundImageSrc: versionedAssetPath("/mainland.webp"),
     backgroundImageAlt: "Professionals reviewing mainland setup options in Dubai",
+    overviewImageSrc: versionedAssetPath("/mainland.webp"),
+    overviewImageAlt: "Professionals reviewing mainland setup options in Dubai",
+    overviewImagePosition: "object-[68%_24%]",
     introTitle: "Overview",
     introParagraphs: [
       "Mainland setup is the right route when your business needs to trade directly in the UAE, sign local contracts, hire staff, and operate with broader flexibility across the country.",
@@ -138,8 +146,11 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Free Zones",
     description:
       "Compare the free zones that matter for your activity, package fit, ownership model, visas, and operating needs.",
-    backgroundImageSrc: versionedAssetPath("/free-zone.webp"),
+    backgroundImageSrc: versionedAssetPath("/freezone.webp"),
     backgroundImageAlt: "Business professionals discussing free zone setup options",
+    overviewImageSrc: versionedAssetPath("/freezone.webp"),
+    overviewImageAlt: "Business professionals discussing free zone setup options",
+    overviewImagePosition: "object-[70%_24%]",
     introTitle: "Overview",
     introParagraphs: [
       "Free zone setup is often the best fit for founders who want a faster formation route, clearer package options, and a structure that matches consulting, digital, trade, or investor-led business models.",
@@ -224,8 +235,11 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Offshore",
     description:
       "Use offshore structures for holding, ownership, and international arrangements that do not depend on day-to-day local UAE operations.",
-    backgroundImageSrc: versionedAssetPath("/business-setup.webp"),
+    backgroundImageSrc: versionedAssetPath("/offshore.webp"),
     backgroundImageAlt: "Advisors discussing offshore structuring options",
+    overviewImageSrc: versionedAssetPath("/offshore.webp"),
+    overviewImageAlt: "Advisors discussing offshore structuring options",
+    overviewImagePosition: "object-[72%_22%]",
     introTitle: "Overview",
     introParagraphs: [
       "Offshore setup is usually used for holding companies, asset ownership, succession planning, and international arrangements that do not depend on day-to-day trading inside the UAE.",

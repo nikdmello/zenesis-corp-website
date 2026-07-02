@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
@@ -93,8 +94,13 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
         backgroundImageSrc={config.introBackgroundImageSrc}
         backgroundImageAlt={config.introBackgroundImageAlt}
         backgroundImagePosition={config.introBackgroundImagePosition}
-        backgroundImageMode={config.introBackgroundImageSrc ? "ambient" : undefined}
+        backgroundImageMode={
+          config.introBackgroundImageSrc
+            ? (config.introBackgroundImageMode ?? "ambient")
+            : undefined
+        }
         ambientImageClassName={config.introAmbientImageClassName}
+        contentClassName={config.introContentClassName}
       />
 
       <section
@@ -127,18 +133,34 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
               ? "bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)]"
               : "bg-white"
           }`}>
-            <CardAccent />
-            <h2 className={`section-title font-semibold ${hasAmbientIntro ? "text-[#11232a]" : "text-foreground"}`}>
-              {config.introTitle}
-            </h2>
-            <div
-              className={`mt-5 max-w-[88rem] space-y-5 text-[1.16rem] leading-9 md:text-[1.22rem] ${
-                hasAmbientIntro ? "text-[#11232a]" : "text-muted"
-              }`}
-            >
-              {config.introParagraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+            <div className={config.overviewImageSrc ? "grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start" : ""}>
+              <div>
+                <CardAccent />
+                <h2 className={`section-title font-semibold ${hasAmbientIntro ? "text-[#11232a]" : "text-foreground"}`}>
+                  {config.introTitle}
+                </h2>
+                <div
+                  className={`mt-5 max-w-[88rem] space-y-5 text-[1.16rem] leading-9 md:text-[1.22rem] ${
+                    hasAmbientIntro ? "text-[#11232a]" : "text-muted"
+                  }`}
+                >
+                  {config.introParagraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+
+              {config.overviewImageSrc ? (
+                <div className="overflow-hidden rounded-[1.8rem] border border-[#d8d0c2] bg-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.1)]">
+                  <Image
+                    src={config.overviewImageSrc}
+                    alt={config.overviewImageAlt ?? config.title}
+                    width={1600}
+                    height={1040}
+                    className={`aspect-[16/11] w-full object-cover ${config.overviewImagePosition ?? "object-center"}`}
+                  />
+                </div>
+              ) : null}
             </div>
 
             {config.subpageLinks?.length ? (
@@ -242,21 +264,32 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                 <Link
                   key={post.slug}
                   href={`/insights/${post.slug}`}
-                  className="group rounded-[1.75rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.08)] transition-transform duration-200 hover:-translate-y-0.5"
+                  className="group overflow-hidden rounded-[1.75rem] border border-[#d8d0c2] bg-white text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.08)] transition-transform duration-200 hover:-translate-y-0.5"
                 >
-                  <CardAccent />
-                  <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-                    {post.category}
-                  </p>
-                  <h3 className="mt-4 text-[1.28rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">
-                    {post.title}
-                  </h3>
-                  <p className="mt-4 text-[1.02rem] leading-7 text-foreground/88">
-                    {post.description}
-                  </p>
-                  <div className="mt-5 inline-flex items-center gap-2 text-[0.98rem] font-semibold text-[#244ba8]">
-                    Read article
-                    <span aria-hidden="true">→</span>
+                  <div className="relative overflow-hidden bg-[#11232a]">
+                    <Image
+                      src={post.heroImageSrc}
+                      alt={post.heroImageAlt}
+                      width={960}
+                      height={620}
+                      className={`aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${post.heroImageClassName ?? "object-center"}`}
+                    />
+                  </div>
+                  <div className="p-6">
+                    <CardAccent />
+                    <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                      {post.category}
+                    </p>
+                    <h3 className="mt-4 text-[1.28rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">
+                      {post.title}
+                    </h3>
+                    <p className="mt-4 text-[1.02rem] leading-7 text-foreground/88">
+                      {post.description}
+                    </p>
+                    <div className="mt-5 inline-flex items-center gap-2 text-[0.98rem] font-semibold text-[#244ba8]">
+                      Read article
+                      <span aria-hidden="true">→</span>
+                    </div>
                   </div>
                 </Link>
               ))}
