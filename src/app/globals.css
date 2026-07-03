@@ -106,6 +106,15 @@ a {
   text-wrap: balance;
 }
 
+.page-title-display {
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+  text-wrap: balance;
+  text-wrap-style: balance;
+}
+
 .eyebrow {
   display: none !important;
 }

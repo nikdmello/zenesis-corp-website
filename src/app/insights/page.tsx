@@ -38,6 +38,7 @@ export default function InsightsPage() {
       <PageIntro
         eyebrow="Insights"
         title="Insights"
+        description="Articles and practical guidance across business setup, tax, visa, and banking in the UAE."
         backgroundImageSrc="/backgrounds/insights-bg.webp"
         backgroundImageAlt="Zenesis Insights page background"
         backgroundImagePosition="!object-[100%_100%]"

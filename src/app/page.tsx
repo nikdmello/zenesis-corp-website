@@ -8,8 +8,7 @@ import {
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { HomepageReviewsCarousel } from "@/components/homepage-reviews-carousel";
 import { HomepageInsightsCarousel } from "@/components/homepage-insights-carousel";
-import { HomepageServiceTile } from "@/components/homepage-service-tile";
-import { HomepageServiceVisual } from "@/components/homepage-service-visual";
+import { HomepageServicesReveal } from "@/components/homepage-services-reveal";
 import { JsonLd } from "@/components/json-ld";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SectionHeading, SiteShell } from "@/components/site-shell";
@@ -40,109 +39,40 @@ const trustSignals = [
 
 const customerPaths = [
   {
-    eyebrow: "Business Setup",
     title: "Business setup",
     href: "/business-setup",
-    cta: "Explore business setup",
-    visual: "business-setup",
-    offerings: [
-      {
-        icon: "🏢",
-        title: "Mainland",
-        description: "For local UAE trading and operations.",
-        href: "/mainland",
-      },
-      {
-        icon: "🗂",
-        title: "Free zone",
-        description: "For packaged setup and foreign ownership.",
-        href: "/free-zones",
-      },
-      {
-        icon: "🌐",
-        title: "Offshore",
-        description: "For holding and international ownership.",
-        href: "/offshore",
-      },
+    icon: "business",
+    cta: "Explore setup options",
+    description: "Choose the right structure for your company.",
+    items: [
+      "Mainland company formation",
+      "Free zone company formation",
+      "Offshore structuring",
     ],
   },
   {
-    eyebrow: "Accounting & Tax",
     title: "Accounting and tax",
     href: "/accounting-tax",
-    cta: "Explore accounting and tax",
-    visual: "accounting-tax",
-    offerings: [
-      {
-        icon: "📒",
-        title: "Bookkeeping",
-        description: "Keep records and reports current.",
-        href: "/professional-bookkeeping-services-in-dubai",
-      },
-      {
-        icon: "🧾",
-        title: "VAT filing",
-        description: "Prepare returns and keep VAT records in order.",
-        href: "/vat-filing-services-in-the-uae",
-      },
-      {
-        icon: "📑",
-        title: "Corporate tax",
-        description: "Handle registration, filing, and annual compliance.",
-        href: "/corporate-tax-registration-in-the-uae",
-      },
-    ],
+    icon: "accounting",
+    cta: "View tax support",
+    description: "Stay compliant with ongoing financial obligations.",
+    items: ["Bookkeeping", "VAT filing", "Corporate tax"],
   },
   {
-    eyebrow: "Visa and Banking",
     title: "Visa and banking",
     href: "/visa-and-banking",
+    icon: "visa",
     cta: "Explore visa and banking",
-    visual: "visa-and-banking",
-    offerings: [
-      {
-        icon: "⭐",
-        title: "Golden Visa",
-        description: "Check eligibility and prepare the right route.",
-        href: "/golden-visa-services-in-the-uae",
-      },
-      {
-        icon: "🪪",
-        title: "Company visa",
-        description: "Handle processing, approvals, and Emirates ID.",
-        href: "/uae-company-visa",
-      },
-      {
-        icon: "🏦",
-        title: "Banking support",
-        description: "Prepare KYC and support account opening.",
-        href: "/open-a-bank-account-easily",
-      },
-    ],
+    description: "Support for residency and banking processes.",
+    items: ["Golden Visa", "Company visas", "Bank account support"],
   },
   {
-    eyebrow: "Corporate Support",
     title: "Corporate support",
     href: "/contact",
+    icon: "support",
     cta: "Discuss corporate support",
-    visual: "corporate-support",
-    offerings: [
-      {
-        icon: "🔄",
-        title: "License renewals",
-        description: "Keep renewals and annual deadlines on track.",
-      },
-      {
-        icon: "📂",
-        title: "PRO services",
-        description: "Handle government paperwork and approvals.",
-      },
-      {
-        icon: "🗃",
-        title: "Company changes",
-        description: "Manage amendments, shareholder changes, and records.",
-      },
-    ],
+    description: "Ongoing help after your business is established.",
+    items: ["License renewals", "PRO services", "Company amendments"],
   },
 ] as const;
 
@@ -266,66 +196,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="services"
-          className="relative left-1/2 w-screen -translate-x-1/2 scroll-mt-14 md:scroll-mt-18 py-14 text-[#07151b] md:py-16 xl:py-12"
-        >
-          <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-            <div className="max-w-5xl py-5 md:py-6 xl:py-4">
-              <h2 className="section-title font-semibold text-[#07151b] md:text-[3rem] xl:text-[2.95rem] xl:whitespace-nowrap">
-                Our services
-              </h2>
-              <p className="mt-4 max-w-4xl text-[1.16rem] leading-8 text-muted md:text-[1.24rem] md:leading-9">
-                Core support across business setup, accounting and tax, visa and banking, and ongoing corporate requirements in the UAE.
-              </p>
-            </div>
-
-            <div className="mt-8 grid gap-4 lg:grid-cols-2 xl:mt-6 xl:grid-cols-4 xl:gap-2.5 2xl:gap-3">
-              {customerPaths.map((item) => (
-                <div
-                  key={item.eyebrow}
-                  className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-[#d9d2c5] bg-white shadow-[0_22px_70px_rgba(17,35,42,0.10)]"
-                >
-                  <Link
-                    href={item.href}
-                    className="group relative block h-[8.75rem] overflow-hidden md:h-[9.5rem] xl:h-[8.6rem]"
-                  >
-                    <HomepageServiceVisual variant={item.visual} title={item.title} />
-                  </Link>
-
-                  <div className="flex grow flex-col p-4 sm:p-5 md:p-6 lg:p-7 xl:p-6">
-                    <div className="grid grow gap-2.5 md:grid-cols-3 md:items-stretch xl:grid-cols-1 xl:gap-2.5">
-                      {item.offerings.map((offering) => {
-                        return (
-                          <HomepageServiceTile
-                            key={offering.title}
-                            title={offering.title}
-                            description={offering.description}
-                            href={
-                              "href" in offering && typeof offering.href === "string"
-                                ? offering.href
-                                : undefined
-                            }
-                          />
-                        );
-                      })}
-                    </div>
-
-                    <div className="mt-auto flex justify-center pt-4">
-                      <Link
-                        href={item.href}
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#11232a] px-4 py-2.5 text-[1rem] font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#18343d] md:w-auto md:px-5 xl:text-[1.02rem]"
-                      >
-                        {item.cta}
-                        <span aria-hidden="true">→</span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <HomepageServicesReveal items={customerPaths} />
 
       <section className="relative left-1/2 mt-10 w-screen -translate-x-1/2 bg-[#11232a] py-16 md:mt-12 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">

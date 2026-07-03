@@ -37,6 +37,7 @@ export default function AboutPage() {
       <PageIntro
         eyebrow="About Zenesis"
         title="About"
+        description="The background, experience, and working approach behind Zenesis in the UAE."
         backgroundImageSrc="/backgrounds/about-bg.webp"
         backgroundImageAlt="Zenesis About page background"
         backgroundImagePosition="!object-[100%_100%]"

@@ -192,12 +192,12 @@ export function HomepageInsightsCarousel({
             key={`insights-page-${pageIndex}`}
             className="w-full shrink-0 snap-start px-1 md:px-2"
           >
-            <div className="grid gap-5 md:[grid-auto-rows:1fr] lg:grid-cols-3">
+            <div className="grid items-stretch gap-5 md:[grid-auto-rows:1fr] lg:grid-cols-3">
               {page.map((item) => (
                 <Link
                   key={item.slug}
                   href={`/insights/${item.slug}`}
-                  className="group flex h-full min-h-[28rem] flex-col rounded-[1.75rem] border border-[#d8d0c2] bg-white p-4 text-[#11232a] transition-transform duration-300 hover:-translate-y-1 md:min-h-[29rem]"
+                  className="group flex h-full min-h-[29rem] self-stretch flex-col rounded-[1.75rem] border border-[#d8d0c2] bg-white p-4 text-[#11232a] transition-transform duration-300 hover:-translate-y-1 md:min-h-[29.5rem]"
                 >
                   <div className="relative z-10 flex min-h-full flex-1 flex-col">
                     <div className="relative overflow-hidden rounded-[1.35rem] bg-[#11232a]">
@@ -220,7 +220,7 @@ export function HomepageInsightsCarousel({
                         </span>
                         <span>{item.dateLabel}</span>
                       </div>
-                      <h3 className="mt-4 min-h-[5.25rem] text-2xl font-semibold leading-[1.05] tracking-[-0.03em] text-foreground">
+                      <h3 className="mt-4 min-h-[5.8rem] text-2xl font-semibold leading-[1.05] tracking-[-0.03em] text-foreground">
                         {item.title}
                       </h3>
                       <p className="mt-4 flex-1 text-[1.08rem] leading-8 text-muted">

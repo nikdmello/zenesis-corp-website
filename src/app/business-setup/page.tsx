@@ -231,6 +231,7 @@ export default function BusinessSetupPage() {
           { label: "Business setup" },
         ]}
         title="Business setup"
+        description="Mainland, free zone, and offshore support for founders who need the right structure before licensing, visas, and banking begin."
         backgroundImageSrc="/backgrounds/business-setup-bg.webp"
         backgroundImageAlt="Zenesis Business Setup page background"
         backgroundImagePosition="!object-[100%_100%]"

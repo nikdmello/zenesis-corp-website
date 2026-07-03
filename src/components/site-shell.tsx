@@ -645,6 +645,7 @@ export function PageIntro({
   const hasBackgroundImage = Boolean(backgroundImageSrc);
   const usesFullBackgroundImage = hasBackgroundImage && backgroundImageMode === "full";
   const usesAmbientBackgroundImage = hasBackgroundImage && backgroundImageMode === "ambient";
+  const usesEditorialIntro = !usesFullBackgroundImage;
   const breadcrumbItems = Array.isArray(breadcrumb) ? breadcrumb : null;
   const breadcrumbText = typeof breadcrumb === "string" ? breadcrumb : null;
   const shouldOpenConsultationForm =
@@ -722,16 +723,22 @@ export function PageIntro({
           className={[
             usesFullBackgroundImage
               ? "mt-auto max-w-[48rem] border-l-4 border-[#244ba8] pl-5 pb-10 sm:pl-6 md:pl-7 md:pb-14"
-              : "max-w-[64rem] border-l-4 border-[#244ba8] pl-5 sm:pl-6 md:pl-7",
+              : "max-w-[58rem] rounded-[1.9rem] border border-[#ddd4c7] bg-[linear-gradient(180deg,rgba(255,255,255,0.78)_0%,rgba(255,251,246,0.56)_100%)] px-5 py-5 shadow-[0_20px_52px_rgba(17,35,42,0.06)] backdrop-blur-[10px] sm:px-6 md:px-7 md:py-6",
             contentClassName ?? "",
           ]
             .filter(Boolean)
             .join(" ")}
         >
+          {usesEditorialIntro ? (
+            <div className="mb-5 flex items-center gap-3">
+              <span className="h-[3px] w-9 rounded-full bg-[#b88d53]" />
+              <span className="h-px flex-1 bg-[linear-gradient(90deg,rgba(184,141,83,0.34)_0%,rgba(184,141,83,0.06)_52%,transparent_100%)]" />
+            </div>
+          ) : null}
           {breadcrumb ? (
             breadcrumbItems ? (
               <div
-                className={`relative z-20 eyebrow flex flex-wrap items-center gap-2 pointer-events-auto ${
+                className={`relative z-20 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 pointer-events-auto text-[0.72rem] font-semibold uppercase tracking-[0.14em] ${
                   usesFullBackgroundImage ? "text-white/68" : "text-[#244ba8]"
                 }`}
               >
@@ -740,7 +747,7 @@ export function PageIntro({
                     {item.href ? (
                       <Link
                         href={item.href}
-                        className={`relative z-20 inline-flex cursor-pointer pointer-events-auto font-semibold underline decoration-current/45 underline-offset-[0.28em] transition-colors ${
+                        className={`relative z-20 inline-flex cursor-pointer pointer-events-auto transition-colors ${
                           usesFullBackgroundImage
                             ? "text-white/86 hover:text-white"
                             : "text-[#244ba8] hover:text-[#1b3c86]"
@@ -766,7 +773,7 @@ export function PageIntro({
               </div>
             ) : (
               <p
-                className={`eyebrow ${
+                className={`text-[0.72rem] font-semibold uppercase tracking-[0.14em] ${
                   usesFullBackgroundImage ? "text-white/68" : "text-[#244ba8]"
                 }`}
               >
@@ -784,7 +791,11 @@ export function PageIntro({
             </p>
           ) : null}
           <h1
-            className={`${eyebrow ? "mt-6" : breadcrumb ? "mt-5" : "mt-0"} max-w-[16ch] text-[3.4rem] font-semibold leading-[0.94] tracking-[-0.04em] sm:max-w-[17ch] sm:text-[4.3rem] lg:max-w-[18ch] lg:text-[4.85rem] ${
+            className={`${eyebrow ? "mt-6" : breadcrumb ? "mt-4" : "mt-0"} ${
+              usesFullBackgroundImage
+                ? "max-w-[15ch] text-[3.5rem] sm:max-w-[16ch] sm:text-[4.35rem] lg:max-w-[17ch] lg:text-[5rem]"
+                : "max-w-[11.5ch] text-[3.05rem] sm:max-w-[12.5ch] sm:text-[3.72rem] lg:max-w-[13.5ch] lg:text-[4.15rem]"
+            } page-title-display ${
               usesFullBackgroundImage ? "text-white" : "text-foreground"
             } ${usesFullBackgroundImage ? "hero-reveal hero-reveal-1" : ""}`}
           >
@@ -792,8 +803,10 @@ export function PageIntro({
           </h1>
           {description ? (
             <p
-              className={`mt-6 max-w-3xl text-[1.14rem] font-medium leading-8 md:text-[1.28rem] md:leading-9 ${
-                usesFullBackgroundImage ? "text-white/88" : "text-muted"
+              className={`${
+                usesEditorialIntro ? "mt-5 max-w-[40rem] text-[1rem] leading-7 md:text-[1.08rem] md:leading-8" : "mt-6 max-w-3xl text-[1.14rem] leading-8 md:text-[1.28rem] md:leading-9"
+              } font-medium ${
+                usesFullBackgroundImage ? "text-white/88" : "text-[#22343c]/78"
               } ${usesFullBackgroundImage ? "hero-reveal hero-reveal-2" : ""}`}
             >
               {description}

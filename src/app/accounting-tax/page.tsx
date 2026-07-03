@@ -223,6 +223,7 @@ export default function AccountingTaxPage() {
           { label: "Accounting and tax" },
         ]}
         title="Accounting and tax"
+        description="Corporate tax, VAT, bookkeeping, and filing support for UAE businesses that need cleaner records and steadier compliance."
         backgroundImageSrc="/backgrounds/accounting-and-tax-bg.webp"
         backgroundImageAlt="Zenesis Accounting and Tax page background"
         backgroundImagePosition="!object-[100%_100%]"
