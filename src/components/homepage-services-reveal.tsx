@@ -95,7 +95,7 @@ export function HomepageServicesReveal({
         <div className="mt-10">
           <div className="hidden xl:block">
             <div className="rounded-[2.4rem] border border-[#d9cfbf] bg-[linear-gradient(180deg,rgba(255,255,255,0.58),rgba(255,255,255,0.34))] p-5 shadow-[0_24px_60px_rgba(17,35,42,0.07)] md:p-6 xl:p-8">
-              <div className="grid gap-3 xl:grid-cols-2 xl:gap-3.5">
+              <div className="grid gap-3 xl:grid-cols-4 xl:gap-3">
                 {items.map((item) => {
                   const index = items.indexOf(item);
                   const isActive = activeIndex === index;
@@ -105,7 +105,7 @@ export function HomepageServicesReveal({
                       <article
                         key={item.title}
                         onMouseEnter={() => setActiveIndex(index)}
-                        className={`h-full overflow-hidden rounded-[1.6rem] border transition-all duration-300 xl:min-h-[18.4rem] ${
+                        className={`flex h-full flex-col overflow-hidden rounded-[1.55rem] border transition-all duration-300 xl:min-h-[18.9rem] ${
                           isActive
                             ? "border-[#d1b285] bg-[#102028] shadow-[0_22px_48px_rgba(17,35,42,0.14)]"
                             : "border-[#d8cfbf] bg-white/88 shadow-[0_10px_24px_rgba(17,35,42,0.05)]"
@@ -115,7 +115,7 @@ export function HomepageServicesReveal({
                         type="button"
                         onFocus={() => setActiveIndex(index)}
                         onClick={() => setActiveIndex(index)}
-                        className="flex w-full items-start justify-between gap-3 px-4 py-4 text-left xl:px-4 xl:py-3.75"
+                        className="flex w-full items-start justify-between gap-3 px-4 py-4 text-left xl:px-4 xl:py-4"
                         aria-expanded={isActive}
                       >
                         <div className="flex min-w-0 flex-1 gap-3">
@@ -139,14 +139,14 @@ export function HomepageServicesReveal({
                               </span>
                             </div>
                             <h3
-                              className={`mt-0.75 max-w-[15ch] text-[1.2rem] font-semibold leading-[1.06] tracking-[-0.035em] xl:text-[1.24rem] ${
+                              className={`mt-0.75 text-[1.18rem] font-semibold leading-[1.04] tracking-[-0.04em] xl:whitespace-nowrap xl:text-[1.2rem] ${
                                 isActive ? "text-white" : "text-[#07151b]"
                               }`}
                             >
                               {item.title}
                             </h3>
                             <p
-                              className={`mt-1.25 max-w-[24ch] text-[1rem] leading-[1.55] xl:text-[1.02rem] ${
+                              className={`mt-1.25 max-w-[26ch] text-[1rem] leading-[1.48] xl:text-[1.02rem] ${
                                 isActive ? "text-white/78" : "text-[#31444c]"
                               }`}
                             >
@@ -156,7 +156,7 @@ export function HomepageServicesReveal({
                         </div>
                         <span
                           aria-hidden="true"
-                          className={`mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-[0.9rem] ${
+                          className={`mt-0.5 inline-flex h-7.5 w-7.5 shrink-0 items-center justify-center rounded-full border text-[0.92rem] ${
                             isActive
                               ? "border-[#d8c3a2]/35 bg-[#d8c3a2]/14 text-[#f7efe1]"
                               : "border-[#d7cfbf] bg-white text-[#8d7453]"
@@ -167,20 +167,20 @@ export function HomepageServicesReveal({
                       </button>
 
                       <div
-                        className={`overflow-hidden transition-all duration-300 xl:max-h-none xl:px-3.75 xl:pb-3.5 xl:opacity-100 ${
+                        className={`overflow-hidden transition-all duration-300 xl:max-h-none xl:px-4 xl:pb-4 xl:opacity-100 ${
                           isActive ? "max-h-[16rem] px-4 pb-4 opacity-100" : "max-h-0 px-4 pb-0 opacity-0"
                         }`}
                       >
                         <div
-                          className={`rounded-[1.15rem] border border-white/8 bg-white/[0.05] px-3 py-3 transition-all duration-300 xl:min-h-[6.7rem] ${
+                          className={`rounded-[1.15rem] border border-white/8 bg-white/[0.05] px-3.25 py-3.25 transition-all duration-300 xl:min-h-[7.25rem] ${
                             isActive ? "visible opacity-100" : "xl:invisible xl:opacity-0"
                           }`}
                         >
-                          <ul className="space-y-2">
+                          <ul className="space-y-1.75">
                             {item.items.map((entry) => (
                               <li
                                 key={entry}
-                                className={`flex items-start gap-2.5 text-[0.94rem] leading-[1.45] ${
+                                className={`flex items-start gap-2.25 text-[0.92rem] leading-[1.42] ${
                                   isActive ? "text-white" : "text-[#07151b]"
                                 }`}
                               >
@@ -192,10 +192,10 @@ export function HomepageServicesReveal({
                               </li>
                             ))}
                           </ul>
-                          <div className="mt-3.5">
+                          <div className="mt-3.25">
                             <Link
                               href={item.href}
-                              className="inline-flex items-center gap-2 rounded-full border border-[#d0b58d] bg-[linear-gradient(180deg,#f4e6cc_0%,#e8d1a6_100%)] px-3.25 py-1.75 text-[0.92rem] font-semibold text-[#07151b]"
+                              className="inline-flex items-center gap-2 rounded-full border border-[#d0b58d] bg-[linear-gradient(180deg,#f4e6cc_0%,#e8d1a6_100%)] px-3.25 py-1.75 text-[0.9rem] font-semibold text-[#07151b]"
                             >
                               {item.cta}
                               <span aria-hidden="true">→</span>
