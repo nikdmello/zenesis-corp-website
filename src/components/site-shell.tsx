@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment, type ReactNode, useEffect } from "react";
+import { Fragment, type ReactNode, useEffect, useState } from "react";
 import { ConsultationFormButton } from "@/components/consultation-button";
 import { HelpWidget } from "@/components/help-widget";
 import { SiteSearchForm } from "@/components/site-search-form";
@@ -20,6 +20,9 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
   const shellWidthClass = "max-w-[100rem]";
   const isHomepage = currentPath === "/";
   const router = useRouter();
+  const [hoveredNavHref, setHoveredNavHref] = useState<string | null>(null);
+  const [openDesktopMenuHref, setOpenDesktopMenuHref] = useState<string | null>(null);
+  const [hoveredServiceGroupTitle, setHoveredServiceGroupTitle] = useState<string | null>(null);
 
   const scrollToServicesSection = () => {
     const servicesSection = document.getElementById("services");
@@ -120,12 +123,38 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                     item.groups.some((group) =>
                       group.links.some((link) => link.href === currentPath),
                     )));
+              const isHovered = hoveredNavHref === item.href;
+              const isDesktopMenuOpen = openDesktopMenuHref === item.href;
+              const shouldShowUnderline = isActive || isHovered || isDesktopMenuOpen;
               if ("groups" in item) {
                 const isServicesMenu = item.label === "Services";
                 const groupCount = item.groups.length;
 
                 return (
-                  <div key={item.href} className="group relative">
+                  <div
+                    key={item.href}
+                    className="relative"
+                    onMouseEnter={() => {
+                      setHoveredNavHref(item.href);
+                      setOpenDesktopMenuHref(item.href);
+                    }}
+                    onMouseLeave={() => {
+                      setHoveredNavHref((current) => (current === item.href ? null : current));
+                      setOpenDesktopMenuHref((current) => (current === item.href ? null : current));
+                    }}
+                    onFocusCapture={() => {
+                      setHoveredNavHref(item.href);
+                      setOpenDesktopMenuHref(item.href);
+                    }}
+                    onBlurCapture={(event) => {
+                      if (event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                        return;
+                      }
+
+                      setHoveredNavHref((current) => (current === item.href ? null : current));
+                      setOpenDesktopMenuHref((current) => (current === item.href ? null : current));
+                    }}
+                  >
                     <Link
                       href={item.href}
                       onClick={(event) => handleServicesNavClick(event, item.href)}
@@ -138,17 +167,23 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                         <span
                           aria-hidden="true"
                           className={`absolute left-0 top-full mt-[2px] h-[1.5px] bg-current transition-[width,opacity] duration-300 ease-out ${
-                            isActive
-                              ? "w-full opacity-100"
-                              : "w-0 opacity-70 group-hover:w-full"
+                            shouldShowUnderline ? "w-full opacity-100" : "w-0 opacity-70"
                           }`}
                         />
                       </span>
-                      <ChevronDownIcon className="mt-px h-3.5 w-3.5 opacity-80 transition-transform duration-200 group-hover:translate-y-[1px]" />
+                      <ChevronDownIcon
+                        className={`mt-px h-3.5 w-3.5 opacity-80 transition-transform duration-200 ${
+                          isDesktopMenuOpen ? "translate-y-[1px]" : ""
+                        }`}
+                      />
                     </Link>
 
                     <div
-                      className={`pointer-events-none absolute left-1/2 top-full -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 ease-out group-hover:pointer-events-auto group-hover:opacity-100 ${
+                      className={`absolute left-1/2 top-full -translate-x-1/2 pt-3 transition-all duration-200 ease-out ${
+                        isDesktopMenuOpen
+                          ? "pointer-events-auto translate-y-0 opacity-100"
+                          : "pointer-events-none translate-y-1.5 opacity-0"
+                      } ${
                         isServicesMenu
                           ? "w-[45rem]"
                           : groupCount > 2
@@ -184,13 +219,29 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                               {isServicesMenu ? (
                                 <Link
                                   href={getServiceGroupHref(group.title)}
-                                  className="group/title block text-[1.24rem] font-semibold tracking-[-0.02em] text-white transition-colors hover:text-white/82"
+                                  onMouseEnter={() => setHoveredServiceGroupTitle(group.title)}
+                                  onMouseLeave={() =>
+                                    setHoveredServiceGroupTitle((current) =>
+                                      current === group.title ? null : current,
+                                    )
+                                  }
+                                  onFocus={() => setHoveredServiceGroupTitle(group.title)}
+                                  onBlur={() =>
+                                    setHoveredServiceGroupTitle((current) =>
+                                      current === group.title ? null : current,
+                                    )
+                                  }
+                                  className="block text-[1.24rem] font-semibold tracking-[-0.02em] text-white transition-colors hover:text-white/82"
                                 >
                                   <span className="relative inline-block">
                                     {group.title}
                                     <span
                                       aria-hidden="true"
-                                      className="absolute left-0 top-full mt-[2px] h-[1.5px] w-0 bg-current opacity-80 transition-[width,opacity] duration-300 ease-out group-hover/title:w-full"
+                                      className={`absolute left-0 top-full mt-[2px] h-[1.5px] bg-current transition-[width,opacity] duration-300 ease-out ${
+                                        hoveredServiceGroupTitle === group.title
+                                          ? "w-full opacity-100"
+                                          : "w-0 opacity-80"
+                                      }`}
                                     />
                                   </span>
                                 </Link>
@@ -206,7 +257,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                                     href={link.href}
                                     className={`rounded-[0.8rem] transition-all duration-200 hover:bg-white/7 hover:text-white ${
                                       isServicesMenu
-                                        ? "px-0 py-2 text-[1.06rem] font-medium leading-[1.45] text-white/72 hover:px-3 hover:text-white"
+                                        ? "px-0 py-2 text-[1.06rem] font-medium leading-[1.45] text-white/72 hover:translate-x-1 hover:px-3 hover:text-white"
                                         : "px-2.75 py-2.25 text-[0.98rem] text-white/90"
                                     }`}
                                   >
@@ -228,6 +279,14 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                   key={item.href}
                   href={item.href}
                   onClick={(event) => handleServicesNavClick(event, item.href)}
+                  onMouseEnter={() => setHoveredNavHref(item.href)}
+                  onMouseLeave={() =>
+                    setHoveredNavHref((current) => (current === item.href ? null : current))
+                  }
+                  onFocus={() => setHoveredNavHref(item.href)}
+                  onBlur={() =>
+                    setHoveredNavHref((current) => (current === item.href ? null : current))
+                  }
                   className={`group px-2 py-2.5 transition-colors duration-200 hover:text-white ${
                     isActive ? "text-white" : ""
                   }`}
@@ -237,7 +296,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                     <span
                       aria-hidden="true"
                       className={`absolute left-0 top-full mt-[2px] h-[1.5px] bg-current transition-[width,opacity] duration-300 ease-out ${
-                        isActive ? "w-full opacity-100" : "w-0 opacity-70 group-hover:w-full"
+                        shouldShowUnderline ? "w-full opacity-100" : "w-0 opacity-70"
                       }`}
                     />
                   </span>
