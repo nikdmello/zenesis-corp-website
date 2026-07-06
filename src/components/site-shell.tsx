@@ -22,6 +22,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
   const router = useRouter();
   const [hoveredNavHref, setHoveredNavHref] = useState<string | null>(null);
   const [openDesktopMenuHref, setOpenDesktopMenuHref] = useState<string | null>(null);
+  const [hoveredServiceGroupTitle, setHoveredServiceGroupTitle] = useState<string | null>(null);
 
   const scrollToServicesSection = () => {
     const servicesSection = document.getElementById("services");
@@ -218,13 +219,29 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                               {isServicesMenu ? (
                                 <Link
                                   href={getServiceGroupHref(group.title)}
-                                  className="group/title block text-[1.24rem] font-semibold tracking-[-0.02em] text-white transition-colors hover:text-white/82"
+                                  onMouseEnter={() => setHoveredServiceGroupTitle(group.title)}
+                                  onMouseLeave={() =>
+                                    setHoveredServiceGroupTitle((current) =>
+                                      current === group.title ? null : current,
+                                    )
+                                  }
+                                  onFocus={() => setHoveredServiceGroupTitle(group.title)}
+                                  onBlur={() =>
+                                    setHoveredServiceGroupTitle((current) =>
+                                      current === group.title ? null : current,
+                                    )
+                                  }
+                                  className="block text-[1.24rem] font-semibold tracking-[-0.02em] text-white transition-colors hover:text-white/82"
                                 >
                                   <span className="relative inline-block">
                                     {group.title}
                                     <span
                                       aria-hidden="true"
-                                      className="absolute left-0 top-full mt-[2px] h-[1.5px] w-0 bg-current opacity-80 transition-[width,opacity] duration-300 ease-out group-hover/title:w-full"
+                                      className={`absolute left-0 top-full mt-[2px] h-[1.5px] bg-current transition-[width,opacity] duration-300 ease-out ${
+                                        hoveredServiceGroupTitle === group.title
+                                          ? "w-full opacity-100"
+                                          : "w-0 opacity-80"
+                                      }`}
                                     />
                                   </span>
                                 </Link>
@@ -240,7 +257,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                                     href={link.href}
                                     className={`rounded-[0.8rem] transition-all duration-200 hover:bg-white/7 hover:text-white ${
                                       isServicesMenu
-                                        ? "px-0 py-2 text-[1.06rem] font-medium leading-[1.45] text-white/72 hover:px-3 hover:text-white"
+                                        ? "px-0 py-2 text-[1.06rem] font-medium leading-[1.45] text-white/72 hover:translate-x-1 hover:px-3 hover:text-white"
                                         : "px-2.75 py-2.25 text-[0.98rem] text-white/90"
                                     }`}
                                   >

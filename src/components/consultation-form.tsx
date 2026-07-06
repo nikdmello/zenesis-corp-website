@@ -345,12 +345,147 @@ type ConsultationFormProps = {
   leadingIcon?: React.ReactNode;
 };
 
-function getCompactCountryLabel(_label: string, value: string) {
-  return value;
+function getCountryFlagIso(label: string) {
+  const flagCharacters = Array.from(label).slice(0, 2);
+
+  if (
+    flagCharacters.length !== 2 ||
+    !flagCharacters.every((character) => {
+      const codePoint = character.codePointAt(0);
+      return codePoint !== undefined && codePoint >= 0x1f1e6 && codePoint <= 0x1f1ff;
+    })
+  ) {
+    return null;
+  }
+
+  return flagCharacters
+    .map((character) => {
+      const codePoint = character.codePointAt(0) ?? 0x1f1e6;
+      return String.fromCharCode(codePoint - 0x1f1e6 + 97);
+    })
+    .join("");
 }
 
 function getCountryDisplayLabel(label: string) {
-  return label.replace(/^[^\p{L}\p{N}(]+/u, "").trim();
+  return label.replace(/^[\u{1f1e6}-\u{1f1ff}]{2}\s*/u, "").trim();
+}
+
+function CountryFlag({ label }: { label: string }) {
+  const flagIso = getCountryFlagIso(label);
+
+  if (!flagIso) {
+    return null;
+  }
+
+  return (
+    // Windows does not render regional-indicator flag emoji as country flags,
+    // so use a tiny image in the custom picker surface instead.
+    <Image
+      alt=""
+      aria-hidden="true"
+      className="h-3.5 w-5 shrink-0 rounded-[0.12rem] object-cover shadow-[0_0_0_1px_rgba(17,35,42,0.08)]"
+      height={15}
+      loading="lazy"
+      src={`https://flagcdn.com/40x30/${flagIso}.png`}
+      width={20}
+    />
+  );
+}
+
+type CountryCodePickerProps = {
+  countryCodeId: string;
+  selectedCountryLabel: string;
+  selectedCountryValue: string;
+  onSelectedCountryLabelChange: (label: string) => void;
+};
+
+function CountryCodePicker({
+  countryCodeId,
+  selectedCountryLabel,
+  selectedCountryValue,
+  onSelectedCountryLabelChange,
+}: CountryCodePickerProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const pickerRef = useRef<HTMLDivElement>(null);
+  const selectedCountry = countryCodes.find(
+    (item) => item.label === selectedCountryLabel,
+  ) ?? countryCodes[0];
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    function onPointerDown(event: PointerEvent) {
+      if (pickerRef.current?.contains(event.target as Node)) {
+        return;
+      }
+
+      setIsOpen(false);
+    }
+
+    document.addEventListener("pointerdown", onPointerDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [isOpen]);
+
+  return (
+    <div ref={pickerRef} className="relative">
+      <label className="sr-only" htmlFor={countryCodeId}>
+        Country code
+      </label>
+      <input type="hidden" name="countryCode" value={selectedCountryValue} />
+      <button
+        id={countryCodeId}
+        type="button"
+        aria-expanded={isOpen}
+        aria-haspopup="listbox"
+        className="flex h-full min-h-[3.25rem] w-full items-center gap-2 rounded-xl border border-foreground/12 bg-white px-3 py-3 text-left text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+        onClick={() => setIsOpen((current) => !current)}
+      >
+        <CountryFlag label={selectedCountry.label} />
+        <span>{selectedCountryValue}</span>
+        <span aria-hidden="true" className="ml-auto text-xs text-muted">
+          ▾
+        </span>
+      </button>
+      {isOpen ? (
+        <div
+          className="absolute left-0 top-[calc(100%+0.35rem)] z-40 max-h-64 w-[19rem] overflow-y-auto rounded-xl border border-foreground/12 bg-white py-1.5 text-foreground shadow-[0_18px_48px_rgba(17,35,42,0.18)]"
+          role="listbox"
+          aria-label="Country code"
+        >
+          {countryCodes.map((item) => {
+            const isSelected = item.label === selectedCountryLabel;
+
+            return (
+              <button
+                key={item.label}
+                type="button"
+                role="option"
+                aria-selected={isSelected}
+                className={`flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition-colors hover:bg-[#f8f5ef] ${
+                  isSelected ? "bg-[rgba(36,75,168,0.08)] text-accent" : ""
+                }`}
+                onClick={() => {
+                  onSelectedCountryLabelChange(item.label);
+                  setIsOpen(false);
+                }}
+              >
+                <CountryFlag label={item.label} />
+                <span className="min-w-0 flex-1 truncate">
+                  {getCountryDisplayLabel(item.label)}
+                </span>
+                <span className="shrink-0 text-foreground/58">{item.value}</span>
+              </button>
+            );
+          })}
+        </div>
+      ) : null}
+    </div>
+  );
 }
 
 export function ConsultationFormButton({
@@ -627,39 +762,12 @@ export function ConsultationInlinePanel({
               <div className="grid gap-2">
                 <p className="text-sm font-semibold text-foreground">Mobile number</p>
                 <div className="grid grid-cols-[7.35rem_minmax(0,1fr)] gap-3 sm:grid-cols-[8.5rem_minmax(0,1fr)]">
-                  <label className="sr-only" htmlFor={countryCodeId}>
-                    Country code
-                  </label>
-                  <div className="relative rounded-xl border border-foreground/12 bg-white px-4 py-3 shadow-inner transition-colors focus-within:border-accent focus-within:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]">
-                    <span className="block pr-5 text-base font-normal text-foreground">
-                      {getCompactCountryLabel(
-                        selectedCountryLabel,
-                        selectedCountryValue,
-                      )}
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted"
-                    >
-                      ▾
-                    </span>
-                    <select
-                      id={countryCodeId}
-                      name="countryCode"
-                      value={selectedCountryLabel}
-                      aria-label="Country code"
-                      className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
-                      onChange={(event) => {
-                        setSelectedCountryLabel(event.currentTarget.value);
-                      }}
-                    >
-                      {countryCodes.map((item) => (
-                        <option key={item.label} value={item.label}>
-                          {getCountryDisplayLabel(item.label)}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                  <CountryCodePicker
+                    countryCodeId={countryCodeId}
+                    selectedCountryLabel={selectedCountryLabel}
+                    selectedCountryValue={selectedCountryValue}
+                    onSelectedCountryLabelChange={setSelectedCountryLabel}
+                  />
 
                   <label className="sr-only" htmlFor={mobileId}>
                     Mobile number
@@ -946,39 +1054,12 @@ export function ConsultationModal({
                 <div className="grid gap-2">
                   <p className="text-sm font-semibold text-foreground">Mobile number</p>
                   <div className="grid grid-cols-[7.35rem_minmax(0,1fr)] gap-3 sm:grid-cols-[8.5rem_minmax(0,1fr)]">
-                    <label className="sr-only" htmlFor={countryCodeId}>
-                      Country code
-                    </label>
-                    <div className="relative rounded-xl border border-foreground/12 bg-white px-4 py-3 shadow-inner transition-colors focus-within:border-accent focus-within:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]">
-                      <span className="block pr-5 text-base font-normal text-foreground">
-                        {getCompactCountryLabel(
-                          selectedCountryLabel,
-                          selectedCountryValue,
-                        )}
-                      </span>
-                      <span
-                        aria-hidden="true"
-                        className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted"
-                      >
-                        ▾
-                      </span>
-                      <select
-                        id={countryCodeId}
-                        name="countryCode"
-                        value={selectedCountryLabel}
-                        aria-label="Country code"
-                        className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
-                        onChange={(event) => {
-                          setSelectedCountryLabel(event.currentTarget.value);
-                        }}
-                      >
-                        {countryCodes.map((item) => (
-                          <option key={item.label} value={item.label}>
-                            {getCountryDisplayLabel(item.label)}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
+                    <CountryCodePicker
+                      countryCodeId={countryCodeId}
+                      selectedCountryLabel={selectedCountryLabel}
+                      selectedCountryValue={selectedCountryValue}
+                      onSelectedCountryLabelChange={setSelectedCountryLabel}
+                    />
 
                     <label className="sr-only" htmlFor={mobileId}>
                       Mobile number
