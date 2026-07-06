@@ -345,9 +345,12 @@ type ConsultationFormProps = {
   leadingIcon?: React.ReactNode;
 };
 
-function getCompactCountryLabel(label: string, value: string) {
-  const [flag] = label.split(" ");
-  return `${flag ?? ""} ${value}`.trim();
+function getCompactCountryLabel(_label: string, value: string) {
+  return value;
+}
+
+function getCountryDisplayLabel(label: string) {
+  return label.replace(/^[^\p{L}\p{N}(]+/u, "").trim();
 }
 
 export function ConsultationFormButton({
@@ -652,7 +655,7 @@ export function ConsultationInlinePanel({
                     >
                       {countryCodes.map((item) => (
                         <option key={item.label} value={item.label}>
-                          {item.label}
+                          {getCountryDisplayLabel(item.label)}
                         </option>
                       ))}
                     </select>
@@ -971,7 +974,7 @@ export function ConsultationModal({
                       >
                         {countryCodes.map((item) => (
                           <option key={item.label} value={item.label}>
-                            {item.label}
+                            {getCountryDisplayLabel(item.label)}
                           </option>
                         ))}
                       </select>
