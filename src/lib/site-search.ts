@@ -50,12 +50,40 @@ const topLevelPages: SearchDocument[] = [
     href: "/business-setup",
     title: "Business setup",
     description:
-      "Mainland, free zone, offshore, and related company formation support in the UAE.",
+      "Mainland, free zone, freelance permit, offshore, and related company formation support in the UAE with published starting prices.",
     type: "Page",
     section: "Services",
-    keywords: ["business setup", "company formation", "mainland", "free zone", "offshore"],
+    keywords: [
+      "business setup",
+      "company formation",
+      "business setup cost",
+      "business setup price",
+      "dubai company formation cost",
+      "mainland",
+      "free zone",
+      "freelance permit",
+      "offshore",
+    ],
     searchText:
-      "business setup company formation mainland free zone offshore document attestation uae dubai",
+      "business setup company formation mainland free zone freelance permit offshore document attestation uae dubai cost price prices starting from AED 7000 free zone without visa AED 15000 free zone with visa AED 10000 mainland AED 4000 freelance permit",
+  },
+  {
+    href: "/business-setup-cost-dubai",
+    title: "Business setup cost in Dubai",
+    description:
+      "Zenesis business setup consultancy prices in Dubai, including freelance permits from AED 4,000, free zone setup from AED 7,000, free zone with visa from AED 15,000, and mainland setup from AED 10,000.",
+    type: "Page",
+    section: "Services",
+    keywords: [
+      "business setup cost dubai",
+      "company formation cost dubai",
+      "dubai business setup prices",
+      "free zone setup cost",
+      "mainland setup cost",
+      "freelance permit cost",
+    ],
+    searchText:
+      "business setup cost in dubai company formation cost dubai business setup consultancy prices zenesis AED 4000 freelance permit AED 7000 free zone setup without visa AED 15000 free zone setup with visa AED 10000 mainland company setup pricing comparison",
   },
   {
     href: "/accounting-tax",

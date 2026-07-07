@@ -260,7 +260,8 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                   <div className="p-6">
                     <CardAccent />
                     <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-                      {post.category}
+                      {post.category} <span className="text-[#11232a]/42">/</span>{" "}
+                      <span className="text-[#11232a]/58">{post.dateLabel}</span>
                     </p>
                     <h3 className="mt-4 text-[1.28rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">
                       {post.title}

@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { BusinessSetupPriceActions } from "@/components/business-setup-price-actions";
+import { businessSetupPricingLastUpdated } from "@/lib/business-setup-pricing";
 
 type ServiceRevealItem = {
   title: string;
@@ -70,12 +71,10 @@ function ServiceIcon({ type }: { type: ServiceRevealItem["icon"] }) {
 export function HomepageServicesReveal({
   items,
 }: HomepageServicesRevealProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   return (
     <section
       id="services"
-      className="relative left-1/2 w-screen -translate-x-1/2 scroll-mt-14 overflow-hidden bg-[#f5efe4] pb-0 pt-16 text-[#07151b] md:scroll-mt-18 md:pt-18 xl:pt-22"
+      className="relative left-1/2 w-screen -translate-x-1/2 scroll-mt-14 overflow-hidden bg-[#f5efe4] pb-10 pt-16 text-[#07151b] md:scroll-mt-18 md:pb-12 md:pt-18 xl:pt-22"
     >
       <div
         aria-hidden="true"
@@ -92,228 +91,83 @@ export function HomepageServicesReveal({
           </p>
         </div>
 
-        <div className="mt-10">
-          <div className="hidden xl:block">
-            <div className="rounded-[2.4rem] border border-[#d9cfbf] bg-[linear-gradient(180deg,rgba(255,255,255,0.58),rgba(255,255,255,0.34))] p-5 shadow-[0_24px_60px_rgba(17,35,42,0.07)] md:p-6 xl:p-8">
-              <div className="grid gap-3 xl:grid-cols-4 xl:gap-3">
-                {items.map((item) => {
-                  const index = items.indexOf(item);
-                  const isActive = activeIndex === index;
-                  const stageNumber = stageNumberByIndex[index];
-
-                    return (
-                      <article
-                        key={item.title}
-                        onMouseEnter={() => setActiveIndex(index)}
-                        className={`flex h-full flex-col overflow-hidden rounded-[1.55rem] border transition-all duration-300 xl:min-h-[18.9rem] ${
-                          isActive
-                            ? "border-[#d1b285] bg-[#102028] shadow-[0_22px_48px_rgba(17,35,42,0.14)]"
-                            : "border-[#d8cfbf] bg-white/88 shadow-[0_10px_24px_rgba(17,35,42,0.05)]"
-                        }`}
-                      >
-                      <button
-                        type="button"
-                        onFocus={() => setActiveIndex(index)}
-                        onClick={() => setActiveIndex(index)}
-                        className="flex w-full items-start justify-between gap-3 px-4 py-4 text-left xl:px-4 xl:py-4"
-                        aria-expanded={isActive}
-                      >
-                        <div className="flex min-w-0 flex-1 gap-3">
-                          <span
-                            className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border ${
-                              isActive
-                                ? "border-[#d8c3a2]/30 bg-white/[0.04] text-[#ecdcbc]"
-                                : "border-[#d8c3a2]/45 bg-[#f8f2e7] text-[#8d7453]"
-                            }`}
-                          >
-                            <ServiceIcon type={item.icon} />
-                          </span>
-                          <div className="min-w-0 flex-1">
-                            <div className="flex items-center gap-2">
-                              <span
-                                className={`text-[0.72rem] font-semibold tracking-[0.18em] ${
-                                  isActive ? "text-[#d8c3a2]" : "text-[#8d7453]"
-                                }`}
-                              >
-                                {stageNumber}
-                              </span>
-                            </div>
-                            <h3
-                              className={`mt-0.75 text-[1.18rem] font-semibold leading-[1.04] tracking-[-0.04em] xl:whitespace-nowrap xl:text-[1.2rem] ${
-                                isActive ? "text-white" : "text-[#07151b]"
-                              }`}
-                            >
-                              {item.title}
-                            </h3>
-                            <p
-                              className={`mt-1.25 max-w-[26ch] text-[1rem] leading-[1.48] xl:text-[1.02rem] ${
-                                isActive ? "text-white/78" : "text-[#31444c]"
-                              }`}
-                            >
-                              {item.description}
-                            </p>
-                          </div>
-                        </div>
-                        <span
-                          aria-hidden="true"
-                          className={`mt-0.5 inline-flex h-7.5 w-7.5 shrink-0 items-center justify-center rounded-full border text-[0.92rem] ${
-                            isActive
-                              ? "border-[#d8c3a2]/35 bg-[#d8c3a2]/14 text-[#f7efe1]"
-                              : "border-[#d7cfbf] bg-white text-[#8d7453]"
-                          }`}
-                        >
-                          {isActive ? "−" : "+"}
-                        </span>
-                      </button>
-
-                      <div
-                        className={`overflow-hidden transition-all duration-300 xl:max-h-none xl:px-4 xl:pb-4 xl:opacity-100 ${
-                          isActive ? "max-h-[16rem] px-4 pb-4 opacity-100" : "max-h-0 px-4 pb-0 opacity-0"
-                        }`}
-                      >
-                        <div
-                          className={`rounded-[1.15rem] border border-white/8 bg-white/[0.05] px-3.25 py-3.25 transition-all duration-300 xl:min-h-[7.25rem] ${
-                            isActive ? "visible opacity-100" : "xl:invisible xl:opacity-0"
-                          }`}
-                        >
-                          <ul className="space-y-1.75">
-                            {item.items.map((entry) => (
-                              <li
-                                key={entry}
-                                className={`flex items-start gap-2.25 text-[0.92rem] leading-[1.42] ${
-                                  isActive ? "text-white" : "text-[#07151b]"
-                                }`}
-                              >
-                                <span
-                                  aria-hidden="true"
-                                  className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#b79056]"
-                                />
-                                <span>{entry}</span>
-                              </li>
-                            ))}
-                          </ul>
-                          <div className="mt-3.25">
-                            <Link
-                              href={item.href}
-                              className="inline-flex items-center gap-2 rounded-full border border-[#d0b58d] bg-[linear-gradient(180deg,#f4e6cc_0%,#e8d1a6_100%)] px-3.25 py-1.75 text-[0.9rem] font-semibold text-[#07151b]"
-                            >
-                              {item.cta}
-                              <span aria-hidden="true">→</span>
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    </article>
-                  );
-                })}
-              </div>
-            </div>
+        <div className="mt-8 xl:mt-9">
+          <div className="mb-4 max-w-[42rem]">
+            <p className="text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+              Business setup starting prices
+            </p>
+            <p className="mt-2 text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[#8d7453]/78">
+              Updated{" "}
+              <time dateTime={businessSetupPricingLastUpdated.isoDate}>
+                {businessSetupPricingLastUpdated.label}
+              </time>
+            </p>
           </div>
+          <BusinessSetupPriceActions variant="homepage" />
         </div>
 
-        <div className="mt-8 space-y-4 xl:hidden">
-          {items.map((item, index) => {
-            const isActive = activeIndex === index;
+        <div className="mt-10 border-t border-[#d8c3a2]/60 pt-6">
+          <div className="mb-5">
+            <p className="text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+              Explore all services
+            </p>
+          </div>
 
-            return (
-              <article
-                key={item.title}
-                className={`overflow-hidden rounded-[1.8rem] border transition-all duration-300 ${
-                  isActive
-                    ? "border-[#d1b285] bg-[#102028] shadow-[0_22px_48px_rgba(17,35,42,0.14)]"
-                    : "border-[#d8cfbf] bg-white/80 shadow-[0_10px_24px_rgba(17,35,42,0.05)]"
-                }`}
-              >
-                <button
-                  type="button"
-                  onClick={() => setActiveIndex(index)}
-                  className="flex w-full items-start justify-between gap-4 px-5 py-5 text-left"
-                  aria-expanded={isActive}
+          <div className="rounded-[2.1rem] border border-[#d9cfbf] bg-[linear-gradient(180deg,rgba(255,255,255,0.58),rgba(255,255,255,0.34))] p-4 shadow-[0_24px_60px_rgba(17,35,42,0.07)] md:p-5 xl:rounded-[2.4rem] xl:p-8">
+            <div className="grid items-stretch gap-3 md:grid-cols-2 xl:grid-cols-4">
+              {items.map((item, index) => (
+                <article
+                  key={item.title}
+                  className="group flex h-full flex-col overflow-hidden rounded-[1.55rem] border border-[#d8cfbf] bg-white/88 shadow-[0_10px_24px_rgba(17,35,42,0.05)] transition-all duration-300 hover:border-[#d1b285] hover:bg-[#102028] hover:shadow-[0_22px_48px_rgba(17,35,42,0.14)] focus-within:border-[#d1b285] focus-within:bg-[#102028] focus-within:shadow-[0_22px_48px_rgba(17,35,42,0.14)]"
                 >
-                  <div className="flex min-w-0 gap-3.5">
-                    <span
-                      className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border ${
-                        isActive
-                          ? "border-[#d8c3a2]/30 bg-white/[0.04] text-[#ecdcbc]"
-                          : "border-[#d8c3a2]/45 bg-[#f8f2e7] text-[#8d7453]"
-                      }`}
-                    >
+                  <div className="flex w-full flex-1 items-start gap-3 px-4 py-4 text-left md:min-h-[10.5rem]">
+                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#d8c3a2]/45 bg-[#f8f2e7] text-[#8d7453] transition-colors duration-300 group-hover:border-[#d8c3a2]/30 group-hover:bg-white/[0.04] group-hover:text-[#ecdcbc] group-focus-within:border-[#d8c3a2]/30 group-focus-within:bg-white/[0.04] group-focus-within:text-[#ecdcbc]">
                       <ServiceIcon type={item.icon} />
                     </span>
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span
-                          className={`text-[0.72rem] font-semibold tracking-[0.18em] ${
-                            isActive ? "text-[#d8c3a2]" : "text-[#8d7453]"
-                          }`}
-                        >
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                      </div>
-                      <h3
-                        className={`mt-1 text-[1.18rem] font-semibold leading-[1.12] tracking-[-0.03em] ${
-                          isActive ? "text-white" : "text-[#07151b]"
-                        }`}
-                      >
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[0.72rem] font-semibold tracking-[0.18em] text-[#8d7453] transition-colors duration-300 group-hover:text-[#d8c3a2] group-focus-within:text-[#d8c3a2]">
+                        {stageNumberByIndex[index]}
+                      </p>
+                      <h3 className="mt-1 text-[1.16rem] font-semibold leading-[1.08] tracking-[-0.03em] text-[#07151b] transition-colors duration-300 group-hover:text-white group-focus-within:text-white xl:whitespace-nowrap xl:text-[1.2rem]">
                         {item.title}
                       </h3>
-                      <p
-                        className={`mt-2 text-[0.98rem] leading-7 ${
-                          isActive ? "text-white/78" : "text-[#42545b]"
-                        }`}
-                      >
+                      <p className="mt-2 text-[0.98rem] leading-6 text-[#31444c] transition-colors duration-300 group-hover:text-white/78 group-focus-within:text-white/78 xl:text-[1.02rem]">
                         {item.description}
                       </p>
                     </div>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    className={`mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-[1rem] ${
-                      isActive
-                        ? "border-[#d8c3a2]/35 bg-[#d8c3a2]/14 text-[#f7efe1]"
-                        : "border-[#d7cfbf] bg-white text-[#8d7453]"
-                    }`}
-                  >
-                    {isActive ? "−" : "+"}
-                  </span>
-                </button>
 
-                <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    isActive ? "max-h-[16rem] px-5 pb-5 opacity-100" : "max-h-0 px-5 pb-0 opacity-0"
-                  }`}
-                >
-                  <div className="rounded-[1.35rem] border border-white/8 bg-white/[0.05] px-4 py-4">
-                    <ul className="space-y-2.5">
-                      {item.items.map((entry) => (
-                        <li
-                          key={entry}
-                          className={`flex items-start gap-3 text-[0.98rem] leading-6 ${
-                            isActive ? "text-white" : "text-[#07151b]"
-                          }`}
+                  <div className="px-4 pb-3 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100">
+                    <div className="rounded-[1.15rem] border border-white/8 bg-white/[0.05] px-3.25 py-3">
+                      <ul className="space-y-1.75">
+                        {item.items.map((entry) => (
+                          <li
+                            key={entry}
+                            className="flex items-start gap-2.25 text-[0.92rem] leading-[1.42] text-white"
+                          >
+                            <span
+                              aria-hidden="true"
+                              className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#b79056]"
+                            />
+                            <span>{entry}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-2.5">
+                        <Link
+                          href={item.href}
+                          className="inline-flex items-center gap-2 rounded-full border border-[#d0b58d] bg-[linear-gradient(180deg,#f4e6cc_0%,#e8d1a6_100%)] px-3.25 py-1.75 text-[0.9rem] font-semibold text-[#07151b]"
                         >
-                          <span
-                            aria-hidden="true"
-                            className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#b79056]"
-                          />
-                          <span>{entry}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-5">
-                      <Link
-                        href={item.href}
-                        className="inline-flex items-center gap-2 rounded-full border border-[#d0b58d] bg-[linear-gradient(180deg,#f4e6cc_0%,#e8d1a6_100%)] px-4 py-2.5 text-[0.96rem] font-semibold text-[#07151b]"
-                      >
-                        {item.cta}
-                        <span aria-hidden="true">→</span>
-                      </Link>
+                          {item.cta}
+                          <span aria-hidden="true">-&gt;</span>
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </article>
-            );
-          })}
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

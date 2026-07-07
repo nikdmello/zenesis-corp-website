@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { BusinessSetupCostTable } from "@/components/business-setup-cost-table";
+import { BusinessSetupPricingFaq } from "@/components/business-setup-pricing-faq";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { JsonLd } from "@/components/json-ld";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
@@ -7,6 +9,11 @@ import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { CardAccent, PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { versionedAssetPath } from "@/lib/asset-paths";
+import {
+  businessSetupPricingFaqs,
+  businessSetupPricingDisclaimer,
+  businessSetupStartingPrices,
+} from "@/lib/business-setup-pricing";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
 import {
   buildFaqSchema,
@@ -33,9 +40,9 @@ const setupRoutes = [
     description:
       "Best suited to consultancies, trading businesses, professional services, retail, and companies that need broader UAE market access.",
     points: [
-      "Choose the right business activity and trade name before filing the application",
-      "Handle licensing, supporting documents, and authority approvals properly",
-      "Plan office requirements, visas, renewals, and the compliance work that follows setup",
+      "Choose the right business activity and trade name before filing the application.",
+      "Handle licensing, supporting documents, and authority approvals properly.",
+      "Plan office requirements, visas, renewals, and the compliance work that follows setup.",
     ],
   },
   {
@@ -50,9 +57,9 @@ const setupRoutes = [
     description:
       "Free zone routes are often chosen for flexible setup packages, international positioning, and easier alignment with specific business activities.",
     points: [
-      "Compare the right free zones instead of choosing only on headline cost",
-      "Match the activity, package, and license application to how the business will operate",
-      "Plan visas, renewals, and banking documents before they become a delay after setup",
+      "Compare the right free zones instead of choosing only on headline cost.",
+      "Match the activity, package, and license application to how the business will operate.",
+      "Plan visas, renewals, and banking documents before they become a delay after setup.",
     ],
   },
   {
@@ -67,9 +74,9 @@ const setupRoutes = [
     description:
       "Offshore structures are typically used for ownership, international arrangements, and holding needs rather than local operating activity.",
     points: [
-      "Choose the offshore jurisdiction that fits the ownership objective behind the structure",
-      "Handle incorporation documents and the compliance paperwork tied to the setup",
-      "Get support on banking where the structure and use case make that practical",
+      "Choose the offshore jurisdiction that fits the ownership objective behind the structure.",
+      "Handle incorporation documents and the compliance paperwork tied to the setup.",
+      "Get support on banking where the structure and use case make that practical.",
     ],
   },
 ] as const;
@@ -81,9 +88,9 @@ const essentialServices = [
     description:
       "Personal, educational, and commercial documents often need formal attestation before UAE authorities will accept them.",
     points: [
-      "Prepare personal documents such as birth, marriage, divorce, police clearance, and death certificates for UAE use",
-      "Handle educational records including degrees, diplomas, transcripts, and training certificates",
-      "Process commercial documents such as incorporation records, board resolutions, POAs, invoices, and MOA or AOA papers",
+      "Prepare personal documents such as birth, marriage, divorce, police clearance, and death certificates for UAE use.",
+      "Handle educational records including degrees, diplomas, transcripts, and training certificates.",
+      "Process commercial documents such as incorporation records, board resolutions, POAs, invoices, and MOA or AOA papers.",
     ],
   },
   {
@@ -92,9 +99,9 @@ const essentialServices = [
     description:
       "Business owners usually need banking support soon after choosing the formation route, especially when KYC and documentation requirements affect timing.",
     points: [
-      "Prepare for corporate and personal account opening with a cleaner document pack",
-      "Handle KYC and compliance documentation before the bank asks for multiple revisions",
-      "Support mainland, free zone, and offshore structures with the right banking approach",
+      "Prepare for corporate and personal account opening with a cleaner document pack.",
+      "Handle KYC and compliance documentation before the bank asks for multiple revisions.",
+      "Support mainland, free zone, and offshore structures with the right banking approach.",
     ],
   },
   {
@@ -103,9 +110,9 @@ const essentialServices = [
     description:
       "A company visa is usually one of the first follow-on needs after setup for founders and employees who need to live and work in the UAE.",
     points: [
-      "Support founders and employees who need legal UAE residency to start operating",
-      "Coordinate Emirates ID, health insurance, and family sponsorship follow-through",
-      "Put renewable residency in place while the company becomes operational",
+      "Support founders and employees who need legal UAE residency to start operating.",
+      "Coordinate Emirates ID, health insurance, and family sponsorship follow-through.",
+      "Put renewable residency in place while the company becomes operational.",
     ],
   },
   {
@@ -114,9 +121,9 @@ const essentialServices = [
     description:
       "Residency and banking support matters when founders, investors, and teams need visas or account opening tied to business setup.",
     points: [
-      "Plan Golden Visa, company visa, and family residency needs in the right sequence",
-      "Prepare banking and KYC documentation alongside the company structure",
-      "Reduce delays by connecting residency and banking steps to the setup timeline",
+      "Plan Golden Visa, company visa, and family residency needs in the right sequence.",
+      "Prepare banking and KYC documentation alongside the company structure.",
+      "Reduce delays by connecting residency and banking steps to the setup timeline.",
     ],
   },
 ] as const;
@@ -212,12 +219,13 @@ export default function BusinessSetupPage() {
       title: "Business setup",
       description: legacyRouteMeta.businessSetup.description,
       path: "/business-setup",
+      offers: businessSetupStartingPrices,
     }),
     buildBreadcrumbSchema([
       { name: "Home", url: getAbsoluteUrl("/") },
       { name: "Business setup", url: getAbsoluteUrl("/business-setup") },
     ]),
-    buildFaqSchema(directAnswers),
+    buildFaqSchema([...directAnswers, ...businessSetupPricingFaqs]),
   ];
 
   return (
@@ -281,6 +289,29 @@ export default function BusinessSetupPage() {
         items={directAnswers}
       />
 
+      <section
+        id="starting-prices"
+        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20"
+      >
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <SectionHeading
+            eyebrow=""
+            title="Business setup starting prices"
+            description="Clear starting points for founders comparing the cost of business setup in Dubai and the UAE before booking a consultation."
+          />
+
+          <div className="mt-8 md:mt-10">
+            <BusinessSetupCostTable />
+          </div>
+
+          <p className="mt-5 max-w-5xl text-[0.98rem] font-medium leading-7 text-[#11232a]/72">
+            {businessSetupPricingDisclaimer}
+          </p>
+        </div>
+      </section>
+
+      <BusinessSetupPricingFaq />
+
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto grid w-full max-w-[100rem] gap-5 px-6 md:px-12 lg:grid-cols-2 xl:px-20">
           <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
@@ -312,7 +343,7 @@ export default function BusinessSetupPage() {
             </div>
           </article>
 
-          <article className="rounded-[2rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
+          <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
             <CardAccent />
             <p className="mt-5 text-[0.78rem] font-semibold uppercase tracking-[0.26em] text-[#6f5a42]">
               Ongoing Support
@@ -389,7 +420,7 @@ export default function BusinessSetupPage() {
               {routeSignals.map((item, index) => (
                 <div
                   key={item.title}
-                  className="grid gap-4 rounded-[1.55rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-5 shadow-[0_12px_34px_rgba(17,35,42,0.08)] md:grid-cols-[auto_1fr]"
+                  className="grid gap-4 rounded-[1.55rem] border border-[#d8d0c2] bg-white p-5 shadow-[0_12px_34px_rgba(17,35,42,0.08)] md:grid-cols-[auto_1fr]"
                 >
                   <div className="flex items-start">
                     <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#8d7453]/18 bg-[#8d7453]/10 text-sm font-semibold text-[#8d7453] shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
@@ -409,7 +440,7 @@ export default function BusinessSetupPage() {
             </div>
           </article>
 
-          <article className="h-full rounded-[2rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 text-[#11232a] shadow-[0_20px_60px_rgba(17,35,42,0.18)] md:p-8">
+          <article className="h-full rounded-[2rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_20px_60px_rgba(17,35,42,0.18)] md:p-8">
             <CardAccent />
             <p className="mt-5 text-[0.78rem] font-semibold uppercase tracking-[0.26em] text-[#6f5a42]">
               Formation reference
@@ -510,7 +541,7 @@ export default function BusinessSetupPage() {
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {processSteps.map((item) => (
-              <article key={item.step} className="rounded-[1.75rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-8 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.16)] md:p-9">
+              <article key={item.step} className="rounded-[1.75rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.16)] md:p-9">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#8d7453]/18 bg-[#8d7453]/10 text-[0.95rem] font-semibold tracking-[0.08em] text-[#8d7453]">
                   {item.step}
                 </div>

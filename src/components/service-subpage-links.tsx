@@ -25,7 +25,7 @@ export function ServiceSubpageLinks({
         <Link
           key={item.href}
           href={item.href}
-          className={`group flex flex-col justify-between overflow-hidden border border-[#d8d0c2] bg-[linear-gradient(180deg,#fffdfa_0%,#f6efe3_100%)] text-foreground shadow-[0_14px_36px_rgba(17,35,42,0.08)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/20 hover:shadow-[0_18px_44px_rgba(17,35,42,0.11)] ${
+          className={`group flex flex-col justify-between overflow-hidden border border-[#d8d0c2] bg-white text-foreground shadow-[0_14px_36px_rgba(17,35,42,0.08)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/20 hover:shadow-[0_18px_44px_rgba(17,35,42,0.11)] ${
             isCompact
               ? "min-h-[8.1rem] rounded-[1.2rem] px-4 py-4"
               : "min-h-[9.5rem] rounded-[1.45rem] px-5 py-5"

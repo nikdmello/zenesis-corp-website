@@ -46,6 +46,12 @@ type ServiceSchemaInput = {
   title: string;
   description: string;
   path: string;
+  offers?: ReadonlyArray<{
+    title: string;
+    description: string;
+    numericPrice: number;
+    href: string;
+  }>;
 };
 
 function getContactValue(label: string) {
@@ -245,7 +251,7 @@ export function buildArticleSchema({
   };
 }
 
-export function buildServiceSchema({ title, description, path }: ServiceSchemaInput) {
+export function buildServiceSchema({ title, description, path, offers }: ServiceSchemaInput) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -261,6 +267,28 @@ export function buildServiceSchema({ title, description, path }: ServiceSchemaIn
       "@type": "Country",
       name: "United Arab Emirates",
     },
+    ...(offers?.length
+      ? {
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: `${title} starting prices`,
+            itemListElement: offers.map((offer) => ({
+              "@type": "Offer",
+              name: offer.title,
+              description: offer.description,
+              price: offer.numericPrice,
+              priceCurrency: "AED",
+              url: getAbsoluteUrl(offer.href),
+              availability: "https://schema.org/InStock",
+              itemOffered: {
+                "@type": "Service",
+                name: offer.title,
+                description: offer.description,
+              },
+            })),
+          },
+        }
+      : {}),
   };
 }
 

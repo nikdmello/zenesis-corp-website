@@ -63,7 +63,7 @@ export function BusinessSetupRouteCard({
           className={`absolute inset-0 flex h-full w-full flex-col overflow-hidden rounded-[2rem] border border-[#dcd3c6] shadow-[0_16px_44px_rgba(17,35,42,0.09)] [backface-visibility:hidden] ${
             hasImage
               ? "bg-white text-left"
-              : "justify-center bg-[linear-gradient(180deg,#fffdfa_0%,#f5efe4_100%)] px-7 py-8 text-center md:px-8 md:py-10"
+              : "justify-center bg-white px-7 py-8 text-center md:px-8 md:py-10"
           }`}
         >
           {hasImage ? (

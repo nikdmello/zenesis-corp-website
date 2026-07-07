@@ -19,6 +19,7 @@ import {
   testimonials,
 } from "@/lib/site-content";
 import { insightPosts } from "@/lib/insights";
+import { businessSetupPricingAnswer } from "@/lib/business-setup-pricing";
 import { buildFaqSchema } from "@/lib/seo";
 
 const trustSignals = [
@@ -42,7 +43,7 @@ const customerPaths = [
     title: "Business setup",
     href: "/business-setup",
     icon: "business",
-    cta: "Explore setup options",
+    cta: "Setup options",
     description: "Choose the right structure for your company.",
     items: [
       "Mainland company formation",
@@ -54,7 +55,7 @@ const customerPaths = [
     title: "Accounting and tax",
     href: "/accounting-tax",
     icon: "accounting",
-    cta: "View tax support",
+    cta: "Tax support",
     description: "Stay compliant with ongoing financial obligations.",
     items: ["Bookkeeping", "VAT filing", "Corporate tax"],
   },
@@ -62,7 +63,7 @@ const customerPaths = [
     title: "Visa and banking",
     href: "/visa-and-banking",
     icon: "visa",
-    cta: "Explore visa and banking",
+    cta: "Visa and banking",
     description: "Support for residency and banking processes.",
     items: ["Golden Visa", "Company visas", "Bank account support"],
   },
@@ -70,7 +71,7 @@ const customerPaths = [
     title: "Corporate support",
     href: "/contact",
     icon: "support",
-    cta: "Discuss corporate support",
+    cta: "Corporate support",
     description: "Ongoing help after your business is established.",
     items: ["License renewals", "PRO services", "Company amendments"],
   },
@@ -81,6 +82,10 @@ const homepageFaqs = [
     question: "How do I choose between mainland, free zone, and offshore setup?",
     answer:
       "The right route depends on what the business needs to do after incorporation. Mainland usually suits businesses that want UAE market access and broader local operating flexibility. Free zones are often preferred by consultants, startups, digital businesses, and international operators who want a more packaged setup path. Offshore structures are usually considered for holding, asset protection, and specific international ownership arrangements. Zenesis helps compare those routes before you commit.",
+  },
+  {
+    question: "How much does business setup in Dubai cost with Zenesis?",
+    answer: businessSetupPricingAnswer,
   },
   {
     question: "What company structures can Zenesis help set up in the UAE?",
@@ -198,7 +203,7 @@ export default function Home() {
 
         <HomepageServicesReveal items={customerPaths} />
 
-      <section className="relative left-1/2 mt-10 w-screen -translate-x-1/2 bg-[#11232a] py-16 md:mt-12 md:py-20">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <div className="max-w-[50rem]">

@@ -20,9 +20,9 @@ const accountingServices = [
     description:
       "Corporate tax registration is the first step for businesses that need their UAE tax setup handled correctly before filing begins.",
     points: [
-      "Review whether the business should register now and what position supports that decision",
-      "Set up EmaraTax properly and complete the submission with the right documents",
-      "Explain what filing and record-keeping work starts once registration is complete",
+      "Review whether the business should register now and what position supports that decision.",
+      "Set up EmaraTax properly and complete the submission with the right documents.",
+      "Explain what filing and record-keeping work starts once registration is complete.",
     ],
   },
   {
@@ -31,9 +31,9 @@ const accountingServices = [
     description:
       "Once registered, businesses need annual corporate tax return support, accurate calculations, and cleaner documentation around the filing process.",
     points: [
-      "Prepare and file the annual return through the FTA system with cleaner support behind it",
-      "Review taxable income, deductions, and credits before the filing is submitted",
-      "Manage deadlines, documentation, and follow-through so the filing does not become a last-minute rush",
+      "Prepare and file the annual return through the FTA system with cleaner support behind it.",
+      "Review taxable income, deductions, and credits before the filing is submitted.",
+      "Manage deadlines, documentation, and follow-through so the filing does not become a last-minute rush.",
     ],
   },
   {
@@ -42,9 +42,9 @@ const accountingServices = [
     description:
       "VAT filing support matters most to businesses that need their returns prepared accurately, submitted on time, and backed by proper reconciliations.",
     points: [
-      "Prepare VAT returns from sales, purchases, invoices, and the records behind them",
-      "Reconcile input and output VAT before filing so the position is clearer",
-      "Support filing periods, payment steps, and any audit-related follow-up",
+      "Prepare VAT returns from sales, purchases, invoices, and the records behind them.",
+      "Reconcile input and output VAT before filing so the position is clearer.",
+      "Support filing periods, payment steps, and any audit-related follow-up.",
     ],
   },
   {
@@ -53,9 +53,9 @@ const accountingServices = [
     description:
       "Bookkeeping keeps the business ready for VAT, corporate tax, reporting, and day-to-day financial visibility.",
     points: [
-      "Keep weekly or monthly books current and reconcile the main bank activity properly",
-      "Prepare reporting and support the documentation needed for reviews or audits",
-      "Support payroll and work within QuickBooks, Zoho Books, Tally, and Excel environments",
+      "Keep weekly or monthly books current and reconcile the main bank activity properly.",
+      "Prepare reporting and support the documentation needed for reviews or audits.",
+      "Support payroll and work within QuickBooks, Zoho Books, Tally, and Excel environments.",
     ],
   },
 ] as const;
