@@ -89,32 +89,32 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
         className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[rgba(12,27,34,0.82)] shadow-[0_16px_42px_rgba(7,21,27,0.16)] backdrop-blur-xl"
       >
         <div
-          className={`mx-auto flex ${shellWidthClass} items-center justify-between px-6 py-3.5 md:grid md:grid-cols-[auto_1fr_auto] md:items-center md:px-12 xl:px-16`}
+          className={`mx-auto flex ${shellWidthClass} items-center justify-between gap-5 px-6 py-3.5 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center lg:px-10 xl:px-14 2xl:px-16`}
         >
-          <Link href="/" className="flex items-center gap-3">
-            <span className="md:hidden">
+          <Link href="/" className="flex shrink-0 items-center gap-3">
+            <span className="lg:hidden">
               <Image
                 src="/logos/zenesis-logo-full.webp"
                 alt="Zenesis Corporation"
                 width={220}
                 height={54}
-                className="h-8 w-auto object-contain brightness-0 invert sm:h-9"
+                className="h-8 w-auto object-contain brightness-0 invert sm:h-9 md:h-10"
                 priority
               />
             </span>
-            <span className="hidden md:block">
+            <span className="hidden lg:block">
               <Image
                 src="/logos/zenesis-logo-full.webp"
                 alt="Zenesis Corporation"
                 width={360}
                 height={88}
-                className="h-10 w-auto object-contain brightness-0 invert lg:h-11"
+                className="h-10 w-auto object-contain brightness-0 invert 2xl:h-11"
                 priority
               />
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-3 justify-self-center px-1 py-0.5 text-[1.14rem] font-semibold text-white/95 md:flex xl:text-[1.16rem]">
+          <nav className="hidden min-w-0 items-center justify-center gap-1.5 justify-self-center px-1 py-0.5 text-[1rem] font-semibold text-white/95 lg:flex xl:gap-2.5 xl:text-[1.08rem] 2xl:gap-3 2xl:text-[1.16rem]">
             {navigation.map((item) => {
               const isActive =
                 item.href === currentPath ||
@@ -158,7 +158,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                     <Link
                       href={item.href}
                       onClick={(event) => handleServicesNavClick(event, item.href)}
-                      className={`group inline-flex items-center gap-1.5 px-2 py-2.5 transition-colors duration-200 hover:text-white ${
+                      className={`group inline-flex items-center gap-1.5 px-1.5 py-2.5 transition-colors duration-200 hover:text-white xl:px-2 ${
                         isActive ? "text-white" : ""
                       }`}
                     >
@@ -287,7 +287,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                   onBlur={() =>
                     setHoveredNavHref((current) => (current === item.href ? null : current))
                   }
-                  className={`group px-2 py-2.5 transition-colors duration-200 hover:text-white ${
+                  className={`group px-1.5 py-2.5 transition-colors duration-200 hover:text-white xl:px-2 ${
                     isActive ? "text-white" : ""
                   }`}
                 >
@@ -307,9 +307,9 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
 
           <div className="flex items-center gap-2 justify-self-end">
             <div className="hidden lg:block">
-              <SiteSearchForm compact className="w-[17.5rem] xl:w-[19rem] 2xl:w-[20rem]" />
+              <SiteSearchForm compact className="w-[11.75rem] xl:w-[12rem] 2xl:w-[17rem]" />
             </div>
-            <div className="hidden h-11 items-center gap-3 rounded-full border border-white/12 bg-white/8 px-4 text-[0.96rem] font-medium text-white/92 shadow-[0_10px_24px_rgba(7,21,27,0.16)] xl:text-[1rem] lg:flex">
+            <div className="hidden h-11 items-center gap-3 rounded-full border border-white/12 bg-white/8 px-3.5 text-[0.96rem] font-medium text-white/92 shadow-[0_10px_24px_rgba(7,21,27,0.16)] lg:flex 2xl:px-4 2xl:text-[1rem]">
               <a
                 href={whatsappHref}
                 target="_blank"
@@ -319,17 +319,17 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                 <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_18px_rgba(37,211,102,0.22)]">
                   <WhatsAppIcon className="h-4 w-4 shrink-0 fill-current" />
                 </span>
-                <span className="hidden xl:inline">+971 58 914 2200</span>
+                <span className="hidden 2xl:inline">+971 58 914 2200</span>
               </a>
-              <span className="hidden h-3 w-px bg-white/16 2xl:block" />
+              <span className="hidden h-3 w-px bg-white/16 xl:block" />
               <a
                 href="mailto:info@zenesiscorp.com"
-                className="hidden whitespace-nowrap transition-colors hover:text-white 2xl:inline-flex"
+                className="hidden whitespace-nowrap transition-colors hover:text-white xl:inline-flex"
               >
                 info@zenesiscorp.com
               </a>
             </div>
-            <details className="relative md:hidden">
+            <details className="relative lg:hidden">
               <summary
                 className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-white/12 bg-white/8 text-white shadow-[0_10px_24px_rgba(7,21,27,0.16)] marker:content-none"
               >

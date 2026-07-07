@@ -1,5 +1,5 @@
 export const businessSetupPricingDisclaimer =
-  "Starting prices are indicative and may vary based on jurisdiction, business activity, visa requirements, government fees, office package, and approvals. Zenesis confirms the full cost before submission.";
+  "Starting prices are indicative. Your confirmed quote will reflect the jurisdiction, business activity, visa requirements, government fees, office package, and approvals for your setup.";
 
 export const businessSetupPricingLastUpdated = {
   label: "July 7, 2026",

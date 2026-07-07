@@ -50,30 +50,26 @@ const topLevelPages: SearchDocument[] = [
     href: "/business-setup",
     title: "Business setup",
     description:
-      "Mainland, free zone, freelance permit, offshore, and related company formation support in the UAE with published starting prices.",
+      "Mainland, free zone, offshore, and related company formation support in the UAE.",
     type: "Page",
     section: "Services",
     keywords: [
       "business setup",
       "company formation",
-      "business setup cost",
-      "business setup price",
-      "dubai company formation cost",
       "mainland",
       "free zone",
-      "freelance permit",
       "offshore",
     ],
     searchText:
-      "business setup company formation mainland free zone freelance permit offshore document attestation uae dubai cost price prices starting from AED 7000 free zone without visa AED 15000 free zone with visa AED 10000 mainland AED 4000 freelance permit",
+      "business setup company formation mainland free zone offshore document attestation uae dubai",
   },
   {
     href: "/business-setup-cost-dubai",
-    title: "Business setup cost in Dubai",
+    title: "Pricing",
     description:
       "Zenesis business setup consultancy prices in Dubai, including freelance permits from AED 4,000, free zone setup from AED 7,000, free zone with visa from AED 15,000, and mainland setup from AED 10,000.",
     type: "Page",
-    section: "Services",
+    section: "Main navigation",
     keywords: [
       "business setup cost dubai",
       "company formation cost dubai",

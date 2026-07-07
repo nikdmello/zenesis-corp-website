@@ -54,6 +54,7 @@ export const navigation = [
       },
     ],
   },
+  { label: "Pricing", href: "/business-setup-cost-dubai" },
   { label: "Insights", href: "/insights" },
   { label: "Contact", href: "/contact" },
 ] as const;

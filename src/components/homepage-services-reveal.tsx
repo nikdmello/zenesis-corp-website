@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { BusinessSetupPriceActions } from "@/components/business-setup-price-actions";
-import { businessSetupPricingLastUpdated } from "@/lib/business-setup-pricing";
 
 type ServiceRevealItem = {
   title: string;
@@ -91,22 +89,7 @@ export function HomepageServicesReveal({
           </p>
         </div>
 
-        <div className="mt-8 xl:mt-9">
-          <div className="mb-4 max-w-[42rem]">
-            <p className="text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-              Business setup starting prices
-            </p>
-            <p className="mt-2 text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[#8d7453]/78">
-              Updated{" "}
-              <time dateTime={businessSetupPricingLastUpdated.isoDate}>
-                {businessSetupPricingLastUpdated.label}
-              </time>
-            </p>
-          </div>
-          <BusinessSetupPriceActions variant="homepage" />
-        </div>
-
-        <div className="mt-10 border-t border-[#d8c3a2]/60 pt-6">
+        <div className="mt-10">
           <div className="mb-5">
             <p className="text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
               Explore all services

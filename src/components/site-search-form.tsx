@@ -90,7 +90,7 @@ export function SiteSearchForm({
             ? "border-foreground/10 bg-white text-foreground"
             : "border-white/12 bg-white/8 text-white backdrop-blur-xl"
         } ${
-          compact ? "h-11 pl-3.5 pr-3.5" : "h-14 pl-4 pr-2"
+          compact ? "h-11 pl-3 pr-3" : "h-14 pl-4 pr-2"
         }`}
       >
         <SearchIcon
@@ -120,7 +120,7 @@ export function SiteSearchForm({
             isLight ? "text-foreground placeholder:text-foreground/40" : "text-white placeholder:text-white/42"
           } ${
             compact
-              ? "px-2.5 text-[1rem] font-medium"
+              ? "px-2 text-[0.94rem] font-medium"
               : "px-3 pr-4 text-[1.04rem] font-medium"
           }`}
         />

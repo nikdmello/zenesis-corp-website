@@ -23,9 +23,9 @@ export const legacyRouteMeta = {
       "Get in touch with Zenesis Corp for expert business consultancy, company formation, accounting, and corporate services across the UAE.",
   },
   businessSetup: {
-    title: "Business Setup in Dubai Cost | Company Formation Prices",
+    title: "Business Setup in Dubai & UAE | Zenesis Corp",
     description:
-      "Compare Zenesis business setup starting prices in Dubai and the UAE. Free zone from AED 7,000, free zone with visa from AED 15,000, mainland from AED 10,000, and freelance permits from AED 4,000.",
+      "Zenesis supports mainland, free zone, and offshore business setup in Dubai and the UAE, including licensing, documentation, visas, banking, and post-formation support.",
   },
   accountingTax: {
     title: "Accounting Services in UAE for Businesses",
