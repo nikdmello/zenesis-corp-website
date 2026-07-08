@@ -3,10 +3,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { InsightPost } from "@/lib/insights";
-
 type HomepageInsightsCarouselProps = {
-  posts: readonly InsightPost[];
+  posts: readonly HomepageInsightCard[];
+};
+
+export type HomepageInsightCard = {
+  slug: string;
+  category: string;
+  title: string;
+  description: string;
+  dateLabel: string;
+  heroImageSrc: string;
+  heroImageAlt: string;
+  heroImageClassName?: string;
 };
 
 const allCategoryLabel = "All";
@@ -296,8 +305,8 @@ export function HomepageInsightsCarousel({
   );
 }
 
-function chunkPosts(posts: readonly InsightPost[], size: number) {
-  const pages: InsightPost[][] = [];
+function chunkPosts(posts: readonly HomepageInsightCard[], size: number) {
+  const pages: HomepageInsightCard[][] = [];
 
   for (let index = 0; index < posts.length; index += size) {
     pages.push([...posts.slice(index, index + size)]);

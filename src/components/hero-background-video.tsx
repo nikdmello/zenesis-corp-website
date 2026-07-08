@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type HeroBackgroundVideoProps = {
   src: string;
@@ -16,9 +16,24 @@ export function HeroBackgroundVideo({
   playbackRate = 1,
 }: HeroBackgroundVideoProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const sourceType = src.endsWith(".webm") ? "video/webm" : "video/mp4";
 
   useEffect(() => {
+    const loadTimer = window.setTimeout(() => {
+      setShouldLoadVideo(true);
+    }, 350);
+
+    return () => {
+      window.clearTimeout(loadTimer);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!shouldLoadVideo) {
+      return;
+    }
+
     const video = videoRef.current;
     if (!video) {
       return;
@@ -34,7 +49,16 @@ export function HeroBackgroundVideo({
     return () => {
       video.removeEventListener("loadedmetadata", applyPlaybackRate);
     };
-  }, [playbackRate]);
+  }, [playbackRate, shouldLoadVideo]);
+
+  if (!shouldLoadVideo) {
+    return (
+      <div
+        className={`${className ?? ""} bg-[#11232a]`}
+        aria-hidden="true"
+      />
+    );
+  }
 
   return (
     <video
@@ -43,7 +67,7 @@ export function HeroBackgroundVideo({
       muted
       loop
       playsInline
-      preload="metadata"
+      preload="none"
       poster={poster}
       suppressHydrationWarning
       className={className}

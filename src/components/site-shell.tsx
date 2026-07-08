@@ -99,7 +99,6 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                 width={220}
                 height={54}
                 className="h-8 w-auto object-contain brightness-0 invert sm:h-9 md:h-10"
-                priority
               />
             </span>
             <span className="hidden lg:block">
@@ -109,7 +108,6 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                 width={360}
                 height={88}
                 className="h-10 w-auto object-contain brightness-0 invert 2xl:h-11"
-                priority
               />
             </span>
           </Link>
@@ -761,7 +759,8 @@ export function PageIntro({
               src={backgroundImageSrc!}
               alt={backgroundImageAlt ?? ""}
               fill
-              preload
+              loading="lazy"
+              fetchPriority="low"
               quality={68}
               sizes="(max-width: 767px) 92vw, (max-width: 1279px) 54vw, 50vw"
               className={`object-cover object-right-top saturate-[0.94] contrast-[0.98] ${backgroundImagePosition ?? "object-[100%_100%]"}`}

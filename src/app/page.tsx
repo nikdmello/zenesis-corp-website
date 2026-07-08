@@ -7,7 +7,10 @@ import {
 } from "@/components/consultation-button";
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { HomepageReviewsCarousel } from "@/components/homepage-reviews-carousel";
-import { HomepageInsightsCarousel } from "@/components/homepage-insights-carousel";
+import {
+  HomepageInsightsCarousel,
+  type HomepageInsightCard,
+} from "@/components/homepage-insights-carousel";
 import { HomepageServicesReveal } from "@/components/homepage-services-reveal";
 import { JsonLd } from "@/components/json-ld";
 import { ScrollReveal } from "@/components/scroll-reveal";
@@ -128,6 +131,28 @@ const homepageFaqs = [
       "The usual flow is to understand the activity, ownership, visa needs, and operating goals first, then compare the right route, prepare the documents, handle the licensing or authority process, and support the follow-on needs such as banking, visas, bookkeeping, VAT, and corporate tax. The point is to make the next step clearer before paperwork starts.",
   },
 ] as const;
+
+const homepageInsightCards: HomepageInsightCard[] = insightPosts.map(
+  ({
+    slug,
+    category,
+    title,
+    description,
+    dateLabel,
+    heroImageSrc,
+    heroImageAlt,
+    heroImageClassName,
+  }) => ({
+    slug,
+    category,
+    title,
+    description,
+    dateLabel,
+    heroImageSrc,
+    heroImageAlt,
+    heroImageClassName,
+  }),
+);
 
 export default function Home() {
   const googleReviewCountLabel = "480+ reviews";
@@ -375,7 +400,7 @@ export default function Home() {
 
         <div className="mt-10">
           <ScrollReveal>
-            <HomepageInsightsCarousel posts={insightPosts} />
+            <HomepageInsightsCarousel posts={homepageInsightCards} />
           </ScrollReveal>
         </div>
         </div>
