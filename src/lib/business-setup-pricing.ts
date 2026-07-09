@@ -1,5 +1,5 @@
 export const businessSetupPricingDisclaimer =
-  "Starting prices are indicative. Your confirmed quote will reflect the jurisdiction, business activity, visa requirements, government fees, office package, and approvals for your setup.";
+  "Starting prices are indicative. Your confirmed quote will reflect the jurisdiction, business activity, visa requirements, government fees, office package, approvals, and the exact sequence needed for your setup.";
 
 export const businessSetupPricingLastUpdated = {
   label: "July 7, 2026",
@@ -11,6 +11,70 @@ export const businessSetupPricingSummary =
 
 export const businessSetupPricingAnswer =
   `${businessSetupPricingSummary} Final pricing depends on jurisdiction, business activity, visa requirements, government fees, office package, and approvals.`;
+
+export const marketCostGuideRows = [
+  {
+    route: "Freelance permit",
+    typicalRange: "AED 4,000+",
+    costDrivers:
+      "Permit route, activity category, visa needs, authority requirements, and whether banking or compliance support is needed.",
+    zenesisPosition: "Zenesis freelance permit support starts from AED 4,000.",
+  },
+  {
+    route: "Free zone company without visa",
+    typicalRange: "AED 7,000+",
+    costDrivers:
+      "Chosen free zone, license activity, office or flexi-desk package, renewal cost, and government or authority fees.",
+    zenesisPosition: "Zenesis free zone company setup without visa starts from AED 7,000.",
+  },
+  {
+    route: "Free zone company with visa",
+    typicalRange: "AED 15,000+",
+    costDrivers:
+      "Visa allocation, establishment card, medical and Emirates ID steps, health insurance, office package, and free zone requirements.",
+    zenesisPosition: "Zenesis free zone company setup with visa starts from AED 15,000.",
+  },
+  {
+    route: "Mainland company setup",
+    typicalRange: "AED 10,000+",
+    costDrivers:
+      "Business activity, legal form, trade name, approvals, office requirements, immigration file, and visa planning.",
+    zenesisPosition: "Zenesis mainland company setup starts from AED 10,000.",
+  },
+] as const;
+
+export const setupCostDecisionFactors = [
+  {
+    title: "Jurisdiction",
+    description:
+      "Mainland, free zone, and offshore routes have different authority fees, license rules, office requirements, and renewal costs.",
+  },
+  {
+    title: "Business activity",
+    description:
+      "Regulated, professional, trading, consultancy, e-commerce, and industrial activities can need different approvals or documentation.",
+  },
+  {
+    title: "Visa requirement",
+    description:
+      "A no-visa setup is usually leaner. Founder, employee, and family visa planning changes cost, timing, and document requirements.",
+  },
+  {
+    title: "Office package",
+    description:
+      "Virtual office, flexi-desk, dedicated office, warehouse, and mainland Ejari requirements can change the real first-year budget.",
+  },
+  {
+    title: "Banking readiness",
+    description:
+      "Bank account opening is not just an introduction. KYC files, business profiles, shareholder documents, and activity clarity all matter.",
+  },
+  {
+    title: "Post-setup compliance",
+    description:
+      "Corporate tax, VAT, bookkeeping, renewals, amendments, and records should be planned before they become urgent follow-up work.",
+  },
+] as const;
 
 export const businessSetupStartingPrices = [
   {
@@ -78,6 +142,16 @@ export const businessSetupPricingFaqs = [
   {
     question: "Why can the final business setup cost change?",
     answer: businessSetupPricingDisclaimer,
+  },
+  {
+    question: "What is the cheapest way to set up a business in Dubai or the UAE?",
+    answer:
+      "The cheapest viable route is usually a lean freelance permit or a low-cost free zone setup, but the lowest headline price is not always the safest option. The right route still needs to fit the activity, visa plan, banking expectations, renewal costs, and how the business will operate after setup.",
+  },
+  {
+    question: "Is mainland or free zone setup cheaper in Dubai?",
+    answer:
+      "A free zone setup can be cheaper for founders who do not need direct mainland operating access, especially when no initial visa is required. Mainland setup can cost more when office, approvals, and visa planning are included, but it may be the better route for local UAE market access.",
   },
 ] as const;
 

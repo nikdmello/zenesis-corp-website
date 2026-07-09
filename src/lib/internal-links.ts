@@ -14,6 +14,21 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
       description: "Compare mainland, free zone, and offshore routes before formation starts.",
     },
     {
+      title: "Business setup pricing",
+      href: "/business-setup-cost-dubai",
+      description: "Compare starting prices for freelance, free zone, and mainland setup routes.",
+    },
+    {
+      title: "Mainland vs free zone",
+      href: "/mainland-vs-free-zone-dubai",
+      description: "Compare market access, visas, banking, office needs, and setup cost tradeoffs.",
+    },
+    {
+      title: "Low-cost setup routes",
+      href: "/low-cost-business-setup-uae",
+      description: "Compare the cheapest viable routes without choosing the wrong structure.",
+    },
+    {
       title: "Mainland setup",
       href: "/mainland",
       description: "For broader UAE market access and direct local operating flexibility.",

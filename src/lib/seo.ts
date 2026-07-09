@@ -98,6 +98,13 @@ export function buildPageMetadata({
       : {
           index: true,
           follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+            "max-video-preview": -1,
+          },
         },
     openGraph: {
       title,
@@ -137,7 +144,10 @@ export function getOrganizationSchemas() {
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
       name: siteName,
+      legalName: "Zenesis Corporation",
+      alternateName: ["Zenesis Corp", "Zenesis"],
       url: siteUrl,
       logo: getAbsoluteUrl("/icon.png"),
       email,
@@ -151,11 +161,15 @@ export function getOrganizationSchemas() {
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
+      "@id": `${siteUrl}/#local-business`,
       name: siteName,
       url: siteUrl,
+      description:
+        "Dubai-based business setup, accounting, tax, visa, banking, and corporate support for UAE companies, founders, investors, and SMEs.",
       image: getAbsoluteUrl(defaultSocialImage),
       telephone: phone,
       email,
+      priceRange: "AED 4,000+",
       address: {
         "@type": "PostalAddress",
         streetAddress: officeAddress,
@@ -175,6 +189,17 @@ export function getOrganizationSchemas() {
       },
       sameAs: socialLinks.map((item) => item.href),
       hasMap: googleMapsHref,
+      knowsAbout: [
+        "Business setup in Dubai",
+        "UAE company formation",
+        "Free zone company setup",
+        "Mainland company formation",
+        "Offshore company formation",
+        "UAE corporate tax",
+        "VAT filing in the UAE",
+        "Business bank account opening in the UAE",
+        "UAE company visas",
+      ],
       contactPoint: [
         {
           "@type": "ContactPoint",
@@ -196,8 +221,12 @@ export function getOrganizationSchemas() {
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
       name: siteName,
       url: siteUrl,
+      publisher: {
+        "@id": `${siteUrl}/#organization`,
+      },
       potentialAction: {
         "@type": "SearchAction",
         target: `${siteUrl}/search?q={search_term_string}`,

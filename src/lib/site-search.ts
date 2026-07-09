@@ -48,20 +48,24 @@ const topLevelPages: SearchDocument[] = [
   },
   {
     href: "/business-setup",
-    title: "Business setup",
+    title: "Business setup company in Dubai",
     description:
-      "Mainland, free zone, offshore, and related company formation support in the UAE.",
+      "Dubai business setup company for mainland, free zone, offshore, and related company formation support in the UAE.",
     type: "Page",
     section: "Services",
     keywords: [
       "business setup",
+      "business setup company dubai",
+      "business setup services in uae",
+      "business setup consultants in dubai",
       "company formation",
+      "company formation dubai",
       "mainland",
       "free zone",
       "offshore",
     ],
     searchText:
-      "business setup company formation mainland free zone offshore document attestation uae dubai",
+      "business setup company dubai business setup services in uae business setup consultants in dubai company formation dubai mainland free zone offshore document attestation uae dubai",
   },
   {
     href: "/business-setup-cost-dubai",
@@ -74,12 +78,50 @@ const topLevelPages: SearchDocument[] = [
       "business setup cost dubai",
       "company formation cost dubai",
       "dubai business setup prices",
+      "business setup cost in uae",
       "free zone setup cost",
       "mainland setup cost",
       "freelance permit cost",
+      "cheapest business setup in uae",
+      "low cost business setup dubai",
+      "mainland vs free zone cost",
     ],
     searchText:
-      "business setup cost in dubai company formation cost dubai business setup consultancy prices zenesis AED 4000 freelance permit AED 7000 free zone setup without visa AED 15000 free zone setup with visa AED 10000 mainland company setup pricing comparison",
+      "business setup cost in dubai company formation cost dubai business setup cost in uae low cost business setup dubai cheapest business setup in uae mainland vs free zone cost business setup consultancy prices zenesis AED 4000 freelance permit AED 7000 free zone setup without visa AED 15000 free zone setup with visa AED 10000 mainland company setup pricing comparison",
+  },
+  {
+    href: "/mainland-vs-free-zone-dubai",
+    title: "Mainland vs free zone Dubai",
+    description:
+      "Compare mainland and free zone company setup in Dubai by market access, ownership, visas, office needs, banking, cost, and operating fit.",
+    type: "Page",
+    section: "Business setup",
+    keywords: [
+      "mainland vs free zone",
+      "mainland vs free zone dubai",
+      "free zone vs mainland dubai",
+      "mainland company setup dubai",
+      "free zone company setup dubai",
+    ],
+    searchText:
+      "mainland vs free zone dubai free zone vs mainland company setup market access ownership visas office banking cost comparison business setup uae",
+  },
+  {
+    href: "/low-cost-business-setup-uae",
+    title: "Low cost business setup in UAE",
+    description:
+      "Compare the cheapest viable UAE business setup routes including freelance permits, free zone setup without visa, free zone with visa, and mainland setup.",
+    type: "Page",
+    section: "Pricing",
+    keywords: [
+      "low cost business setup uae",
+      "cheapest business setup in uae",
+      "cheap business setup dubai",
+      "low cost company formation uae",
+      "freelance permit cost",
+    ],
+    searchText:
+      "low cost business setup uae cheapest business setup in uae cheap business setup dubai low cost company formation freelance permit free zone without visa mainland setup cost",
   },
   {
     href: "/accounting-tax",

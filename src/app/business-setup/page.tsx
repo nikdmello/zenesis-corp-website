@@ -180,6 +180,11 @@ const processSteps = [
 
 const directAnswers = [
   {
+    question: "Is Zenesis a business setup company in Dubai?",
+    answer:
+      "Yes. Zenesis is a Dubai-based business setup company supporting UAE company formation across mainland, free zone, and offshore routes, with follow-through support for licensing, documents, visas, banking, accounting, tax, renewals, and compliance.",
+  },
+  {
     question: "How do you usually choose between mainland, free zone, and offshore?",
     answer:
       "Start with how the business will operate after incorporation. Mainland usually fits businesses that need direct UAE market access. Free zone often fits founder-led, consulting, digital, trade, or international models. Offshore is usually for holding, ownership, or international structuring rather than day-to-day UAE operations.",
@@ -201,6 +206,27 @@ const directAnswers = [
   },
 ] as const;
 
+const decisionResources = [
+  {
+    label: "Business setup pricing",
+    href: "/business-setup-cost-dubai",
+    description:
+      "Compare Zenesis starting prices for freelance, free zone, and mainland setup routes.",
+  },
+  {
+    label: "Mainland vs free zone",
+    href: "/mainland-vs-free-zone-dubai",
+    description:
+      "Compare market access, ownership, visas, office needs, banking, and cost tradeoffs.",
+  },
+  {
+    label: "Low-cost setup routes",
+    href: "/low-cost-business-setup-uae",
+    description:
+      "Compare the cheapest viable routes without choosing a structure that creates problems later.",
+  },
+] as const;
+
 export const metadata: Metadata = toMetadata(
   legacyRouteMeta.businessSetup,
   "/business-setup",
@@ -209,7 +235,7 @@ export const metadata: Metadata = toMetadata(
 export default function BusinessSetupPage() {
   const pageSchemas = [
     buildServiceSchema({
-      title: "Business setup",
+      title: "Business setup company in Dubai",
       description: legacyRouteMeta.businessSetup.description,
       path: "/business-setup",
     }),
@@ -230,8 +256,8 @@ export default function BusinessSetupPage() {
           { label: "Services", href: "/#services" },
           { label: "Business setup" },
         ]}
-        title="Business setup"
-        description="Mainland, free zone, and offshore support for founders who need the right structure before licensing, visas, and banking begin."
+        title="Business setup company in Dubai"
+        description="Mainland, free zone, and offshore company formation support for founders who need the right structure before licensing, visas, banking, tax, and renewals begin."
         backgroundImageSrc="/backgrounds/business-setup-bg.webp"
         backgroundImageAlt="Zenesis Business Setup page background"
         backgroundImagePosition="!object-[100%_100%]"
@@ -248,15 +274,18 @@ export default function BusinessSetupPage() {
               </h2>
               <div className="mt-5 max-w-[84rem] space-y-5 text-[1.2rem] font-medium leading-9 text-[#11232a] md:text-[1.26rem]">
                 <p>
-                  Setting up a company in the UAE is not just about getting a trade
-                  license. The right structure depends on your business activity,
-                  ownership needs, target market, visa requirements, office needs,
-                  banking expectations, and tax position.
+                  Zenesis supports business setup in Dubai and the wider UAE for
+                  founders, investors, SMEs, and international companies comparing
+                  mainland, free zone, and offshore company formation routes. The
+                  right structure depends on your activity, ownership plan, target
+                  market, visa requirements, office needs, banking expectations,
+                  and tax position.
                 </p>
                 <p>
-                  Zenesis helps you compare your options clearly, avoid unnecessary
-                  delays, and complete the setup process with the right
-                  documentation and support.
+                  As a business setup consultant in Dubai, Zenesis helps you compare
+                  the route before paperwork starts, prepare the documents properly,
+                  and keep licensing, visas, banking, accounting, tax, and renewals
+                  connected after incorporation.
                 </p>
               </div>
             </article>
@@ -281,6 +310,19 @@ export default function BusinessSetupPage() {
         items={directAnswers}
       />
 
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <SectionHeading
+            eyebrow="Decision guides"
+            title="Compare route, cost, and fit"
+            description="Use these pages when you are deciding whether to prioritize cost, mainland access, free zone flexibility, visas, or banking readiness."
+          />
+          <div className="mt-7">
+            <ServiceSubpageLinks items={decisionResources} columnsClassName="md:grid-cols-3" />
+          </div>
+        </div>
+      </section>
+
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto grid w-full max-w-[100rem] gap-5 px-6 md:px-12 lg:grid-cols-2 xl:px-20">
           <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
@@ -289,12 +331,18 @@ export default function BusinessSetupPage() {
               Setup Path
             </p>
             <h2 className="section-title mt-5 font-semibold text-foreground">
-              Dubai Company Formation
+              Dubai company formation
             </h2>
             <p className="mt-4 max-w-3xl text-[1.18rem] font-medium leading-8 text-foreground/88">
               Most enquiries start with one decision: mainland, free zone, or
               offshore. Those three routes shape licensing, visas, banking, and
               how the company operates after formation.
+            </p>
+            <p className="mt-4 max-w-3xl text-[1.08rem] font-medium leading-8 text-foreground/84">
+              If you are searching for a business setup company in Dubai, the
+              useful first step is not choosing the cheapest license. It is
+              matching the company formation route to the way the business will
+              sell, hire, bank, renew, and stay compliant.
             </p>
             <div className="mt-6 rounded-[1.4rem] border border-[#d8d0c2] bg-white px-5 py-4 text-[1.04rem] font-medium leading-7 text-[#11232a]/84">
               Compare the operating model first, then the license, visa, banking,

@@ -12,6 +12,14 @@ export const navigation = [
           { label: "Free zone setup", href: "/free-zones" },
           { label: "Offshore setup", href: "/offshore" },
           {
+            label: "Mainland vs free zone",
+            href: "/mainland-vs-free-zone-dubai",
+          },
+          {
+            label: "Low-cost setup routes",
+            href: "/low-cost-business-setup-uae",
+          },
+          {
             label: "Document attestation",
             href: "/document-attestation-services-in-uae",
           },
