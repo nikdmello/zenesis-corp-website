@@ -68,6 +68,23 @@ const topLevelPages: SearchDocument[] = [
       "business setup company dubai business setup services in uae business setup consultants in dubai company formation dubai mainland free zone offshore document attestation uae dubai",
   },
   {
+    href: "/business-setup-services-uae",
+    title: "Business setup services in UAE",
+    description:
+      "Full-service UAE business setup support across licensing, company formation, visas, banking, accounting, tax, renewals, and compliance.",
+    type: "Page",
+    section: "Business setup",
+    keywords: [
+      "business setup services in uae",
+      "business setup services dubai",
+      "company formation services uae",
+      "business setup consultants uae",
+      "uae company setup services",
+    ],
+    searchText:
+      "business setup services in uae business setup services dubai company formation services uae business setup consultants uae uae company setup services licensing mainland free zone offshore visas banking accounting tax renewals compliance",
+  },
+  {
     href: "/business-setup-cost-dubai",
     title: "Pricing",
     description:

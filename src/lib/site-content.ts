@@ -8,6 +8,10 @@ export const navigation = [
       {
         title: "Business Setup",
         links: [
+          {
+            label: "Setup services UAE",
+            href: "/business-setup-services-uae",
+          },
           { label: "Mainland setup", href: "/mainland" },
           { label: "Free zone setup", href: "/free-zones" },
           { label: "Offshore setup", href: "/offshore" },

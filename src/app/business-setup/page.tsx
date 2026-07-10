@@ -208,6 +208,12 @@ const directAnswers = [
 
 const decisionResources = [
   {
+    label: "Business setup services UAE",
+    href: "/business-setup-services-uae",
+    description:
+      "See the full service path across licensing, visas, banking, accounting, tax, and renewals.",
+  },
+  {
     label: "Business setup pricing",
     href: "/business-setup-cost-dubai",
     description:
@@ -318,7 +324,7 @@ export default function BusinessSetupPage() {
             description="Use these pages when you are deciding whether to prioritize cost, mainland access, free zone flexibility, visas, or banking readiness."
           />
           <div className="mt-7">
-            <ServiceSubpageLinks items={decisionResources} columnsClassName="md:grid-cols-3" />
+            <ServiceSubpageLinks items={decisionResources} columnsClassName="md:grid-cols-2 xl:grid-cols-4" />
           </div>
         </div>
       </section>
