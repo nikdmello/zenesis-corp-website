@@ -9,6 +9,10 @@ export const navigation = [
         title: "Business Setup",
         links: [
           {
+            label: "Company formation",
+            href: "/company-formation-dubai",
+          },
+          {
             label: "Setup services UAE",
             href: "/business-setup-services-uae",
           },

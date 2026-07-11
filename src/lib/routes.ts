@@ -12,6 +12,7 @@ export const coreIndexableRoutes = [
   { path: "/about", priority: 0.8, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.8, changeFrequency: "monthly" },
   { path: "/business-setup", priority: 0.9, changeFrequency: "weekly" },
+  { path: "/company-formation-dubai", priority: 0.9, changeFrequency: "weekly" },
   { path: "/business-setup-services-uae", priority: 0.9, changeFrequency: "weekly" },
   { path: "/business-setup-cost-dubai", priority: 0.9, changeFrequency: "weekly" },
   { path: "/mainland-vs-free-zone-dubai", priority: 0.85, changeFrequency: "monthly" },

@@ -96,22 +96,22 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/business-setup/ourservices/company-formation",
-        destination: "/business-setup",
+        destination: "/company-formation-dubai",
         permanent: true,
       },
       {
         source: "/business-setup/ourservices/company-formation/",
-        destination: "/business-setup",
+        destination: "/company-formation-dubai",
         permanent: true,
       },
       {
         source: "/company-formation",
-        destination: "/business-setup",
+        destination: "/company-formation-dubai",
         permanent: true,
       },
       {
         source: "/company-formation/",
-        destination: "/business-setup",
+        destination: "/company-formation-dubai",
         permanent: true,
       },
       {

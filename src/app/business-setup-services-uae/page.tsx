@@ -51,6 +51,11 @@ const serviceAreas = [
 
 const routeLinks = [
   {
+    label: "Company formation Dubai",
+    href: "/company-formation-dubai",
+    description: "Choose the right mainland, free zone, or offshore formation route in Dubai.",
+  },
+  {
     label: "Mainland setup",
     href: "/mainland",
     description: "For direct UAE market access, local clients, and wider operating flexibility.",
@@ -206,7 +211,7 @@ export default function BusinessSetupServicesUaePage() {
           />
 
           <div className="mt-7">
-            <ServiceSubpageLinks items={routeLinks} columnsClassName="md:grid-cols-2 xl:grid-cols-4" />
+            <ServiceSubpageLinks items={routeLinks} columnsClassName="md:grid-cols-2 xl:grid-cols-5" />
           </div>
         </div>
       </section>

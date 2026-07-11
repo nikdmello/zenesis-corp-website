@@ -14,6 +14,11 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
       description: "Compare mainland, free zone, and offshore routes before formation starts.",
     },
     {
+      title: "Company formation Dubai",
+      href: "/company-formation-dubai",
+      description: "Choose the right mainland, free zone, or offshore formation route in Dubai.",
+    },
+    {
       title: "Business setup services UAE",
       href: "/business-setup-services-uae",
       description: "See the full setup path from licensing through visas, banking, tax, and renewals.",
