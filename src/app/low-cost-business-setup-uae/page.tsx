@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
+import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import {
   buildBreadcrumbSchema,
@@ -64,6 +65,29 @@ const faqs = [
     question: "How should founders compare low-cost company formation packages?",
     answer:
       "Compare the total first-year and renewal position, not only the license fee. Include visa needs, office package, government fees, bank-readiness documents, compliance work, and whether the route fits how the business will actually operate.",
+  },
+] as const;
+
+const relatedGuides = [
+  {
+    label: "Business setup cost Dubai",
+    href: "/business-setup-cost-dubai",
+    description: "Compare Zenesis starting prices and the main cost drivers by setup route.",
+  },
+  {
+    label: "Mainland vs free zone",
+    href: "/mainland-vs-free-zone-dubai",
+    description: "Check whether the lowest-cost route also fits your market access and visa needs.",
+  },
+  {
+    label: "Company formation Dubai",
+    href: "/company-formation-dubai",
+    description: "Review mainland, free zone, and offshore formation routes before choosing a package.",
+  },
+  {
+    label: "Business setup services",
+    href: "/business-setup-services-uae",
+    description: "See how licensing, visas, banking, tax, and renewals fit into the full setup path.",
   },
 ] as const;
 
@@ -135,6 +159,19 @@ export default function LowCostBusinessSetupUaePage() {
                 </p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <SectionHeading
+            eyebrow="Next checks"
+            title="Validate the low-cost route before you choose"
+            description="Use these pages to compare the cheap option against cost, structure, banking, visas, and long-term operating fit."
+          />
+          <div className="mt-7">
+            <ServiceSubpageLinks items={relatedGuides} columnsClassName="md:grid-cols-2 xl:grid-cols-4" />
           </div>
         </div>
       </section>

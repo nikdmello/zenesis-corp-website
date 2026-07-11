@@ -19,7 +19,7 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
       description: "Choose the right mainland, free zone, or offshore formation route in Dubai.",
     },
     {
-      title: "Business setup services UAE",
+      title: "Business setup services",
       href: "/business-setup-services-uae",
       description: "See the full setup path from licensing through visas, banking, tax, and renewals.",
     },
@@ -47,6 +47,16 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
       title: "Free zone setup",
       href: "/free-zones",
       description: "For package-driven setup, foreign ownership, and zone-specific fit.",
+    },
+    {
+      title: "Offshore setup",
+      href: "/offshore",
+      description: "For holding, asset, or international structures that do not need a UAE operating office.",
+    },
+    {
+      title: "Document attestation",
+      href: "/document-attestation-services-in-uae",
+      description: "Prepare commercial, education, and personal documents for UAE use.",
     },
   ],
   "Accounting and Tax": [

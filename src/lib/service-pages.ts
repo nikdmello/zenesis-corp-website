@@ -68,6 +68,28 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "The most common mainland structures are LLCs, branch offices, representative offices, civil companies, sole proprietorships, and other forms used for more specific ownership or regulatory needs.",
       "Zenesis helps you choose the right mainland structure, align the business activity correctly, and handle the licensing steps so the company is built around how you actually plan to operate.",
     ],
+    subpageLinks: [
+      {
+        label: "Mainland vs free zone",
+        href: "/mainland-vs-free-zone-dubai",
+        description: "Compare market access, visas, office needs, banking, and cost before choosing a route.",
+      },
+      {
+        label: "Business setup cost",
+        href: "/business-setup-cost-dubai",
+        description: "Check starting prices and the cost drivers behind mainland and free zone setup.",
+      },
+      {
+        label: "Company formation",
+        href: "/company-formation-dubai",
+        description: "Review mainland, free zone, and offshore formation routes side by side.",
+      },
+      {
+        label: "Setup services",
+        href: "/business-setup-services-uae",
+        description: "See how licensing, visas, banking, tax, and renewals fit into the full setup path.",
+      },
+    ],
     knowledgeSections: [
       {
         title: "Common mainland structures",
@@ -89,6 +111,28 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Flexible office location choices across Dubai and the wider UAE",
           "Broader visa planning once the structure and office position are clear",
           "Potential suitability for government-linked or locally awarded work depending on the activity and setup",
+        ],
+      },
+      {
+        title: "Cost, visas, and banking",
+        intro:
+          "Mainland cost is shaped by the activity, legal form, office position, approvals, visa planning, and how clearly the company can explain its operating model to banks.",
+        items: [
+          "License and approval costs can change when the activity needs external authority clearance or a specific legal form",
+          "Office or Ejari requirements should be planned before comparing mainland against a cheaper package route",
+          "Visa capacity depends on the structure, immigration file, office position, and the founder or employee plan",
+          "Banks usually look for a clear activity, shareholder profile, office position, source of funds, and expected transaction model",
+        ],
+      },
+      {
+        title: "Documents and common delays",
+        intro:
+          "The mainland route is smoother when the structure, documents, and post-approval steps are prepared before the application begins.",
+        items: [
+          "Typical inputs include passport copies, Emirates ID where applicable, shareholder details, trade name options, activity selection, and initial approval requirements",
+          "Foreign company branches can need parent-company documents, board resolutions, POAs, and attestation steps",
+          "Delays often come from unclear activity selection, missing approvals, office planning, or banking and visa steps being handled too late",
+          "A low mainland quote is only useful if it includes the practical follow-through needed to start operating",
         ],
       },
     ],
@@ -157,6 +201,28 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "Many UAE free zones are chosen for 100 per cent foreign ownership, easier setup packaging, repatriation flexibility, and infrastructure designed around trade, services, logistics, media, or international business.",
       "Zenesis helps you compare the zones that actually fit your business instead of choosing based on price alone. The right zone also affects visas, office requirements, banking documents, and how practical the business will be after setup.",
     ],
+    subpageLinks: [
+      {
+        label: "Mainland vs free zone",
+        href: "/mainland-vs-free-zone-dubai",
+        description: "Compare route tradeoffs before choosing a free zone package.",
+      },
+      {
+        label: "Low-cost setup",
+        href: "/low-cost-business-setup-uae",
+        description: "Check when a lean free zone route is viable and when it creates problems later.",
+      },
+      {
+        label: "Business setup cost",
+        href: "/business-setup-cost-dubai",
+        description: "Compare starting prices across freelance, free zone, and mainland routes.",
+      },
+      {
+        label: "Company formation",
+        href: "/company-formation-dubai",
+        description: "Place free zone setup in the wider mainland, offshore, and Dubai formation picture.",
+      },
+    ],
     knowledgeSections: [
       {
         title: "What usually makes a free zone attractive",
@@ -178,6 +244,28 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Dubai South for logistics, aviation, and regional connectivity near Al Maktoum Airport",
           "IFZA and Meydan for flexible licensing and popular founder-led setup packages",
           "RAKEZ, Shams, Ajman, Fujairah, Sharjah Airport, and Umm Al Quwain where activity fit, cost, or location can matter more than headline prestige",
+        ],
+      },
+      {
+        title: "Cost, visas, and banking",
+        intro:
+          "Free zone packages can look simple, but the real fit depends on what is included, what renews later, and whether the company can satisfy banking and visa expectations.",
+        items: [
+          "A low package may exclude visa allocation, establishment card, office upgrades, activity changes, or renewal charges",
+          "Visa availability depends on the package, office type, immigration file, and the zone's current rules",
+          "Banking can depend on the zone, activity wording, shareholder profile, source of funds, contracts, and expected trade flow",
+          "The cheapest free zone is not always the best route when the business needs stronger reputation, office substance, or sector fit",
+        ],
+      },
+      {
+        title: "Documents and common mistakes",
+        intro:
+          "The strongest free zone choice is usually the one that still works after licensing, when the founder needs visas, banking, renewals, and client acceptance.",
+        items: [
+          "Typical inputs include passport copies, shareholder details, proposed activities, company names, address information, and KYC declarations",
+          "Some activities need extra documents, qualifications, third-party approvals, or clearer business-model explanations",
+          "Common mistakes include choosing by price only, picking the wrong activity scope, ignoring visa limits, and underestimating renewal cost",
+          "Free zone setup should be checked against where clients are, whether mainland access is needed, and how the company will invoice and bank",
         ],
       },
     ],
@@ -246,6 +334,28 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "This route is often used by owners who want a tax-efficient holding structure, privacy around beneficial ownership at the registry level, and a company that is not designed for local UAE operating activity.",
       "Zenesis helps you decide whether offshore is the right route at all, then guides the jurisdiction choice and setup process so the structure matches the ownership objective behind it.",
     ],
+    subpageLinks: [
+      {
+        label: "Company formation",
+        href: "/company-formation-dubai",
+        description: "Compare offshore against mainland and free zone company formation routes.",
+      },
+      {
+        label: "Setup services",
+        href: "/business-setup-services-uae",
+        description: "See how structure choice connects to documents, banking, tax, and renewals.",
+      },
+      {
+        label: "Banking support",
+        href: "/open-a-bank-account-easily",
+        description: "Prepare the KYC and structure explanation needed for bank account review.",
+      },
+      {
+        label: "Document attestation",
+        href: "/document-attestation-services-in-uae",
+        description: "Plan legalization for POAs, board resolutions, and company documents where needed.",
+      },
+    ],
     knowledgeSections: [
       {
         title: "Why offshore is used",
@@ -267,6 +377,28 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "RAK ICC is widely used for international business company registration and holding structures",
           "Ajman Offshore is often considered for a more cost-conscious offshore setup route",
           "All offshore structures need to be checked against their limits on local trading, visas, and physical UAE operating activity",
+        ],
+      },
+      {
+        title: "Cost, banking, and documents",
+        intro:
+          "Offshore setup should be evaluated by use case, jurisdiction recognition, document needs, and banking practicality rather than headline incorporation cost alone.",
+        items: [
+          "Cost can vary by jurisdiction, registered-agent requirements, document preparation, compliance work, and renewal position",
+          "Banking is not automatic and usually depends on the ownership profile, source of funds, intended use, counterparties, and jurisdiction",
+          "Common documents include passport copies, proof of address, shareholder details, structure charts, business rationale, POAs, and board resolutions where applicable",
+          "Some documents may need notarization, attestation, or legalization before they can be used for incorporation, banking, or asset holding",
+        ],
+      },
+      {
+        title: "When offshore is not the right route",
+        intro:
+          "Offshore can be useful, but it should not be treated as a cheaper substitute for an operating UAE company.",
+        items: [
+          "It is not the normal route for local UAE trading, employee visas, retail operations, or office-based activity",
+          "It may not fit founders who need local contracts, UAE market access, or visible operating substance",
+          "It can create banking friction if the business model, funds flow, or ownership purpose is not clear",
+          "A free zone or mainland company may be better when the business needs to invoice, hire, bank, and operate from the UAE",
         ],
       },
     ],

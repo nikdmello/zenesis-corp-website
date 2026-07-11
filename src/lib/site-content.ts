@@ -13,7 +13,7 @@ export const navigation = [
             href: "/company-formation-dubai",
           },
           {
-            label: "Setup services UAE",
+            label: "Setup services",
             href: "/business-setup-services-uae",
           },
           { label: "Mainland setup", href: "/mainland" },
@@ -24,7 +24,7 @@ export const navigation = [
             href: "/mainland-vs-free-zone-dubai",
           },
           {
-            label: "Low-cost setup routes",
+            label: "Low-cost setup",
             href: "/low-cost-business-setup-uae",
           },
           {

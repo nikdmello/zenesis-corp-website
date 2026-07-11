@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
+import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import {
   buildBreadcrumbSchema,
@@ -73,6 +74,29 @@ const faqs = [
     question: "Can a free zone company trade directly in the UAE mainland?",
     answer:
       "Not automatically. The correct route depends on the business activity, emirate, client type, and whether an additional permit, distribution arrangement, branch, or mainland structure is needed.",
+  },
+] as const;
+
+const nextStepLinks = [
+  {
+    label: "Mainland setup",
+    href: "/mainland",
+    description: "Use this route when local market access, contracts, or operating flexibility matter most.",
+  },
+  {
+    label: "Free zone setup",
+    href: "/free-zones",
+    description: "Use this route for package-led setup, ownership clarity, and zone-specific activity fit.",
+  },
+  {
+    label: "Setup cost",
+    href: "/business-setup-cost-dubai",
+    description: "Compare starting prices and the cost drivers behind each setup route.",
+  },
+  {
+    label: "Low-cost setup",
+    href: "/low-cost-business-setup-uae",
+    description: "Check the cheapest viable routes without choosing a structure that blocks operations later.",
   },
 ] as const;
 
@@ -160,6 +184,19 @@ export default function MainlandVsFreeZoneDubaiPage() {
                 </tbody>
               </table>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <SectionHeading
+            eyebrow="Next step"
+            title="Move from comparison to route choice"
+            description="Once the tradeoffs are clear, compare the route pages and cost guide before committing to a package."
+          />
+          <div className="mt-7">
+            <ServiceSubpageLinks items={nextStepLinks} columnsClassName="md:grid-cols-2 xl:grid-cols-4" />
           </div>
         </div>
       </section>

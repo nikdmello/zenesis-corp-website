@@ -179,9 +179,9 @@ const processSteps = [
 
 const directAnswers = [
   {
-    question: "Is Zenesis a business setup company in Dubai?",
+    question: "What does Zenesis help decide before company setup starts?",
     answer:
-      "Yes. Zenesis is a Dubai-based business setup company supporting UAE company formation across mainland, free zone, and offshore routes, with follow-through support for licensing, documents, visas, banking, accounting, tax, renewals, and compliance.",
+      "Zenesis helps founders choose the right UAE setup route before filing begins: mainland, free zone, or offshore. The recommendation is based on activity, ownership, visa needs, banking expectations, office requirements, cost, and how the company needs to operate after incorporation.",
   },
   {
     question: "How do you usually choose between mainland, free zone, and offshore?",
@@ -213,7 +213,7 @@ const decisionResources = [
       "Choose the right mainland, free zone, or offshore company formation route in Dubai.",
   },
   {
-    label: "Business setup services UAE",
+    label: "Business setup services",
     href: "/business-setup-services-uae",
     description:
       "See the full service path across licensing, visas, banking, accounting, tax, and renewals.",
@@ -340,74 +340,6 @@ export default function BusinessSetupPage() {
           <div className="mt-7">
             <ServiceSubpageLinks items={decisionResources} columnsClassName="md:grid-cols-2 xl:grid-cols-5" />
           </div>
-        </div>
-      </section>
-
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
-        <div className="mx-auto grid w-full max-w-[100rem] gap-5 px-6 md:px-12 lg:grid-cols-2 xl:px-20">
-          <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
-            <CardAccent />
-            <p className="mt-5 text-[0.78rem] font-semibold uppercase tracking-[0.26em] text-[#8d7453]">
-              Setup Path
-            </p>
-            <h2 className="section-title mt-5 font-semibold text-foreground">
-              Dubai company formation
-            </h2>
-            <p className="mt-4 max-w-3xl text-[1.18rem] font-medium leading-8 text-foreground/88">
-              Most enquiries start with one decision: mainland, free zone, or
-              offshore. Those three routes shape licensing, visas, banking, and
-              how the company operates after formation.
-            </p>
-            <p className="mt-4 max-w-3xl text-[1.08rem] font-medium leading-8 text-foreground/84">
-              If you are searching for a business setup company in Dubai, the
-              useful first step is not choosing the cheapest license. It is
-              matching the company formation route to the way the business will
-              sell, hire, bank, renew, and stay compliant.
-            </p>
-            <div className="mt-6 rounded-[1.4rem] border border-[#d8d0c2] bg-white px-5 py-4 text-[1.04rem] font-medium leading-7 text-[#11232a]/84">
-              Compare the operating model first, then the license, visa, banking,
-              and compliance path that follows.
-            </div>
-            <div className="mt-6">
-              <ServiceSubpageLinks
-                items={setupRoutes.map((route) => ({
-                  label: route.title,
-                  href: route.href,
-                  description: route.description,
-                }))}
-                columnsClassName="md:grid-cols-3"
-              />
-            </div>
-          </article>
-
-          <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
-            <CardAccent />
-            <p className="mt-5 text-[0.78rem] font-semibold uppercase tracking-[0.26em] text-[#6f5a42]">
-              Ongoing Support
-            </p>
-            <h2 className="section-title mt-5 font-semibold text-foreground">
-              Support after formation
-            </h2>
-            <p className="mt-4 max-w-3xl text-[1.18rem] font-medium leading-8 text-foreground/88">
-              Company setup is usually only the first step. Most clients also
-              need banking, visas, attestation, and residency support once the
-              structure is chosen.
-            </p>
-            <div className="mt-6 rounded-[1.4rem] border border-[#d8d0c2] bg-white px-5 py-4 text-[1.04rem] font-medium leading-7 text-[#11232a]/84">
-              Keep the follow-through work aligned to the formation timeline so
-              the company can actually start operating without avoidable delays.
-            </div>
-            <div className="mt-6">
-              <ServiceSubpageLinks
-                items={essentialServices.map((item) => ({
-                  label: item.title,
-                  href: item.href,
-                  description: item.description,
-                }))}
-                columnsClassName="md:grid-cols-2"
-              />
-            </div>
-          </article>
         </div>
       </section>
 
