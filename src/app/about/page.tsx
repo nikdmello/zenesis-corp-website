@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { CardAccent, PageIntro, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
-import { versionedAssetPath } from "@/lib/asset-paths";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
 import { TeamProfiles } from "@/components/team-profiles";
 
@@ -89,75 +87,23 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr] xl:items-stretch">
-            <div className="overflow-hidden rounded-[2rem] border border-[#ddd3c6] bg-white shadow-[0_18px_56px_rgba(17,35,42,0.08)]">
-              <Image
-                src={versionedAssetPath("/how-we-work.webp")}
-                alt="Zenesis founder presenting a clear business setup process to clients in Dubai"
-                width={1920}
-                height={1076}
-                className="block h-full min-h-[18rem] w-full object-cover object-center"
-              />
-            </div>
-
-            <div className="grid gap-5 md:grid-cols-2 xl:hidden">
-              {howWeWork.map((item, index) => (
-                <article
-                  key={item.title}
-                  className="rounded-[1.75rem] border border-white/10 bg-[#11232a] p-6 text-white shadow-[0_18px_54px_rgba(17,35,42,0.12)]"
-                >
-                  <p className="text-[0.82rem] font-semibold uppercase tracking-[0.22em] text-white/58">
-                    Step {index + 1}
-                  </p>
-                  <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-white">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 text-[1.14rem] font-medium leading-8 text-white/94 md:text-[1.18rem]">
-                    {item.description}
-                  </p>
-                </article>
-              ))}
-            </div>
-
-            <div className="relative hidden xl:grid xl:grid-cols-2 xl:gap-11">
-              {howWeWork.map((item, index) => (
-                <article
-                  key={item.title}
-                  className={`flex h-full flex-col rounded-[1.75rem] border border-white/10 bg-[#11232a] p-6 text-white shadow-[0_18px_54px_rgba(17,35,42,0.12)] ${
-                    index === 2 ? "xl:order-4" : index === 3 ? "xl:order-3" : ""
-                  }`}
-                >
-                  <p className="text-[0.82rem] font-semibold uppercase tracking-[0.22em] text-white/58">
-                    Step {index + 1}
-                  </p>
-                  <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-white">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 text-[1.14rem] font-medium leading-8 text-white/94">
-                    {item.description}
-                  </p>
-                </article>
-              ))}
-
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute left-1/2 top-[23.5%] -translate-x-1/2 -translate-y-1/2 text-[2.35rem] font-black leading-none text-[#11232a]"
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {howWeWork.map((item, index) => (
+              <article
+                key={item.title}
+                className="rounded-[1.75rem] border border-white/10 bg-[#11232a] p-6 text-white shadow-[0_18px_54px_rgba(17,35,42,0.12)]"
               >
-                <span className="block">→</span>
-              </div>
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute left-[77.5%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-[2.35rem] font-black leading-none text-[#11232a]"
-              >
-                <span className="block rotate-90">→</span>
-              </div>
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute left-1/2 top-[76.5%] -translate-x-1/2 -translate-y-1/2 text-[2.35rem] font-black leading-none text-[#11232a]"
-              >
-                <span className="block rotate-180">→</span>
-              </div>
-            </div>
+                <p className="text-[0.82rem] font-semibold uppercase tracking-[0.22em] text-white/58">
+                  Step {index + 1}
+                </p>
+                <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-[1.14rem] font-medium leading-8 text-white/94 md:text-[1.18rem]">
+                  {item.description}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
       </section>

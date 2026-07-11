@@ -315,12 +315,33 @@ export default function BusinessSetupPage() {
         </div>
       </section>
 
-      <ServiceAnswerSection
-        dark
-        title="Direct answers"
-        description="Short answers to the questions that usually shape the setup route before paperwork begins."
-        items={directAnswers}
-      />
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <SectionHeading
+            eyebrow=""
+            title="Main setup options"
+            description="Three common setup routes, each suited to a different operating model, ownership plan, and post-formation workflow."
+          />
+
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {setupRoutes.map((route) => (
+              <BusinessSetupRouteCard
+                key={route.title}
+                title={route.title}
+                href={route.href}
+                imageSrc={route.imageSrc}
+                imageAlt={route.imageAlt}
+                imageWidth={route.imageWidth}
+                imageHeight={route.imageHeight}
+                frontSummary={route.bestFor}
+                backDescription={route.description}
+                points={route.points}
+                ctaLabel="View route"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
@@ -400,34 +421,6 @@ export default function BusinessSetupPage() {
               />
             </div>
           </article>
-        </div>
-      </section>
-
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <SectionHeading
-            eyebrow=""
-            title="Main routes"
-            description="Three common setup routes, each suited to a different operating model, ownership plan, and post-formation workflow."
-          />
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {setupRoutes.map((route) => (
-              <BusinessSetupRouteCard
-                key={route.title}
-                title={route.title}
-                href={route.href}
-                imageSrc={route.imageSrc}
-                imageAlt={route.imageAlt}
-                imageWidth={route.imageWidth}
-                imageHeight={route.imageHeight}
-                frontSummary={route.bestFor}
-                backDescription={route.description}
-                points={route.points}
-                ctaLabel="View route"
-              />
-            ))}
-          </div>
         </div>
       </section>
 
@@ -585,6 +578,13 @@ export default function BusinessSetupPage() {
           </div>
         </div>
       </section>
+
+      <ServiceAnswerSection
+        dark
+        title="Direct answers"
+        description="Short answers to the questions that usually shape the setup route before paperwork begins."
+        items={directAnswers}
+      />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">

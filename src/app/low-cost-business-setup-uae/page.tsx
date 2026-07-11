@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
+import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import {
   buildBreadcrumbSchema,
@@ -138,23 +139,11 @@ export default function LowCostBusinessSetupUaePage() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
-        <div className="mx-auto grid w-full max-w-[100rem] gap-5 px-6 md:px-12 lg:grid-cols-3 xl:px-20">
-          {faqs.map((item) => (
-            <article
-              key={item.question}
-              className="rounded-[1.55rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_16px_44px_rgba(17,35,42,0.08)]"
-            >
-              <h2 className="text-[1.22rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">
-                {item.question}
-              </h2>
-              <p className="mt-4 text-[1rem] font-medium leading-7 text-foreground/86">
-                {item.answer}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <ServiceAnswerSection
+        title="Direct answers"
+        description="Short answers for founders comparing low-cost setup routes before choosing a package."
+        items={faqs}
+      />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-14 text-white md:py-16">
         <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 xl:px-16">

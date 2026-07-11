@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
+import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { CardAccent, PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
@@ -353,23 +354,11 @@ export default function CompanyFormationDubaiPage() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
-        <div className="mx-auto grid w-full max-w-[100rem] gap-5 px-6 md:px-12 lg:grid-cols-2 xl:px-20">
-          {faqs.map((item) => (
-            <article
-              key={item.question}
-              className="rounded-[1.55rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_16px_44px_rgba(17,35,42,0.08)]"
-            >
-              <h2 className="text-[1.22rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">
-                {item.question}
-              </h2>
-              <p className="mt-4 text-[1rem] font-medium leading-7 text-foreground/86">
-                {item.answer}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <ServiceAnswerSection
+        title="Direct answers"
+        description="Short answers for founders comparing company formation routes in Dubai."
+        items={faqs}
+      />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">

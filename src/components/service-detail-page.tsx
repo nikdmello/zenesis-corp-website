@@ -154,15 +154,6 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
         </div>
       </section>
 
-      {config.directAnswers?.length ? (
-        <ServiceAnswerSection
-          dark
-          title="Direct answers"
-          description="Short answers to the questions founders and operators usually need clarified before the next step."
-          items={config.directAnswers}
-        />
-      ) : null}
-
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="max-w-[56rem]">
@@ -279,6 +270,15 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
             </div>
           </div>
         </section>
+      ) : null}
+
+      {config.directAnswers?.length ? (
+        <ServiceAnswerSection
+          dark
+          title="Direct answers"
+          description="Short answers to the questions founders and operators usually need clarified before the next step."
+          items={config.directAnswers}
+        />
       ) : null}
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
