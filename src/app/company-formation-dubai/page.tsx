@@ -208,35 +208,27 @@ export default function CompanyFormationDubaiPage() {
             </div>
           </article>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="relative min-h-[18rem] overflow-hidden rounded-[2rem] border border-[#d8d0c2] bg-white shadow-[0_20px_60px_rgba(17,35,42,0.2)] sm:row-span-2">
-              <Image
-                src={versionedAssetPath("/business-setup-overview.webp")}
-                alt="Zenesis company formation consultation in Dubai"
-                fill
-                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 34vw"
-                className="object-cover object-center"
-              />
+          <article className="rounded-[2rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-9">
+            <CardAccent />
+            <p className="text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-[#8d7453]">
+              What to decide first
+            </p>
+            <div className="mt-6 grid gap-4">
+              {decisionPoints.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-[1.25rem] border border-[#d8d0c2] bg-white px-4 py-4 shadow-[0_10px_28px_rgba(17,35,42,0.06)]"
+                >
+                  <h3 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-[0.98rem] font-medium leading-7 text-foreground/80">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
             </div>
-            <div className="relative min-h-[12rem] overflow-hidden rounded-[2rem] border border-[#d8d0c2] bg-white shadow-[0_16px_44px_rgba(17,35,42,0.16)]">
-              <Image
-                src={versionedAssetPath("/professional-meeting.webp")}
-                alt="Business setup planning meeting in Dubai"
-                fill
-                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 22vw"
-                className="object-cover object-center"
-              />
-            </div>
-            <div className="relative min-h-[12rem] overflow-hidden rounded-[2rem] border border-[#d8d0c2] bg-white shadow-[0_16px_44px_rgba(17,35,42,0.16)]">
-              <Image
-                src={versionedAssetPath("/contact-consultation.webp")}
-                alt="Dubai company formation document review"
-                fill
-                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 22vw"
-                className="object-cover object-center"
-              />
-            </div>
-          </div>
+          </article>
         </div>
       </section>
 
@@ -276,34 +268,6 @@ export default function CompanyFormationDubaiPage() {
                   </p>
                 </div>
               </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <SectionHeading
-            eyebrow="Decision points"
-            title="What decides the structure"
-            description="A formation route should survive the real operating questions that arrive after the license is issued."
-            titleClassName="!text-white"
-            descriptionClassName="!text-white/88"
-          />
-
-          <div className="mt-9 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {decisionPoints.map((item) => (
-              <article
-                key={item.title}
-                className="rounded-[1.55rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_16px_44px_rgba(17,35,42,0.12)]"
-              >
-                <h2 className="text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">
-                  {item.title}
-                </h2>
-                <p className="mt-4 text-[1rem] font-medium leading-7 text-foreground/86">
-                  {item.description}
-                </p>
-              </article>
             ))}
           </div>
         </div>
