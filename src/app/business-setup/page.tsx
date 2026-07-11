@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { JsonLd } from "@/components/json-ld";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
@@ -278,40 +277,28 @@ export default function BusinessSetupPage() {
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <div className="grid gap-6 xl:grid-cols-[1.06fr_0.94fr] xl:items-stretch">
-            <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
-              <CardAccent />
-              <h2 className="section-title font-semibold text-[#11232a]">
-                Overview
-              </h2>
-              <div className="mt-5 max-w-[84rem] space-y-5 text-[1.2rem] font-medium leading-9 text-[#11232a] md:text-[1.26rem]">
-                <p>
-                  Zenesis supports business setup in Dubai and the wider UAE for
-                  founders, investors, SMEs, and international companies comparing
-                  mainland, free zone, and offshore company formation routes. The
-                  right structure depends on your activity, ownership plan, target
-                  market, visa requirements, office needs, banking expectations,
-                  and tax position.
-                </p>
-                <p>
-                  As a business setup consultant in Dubai, Zenesis helps you compare
-                  the route before paperwork starts, prepare the documents properly,
-                  and keep licensing, visas, banking, accounting, tax, and renewals
-                  connected after incorporation.
-                </p>
-              </div>
-            </article>
-
-            <div className="overflow-hidden rounded-[2rem] border border-[#d8d0c2] bg-white shadow-[0_18px_56px_rgba(17,35,42,0.12)]">
-              <Image
-                src={versionedAssetPath("/business-setup-overview.webp")}
-                alt="Zenesis founder guiding a UAE business setup consultation in a JLT office"
-                width={1920}
-                height={1074}
-                className="block h-full w-full object-cover object-center"
-              />
+          <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
+            <CardAccent />
+            <h2 className="section-title font-semibold text-[#11232a]">
+              Overview
+            </h2>
+            <div className="mt-5 max-w-[88rem] space-y-5 text-[1.2rem] font-medium leading-9 text-[#11232a] md:text-[1.26rem]">
+              <p>
+                Zenesis supports business setup in Dubai and the wider UAE for
+                founders, investors, SMEs, and international companies comparing
+                mainland, free zone, and offshore company formation routes. The
+                right structure depends on your activity, ownership plan, target
+                market, visa requirements, office needs, banking expectations,
+                and tax position.
+              </p>
+              <p>
+                As a business setup consultant in Dubai, Zenesis helps you compare
+                the route before paperwork starts, prepare the documents properly,
+                and keep licensing, visas, banking, accounting, tax, and renewals
+                connected after incorporation.
+              </p>
             </div>
-          </div>
+          </article>
         </div>
       </section>
 
