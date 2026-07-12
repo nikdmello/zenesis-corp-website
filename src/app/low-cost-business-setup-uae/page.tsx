@@ -11,9 +11,9 @@ import {
   getAbsoluteUrl,
 } from "@/lib/seo";
 
-const pageTitle = "Low Cost Business Setup in UAE | Cheapest Viable Routes";
+const pageTitle = "Low Cost Business Setup in UAE 2026 | Cheapest Viable Routes";
 const pageDescription =
-  "Compare low-cost business setup routes in the UAE, including freelance permits, free zone setup without visa, free zone setup with visa, and mainland setup tradeoffs.";
+  "Compare low-cost business setup routes in the UAE, including freelance permits, free zone setup without visa, free zone with visa, mainland setup, and hidden cost tradeoffs.";
 
 const lowCostRoutes = [
   {

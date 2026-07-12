@@ -23,9 +23,9 @@ export const legacyRouteMeta = {
       "Get in touch with Zenesis Corp for expert business consultancy, company formation, accounting, and corporate services across the UAE.",
   },
   businessSetup: {
-    title: "Business Setup Company in Dubai & UAE | Zenesis Corp",
+    title: "Business Setup Company in Dubai 2026 | Zenesis Corp",
     description:
-      "Zenesis is a Dubai business setup company supporting mainland, free zone, and offshore company formation, licensing, visas, banking, and post-formation compliance across the UAE.",
+      "Start a business in Dubai with mainland, free zone, or offshore company formation support, including licensing, visas, banking, tax, renewals, and compliance.",
   },
   accountingTax: {
     title: "Accounting Services in UAE for Businesses",
@@ -46,19 +46,19 @@ export const legacyRouteMeta = {
 
 export const legacyServiceMeta = {
   mainland: {
-    title: "Mainland Company Formation in Dubai | Zenesis Corp",
+    title: "Mainland Company Formation Dubai | Cost, Visas & Setup",
     description:
-      "With over 20 years of experience, Zenesis Corp specializes in Dubai mainland company setup, delivering complete compliance guidance.",
+      "Plan mainland company formation in Dubai with guidance on activity selection, legal structure, office needs, visas, banking, approvals, cost drivers, and renewals.",
   },
   "free-zones": {
-    title: "Freezone Company Setup in Dubai & RAK | Zenesis Corp",
+    title: "Free Zone Company Setup Dubai | Costs, Visas & Banking",
     description:
-      "Set up your Freezone company in Dubai or RAK with Zenesis Corp. End-to-end support for licensing, documentation, compliance, visas, and banking for global entrepreneurs.",
+      "Compare UAE free zone company setup options by activity, package, ownership, visas, office rules, banking practicality, renewal costs, and operating fit.",
   },
   offshore: {
-    title: "Offshore Company Formation in Dubai & RAK | Zenesis Corp",
+    title: "Offshore Company Formation UAE | JAFZA, RAK ICC & Ajman",
     description:
-      "Zenesis Corp provides offshore company formation services in Dubai and RAK, supporting compliant structuring, documentation, and advisory for global businesses.",
+      "Set up an offshore company in the UAE for holding, asset ownership, international structuring, or succession planning with jurisdiction and banking guidance.",
   },
   "document-attestation-services-in-uae": {
     title: "Document Attestation Services in UAE | Zenesis Corp",

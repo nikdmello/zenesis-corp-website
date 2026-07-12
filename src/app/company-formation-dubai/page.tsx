@@ -15,9 +15,9 @@ import {
   getAbsoluteUrl,
 } from "@/lib/seo";
 
-const pageTitle = "Company Formation in Dubai | Zenesis Corp";
+const pageTitle = "Company Formation in Dubai 2026 | Mainland, Free Zone & Offshore";
 const pageDescription =
-  "Company formation in Dubai for mainland, free zone, and offshore structures with licensing, document preparation, visas, banking, tax, accounting, renewals, and compliance support.";
+  "Compare company formation in Dubai across mainland, free zone, and offshore routes with licensing, documents, visas, banking, tax, renewals, and compliance support.";
 
 const formationRoutes = [
   {

@@ -13,9 +13,9 @@ import {
   getAbsoluteUrl,
 } from "@/lib/seo";
 
-const pageTitle = "Business Setup Services in UAE | Zenesis Corp";
+const pageTitle = "Business Setup Services in UAE 2026 | Licensing, Visas & Banking";
 const pageDescription =
-  "Business setup services in the UAE for mainland, free zone, offshore, licensing, visas, banking, document attestation, tax, accounting, renewals, and compliance.";
+  "Business setup services in the UAE for mainland, free zone, offshore, licensing, visas, banking, document attestation, tax, accounting, renewals, and compliance follow-through.";
 
 const serviceAreas = [
   {

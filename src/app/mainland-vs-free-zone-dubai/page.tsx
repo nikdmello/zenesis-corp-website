@@ -11,7 +11,7 @@ import {
   getAbsoluteUrl,
 } from "@/lib/seo";
 
-const pageTitle = "Mainland vs Free Zone Dubai | Company Setup Comparison";
+const pageTitle = "Mainland vs Free Zone Dubai 2026 | Setup Cost, Visas & Banking";
 const pageDescription =
   "Compare mainland vs free zone company setup in Dubai by market access, ownership, visas, office needs, banking, cost, renewals, and long-term operating fit.";
 
