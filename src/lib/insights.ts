@@ -929,9 +929,9 @@ export const insightPosts: InsightPost[] = [
     ],
     relatedServiceHrefs: [
       "/business-setup",
+      "/company-formation-dubai",
+      "/mainland-vs-free-zone-dubai",
       "/business-setup-cost-dubai",
-      "/mainland",
-      "/free-zones",
     ],
     sections: [
       {

@@ -95,6 +95,36 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/business-setup/setting-up-a-business-then-dubai-is-the-place-you-will-want-to-be-in",
+        destination: "/business-setup",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/setting-up-a-business-then-dubai-is-the-place-you-will-want-to-be-in/",
+        destination: "/business-setup",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/uae-allows-100-foreign-ownership",
+        destination: "/mainland",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/uae-allows-100-foreign-ownership/",
+        destination: "/mainland",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/how-can-you-upgrade-your-skills-during-quarantine",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/how-can-you-upgrade-your-skills-during-quarantine/",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
         source: "/business-setup/ourservices/company-formation",
         destination: "/company-formation-dubai",
         permanent: true,
@@ -112,6 +142,16 @@ const nextConfig: NextConfig = {
       {
         source: "/company-formation/",
         destination: "/company-formation-dubai",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/dubai-freezone",
+        destination: "/free-zones",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/dubai-freezone/",
+        destination: "/free-zones",
         permanent: true,
       },
       {
@@ -136,6 +176,56 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/offshore/",
+        destination: "/offshore",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/other-offshore",
+        destination: "/offshore",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/other-offshore/",
+        destination: "/offshore",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/british-virgin-islands",
+        destination: "/offshore",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/british-virgin-islands/",
+        destination: "/offshore",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/mauritius",
+        destination: "/offshore",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/mauritius/",
+        destination: "/offshore",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/panama",
+        destination: "/offshore",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/panama/",
+        destination: "/offshore",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/seychelles",
+        destination: "/offshore",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/seychelles/",
         destination: "/offshore",
         permanent: true,
       },
@@ -205,6 +295,86 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/bookkeeping",
+        destination: "/professional-bookkeeping-services-in-dubai",
+        permanent: true,
+      },
+      {
+        source: "/bookkeeping/",
+        destination: "/professional-bookkeeping-services-in-dubai",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/financial-management-dashboards",
+        destination: "/accounting-tax",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/financial-management-dashboards/",
+        destination: "/accounting-tax",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/company-management-secretarial-and-compliance",
+        destination: "/business-setup-services-uae",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/company-management-secretarial-and-compliance/",
+        destination: "/business-setup-services-uae",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/setup-guides",
+        destination: "/business-setup",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/setup-guides/",
+        destination: "/business-setup",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/general-trading-uae-license",
+        destination: "/business-setup-services-uae",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/general-trading-uae-license/",
+        destination: "/business-setup-services-uae",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/5-productivity-hacks-while-working-from-home",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/5-productivity-hacks-while-working-from-home/",
+        destination: "/insights",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/start-your-digital-nomad-journey-with-dubais-1-year-remote-work-visa",
+        destination: "/visa-and-banking",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/start-your-digital-nomad-journey-with-dubais-1-year-remote-work-visa/",
+        destination: "/visa-and-banking",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/uae-and-women-entrepreneurs-a-tale-of-rising-gender-equality-entrepreneurial-dreams-success",
+        destination: "/insights/why-first-time-entrepreneurs-are-choosing-uae",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/uae-and-women-entrepreneurs-a-tale-of-rising-gender-equality-entrepreneurial-dreams-success/",
+        destination: "/insights/why-first-time-entrepreneurs-are-choosing-uae",
+        permanent: true,
+      },
+      {
         source: "/contact-us-2",
         destination: "/contact",
         permanent: true,
@@ -221,6 +391,16 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/uae-business-bank/",
+        destination: "/open-a-bank-account-easily",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/how-to-set-up-a-company-bank-account-in-the-uae",
+        destination: "/open-a-bank-account-easily",
+        permanent: true,
+      },
+      {
+        source: "/business-setup/how-to-set-up-a-company-bank-account-in-the-uae/",
         destination: "/open-a-bank-account-easily",
         permanent: true,
       },
@@ -381,6 +561,46 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/our_team/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/projects",
+        destination: "/featured-profile",
+        permanent: true,
+      },
+      {
+        source: "/projects/",
+        destination: "/featured-profile",
+        permanent: true,
+      },
+      {
+        source: "/larisa-sohorca",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/larisa-sohorca/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/juzer-furniturewala",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/juzer-furniturewala/",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/sonia-sammut",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/sonia-sammut/",
         destination: "/about",
         permanent: true,
       },

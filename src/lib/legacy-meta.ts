@@ -129,9 +129,9 @@ export const legacyInsightMetaBySlug = {
       "Stay updated on UAE visa reforms 2025, residency changes, and opportunities for entrepreneurs and expats.",
   },
   "top-5-mistakes-starting-business-dubai": {
-    title: "Top 5 Mistakes When Starting a Business in Dubai",
+    title: "Business Setup Mistakes in Dubai | 5 Costly Errors to Avoid",
     description:
-      "Avoid costly mistakes when starting a business in Dubai with expert tips on licensing and company setup.",
+      "Avoid common business setup mistakes in Dubai, from choosing the wrong mainland or free zone route to underestimating visas, banking, tax, and renewal costs.",
   },
   "complete-dubai-golden-visa-guide": {
     title: "Complete Dubai Golden Visa Guide",
