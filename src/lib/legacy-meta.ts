@@ -23,9 +23,9 @@ export const legacyRouteMeta = {
       "Get in touch with Zenesis Corp for expert business consultancy, company formation, accounting, and corporate services across the UAE.",
   },
   businessSetup: {
-    title: "Business Setup Company in Dubai 2026 | Zenesis Corp",
+    title: "Business Setup Services in Dubai & UAE | Zenesis Corp",
     description:
-      "Start a business in Dubai with mainland, free zone, or offshore company formation support, including licensing, visas, banking, tax, renewals, and compliance.",
+      "Business setup services in Dubai and the UAE for mainland, free zone, and offshore company formation, including licensing, visas, banking, tax, renewals, and compliance.",
   },
   accountingTax: {
     title: "Accounting Services in UAE for Businesses",

@@ -205,6 +205,39 @@ const directAnswers = [
   },
 ] as const;
 
+const setupServiceCoverage = [
+  {
+    title: "Company formation route",
+    description:
+      "Compare mainland, free zone, and offshore structures based on market access, ownership, visas, office needs, banking, and the activity you plan to run.",
+  },
+  {
+    title: "Licensing and filings",
+    description:
+      "Prepare trade name options, activity selection, application forms, shareholder documents, authority submissions, and approval follow-up.",
+  },
+  {
+    title: "Visa and residency sequence",
+    description:
+      "Plan founder and employee visas, establishment steps, Emirates ID, medical, insurance, and family sponsorship needs around the company setup.",
+  },
+  {
+    title: "Banking readiness",
+    description:
+      "Build a cleaner bank-ready file with license documents, shareholder records, source-of-funds context, business model notes, and transaction expectations.",
+  },
+  {
+    title: "Tax and accounting setup",
+    description:
+      "Connect the new company to bookkeeping, VAT, corporate tax registration, corporate tax filing, records, and recurring compliance work.",
+  },
+  {
+    title: "Renewals and changes",
+    description:
+      "Keep the structure supported after setup through renewals, amendments, document updates, shareholder changes, and ongoing corporate service work.",
+  },
+] as const;
+
 const decisionResources = [
   {
     label: "Company formation Dubai",
@@ -246,7 +279,7 @@ export const metadata: Metadata = toMetadata(
 export default function BusinessSetupPage() {
   const pageSchemas = [
     buildServiceSchema({
-      title: "Business setup company in Dubai",
+      title: "Business setup services in Dubai and UAE",
       description: legacyRouteMeta.businessSetup.description,
       path: "/business-setup",
     }),
@@ -267,8 +300,8 @@ export default function BusinessSetupPage() {
           { label: "Services", href: "/#services" },
           { label: "Business setup" },
         ]}
-        title="Business setup company in Dubai"
-        description="Mainland, free zone, and offshore company formation support for founders who need the right structure before licensing, visas, banking, tax, and renewals begin."
+        title="Business setup services in Dubai and UAE"
+        description="Company formation services for mainland, free zone, and offshore routes, with licensing, visas, banking, tax, renewals, and compliance planned around how the business will operate."
         backgroundImageSrc="/backgrounds/business-setup-bg.webp"
         backgroundImageAlt="Zenesis Business Setup page background"
         backgroundImagePosition="!object-[100%_100%]"
@@ -284,21 +317,47 @@ export default function BusinessSetupPage() {
             </h2>
             <div className="mt-5 max-w-[88rem] space-y-5 text-[1.2rem] font-medium leading-9 text-[#11232a] md:text-[1.26rem]">
               <p>
-                Zenesis supports business setup in Dubai and the wider UAE for
-                founders, investors, SMEs, and international companies comparing
-                mainland, free zone, and offshore company formation routes. The
-                right structure depends on your activity, ownership plan, target
-                market, visa requirements, office needs, banking expectations,
-                and tax position.
+                Zenesis provides business setup services in Dubai and the wider
+                UAE for founders, investors, SMEs, and international companies
+                comparing mainland, free zone, and offshore company formation
+                routes. The right structure depends on your activity, ownership
+                plan, target market, visa requirements, office needs, banking
+                expectations, and tax position.
               </p>
               <p>
                 As a business setup consultant in Dubai, Zenesis helps you compare
                 the route before paperwork starts, prepare the documents properly,
-                and keep licensing, visas, banking, accounting, tax, and renewals
-                connected after incorporation.
+                and keep company formation, licensing, visas, banking, accounting,
+                tax, and renewals connected after incorporation.
               </p>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <SectionHeading
+            eyebrow="Service coverage"
+            title="What business setup services should cover"
+            description="The useful service is not only license filing. The route, documents, visas, banking, tax, and renewal position all need to work together."
+          />
+
+          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {setupServiceCoverage.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-[1.55rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_14px_36px_rgba(17,35,42,0.08)]"
+              >
+                <h2 className="text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">
+                  {item.title}
+                </h2>
+                <p className="mt-3 text-[1rem] font-medium leading-7 text-foreground/84">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
