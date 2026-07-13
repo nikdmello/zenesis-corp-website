@@ -66,9 +66,9 @@ export const legacyServiceMeta = {
       "Zenesis Corp provides reliable document attestation services in the UAE, ensuring accurate processing and compliance for personal and business documents.",
   },
   "open-a-bank-account-easily": {
-    title: "Open a UAE Business Bank Account - Zenesis Corp",
+    title: "UAE Business Bank Account Opening Support | Zenesis Corp",
     description:
-      "Professional support for opening a business bank account in the UAE, tailored for startups, SMEs, and international companies.",
+      "Prepare for UAE business bank account opening with KYC support, company documents, shareholder records, source-of-funds context, and banking route guidance.",
   },
   "uae-company-visa": {
     title: "UAE Business Visa Solutions | Trusted Advisors – Zenesis Corp",

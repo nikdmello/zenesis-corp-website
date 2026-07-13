@@ -540,10 +540,10 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
   "open-a-bank-account-easily": {
     slug: "open-a-bank-account-easily",
     currentPath: "/visa-and-banking",
-    title: "Bank account support",
+    title: "UAE business bank account support",
     eyebrow: "Bank Accounts",
     description:
-      "Support for UAE and international bank account opening, with KYC preparation and practical coordination around the company structure.",
+      "Support for UAE business bank account opening, international banking routes, KYC preparation, and practical coordination around the company structure.",
     backgroundImageSrc: versionedAssetPath("/professional-meeting.webp"),
     backgroundImageAlt: "Professional meeting about business banking support",
     introTitle: "Overview",
