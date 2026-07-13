@@ -66,6 +66,32 @@ const decisionPoints = [
   },
 ] as const;
 
+const formationFitChecks = [
+  {
+    title: "Best fit",
+    items: [
+      "Founders comparing mainland, free zone, and offshore before committing to fees",
+      "SMEs that need visas, banking, tax, and renewals considered before formation",
+      "International shareholders who need the UAE company structure explained clearly",
+    ],
+  },
+  {
+    title: "Not the right fit",
+    items: [
+      "Choosing a license only because it has the lowest advertised setup price",
+      "Starting paperwork before activity, market access, visa, and banking needs are clear",
+      "Treating offshore as a cheaper operating company when local UAE activity is required",
+    ],
+  },
+] as const;
+
+const formationDocuments = [
+  "Passport copies and basic shareholder details for each owner or manager involved",
+  "Proposed business activities, trade name options, and the expected operating model",
+  "Visa, office, and banking expectations so the right authority or free zone can be checked",
+  "Corporate documents, board resolutions, POAs, or attestations where a parent company or overseas shareholder is involved",
+] as const;
+
 const processSteps = [
   {
     step: "01",
@@ -225,6 +251,56 @@ export default function CompanyFormationDubaiPage() {
                   <p className="mt-2 text-[0.98rem] font-medium leading-7 text-foreground/80">
                     {item.description}
                   </p>
+                </div>
+              ))}
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
+        <div className="mx-auto grid w-full max-w-[100rem] gap-6 px-6 md:px-12 lg:grid-cols-[0.92fr_1.08fr] xl:px-20">
+          <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_20px_60px_rgba(17,35,42,0.16)] md:p-9">
+            <CardAccent />
+            <h2 className="section-title font-semibold text-foreground">
+              Fit before filing
+            </h2>
+            <div className="mt-6 grid gap-4">
+              {formationFitChecks.map((group) => (
+                <div
+                  key={group.title}
+                  className="rounded-[1.35rem] border border-[#d8d0c2] bg-[#f8f5ef] px-5 py-5"
+                >
+                  <h3 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground">
+                    {group.title}
+                  </h3>
+                  <ul className="mt-4 space-y-2.5 text-[0.98rem] font-medium leading-7 text-foreground/82">
+                    {group.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_20px_60px_rgba(17,35,42,0.16)] md:p-9">
+            <CardAccent />
+            <h2 className="section-title font-semibold text-foreground">
+              Documents usually checked early
+            </h2>
+            <p className="mt-5 text-[1.08rem] font-medium leading-8 text-foreground/86 md:text-[1.14rem]">
+              Exact requirements vary by authority, free zone, shareholder
+              profile, and activity. These are the details that should be
+              clarified before the formation file is submitted.
+            </p>
+            <div className="mt-6 grid gap-3">
+              {formationDocuments.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-[1.25rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] px-4 py-4 text-[1rem] font-medium leading-7 text-foreground/84"
+                >
+                  {item}
                 </div>
               ))}
             </div>

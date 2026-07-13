@@ -78,6 +78,32 @@ const routeLinks = [
   },
 ] as const;
 
+const trustSignals = [
+  {
+    title: "Route-first advice",
+    description:
+      "The setup recommendation starts with activity, client model, ownership, visa, banking, and renewal needs rather than a one-size package.",
+  },
+  {
+    title: "Post-license follow-through",
+    description:
+      "The service does not stop at incorporation. Visas, banking, accounting, tax, renewals, amendments, and attestations are planned around the same setup path.",
+  },
+  {
+    title: "Authority-aware preparation",
+    description:
+      "Applications are prepared around the relevant mainland authority, free zone, offshore registry, or follow-on government process.",
+  },
+] as const;
+
+const readinessChecks = [
+  "Business activity and whether local UAE, free zone, international, or holding use is expected",
+  "Shareholder structure, passport details, manager role, and any overseas company documents",
+  "Visa needs for founders, employees, family sponsorship, and practical timing",
+  "Banking expectations, source-of-funds context, expected currencies, and likely transaction flow",
+  "First-year budget, renewal expectations, office needs, tax registration, and bookkeeping readiness",
+] as const;
+
 const processSteps = [
   {
     step: "01",
@@ -200,6 +226,51 @@ export default function BusinessSetupServicesUaePage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+        <div className="mx-auto grid w-full max-w-[100rem] gap-6 px-6 md:px-12 lg:grid-cols-[0.95fr_1.05fr] xl:px-20">
+          <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.1)] md:p-9">
+            <SectionHeading
+              eyebrow="Proof points"
+              title="What makes the setup work usable"
+              description="A useful business setup service should reduce decisions, document rework, and post-license delays, not only file the first application."
+            />
+            <div className="mt-7 grid gap-4">
+              {trustSignals.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-[1.35rem] border border-[#d8d0c2] bg-[#f8f5ef] px-5 py-5"
+                >
+                  <h3 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-[0.98rem] font-medium leading-7 text-foreground/82">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.1)] md:p-9">
+            <SectionHeading
+              eyebrow="Readiness check"
+              title="What to clarify before the quote"
+              description="The quote becomes more useful when these details are known before comparing mainland, free zone, offshore, and follow-through costs."
+            />
+            <div className="mt-7 grid gap-3">
+              {readinessChecks.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-[1.25rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] px-4 py-4 text-[1rem] font-medium leading-7 text-foreground/84"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </article>
         </div>
       </section>
 
