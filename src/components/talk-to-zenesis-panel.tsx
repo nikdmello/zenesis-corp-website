@@ -17,6 +17,7 @@ type TalkToZenesisPanelProps = {
   actions?: ReactNode;
   overlayClassName?: string;
   imageClassName?: string;
+  presetEnquiry?: string;
 };
 
 export function TalkToZenesisPanel({
@@ -31,6 +32,7 @@ export function TalkToZenesisPanel({
   actions,
   overlayClassName = "bg-[linear-gradient(180deg,rgba(17,35,42,0.9)_0%,rgba(17,35,42,0.82)_34%,rgba(17,35,42,0.6)_62%,rgba(17,35,42,0.24)_100%)] md:bg-[linear-gradient(90deg,rgba(17,35,42,0.94)_0%,rgba(17,35,42,0.88)_34%,rgba(17,35,42,0.62)_58%,rgba(17,35,42,0.18)_78%,transparent_92%)]",
   imageClassName = "object-cover object-[72%_center]",
+  presetEnquiry,
 }: TalkToZenesisPanelProps) {
   const renderedActions =
     actions ??
@@ -38,6 +40,10 @@ export function TalkToZenesisPanel({
       <ConsultationFormButton
         label="Schedule a Free Consultation"
         className={buttonClassName}
+        presetEnquiry={
+          presetEnquiry ??
+          "I would like to schedule a free consultation with Zenesis."
+        }
         leadingIcon={<WhatsAppCueIcon inverse />}
       />
     ) : null);

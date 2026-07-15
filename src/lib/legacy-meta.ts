@@ -113,6 +113,16 @@ export const legacyInsightMetaBySlug = {
     description:
       "Discover key UAE business compliance requirements for FY 2026 including corporate tax, VAT, and reporting obligations.",
   },
+  "uae-corporate-tax-filing-deadlines-2026": {
+    title: "UAE Corporate Tax Filing Deadlines 2026",
+    description:
+      "Plan UAE corporate tax filing deadlines for 2026 with guidance on tax periods, return timing, records, and filing readiness.",
+  },
+  "uae-corporate-tax-record-keeping-requirements": {
+    title: "UAE Corporate Tax Record-Keeping Requirements",
+    description:
+      "Learn what UAE businesses should keep for corporate tax records, the seven-year retention rule, and how to prepare a cleaner compliance file.",
+  },
   "uae-free-zone-corporate-tax-rules-clarified-2026": {
     title: "UAE Free Zone Corporate Tax Rules Explained",
     description:

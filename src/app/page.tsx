@@ -2,7 +2,6 @@ import NextImage from "next/image";
 import Link from "next/link";
 import {
   ConsultationFormButton,
-  ConsultationFormButtonWithScrollPrompt,
   WhatsAppCueIcon,
 } from "@/components/consultation-button";
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
@@ -196,7 +195,7 @@ export default function Home() {
 
               <div className="hero-reveal hero-reveal-3 mt-5 flex justify-center md:mt-10">
                 <div className="flex flex-col items-center gap-4">
-                  <ConsultationFormButtonWithScrollPrompt
+                  <ConsultationFormButton
                     label="Schedule a Free Consultation"
                     className="inline-flex min-h-12 w-full max-w-[22rem] items-center justify-center whitespace-nowrap rounded-full bg-white px-5 py-3.5 text-sm font-semibold tracking-[0.01em] !text-[#07151b] shadow-[0_18px_44px_rgba(17,35,42,0.12)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white/92 sm:w-fit sm:max-w-none sm:px-7 sm:text-base"
                   />

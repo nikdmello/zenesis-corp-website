@@ -652,6 +652,218 @@ export const insightPosts: InsightPost[] = [
     ],
   },
   {
+    slug: "uae-corporate-tax-filing-deadlines-2026",
+    category: "Accounting and Tax",
+    title: "UAE Corporate Tax Filing Deadlines 2026: What Businesses Should Prepare",
+    description:
+      "A practical 2026 guide to UAE corporate tax filing deadlines, financial year-end timing, return preparation, payment readiness, and common filing risks.",
+    dateLabel: "July 15, 2026",
+    author: "Cecilia D'Cunha",
+    heroImageSrc: versionedAssetPath("/insights/corporate-tax-registrations.webp", insightImageVersion),
+    heroImageAlt: "UAE corporate tax filing deadline planning visual for business compliance",
+    keyTakeaways: [
+      "The corporate tax return is generally due within nine months after the end of the relevant tax period.",
+      "The deadline is only useful if the books, calculations, and supporting documents are ready before the filing window becomes urgent.",
+      "Free zone companies, mainland companies, and group structures should all confirm filing readiness early.",
+    ],
+    relatedServiceHrefs: [
+      "/corporate-tax-filing-services-in-the-uae",
+      "/corporate-tax-registration-in-the-uae",
+      "/professional-bookkeeping-services-in-dubai",
+    ],
+    sections: [
+      {
+        title: "Why Filing Deadlines Matter More in 2026",
+        paragraphs: [
+          "Corporate tax filing is now part of the normal UAE compliance calendar. For many businesses, 2026 is not about discovering the regime for the first time. It is about proving that the company can file accurately, on time, and with records that support the numbers submitted.",
+          "The deadline itself is simple in outline, but the preparation behind it is where most problems begin. A company may know the return date and still be unready if bookkeeping, VAT reconciliations, free zone income classification, and supporting schedules are not complete.",
+        ],
+      },
+      {
+        title: "The General Corporate Tax Filing Rule",
+        paragraphs: [
+          "As a general rule, a UAE corporate tax return is due within nine months after the end of the relevant tax period. For most companies, the tax period follows the financial year used for accounts and reporting.",
+          "That means the filing deadline changes depending on the company financial year-end. A calendar-year company with a 31 December 2026 year-end would generally work toward a 30 September 2027 corporate tax filing deadline.",
+        ],
+        table: {
+          columns: ["Financial Year-End", "Typical Filing Deadline", "What Should Be Ready Before Filing"],
+          rows: [
+            ["31 December 2026", "30 September 2027", "Final accounts, tax computation, supporting schedules, and portal readiness"],
+            ["31 March 2026", "31 December 2026", "Closed books, reconciled VAT periods, and year-end adjustments"],
+            ["30 June 2026", "31 March 2027", "Audit position, tax schedules, and free zone classification where relevant"],
+            ["Custom first financial year", "9 months from the chosen year-end", "Confirmed tax period, bookkeeping cut-off, and filing calendar"],
+          ],
+        },
+      },
+      {
+        title: "Filing Readiness Is More Than Portal Access",
+        paragraphs: [
+          "Having access to the tax portal does not mean the company is filing-ready. The return has to be supported by accounts, calculations, and evidence that explain how the taxable income was reached.",
+          "Businesses should treat the filing deadline as the final step in a longer closing process. If the books are weak, the deadline becomes a pressure point rather than a routine compliance task.",
+        ],
+        bullets: [
+          "Books closed for the correct tax period",
+          "Revenue, cost, and expense classifications reviewed",
+          "VAT returns reconciled against accounting records where applicable",
+          "Related-party transactions and connected-person payments identified",
+          "Free zone qualifying and non-qualifying income reviewed where relevant",
+          "Tax adjustments and supporting schedules prepared before submission",
+        ],
+      },
+      {
+        title: "Where UAE Businesses Commonly Fall Behind",
+        paragraphs: [
+          "Most filing problems do not start on the filing date. They build slowly during the year when invoices, expenses, bank transactions, and VAT records are not kept clean enough to support a tax return.",
+          "The businesses most exposed are usually fast-moving SMEs, founder-led companies, and groups that added entities without aligning financial years, accounting systems, or tax responsibilities.",
+        ],
+        bullets: [
+          "Waiting until the final quarter to clean up the full year's accounts",
+          "Treating corporate tax separately from VAT and bookkeeping",
+          "Using generic expense categories that do not explain the business purpose clearly",
+          "Missing contracts, invoices, bank statements, or ownership records",
+          "Assuming a free zone position is obvious without documenting the income type",
+        ],
+      },
+      {
+        title: "A Practical 2026 Filing Calendar",
+        paragraphs: [
+          "A smoother filing process starts months before the statutory deadline. The aim is to make the return a review-and-submit exercise rather than a last-minute reconstruction of the business.",
+        ],
+        table: {
+          columns: ["Timing", "Action", "Why It Matters"],
+          rows: [
+            ["6-9 months before deadline", "Close bookkeeping gaps and confirm the tax period", "Prevents year-end cleanup from becoming a filing emergency"],
+            ["3-6 months before deadline", "Prepare draft accounts and tax schedules", "Gives time to resolve missing support and classification issues"],
+            ["1-3 months before deadline", "Review the final return position and payment readiness", "Reduces avoidable errors before portal submission"],
+            ["After filing", "Retain the return, schedules, and supporting records", "Keeps the file ready if the FTA asks questions later"],
+          ],
+        },
+      },
+      {
+        title: "How Zenesis Helps",
+        paragraphs: [
+          "Zenesis helps businesses connect the filing deadline to the practical work behind it: bookkeeping, reconciliations, tax registration status, return preparation, and the evidence needed to support the numbers.",
+          "The objective is not simply to submit a return. It is to make the company's filing position cleaner, easier to explain, and less disruptive to the business.",
+        ],
+      },
+    ],
+    closingParagraphs: [
+      "Corporate tax filing deadlines are predictable, but filing readiness has to be built deliberately.",
+      "Businesses that close their books properly, review their tax position early, and retain supporting records are in a much stronger position than those that wait until the deadline is close.",
+    ],
+    closingCta:
+      "If you know your UAE corporate tax filing deadline but are not sure whether the books and schedules are ready, Zenesis can help review the filing path before it becomes urgent.",
+  },
+  {
+    slug: "uae-corporate-tax-record-keeping-requirements",
+    category: "Accounting and Tax",
+    title: "UAE Corporate Tax Record-Keeping Requirements: What to Keep for 7 Years",
+    description:
+      "A practical guide to UAE corporate tax record-keeping, the seven-year retention rule, and the documents businesses should keep ready for review.",
+    dateLabel: "July 15, 2026",
+    author: "Cecilia D'Cunha",
+    heroImageSrc: versionedAssetPath("/insights/corporate-tax-mistakes.webp", insightImageVersion),
+    heroImageAlt: "UAE corporate tax record-keeping visual with documents and compliance review",
+    keyTakeaways: [
+      "UAE taxable and exempt persons are expected to retain relevant corporate tax records for at least seven years after the tax period.",
+      "Record-keeping is not only about storage; the documents need to support the figures and positions used in the return.",
+      "Weak records make tax filing, audit response, banking reviews, and future restructuring harder.",
+    ],
+    relatedServiceHrefs: [
+      "/professional-bookkeeping-services-in-dubai",
+      "/corporate-tax-filing-services-in-the-uae",
+      "/accounting-tax",
+    ],
+    sections: [
+      {
+        title: "Why Record-Keeping Has Become a Board-Level Issue",
+        paragraphs: [
+          "Corporate tax has made record-keeping a central compliance issue for UAE businesses. The tax return is only the final summary. The real strength of the filing position depends on the documents, accounts, and working papers behind it.",
+          "For SMEs and founder-led companies, this can feel administrative, but it has commercial consequences. Weak records can delay filing, complicate bank reviews, create audit exposure, and make future restructuring or sale conversations harder.",
+        ],
+      },
+      {
+        title: "The Seven-Year Retention Rule",
+        paragraphs: [
+          "UAE corporate tax record-keeping generally requires businesses to retain relevant records and documents for at least seven years after the end of the tax period to which they relate.",
+          "That retention period applies because the FTA must be able to verify the taxable income, exemption position, filing position, and supporting calculations after the return has been submitted.",
+        ],
+      },
+      {
+        title: "What Records Should a UAE Business Keep?",
+        paragraphs: [
+          "The exact file depends on the business model, tax position, and entity type, but the practical principle is simple: keep the documents that explain revenue, expenses, assets, liabilities, ownership, and tax calculations.",
+        ],
+        bullets: [
+          "Financial statements and management accounts for the relevant period",
+          "Sales invoices, credit notes, contracts, and revenue support",
+          "Purchase invoices, supplier statements, receipts, and expense support",
+          "Bank statements, loan agreements, and financing documents",
+          "Payroll records, employee cost support, and connected-person payment details",
+          "Fixed asset registers, depreciation schedules, and disposal records",
+          "VAT returns and reconciliations where the business is VAT registered",
+          "Corporate tax calculations, adjustments, returns, and filing confirmations",
+        ],
+      },
+      {
+        title: "Free Zone Companies Need Stronger Evidence",
+        paragraphs: [
+          "Free zone companies should be especially careful. A 0% corporate tax position, where available, depends on more than having a free zone license. The company may need to support its activity, income classification, substance, and customer or transaction profile.",
+          "If the business has both free zone and mainland interaction, the records should make it easier to separate qualifying and non-qualifying income rather than leaving that analysis until filing time.",
+        ],
+        bullets: [
+          "License and activity documents",
+          "Lease, office, staff, or operational substance evidence",
+          "Customer contracts and transaction flow by income type",
+          "Evidence supporting qualifying income treatment where relevant",
+          "Board, ownership, and management records where structure matters",
+        ],
+      },
+      {
+        title: "Common Record-Keeping Mistakes",
+        paragraphs: [
+          "Many businesses technically keep documents but still struggle when those documents need to support a filing position. The problem is usually organization, completeness, or unclear linkage between the records and the numbers in the accounts.",
+        ],
+        bullets: [
+          "Keeping invoices but not matching them properly to bank payments",
+          "Using broad expense categories with no clear business explanation",
+          "Not retaining contracts or delivery evidence behind revenue",
+          "Mixing owner, shareholder, and company expenses without clear treatment",
+          "Leaving VAT, bookkeeping, and corporate tax files in separate disconnected folders",
+        ],
+      },
+      {
+        title: "A Cleaner Record File Structure",
+        paragraphs: [
+          "A practical record file should make review easier. The aim is for a business owner, accountant, tax advisor, auditor, or authority reviewer to understand the period without rebuilding the full story from scratch.",
+        ],
+        table: {
+          columns: ["Folder", "What It Should Contain", "Why It Helps"],
+          rows: [
+            ["Accounts", "Financial statements, ledgers, trial balance, and reconciliations", "Shows how the numbers were built"],
+            ["Revenue", "Invoices, contracts, customer support, and receipts", "Supports taxable income and transaction timing"],
+            ["Expenses", "Supplier invoices, payment proof, and business-purpose notes", "Supports deductions and reduces ambiguity"],
+            ["Tax", "VAT returns, corporate tax return, tax computation, and filing evidence", "Keeps the compliance file complete"],
+            ["Structure", "Licenses, ownership documents, board records, and free zone evidence", "Supports entity status and tax treatment"],
+          ],
+        },
+      },
+      {
+        title: "How Zenesis Helps",
+        paragraphs: [
+          "Zenesis helps businesses organize their bookkeeping, accounting records, VAT files, and corporate tax support so the annual filing process becomes easier to manage.",
+          "The goal is to create a record system that is useful during filing, defensible during review, and practical for the people actually running the company.",
+        ],
+      },
+    ],
+    closingParagraphs: [
+      "Good record-keeping is not paperwork for its own sake. It is the evidence base behind the company's tax position.",
+      "A business that keeps organized, complete, and explainable records will usually find filing, audit response, banking, and future planning much easier.",
+    ],
+    closingCta:
+      "If your records are scattered across invoices, bank statements, VAT files, and accounting software, Zenesis can help organize the file before the next filing cycle.",
+  },
+  {
     slug: "uae-free-zone-corporate-tax-rules-clarified-2026",
     category: "Business Setup",
     title:

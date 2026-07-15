@@ -111,9 +111,9 @@ export const defaultInsightSlugsByCategory: Record<string, string[]> = {
     "top-5-mistakes-starting-business-dubai",
   ],
   "Accounting and Tax": [
+    "uae-corporate-tax-filing-deadlines-2026",
+    "uae-corporate-tax-record-keeping-requirements",
     "corporate-tax-mistakes-trigger-audits-uae",
-    "complete-guide-to-corporate-tax-groups-uae",
-    "financial-year-2026-uae-compliance-guide",
   ],
   "Visa and Banking": [
     "complete-dubai-golden-visa-guide",

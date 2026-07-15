@@ -722,9 +722,11 @@ export function ConsultationInlinePanel({
                 <p className="text-sm leading-6 text-muted md:text-[0.98rem]">
                   Select the topics that apply and we will build the message for you.
                 </p>
-                {presetEnquiry ? (
+                {presetEnquiry || selectedShortcutLabels.length ? (
                   <p className="rounded-xl border border-accent/12 bg-[rgba(36,75,168,0.06)] px-4 py-3 text-sm font-medium leading-6 text-foreground">
-                    Selected request: {presetEnquiry}
+                    {selectedShortcutLabels.length
+                      ? `Selected topics: ${selectedShortcutLabels.join(", ")}`
+                      : `Request: ${presetEnquiry}`}
                   </p>
                 ) : null}
                 <div className="flex flex-wrap gap-2">
@@ -1005,9 +1007,11 @@ export function ConsultationModal({
                   <p className="text-sm leading-6 text-muted md:text-[0.98rem] md:leading-6">
                     Select the topics that apply and we will build the message for you.
                   </p>
-                  {presetEnquiry ? (
+                  {presetEnquiry || selectedShortcutLabels.length ? (
                     <p className="rounded-xl border border-accent/12 bg-[rgba(36,75,168,0.06)] px-4 py-3 text-sm font-medium leading-6 text-foreground">
-                      Selected request: {presetEnquiry}
+                      {selectedShortcutLabels.length
+                        ? `Selected topics: ${selectedShortcutLabels.join(", ")}`
+                        : `Request: ${presetEnquiry}`}
                     </p>
                   ) : null}
                   <div className="flex flex-wrap gap-2">

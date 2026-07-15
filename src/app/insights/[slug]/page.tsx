@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ConsultationFormButton } from "@/components/consultation-button";
 import { JsonLd } from "@/components/json-ld";
 import { SiteShell } from "@/components/site-shell";
 import { getInsightPost, insightPosts } from "@/lib/insights";
@@ -350,12 +351,10 @@ export default async function InsightArticlePage({
                 position.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href="/contact"
+                <ConsultationFormButton
+                  label="Schedule a Free Consultation"
                   className="rounded-full bg-[#25D366] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5d]"
-                >
-                  Contact Zenesis
-                </Link>
+                />
                 <Link
                   href={categoryHubHref}
                   className="rounded-full border border-white/20 bg-white/10 px-6 py-3 text-center text-sm font-semibold !text-white backdrop-blur-md transition-colors hover:bg-white/[0.18]"

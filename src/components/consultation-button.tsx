@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-const homepageConsultationPromptSeenKey = "zenesis-homepage-consultation-prompt-seen";
+const consultationPromptSeenKey = "zenesis-consultation-prompt-seen";
 
 const LazyConsultationModal = dynamic(
   () => import("@/components/consultation-form").then((mod) => mod.ConsultationModal),
@@ -27,6 +27,11 @@ export function ConsultationFormButton({
   leadingIcon,
 }: ConsultationFormProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const resolvedPresetEnquiry =
+    presetEnquiry ??
+    (label.toLowerCase().includes("consultation")
+      ? "I would like to schedule a free consultation with Zenesis."
+      : undefined);
 
   return (
     <>
@@ -41,7 +46,7 @@ export function ConsultationFormButton({
         <LazyConsultationModal
           isOpen={isOpen}
           onOpenChange={setIsOpen}
-          presetEnquiry={presetEnquiry}
+          presetEnquiry={resolvedPresetEnquiry}
         />
       ) : null}
     </>
@@ -59,7 +64,7 @@ export function ConsultationFormButtonWithScrollPrompt({
 
   useEffect(() => {
     try {
-      if (window.sessionStorage.getItem(homepageConsultationPromptSeenKey) === "true") {
+      if (window.sessionStorage.getItem(consultationPromptSeenKey) === "true") {
         hasTriggeredRef.current = true;
         return;
       }
@@ -78,7 +83,7 @@ export function ConsultationFormButtonWithScrollPrompt({
 
       hasTriggeredRef.current = true;
       try {
-        window.sessionStorage.setItem(homepageConsultationPromptSeenKey, "true");
+        window.sessionStorage.setItem(consultationPromptSeenKey, "true");
       } catch {
         // Ignore storage access issues and still allow the modal to open.
       }
@@ -98,7 +103,7 @@ export function ConsultationFormButtonWithScrollPrompt({
         className={className}
         onClick={() => {
           try {
-            window.sessionStorage.setItem(homepageConsultationPromptSeenKey, "true");
+            window.sessionStorage.setItem(consultationPromptSeenKey, "true");
           } catch {
             // Ignore storage access issues and still allow the modal to open.
           }
@@ -126,6 +131,65 @@ export function ConsultationFormButtonWithScrollPrompt({
       ) : null}
     </>
   );
+}
+
+export function ConsultationSessionPrompt() {
+  const [isOpen, setIsOpen] = useState(false);
+  const hasTriggeredRef = useRef(false);
+
+  useEffect(() => {
+    try {
+      if (window.sessionStorage.getItem(consultationPromptSeenKey) === "true") {
+        hasTriggeredRef.current = true;
+        return;
+      }
+    } catch {
+      // Ignore storage access issues and fall back to in-memory behavior.
+    }
+
+    const openPrompt = () => {
+      if (hasTriggeredRef.current) {
+        return;
+      }
+
+      hasTriggeredRef.current = true;
+      try {
+        window.sessionStorage.setItem(consultationPromptSeenKey, "true");
+      } catch {
+        // Ignore storage access issues and still allow the modal to open.
+      }
+      setIsOpen(true);
+      window.removeEventListener("scroll", onScroll);
+    };
+
+    const onScroll = () => {
+      if (window.scrollY < 72) {
+        return;
+      }
+
+      openPrompt();
+    };
+
+    const timer = window.setTimeout(openPrompt, 9000);
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  return isOpen ? (
+    <LazyConsultationModal
+      isOpen={isOpen}
+      onOpenChange={(nextIsOpen) => {
+        if (!nextIsOpen) {
+          hasTriggeredRef.current = true;
+        }
+        setIsOpen(nextIsOpen);
+      }}
+    />
+  ) : null;
 }
 
 type WhatsAppCueIconProps = {

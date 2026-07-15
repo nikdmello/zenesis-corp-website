@@ -4,7 +4,10 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, type ReactNode, useEffect, useState } from "react";
-import { ConsultationFormButton } from "@/components/consultation-button";
+import {
+  ConsultationFormButton,
+  ConsultationSessionPrompt,
+} from "@/components/consultation-button";
 import { HelpWidget } from "@/components/help-widget";
 import { SiteSearchForm } from "@/components/site-search-form";
 import { contactDetails, navigation, socialLinks, whatsappHref } from "@/lib/site-content";
@@ -81,6 +84,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
 
   return (
     <div className="relative isolate min-h-screen overflow-x-clip">
+      <ConsultationSessionPrompt />
       <div
         aria-hidden="true"
         className="site-background pointer-events-none fixed inset-0 -z-10"
@@ -678,6 +682,7 @@ type PageIntroProps = {
   }[];
   ctaHref?: string;
   ctaLabel?: string;
+  ctaPresetEnquiry?: string;
   secondaryHref?: string;
   secondaryLabel?: string;
 };
@@ -696,6 +701,7 @@ export function PageIntro({
   highlights,
   ctaHref,
   ctaLabel,
+  ctaPresetEnquiry,
   secondaryHref,
   secondaryLabel,
 }: PageIntroProps) {
@@ -880,6 +886,10 @@ export function PageIntro({
                   <ConsultationFormButton
                     label={ctaLabel}
                     className={primaryCtaClassName}
+                    presetEnquiry={
+                      ctaPresetEnquiry ??
+                      "I would like to schedule a free consultation with Zenesis."
+                    }
                   />
                 ) : (
                   <Link
