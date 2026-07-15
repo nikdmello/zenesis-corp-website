@@ -15,7 +15,7 @@ import {
 
 const pageTitle = "Business Setup Services in UAE 2026 | Licensing, Visas & Banking";
 const pageDescription =
-  "Business setup services in the UAE for mainland, free zone, offshore, licensing, visas, banking, document attestation, tax, accounting, renewals, and compliance follow-through.";
+  "Business setup services in the UAE for mainland, free zone, offshore, trade licensing, visas, banking, PRO coordination, tax, accounting, renewals, and compliance.";
 
 const serviceAreas = [
   {
@@ -26,12 +26,12 @@ const serviceAreas = [
   {
     title: "Licensing and approvals",
     description:
-      "Prepare the trade name, activity selection, application documents, authority submissions, and follow-up needed for the chosen setup route.",
+      "Prepare the trade name, trade license activity selection, application documents, authority submissions, and follow-up needed for the chosen setup route.",
   },
   {
     title: "Visas and residency",
     description:
-      "Plan founder and employee visas, establishment steps, Emirates ID, medical, health insurance, and family sponsorship needs in the right sequence.",
+      "Plan founder and employee visas, establishment steps, Emirates ID, medical, health insurance, family sponsorship, and related PRO coordination in the right sequence.",
   },
   {
     title: "Banking and KYC",
@@ -52,7 +52,7 @@ const serviceAreas = [
 
 const routeLinks = [
   {
-    label: "Company formation Dubai",
+    label: "Company formation services",
     href: "/company-formation-dubai",
     description: "Choose the right mainland, free zone, or offshore formation route in Dubai.",
   },
@@ -87,7 +87,7 @@ const trustSignals = [
   {
     title: "Post-license follow-through",
     description:
-      "The service does not stop at incorporation. Visas, banking, accounting, tax, renewals, amendments, and attestations are planned around the same setup path.",
+      "The service does not stop at incorporation. Visas, PRO coordination, banking, accounting, tax, renewals, amendments, and attestations are planned around the same setup path.",
   },
   {
     title: "Authority-aware preparation",
@@ -135,7 +135,7 @@ const faqs = [
   {
     question: "What do UAE business setup services usually include?",
     answer:
-      "Business setup services usually include route selection, activity and license guidance, document preparation, authority submissions, trade name steps, approvals, visas, bank-readiness support, renewals, and compliance follow-through.",
+      "Business setup services usually include route selection, trade license activity guidance, document preparation, authority submissions, trade name steps, approvals, visas, PRO coordination, bank-readiness support, renewals, and compliance follow-through.",
   },
   {
     question: "Is business setup in Dubai different from business setup in the wider UAE?",
@@ -190,7 +190,7 @@ export default function BusinessSetupServicesUaePage() {
           { label: "Services in UAE" },
         ]}
         title="Business setup services in UAE"
-        description="A full-service setup path for founders and companies that need formation, licensing, visas, banking, accounting, tax, renewals, and compliance connected from the start."
+        description="A full-service setup path for founders and companies that need formation, trade licensing, visas, PRO coordination, banking, accounting, tax, renewals, and compliance connected from the start."
         backgroundImageSrc="/backgrounds/business-setup-bg.webp"
         backgroundImageAlt="Business setup services consultation in the UAE"
         backgroundImagePosition="!object-[100%_100%]"

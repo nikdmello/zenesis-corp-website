@@ -186,10 +186,10 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
   "free-zones": {
     slug: "free-zones",
     currentPath: "/business-setup",
-    title: "Free zone setup",
+    title: "Free zone company formation",
     eyebrow: "Free Zones",
     description:
-      "Compare the free zones that matter for your activity, package fit, ownership model, visas, and operating needs.",
+      "Compare free zone company formation in Dubai and the UAE by activity, package fit, ownership model, visas, and operating needs.",
     backgroundImageSrc: versionedAssetPath("/freezone.webp"),
     backgroundImageAlt: "Business professionals discussing free zone setup options",
     overviewImageSrc: versionedAssetPath("/freezone.webp"),
@@ -197,7 +197,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     overviewImagePosition: "object-[70%_24%]",
     introTitle: "Overview",
     introParagraphs: [
-      "Free zone setup is often the best fit for founders who want a faster formation route, clearer package options, and a structure that matches consulting, digital, trade, or investor-led business models.",
+      "Free zone company formation in Dubai is often the best fit for founders who want a faster formation route, clearer package options, and a structure that matches consulting, digital, trade, or investor-led business models.",
       "Many UAE free zones are chosen for 100 per cent foreign ownership, easier setup packaging, repatriation flexibility, and infrastructure designed around trade, services, logistics, media, or international business.",
       "Zenesis helps you compare the zones that actually fit your business instead of choosing based on price alone. The right zone also affects visas, office requirements, banking documents, and how practical the business will be after setup.",
     ],
@@ -227,7 +227,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         title: "What usually makes a free zone attractive",
         intro:
-          "Free zones are not interchangeable, but they are often chosen for a similar set of ownership, setup, and operating advantages.",
+          "Free zones are not interchangeable, but they are often chosen for a similar set of ownership, formation, and operating advantages.",
         items: [
           "100% foreign ownership in the relevant free zone structure",
           "Simplified setup packages that can be easier to start with than mainland routes",
@@ -273,7 +273,12 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "When is a free zone usually the better route?",
         answer:
-          "Free zone setup is usually the better route when founders want a structured package, 100% foreign ownership in the relevant free zone vehicle, and a route that fits consulting, digital, trade, media, logistics, or international business models.",
+          "Free zone company formation is usually the better route when founders want a structured package, 100% foreign ownership in the relevant free zone vehicle, and a route that fits consulting, digital, trade, media, logistics, or international business models.",
+      },
+      {
+        question: "What is included in free zone company formation in Dubai?",
+        answer:
+          "Free zone company formation usually includes zone comparison, activity and license selection, trade name steps, application documents, authority submissions, visa planning, and guidance on banking, office options, renewals, and follow-through after approval.",
       },
       {
         question: "Can one free zone fit every business equally well?",
@@ -298,7 +303,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     pointsTitle: "What we handle",
     points: [
-      "Compare zone options by activity, ownership needs, budget, and operational fit",
+      "Compare free zone company formation options by activity, ownership needs, budget, and operational fit",
       "Review the practical differences between zones such as DMCC, Dubai South, IFZA, Meydan, Shams, RAKEZ, Fujairah, Ajman, Sharjah Airport, and Umm Al Quwain",
       "Review package differences around visas, offices, flexi-desks, and renewal costs",
       "Assess location and ecosystem fit for trade, logistics, aviation, e-commerce, media, consulting, and international holding activity",
@@ -307,7 +312,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     supportTitle: "Talk to Zenesis",
     supportParagraphs: [
-      "Reach out if you are comparing DMCC, IFZA, Meydan, Dubai South, RAKEZ, or other zones and want a recommendation based on how the business will function after formation.",
+      "Reach out if you are comparing DMCC, IFZA, Meydan, Dubai South, RAKEZ, or other zones and want a free zone company formation recommendation based on how the business will function after approval.",
       "Zenesis can help you separate headline pricing from the real differences in visas, office requirements, licensing scope, banking expectations, and long-term operating fit.",
     ],
     backHref: "/business-setup",

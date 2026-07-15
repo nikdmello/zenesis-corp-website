@@ -15,9 +15,9 @@ import {
   getAbsoluteUrl,
 } from "@/lib/seo";
 
-const pageTitle = "Company Formation in Dubai 2026 | Mainland, Free Zone & Offshore";
+const pageTitle = "Company Formation Services in Dubai 2026 | Mainland, Free Zone & Offshore";
 const pageDescription =
-  "Compare company formation in Dubai across mainland, free zone, and offshore routes with licensing, documents, visas, banking, tax, renewals, and compliance support.";
+  "Compare company formation services in Dubai across mainland, free zone, and offshore routes with trade license support, documents, visas, banking, tax, renewals, and compliance.";
 
 const formationRoutes = [
   {
@@ -109,7 +109,7 @@ const processSteps = [
     step: "03",
     title: "Application file",
     description:
-      "Trade name, activity selection, supporting documents, forms, and authority submissions are prepared in the right sequence.",
+      "Trade name, trade license activity selection, supporting documents, forms, and authority submissions are prepared in the right sequence.",
   },
   {
     step: "04",
@@ -121,7 +121,7 @@ const processSteps = [
 
 const supportLinks = [
   {
-    label: "Business setup services UAE",
+    label: "Business setup services",
     href: "/business-setup-services-uae",
     description: "See the full support path from licensing through renewals and compliance.",
   },
@@ -154,6 +154,11 @@ const faqs = [
       "They are often used together. Company formation usually refers to creating the legal entity and license, while business setup also includes the practical follow-through such as visas, banking, accounting, tax, renewals, and compliance.",
   },
   {
+    question: "Do company formation services include trade license and PRO support?",
+    answer:
+      "Company formation services usually include trade license route guidance, activity selection, document preparation, authority submissions, and approval follow-up. PRO, visa, and government-service support depends on the chosen route, but it should be planned before the file is submitted.",
+  },
+  {
     question: "Can foreigners own a company in Dubai?",
     answer:
       "Foreign ownership is available across many mainland activities and is a common advantage of free zone structures. Some strategic or regulated activities may still follow specific rules, so the exact activity needs to be checked before filing.",
@@ -174,7 +179,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default function CompanyFormationDubaiPage() {
   const schemas = [
     buildServiceSchema({
-      title: "Company formation in Dubai",
+      title: "Company formation services in Dubai",
       description: pageDescription,
       path: "/company-formation-dubai",
     }),
@@ -200,8 +205,8 @@ export default function CompanyFormationDubaiPage() {
           { label: "Business setup", href: "/business-setup" },
           { label: "Company formation" },
         ]}
-        title="Company formation in Dubai"
-        description="Choose the right mainland, free zone, or offshore route before licensing, visas, banking, accounting, tax, renewals, and compliance begin."
+        title="Company formation services in Dubai"
+        description="Choose the right mainland, free zone, or offshore route before trade licensing, visas, banking, accounting, tax, renewals, and compliance begin."
         backgroundImageSrc="/backgrounds/business-setup-bg.webp"
         backgroundImageAlt="Company formation consultation in Dubai"
         backgroundImagePosition="!object-[100%_100%]"
@@ -221,10 +226,10 @@ export default function CompanyFormationDubaiPage() {
             </h2>
             <div className="mt-5 space-y-5 text-[1.08rem] font-medium leading-8 text-foreground/88 md:text-[1.16rem] md:leading-9">
               <p>
-                Company formation in Dubai works best when the route is chosen
-                around the operating model, not only around the fastest license
-                package. The company has to fit how it will sell, hire, bank,
-                renew, and stay compliant.
+                Company formation services in Dubai work best when the route is
+                chosen around the operating model, not only around the fastest
+                trade license package. The company has to fit how it will sell,
+                hire, bank, renew, and stay compliant.
               </p>
               <p>
                 Zenesis helps founders and companies compare mainland, free

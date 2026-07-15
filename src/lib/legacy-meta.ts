@@ -51,9 +51,9 @@ export const legacyServiceMeta = {
       "Plan mainland company formation in Dubai with guidance on activity selection, legal structure, office needs, visas, banking, approvals, cost drivers, and renewals.",
   },
   "free-zones": {
-    title: "Free Zone Company Setup Dubai | Costs, Visas & Banking",
+    title: "Free Zone Company Formation Dubai | Costs, Visas & Banking",
     description:
-      "Compare UAE free zone company setup options by activity, package, ownership, visas, office rules, banking practicality, renewal costs, and operating fit.",
+      "Compare free zone company formation in Dubai and the UAE by activity, package, ownership, visas, office rules, banking practicality, renewal costs, and operating fit.",
   },
   offshore: {
     title: "Offshore Company Formation UAE | JAFZA, RAK ICC & Ajman",
