@@ -11,6 +11,7 @@ import { legacyInsightMetaBySlug } from "@/lib/legacy-meta";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
+  buildFaqSchema,
   buildPageMetadata,
   getAbsoluteUrl,
   toIsoDate,
@@ -75,11 +76,15 @@ export default async function InsightArticlePage({
       { name: "Insights", url: getAbsoluteUrl("/insights") },
       { name: post.title, url: getAbsoluteUrl(`/insights/${post.slug}`) },
     ]),
+    ...(post.faqs?.length ? [buildFaqSchema(post.faqs)] : []),
   ];
   const relatedServices =
     pickServiceLinks(post.category, post.relatedServiceHrefs) ??
     serviceLinksByCategory[post.category] ??
     [];
+  const relatedInsights = post.relatedInsightSlugs
+    ?.map((relatedSlug) => insightPosts.find((item) => item.slug === relatedSlug))
+    .filter((item): item is (typeof insightPosts)[number] => Boolean(item)) ?? [];
   const categoryHubHref =
     post.category === "Accounting and Tax"
       ? "/accounting-tax"
@@ -271,6 +276,56 @@ export default async function InsightArticlePage({
                   ) : null}
                 </section>
               ))}
+
+              {post.faqs?.length ? (
+                <section className="rounded-[2rem] border border-[#e7ded1] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">
+                  <h2 className="text-[2.15rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.35rem]">
+                    Direct answers
+                  </h2>
+                  <div className="mt-6 divide-y divide-[#e4dbce] overflow-hidden rounded-[1.45rem] border border-[#e4dbce] bg-white">
+                    {post.faqs.map((item) => (
+                      <details key={item.question} className="group px-5 py-4 open:bg-[#fcfbf8]">
+                        <summary className="flex cursor-pointer list-none items-start justify-between gap-4 text-[1.08rem] font-semibold leading-7 text-foreground md:text-[1.14rem]">
+                          <span>{item.question}</span>
+                          <span className="mt-1 shrink-0 text-2xl leading-none text-[#8d7453] transition-transform duration-200 group-open:rotate-45">
+                            +
+                          </span>
+                        </summary>
+                        <p className="mt-4 max-w-5xl text-[1.02rem] leading-8 text-[#07151b]/84 md:text-[1.08rem]">
+                          {item.answer}
+                        </p>
+                      </details>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
+
+              {relatedInsights.length ? (
+                <section className="rounded-[2rem] border border-[#e7ded1] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">
+                  <h2 className="text-[2.15rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.35rem]">
+                    Related compliance guides
+                  </h2>
+                  <div className="mt-6 grid gap-4 md:grid-cols-2">
+                    {relatedInsights.map((item) => (
+                      <Link
+                        key={item.slug}
+                        href={`/insights/${item.slug}`}
+                        className="group rounded-[1.35rem] border border-[#e7ded1] bg-white px-5 py-5 shadow-[0_8px_20px_rgba(17,35,42,0.03)] transition-transform duration-200 hover:-translate-y-0.5"
+                      >
+                        <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+                          {item.category}
+                        </p>
+                        <h3 className="mt-3 text-[1.1rem] font-semibold leading-tight tracking-[-0.03em] text-foreground">
+                          {item.title}
+                        </h3>
+                        <p className="mt-3 text-[0.98rem] leading-7 text-foreground/84">
+                          {item.description}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
 
               {post.closingParagraphs?.length ? (
                 <section className="rounded-[2rem] border border-[#e7ded1] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">

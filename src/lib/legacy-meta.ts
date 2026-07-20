@@ -109,9 +109,9 @@ export const legacyInsightMetaBySlug = {
       "Learn how UAE corporate tax groups work, eligibility rules, benefits, and compliance requirements for businesses.",
   },
   "financial-year-2026-uae-compliance-guide": {
-    title: "Financial Year 2026 UAE Compliance Guide",
+    title: "Financial Year in UAE 2026 | Tax, VAT & Filing Deadlines",
     description:
-      "Discover key UAE business compliance requirements for FY 2026 including corporate tax, VAT, and reporting obligations.",
+      "Understand the financial year in UAE for 2026, including corporate tax filing deadlines, VAT cut-off, audits, record-keeping, and year-end compliance.",
   },
   "uae-corporate-tax-filing-deadlines-2026": {
     title: "UAE Corporate Tax Filing Deadlines 2026",

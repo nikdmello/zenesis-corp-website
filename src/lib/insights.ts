@@ -24,7 +24,12 @@ export type InsightPost = {
   heroImageClassName?: string;
   keyTakeaways?: string[];
   relatedServiceHrefs?: string[];
+  relatedInsightSlugs?: string[];
   sections: InsightSection[];
+  faqs?: {
+    question: string;
+    answer: string;
+  }[];
   closingParagraphs?: string[];
   closingCta?: string;
 };
@@ -542,37 +547,56 @@ export const insightPosts: InsightPost[] = [
   {
     slug: "financial-year-2026-uae-compliance-guide",
     category: "Accounting and Tax",
-    title: "Financial Year 2026 in the UAE: A Complete Compliance Guide for Businesses",
+    title: "Financial Year in UAE 2026: Compliance Deadlines, Tax Filing and VAT Guide",
     description:
-      "How the financial year anchors corporate tax, VAT timing, audits, group reporting, and compliance planning for UAE businesses.",
+      "A practical guide to the financial year in UAE for 2026, including corporate tax filing deadlines, VAT cut-off, audit timing, record-keeping, and year-end compliance planning.",
     dateLabel: "April 15, 2026",
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/insights/financial-year-2026-compliance.webp", insightImageVersion),
     heroImageAlt: "Financial year 2026 compliance visual for UAE reporting, planning, and tax timing",
     keyTakeaways: [
-      "The financial year now drives corporate tax timing, audit timing, and internal reporting pressure in the UAE.",
-      "The filing deadline usually lands nine months after the financial year-end.",
-      "A weak year-end process often creates both VAT and corporate tax problems together.",
+      "For most UAE companies, the financial year is the accounting period that also drives the corporate tax period.",
+      "The corporate tax return and payment are generally due within nine months after the end of the relevant tax period.",
+      "A strong year-end file should connect bookkeeping, VAT reconciliation, audit support, corporate tax schedules, and seven-year record retention.",
     ],
     relatedServiceHrefs: [
       "/corporate-tax-filing-services-in-the-uae",
       "/vat-filing-services-in-the-uae",
       "/professional-bookkeeping-services-in-dubai",
     ],
+    relatedInsightSlugs: [
+      "uae-corporate-tax-filing-deadlines-2026",
+      "uae-corporate-tax-record-keeping-requirements",
+    ],
     sections: [
       {
         title: "Introduction",
         paragraphs: [
-          "With the introduction of Corporate Tax in the UAE, the concept of a financial year has evolved from being a simple accounting requirement into a critical pillar of business compliance. Today, your financial year determines not just how you report performance, but also how and when you meet your obligations related to corporate tax, VAT, and audits.",
-          "Every major compliance requirement, from tax filings to financial reporting, flows from this 12-month cycle. Choosing the right financial year and managing it effectively is therefore essential to avoid penalties, ensure accuracy, and maintain operational stability.",
+          "The financial year in UAE is no longer just an accounting label. For companies operating in 2026, it affects corporate tax filing deadlines, VAT reconciliation, audit timing, accounting close, management reporting, and the record file a business may need to defend later.",
+          "Most UAE businesses use a 12-month financial year, often the calendar year from 1 January to 31 December. Some companies use a different year-end to align with a parent company, group reporting cycle, or operating model, but that choice has practical compliance consequences.",
+          "This guide explains how the financial year works in the UAE, how it connects to corporate tax and VAT, what deadlines usually follow, and what businesses should prepare before the year-end becomes urgent.",
+        ],
+      },
+      {
+        title: "Financial Year in UAE: Quick Answer",
+        paragraphs: [
+          "A financial year in the UAE is the accounting period used to record business activity, prepare financial statements, and calculate taxable income. For corporate tax, the tax period usually follows the financial year used by the business.",
+          "The most common UAE financial year is 1 January to 31 December. If the financial year ends on 31 December 2026, the corporate tax return and payment would generally be due by 30 September 2027, subject to the company's exact tax position and any applicable FTA decision.",
+        ],
+        bullets: [
+          "Calendar-year financial year: 1 January to 31 December",
+          "Corporate tax period: usually aligned with the financial year",
+          "Corporate tax return deadline: generally within nine months after the tax period ends",
+          "Records: relevant tax and accounting records should be retained for at least seven years",
+          "VAT: VAT return periods can overlap the financial year, so year-end cut-off and reconciliation matter",
         ],
       },
       {
         title: "What Is a Financial Year in the UAE?",
         paragraphs: [
           "A financial year is the 12-month period during which a business records its financial activities, prepares its financial statements, and calculates its taxable income. It serves as the official reporting cycle for regulatory and tax purposes.",
-          "In the UAE, most companies follow the calendar year from January to December because it aligns well with regulatory expectations and simplifies compliance. However, businesses are not restricted to this format. They can adopt a different financial year if it better suits their operational needs or aligns with a parent company's reporting structure.",
-          "This flexibility allows businesses to structure their reporting efficiently, but it also means that the financial year becomes the anchor for all compliance timelines.",
+          "In the UAE, many companies follow the calendar year from January to December because it is simple, familiar, and easier to manage across bookkeeping, VAT, corporate tax, and audit planning. A different financial year can also be used where it fits the business or group reporting structure.",
+          "The important point is consistency. Once the financial year is set, it becomes the anchor for accounting close, tax period, filing deadlines, audit planning, and the records that must be retained after the period ends.",
         ],
       },
       {
@@ -587,20 +611,21 @@ export const insightPosts: InsightPost[] = [
       {
         title: "Corporate Tax Period and Filing Deadlines",
         paragraphs: [
-          "Under UAE Corporate Tax regulations, the financial year and the corporate tax period are effectively the same. This means that the income you earn during your financial year forms the basis of your taxable income, and your filing obligations are calculated accordingly.",
-          "The UAE requires businesses to submit their Corporate Tax return within nine months from the end of their financial year. While this rule is simple in principle, the actual deadline varies depending on the financial year-end chosen by the company.",
+          "Under UAE Corporate Tax, the tax period generally follows the financial year used by the taxable person. This means the income earned during the financial year forms the basis of the corporate tax return for that period.",
+          "The Federal Tax Authority has repeatedly reminded businesses that corporate tax returns and any corporate tax payable should generally be submitted within nine months from the end of the relevant tax period. The actual calendar deadline therefore depends on the company's financial year-end.",
         ],
         table: {
           columns: [
             "Financial Year Period",
             "Financial Year-End",
             "Corporate Tax Filing Deadline",
+            "Practical Preparation Point",
           ],
           rows: [
-            ["1 Jan 2026 - 31 Dec 2026", "31 December 2026", "30 September 2027"],
-            ["1 Apr 2026 - 31 Mar 2027", "31 March 2027", "31 December 2027"],
-            ["1 Jul 2025 - 30 Jun 2026", "30 June 2026", "31 March 2027"],
-            ["First / Extended FY (up to 18 months)", "Depends on chosen end date", "9 months from FY end"],
+            ["1 Jan 2026 - 31 Dec 2026", "31 December 2026", "30 September 2027", "Close 2026 books early enough to prepare tax schedules before September 2027"],
+            ["1 Apr 2026 - 31 Mar 2027", "31 March 2027", "31 December 2027", "Plan audit, VAT cut-off, and corporate tax review around the March year-end"],
+            ["1 Jul 2025 - 30 Jun 2026", "30 June 2026", "31 March 2027", "Use the second half of 2026 to clean ledgers and supporting records"],
+            ["First or extended financial year", "Depends on chosen end date", "Generally 9 months from tax period end", "Confirm the first tax period and filing date before waiting for the deadline"],
           ],
         },
       },
@@ -614,12 +639,46 @@ export const insightPosts: InsightPost[] = [
         ],
       },
       {
+        title: "Year-End Compliance Checklist for UAE Businesses",
+        paragraphs: [
+          "A good financial year-end process should make corporate tax filing easier, not merely close the accounts. The work should connect accounting, VAT, audit support, and corporate tax readiness into one file.",
+          "The most useful checklist is practical: what needs to be closed, reconciled, reviewed, and retained before the return is prepared.",
+        ],
+        bullets: [
+          "Confirm the financial year-end and corporate tax period",
+          "Reconcile bank accounts, revenue, receivables, payables, and major balance sheet items",
+          "Review VAT returns against the accounting records for the same period",
+          "Check accruals, prepayments, stock, fixed assets, depreciation, and owner transactions",
+          "Identify related-party transactions and connected-person payments before tax filing",
+          "Separate qualifying and non-qualifying income where a free zone tax position is relevant",
+          "Prepare audit support where the mainland authority, free zone, bank, or group requires audited accounts",
+          "Save the final accounts, tax schedules, returns, and supporting documents in a seven-year record file",
+        ],
+      },
+      {
         title: "Audit Deadlines Tied to Financial Year-End",
         paragraphs: [
           "Audit requirements in the UAE are closely linked to the financial year, and companies must ensure that their financial statements are reviewed and submitted within the prescribed timelines.",
           "Depending on the jurisdiction, whether mainland or free zone, audited financial statements are typically required within three to six months after the financial year-end.",
           "For example, a company with a financial year ending on 31 December 2026 may need to complete its audit by March or June 2027. These timelines are critical because delays can impact license renewals, regulatory standing, and even banking relationships.",
         ],
+      },
+      {
+        title: "Record-Keeping After the Financial Year Ends",
+        paragraphs: [
+          "The financial year does not disappear once the return is filed. UAE corporate tax record-keeping expectations mean the business should retain relevant records and supporting documents for at least seven years after the end of the tax period.",
+          "That record file should explain the return, not just store invoices. If the FTA, an auditor, a bank, a buyer, or a group finance team later asks for support, the business should be able to show how the figures were prepared.",
+        ],
+        table: {
+          columns: ["Record Area", "Examples to Keep", "Why It Matters"],
+          rows: [
+            ["Financial statements", "Trial balance, ledgers, management accounts, final accounts", "Shows how the period was closed and reported"],
+            ["Revenue and expenses", "Invoices, contracts, receipts, supplier bills, payment evidence", "Supports taxable income and deductible costs"],
+            ["VAT", "VAT returns, reconciliations, tax invoices, adjustment support", "Helps explain differences between VAT reporting and annual accounts"],
+            ["Corporate tax", "Tax computation, return copy, schedules, filing confirmation", "Supports the corporate tax position submitted"],
+            ["Structure and free zone evidence", "License, lease, activity documents, ownership and substance support", "Helps defend entity status and free zone treatment where relevant"],
+          ],
+        },
       },
       {
         title: "Changing Your Financial Year",
@@ -643,6 +702,38 @@ export const insightPosts: InsightPost[] = [
           "Improper management of the financial year can lead to a range of compliance issues. Late corporate tax filings, incorrect VAT reporting, delayed audits, and inconsistencies in financial statements are among the most common risks.",
           "These issues can result in financial penalties, increased scrutiny from authorities, and operational disruptions. Since all compliance timelines are anchored to the financial year, even small errors in planning or execution can have a cascading effect across the business.",
         ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the financial year in UAE?",
+        answer:
+          "The financial year in UAE is the accounting period a business uses to record transactions, prepare financial statements, and calculate taxable income. Many UAE companies use 1 January to 31 December, but a different financial year can be used where it fits the business or group reporting cycle.",
+      },
+      {
+        question: "Is the UAE financial year always January to December?",
+        answer:
+          "No. January to December is common because it is simple and aligns well with annual compliance planning, but UAE companies can use another financial year where appropriate. The chosen year-end should be managed consistently because it affects corporate tax, audit timing, and reporting.",
+      },
+      {
+        question: "When is the UAE corporate tax return due after the financial year-end?",
+        answer:
+          "The corporate tax return and any corporate tax payable are generally due within nine months after the end of the relevant tax period. For a company with a 31 December 2026 year-end, that generally points to a 30 September 2027 filing deadline.",
+      },
+      {
+        question: "Does VAT follow the same financial year as corporate tax?",
+        answer:
+          "No. VAT returns follow the monthly or quarterly VAT schedule assigned to the business, not the annual financial year. Because VAT periods can overlap the year-end, businesses should reconcile VAT returns against the accounts before finalising the year.",
+      },
+      {
+        question: "How long should UAE businesses keep financial year records?",
+        answer:
+          "Relevant UAE corporate tax and accounting records should generally be retained for at least seven years after the end of the tax period. The record file should support the figures and tax position used in the return.",
+      },
+      {
+        question: "Can a UAE company change its financial year?",
+        answer:
+          "A UAE company may be able to change its financial year, but the change should be planned carefully and may require approval or updates with the relevant authority. The business should consider corporate tax periods, VAT cut-off, audit timing, and group reporting before making a change.",
       },
     ],
     closingParagraphs: [
