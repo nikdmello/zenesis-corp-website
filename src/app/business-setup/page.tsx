@@ -300,7 +300,8 @@ export default function BusinessSetupPage() {
           { label: "Services", href: "/#services" },
           { label: "Business setup" },
         ]}
-        title="Business setup services in Dubai and UAE"
+        title="Business setup in Dubai"
+        titleClassName="!max-w-none whitespace-nowrap !text-[1.72rem] sm:!text-[2.65rem] md:!text-[3.25rem] lg:!text-[4.15rem]"
         description="Company formation services for mainland, free zone, and offshore routes, with licensing, visas, banking, tax, renewals, and compliance planned around how the business will operate."
         backgroundImageSrc="/backgrounds/business-setup-bg.webp"
         backgroundImageAlt="Zenesis Business Setup page background"

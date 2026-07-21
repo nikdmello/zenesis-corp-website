@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
+import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -207,32 +207,20 @@ export default function MainlandVsFreeZoneDubaiPage() {
         items={faqs}
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-14 text-white md:py-16">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-14 md:py-16">
         <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 xl:px-16">
-          <div className="rounded-[2rem] bg-white/6 p-7 shadow-[0_28px_90px_rgba(17,35,42,0.18)] md:p-8">
-            <h2 className="max-w-[20ch] text-[2.2rem] font-semibold tracking-[-0.05em] text-white">
-              Compare the route before you commit.
-            </h2>
-            <p className="mt-5 max-w-4xl text-[1.16rem] leading-9 text-white/94 md:text-[1.22rem]">
-              Zenesis can review your activity, ownership, visa needs, client
-              model, and banking expectations before recommending mainland,
-              free zone, or another route.
-            </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link
-                href="/business-setup-cost-dubai"
-                className="rounded-full bg-[#25D366] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5d]"
-              >
-                Compare setup costs
-              </Link>
-              <Link
-                href="/contact"
-                className="rounded-full border border-white/20 bg-white/10 px-6 py-3 text-center text-sm font-semibold !text-white backdrop-blur-md transition-colors hover:bg-white/[0.18]"
-              >
-                Ask Zenesis
-              </Link>
-            </div>
-          </div>
+          <TalkToZenesisPanel
+            wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.18)] md:p-10"
+            eyebrowClassName="eyebrow text-white/58"
+            titleClassName="section-title mt-4 font-semibold text-white"
+            textClassName="text-[1.22rem] font-medium leading-9 text-white/94"
+            title="Compare the route before you commit."
+            paragraphs={[
+              "Zenesis can review your activity, ownership, visa needs, client model, and banking expectations before recommending mainland, free zone, or another route.",
+            ]}
+            buttonClassName="inline-flex rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5d]"
+            imageClassName="object-cover object-[74%_center]"
+          />
         </div>
       </section>
     </SiteShell>

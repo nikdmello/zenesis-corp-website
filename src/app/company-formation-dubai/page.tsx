@@ -405,7 +405,7 @@ export default function CompanyFormationDubaiPage() {
         items={faqs}
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <TalkToZenesisPanel
             wrapperClassName="rounded-[2rem] bg-white p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.18)] md:p-10"

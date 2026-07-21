@@ -520,6 +520,10 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
             <p className="text-[1.2rem] font-semibold tracking-[-0.03em] text-[#8d7453]">
               Contact
             </p>
+            <ConsultationFormButton
+              label="Schedule a Free Consultation"
+              className="mt-5 inline-flex w-full items-center justify-center rounded-full border border-[#8d7453]/22 bg-[#11232a] px-5 py-3 text-center text-sm font-semibold !text-white shadow-[0_12px_26px_rgba(17,35,42,0.12)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b2f38]"
+            />
             <div className="mt-5 grid gap-4">
               {contactDetails.map((item) => {
                 const isEmail = item.label === "Email";
@@ -675,6 +679,7 @@ type PageIntroProps = {
   backgroundImageMode?: "full" | "ambient";
   ambientImageClassName?: string;
   contentClassName?: string;
+  titleClassName?: string;
   highlights?: readonly {
     icon: string;
     label: string;
@@ -698,6 +703,7 @@ export function PageIntro({
   backgroundImageMode = "full",
   ambientImageClassName,
   contentClassName,
+  titleClassName,
   highlights,
   ctaHref,
   ctaLabel,
@@ -857,11 +863,11 @@ export function PageIntro({
           <h1
             className={`${eyebrow ? "mt-6" : breadcrumb ? "mt-4" : "mt-0"} ${
               usesFullBackgroundImage
-                ? "max-w-[15ch] text-[3.5rem] sm:max-w-[16ch] sm:text-[4.35rem] lg:max-w-[17ch] lg:text-[5rem]"
-                : "max-w-[11.5ch] text-[3.05rem] sm:max-w-[12.5ch] sm:text-[3.72rem] lg:max-w-[13.5ch] lg:text-[4.15rem]"
+                ? "max-w-[20ch] text-[3.05rem] [text-wrap:balance] sm:max-w-[21ch] sm:text-[4.05rem] lg:max-w-[22ch] lg:text-[4.75rem]"
+                : "max-w-[22ch] text-[2.35rem] [text-wrap:balance] sm:max-w-[23ch] sm:text-[3.25rem] lg:max-w-[24ch] lg:text-[4.05rem]"
             } page-title-display ${
               usesFullBackgroundImage ? "text-white" : "text-foreground"
-            } ${usesFullBackgroundImage ? "hero-reveal hero-reveal-1" : ""}`}
+            } ${usesFullBackgroundImage ? "hero-reveal hero-reveal-1" : ""} ${titleClassName ?? ""}`}
           >
             {title}
           </h1>

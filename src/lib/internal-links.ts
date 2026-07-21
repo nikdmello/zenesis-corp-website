@@ -1,9 +1,13 @@
 import type { InsightPost } from "@/lib/insights";
+import { versionedAssetPath } from "@/lib/asset-paths";
 
 export type InternalLinkCard = {
   title: string;
   href: string;
   description: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageClassName?: string;
 };
 
 export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
@@ -12,46 +16,73 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
       title: "Business setup",
       href: "/business-setup",
       description: "Compare mainland, free zone, and offshore routes before formation starts.",
+      imageSrc: versionedAssetPath("/backgrounds/business-setup-bg.webp"),
+      imageAlt: "Business setup advisory meeting in Dubai",
+      imageClassName: "object-[78%_center]",
     },
     {
       title: "Company formation Dubai",
       href: "/company-formation-dubai",
       description: "Choose the right mainland, free zone, or offshore formation route in Dubai.",
+      imageSrc: versionedAssetPath("/mainland.webp"),
+      imageAlt: "Company formation route planning in Dubai",
+      imageClassName: "object-[68%_24%]",
     },
     {
       title: "Business setup services",
       href: "/business-setup-services-uae",
       description: "See the full setup path from licensing through visas, banking, tax, and renewals.",
+      imageSrc: versionedAssetPath("/backgrounds/business-setup-bg.webp"),
+      imageAlt: "Business setup services planning in the UAE",
+      imageClassName: "object-[82%_center]",
     },
     {
       title: "Business setup pricing",
       href: "/business-setup-cost-dubai",
       description: "Compare starting prices for freelance, free zone, and mainland setup routes.",
+      imageSrc: versionedAssetPath("/freezone.webp"),
+      imageAlt: "Business setup pricing and free zone package review",
+      imageClassName: "object-[70%_24%]",
     },
     {
       title: "Mainland vs free zone",
       href: "/mainland-vs-free-zone-dubai",
       description: "Compare market access, visas, banking, office needs, and setup cost tradeoffs.",
+      imageSrc: versionedAssetPath("/free-zone.webp"),
+      imageAlt: "Mainland and free zone setup comparison in Dubai",
+      imageClassName: "object-[74%_center]",
     },
     {
       title: "Low-cost setup routes",
       href: "/low-cost-business-setup-uae",
       description: "Compare the cheapest viable routes without choosing the wrong structure.",
+      imageSrc: versionedAssetPath("/freezone.webp"),
+      imageAlt: "Low-cost UAE business setup route planning",
+      imageClassName: "object-[70%_24%]",
     },
     {
       title: "Mainland setup",
       href: "/mainland",
       description: "For broader UAE market access and direct local operating flexibility.",
+      imageSrc: versionedAssetPath("/mainland.webp"),
+      imageAlt: "Mainland company setup planning in Dubai",
+      imageClassName: "object-[68%_24%]",
     },
     {
       title: "Free zone setup",
       href: "/free-zones",
       description: "For package-driven setup, foreign ownership, and zone-specific fit.",
+      imageSrc: versionedAssetPath("/freezone.webp"),
+      imageAlt: "Free zone company setup planning in Dubai",
+      imageClassName: "object-[70%_24%]",
     },
     {
       title: "Offshore setup",
       href: "/offshore",
       description: "For holding, asset, or international structures that do not need a UAE operating office.",
+      imageSrc: versionedAssetPath("/offshore.webp"),
+      imageAlt: "Offshore company structure planning",
+      imageClassName: "object-[72%_22%]",
     },
     {
       title: "Document attestation",
@@ -64,16 +95,25 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
       title: "Accounting and tax",
       href: "/accounting-tax",
       description: "Support across bookkeeping, VAT, registration, and annual tax filing.",
+      imageSrc: versionedAssetPath("/accounting-and-tax.webp"),
+      imageAlt: "Accounting and tax advisory support in Dubai",
+      imageClassName: "object-[72%_center]",
     },
     {
       title: "Corporate tax registration",
       href: "/corporate-tax-registration-in-the-uae",
       description: "Get the registration position and EmaraTax process handled properly.",
+      imageSrc: versionedAssetPath("/corporate-tax.webp"),
+      imageAlt: "Corporate tax registration support in the UAE",
+      imageClassName: "object-[70%_center]",
     },
     {
       title: "Corporate tax filing",
       href: "/corporate-tax-filing-services-in-the-uae",
       description: "Prepare annual returns with stronger calculations and supporting records.",
+      imageSrc: versionedAssetPath("/corporate-tax.webp"),
+      imageAlt: "Corporate tax filing support in the UAE",
+      imageClassName: "object-[70%_center]",
     },
   ],
   "Visa and Banking": [
@@ -81,16 +121,25 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
       title: "Visa and banking",
       href: "/visa-and-banking",
       description: "Plan residency, visas, and banking in the right operating sequence.",
+      imageSrc: versionedAssetPath("/backgrounds/visa-and-banking-bg.webp"),
+      imageAlt: "Visa and banking support planning in the UAE",
+      imageClassName: "object-[76%_center]",
     },
     {
       title: "Golden Visa",
       href: "/golden-visa-services-in-the-uae",
       description: "Review long-term residency routes and the right evidence path.",
+      imageSrc: versionedAssetPath("/insights/golden-visa-guide.webp"),
+      imageAlt: "Dubai Golden Visa eligibility planning",
+      imageClassName: "object-[72%_center]",
     },
     {
       title: "Bank account support",
       href: "/open-a-bank-account-easily",
       description: "Prepare KYC and account-opening support around the real company structure.",
+      imageSrc: versionedAssetPath("/backgrounds/visa-and-banking-bg.webp"),
+      imageAlt: "UAE business bank account support planning",
+      imageClassName: "object-[76%_center]",
     },
   ],
 };

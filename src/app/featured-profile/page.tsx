@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { ConsultationFormButton } from "@/components/consultation-button";
 import { JsonLd } from "@/components/json-ld";
 import { SiteShell } from "@/components/site-shell";
+import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { featuredProfile } from "@/lib/site-content";
 import {
   buildBreadcrumbSchema,
@@ -214,18 +215,20 @@ export default function FeaturedProfilePage() {
           </div>
         </section>
 
-        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-14 text-white md:py-16">
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-14 md:py-16">
           <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 xl:px-16">
-            <div className="rounded-[2rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-7 shadow-[0_28px_90px_rgba(17,35,42,0.18)] md:p-8">
-              <h2 className="max-w-[18ch] text-[2.2rem] font-semibold tracking-[-0.05em] text-white">
-                Discuss your setup or compliance needs with Zenesis.
-              </h2>
-              <p className="mt-5 max-w-4xl text-[1.16rem] leading-9 text-white/94 md:text-[1.22rem]">
-                If you are comparing company setup routes, working through banking
-                or visa steps, or need help with ongoing compliance in the UAE,
-                the useful next move is a direct consultation.
-              </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <TalkToZenesisPanel
+              wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.18)] md:p-10"
+              eyebrowClassName="eyebrow text-white/58"
+              titleClassName="section-title mt-4 font-semibold text-white"
+              textClassName="text-[1.22rem] font-medium leading-9 text-white/94"
+              title="Discuss your setup or compliance needs with Zenesis."
+              paragraphs={[
+                "If you are comparing company setup routes, working through banking or visa steps, or need help with ongoing compliance in the UAE, the useful next move is a direct consultation.",
+              ]}
+              imageClassName="object-cover object-[74%_center]"
+              actions={
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <ConsultationFormButton
                   label="Schedule a Free Consultation"
                   className="inline-flex rounded-full bg-[#25D366] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5d]"
@@ -236,8 +239,9 @@ export default function FeaturedProfilePage() {
                 >
                   View About Zenesis
                 </Link>
-              </div>
-            </div>
+                </div>
+              }
+            />
           </div>
         </section>
       </article>
