@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
+import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { CardAccent, PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
@@ -398,6 +399,8 @@ export default function CompanyFormationDubaiPage() {
           </div>
         </div>
       </section>
+
+      <ServiceCredibilityPanel path="/company-formation-dubai" />
 
       <ServiceAnswerSection
         title="Direct answers"

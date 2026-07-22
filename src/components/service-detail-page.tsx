@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
+import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
 import { CardAccent, PageIntro, SiteShell } from "@/components/site-shell";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
@@ -271,6 +272,8 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
           </div>
         </section>
       ) : null}
+
+      <ServiceCredibilityPanel path={canonicalPath} />
 
       {config.directAnswers?.length ? (
         <ServiceAnswerSection

@@ -6,7 +6,12 @@ import { ConsultationFormButton } from "@/components/consultation-button";
 import { JsonLd } from "@/components/json-ld";
 import { SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
-import { getInsightPost, insightPosts } from "@/lib/insights";
+import {
+  getInsightCredibility,
+  getInsightPost,
+  insightAuthorProfiles,
+  insightPosts,
+} from "@/lib/insights";
 import { pickServiceLinks, serviceLinksByCategory } from "@/lib/internal-links";
 import { legacyInsightMetaBySlug } from "@/lib/legacy-meta";
 import {
@@ -63,6 +68,10 @@ export default async function InsightArticlePage({
     notFound();
   }
 
+  const credibility = getInsightCredibility(post.slug);
+  const authorProfile =
+    insightAuthorProfiles[post.author as keyof typeof insightAuthorProfiles];
+
   const articleSchemas = [
     buildArticleSchema({
       title: post.title,
@@ -70,7 +79,9 @@ export default async function InsightArticlePage({
       path: `/insights/${post.slug}`,
       image: post.heroImageSrc,
       publishedTime: toIsoDate(post.dateLabel),
+      modifiedTime: toIsoDate(credibility?.updatedLabel),
       authorName: post.author,
+      authorUrl: authorProfile?.profileHref,
     }),
     buildBreadcrumbSchema([
       { name: "Home", url: getAbsoluteUrl("/") },
@@ -126,6 +137,14 @@ export default async function InsightArticlePage({
                     •
                   </span>
                   <span>{post.dateLabel}</span>
+                  {credibility?.updatedLabel ? (
+                    <>
+                      <span aria-hidden="true" className="text-white/34">
+                        •
+                      </span>
+                      <span>Updated {credibility.updatedLabel}</span>
+                    </>
+                  ) : null}
                   <span aria-hidden="true" className="text-white/34">
                     •
                   </span>
@@ -156,6 +175,33 @@ export default async function InsightArticlePage({
         <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-14 md:py-18">
           <div className="mx-auto w-full max-w-[104rem] px-7 md:px-14 xl:px-24">
             <div className="mx-auto max-w-[62rem] space-y-16">
+              {authorProfile ? (
+                <section className="border-y border-[#e4dbce] py-7">
+                  <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+                    <div>
+                      <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                        About the author
+                      </p>
+                      <h2 className="mt-3 text-[1.35rem] font-semibold text-foreground">
+                        {post.author}, {authorProfile.credentials}
+                      </h2>
+                      <p className="mt-1 text-[1rem] font-semibold text-foreground/68">
+                        {authorProfile.role}
+                      </p>
+                      <p className="mt-4 max-w-3xl text-[1.04rem] leading-8 text-[#07151b]/84">
+                        {authorProfile.bio}
+                      </p>
+                    </div>
+                    <a
+                      href={authorProfile.profileHref}
+                      className="text-[0.98rem] font-semibold text-[#244ba8] hover:underline"
+                    >
+                      View leadership profile
+                    </a>
+                  </div>
+                </section>
+              ) : null}
+
               {post.keyTakeaways?.length ? (
                 <section className="rounded-[2rem] border border-[#e7ded1] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">
                   <h2 className="text-[2.05rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.2rem]">
@@ -313,6 +359,44 @@ export default async function InsightArticlePage({
                       </details>
                     ))}
                   </div>
+                </section>
+              ) : null}
+
+              {credibility?.sources.length ? (
+                <section className="border-t border-[#e4dbce] pt-9">
+                  <h2 className="text-[2.15rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.35rem]">
+                    Primary sources
+                  </h2>
+                  <p className="mt-4 max-w-4xl text-[1.04rem] leading-8 text-[#07151b]/78">
+                    This guide was checked against the following official UAE sources. Rules, fees, eligibility, and authority procedures can change, so confirm the position that applies to your business before acting.
+                  </p>
+                  <ul className="mt-6 divide-y divide-[#e4dbce] border-y border-[#e4dbce]">
+                    {credibility.sources.map((source) => (
+                      <li key={source.href} className="py-4">
+                        <a
+                          href={source.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="group flex items-start justify-between gap-5"
+                        >
+                          <span>
+                            <span className="block text-[1.05rem] font-semibold leading-7 text-foreground group-hover:text-[#244ba8]">
+                              {source.title}
+                            </span>
+                            <span className="mt-1 block text-[0.94rem] leading-6 text-foreground/66">
+                              {source.publisher}
+                            </span>
+                          </span>
+                          <span aria-hidden="true" className="mt-1 shrink-0 text-[#8d7453]">
+                            ↗
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-5 text-[0.94rem] leading-7 text-[#07151b]/66">
+                    Published {post.dateLabel}. Last updated {credibility.updatedLabel}. This article provides general information and is not legal or tax advice.
+                  </p>
                 </section>
               ) : null}
 

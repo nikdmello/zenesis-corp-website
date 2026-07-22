@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/json-ld";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
+import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
@@ -317,6 +318,8 @@ export default function BusinessSetupServicesUaePage() {
           </div>
         </div>
       </section>
+
+      <ServiceCredibilityPanel path="/business-setup-services-uae" />
 
       <ServiceAnswerSection
         title="Direct answers"

@@ -34,6 +34,139 @@ export type InsightPost = {
   closingCta?: string;
 };
 
+export type InsightSource = {
+  title: string;
+  publisher: string;
+  href: string;
+};
+
+export type InsightCredibility = {
+  updatedLabel: string;
+  sources: InsightSource[];
+};
+
+export const insightAuthorProfiles = {
+  "Cecilia D'Cunha": {
+    credentials: "BCom, LLB, ACS",
+    role: "Founder, Zenesis Corporation",
+    profileHref: "/about",
+    bio: "A qualified Chartered Secretary with degrees in Commerce and Law and more than 30 years of experience across offshore incorporation, UAE company setup, and corporate compliance.",
+  },
+} as const;
+
+const sourceLibrary = {
+  corporateTaxGeneral: {
+    title: "General Corporate Tax Guide",
+    publisher: "UAE Federal Tax Authority",
+    href: "https://tax.gov.ae/DataFolder/Files/Guides/CT/CT%20General%20Guide%20-%20EN%20-%2010%2009%202023.pdf",
+  },
+  corporateTaxReturns: {
+    title: "Corporate Tax Guide: Tax Returns",
+    publisher: "UAE Federal Tax Authority",
+    href: "https://www.tax.gov.ae/Datafolder/Files/Guides/CT/CT-Returns-EN-11-11-2024.pdf",
+  },
+  corporateTaxRecords: {
+    title: "FTA reminder on Corporate Tax records and filing obligations",
+    publisher: "UAE Federal Tax Authority",
+    href: "https://tax.gov.ae/en/media.centre/news/pr.28082025.aspx",
+  },
+  corporateTaxRegistrations: {
+    title: "Corporate Tax registrations exceed 640,000",
+    publisher: "UAE Federal Tax Authority",
+    href: "https://tax.gov.ae/en/media.centre/news/federal.tax.authority.record.volume.of.corporate.tax.returns.reflects.efficiency.of.legislative.and.procedural.systems.aspx",
+  },
+  taxGroups: {
+    title: "Corporate Tax Guide: Tax Groups",
+    publisher: "UAE Federal Tax Authority",
+    href: "https://tax.gov.ae/Datafolder/Files/Guides/CT/Tax%20Groups%20-%2008%2001%202024.pdf",
+  },
+  freeZoneTax: {
+    title: "Corporate Tax Guide: Free Zone Persons",
+    publisher: "UAE Federal Tax Authority",
+    href: "https://tax.gov.ae/Datafolder/Files/Guides/CT/Free%20Zone%20Persons%20-%2020%2005%202024%20final%20for%20GCD.pdf",
+  },
+  mainlandSetup: {
+    title: "Steps to start a business on the mainland",
+    publisher: "The Official Platform of the UAE Government",
+    href: "https://u.ae/en/information-and-services/business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland",
+  },
+  freeZoneSetup: {
+    title: "Starting a business in a free zone",
+    publisher: "The Official Platform of the UAE Government",
+    href: "https://u.ae/en/information-and-services/business/doing-business-in-free-zones/starting-a-business-in-a-free-zone",
+  },
+  goldenVisa: {
+    title: "Golden visa eligibility and benefits",
+    publisher: "The Official Platform of the UAE Government",
+    href: "https://u.ae/en/information-and-services/visa-and-emirates-id/residence-visas/golden-visa",
+  },
+  icpGoldenVisa: {
+    title: "Golden Visa services",
+    publisher: "Federal Authority for Identity, Citizenship, Customs & Port Security",
+    href: "https://icp.gov.ae/en/services/golden-visa/",
+  },
+  icpGreenResidency: {
+    title: "Green Residency",
+    publisher: "Federal Authority for Identity, Citizenship, Customs & Port Security",
+    href: "https://icp.gov.ae/en/green-residency/",
+  },
+} satisfies Record<string, InsightSource>;
+
+const insightCredibilityBySlug: Record<string, InsightCredibility> = {
+  "corporate-tax-mistakes-trigger-audits-uae": {
+    updatedLabel: "July 22, 2026",
+    sources: [sourceLibrary.corporateTaxGeneral, sourceLibrary.corporateTaxReturns, sourceLibrary.corporateTaxRecords],
+  },
+  "business-consultant-beyond-company-registration": {
+    updatedLabel: "July 22, 2026",
+    sources: [sourceLibrary.mainlandSetup, sourceLibrary.freeZoneSetup, sourceLibrary.corporateTaxGeneral],
+  },
+  "why-first-time-entrepreneurs-are-choosing-uae": {
+    updatedLabel: "July 22, 2026",
+    sources: [sourceLibrary.mainlandSetup, sourceLibrary.freeZoneSetup, sourceLibrary.icpGreenResidency],
+  },
+  "complete-guide-to-corporate-tax-groups-uae": {
+    updatedLabel: "July 22, 2026",
+    sources: [sourceLibrary.taxGroups, sourceLibrary.corporateTaxGeneral],
+  },
+  "financial-year-2026-uae-compliance-guide": {
+    updatedLabel: "July 22, 2026",
+    sources: [sourceLibrary.corporateTaxReturns, sourceLibrary.corporateTaxRecords, sourceLibrary.corporateTaxGeneral],
+  },
+  "uae-corporate-tax-filing-deadlines-2026": {
+    updatedLabel: "July 22, 2026",
+    sources: [sourceLibrary.corporateTaxReturns, sourceLibrary.corporateTaxRecords],
+  },
+  "uae-corporate-tax-record-keeping-requirements": {
+    updatedLabel: "July 22, 2026",
+    sources: [sourceLibrary.corporateTaxRecords, sourceLibrary.corporateTaxGeneral],
+  },
+  "uae-free-zone-corporate-tax-rules-clarified-2026": {
+    updatedLabel: "July 22, 2026",
+    sources: [sourceLibrary.freeZoneTax, sourceLibrary.freeZoneSetup],
+  },
+  "uae-corporate-tax-registrations-cross-640000-businesses": {
+    updatedLabel: "July 22, 2026",
+    sources: [sourceLibrary.corporateTaxRegistrations, sourceLibrary.corporateTaxGeneral, sourceLibrary.corporateTaxReturns],
+  },
+  "uae-visa-reforms-2025-entrepreneurs-expats": {
+    updatedLabel: "July 22, 2026",
+    sources: [sourceLibrary.icpGreenResidency, sourceLibrary.goldenVisa, sourceLibrary.icpGoldenVisa],
+  },
+  "top-5-mistakes-starting-business-dubai": {
+    updatedLabel: "July 22, 2026",
+    sources: [sourceLibrary.mainlandSetup, sourceLibrary.freeZoneSetup, sourceLibrary.corporateTaxGeneral],
+  },
+  "complete-dubai-golden-visa-guide": {
+    updatedLabel: "July 22, 2026",
+    sources: [sourceLibrary.goldenVisa, sourceLibrary.icpGoldenVisa],
+  },
+};
+
+export function getInsightCredibility(slug: string) {
+  return insightCredibilityBySlug[slug];
+}
+
 export const insightPosts: InsightPost[] = [
   {
     slug: "corporate-tax-mistakes-trigger-audits-uae",

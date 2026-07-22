@@ -39,7 +39,9 @@ type ArticleSchemaInput = {
   path: string;
   image: string;
   publishedTime?: string;
+  modifiedTime?: string;
   authorName?: string;
+  authorUrl?: string;
 };
 
 type ServiceSchemaInput = {
@@ -156,6 +158,16 @@ export function getOrganizationSchemas() {
       founder: {
         "@type": "Person",
         name: "Cecilia D'Cunha",
+        jobTitle: "Founder",
+        honorificSuffix: "BCom, LLB, ACS",
+        url: getAbsoluteUrl("/about"),
+      },
+      employee: {
+        "@type": "Person",
+        name: "Sajal Arora",
+        jobTitle: "Director - Accountancy and Taxation",
+        honorificSuffix: "BCom, CA, CFA",
+        url: getAbsoluteUrl("/about"),
       },
     },
     {
@@ -186,6 +198,9 @@ export function getOrganizationSchemas() {
       founder: {
         "@type": "Person",
         name: "Cecilia D'Cunha",
+        jobTitle: "Founder",
+        honorificSuffix: "BCom, LLB, ACS",
+        url: getAbsoluteUrl("/about"),
       },
       sameAs: socialLinks.map((item) => item.href),
       hasMap: googleMapsHref,
@@ -255,7 +270,9 @@ export function buildArticleSchema({
   path,
   image,
   publishedTime,
+  modifiedTime,
   authorName = "Cecilia D'Cunha",
+  authorUrl,
 }: ArticleSchemaInput) {
   return {
     "@context": "https://schema.org",
@@ -267,6 +284,7 @@ export function buildArticleSchema({
     author: {
       "@type": "Person",
       name: authorName,
+      ...(authorUrl ? { url: getAbsoluteUrl(authorUrl) } : {}),
     },
     publisher: {
       "@type": "Organization",
@@ -276,7 +294,10 @@ export function buildArticleSchema({
         url: getAbsoluteUrl("/icon.png"),
       },
     },
-    ...(publishedTime ? { datePublished: publishedTime, dateModified: publishedTime } : {}),
+    ...(publishedTime ? { datePublished: publishedTime } : {}),
+    ...(modifiedTime || publishedTime
+      ? { dateModified: modifiedTime ?? publishedTime }
+      : {}),
   };
 }
 

@@ -4,6 +4,7 @@ import { BusinessSetupCostTable } from "@/components/business-setup-cost-table";
 import { BusinessSetupPriceActions } from "@/components/business-setup-price-actions";
 import { BusinessSetupPricingFaq } from "@/components/business-setup-pricing-faq";
 import { JsonLd } from "@/components/json-ld";
+import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import {
@@ -205,6 +206,8 @@ export default function BusinessSetupCostDubaiPage() {
           </div>
         </div>
       </section>
+
+      <ServiceCredibilityPanel path="/business-setup-cost-dubai" />
 
       <BusinessSetupPricingFaq
         dark
