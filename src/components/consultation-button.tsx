@@ -5,6 +5,33 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 
 const consultationPromptSeenKey = "zenesis-consultation-prompt-seen";
 
+function hasSeenConsultationPrompt() {
+  try {
+    return window.localStorage.getItem(consultationPromptSeenKey) === "true";
+  } catch {
+    try {
+      return window.sessionStorage.getItem(consultationPromptSeenKey) === "true";
+    } catch {
+      return false;
+    }
+  }
+}
+
+function markConsultationPromptSeen() {
+  try {
+    window.localStorage.setItem(consultationPromptSeenKey, "true");
+    return;
+  } catch {
+    // Fall back to tab storage if persistent storage is blocked.
+  }
+
+  try {
+    window.sessionStorage.setItem(consultationPromptSeenKey, "true");
+  } catch {
+    // Ignore storage access issues and fall back to in-memory behavior.
+  }
+}
+
 const LazyConsultationModal = dynamic(
   () => import("@/components/consultation-form").then((mod) => mod.ConsultationModal),
   {
@@ -63,13 +90,9 @@ export function ConsultationFormButtonWithScrollPrompt({
   const hasTriggeredRef = useRef(false);
 
   useEffect(() => {
-    try {
-      if (window.sessionStorage.getItem(consultationPromptSeenKey) === "true") {
-        hasTriggeredRef.current = true;
-        return;
-      }
-    } catch {
-      // Ignore storage access issues and fall back to in-memory behavior.
+    if (hasSeenConsultationPrompt()) {
+      hasTriggeredRef.current = true;
+      return;
     }
 
     const onScroll = () => {
@@ -82,11 +105,7 @@ export function ConsultationFormButtonWithScrollPrompt({
       }
 
       hasTriggeredRef.current = true;
-      try {
-        window.sessionStorage.setItem(consultationPromptSeenKey, "true");
-      } catch {
-        // Ignore storage access issues and still allow the modal to open.
-      }
+      markConsultationPromptSeen();
       setIsOpen(true);
       window.removeEventListener("scroll", onScroll);
     };
@@ -102,11 +121,7 @@ export function ConsultationFormButtonWithScrollPrompt({
         type="button"
         className={className}
         onClick={() => {
-          try {
-            window.sessionStorage.setItem(consultationPromptSeenKey, "true");
-          } catch {
-            // Ignore storage access issues and still allow the modal to open.
-          }
+          markConsultationPromptSeen();
           hasTriggeredRef.current = true;
           setIsOpen(true);
         }}
@@ -138,13 +153,9 @@ export function ConsultationSessionPrompt() {
   const hasTriggeredRef = useRef(false);
 
   useEffect(() => {
-    try {
-      if (window.sessionStorage.getItem(consultationPromptSeenKey) === "true") {
-        hasTriggeredRef.current = true;
-        return;
-      }
-    } catch {
-      // Ignore storage access issues and fall back to in-memory behavior.
+    if (hasSeenConsultationPrompt()) {
+      hasTriggeredRef.current = true;
+      return;
     }
 
     const openPrompt = () => {
@@ -153,11 +164,7 @@ export function ConsultationSessionPrompt() {
       }
 
       hasTriggeredRef.current = true;
-      try {
-        window.sessionStorage.setItem(consultationPromptSeenKey, "true");
-      } catch {
-        // Ignore storage access issues and still allow the modal to open.
-      }
+      markConsultationPromptSeen();
       setIsOpen(true);
       window.removeEventListener("scroll", onScroll);
     };

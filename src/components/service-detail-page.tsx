@@ -18,8 +18,6 @@ import {
 
 export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
   const hasAmbientIntro = Boolean(config.introBackgroundImageSrc);
-  const useDarkParentIntroSection =
-    config.topLevelService && config.slug === "visa-and-banking";
   const knowledgeSections =
     config.knowledgeSections && config.knowledgeSections.length > 0
       ? config.knowledgeSections
@@ -77,6 +75,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
         <JsonLd key={index} data={schema} />
       ))}
       <PageIntro
+        showBottomBorder={false}
         breadcrumb={
           config.hideBreadcrumb
             ? undefined
@@ -103,13 +102,12 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
         }
         ambientImageClassName={config.introAmbientImageClassName}
         contentClassName={config.introContentClassName}
+        footerContent={
+          <ServiceCredibilityPanel path={canonicalPath} variant="expertise" embedded />
+        }
       />
 
-      <section
-        className={`relative left-1/2 -mt-px w-screen -translate-x-1/2 py-16 md:py-20 ${
-          useDarkParentIntroSection ? "bg-[#11232a]" : "bg-[#f5efe4]"
-        }`}
-      >
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <article className={`rounded-[2rem] border border-[#d8d0c2] p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10 ${
             config.topLevelService
@@ -155,13 +153,13 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="max-w-[56rem]">
-            <h2 className="section-title font-semibold text-white">
+            <h2 className="section-title font-semibold text-foreground">
               What helps clients make the right decision
             </h2>
-            <p className="mt-4 max-w-[52rem] text-[1.12rem] leading-8 text-white/92 md:text-[1.16rem] md:leading-9">
+            <p className="mt-4 max-w-[52rem] text-[1.12rem] leading-8 text-muted md:text-[1.16rem] md:leading-9">
               The right choice usually becomes clearer when the business model,
               ownership structure, timing, and post-setup needs are looked at
               together instead of in isolation.
@@ -200,7 +198,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <article className="rounded-[2rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-8 text-[#11232a] shadow-[0_20px_60px_rgba(17,35,42,0.12)] md:p-10">
             <CardAccent />
@@ -273,11 +271,8 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
         </section>
       ) : null}
 
-      <ServiceCredibilityPanel path={canonicalPath} />
-
       {config.directAnswers?.length ? (
         <ServiceAnswerSection
-          dark
           title="Direct answers"
           description="Short answers to the questions founders and operators usually need clarified before the next step."
           items={config.directAnswers}
@@ -302,6 +297,8 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
           />
         </div>
       </section>
+
+      <ServiceCredibilityPanel path={canonicalPath} variant="sources" />
     </SiteShell>
   );
 }

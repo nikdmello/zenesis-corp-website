@@ -690,6 +690,8 @@ type PageIntroProps = {
   ctaPresetEnquiry?: string;
   secondaryHref?: string;
   secondaryLabel?: string;
+  showBottomBorder?: boolean;
+  footerContent?: ReactNode;
 };
 
 export function PageIntro({
@@ -710,6 +712,8 @@ export function PageIntro({
   ctaPresetEnquiry,
   secondaryHref,
   secondaryLabel,
+  showBottomBorder = true,
+  footerContent,
 }: PageIntroProps) {
   const hasBackgroundImage = Boolean(backgroundImageSrc);
   const usesFullBackgroundImage = hasBackgroundImage && backgroundImageMode === "full";
@@ -724,13 +728,16 @@ export function PageIntro({
 
   return (
     <section
-      className={
+      className={[
         usesFullBackgroundImage
           ? "relative left-1/2 -mt-10 w-screen -translate-x-1/2 overflow-hidden pt-20 pb-10 md:-mt-14 md:pt-28 md:pb-16"
           : usesAmbientBackgroundImage
-            ? "relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden border-b border-foreground/8 bg-[#f5efe4] pt-24 pb-10 md:pt-28 md:pb-12"
-            : "relative left-1/2 -mt-px w-screen -translate-x-1/2 border-b border-foreground/8 bg-[#f5efe4] pt-24 pb-10 md:pt-28 md:pb-12"
-      }
+            ? "relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-[#f5efe4] pt-24 pb-14 md:pt-28 md:pb-16"
+            : "relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] pt-24 pb-14 md:pt-28 md:pb-16",
+        showBottomBorder ? "border-b border-foreground/8" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
     >
       {usesFullBackgroundImage ? (
         <>
@@ -962,6 +969,12 @@ export function PageIntro({
                   </div>
                 </div>
               ))}
+            </div>
+          ) : null}
+
+          {footerContent ? (
+            <div className={usesFullBackgroundImage ? "mt-6 hero-reveal hero-reveal-4" : "mt-4"}>
+              {footerContent}
             </div>
           ) : null}
         </div>

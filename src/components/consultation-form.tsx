@@ -8,6 +8,33 @@ import { submitConsultationLeadToZohoWebform } from "@/lib/zoho-webform";
 
 const whatsappNumber = "971589142200";
 const homepageConsultationPromptSeenKey = "zenesis-homepage-consultation-prompt-seen";
+
+function hasSeenHomepageConsultationPrompt() {
+  try {
+    return window.localStorage.getItem(homepageConsultationPromptSeenKey) === "true";
+  } catch {
+    try {
+      return window.sessionStorage.getItem(homepageConsultationPromptSeenKey) === "true";
+    } catch {
+      return false;
+    }
+  }
+}
+
+function markHomepageConsultationPromptSeen() {
+  try {
+    window.localStorage.setItem(homepageConsultationPromptSeenKey, "true");
+    return;
+  } catch {
+    // Fall back to tab storage if persistent storage is blocked.
+  }
+
+  try {
+    window.sessionStorage.setItem(homepageConsultationPromptSeenKey, "true");
+  } catch {
+    // Ignore storage access issues and fall back to in-memory behavior.
+  }
+}
 const enquiryShortcuts = [
   {
     label: "Business setup",
@@ -526,13 +553,9 @@ export function ConsultationFormButtonWithScrollPrompt({
   const hasTriggeredRef = useRef(false);
 
   useEffect(() => {
-    try {
-      if (window.sessionStorage.getItem(homepageConsultationPromptSeenKey) === "true") {
-        hasTriggeredRef.current = true;
-        return;
-      }
-    } catch {
-      // Ignore storage access issues and fall back to in-memory behavior.
+    if (hasSeenHomepageConsultationPrompt()) {
+      hasTriggeredRef.current = true;
+      return;
     }
 
     const onScroll = () => {
@@ -545,11 +568,7 @@ export function ConsultationFormButtonWithScrollPrompt({
       }
 
       hasTriggeredRef.current = true;
-      try {
-        window.sessionStorage.setItem(homepageConsultationPromptSeenKey, "true");
-      } catch {
-        // Ignore storage access issues and still allow the modal to open.
-      }
+      markHomepageConsultationPromptSeen();
       setIsOpen(true);
       window.removeEventListener("scroll", onScroll);
     };
@@ -565,11 +584,7 @@ export function ConsultationFormButtonWithScrollPrompt({
         type="button"
         className={className}
         onClick={() => {
-          try {
-            window.sessionStorage.setItem(homepageConsultationPromptSeenKey, "true");
-          } catch {
-            // Ignore storage access issues and still allow the modal to open.
-          }
+          markHomepageConsultationPromptSeen();
           hasTriggeredRef.current = true;
           setIsOpen(true);
         }}

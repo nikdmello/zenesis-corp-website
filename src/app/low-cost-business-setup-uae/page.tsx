@@ -5,6 +5,7 @@ import { ServiceCredibilityPanel } from "@/components/service-credibility-panel"
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
+import { versionedAssetPath } from "@/lib/asset-paths";
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -118,16 +119,20 @@ export default function LowCostBusinessSetupUaePage() {
       ))}
 
       <PageIntro
+        showBottomBorder={false}
         breadcrumb={[
           { label: "Pricing", href: "/business-setup-cost-dubai" },
           { label: "Low cost setup" },
         ]}
         title="Low cost business setup in UAE"
         description="A practical guide to the cheapest viable setup routes, and the point where a low headline price can become the wrong structure."
-        backgroundImageSrc="/backgrounds/business-setup-bg.webp"
+        backgroundImageSrc={versionedAssetPath("/low-cost-setup.webp")}
         backgroundImageAlt="Low cost business setup and company formation in the UAE"
-        backgroundImagePosition="!object-[100%_100%]"
+        backgroundImagePosition="!object-[82%_34%]"
         backgroundImageMode="ambient"
+        footerContent={
+          <ServiceCredibilityPanel path="/low-cost-business-setup-uae" variant="expertise" embedded />
+        }
       />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
@@ -177,8 +182,6 @@ export default function LowCostBusinessSetupUaePage() {
         </div>
       </section>
 
-      <ServiceCredibilityPanel path="/low-cost-business-setup-uae" />
-
       <ServiceAnswerSection
         title="Direct answers"
         description="Short answers for founders comparing low-cost setup routes before choosing a package."
@@ -201,7 +204,8 @@ export default function LowCostBusinessSetupUaePage() {
           />
         </div>
       </section>
+
+      <ServiceCredibilityPanel path="/low-cost-business-setup-uae" variant="sources" />
     </SiteShell>
   );
 }
-

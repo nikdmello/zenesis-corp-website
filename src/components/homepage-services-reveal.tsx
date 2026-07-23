@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 type ServiceRevealItem = {
@@ -78,6 +79,29 @@ export function HomepageServicesReveal({
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(216,195,162,0.16),transparent_26%),radial-gradient(circle_at_80%_30%,rgba(17,35,42,0.05),transparent_28%)]"
       />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46vw] min-w-[34rem] md:block xl:w-[52vw] xl:min-w-[42rem]"
+      >
+        <div
+          className="absolute inset-0 opacity-[0.54] xl:opacity-[0.6]"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
+            maskImage:
+              "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
+          }}
+        >
+          <Image
+            src="/uae-flag.webp"
+            alt=""
+            fill
+            sizes="(max-width: 1279px) 46vw, 52vw"
+            className="object-cover object-right"
+          />
+        </div>
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(245,239,228,0.18)_0%,rgba(245,239,228,0.08)_26%,rgba(245,239,228,0.02)_62%,rgba(245,239,228,0)_100%)]" />
+      </div>
 
       <div className="relative mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <div className="max-w-[52rem]">
@@ -96,8 +120,8 @@ export function HomepageServicesReveal({
             </p>
           </div>
 
-          <div className="rounded-[2.1rem] border border-[#d9cfbf] bg-[linear-gradient(180deg,rgba(255,255,255,0.58),rgba(255,255,255,0.34))] p-4 shadow-[0_24px_60px_rgba(17,35,42,0.07)] md:p-5 xl:rounded-[2.4rem] xl:p-8">
-            <div className="grid items-stretch gap-3 md:grid-cols-2 xl:grid-cols-4">
+          <div className="relative overflow-hidden rounded-[2.1rem] border border-[#d9cfbf] bg-[linear-gradient(180deg,rgba(255,255,255,0.58),rgba(255,255,255,0.34))] p-4 shadow-[0_24px_60px_rgba(17,35,42,0.07)] md:p-5 xl:rounded-[2.4rem] xl:p-8">
+            <div className="relative z-10 grid items-stretch gap-3 md:grid-cols-2 xl:grid-cols-4">
               {items.map((item, index) => (
                 <article
                   key={item.title}

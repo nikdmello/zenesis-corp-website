@@ -4,29 +4,6 @@ import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
 import { TeamProfiles } from "@/components/team-profiles";
 
-const howWeWork = [
-  {
-    title: "Understand",
-    description:
-      "We start by understanding your activity, ownership needs, visa requirements, banking goals, and long-term plans.",
-  },
-  {
-    title: "Recommend",
-    description:
-      "We help you compare mainland, free zone, and offshore options so you can choose the structure that fits your business.",
-  },
-  {
-    title: "Execute",
-    description:
-      "Our team supports documentation, approvals, licensing, banking coordination, visas, accounting, and tax compliance.",
-  },
-  {
-    title: "Support",
-    description:
-      "After setup, we continue supporting renewals, bookkeeping, VAT, corporate tax, and regulatory requirements.",
-  },
-] as const;
-
 export const metadata: Metadata = toMetadata(legacyRouteMeta.about, "/about");
 
 export default function AboutPage() {
@@ -78,43 +55,11 @@ export default function AboutPage() {
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <div className="mb-8 max-w-4xl">
-            <h2 className="section-title font-semibold text-foreground">
-              How we work
-            </h2>
-            <p className="mt-4 max-w-4xl text-[1.16rem] leading-8 text-muted md:text-[1.24rem] md:leading-9">
-              A simple four-step flow for narrowing the right structure and carrying it through to execution and ongoing support.
-            </p>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {howWeWork.map((item, index) => (
-              <article
-                key={item.title}
-                className="rounded-[1.75rem] border border-white/10 bg-[#11232a] p-6 text-white shadow-[0_18px_54px_rgba(17,35,42,0.12)]"
-              >
-                <p className="text-[0.82rem] font-semibold uppercase tracking-[0.22em] text-white/58">
-                  Step {index + 1}
-                </p>
-                <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-[1.14rem] font-medium leading-8 text-white/94 md:text-[1.18rem]">
-                  {item.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="max-w-4xl">
-            <h2 className="section-title font-semibold text-white">
+            <h2 className="section-title font-semibold text-foreground">
               Leadership
             </h2>
-            <p className="mt-4 max-w-3xl text-[1.18rem] leading-9 text-white/94">
+            <p className="mt-4 max-w-3xl text-[1.18rem] leading-9 text-muted">
               The leadership team brings cross-border experience in incorporation,
               tax, real estate management, people and culture, and risk and
               crisis management.

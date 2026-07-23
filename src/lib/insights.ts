@@ -883,8 +883,9 @@ export const insightPosts: InsightPost[] = [
       "A practical 2026 guide to UAE corporate tax filing deadlines, financial year-end timing, return preparation, payment readiness, and common filing risks.",
     dateLabel: "July 15, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/insights/corporate-tax-registrations.webp", insightImageVersion),
+    heroImageSrc: versionedAssetPath("/insights/640000-corporate-tax-registrations.webp", insightImageVersion),
     heroImageAlt: "UAE corporate tax filing deadline planning visual for business compliance",
+    heroImageClassName: "object-[50%_20%]",
     keyTakeaways: [
       "The corporate tax return is generally due within nine months after the end of the relevant tax period.",
       "The deadline is only useful if the books, calculations, and supporting documents are ready before the filing window becomes urgent.",
@@ -1538,6 +1539,7 @@ export const insightPosts: InsightPost[] = [
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/insights/golden-visa-guide.webp", insightImageVersion),
     heroImageAlt: "Dubai Golden Visa planning visual focused on residency and eligibility guidance",
+    heroImageClassName: "object-[28%_82%]",
     keyTakeaways: [
       "The Golden Visa works best when the eligibility category is identified correctly first.",
       "Long-term residency value comes from stability, but approval still depends on evidence quality.",

@@ -5,6 +5,7 @@ import { ServiceCredibilityPanel } from "@/components/service-credibility-panel"
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
+import { versionedAssetPath } from "@/lib/asset-paths";
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -185,20 +186,24 @@ export default function BusinessSetupServicesUaePage() {
       ))}
 
       <PageIntro
+        showBottomBorder={false}
         breadcrumb={[
           { label: "Business setup", href: "/business-setup" },
           { label: "Services in UAE" },
         ]}
         title="Business setup services in UAE"
         description="A full-service setup path for founders and companies that need formation, trade licensing, visas, PRO coordination, banking, accounting, tax, renewals, and compliance connected from the start."
-        backgroundImageSrc="/backgrounds/business-setup-bg.webp"
+        backgroundImageSrc={versionedAssetPath("/business-setup-services-uae.webp")}
         backgroundImageAlt="Business setup services consultation in the UAE"
-        backgroundImagePosition="!object-[100%_100%]"
+        backgroundImagePosition="!object-[82%_32%]"
         backgroundImageMode="ambient"
         ctaHref="/contact"
         ctaLabel="Book a consultation"
         secondaryHref="/business-setup-cost-dubai"
         secondaryLabel="Compare pricing"
+        footerContent={
+          <ServiceCredibilityPanel path="/business-setup-services-uae" variant="expertise" embedded />
+        }
       />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
@@ -319,8 +324,6 @@ export default function BusinessSetupServicesUaePage() {
         </div>
       </section>
 
-      <ServiceCredibilityPanel path="/business-setup-services-uae" />
-
       <ServiceAnswerSection
         title="Direct answers"
         description="Short answers for founders comparing UAE business setup services before choosing a route."
@@ -342,6 +345,8 @@ export default function BusinessSetupServicesUaePage() {
           />
         </div>
       </section>
+
+      <ServiceCredibilityPanel path="/business-setup-services-uae" variant="sources" />
     </SiteShell>
   );
 }

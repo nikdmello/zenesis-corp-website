@@ -5,6 +5,7 @@ import { ServiceCredibilityPanel } from "@/components/service-credibility-panel"
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
+import { versionedAssetPath } from "@/lib/asset-paths";
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -127,16 +128,20 @@ export default function MainlandVsFreeZoneDubaiPage() {
       ))}
 
       <PageIntro
+        showBottomBorder={false}
         breadcrumb={[
           { label: "Business setup", href: "/business-setup" },
           { label: "Comparison" },
         ]}
         title="Mainland vs free zone"
         description="A practical comparison for founders deciding which Dubai company formation route fits their market access, visa, office, banking, and cost position."
-        backgroundImageSrc="/backgrounds/business-setup-bg.webp"
+        backgroundImageSrc={versionedAssetPath("/mainland-vs-freezone.webp")}
         backgroundImageAlt="Mainland vs free zone company setup comparison in Dubai"
-        backgroundImagePosition="!object-[100%_100%]"
+        backgroundImagePosition="!object-[82%_34%]"
         backgroundImageMode="ambient"
+        footerContent={
+          <ServiceCredibilityPanel path="/mainland-vs-free-zone-dubai" variant="expertise" embedded />
+        }
       />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
@@ -202,8 +207,6 @@ export default function MainlandVsFreeZoneDubaiPage() {
         </div>
       </section>
 
-      <ServiceCredibilityPanel path="/mainland-vs-free-zone-dubai" />
-
       <ServiceAnswerSection
         title="Direct answers"
         description="Short answers for founders comparing mainland and free zone setup before choosing a route."
@@ -226,7 +229,8 @@ export default function MainlandVsFreeZoneDubaiPage() {
           />
         </div>
       </section>
+
+      <ServiceCredibilityPanel path="/mainland-vs-free-zone-dubai" variant="sources" />
     </SiteShell>
   );
 }
-

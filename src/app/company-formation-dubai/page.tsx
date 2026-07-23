@@ -202,20 +202,24 @@ export default function CompanyFormationDubaiPage() {
       ))}
 
       <PageIntro
+        showBottomBorder={false}
         breadcrumb={[
           { label: "Business setup", href: "/business-setup" },
           { label: "Company formation" },
         ]}
         title="Company formation services in Dubai"
         description="Choose the right mainland, free zone, or offshore route before trade licensing, visas, banking, accounting, tax, renewals, and compliance begin."
-        backgroundImageSrc="/backgrounds/business-setup-bg.webp"
+        backgroundImageSrc={versionedAssetPath("/company-formation-dubai.webp")}
         backgroundImageAlt="Company formation consultation in Dubai"
-        backgroundImagePosition="!object-[100%_100%]"
+        backgroundImagePosition="!object-[82%_32%]"
         backgroundImageMode="ambient"
         ctaHref="/contact"
         ctaLabel="Book a consultation"
         secondaryHref="/business-setup-cost-dubai"
         secondaryLabel="Compare costs"
+        footerContent={
+          <ServiceCredibilityPanel path="/company-formation-dubai" variant="expertise" embedded />
+        }
       />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
@@ -400,8 +404,6 @@ export default function CompanyFormationDubaiPage() {
         </div>
       </section>
 
-      <ServiceCredibilityPanel path="/company-formation-dubai" />
-
       <ServiceAnswerSection
         title="Direct answers"
         description="Short answers for founders comparing company formation routes in Dubai."
@@ -411,10 +413,10 @@ export default function CompanyFormationDubaiPage() {
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <TalkToZenesisPanel
-            wrapperClassName="rounded-[2rem] bg-white p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.18)] md:p-10"
-            eyebrowClassName="eyebrow text-[#8d7453]"
-            titleClassName="section-title mt-4 font-semibold text-foreground"
-            textClassName="text-[1.22rem] font-medium leading-9 text-foreground/88"
+            wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.18)] md:p-10"
+            eyebrowClassName="eyebrow text-white/58"
+            titleClassName="section-title mt-4 font-semibold text-white"
+            textClassName="text-[1.22rem] font-medium leading-9 text-white/94"
             paragraphs={[
               "Share the activity, shareholders, visa needs, target clients, and expected banking use. Zenesis will help you choose the company formation route that fits the real operating plan.",
             ]}
@@ -423,6 +425,8 @@ export default function CompanyFormationDubaiPage() {
           />
         </div>
       </section>
+
+      <ServiceCredibilityPanel path="/company-formation-dubai" variant="sources" />
     </SiteShell>
   );
 }

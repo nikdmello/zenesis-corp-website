@@ -25,29 +25,29 @@ const serviceSubpageVisuals: Record<
     imageClassName: "object-[78%_center]",
   },
   "/business-setup-services-uae": {
-    imageSrc: versionedAssetPath("/backgrounds/business-setup-bg.webp"),
+    imageSrc: versionedAssetPath("/business-setup-services-uae.webp"),
     imageAlt: "Business setup services planning in the UAE",
-    imageClassName: "object-[82%_center]",
+    imageClassName: "object-[82%_32%]",
   },
   "/company-formation-dubai": {
-    imageSrc: versionedAssetPath("/mainland.webp"),
+    imageSrc: versionedAssetPath("/company-formation-dubai.webp"),
     imageAlt: "Company formation route planning in Dubai",
-    imageClassName: "object-[68%_24%]",
+    imageClassName: "object-[82%_32%]",
   },
   "/business-setup-cost-dubai": {
-    imageSrc: versionedAssetPath("/freezone.webp"),
+    imageSrc: versionedAssetPath("/business-setup-cost-uae.webp"),
     imageAlt: "Business setup pricing and free zone package review",
-    imageClassName: "object-[70%_24%]",
+    imageClassName: "object-[82%_32%]",
   },
   "/mainland-vs-free-zone-dubai": {
-    imageSrc: versionedAssetPath("/free-zone.webp"),
+    imageSrc: versionedAssetPath("/mainland-vs-freezone.webp"),
     imageAlt: "Mainland and free zone setup comparison in Dubai",
-    imageClassName: "object-[74%_center]",
+    imageClassName: "object-[82%_34%]",
   },
   "/low-cost-business-setup-uae": {
-    imageSrc: versionedAssetPath("/freezone.webp"),
+    imageSrc: versionedAssetPath("/low-cost-setup.webp"),
     imageAlt: "Low-cost UAE business setup route planning",
-    imageClassName: "object-[70%_24%]",
+    imageClassName: "object-[82%_34%]",
   },
   "/mainland": {
     imageSrc: versionedAssetPath("/mainland.webp"),
@@ -63,6 +63,46 @@ const serviceSubpageVisuals: Record<
     imageSrc: versionedAssetPath("/offshore.webp"),
     imageAlt: "Offshore company structure planning",
     imageClassName: "object-[72%_22%]",
+  },
+  "/document-attestation-services-in-uae": {
+    imageSrc: versionedAssetPath("/document-attestation.webp"),
+    imageAlt: "Document attestation support in the UAE",
+    imageClassName: "object-[86%_36%]",
+  },
+  "/open-a-bank-account-easily": {
+    imageSrc: versionedAssetPath("/banking-support.webp"),
+    imageAlt: "UAE business bank account support planning",
+    imageClassName: "object-[82%_30%]",
+  },
+  "/uae-company-visa": {
+    imageSrc: versionedAssetPath("/company-visas.webp"),
+    imageAlt: "Company visa support and residency planning in the UAE",
+    imageClassName: "object-[80%_28%]",
+  },
+  "/golden-visa-services-in-the-uae": {
+    imageSrc: versionedAssetPath("/golden-visa.webp"),
+    imageAlt: "Golden Visa planning and long-term UAE residency support",
+    imageClassName: "object-[28%_82%]",
+  },
+  "/corporate-tax-registration-in-the-uae": {
+    imageSrc: versionedAssetPath("/corporate-tax-registration.webp"),
+    imageAlt: "Corporate tax registration support in the UAE",
+    imageClassName: "object-[84%_30%]",
+  },
+  "/corporate-tax-filing-services-in-the-uae": {
+    imageSrc: versionedAssetPath("/corporate-tax-filing.webp"),
+    imageAlt: "Corporate tax filing support in the UAE",
+    imageClassName: "object-[84%_30%]",
+  },
+  "/vat-filing-services-in-the-uae": {
+    imageSrc: versionedAssetPath("/vat-filing.webp"),
+    imageAlt: "VAT filing support in the UAE",
+    imageClassName: "object-[84%_32%]",
+  },
+  "/professional-bookkeeping-services-in-dubai": {
+    imageSrc: versionedAssetPath("/bookkeeping.webp"),
+    imageAlt: "Bookkeeping and reporting support in Dubai",
+    imageClassName: "object-[84%_30%]",
   },
 };
 

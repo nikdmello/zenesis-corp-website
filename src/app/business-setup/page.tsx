@@ -297,6 +297,7 @@ export default function BusinessSetupPage() {
         <JsonLd key={index} data={schema} />
       ))}
       <PageIntro
+        showBottomBorder={false}
         breadcrumb={[
           { label: "Services", href: "/#services" },
           { label: "Business setup" },
@@ -308,6 +309,9 @@ export default function BusinessSetupPage() {
         backgroundImageAlt="Zenesis Business Setup page background"
         backgroundImagePosition="!object-[100%_100%]"
         backgroundImageMode="ambient"
+        footerContent={
+          <ServiceCredibilityPanel path="/business-setup" variant="expertise" embedded />
+        }
       />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
@@ -559,8 +563,6 @@ export default function BusinessSetupPage() {
         </div>
       </section>
 
-      <ServiceCredibilityPanel path="/business-setup" />
-
       <ServiceAnswerSection
         dark
         title="Direct answers"
@@ -583,6 +585,8 @@ export default function BusinessSetupPage() {
           />
         </div>
       </section>
+
+      <ServiceCredibilityPanel path="/business-setup" variant="sources" />
     </SiteShell>
   );
 }

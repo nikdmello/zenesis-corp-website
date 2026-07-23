@@ -10,6 +10,7 @@ export type ServiceCredibility = {
     credentials: string;
     role: string;
     bio: string;
+    imageSrc: string;
     profileHref: string;
   };
   verificationLabel: string;
@@ -23,6 +24,7 @@ const experts = {
     credentials: "BCom, LLB, ACS",
     role: "Founder, Zenesis Corporation",
     bio: "A qualified Chartered Secretary with more than 30 years of experience across offshore incorporation, UAE company setup, and corporate compliance.",
+    imageSrc: "/people/Cecilia_DCunha.webp",
     profileHref: "/about",
   },
   sajal: {
@@ -30,6 +32,7 @@ const experts = {
     credentials: "BCom, CA, CFA",
     role: "Director - Accountancy and Taxation",
     bio: "A Dubai-based Chartered Accountant with more than 13 years of experience across finance, taxation, auditing, banking, treasury, costing, and project financing.",
+    imageSrc: "/people/Sajal_Arora.webp",
     profileHref: "/about",
   },
 } as const;

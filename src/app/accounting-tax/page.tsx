@@ -219,6 +219,7 @@ export default function AccountingTaxPage() {
         <JsonLd key={index} data={schema} />
       ))}
       <PageIntro
+        showBottomBorder={false}
         breadcrumb={[
           { label: "Services", href: "/#services" },
           { label: "Accounting and tax" },
@@ -229,6 +230,9 @@ export default function AccountingTaxPage() {
         backgroundImageAlt="Zenesis Accounting and Tax page background"
         backgroundImagePosition="!object-[100%_100%]"
         backgroundImageMode="ambient"
+        footerContent={
+          <ServiceCredibilityPanel path="/accounting-tax" variant="expertise" embedded />
+        }
       />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
@@ -338,8 +342,6 @@ export default function AccountingTaxPage() {
         </div>
       </section>
 
-      <ServiceCredibilityPanel path="/accounting-tax" />
-
       <ServiceAnswerSection
         dark
         title="Direct answers"
@@ -388,6 +390,8 @@ export default function AccountingTaxPage() {
           />
         </div>
       </section>
+
+      <ServiceCredibilityPanel path="/accounting-tax" variant="sources" />
     </SiteShell>
   );
 }
