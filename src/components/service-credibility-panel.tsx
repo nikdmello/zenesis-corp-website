@@ -105,103 +105,116 @@ export function ServiceCredibilityPanel({
     >
       <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <div
-          className={`rounded-[1.2rem] border px-4 py-4 shadow-none md:px-5 md:py-4 ${
+          className={`rounded-[1.45rem] border px-4 py-4 shadow-none md:px-6 md:py-5 ${
             dark
-              ? "border-white/10 bg-white/[0.03]"
-              : "border-[#e4dacb] bg-[#f8f5ef]"
+              ? "border-white/10 bg-white/[0.025]"
+              : "border-[#e1d7c8] bg-[linear-gradient(180deg,#faf7f1_0%,#f6f0e6_100%)]"
           }`}
         >
-          <div className="max-w-4xl">
-            <p
-              className={`text-[0.68rem] font-semibold uppercase tracking-[0.18em] ${
-                dark ? "text-[#d5be8b]" : "text-[#8d7453]"
-              }`}
-            >
-              Official sources
-            </p>
-            <div className="mt-2.5 flex flex-wrap items-center gap-2.5">
-              <span
-                className={`inline-flex rounded-full px-2 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.14em] ${
-                  dark
-                    ? "bg-[#d5be8b]/14 text-[#f0dfb6]"
-                    : "bg-[#f8f2e6] text-[#8d7453]"
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start">
+            <div className="max-w-xl">
+              <div className="flex items-center gap-3">
+                <span className={`h-[3px] w-10 rounded-full ${dark ? "bg-[#d5be8b]" : "bg-[#8d7453]"}`} />
+                <p
+                  className={`text-[0.68rem] font-semibold uppercase tracking-[0.18em] ${
+                    dark ? "text-[#d5be8b]" : "text-[#8d7453]"
+                  }`}
+                >
+                  Official sources
+                </p>
+              </div>
+              <p
+                className={`mt-3 text-[0.78rem] font-semibold uppercase tracking-[0.14em] ${
+                  dark ? "text-white/56" : "text-[#8d7453]"
                 }`}
               >
                 {credibility.verificationLabel}
-              </span>
+              </p>
+              <p
+                className={`mt-3 text-[0.92rem] leading-6 ${
+                  dark ? "text-white/74" : "text-foreground/72"
+                }`}
+              >
+                {credibility.note}
+              </p>
             </div>
-            <p
-              className={`mt-2.5 text-[0.88rem] leading-6 ${
-                dark ? "text-white/72" : "text-foreground/72"
-              }`}
-            >
-              {credibility.note}
-            </p>
-          </div>
 
-          <ul className="mt-4 grid gap-2 md:grid-cols-2">
-            {credibility.sources.map((source) => {
-              const formattedUrl = formatSourceUrl(source.href);
+            <ul className="grid gap-2.5">
+              {credibility.sources.map((source) => {
+                const formattedUrl = formatSourceUrl(source.href);
 
-              return (
-                <li key={source.href}>
-                  <a
-                    href={source.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`group flex items-start justify-between gap-3 rounded-[1rem] border px-3.5 py-3 transition-colors duration-200 ${
-                      dark
-                        ? "border-white/10 bg-white/[0.025] hover:bg-white/[0.05]"
-                        : "border-[#e8dfd1] bg-white/70 hover:bg-white"
-                    }`}
-                  >
-                    <span className="min-w-0">
-                      <span
-                        className={`block text-[0.88rem] font-semibold leading-5 group-hover:text-[#244ba8] ${
-                          dark ? "text-white/90" : "text-foreground/90"
-                        }`}
-                      >
-                        {source.title}
-                      </span>
-                      <span
-                        className={`mt-0.5 block text-[0.78rem] leading-5 ${
-                          dark ? "text-white/56" : "text-foreground/58"
-                        }`}
-                      >
-                        {source.publisher}
-                      </span>
-                      <span
-                        className={`mt-1.5 block rounded-[0.72rem] border px-2 py-1 font-mono text-[0.66rem] leading-5 ${
-                          dark
-                            ? "border-white/10 bg-white/[0.035] text-white/62"
-                            : "border-[#e4dacb] bg-[#fbf8f1] text-[#11232a]/62"
-                        }`}
-                      >
-                        <span className="font-semibold">{formattedUrl.host}</span>
-                        {formattedUrl.path ? (
-                          <span className={dark ? "text-white/48" : "text-[#11232a]/48"}>
-                            {formattedUrl.path}
-                          </span>
-                        ) : null}
-                      </span>
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className={`mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-[0.78rem] transition-colors ${
-                        dark ? "text-[#d5be8b]" : "text-[#8d7453]"
-                      } ${
+                return (
+                  <li key={source.href}>
+                    <a
+                      href={source.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`group flex items-start justify-between gap-4 rounded-[1rem] border px-3.5 py-3.5 transition-all duration-200 ${
                         dark
-                          ? "border-white/10 bg-white/[0.035] group-hover:border-[#d5be8b]/36"
-                          : "border-[#e4dacb] bg-[#fbf8f1] group-hover:border-[#8d7453]/30"
+                          ? "border-white/10 bg-white/[0.025] hover:bg-white/[0.05]"
+                          : "border-[#e5dccf] bg-white/82 hover:bg-white"
                       }`}
                     >
-                      ↗
-                    </span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-start gap-3">
+                          <span
+                            aria-hidden="true"
+                            className={`mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-[0.72rem] ${
+                              dark
+                                ? "border-white/10 bg-white/[0.035] text-[#d5be8b]"
+                                : "border-[#e4dacb] bg-[#fbf8f1] text-[#8d7453]"
+                            }`}
+                          >
+                            ↗
+                          </span>
+                          <div className="min-w-0">
+                            <span
+                              className={`block text-[0.92rem] font-semibold leading-5 group-hover:text-[#244ba8] ${
+                                dark ? "text-white/90" : "text-foreground/90"
+                              }`}
+                            >
+                              {source.title}
+                            </span>
+                            <span
+                              className={`mt-1 block text-[0.8rem] leading-5 ${
+                                dark ? "text-white/56" : "text-foreground/58"
+                              }`}
+                            >
+                              {source.publisher}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div
+                          className={`mt-3 inline-flex max-w-full items-center gap-1 overflow-hidden rounded-full border px-2.5 py-1.5 font-mono text-[0.66rem] leading-5 ${
+                            dark
+                              ? "border-white/10 bg-white/[0.035] text-white/62"
+                              : "border-[#e4dacb] bg-[#fbf8f1] text-[#11232a]/62"
+                          }`}
+                        >
+                          <span className="shrink-0 font-semibold">{formattedUrl.host}</span>
+                          {formattedUrl.path ? (
+                            <span className={`truncate ${dark ? "text-white/48" : "text-[#11232a]/48"}`}>
+                              {formattedUrl.path}
+                            </span>
+                          ) : null}
+                        </div>
+                      </div>
+
+                      <span
+                        aria-hidden="true"
+                        className={`mt-0.5 text-[0.82rem] font-semibold transition-transform duration-200 group-hover:translate-x-0.5 ${
+                          dark ? "text-[#d5be8b]" : "text-[#8d7453]"
+                        }`}
+                      >
+                        Open
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
