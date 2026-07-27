@@ -20,9 +20,9 @@ const serviceSubpageVisuals: Record<
   }
 > = {
   "/business-setup": {
-    imageSrc: versionedAssetPath("/backgrounds/business-setup-bg.webp"),
-    imageAlt: "Business setup advisory meeting in Dubai",
-    imageClassName: "object-[78%_center]",
+    imageSrc: versionedAssetPath("/company-formation-dubai.webp"),
+    imageAlt: "Business setup and company formation planning in Dubai",
+    imageClassName: "object-[82%_32%]",
   },
   "/business-setup-services-uae": {
     imageSrc: versionedAssetPath("/business-setup-services-uae.webp"),

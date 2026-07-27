@@ -16,9 +16,9 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
       title: "Business setup",
       href: "/business-setup",
       description: "Compare mainland, free zone, and offshore routes before formation starts.",
-      imageSrc: versionedAssetPath("/backgrounds/business-setup-bg.webp"),
-      imageAlt: "Business setup advisory meeting in Dubai",
-      imageClassName: "object-[78%_center]",
+      imageSrc: versionedAssetPath("/company-formation-dubai.webp"),
+      imageAlt: "Business setup and company formation planning in Dubai",
+      imageClassName: "object-[82%_32%]",
     },
     {
       title: "Company formation Dubai",

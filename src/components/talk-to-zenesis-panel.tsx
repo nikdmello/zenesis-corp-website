@@ -50,7 +50,7 @@ export function TalkToZenesisPanel({
 
   return (
     <article
-      className={`relative overflow-hidden ${wrapperClassName} !border-transparent`}
+      className={`relative flex w-full min-h-[25rem] overflow-hidden ${wrapperClassName} !rounded-[2rem] !border-transparent !bg-[#11232a] !p-8 !text-white !shadow-[0_22px_70px_rgba(17,35,42,0.14)] md:min-h-[26rem] md:!p-10`}
     >
       <div className="absolute inset-0 overflow-hidden md:inset-y-0 md:right-0 md:left-auto md:w-1/2">
         <Image
@@ -62,7 +62,7 @@ export function TalkToZenesisPanel({
         />
         <div className={`absolute inset-0 ${overlayClassName}`} />
       </div>
-      <div className="relative z-10 max-w-[44rem]">
+      <div className="relative z-10 my-auto w-full max-w-[44rem]">
         <p className={eyebrowClassName}>{eyebrow}</p>
         <h2 className={titleClassName}>{title}</h2>
         <div className={`mt-5 max-w-[40rem] space-y-5 ${textClassName}`}>

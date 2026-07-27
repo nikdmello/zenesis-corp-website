@@ -1,3 +1,5 @@
+import { versionedAssetPath } from "@/lib/asset-paths";
+
 export const navigation = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
@@ -438,7 +440,7 @@ export const teamMembers = [
     name: "Prof. Jeevan D'Mello",
     title: "Chief Executive Officer",
     credentials: "GDArch, CMCA, AMS, LSM, PCAM, D. Litt.",
-    imageSrc: "/people/Jeevan_DMello.webp",
+    imageSrc: versionedAssetPath("/people/Jeevan_DMello.webp"),
     summary:
       "Chief Executive Officer with an international, award-winning career across architectural design, customer experience, community management, real estate management, and international relations.",
     paragraphs: [
@@ -551,4 +553,3 @@ export const setupStructures = [
   "Private Shareholding Company (PrJSC)",
   "Joint Venture",
 ] as const;
-import { versionedAssetPath } from "@/lib/asset-paths";

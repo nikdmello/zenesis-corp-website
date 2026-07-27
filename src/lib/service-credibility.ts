@@ -115,7 +115,7 @@ const sources = {
   },
 } satisfies Record<string, CredibilitySource>;
 
-const checkedLabel = "Official guidance checked July 22, 2026";
+const checkedLabel = "Sources checked July 22, 2026";
 const setupNote =
   "Licensing routes, permitted activities, documents, government fees, and processing requirements vary by authority and can change. Confirm the exact route before filing.";
 const taxNote =
@@ -183,7 +183,7 @@ export function getServiceCredibility(path: string): ServiceCredibility | undefi
     },
     "/business-setup-cost-dubai": {
       expert: experts.cecilia,
-      verificationLabel: "Zenesis starting prices and official guidance checked July 22, 2026",
+      verificationLabel: "Zenesis starting prices and sources checked July 22, 2026",
       note: "Published figures are starting prices, not universal authority quotes. Final cost depends on activity, jurisdiction, approvals, visas, office needs, government fees, and selected support.",
       sources: [sources.mainlandSetup, sources.freeZoneSetup],
     },

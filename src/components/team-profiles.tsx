@@ -12,6 +12,10 @@ function TeamCard({
   variant: "featured" | "standard";
 }) {
   const isFeatured = variant === "featured";
+  const imageClassName =
+    member.name === "Prof. Jeevan D'Mello"
+      ? "object-cover object-[50%_12%] scale-[1.16]"
+      : "object-cover object-center";
 
   return (
     <article
@@ -37,7 +41,7 @@ function TeamCard({
               ? "(min-width: 1280px) 240px, (min-width: 768px) 40vw, 100vw"
               : "(min-width: 1280px) 26vw, (min-width: 768px) 40vw, 100vw"
           }
-          className="object-cover object-center"
+          className={imageClassName}
         />
       </div>
 

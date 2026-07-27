@@ -883,7 +883,7 @@ export const insightPosts: InsightPost[] = [
       "A practical 2026 guide to UAE corporate tax filing deadlines, financial year-end timing, return preparation, payment readiness, and common filing risks.",
     dateLabel: "July 15, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/insights/640000-corporate-tax-registrations.webp", insightImageVersion),
+    heroImageSrc: versionedAssetPath("/insights/financial-year-2026-compliance.webp", insightImageVersion),
     heroImageAlt: "UAE corporate tax filing deadline planning visual for business compliance",
     heroImageClassName: "object-[50%_20%]",
     keyTakeaways: [
@@ -1190,7 +1190,7 @@ export const insightPosts: InsightPost[] = [
       "What rising corporate tax registrations say about UAE compliance expectations, and the practical steps businesses should take now.",
     dateLabel: "January 20, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/insights/corporate-tax-registrations.webp", insightImageVersion),
+    heroImageSrc: versionedAssetPath("/insights/640000-corporate-tax-registrations.webp", insightImageVersion),
     heroImageAlt: "Professionals reviewing UAE corporate tax documentation",
     keyTakeaways: [
       "Registration volume shows that corporate tax is now a normal operating requirement, not an early-transition issue.",

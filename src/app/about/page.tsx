@@ -1,3 +1,4 @@
+import NextImage from "next/image";
 import type { Metadata } from "next";
 import { CardAccent, PageIntro, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
@@ -13,9 +14,9 @@ export default function AboutPage() {
         eyebrow="About Zenesis"
         title="About"
         description="The background, experience, and working approach behind Zenesis in the UAE."
-        backgroundImageSrc="/backgrounds/about-bg.webp"
-        backgroundImageAlt="Zenesis About page background"
-        backgroundImagePosition="!object-[100%_100%]"
+        backgroundImageSrc="/team-photo.webp"
+        backgroundImageAlt="Zenesis team photo"
+        backgroundImagePosition="!object-[72%_28%]"
         backgroundImageMode="ambient"
       />
 
@@ -54,6 +55,28 @@ export default function AboutPage() {
       </section>
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46vw] min-w-[34rem] md:block xl:w-[52vw] xl:min-w-[42rem]"
+        >
+          <div
+            className="absolute inset-0 opacity-[0.48] xl:opacity-[0.54]"
+            style={{
+              WebkitMaskImage:
+                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
+              maskImage:
+                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
+            }}
+          >
+            <NextImage
+              src="/awards-and-recognition.webp"
+              alt=""
+              fill
+              sizes="(max-width: 1279px) 46vw, 52vw"
+              className="object-cover object-right"
+            />
+          </div>
+        </div>
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="max-w-4xl">
             <h2 className="section-title font-semibold text-foreground">

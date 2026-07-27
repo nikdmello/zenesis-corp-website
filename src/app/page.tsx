@@ -15,6 +15,7 @@ import { JsonLd } from "@/components/json-ld";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
+import { versionedAssetPath } from "@/lib/asset-paths";
 import {
   featuredProfile,
   partnerLogos,
@@ -270,6 +271,28 @@ export default function Home() {
         id="client-reviews"
         className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20"
       >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46vw] min-w-[34rem] md:block xl:w-[52vw] xl:min-w-[42rem]"
+        >
+          <div
+            className="absolute inset-0 opacity-[0.5] xl:opacity-[0.56]"
+            style={{
+              WebkitMaskImage:
+                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
+              maskImage:
+                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
+            }}
+          >
+            <NextImage
+              src="/awards-and-recognition.webp"
+              alt=""
+              fill
+              sizes="(max-width: 1279px) 46vw, 52vw"
+              className="object-cover object-right"
+            />
+          </div>
+        </div>
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <div className="mb-10 md:mb-12">
@@ -281,103 +304,92 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-start xl:gap-6">
-            <div className="overflow-hidden rounded-[2rem] border border-[#d8d0c2] bg-[#f5efe4] shadow-[0_28px_90px_rgba(17,35,42,0.18)]">
-              <NextImage
-                src="/zenesis-award.webp"
-                alt="Zenesis award recognition poster for excellence in company formation"
-                width={1400}
-                height={1400}
-                className="block aspect-square w-full object-cover"
-                sizes="(min-width: 1024px) 44vw, 100vw"
-              />
-            </div>
+          <div className="overflow-hidden rounded-[2rem] border border-[#cfc4b4] bg-white/80 p-3 shadow-[0_24px_70px_rgba(17,35,42,0.13)] backdrop-blur-[2px] md:p-4">
+            <div className="grid gap-3 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch md:gap-4">
+              <div className="relative aspect-[1280/855] overflow-hidden rounded-[1.45rem] border border-[#d8cdbc] bg-[#eee7dc]">
+                  <NextImage
+                    src={versionedAssetPath(
+                      "/zenesis-award.webp",
+                      "20260727-award",
+                    )}
+                    alt="Zenesis award recognition poster for excellence in company formation"
+                    fill
+                    className="object-contain"
+                    sizes="(min-width: 1024px) 44vw, 100vw"
+                  />
+              </div>
 
-            <Link
-              href={featuredProfile.href}
-              className="group block overflow-hidden rounded-[1.7rem] border border-[#d8d0c2] bg-[#f5efe4] text-[#11232a] shadow-[0_20px_60px_rgba(17,35,42,0.16)] transition-transform duration-200 hover:-translate-y-0.5"
-            >
-              <div className="overflow-hidden rounded-[1.3rem] border border-[#ddd1c2] bg-white shadow-[0_12px_28px_rgba(17,35,42,0.12)]">
-                <div className="px-4 py-4 md:px-5 md:py-5">
+              <Link
+                href={featuredProfile.href}
+                className="group flex h-full flex-col overflow-hidden rounded-[1.45rem] border border-[#d8cdbc] bg-white text-[#11232a] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-[#bda77f] hover:shadow-[0_16px_36px_rgba(17,35,42,0.12)] lg:aspect-[1280/855] lg:h-auto"
+              >
+                <div className="px-4 py-3.5 md:px-5 md:py-4">
                   <div className="flex items-start justify-between gap-6">
                     <div className="max-w-4xl">
                       <p className="eyebrow text-muted">
                         {leadershipFeatureSignal.label}
                       </p>
-                      <h3 className="mt-3 text-[clamp(1.55rem,2.15vw,2.15rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-foreground">
+                      <h3 className="mt-2 text-[clamp(1.38rem,1.8vw,1.8rem)] font-semibold leading-[1] tracking-[-0.045em] text-foreground">
                         {leadershipFeatureSignal.value}
                       </h3>
                       {"detail" in leadershipFeatureSignal &&
                       typeof leadershipFeatureSignal.detail === "string" ? (
-                        <p className="mt-3 max-w-3xl text-[1rem] leading-7 text-muted md:text-[1.05rem]">
+                        <p className="mt-2 max-w-3xl text-[0.93rem] leading-[1.4] text-muted md:text-[0.96rem]">
                           {leadershipFeatureSignal.detail}
                         </p>
                       ) : null}
                     </div>
-                    <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#11232a]/8 text-[1.4rem]">
+                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#11232a]/8 text-[1.2rem]">
                       {leadershipFeatureSignal.icon}
                     </span>
                   </div>
                 </div>
-                <div className="overflow-hidden border-t border-[#ece4d8]">
+                <div className="relative aspect-[4/1.65] overflow-hidden border-t border-[#e3d9ca] lg:aspect-auto lg:min-h-0 lg:flex-1">
                   <NextImage
                     src={featuredProfile.imageSrc}
                     alt={featuredProfile.imageAlt}
-                    width={2300}
-                    height={1800}
-                    className="block aspect-[4/3.18] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
-                  />
-                </div>
-              </div>
-            </Link>
-          </div>
-
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <div className="mt-10 rounded-[1.8rem] border border-[#ddd3c6] bg-white p-2.5 shadow-[0_18px_56px_rgba(17,35,42,0.12)] md:p-3">
-            <div className="grid gap-2.5 md:grid-cols-3">
-              {[
-                {
-                  src: "/zenesis-award1.webp",
-                  alt: "Zenesis team receiving company formation award in Dubai",
-                  className: "aspect-[4/5]",
-                },
-                {
-                  src: "/zenesis-award2.webp",
-                  alt: "Zenesis award recognition ceremony moment",
-                  className: "aspect-[4/5]",
-                },
-                {
-                  src: "/zenesis-award3.webp",
-                  alt: "Zenesis representatives holding company award",
-                  className: "aspect-[4/5]",
-                },
-              ].map((image) => (
-                <div
-                  key={image.src}
-                  className={`relative overflow-hidden rounded-[1.3rem] border border-[#ece3d7] bg-white shadow-[0_10px_28px_rgba(17,35,42,0.08)] ${
-                    image.className ?? ""
-                  }`}
-                >
-                  <NextImage
-                    src={image.src}
-                    alt={image.alt}
                     fill
-                    sizes={
-                      "(min-width: 1280px) 280px, (min-width: 768px) 30vw, 100vw"
-                    }
-                    className="object-cover object-center"
-                    style={
-                      image.src === "/zenesis-award1.webp"
-                        ? { objectPosition: "54% center" }
-                        : image.src === "/zenesis-award3.webp"
-                          ? { objectPosition: "center 42%" }
-                          : undefined
-                    }
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
+                    sizes="(min-width: 1024px) 42vw, 100vw"
                   />
                 </div>
-              ))}
+              </Link>
+            </div>
+
+            <div className="mt-3 border-t border-[#d8cdbc] pt-3 md:mt-4 md:pt-4">
+              <div className="grid gap-3 md:grid-cols-3">
+                {[
+                  {
+                    src: "/zenesis-award1.webp",
+                    alt: "Zenesis team receiving company formation award in Dubai",
+                    position: "54% center",
+                  },
+                  {
+                    src: "/zenesis-award2.webp",
+                    alt: "Zenesis award recognition ceremony moment",
+                    position: "center center",
+                  },
+                  {
+                    src: "/zenesis-award3.webp",
+                    alt: "Zenesis representatives holding company award",
+                    position: "center 42%",
+                  },
+                ].map((image) => (
+                  <div
+                    key={image.src}
+                    className="relative aspect-[4/2.7] overflow-hidden rounded-[1.15rem] border border-[#ddd2c2] bg-[#eee7dc]"
+                  >
+                    <NextImage
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      sizes="(min-width: 1280px) 28vw, (min-width: 768px) 30vw, 100vw"
+                      className="object-cover transition-transform duration-500 hover:scale-[1.015]"
+                      style={{ objectPosition: image.position }}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </ScrollReveal>
@@ -406,6 +418,28 @@ export default function Home() {
       </section>
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46vw] min-w-[34rem] md:block xl:w-[52vw] xl:min-w-[42rem]"
+        >
+          <div
+            className="absolute inset-0 opacity-[0.48] xl:opacity-[0.54]"
+            style={{
+              WebkitMaskImage:
+                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
+              maskImage:
+                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
+            }}
+          >
+            <NextImage
+              src="/client-reviews.webp"
+              alt=""
+              fill
+              sizes="(max-width: 1279px) 46vw, 52vw"
+              className="object-cover object-right"
+            />
+          </div>
+        </div>
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
