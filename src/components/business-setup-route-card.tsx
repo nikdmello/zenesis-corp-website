@@ -34,7 +34,7 @@ export function BusinessSetupRouteCard({
 }: BusinessSetupRouteCardProps) {
   const [expanded, setExpanded] = useState(false);
   const isEssential = variant === "essential";
-  const hasImage = !isEssential && Boolean(imageSrc && imageAlt);
+  const hasImage = Boolean(imageSrc && imageAlt);
   const frameHeightClass = isEssential
     ? "min-h-[30rem] md:min-h-[34rem] xl:min-h-[40rem]"
     : hasImage
@@ -73,6 +73,7 @@ export function BusinessSetupRouteCard({
                 alt={imageAlt!}
                 width={imageWidth}
                 height={imageHeight}
+                sizes="(min-width: 1280px) 22vw, (min-width: 768px) 45vw, 100vw"
                 className="aspect-[16/10] w-full object-cover object-center"
               />
             </div>

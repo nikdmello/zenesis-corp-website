@@ -19,6 +19,8 @@ const accountingServices = [
   {
     title: "Corporate Tax Registration",
     href: "/corporate-tax-registration-in-the-uae",
+    imageSrc: "/services/corporate-tax-registration.webp",
+    imageAlt: "Corporate tax registration consultation for a UAE business",
     description:
       "Corporate tax registration is the first step for businesses that need their UAE tax setup handled correctly before filing begins.",
     points: [
@@ -30,6 +32,8 @@ const accountingServices = [
   {
     title: "Corporate Tax Filing",
     href: "/corporate-tax-filing-services-in-the-uae",
+    imageSrc: "/services/corporate-tax-filing.webp",
+    imageAlt: "Corporate tax filing review for a UAE company",
     description:
       "Once registered, businesses need annual corporate tax return support, accurate calculations, and cleaner documentation around the filing process.",
     points: [
@@ -41,6 +45,8 @@ const accountingServices = [
   {
     title: "VAT Filing",
     href: "/vat-filing-services-in-the-uae",
+    imageSrc: "/services/vat-filing.webp",
+    imageAlt: "VAT filing and reconciliation support in the UAE",
     description:
       "VAT filing support matters most to businesses that need their returns prepared accurately, submitted on time, and backed by proper reconciliations.",
     points: [
@@ -52,6 +58,8 @@ const accountingServices = [
   {
     title: "Bookkeeping",
     href: "/professional-bookkeeping-services-in-dubai",
+    imageSrc: "/services/bookkeeping.webp",
+    imageAlt: "Professional bookkeeping and financial record support in Dubai",
     description:
       "Bookkeeping keeps the business ready for VAT, corporate tax, reporting, and day-to-day financial visibility.",
     points: [
@@ -309,6 +317,8 @@ export default function AccountingTaxPage() {
                 key={item.title}
                 title={item.title}
                 href={item.href}
+                imageSrc={versionedAssetPath(item.imageSrc)}
+                imageAlt={item.imageAlt}
                 frontSummary={item.description}
                 points={item.points}
                 ctaLabel="Open service"

@@ -78,6 +78,8 @@ const essentialServices = [
   {
     title: "Document Attestation",
     href: "/document-attestation-services-in-uae",
+    imageSrc: "/services/document-attestation.webp",
+    imageAlt: "Document attestation support for UAE business requirements",
     description:
       "Personal, educational, and commercial documents often need formal attestation before UAE authorities will accept them.",
     points: [
@@ -89,6 +91,8 @@ const essentialServices = [
   {
     title: "Business Banking",
     href: "/open-a-bank-account-easily",
+    imageSrc: "/services/banking-support.webp",
+    imageAlt: "Business banking and account opening support in the UAE",
     description:
       "Business owners usually need banking support soon after choosing the formation route, especially when KYC and documentation requirements affect timing.",
     points: [
@@ -100,6 +104,8 @@ const essentialServices = [
   {
     title: "Company Visa",
     href: "/uae-company-visa",
+    imageSrc: "/services/company-visas.webp",
+    imageAlt: "UAE company visa support for founders and employees",
     description:
       "A company visa is usually one of the first follow-on needs after setup for founders and employees who need to live and work in the UAE.",
     points: [
@@ -111,6 +117,8 @@ const essentialServices = [
   {
     title: "Visa and Banking",
     href: "/visa-and-banking",
+    imageSrc: "/services/visa-and-banking.webp",
+    imageAlt: "Residency and business banking consultation in Dubai",
     description:
       "Residency and banking support matters when founders, investors, and teams need visas or account opening tied to business setup.",
     points: [
@@ -527,6 +535,8 @@ export default function BusinessSetupPage() {
                 key={service.title}
                 title={service.title}
                 href={service.href}
+                imageSrc={versionedAssetPath(service.imageSrc)}
+                imageAlt={service.imageAlt}
                 frontSummary={service.description}
                 points={service.points}
                 ctaLabel="Open service"
