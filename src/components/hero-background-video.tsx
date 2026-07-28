@@ -42,14 +42,29 @@ export function HeroBackgroundVideo({
     const requestIdleCallback = window.requestIdleCallback;
     const cancelIdleCallback = window.cancelIdleCallback;
     const loadVideo = () => setShouldLoadVideo(true);
+    let idleId: number | undefined;
+    let loadTimer: number | undefined;
 
-    if (requestIdleCallback) {
-      const idleId = requestIdleCallback(loadVideo, { timeout: 900 });
-      return () => cancelIdleCallback(idleId);
+    const scheduleVideoLoad = () => {
+      if (requestIdleCallback) {
+        idleId = requestIdleCallback(loadVideo, { timeout: 600 });
+        return;
+      }
+
+      loadTimer = window.setTimeout(loadVideo, 200);
+    };
+
+    if (document.readyState === "complete") {
+      scheduleVideoLoad();
+    } else {
+      window.addEventListener("load", scheduleVideoLoad, { once: true });
     }
 
-    const loadTimer = window.setTimeout(loadVideo, 500);
-    return () => window.clearTimeout(loadTimer);
+    return () => {
+      window.removeEventListener("load", scheduleVideoLoad);
+      if (idleId !== undefined) cancelIdleCallback(idleId);
+      if (loadTimer !== undefined) window.clearTimeout(loadTimer);
+    };
   }, []);
 
   useEffect(() => {
@@ -97,7 +112,6 @@ export function HeroBackgroundVideo({
           loop
           playsInline
           preload="metadata"
-          poster={poster}
           onCanPlay={() => setIsVideoReady(true)}
           suppressHydrationWarning
           className={`${className ?? ""} absolute inset-0 transition-opacity duration-500 ${
