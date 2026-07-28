@@ -24,7 +24,7 @@ const setupRoutes = [
   {
     title: "Mainland / Onshore Setup",
     href: "/mainland",
-    imageSrc: versionedAssetPath("/mainland.webp"),
+    imageSrc: versionedAssetPath("/services/mainland.webp"),
     imageAlt: "Mainland company setup consultation in a Dubai office",
     imageWidth: 1248,
     imageHeight: 528,
@@ -41,7 +41,7 @@ const setupRoutes = [
   {
     title: "Free Zone Setup",
     href: "/free-zones",
-    imageSrc: versionedAssetPath("/freezone.webp"),
+    imageSrc: versionedAssetPath("/services/freezone.webp"),
     imageAlt: "Free zone company setup consultation in a JLT office",
     imageWidth: 1328,
     imageHeight: 528,
@@ -58,7 +58,7 @@ const setupRoutes = [
   {
     title: "Offshore Setup",
     href: "/offshore",
-    imageSrc: versionedAssetPath("/offshore.webp"),
+    imageSrc: versionedAssetPath("/services/offshore.webp"),
     imageAlt: "Offshore company setup planning discussion in Dubai",
     imageWidth: 1280,
     imageHeight: 850,
@@ -305,9 +305,9 @@ export default function BusinessSetupPage() {
         title="Business setup in Dubai"
         titleClassName="!max-w-none whitespace-nowrap !text-[1.72rem] sm:!text-[2.65rem] md:!text-[3.25rem] lg:!text-[4.15rem]"
         description="Company formation services for mainland, free zone, and offshore routes, with licensing, visas, banking, tax, renewals, and compliance planned around how the business will operate."
-        backgroundImageSrc="/backgrounds/business-setup-bg.webp"
-        backgroundImageAlt="Zenesis Business Setup page background"
-        backgroundImagePosition="!object-[100%_100%]"
+        backgroundImageSrc={versionedAssetPath("/services/business-setup.webp")}
+        backgroundImageAlt="Business leader arriving in Jumeirah Lake Towers for UAE company setup"
+        backgroundImagePosition="!object-[58%_center]"
         backgroundImageMode="ambient"
         footerContent={
           <ServiceCredibilityPanel path="/business-setup" variant="expertise" embedded />

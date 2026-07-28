@@ -20,7 +20,7 @@ export default function ContactPage() {
         eyebrow="Contact Zenesis"
         title="Contact us"
         description="Get in touch for company setup, tax, visa, banking, and ongoing corporate support in the UAE."
-        backgroundImageSrc={versionedAssetPath("/team-photo-cropped.webp")}
+        backgroundImageSrc={versionedAssetPath("/sections/team-photo-cropped.webp")}
         backgroundImageAlt="Zenesis team photo"
         backgroundImagePosition="!object-[58%_28%]"
         backgroundImageMode="ambient"

@@ -163,7 +163,7 @@ export default function Home() {
         <section className="photo-hero relative left-1/2 -mt-10 min-h-[100svh] w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] text-white md:-mt-14">
           <div className="absolute inset-0">
             <HeroBackgroundVideo
-              src="/zenesis-video-v2.webm"
+              src="/media/zenesis-video.webm"
               className="h-full w-full object-cover object-[66%_30%] lg:object-[82%_27%]"
             />
           </div>
@@ -201,7 +201,7 @@ export default function Home() {
                   <div className="hero-reveal hero-reveal-4 flex items-center gap-3.5 text-white">
                     <div className="origin-left scale-[0.94] sm:scale-[1.02] md:scale-[1.08]">
                       <NextImage
-                        src="/google.webp"
+                        src="/logos/google.webp"
                         alt="Google reviews"
                         width={168}
                         height={72}
@@ -282,7 +282,7 @@ export default function Home() {
             }}
           >
             <NextImage
-              src="/awards-and-recognition.webp"
+              src="/sections/awards-and-recognition.webp"
               alt=""
               fill
               sizes="(max-width: 1279px) 46vw, 52vw"
@@ -306,7 +306,7 @@ export default function Home() {
               <div className="relative aspect-[1280/855] overflow-hidden rounded-[1.45rem] border border-[#d8cdbc] bg-[#eee7dc]">
                   <NextImage
                     src={versionedAssetPath(
-                      "/zenesis-award.webp",
+                      "/recognition/zenesis-award.webp",
                       "20260727-award",
                     )}
                     alt="Zenesis award recognition poster for excellence in company formation"
@@ -357,17 +357,17 @@ export default function Home() {
               <div className="grid gap-3 md:grid-cols-3">
                 {[
                   {
-                    src: "/zenesis-award1.webp",
+                    src: "/recognition/zenesis-award1.webp",
                     alt: "Zenesis team receiving company formation award in Dubai",
                     position: "54% center",
                   },
                   {
-                    src: "/zenesis-award2.webp",
+                    src: "/recognition/zenesis-award2.webp",
                     alt: "Zenesis award recognition ceremony moment",
                     position: "center center",
                   },
                   {
-                    src: "/zenesis-award3.webp",
+                    src: "/recognition/zenesis-award3.webp",
                     alt: "Zenesis representatives holding company award",
                     position: "center 42%",
                   },
@@ -429,7 +429,7 @@ export default function Home() {
             }}
           >
             <NextImage
-              src="/client-reviews.webp"
+              src="/sections/client-reviews.webp"
               alt=""
               fill
               sizes="(max-width: 1279px) 46vw, 52vw"
@@ -450,7 +450,7 @@ export default function Home() {
             />
             <div className="flex items-center gap-4 md:shrink-0">
               <NextImage
-                src="/google.webp"
+                src="/logos/google.webp"
                 alt="Google reviews"
                 width={168}
                 height={72}

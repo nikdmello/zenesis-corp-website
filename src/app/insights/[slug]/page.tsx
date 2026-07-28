@@ -177,8 +177,17 @@ export default async function InsightArticlePage({
             <div className="mx-auto max-w-[62rem] space-y-16">
               {authorProfile ? (
                 <section className="border-y border-[#e4dbce] py-7">
-                  <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
-                    <div>
+                  <div className="flex items-center gap-5 md:gap-6">
+                    <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-[#f5efe4] md:h-24 md:w-24">
+                      <Image
+                        src={authorProfile.imageSrc}
+                        alt={post.author}
+                        fill
+                        sizes="(min-width: 768px) 96px, 80px"
+                        className="scale-[1.15] object-cover object-center"
+                      />
+                    </div>
+                    <div className="min-w-0">
                       <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
                         About the author
                       </p>
@@ -192,12 +201,6 @@ export default async function InsightArticlePage({
                         {authorProfile.bio}
                       </p>
                     </div>
-                    <a
-                      href={authorProfile.profileHref}
-                      className="text-[0.98rem] font-semibold text-[#244ba8] hover:underline"
-                    >
-                      View leadership profile
-                    </a>
                   </div>
                 </section>
               ) : null}

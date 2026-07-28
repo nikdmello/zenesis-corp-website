@@ -126,7 +126,7 @@ export default function LowCostBusinessSetupUaePage() {
         ]}
         title="Low cost business setup in UAE"
         description="A practical guide to the cheapest viable setup routes, and the point where a low headline price can become the wrong structure."
-        backgroundImageSrc={versionedAssetPath("/low-cost-setup.webp")}
+        backgroundImageSrc={versionedAssetPath("/services/low-cost-setup.webp")}
         backgroundImageAlt="Low cost business setup and company formation in the UAE"
         backgroundImagePosition="!object-[82%_34%]"
         backgroundImageMode="ambient"

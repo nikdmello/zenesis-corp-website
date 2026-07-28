@@ -6,6 +6,7 @@ import { ServiceCredibilityPanel } from "@/components/service-credibility-panel"
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { CardAccent, PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
+import { versionedAssetPath } from "@/lib/asset-paths";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
 import {
   buildFaqSchema,
@@ -226,9 +227,9 @@ export default function AccountingTaxPage() {
         ]}
         title="Accounting and tax"
         description="Corporate tax, VAT, bookkeeping, and filing support for UAE businesses that need cleaner records and steadier compliance."
-        backgroundImageSrc="/backgrounds/accounting-and-tax-bg.webp"
-        backgroundImageAlt="Zenesis Accounting and Tax page background"
-        backgroundImagePosition="!object-[100%_100%]"
+        backgroundImageSrc={versionedAssetPath("/services/accounting-and-tax.webp")}
+        backgroundImageAlt="Financial professional reviewing accounting and tax records"
+        backgroundImagePosition="!object-[66%_center]"
         backgroundImageMode="ambient"
         footerContent={
           <ServiceCredibilityPanel path="/accounting-tax" variant="expertise" embedded />

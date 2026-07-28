@@ -193,7 +193,7 @@ export default function BusinessSetupServicesUaePage() {
         ]}
         title="Business setup services in UAE"
         description="A full-service setup path for founders and companies that need formation, trade licensing, visas, PRO coordination, banking, accounting, tax, renewals, and compliance connected from the start."
-        backgroundImageSrc={versionedAssetPath("/business-setup-services-uae.webp")}
+        backgroundImageSrc={versionedAssetPath("/services/business-setup-services-uae.webp")}
         backgroundImageAlt="Business setup services consultation in the UAE"
         backgroundImagePosition="!object-[82%_32%]"
         backgroundImageMode="ambient"

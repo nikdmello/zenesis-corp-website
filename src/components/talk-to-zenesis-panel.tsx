@@ -50,7 +50,7 @@ export function TalkToZenesisPanel({
     >
       <div className="absolute inset-0 overflow-hidden md:inset-y-0 md:right-0 md:left-auto md:w-1/2">
         <Image
-          src="/talk-to-zenesis.webp"
+          src="/sections/talk-to-zenesis.webp"
           alt="Zenesis consultation meeting"
           fill
           sizes="(min-width: 1280px) 36rem, (min-width: 768px) 50vw, 100vw"

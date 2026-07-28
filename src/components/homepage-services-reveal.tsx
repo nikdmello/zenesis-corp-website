@@ -93,7 +93,7 @@ export function HomepageServicesReveal({
           }}
         >
           <Image
-            src="/uae-flag.webp"
+            src="/sections/uae-flag.webp"
             alt=""
             fill
             sizes="(max-width: 1279px) 46vw, 52vw"

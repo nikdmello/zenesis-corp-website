@@ -132,29 +132,64 @@ export function HomepageReviewsCarousel({
             }, 140);
           }
         }}
-        className="flex snap-x snap-mandatory overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="-my-2 flex snap-x snap-mandatory overflow-x-auto py-2 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {loopedPages.map((page, pageIndex) => (
           <div
             key={`reviews-page-${pageIndex}`}
             className="w-full shrink-0 snap-start px-1 md:px-2"
           >
-            <div className="grid gap-5 md:grid-cols-2 md:[grid-auto-rows:1fr] xl:grid-cols-3">
+            <div className="grid auto-rows-fr gap-5 md:grid-cols-2 xl:grid-cols-3">
               {page.map((item) => (
                 <a
                   key={item.name}
                   href={googleReviewsHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex h-full min-h-[12rem] flex-col rounded-[1.7rem] border border-[#d8d0c2] bg-white p-5 text-[#11232a] transition-transform duration-200 hover:-translate-y-1 md:min-h-[12.9rem] md:p-5.5 xl:min-h-[13.8rem]"
+                  className="group relative flex h-full min-h-[18rem] min-w-0 flex-col rounded-[1.7rem] border border-[#d8d0c2] bg-[linear-gradient(145deg,#ffffff_0%,#ffffff_62%,#faf5eb_100%)] p-5 text-[#11232a] shadow-[0_12px_32px_rgba(17,35,42,0.055)] transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:border-[#cdb98f] hover:shadow-[0_18px_42px_rgba(17,35,42,0.1)] md:p-5.5"
                 >
-                  <p className="text-[1.08rem] leading-7 text-[#11232a] md:text-[1.14rem] md:leading-8">
+                  <div className="flex items-center justify-between gap-4">
+                    <span
+                      aria-label="5 out of 5 stars"
+                      className="text-[0.82rem] tracking-[0.16em] text-[#b88a35]"
+                    >
+                      ★★★★★
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="font-serif text-[2.1rem] leading-none text-[#d5be8b]/65"
+                    >
+                      &ldquo;
+                    </span>
+                  </div>
+
+                  <p className="mt-2 text-[1.08rem] leading-7 text-[#11232a] md:text-[1.14rem] md:leading-8">
                     &ldquo;{item.quote}&rdquo;
                   </p>
-                  <div className="mt-auto flex items-center justify-between gap-4 pt-4.5">
-                    <p className="text-[0.96rem] font-semibold tracking-[-0.02em] text-[#11232a] md:text-[1rem]">
-                      {item.name}
-                    </p>
+
+                  <div className="mt-auto flex items-center justify-between gap-4 border-t border-[#d8d0c2]/70 pt-4">
+                    <div className="flex min-w-0 items-center gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#11232a] text-[0.78rem] font-semibold uppercase tracking-[0.04em] text-white"
+                      >
+                        {getInitials(item.name)}
+                      </span>
+                      <div className="min-w-0">
+                        <p className="text-[0.96rem] font-semibold leading-tight tracking-[-0.02em] text-[#11232a] md:text-[1rem]">
+                          {item.name}
+                        </p>
+                        <p className="mt-0.5 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[#8d7453]">
+                          Google review
+                        </p>
+                      </div>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-lg text-[#8d7453] transition-transform duration-300 group-hover:translate-x-0.5"
+                    >
+                      ↗
+                    </span>
                   </div>
                 </a>
               ))}
@@ -226,4 +261,13 @@ function chunkTestimonials(testimonials: readonly Testimonial[], size: number) {
   }
 
   return pages;
+}
+
+function getInitials(name: string) {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("");
 }

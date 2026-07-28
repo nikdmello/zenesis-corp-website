@@ -24,21 +24,21 @@ const formationRoutes = [
   {
     title: "Mainland company formation",
     href: "/mainland",
-    imageSrc: versionedAssetPath("/mainland.webp"),
+    imageSrc: versionedAssetPath("/services/mainland.webp"),
     description:
       "For businesses that need direct UAE market access, local client work, broader operating flexibility, and a route that can support local contracts.",
   },
   {
     title: "Free zone company formation",
     href: "/free-zones",
-    imageSrc: versionedAssetPath("/freezone.webp"),
+    imageSrc: versionedAssetPath("/services/freezone.webp"),
     description:
       "For founders who want a package-led structure, 100% foreign ownership in the relevant free zone, and a route suited to consulting, trade, digital, or international work.",
   },
   {
     title: "Offshore company formation",
     href: "/offshore",
-    imageSrc: versionedAssetPath("/offshore.webp"),
+    imageSrc: versionedAssetPath("/services/offshore.webp"),
     description:
       "For holding, asset ownership, succession planning, and international structures that are not meant for day-to-day UAE operating activity.",
   },
@@ -209,7 +209,7 @@ export default function CompanyFormationDubaiPage() {
         ]}
         title="Company formation services in Dubai"
         description="Choose the right mainland, free zone, or offshore route before trade licensing, visas, banking, accounting, tax, renewals, and compliance begin."
-        backgroundImageSrc={versionedAssetPath("/company-formation-dubai.webp")}
+        backgroundImageSrc={versionedAssetPath("/services/company-formation-dubai.webp")}
         backgroundImageAlt="Company formation consultation in Dubai"
         backgroundImagePosition="!object-[82%_32%]"
         backgroundImageMode="ambient"

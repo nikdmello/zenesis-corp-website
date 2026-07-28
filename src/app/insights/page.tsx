@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { InsightsArchive } from "@/components/insights-archive";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
+import { versionedAssetPath } from "@/lib/asset-paths";
 import { featuredProfile } from "@/lib/site-content";
 import { insightPosts } from "@/lib/insights";
 import { buildPageMetadata } from "@/lib/seo";
@@ -39,9 +40,9 @@ export default function InsightsPage() {
         eyebrow="Insights"
         title="Insights"
         description="Articles and practical guidance across business setup, tax, visa, and banking in the UAE."
-        backgroundImageSrc="/backgrounds/insights-bg.webp"
-        backgroundImageAlt="Zenesis Insights page background"
-        backgroundImagePosition="!object-[100%_100%]"
+        backgroundImageSrc={versionedAssetPath("/services/insights.webp")}
+        backgroundImageAlt="Dubai skyline and Jumeirah Lake Towers viewed from a business setting"
+        backgroundImagePosition="!object-[68%_center]"
         backgroundImageMode="ambient"
       />
 

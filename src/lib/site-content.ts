@@ -97,7 +97,7 @@ export const featuredProfile = {
   publication: "Global Leaders Today",
   dateLabel: "November 15, 2024",
   href: "/featured-profile",
-  imageSrc: "/cecilia-dcunha-global-leaders.webp",
+  imageSrc: "/recognition/cecilia-dcunha-global-leaders.webp",
   imageAlt: "Global Leaders Today feature on Cecilia D'Cunha",
   summary:
     "A full-length profile on Cecilia D'Cunha covering her early offshore incorporation work, her move into the UAE in 1998, and the leadership path that led to Zenesis.",
@@ -378,6 +378,25 @@ export const testimonials = [
     quote:
       "They have a good understanding of the client's requirements and are a good team to work with.",
   },
+  {
+    name: "Karan Kapoor",
+    quote:
+      "Very efficient and been a pleasure to deal with. Would recommend them.",
+  },
+  {
+    name: "Justina Gina",
+    quote:
+      "It was a great transparent and efficient experience with Zenesis. Strong follow up. Exceptional service. Great team.",
+  },
+  {
+    name: "Abdul Gaffar",
+    quote: "Received timely assistance and genuine advisory.",
+  },
+  {
+    name: "Fastline Khasab",
+    quote:
+      "With quick responses, Team Zenesis have been consistent in their excellent satisfactory services.",
+  },
 ] as const;
 
 export type Testimonial = (typeof testimonials)[number];
@@ -389,7 +408,7 @@ export const articleHighlights = [
     summary:
       "A practical overview of when multiple UAE entities can be treated as one taxable group, what the ownership requirements look like, and where grouping can simplify compliance.",
     href: "/accounting-tax",
-    imageSrc: versionedAssetPath("/corporate-tax.webp"),
+    imageSrc: versionedAssetPath("/insights/corporate-tax.webp"),
     imageAlt: "Professionals reviewing finance and tax documents",
   },
   {
@@ -398,7 +417,7 @@ export const articleHighlights = [
     summary:
       "A breakdown of how the financial year drives filing cadence, reporting rhythm, and the timing of tax obligations across the UAE compliance cycle.",
     href: "/accounting-tax",
-    imageSrc: versionedAssetPath("/financial-year.webp"),
+    imageSrc: versionedAssetPath("/insights/financial-year.webp"),
     imageAlt: "Business advisor discussing compliance planning",
   },
   {
@@ -408,7 +427,7 @@ export const articleHighlights = [
     summary:
       "A focused look at qualifying activity, mainland interaction, and the practical implications of updated free zone tax treatment for founders and operating companies.",
     href: "/business-setup",
-    imageSrc: versionedAssetPath("/free-zone.webp"),
+    imageSrc: versionedAssetPath("/insights/free-zone.webp"),
     imageAlt: "Business professionals in a Dubai advisory meeting",
   },
 ] as const;

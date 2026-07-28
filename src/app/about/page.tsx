@@ -15,7 +15,7 @@ export default function AboutPage() {
         eyebrow="About Zenesis"
         title="About"
         description="The background, experience, and working approach behind Zenesis in the UAE."
-        backgroundImageSrc={versionedAssetPath("/team-photo-cropped.webp")}
+        backgroundImageSrc={versionedAssetPath("/sections/team-photo-cropped.webp")}
         backgroundImageAlt="Zenesis team photo"
         backgroundImagePosition="!object-[58%_28%]"
         backgroundImageMode="ambient"
@@ -57,7 +57,7 @@ export default function AboutPage() {
 
               <div className="overflow-hidden rounded-[1.8rem]">
                 <NextImage
-                  src={versionedAssetPath("/team-photo-cropped.webp")}
+                  src={versionedAssetPath("/sections/team-photo-cropped.webp")}
                   alt="Zenesis team"
                   width={1600}
                   height={1200}
@@ -84,7 +84,7 @@ export default function AboutPage() {
             }}
           >
             <NextImage
-              src="/awards-and-recognition.webp"
+              src="/sections/awards-and-recognition.webp"
               alt=""
               fill
               sizes="(max-width: 1279px) 46vw, 52vw"

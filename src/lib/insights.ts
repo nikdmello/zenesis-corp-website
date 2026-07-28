@@ -50,6 +50,7 @@ export const insightAuthorProfiles = {
     credentials: "BCom, LLB, ACS",
     role: "Founder, Zenesis Corporation",
     profileHref: "/about",
+    imageSrc: versionedAssetPath("/people/Cecilia_DCunha.webp"),
     bio: "A qualified Chartered Secretary with degrees in Commerce and Law and more than 30 years of experience across offshore incorporation, UAE company setup, and corporate compliance.",
   },
 } as const;
@@ -883,9 +884,9 @@ export const insightPosts: InsightPost[] = [
       "A practical 2026 guide to UAE corporate tax filing deadlines, financial year-end timing, return preparation, payment readiness, and common filing risks.",
     dateLabel: "July 15, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/insights/financial-year-2026-compliance.webp", insightImageVersion),
-    heroImageAlt: "UAE corporate tax filing deadline planning visual for business compliance",
-    heroImageClassName: "object-[50%_20%]",
+    heroImageSrc: versionedAssetPath("/services/corporate-tax-filing.webp"),
+    heroImageAlt: "Corporate tax filing preparation and deadline planning for UAE businesses",
+    heroImageClassName: "object-center",
     keyTakeaways: [
       "The corporate tax return is generally due within nine months after the end of the relevant tax period.",
       "The deadline is only useful if the books, calculations, and supporting documents are ready before the filing window becomes urgent.",
@@ -1537,7 +1538,7 @@ export const insightPosts: InsightPost[] = [
       "An evergreen guide to what the Dubai Golden Visa is, who it is designed for, the main eligibility routes, and how to approach the process more carefully.",
     dateLabel: "August 29, 2022",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/insights/golden-visa-guide.webp", insightImageVersion),
+    heroImageSrc: versionedAssetPath("/services/golden-visa.webp"),
     heroImageAlt: "Dubai Golden Visa planning visual focused on residency and eligibility guidance",
     heroImageClassName: "object-[28%_82%]",
     keyTakeaways: [

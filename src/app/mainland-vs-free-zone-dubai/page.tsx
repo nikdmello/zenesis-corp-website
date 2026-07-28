@@ -135,7 +135,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
         ]}
         title="Mainland vs free zone"
         description="A practical comparison for founders deciding which Dubai company formation route fits their market access, visa, office, banking, and cost position."
-        backgroundImageSrc={versionedAssetPath("/mainland-vs-freezone.webp")}
+        backgroundImageSrc={versionedAssetPath("/services/mainland-vs-freezone.webp")}
         backgroundImageAlt="Mainland vs free zone company setup comparison in Dubai"
         backgroundImagePosition="!object-[82%_34%]"
         backgroundImageMode="ambient"
