@@ -102,6 +102,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                 alt="Zenesis Corporation"
                 width={220}
                 height={54}
+                sizes="120px"
                 className="h-8 w-auto object-contain brightness-0 invert sm:h-9 md:h-10"
               />
             </span>
@@ -111,6 +112,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                 alt="Zenesis Corporation"
                 width={360}
                 height={88}
+                sizes="180px"
                 className="h-10 w-auto object-contain brightness-0 invert 2xl:h-11"
               />
             </span>
@@ -439,6 +441,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
               alt="Zenesis Corporation"
               width={300}
               height={72}
+              sizes="168px"
               className="h-10 w-auto object-contain brightness-0 saturate-0"
             />
             <p className="mt-4 max-w-md text-[1.08rem] leading-8 text-foreground/78">

@@ -72,10 +72,10 @@ export default function AboutPage() {
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46vw] min-w-[34rem] md:block xl:w-[52vw] xl:min-w-[42rem]"
+          className="pointer-events-none absolute inset-y-0 right-0 w-full md:w-[46vw] md:min-w-[34rem] xl:w-[52vw] xl:min-w-[42rem]"
         >
           <div
-            className="absolute inset-0 opacity-[0.48] xl:opacity-[0.54]"
+            className="absolute inset-0 opacity-[0.32] md:opacity-[0.48] xl:opacity-[0.54]"
             style={{
               WebkitMaskImage:
                 "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
@@ -87,7 +87,7 @@ export default function AboutPage() {
               src="/sections/awards-and-recognition.webp"
               alt=""
               fill
-              sizes="(max-width: 1279px) 46vw, 52vw"
+              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 46vw, 52vw"
               className="object-cover object-right"
             />
           </div>

@@ -44,7 +44,6 @@ const customerPaths = [
     href: "/business-setup",
     icon: "business",
     cta: "Setup options",
-    description: "Choose the right structure for your company.",
     items: [
       "Mainland company formation",
       "Free zone company formation",
@@ -56,7 +55,6 @@ const customerPaths = [
     href: "/accounting-tax",
     icon: "accounting",
     cta: "Tax support",
-    description: "Stay compliant with ongoing financial obligations.",
     items: ["Bookkeeping", "VAT filing", "Corporate tax"],
   },
   {
@@ -64,7 +62,6 @@ const customerPaths = [
     href: "/visa-and-banking",
     icon: "visa",
     cta: "Visa and banking",
-    description: "Support for residency and banking processes.",
     items: ["Golden Visa", "Company visas", "Bank account support"],
   },
   {
@@ -72,7 +69,6 @@ const customerPaths = [
     href: "/contact",
     icon: "support",
     cta: "Corporate support",
-    description: "Ongoing help after your business is established.",
     items: ["License renewals", "PRO services", "Company amendments"],
   },
 ] as const;
@@ -163,7 +159,8 @@ export default function Home() {
         <section className="photo-hero relative left-1/2 -mt-10 min-h-[100svh] w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] text-white md:-mt-14">
           <div className="absolute inset-0">
             <HeroBackgroundVideo
-              src="/media/zenesis-video.webm"
+              src={versionedAssetPath("/media/zenesis-video.webm")}
+              poster={versionedAssetPath("/media/zenesis-video-poster.webp")}
               className="h-full w-full object-cover object-[66%_30%] lg:object-[82%_27%]"
             />
           </div>
@@ -270,10 +267,10 @@ export default function Home() {
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46vw] min-w-[34rem] md:block xl:w-[52vw] xl:min-w-[42rem]"
+          className="pointer-events-none absolute inset-y-0 right-0 w-full md:w-[46vw] md:min-w-[34rem] xl:w-[52vw] xl:min-w-[42rem]"
         >
           <div
-            className="absolute inset-0 opacity-[0.5] xl:opacity-[0.56]"
+            className="absolute inset-0 opacity-[0.32] md:opacity-[0.5] xl:opacity-[0.56]"
             style={{
               WebkitMaskImage:
                 "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
@@ -285,7 +282,7 @@ export default function Home() {
               src="/sections/awards-and-recognition.webp"
               alt=""
               fill
-              sizes="(max-width: 1279px) 46vw, 52vw"
+              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 46vw, 52vw"
               className="object-cover object-right"
             />
           </div>
@@ -357,7 +354,10 @@ export default function Home() {
               <div className="grid gap-3 md:grid-cols-3">
                 {[
                   {
-                    src: "/recognition/zenesis-award1.webp",
+                    src: versionedAssetPath(
+                      "/recognition/zenesis-award1.webp",
+                      "20260728-award1",
+                    ),
                     alt: "Zenesis team receiving company formation award in Dubai",
                     position: "54% center",
                   },
@@ -417,10 +417,10 @@ export default function Home() {
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46vw] min-w-[34rem] md:block xl:w-[52vw] xl:min-w-[42rem]"
+          className="pointer-events-none absolute inset-y-0 right-0 w-full md:w-[46vw] md:min-w-[34rem] xl:w-[52vw] xl:min-w-[42rem]"
         >
           <div
-            className="absolute inset-0 opacity-[0.48] xl:opacity-[0.54]"
+            className="absolute inset-0 opacity-[0.32] md:opacity-[0.48] xl:opacity-[0.54]"
             style={{
               WebkitMaskImage:
                 "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
@@ -432,7 +432,7 @@ export default function Home() {
               src="/sections/client-reviews.webp"
               alt=""
               fill
-              sizes="(max-width: 1279px) 46vw, 52vw"
+              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 46vw, 52vw"
               className="object-cover object-right"
             />
           </div>

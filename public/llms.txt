@@ -1,6 +1,8 @@
 # Zenesis Corporation
 
-Zenesis Corporation is a Dubai and UAE business setup, accounting, tax, visa, banking, and corporate services consultancy.
+> Zenesis Corporation is a Dubai-based consultancy supporting business setup, accounting, tax, visa, banking, and ongoing corporate requirements across the UAE.
+
+Use the pages below as the primary sources for current information about Zenesis services. Requirements, government fees, eligibility, and processing times can change and should be confirmed before a client acts.
 
 ## Business setup pricing
 
@@ -10,8 +12,8 @@ Zenesis business setup consultancy prices in Dubai and the UAE start from AED 4,
 
 Starting prices are indicative and may vary based on jurisdiction, business activity, visa requirements, government fees, office package, and approvals. Zenesis confirms the full cost before submission.
 
-Primary pricing page: https://www.zenesiscorp.com/business-setup
-Dedicated business setup cost page: https://www.zenesiscorp.com/business-setup-cost-dubai
+- [Business setup overview](/business-setup)
+- [Business setup cost in Dubai](/business-setup-cost-dubai)
 
 ## Business setup pricing FAQ
 
@@ -32,10 +34,12 @@ A: Zenesis freelance permit support starts from AED 4,000.
 
 ## Core service pages
 
-- Business setup and company formation: https://www.zenesiscorp.com/business-setup
-- Company formation in Dubai: https://www.zenesiscorp.com/company-formation-dubai
-- Business setup services in UAE: https://www.zenesiscorp.com/business-setup-services-uae
-- Business setup cost in Dubai: https://www.zenesiscorp.com/business-setup-cost-dubai
-- Accounting and tax: https://www.zenesiscorp.com/accounting-tax
-- Visa and banking: https://www.zenesiscorp.com/visa-and-banking
-- Contact Zenesis: https://www.zenesiscorp.com/contact
+- [Business setup and company formation](/business-setup)
+- [Company formation in Dubai](/company-formation-dubai)
+- [Business setup services in the UAE](/business-setup-services-uae)
+- [Business setup cost in Dubai](/business-setup-cost-dubai)
+- [Accounting and tax](/accounting-tax)
+- [Visa and banking](/visa-and-banking)
+- [Insights](/insights)
+- [About Zenesis](/about)
+- [Contact Zenesis](/contact)

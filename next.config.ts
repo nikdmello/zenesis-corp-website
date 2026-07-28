@@ -1,6 +1,16 @@
 import type { NextConfig } from "next";
 
-const currentAssetVersion = "20260606b";
+const currentAssetVersion = "20260728c";
+const cacheableAssetFolders = [
+  "insights",
+  "logos",
+  "media",
+  "partners",
+  "people",
+  "recognition",
+  "sections",
+  "services",
+];
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["192.168.8.67", "192.168.8.69"],
@@ -26,6 +36,20 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+  },
+  async headers() {
+    return cacheableAssetFolders.map((folder) => ({
+      source: `/${folder}/:path*`,
+      headers: [
+        {
+          key: "Cache-Control",
+          value:
+            folder === "media"
+              ? "public, max-age=31536000, immutable"
+              : "public, max-age=86400, s-maxage=31536000, stale-while-revalidate=86400",
+        },
+      ],
+    }));
   },
   async redirects() {
     return [

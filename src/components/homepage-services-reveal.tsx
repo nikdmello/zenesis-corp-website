@@ -5,7 +5,6 @@ import Link from "next/link";
 
 type ServiceRevealItem = {
   title: string;
-  description: string;
   href: string;
   cta: string;
   items: readonly string[];
@@ -81,10 +80,10 @@ export function HomepageServicesReveal({
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46vw] min-w-[34rem] md:block xl:w-[52vw] xl:min-w-[42rem]"
+        className="pointer-events-none absolute inset-y-0 right-0 w-full md:w-[46vw] md:min-w-[34rem] xl:w-[52vw] xl:min-w-[42rem]"
       >
         <div
-          className="absolute inset-0 opacity-[0.54] xl:opacity-[0.6]"
+          className="absolute inset-0 opacity-[0.36] md:opacity-[0.54] xl:opacity-[0.6]"
           style={{
             WebkitMaskImage:
               "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
@@ -96,7 +95,7 @@ export function HomepageServicesReveal({
             src="/sections/uae-flag.webp"
             alt=""
             fill
-            sizes="(max-width: 1279px) 46vw, 52vw"
+            sizes="(max-width: 767px) 100vw, (max-width: 1279px) 46vw, 52vw"
             className="object-cover object-right"
           />
         </div>
@@ -125,26 +124,23 @@ export function HomepageServicesReveal({
               {items.map((item, index) => (
                 <article
                   key={item.title}
-                  className="group flex h-full flex-col overflow-hidden rounded-[1.55rem] border border-[#d8cfbf] bg-white/88 shadow-[0_10px_24px_rgba(17,35,42,0.05)] transition-all duration-300 hover:border-[#d1b285] hover:bg-[#102028] hover:shadow-[0_22px_48px_rgba(17,35,42,0.14)] focus-within:border-[#d1b285] focus-within:bg-[#102028] focus-within:shadow-[0_22px_48px_rgba(17,35,42,0.14)]"
+                  className="group flex h-full flex-col overflow-hidden rounded-[1.55rem] border border-[#d1b285] bg-[#102028] shadow-[0_16px_34px_rgba(17,35,42,0.11)] transition-all duration-300 xl:border-[#d8cfbf] xl:bg-white/88 xl:shadow-[0_10px_24px_rgba(17,35,42,0.05)] xl:hover:border-[#d1b285] xl:hover:bg-[#102028] xl:hover:shadow-[0_22px_48px_rgba(17,35,42,0.14)] xl:focus-within:border-[#d1b285] xl:focus-within:bg-[#102028] xl:focus-within:shadow-[0_22px_48px_rgba(17,35,42,0.14)]"
                 >
-                  <div className="flex w-full flex-1 items-start gap-3 px-4 py-4 text-left md:min-h-[10.5rem]">
-                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#d8c3a2]/45 bg-[#f8f2e7] text-[#8d7453] transition-colors duration-300 group-hover:border-[#d8c3a2]/30 group-hover:bg-white/[0.04] group-hover:text-[#ecdcbc] group-focus-within:border-[#d8c3a2]/30 group-focus-within:bg-white/[0.04] group-focus-within:text-[#ecdcbc]">
+                  <div className="flex w-full flex-1 items-start gap-3 px-4 py-4 text-left">
+                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#d8c3a2]/30 bg-white/[0.04] text-[#ecdcbc] transition-colors duration-300 xl:border-[#d8c3a2]/45 xl:bg-[#f8f2e7] xl:text-[#8d7453] xl:group-hover:border-[#d8c3a2]/30 xl:group-hover:bg-white/[0.04] xl:group-hover:text-[#ecdcbc] xl:group-focus-within:border-[#d8c3a2]/30 xl:group-focus-within:bg-white/[0.04] xl:group-focus-within:text-[#ecdcbc]">
                       <ServiceIcon type={item.icon} />
                     </span>
                     <div className="min-w-0 flex-1">
-                      <p className="text-[0.72rem] font-semibold tracking-[0.18em] text-[#8d7453] transition-colors duration-300 group-hover:text-[#d8c3a2] group-focus-within:text-[#d8c3a2]">
+                      <p className="text-[0.72rem] font-semibold tracking-[0.18em] text-[#d8c3a2] transition-colors duration-300 xl:text-[#8d7453] xl:group-hover:text-[#d8c3a2] xl:group-focus-within:text-[#d8c3a2]">
                         {stageNumberByIndex[index]}
                       </p>
-                      <h3 className="mt-1 text-[1.16rem] font-semibold leading-[1.08] tracking-[-0.03em] text-[#07151b] transition-colors duration-300 group-hover:text-white group-focus-within:text-white xl:whitespace-nowrap xl:text-[1.2rem]">
+                      <h3 className="mt-1 text-[1.16rem] font-semibold leading-[1.08] tracking-[-0.03em] text-white transition-colors duration-300 xl:whitespace-nowrap xl:text-[1.2rem] xl:text-[#07151b] xl:group-hover:text-white xl:group-focus-within:text-white">
                         {item.title}
                       </h3>
-                      <p className="mt-2 text-[0.98rem] leading-6 text-[#31444c] transition-colors duration-300 group-hover:text-white/78 group-focus-within:text-white/78 xl:text-[1.02rem]">
-                        {item.description}
-                      </p>
                     </div>
                   </div>
 
-                  <div className="px-4 pb-3 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100">
+                  <div className="px-4 pb-3 transition-opacity duration-300 xl:opacity-0 xl:group-hover:opacity-100 xl:group-focus-within:opacity-100">
                     <div className="rounded-[1.15rem] border border-white/8 bg-white/[0.05] px-3.25 py-3">
                       <ul className="space-y-1.75">
                         {item.items.map((entry) => (

@@ -972,6 +972,7 @@ export function ConsultationModal({
               alt="Zenesis Corporation"
               width={300}
               height={72}
+              sizes="134px"
               className="h-8 w-auto object-contain brightness-0 invert md:h-8"
               priority
             />

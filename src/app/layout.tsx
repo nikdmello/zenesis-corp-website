@@ -11,17 +11,21 @@ import "./globals.css";
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
+  display: "swap",
+  preload: false,
 });
 
 const organizationSchemas = getOrganizationSchemas();
 const googleAnalyticsId =
   process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID ?? "G-Z43BXSZ609";
+const isVercelDeployment = process.env.VERCEL === "1";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -49,9 +53,13 @@ export default function RootLayout({
           <JsonLd key={index} data={schema} />
         ))}
         {children}
-        <GoogleAnalytics gaId={googleAnalyticsId} />
-        <Analytics />
-        <SpeedInsights />
+        {isVercelDeployment ? (
+          <>
+            <GoogleAnalytics gaId={googleAnalyticsId} />
+            <Analytics />
+            <SpeedInsights />
+          </>
+        ) : null}
       </body>
     </html>
   );
