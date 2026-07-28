@@ -1,9 +1,6 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
-import {
-  ConsultationFormButton,
-  WhatsAppCueIcon,
-} from "@/components/consultation-button";
+import { ConsultationFormButton } from "@/components/consultation-button";
 
 type TalkToZenesisPanelProps = {
   eyebrowClassName: string;
@@ -44,7 +41,6 @@ export function TalkToZenesisPanel({
           presetEnquiry ??
           "I would like to schedule a free consultation with Zenesis."
         }
-        leadingIcon={<WhatsAppCueIcon inverse />}
       />
     ) : null);
 

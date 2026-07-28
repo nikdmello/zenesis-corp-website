@@ -537,7 +537,7 @@ export default async function InsightArticlePage({
                 <div className="flex flex-col gap-4 sm:flex-row">
                 <ConsultationFormButton
                   label="Schedule a Free Consultation"
-                  className="rounded-full bg-[#25D366] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5d]"
+                  className="rounded-full border border-[#e2c58f] bg-[linear-gradient(180deg,#f4e4be_0%,#e7cc97_100%)] px-6 py-3 text-center text-sm font-semibold !text-[#11232a] shadow-[0_16px_36px_rgba(231,204,151,0.24)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[linear-gradient(180deg,#f1dfb1_0%,#dfc186_100%)]"
                 />
                 <Link
                   href={categoryHubHref}

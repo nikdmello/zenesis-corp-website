@@ -2,6 +2,7 @@ import NextImage from "next/image";
 import type { Metadata } from "next";
 import { CardAccent, PageIntro, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
+import { versionedAssetPath } from "@/lib/asset-paths";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
 import { TeamProfiles } from "@/components/team-profiles";
 
@@ -14,41 +15,55 @@ export default function AboutPage() {
         eyebrow="About Zenesis"
         title="About"
         description="The background, experience, and working approach behind Zenesis in the UAE."
-        backgroundImageSrc="/team-photo.webp"
+        backgroundImageSrc={versionedAssetPath("/team-photo-cropped.webp")}
         backgroundImageAlt="Zenesis team photo"
-        backgroundImagePosition="!object-[72%_28%]"
+        backgroundImagePosition="!object-[58%_28%]"
         backgroundImageMode="ambient"
       />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 text-white md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
-            <CardAccent />
-            <h2 className="section-title font-semibold text-[#11232a]">
-              Who we are
-            </h2>
-            <div className="mt-6 max-w-[88rem] space-y-5 text-[1.18rem] font-medium leading-9 text-[#11232a] md:text-[1.24rem]">
-              <p>
-                Zenesis Corporation supports entrepreneurs, investors, SMEs, and
-                international businesses with company formation, accounting, tax,
-                visas, banking support, and ongoing compliance in the UAE.
-              </p>
-              <p>
-                Founded in the UAE in 2005, Zenesis has more than 21 years of
-                experience helping businesses navigate the UAE market with
-                clarity and confidence.
-              </p>
-              <p>
-                The firm began with offshore incorporation work and expanded
-                into onshore setup, bookkeeping, VAT registration and filing,
-                corporate tax matters, and ongoing management support as client
-                needs evolved with the UAE market.
-              </p>
-              <p>
-                Zenesis starts by understanding the client&apos;s goals, then
-                recommends the right structure and manages the process with
-                transparency from start to finish.
-              </p>
+          <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-8">
+            <div className="grid gap-7 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+              <div>
+                <CardAccent />
+                <h2 className="section-title font-semibold text-[#11232a]">
+                  Who we are
+                </h2>
+                <div className="mt-5 max-w-[88rem] space-y-4 text-[1.15rem] font-medium leading-8 text-[#11232a] md:text-[1.2rem]">
+                  <p>
+                    Zenesis Corporation supports entrepreneurs, investors, SMEs, and
+                    international businesses with company formation, accounting, tax,
+                    visas, banking support, and ongoing compliance in the UAE.
+                  </p>
+                  <p>
+                    Founded in the UAE in 2005, Zenesis has more than 21 years of
+                    experience helping businesses navigate the UAE market with
+                    clarity and confidence.
+                  </p>
+                  <p>
+                    The firm began with offshore incorporation work and expanded
+                    into onshore setup, bookkeeping, VAT registration and filing,
+                    corporate tax matters, and ongoing management support as client
+                    needs evolved with the UAE market.
+                  </p>
+                  <p>
+                    Zenesis starts by understanding the client&apos;s goals, then
+                    recommends the right structure and manages the process with
+                    transparency from start to finish.
+                  </p>
+                </div>
+              </div>
+
+              <div className="overflow-hidden rounded-[1.8rem]">
+                <NextImage
+                  src={versionedAssetPath("/team-photo-cropped.webp")}
+                  alt="Zenesis team"
+                  width={1600}
+                  height={1200}
+                  className="block h-auto w-full rounded-[1.8rem]"
+                />
+              </div>
             </div>
           </article>
         </div>
@@ -105,7 +120,7 @@ export default function AboutPage() {
             paragraphs={[
               "Tell us what you want to achieve, and our team will guide you through the right setup, documents, costs, and next steps.",
             ]}
-            buttonClassName="inline-flex rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1ebe5d]"
+            buttonClassName="inline-flex rounded-full border border-[#e2c58f] bg-[linear-gradient(180deg,#f4e4be_0%,#e7cc97_100%)] px-6 py-3 text-sm font-semibold !text-[#11232a] shadow-[0_16px_36px_rgba(231,204,151,0.24)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[linear-gradient(180deg,#f1dfb1_0%,#dfc186_100%)]"
             imageClassName="object-cover object-[72%_center]"
           />
         </div>

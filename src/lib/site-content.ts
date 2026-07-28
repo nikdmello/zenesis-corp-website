@@ -418,7 +418,7 @@ export const teamMembers = [
     name: "Cecilia D'Cunha",
     title: "Founder",
     credentials: "BCom, LLB, ACS",
-    imageSrc: "/people/Cecilia_DCunha.webp",
+    imageSrc: versionedAssetPath("/people/Cecilia_DCunha.webp"),
     summary:
       "A qualified Chartered Secretary with degrees in Commerce and Law, with more than 30 years of experience across offshore incorporation, UAE company setup, and corporate compliance.",
     paragraphs: [
@@ -459,7 +459,7 @@ export const teamMembers = [
     name: "Glenita D'Souza",
     title: "Accounts Manager and Compliance Officer",
     credentials: "CA Intermediate (IPCC), BCom",
-    imageSrc: "/people/Glenita_D'Souza.webp",
+    imageSrc: versionedAssetPath("/people/Glenita_D'Souza.webp"),
     summary:
       "Accounts Manager and Compliance Officer with more than 6 years of hands-on experience across accounting, taxation, company administration, VAT, corporate tax, and UAE free zone setup.",
     paragraphs: [
@@ -483,7 +483,7 @@ export const teamMembers = [
     name: "Emma Magati",
     title: "Business Setup Expert and Accounts Manager",
     credentials: "MBA, ACCA Finalist, CPA Finalist, BCom Finance",
-    imageSrc: "/people/Emma_Magati.webp",
+    imageSrc: versionedAssetPath("/people/Emma_Magati.webp"),
     summary:
       "Business Setup Expert and Accounts Manager with extensive experience across UAE free zone, mainland, and offshore company formation, regulatory compliance, and financial reporting.",
     paragraphs: [
@@ -507,7 +507,7 @@ export const teamMembers = [
     name: "Sajal Arora",
     title: "Director - Accountancy and Taxation",
     credentials: "BCom, CA, CFA",
-    imageSrc: "/people/Sajal_Arora.webp",
+    imageSrc: versionedAssetPath("/people/Sajal_Arora.webp"),
     summary:
       "A Dubai-based Chartered Accountant with more than 13 years of experience across integrated finance, taxation, auditing, banking, treasury, costing, and project financing.",
     paragraphs: [

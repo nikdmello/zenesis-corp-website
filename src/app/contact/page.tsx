@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ConsultationInlinePanel } from "@/components/consultation-form";
 import { PageIntro, SiteShell } from "@/components/site-shell";
+import { versionedAssetPath } from "@/lib/asset-paths";
 import {
   contactDetails,
   googleMapsEmbedHref,
@@ -19,9 +20,9 @@ export default function ContactPage() {
         eyebrow="Contact Zenesis"
         title="Contact us"
         description="Get in touch for company setup, tax, visa, banking, and ongoing corporate support in the UAE."
-        backgroundImageSrc="/team-photo.webp"
+        backgroundImageSrc={versionedAssetPath("/team-photo-cropped.webp")}
         backgroundImageAlt="Zenesis team photo"
-        backgroundImagePosition="!object-[72%_28%]"
+        backgroundImagePosition="!object-[58%_28%]"
         backgroundImageMode="ambient"
       />
 

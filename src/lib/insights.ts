@@ -1,6 +1,6 @@
 import { versionedAssetPath } from "@/lib/asset-paths";
 
-const insightImageVersion = "20260702a";
+const insightImageVersion = "20260728a";
 
 export type InsightSection = {
   title: string;

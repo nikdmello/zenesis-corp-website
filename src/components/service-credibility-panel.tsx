@@ -55,7 +55,7 @@ export function ServiceCredibilityPanel({
                     alt={credibility.expert.name}
                     fill
                     sizes="56px"
-                    className="object-cover object-top"
+                    className="scale-[1.35] object-cover object-center"
                   />
                 </div>
                 <div className="min-w-0">
