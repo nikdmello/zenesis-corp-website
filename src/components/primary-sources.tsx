@@ -12,36 +12,6 @@ type PrimarySourcesProps = {
   verificationLabel?: string;
 };
 
-export function SourceCitations({
-  sources,
-  label = "Official guidance",
-}: {
-  sources: readonly PrimarySource[];
-  label?: string;
-}) {
-  if (!sources.length) {
-    return null;
-  }
-
-  return (
-    <p className="mt-3 text-[0.82rem] leading-6 text-foreground/62">
-      {label}{" "}
-      <span className="inline-flex whitespace-nowrap align-baseline">
-        {sources.map((source, index) => (
-          <a
-            key={source.href}
-            href={`#source-${index + 1}`}
-            aria-label={`View source ${index + 1}: ${source.title}`}
-            className="font-semibold text-[#244ba8] hover:underline"
-          >
-            [{index + 1}]
-          </a>
-        ))}
-      </span>
-    </p>
-  );
-}
-
 export function PrimarySources({
   sources,
   note,

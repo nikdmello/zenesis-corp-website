@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PrimarySources, SourceCitations } from "@/components/primary-sources";
+import { PrimarySources } from "@/components/primary-sources";
 import { getServiceCredibility } from "@/lib/service-credibility";
 
 type ServiceCredibilityPanelProps = {
@@ -73,7 +73,6 @@ export function ServiceCredibilityPanel({
                   >
                     {credibility.expert.bio}
                   </p>
-                  <SourceCitations sources={credibility.sources} />
                 </div>
               </div>
             </div>
