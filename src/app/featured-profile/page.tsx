@@ -3,8 +3,12 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ConsultationFormButton } from "@/components/consultation-button";
 import { JsonLd } from "@/components/json-ld";
+import { PrimarySources } from "@/components/primary-sources";
+import { ReadingProgress } from "@/components/reading-progress";
 import { SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
+import { articleSectionHeadingClassName } from "@/lib/article-styles";
+import { insightAuthorProfiles } from "@/lib/insights";
 import { featuredProfile } from "@/lib/site-content";
 import {
   buildBreadcrumbSchema,
@@ -77,6 +81,32 @@ const articleSections = [
 const finalQuote =
   "Yes, you can have it all. You can be a great mom, a great wife, and a great entrepreneur. This does not have to be an either-or choice. Embrace the power of planning, prioritize what truly matters, and surround yourself with a strong support system.";
 
+const profileSources = [
+  {
+    title: "Cecilia D'Cunha: Transforming the UAE's Corporate Landscape",
+    publisher: "Global Leaders Today",
+    href: "https://globalleaderstoday.online/cecilia-dcunha-pioneering-business-leader-transforming-the-uaes-corporate-landscape/",
+  },
+] as const;
+
+function toSectionId(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+const profileGuideLinks = [
+  { href: "#profile-highlights", label: "Profile highlights" },
+  ...articleSections.map((section) => ({
+    href: `#${toSectionId(section.title)}`,
+    label: section.title,
+  })),
+  { href: "#why-this-matters-for-clients", label: "Why this matters for clients" },
+  { href: "#her-advice", label: "Her advice" },
+  { href: "#primary-sources", label: "Primary sources" },
+];
+
 const featuredProfileSchemas = [
   buildFeaturedProfileSchema(),
   buildBreadcrumbSchema([
@@ -87,15 +117,39 @@ const featuredProfileSchemas = [
 ];
 
 export default function FeaturedProfilePage() {
+  const profile = insightAuthorProfiles["Cecilia D'Cunha"];
+
   return (
     <SiteShell currentPath="/insights">
+      <ReadingProgress />
       {featuredProfileSchemas.map((schema, index) => (
         <JsonLd key={index} data={schema} />
       ))}
       <article>
-        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] py-14 text-white md:py-18">
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] py-7 text-white md:py-8">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(36,75,168,0.24),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_44%)]" />
-          <div className="relative mx-auto w-full max-w-[88rem] px-6 md:px-10 xl:px-16">
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-full overflow-hidden md:w-[min(56vw,60rem)]">
+            <div
+              className="absolute inset-0 opacity-[0.34] md:opacity-[0.88]"
+              style={{
+                WebkitMaskImage:
+                  "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 20%, rgba(0,0,0,0.42) 34%, rgba(0,0,0,0.78) 50%, #000 64%)",
+                maskImage:
+                  "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 20%, rgba(0,0,0,0.42) 34%, rgba(0,0,0,0.78) 50%, #000 64%)",
+              }}
+            >
+              <Image
+                src={featuredProfile.imageSrc}
+                alt={featuredProfile.imageAlt}
+                fill
+                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 58vw, 56vw"
+                className="object-cover object-right saturate-[0.94] contrast-[0.98]"
+                priority
+              />
+            </div>
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,35,42,0.08)_0%,rgba(17,35,42,0.02)_58%,rgba(17,35,42,0.28)_100%)]" />
+          </div>
+          <div className="relative mx-auto w-full max-w-[94rem] px-6 md:px-10 xl:px-18">
             <Link
               href="/insights"
               className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/8 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/12"
@@ -104,113 +158,177 @@ export default function FeaturedProfilePage() {
               Back to Insights
             </Link>
 
-            <header className="mt-8 max-w-[62rem]">
-              <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.98rem] text-white/72">
-                <span className="text-white">Leadership Feature</span>
-                <span aria-hidden="true" className="text-white/34">
-                  •
-                </span>
-                <span>{featuredProfile.publication}</span>
-                <span aria-hidden="true" className="text-white/34">
-                  •
-                </span>
-                <span>{featuredProfile.dateLabel}</span>
-              </div>
-              <h1 className="mt-7 max-w-[13ch] text-[3.25rem] font-semibold leading-[0.92] tracking-[-0.06em] text-white sm:text-[4.2rem] md:text-[5rem]">
-                Cecilia D&apos;Cunha in Global Leaders Today
-              </h1>
-              <p className="mt-7 max-w-4xl text-[1.16rem] font-medium leading-8 text-white/86 md:text-[1.28rem] md:leading-9">
-                {featuredProfile.summary}
-              </p>
-            </header>
-          </div>
-        </section>
-
-        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-8 md:py-10">
-          <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 xl:px-16">
-            <div className="relative overflow-hidden rounded-[2.2rem] border border-[#ddd3c6] bg-[#f7f1e6] p-3 shadow-[0_18px_52px_rgba(17,35,42,0.08)]">
-              <Image
-                src={featuredProfile.imageSrc}
-                alt={featuredProfile.imageAlt}
-                width={2300}
-                height={1800}
-                className="h-auto w-full rounded-[1.7rem] object-contain"
-                priority
-              />
+            <div className="mt-4 lg:min-h-[16rem] xl:min-h-[17rem]">
+              <header className="relative z-10 max-w-[58rem]">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.98rem] text-white/72">
+                  <span className="text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-[#d8c3a2]">
+                    Leadership Feature
+                  </span>
+                  <span aria-hidden="true" className="text-white/34">
+                    •
+                  </span>
+                  <span>{featuredProfile.publication}</span>
+                  <span aria-hidden="true" className="text-white/34">
+                    •
+                  </span>
+                  <span>{featuredProfile.dateLabel}</span>
+                </div>
+                <h1 className="mt-7 w-full text-[2.5rem] font-semibold leading-[1.06] tracking-[-0.06em] text-white sm:text-[3rem] md:text-[3.35rem] xl:text-[3.5rem]">
+                  Cecilia D&apos;Cunha in Global Leaders Today
+                </h1>
+                <p className="mt-7 max-w-4xl text-[1.16rem] font-medium leading-8 text-white/86 md:text-[1.28rem] md:leading-9">
+                  {featuredProfile.summary}
+                </p>
+              </header>
             </div>
           </div>
         </section>
 
         <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-14 md:py-18">
-          <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 xl:px-16">
-            <div className="mx-auto max-w-3xl space-y-14">
-              <section>
-                <h2 className="text-[2.05rem] font-semibold leading-[1.02] tracking-[-0.05em] text-foreground md:text-[2.2rem]">
-                  Profile Highlights
-                </h2>
-                <ul className="mt-6 space-y-3">
-                  {profileHighlights.map((item) => (
-                    <li
-                      key={item}
-                      className="flex gap-3 rounded-[1.25rem] border border-[#e7ded1] bg-[#faf7f2] px-5 py-4 text-[1rem] leading-7 text-foreground shadow-[0_8px_20px_rgba(17,35,42,0.03)]"
-                    >
-                      <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-accent" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-
-              {articleSections.map((section) => (
-                <section key={section.title}>
-                  <h2 className="text-[2.05rem] font-semibold leading-[1.02] tracking-[-0.05em] text-foreground md:text-[2.2rem]">
-                    {section.title}
-                  </h2>
-                  <div className="mt-5 space-y-5">
-                    {section.paragraphs.map((paragraph) => (
-                      <p
-                        key={paragraph}
-                        className="text-[1.08rem] leading-8 text-foreground/80 md:text-[1.15rem] md:leading-9"
-                      >
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
-                  {"quote" in section && section.quote ? (
-                    <blockquote className="mt-6 rounded-[1.6rem] border border-[#e4dbce] bg-[#fcfbf8] px-6 py-5 text-[1.08rem] leading-8 text-foreground md:text-[1.12rem] md:leading-9">
-                      &ldquo;{section.quote}&rdquo;
-                    </blockquote>
-                  ) : null}
+          <div className="mx-auto w-full max-w-[104rem] px-7 md:px-14 xl:px-24">
+            <div className="mx-auto max-w-[78rem] lg:grid lg:grid-cols-[minmax(0,54rem)_17rem] lg:items-start lg:gap-12 xl:gap-16">
+              <div className="min-w-0 space-y-16">
+                <section className="border-y border-[#e4dbce] py-5 lg:hidden">
+                  <ProfileIdentity profile={profile} compact />
                 </section>
-              ))}
 
-              <section className="rounded-[2rem] border border-[#e7ded1] bg-[#f8f5ef] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">
-                <h2 className="text-[2.05rem] font-semibold tracking-[-0.05em] text-foreground md:text-[2.2rem]">
-                  Why this matters for clients
-                </h2>
-                <div className="mt-5 space-y-5">
-                  <p className="text-[1.08rem] leading-8 text-foreground/80 md:text-[1.15rem] md:leading-9">
-                    Cecilia&apos;s background is not just a personal profile. It explains why
-                    Zenesis is able to guide businesses through company formation,
-                    structuring, banking coordination, visas, and compliance with a
-                    practical understanding of how these steps connect in real life.
+                <nav
+                  aria-label="In this profile"
+                  className="border-y border-[#d9d1c5] bg-[#f8f6f1] px-6 py-7 md:px-8 lg:hidden"
+                >
+                  <details className="group">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+                      <span>
+                        <span className="block text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                          In this profile
+                        </span>
+                        <span className="mt-2 block text-[0.98rem] leading-7 text-[#07151b]/68">
+                          {profileGuideLinks.length} sections
+                        </span>
+                      </span>
+                      <span className="text-2xl leading-none text-[#8d7453] transition-transform group-open:rotate-45">
+                        +
+                      </span>
+                    </summary>
+                    <ProfileGuideList className="mt-6 space-y-3 border-t border-[#d9d1c5] pt-5" />
+                  </details>
+                </nav>
+
+                <section
+                  id="profile-highlights"
+                  className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#8d7453] bg-[#f8f6f1] px-6 py-7 md:px-8"
+                >
+                  <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                    At a glance
                   </p>
-                  <p className="text-[1.08rem] leading-8 text-foreground/80 md:text-[1.15rem] md:leading-9">
-                    For founders, investors, and operating companies, that experience
-                    is useful when the goal is to make the right setup decision early
-                    and avoid fragmented execution later.
+                  <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>
+                    Profile highlights
+                  </h2>
+                  <ul className="mt-5 divide-y divide-[#ddd4c7] border-y border-[#ddd4c7]">
+                    {profileHighlights.map((item) => (
+                      <li
+                        key={item}
+                        className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b] md:text-[1.08rem]"
+                      >
+                        <span className="mt-[0.7rem] h-2 w-2 shrink-0 rounded-full bg-[#8d7453]" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+
+                {articleSections.map((section) => (
+                  <section
+                    key={section.title}
+                    id={toSectionId(section.title)}
+                    className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-t border-[#e4dbce] pt-10"
+                  >
+                    <h2 className={articleSectionHeadingClassName}>
+                      {section.title}
+                    </h2>
+                    <div className="mt-6 max-w-[50rem] space-y-5">
+                      {section.paragraphs.map((paragraph) => (
+                        <p
+                          key={paragraph}
+                          className="text-[1.08rem] leading-[2rem] text-[#07151b]/92 md:text-[1.14rem] md:leading-[2.15rem]"
+                        >
+                          {paragraph}
+                          <a
+                            href="#source-1"
+                            aria-label="View source 1"
+                            className="inline-flex whitespace-nowrap align-super text-[0.72em] font-semibold leading-none text-[#244ba8] hover:underline"
+                          >
+                            [1]
+                          </a>
+                        </p>
+                      ))}
+                    </div>
+                    {"quote" in section && section.quote ? (
+                      <blockquote className="mt-8 border-l-4 border-[#244ba8] bg-[#f3f7ff] px-6 py-6 text-[1.12rem] font-medium leading-8 text-[#07151b] md:px-8 md:text-[1.18rem] md:leading-9">
+                        &ldquo;{section.quote}&rdquo;
+                      </blockquote>
+                    ) : null}
+                  </section>
+                ))}
+
+                <section
+                  id="why-this-matters-for-clients"
+                  className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#1f7652] bg-[#edf7f1] px-6 py-7 md:px-8"
+                >
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#185d41]">
+                    Client perspective
                   </p>
+                  <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>
+                    Why this matters for clients
+                  </h2>
+                  <div className="mt-5 space-y-5 text-[1.08rem] leading-8 text-[#07151b]/92 md:text-[1.14rem]">
+                    <p>
+                      Cecilia&apos;s background is not just a personal profile. It explains why
+                      Zenesis is able to guide businesses through company formation,
+                      structuring, banking coordination, visas, and compliance with a
+                      practical understanding of how these steps connect in real life.
+                    </p>
+                    <p>
+                      For founders, investors, and operating companies, that experience is
+                      useful when the goal is to make the right setup decision early and
+                      avoid fragmented execution later.
+                    </p>
+                  </div>
+                </section>
+
+                <section
+                  id="her-advice"
+                  className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-y border-[#e4dbce] py-10"
+                >
+                  <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                    In her words
+                  </p>
+                  <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>
+                    Her advice
+                  </h2>
+                  <blockquote className="mt-6 text-[1.2rem] font-medium leading-9 text-foreground md:text-[1.35rem] md:leading-10">
+                    &ldquo;{finalQuote}&rdquo;
+                  </blockquote>
+                </section>
+
+                <PrimarySources
+                  sources={profileSources}
+                  note="This profile is adapted from the original Global Leaders Today feature and checked against the publisher's article."
+                  verificationLabel={`Published ${featuredProfile.dateLabel}.`}
+                />
+              </div>
+
+              <aside className="sticky top-28 hidden border-l border-[#ddd4c7] pl-7 lg:block">
+                <div className="border-b border-[#ddd4c7] pb-5">
+                  <ProfileIdentity profile={profile} />
                 </div>
-              </section>
-
-              <section className="rounded-[2rem] border border-[#e7ded1] bg-[#f8f5ef] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">
-                <h2 className="text-[2.05rem] font-semibold tracking-[-0.05em] text-foreground md:text-[2.2rem]">
-                  Her Advice
-                </h2>
-                <blockquote className="mt-5 text-[1.12rem] leading-8 text-foreground md:text-[1.18rem] md:leading-9">
-                  &ldquo;{finalQuote}&rdquo;
-                </blockquote>
-              </section>
+                <nav aria-label="In this profile" className="pt-6">
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+                    In this profile
+                  </p>
+                  <ProfileGuideList className="mt-5 space-y-3.5" />
+                </nav>
+              </aside>
             </div>
           </div>
         </section>
@@ -229,16 +347,16 @@ export default function FeaturedProfilePage() {
               imageClassName="object-cover object-[74%_center]"
               actions={
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                <ConsultationFormButton
-                  label="Schedule a Free Consultation"
-                  className="inline-flex rounded-full border border-[#e2c58f] bg-[linear-gradient(180deg,#f4e4be_0%,#e7cc97_100%)] px-6 py-3 text-center text-sm font-semibold !text-[#11232a] shadow-[0_16px_36px_rgba(231,204,151,0.24)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[linear-gradient(180deg,#f1dfb1_0%,#dfc186_100%)]"
-                />
-                <Link
-                  href="/about"
-                  className="rounded-full border border-white/20 bg-white/10 px-6 py-3 text-center text-sm font-semibold !text-white backdrop-blur-md transition-colors hover:bg-white/[0.18]"
-                >
-                  View About Zenesis
-                </Link>
+                  <ConsultationFormButton
+                    label="Schedule a Free Consultation"
+                    className="inline-flex rounded-full border border-[#e2c58f] bg-[linear-gradient(180deg,#f4e4be_0%,#e7cc97_100%)] px-6 py-3 text-center text-sm font-semibold !text-[#11232a] shadow-[0_16px_36px_rgba(231,204,151,0.24)] transition-transform duration-200 hover:-translate-y-0.5"
+                  />
+                  <Link
+                    href="/about"
+                    className="rounded-full border border-white/20 bg-white/10 px-6 py-3 text-center text-sm font-semibold !text-white backdrop-blur-md transition-colors hover:bg-white/[0.18]"
+                  >
+                    About Zenesis
+                  </Link>
                 </div>
               }
             />
@@ -246,5 +364,59 @@ export default function FeaturedProfilePage() {
         </section>
       </article>
     </SiteShell>
+  );
+}
+
+type Profile = (typeof insightAuthorProfiles)["Cecilia D'Cunha"];
+
+function ProfileIdentity({ profile, compact = false }: { profile: Profile; compact?: boolean }) {
+  return (
+    <div className="flex min-w-0 items-center gap-4">
+      <div
+        className={`relative shrink-0 overflow-hidden rounded-full border border-[#d8d0c2] bg-[#f5efe4] ${
+          compact ? "h-14 w-14" : "h-12 w-12"
+        }`}
+      >
+        <Image
+          src={profile.imageSrc}
+          alt="Cecilia D'Cunha"
+          fill
+          sizes={compact ? "56px" : "48px"}
+          className="scale-[1.15] object-cover object-center"
+        />
+      </div>
+      <div className="min-w-0">
+        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">
+          Featured leader
+        </p>
+        <p className="mt-1 text-[0.94rem] font-semibold text-foreground">
+          Cecilia D&apos;Cunha
+        </p>
+        <p className="mt-1 text-[0.76rem] text-foreground/62">
+          {profile.role} <span className="mx-1">•</span>
+          {profile.credentials}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function ProfileGuideList({ className }: { className: string }) {
+  return (
+    <ol className={className}>
+      {profileGuideLinks.map((item, index) => (
+        <li key={item.href}>
+          <a
+            href={item.href}
+            className="group flex items-start gap-3 text-[0.84rem] font-semibold leading-5 text-foreground/72 hover:text-[#244ba8]"
+          >
+            <span className="mt-px text-[0.68rem] tabular-nums text-[#8d7453]">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span>{item.label}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
   );
 }

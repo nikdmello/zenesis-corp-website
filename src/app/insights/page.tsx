@@ -78,7 +78,7 @@ export default function InsightsPage() {
                   "max-w-[12ch] text-[3.2rem] leading-[1] md:text-[4.4rem]"
                 }`}
               >
-                {featuredPost.title}
+                {featuredPost.displayTitle ?? featuredPost.title}
               </h2>
               <p className="mt-6 max-w-3xl text-[1.14rem] leading-8 text-foreground/76 md:text-[1.24rem] md:leading-9">
                 {featuredPost.description}

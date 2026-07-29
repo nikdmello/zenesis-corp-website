@@ -4,8 +4,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ConsultationFormButton } from "@/components/consultation-button";
 import { JsonLd } from "@/components/json-ld";
+import { PrimarySources } from "@/components/primary-sources";
+import { ReadingProgress } from "@/components/reading-progress";
 import { SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
+import { articleSectionHeadingClassName } from "@/lib/article-styles";
 import {
   getInsightCredibility,
   getInsightPost,
@@ -35,6 +38,29 @@ function toInsightSectionId(title: string) {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
 }
+
+const insightCalloutStyles = {
+  deadline: {
+    label: "Deadline",
+    className: "border-[#244ba8] bg-[#f3f7ff]",
+    labelClassName: "text-[#244ba8]",
+  },
+  definition: {
+    label: "Definition",
+    className: "border-[#57717c] bg-[#f3f6f6]",
+    labelClassName: "text-[#39535e]",
+  },
+  warning: {
+    label: "Important",
+    className: "border-[#a87927] bg-[#fbf6e9]",
+    labelClassName: "text-[#865f1e]",
+  },
+  action: {
+    label: "Action required",
+    className: "border-[#1f7652] bg-[#edf7f1]",
+    labelClassName: "text-[#185d41]",
+  },
+} as const;
 
 export async function generateStaticParams() {
   return insightPosts.map((post) => ({
@@ -131,12 +157,34 @@ export default async function InsightArticlePage({
 
   return (
     <SiteShell currentPath="/insights">
+      <ReadingProgress />
       {articleSchemas.map((schema, index) => (
         <JsonLd key={index} data={schema} />
       ))}
       <article>
-        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] py-14 text-white md:py-18">
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] py-7 text-white md:py-8">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(36,75,168,0.24),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_44%)]" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-full overflow-hidden md:w-[min(56vw,60rem)]">
+            <div
+              className="absolute inset-0 opacity-[0.34] md:opacity-[0.88]"
+              style={{
+                WebkitMaskImage:
+                  "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 20%, rgba(0,0,0,0.42) 34%, rgba(0,0,0,0.78) 50%, #000 64%)",
+                maskImage:
+                  "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 20%, rgba(0,0,0,0.42) 34%, rgba(0,0,0,0.78) 50%, #000 64%)",
+              }}
+            >
+              <Image
+                src={post.heroImageSrc}
+                alt={post.heroImageAlt}
+                fill
+                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 58vw, 56vw"
+                className={`object-cover object-right saturate-[0.94] contrast-[0.98] ${post.heroImageClassName ?? ""}`}
+                priority
+              />
+            </div>
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,35,42,0.08)_0%,rgba(17,35,42,0.02)_58%,rgba(17,35,42,0.28)_100%)]" />
+          </div>
           <div className="relative mx-auto w-full max-w-[94rem] px-6 md:px-10 xl:px-18">
             <Link
               href="/insights"
@@ -146,8 +194,8 @@ export default async function InsightArticlePage({
               Back to Insights
             </Link>
 
-            <div className="mt-8 grid gap-7 lg:grid-cols-[0.92fr_1.08fr] lg:items-start xl:gap-8">
-              <header className="max-w-[66rem] self-start">
+            <div className="mt-4 lg:min-h-[16rem] xl:min-h-[17rem]">
+              <header className="relative z-10 max-w-[58rem]">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.98rem] text-white/72">
                   <span className="text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-[#d8c3a2]">
                     {post.category}
@@ -164,44 +212,30 @@ export default async function InsightArticlePage({
                       <span>Updated {credibility.updatedLabel}</span>
                     </>
                   ) : null}
-                  <span aria-hidden="true" className="text-white/34">
-                    •
-                  </span>
-                  <span>By {post.author}</span>
                 </div>
                 <h1
                   className={`mt-7 font-semibold tracking-[-0.06em] text-white ${
                     post.heroTitleClassName ??
-                    "max-w-[18ch] text-[3.25rem] leading-[1] sm:max-w-[19ch] sm:text-[4.2rem] md:max-w-[20ch] md:text-[5rem]"
+                    "w-full text-[2.5rem] leading-[1.06] sm:text-[3rem] md:text-[3.35rem] xl:text-[3.5rem]"
                   }`}
                 >
-                  {post.title}
+                  {post.displayTitle ?? post.title}
                 </h1>
                 <p className="mt-7 max-w-4xl text-[1.16rem] font-medium leading-8 text-white/86 md:text-[1.28rem] md:leading-9">
                   {post.description}
                 </p>
               </header>
-
-              <div className="relative overflow-hidden rounded-[2.2rem] border border-white/10 bg-[#f7f1e6] p-1.5 shadow-[0_18px_52px_rgba(17,35,42,0.18)] lg:h-[31rem] xl:h-[33rem]">
-                <Image
-                  src={post.heroImageSrc}
-                  alt={post.heroImageAlt}
-                  width={1600}
-                  height={900}
-                  className={`aspect-[16/8.2] w-full rounded-[1.95rem] object-cover lg:h-full lg:aspect-auto ${post.heroImageClassName ?? "object-center"}`}
-                  priority
-                />
-              </div>
             </div>
           </div>
         </section>
 
         <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-14 md:py-18">
           <div className="mx-auto w-full max-w-[104rem] px-7 md:px-14 xl:px-24">
-            <div className="mx-auto max-w-[62rem] space-y-16">
+            <div className="mx-auto max-w-[78rem] lg:grid lg:grid-cols-[minmax(0,54rem)_17rem] lg:items-start lg:gap-12 xl:gap-16">
+              <div className="min-w-0 space-y-16">
               {authorProfile ? (
-                <section className="border-y border-[#e4dbce] py-5">
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <section className="border-y border-[#e4dbce] py-5 lg:hidden">
+                  <div className="flex items-center">
                     <div className="flex min-w-0 items-center gap-4">
                       <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-[#d8d0c2] bg-[#f5efe4]">
                         <Image
@@ -228,12 +262,6 @@ export default async function InsightArticlePage({
                         </p>
                       </div>
                     </div>
-                    <Link
-                      href={authorProfile.profileHref}
-                      className="ml-[4.5rem] shrink-0 text-[0.9rem] font-semibold text-[#244ba8] hover:underline sm:ml-0"
-                    >
-                      View leadership profile
-                    </Link>
                   </div>
                 </section>
               ) : null}
@@ -241,7 +269,7 @@ export default async function InsightArticlePage({
               {guideLinks.length ? (
                 <nav
                   aria-label="In this guide"
-                  className="border-y border-[#d9d1c5] bg-[#f8f6f1] px-6 py-7 md:px-8"
+                  className="border-y border-[#d9d1c5] bg-[#f8f6f1] px-6 py-7 md:px-8 lg:hidden"
                 >
                   <details className="group sm:hidden">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
@@ -304,17 +332,20 @@ export default async function InsightArticlePage({
               ) : null}
 
               {post.keyTakeaways?.length ? (
-                <section className="rounded-[2rem] border border-[#e7ded1] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">
-                  <h2 className="text-[2.05rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.2rem]">
+                <section className="mx-auto w-full max-w-[54rem] border-l-4 border-[#8d7453] bg-[#f8f6f1] px-6 py-7 md:px-8">
+                  <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                    Summary
+                  </p>
+                  <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>
                     Key takeaways
                   </h2>
-                  <ul className="mt-6 space-y-3.5">
+                  <ul className="mt-5 divide-y divide-[#ddd4c7] border-y border-[#ddd4c7]">
                     {post.keyTakeaways.map((item) => (
                       <li
                         key={item}
-                        className="flex gap-3 rounded-[1.35rem] border border-[#e7ded1] bg-white px-5 py-4.5 text-[1.04rem] leading-[1.95rem] text-[#07151b] shadow-[0_8px_20px_rgba(17,35,42,0.03)] md:text-[1.08rem]"
+                        className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b] md:text-[1.08rem]"
                       >
-                        <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[#8d7453]" />
+                        <span className="mt-[0.7rem] h-2 w-2 shrink-0 rounded-full bg-[#8d7453]" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -322,8 +353,9 @@ export default async function InsightArticlePage({
                 </section>
               ) : null}
 
-              {post.sections.map((section) => {
+              {post.sections.map((section, sectionIndex) => {
                 const isQuickAnswer = section.title.toLowerCase().includes("quick answer");
+                const isIntroSection = sectionIndex === 0;
 
                 return (
                 <section
@@ -331,8 +363,10 @@ export default async function InsightArticlePage({
                   id={toInsightSectionId(section.title)}
                   className={`scroll-mt-28 ${
                     isQuickAnswer
-                      ? "border-y-2 border-[#244ba8] bg-[#f3f7ff] px-6 py-8 md:px-8"
-                      : ""
+                      ? "mx-auto w-full max-w-[58rem] border-y-2 border-[#244ba8] bg-[#f3f7ff] px-6 py-8 md:px-8"
+                      : `mx-auto w-full border-t border-[#e4dbce] pt-10 ${
+                          section.table ? "max-w-[62rem]" : "max-w-[54rem]"
+                        }`
                   }`}
                 >
                   {isQuickAnswer ? (
@@ -340,31 +374,81 @@ export default async function InsightArticlePage({
                       At a glance
                     </p>
                   ) : null}
-                  <h2 className="text-[2.15rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.35rem]">
+                  <h2 className={articleSectionHeadingClassName}>
                     {section.title}
                   </h2>
 
                   {section.paragraphs?.length ? (
-                    <div className="mt-6 space-y-6">
-                      {section.paragraphs.map((paragraph) => (
-                        <p
-                          key={paragraph}
-                          className="text-[1.14rem] leading-[2rem] text-[#07151b] md:text-[1.22rem] md:leading-[2.3rem]"
-                        >
-                          {paragraph}
-                        </p>
-                      ))}
+                    <div
+                      className={`max-w-[50rem] space-y-5 ${
+                        isIntroSection ? "mt-8" : "mt-6"
+                      }`}
+                    >
+                      {section.paragraphs.map((paragraph) => {
+                        const text = typeof paragraph === "string" ? paragraph : paragraph.text;
+                        const sourceIndexes =
+                          typeof paragraph === "string" ? undefined : paragraph.sourceIndexes;
+
+                        return (
+                          <p
+                            key={text}
+                            className={`text-[1.08rem] text-[#07151b]/92 md:text-[1.14rem] ${
+                              isIntroSection
+                                ? "leading-[2.1rem] md:leading-[2.25rem]"
+                                : "leading-[2rem] md:leading-[2.15rem]"
+                            }`}
+                          >
+                            {text}
+                            {sourceIndexes?.length ? (
+                              <span className="inline-flex whitespace-nowrap align-super text-[0.72em] leading-none">
+                                {sourceIndexes.map((sourceIndex) => (
+                                  <a
+                                    key={sourceIndex}
+                                    href={`#source-${sourceIndex}`}
+                                    aria-label={`View source ${sourceIndex}`}
+                                    className="font-semibold !text-[#244ba8] hover:underline"
+                                  >
+                                    [{sourceIndex}]
+                                  </a>
+                                ))}
+                              </span>
+                            ) : null}
+                          </p>
+                        );
+                      })}
                     </div>
                   ) : null}
 
+                  {section.callout ? (
+                    <aside
+                      className={`mt-7 border-l-4 px-5 py-5 md:px-6 ${
+                        insightCalloutStyles[section.callout.type].className
+                      }`}
+                    >
+                      <p
+                        className={`text-[0.72rem] font-semibold uppercase tracking-[0.2em] ${
+                          insightCalloutStyles[section.callout.type].labelClassName
+                        }`}
+                      >
+                        {insightCalloutStyles[section.callout.type].label}
+                      </p>
+                      <h3 className="mt-2 text-[1.08rem] font-semibold leading-7 text-foreground">
+                        {section.callout.title}
+                      </h3>
+                      <p className="mt-2 text-[0.98rem] leading-7 text-[#07151b]/82">
+                        {section.callout.text}
+                      </p>
+                    </aside>
+                  ) : null}
+
                   {section.bullets?.length ? (
-                    <ul className="mt-7 space-y-3.5">
+                    <ul className="mt-7 max-w-[52rem] divide-y divide-[#e4dbce] border-y border-[#e4dbce]">
                       {section.bullets.map((item) => (
                         <li
                           key={item}
-                          className="flex gap-3 rounded-[1.35rem] border border-[#e7ded1] bg-[linear-gradient(180deg,#ffffff_0%,#faf7f2_100%)] px-5 py-4.5 text-[1.04rem] leading-[1.95rem] text-[#07151b] shadow-[0_8px_20px_rgba(17,35,42,0.03)] md:text-[1.08rem]"
+                          className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b]/92 md:text-[1.08rem]"
                         >
-                          <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[#8d7453]" />
+                          <span className="mt-[0.7rem] h-2 w-2 shrink-0 rounded-full bg-[#8d7453]" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -396,7 +480,7 @@ export default async function InsightArticlePage({
                                 {row.map((cell) => (
                                   <td
                                     key={cell}
-                                    className="px-5 py-4 align-top text-[1rem] leading-7 text-[#07151b] md:text-[1.04rem]"
+                                    className="px-5 py-4 align-top text-[1rem] leading-7 text-[#07151b] first:whitespace-nowrap md:text-[1.04rem]"
                                   >
                                     {cell}
                                   </td>
@@ -415,14 +499,14 @@ export default async function InsightArticlePage({
               {post.faqs?.length ? (
                 <section
                   id="direct-answers"
-                  className="scroll-mt-28 rounded-[2rem] border border-[#e7ded1] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8"
+                  className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-t border-[#e4dbce] pt-10"
                 >
-                  <h2 className="text-[2.15rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.35rem]">
+                  <h2 className={articleSectionHeadingClassName}>
                     Direct answers
                   </h2>
-                  <div className="mt-6 divide-y divide-[#e4dbce] overflow-hidden rounded-[1.45rem] border border-[#e4dbce] bg-white">
+                  <div className="mt-6 divide-y divide-[#e4dbce] border-y border-[#e4dbce] bg-white">
                     {post.faqs.map((item) => (
-                      <details key={item.question} className="group px-5 py-4 open:bg-[#fcfbf8]">
+                      <details key={item.question} className="group py-5">
                         <summary className="flex cursor-pointer list-none items-start justify-between gap-4 text-[1.08rem] font-semibold leading-7 text-foreground md:text-[1.14rem]">
                           <span>{item.question}</span>
                           <span className="mt-1 shrink-0 text-2xl leading-none text-[#8d7453] transition-transform duration-200 group-open:rotate-45">
@@ -439,52 +523,16 @@ export default async function InsightArticlePage({
               ) : null}
 
               {credibility?.sources.length ? (
-                <section
-                  id="primary-sources"
-                  className="scroll-mt-28 border-y border-[#d9d1c5] bg-[#f8f6f1] px-6 py-9 md:px-8"
-                >
-                  <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-                    Reviewed against official guidance
-                  </p>
-                  <h2 className="text-[2.15rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.35rem]">
-                    Primary sources
-                  </h2>
-                  <p className="mt-4 max-w-4xl text-[1.04rem] leading-8 text-[#07151b]/78">
-                    This guide was checked against the following official UAE sources. Rules, fees, eligibility, and authority procedures can change, so confirm the position that applies to your business before acting.
-                  </p>
-                  <ul className="mt-6 divide-y divide-[#e4dbce] border-y border-[#e4dbce]">
-                    {credibility.sources.map((source) => (
-                      <li key={source.href} className="py-4">
-                        <a
-                          href={source.href}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="group flex items-start justify-between gap-5"
-                        >
-                          <span>
-                            <span className="block text-[1.05rem] font-semibold leading-7 text-foreground group-hover:text-[#244ba8]">
-                              {source.title}
-                            </span>
-                            <span className="mt-1 block text-[0.94rem] leading-6 text-foreground/66">
-                              {source.publisher}
-                            </span>
-                          </span>
-                          <span aria-hidden="true" className="mt-1 shrink-0 text-[#8d7453]">
-                            ↗
-                          </span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="mt-5 text-[0.94rem] leading-7 text-[#07151b]/66">
-                    Published {post.dateLabel}. Last updated {credibility.updatedLabel}. This article provides general information and is not legal or tax advice.
-                  </p>
-                </section>
+                <PrimarySources
+                  sources={credibility.sources}
+                  note="This guide was checked against the following official UAE sources. Rules, fees, eligibility, and authority procedures can change, so confirm the position that applies to your business before acting."
+                  verificationLabel={`Published ${post.dateLabel}. Last updated ${credibility.updatedLabel}. This article provides general information and is not legal or tax advice.`}
+                />
               ) : null}
 
               {relatedInsights.length ? (
                 <section className="rounded-[2rem] border border-[#e7ded1] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">
-                  <h2 className="text-[2.15rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.35rem]">
+                  <h2 className={articleSectionHeadingClassName}>
                     Related compliance guides
                   </h2>
                   <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -524,7 +572,7 @@ export default async function InsightArticlePage({
 
               {post.closingParagraphs?.length ? (
                 <section className="rounded-[2rem] border border-[#e7ded1] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">
-                  <h2 className="text-[2.15rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.35rem]">
+                  <h2 className={articleSectionHeadingClassName}>
                     {post.closingTitle ?? "Final Thoughts"}
                   </h2>
                   <div className="mt-6 space-y-6">
@@ -545,6 +593,76 @@ export default async function InsightArticlePage({
                   ) : null}
                 </section>
               ) : null}
+              </div>
+
+              <aside className="sticky top-24 hidden max-h-[calc(100vh-7rem)] overflow-y-auto border-l border-[#d9d1c5] pl-7 lg:block">
+                {authorProfile ? (
+                  <section className="border-b border-[#d9d1c5] pb-6">
+                    <div className="flex items-center gap-3">
+                      <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-[#d8d0c2] bg-[#f5efe4]">
+                        <Image
+                          src={authorProfile.imageSrc}
+                          alt={post.author}
+                          fill
+                          sizes="48px"
+                          className="scale-[1.15] object-cover object-center"
+                        />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">
+                          Written by Zenesis
+                        </p>
+                        <p className="mt-1 text-[0.94rem] font-semibold leading-5 text-foreground">
+                          {post.author}
+                        </p>
+                        <p className="mt-0.5 text-[0.76rem] leading-5 text-foreground/62">
+                          {authorProfile.credentials}
+                        </p>
+                      </div>
+                    </div>
+                  </section>
+                ) : null}
+
+                {guideLinks.length ? (
+                  <nav aria-label="Article sections" className="border-b border-[#d9d1c5] py-6">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">
+                      In this guide
+                    </p>
+                    <ol className="mt-4 space-y-2.5">
+                      {guideLinks.map((item, index) => (
+                        <li key={item.href}>
+                          <a
+                            href={item.href}
+                            className="group flex items-start gap-2.5 text-[0.82rem] font-semibold leading-5 text-foreground/72 hover:text-[#244ba8]"
+                          >
+                            <span className="mt-px text-[0.66rem] tabular-nums text-[#8d7453]">
+                              {String(index + 1).padStart(2, "0")}
+                            </span>
+                            <span>{item.label}</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ol>
+                  </nav>
+                ) : null}
+
+                {credibility ? (
+                  <section className="pt-6">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#1f7652]">
+                      Officially sourced
+                    </p>
+                    <p className="mt-2 text-[0.82rem] leading-5 text-foreground/68">
+                      Last reviewed {credibility.updatedLabel}
+                    </p>
+                    <a
+                      href="#primary-sources"
+                      className="mt-3 inline-flex text-[0.82rem] font-semibold text-[#244ba8] hover:underline"
+                    >
+                      View primary sources
+                    </a>
+                  </section>
+                ) : null}
+              </aside>
             </div>
           </div>
         </section>
@@ -553,7 +671,7 @@ export default async function InsightArticlePage({
           <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-14 md:py-18">
             <div className="mx-auto w-full max-w-[100rem] px-7 md:px-14 xl:px-24">
               <div className="mx-auto max-w-[72rem]">
-                <h2 className="text-[2.15rem] font-semibold leading-[1.08] tracking-[-0.05em] text-foreground md:text-[2.35rem]">
+                <h2 className={articleSectionHeadingClassName}>
                   Related services
                 </h2>
                 <p className="mt-4 max-w-4xl text-[1.14rem] leading-[2rem] text-[#07151b]/82 md:text-[1.2rem] md:leading-[2.2rem]">

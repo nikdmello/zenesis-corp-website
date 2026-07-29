@@ -785,7 +785,7 @@ export function PageIntro({
               fetchPriority="low"
               quality={68}
               sizes="(max-width: 767px) 92vw, (max-width: 1279px) 54vw, 50vw"
-              className={`object-cover object-right-top saturate-[0.94] contrast-[0.98] ${backgroundImagePosition ?? "object-[100%_100%]"}`}
+              className={`object-cover object-right-top saturate-[0.94] contrast-[0.98] ${backgroundImagePosition ?? "object-[82%_24%]"}`}
             />
           </div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_44%,rgba(36,75,168,0.12),transparent_30%),linear-gradient(180deg,rgba(245,239,228,0.02)_0%,rgba(245,239,228,0.08)_72%,rgba(245,239,228,0.22)_100%)]" />

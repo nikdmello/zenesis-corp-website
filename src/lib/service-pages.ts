@@ -761,7 +761,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     backgroundImageAlt: "Business traveler receiving UAE visa and banking support",
     introBackgroundImageSrc: versionedAssetPath("/services/visa-and-banking.webp"),
     introBackgroundImageAlt: "Business traveler arriving in Dubai for visa and banking support",
-    introBackgroundImagePosition: "!object-[58%_center]",
+    introBackgroundImagePosition: "!object-[58%_16%]",
     introTitle: "Overview",
     introParagraphs: [
       "Visa and banking needs usually begin as soon as the company structure is clear. Founders may need residency, teams may need company visas, and banks may need a stronger KYC pack before an account can move forward.",

@@ -4,8 +4,19 @@ const insightImageVersion = "20260728a";
 
 export type InsightSection = {
   title: string;
-  paragraphs?: string[];
+  paragraphs?: Array<
+    | string
+    | {
+        text: string;
+        sourceIndexes?: number[];
+      }
+  >;
   bullets?: string[];
+  callout?: {
+    type: "deadline" | "definition" | "warning" | "action";
+    title: string;
+    text: string;
+  };
   table?: {
     columns: string[];
     rows: string[][];
@@ -16,6 +27,7 @@ export type InsightPost = {
   slug: string;
   category: string;
   title: string;
+  displayTitle?: string;
   description: string;
   dateLabel: string;
   author: string;
@@ -210,6 +222,7 @@ export const insightPosts: InsightPost[] = [
     slug: "uae-mandatory-e-invoicing-deadlines-guide",
     category: "Accounting and Tax",
     title: "UAE Mandatory E-Invoicing: Deadlines, Penalties, and What Businesses Need to Do Now",
+    displayTitle: "UAE E-Invoicing Deadlines and Penalties",
     description:
       "UAE e-invoicing becomes mandatory in phases from 2027. Understand the confirmed deadlines, administrative penalties, scope, and practical preparation businesses should start now.",
     dateLabel: "July 29, 2026",
@@ -218,7 +231,7 @@ export const insightPosts: InsightPost[] = [
     heroImageAlt: "UAE finance professional reviewing structured electronic invoice data in a Dubai office",
     heroImageClassName: "object-[68%_center]",
     heroTitleClassName:
-      "max-w-[22ch] text-[2.8rem] leading-[1.02] sm:text-[3.35rem] md:text-[3.8rem] xl:text-[4.15rem]",
+      "w-full text-[2.45rem] leading-[1.06] sm:text-[2.9rem] md:text-[3.25rem] xl:text-[3.4rem]",
     keyTakeaways: [
       "Businesses with annual revenue of AED 50 million or more must appoint an Accredited Service Provider by 30 October 2026 and implement e-invoicing by 1 January 2027.",
       "Businesses below the AED 50 million threshold must appoint a provider by 31 March 2027 and implement by 1 July 2027.",
@@ -239,7 +252,10 @@ export const insightPosts: InsightPost[] = [
       {
         title: "UAE E-Invoicing in 2026 and 2027",
         paragraphs: [
-          "The UAE is rolling out mandatory electronic invoicing in phases between 2026 and 2027. The rules are set out in Ministerial Decision No. 244 of 2025, and the Ministry of Finance has since confirmed a change to one of the key dates. As of 29 July 2026, the first deadline is about three months away.",
+          {
+            text: "The UAE is rolling out mandatory electronic invoicing in phases between 2026 and 2027. The rules are set out in Ministerial Decision No. 244 of 2025, and the Ministry of Finance has since confirmed a change to one of the key dates. As of 29 July 2026, the first deadline is about three months away.",
+            sourceIndexes: [2, 3],
+          },
           "This guide sets out exactly what has been decided, what changed recently, what the penalties are for missing a deadline, and what to do depending on the size of your business. Where a figure is likely to change over time, the live official source should always be checked.",
         ],
       },
@@ -257,9 +273,20 @@ export const insightPosts: InsightPost[] = [
       {
         title: "What Is E-Invoicing Under the UAE System?",
         paragraphs: [
-          "An e-invoice is not a PDF, a scanned copy, or an emailed invoice. Under the Ministry of Finance's definition, it is a structured invoice, issued and exchanged electronically, that can be processed automatically by both the buyer's and the supplier's systems, and reported electronically to the Federal Tax Authority.",
-          "The UAE has adopted a Decentralized Continuous Transaction Control and Exchange model built on the international Peppol network using a UAE-specific data format called PINT AE. Official materials describe the commercial exchange as a four-corner model, with the Federal Tax Authority acting as the reporting endpoint often referred to as the fifth corner. In practical terms:",
+          {
+            text: "An e-invoice is not a PDF, a scanned copy, or an emailed invoice. Under the Ministry of Finance's definition, it is a structured invoice, issued and exchanged electronically, that can be processed automatically by both the buyer's and the supplier's systems, and reported electronically to the Federal Tax Authority.",
+            sourceIndexes: [1],
+          },
+          {
+            text: "The UAE has adopted a Decentralized Continuous Transaction Control and Exchange model built on the international Peppol network using a UAE-specific data format called PINT AE. Official materials describe the commercial exchange as a four-corner model, with the Federal Tax Authority acting as the reporting endpoint often referred to as the fifth corner. In practical terms:",
+            sourceIndexes: [1],
+          },
         ],
+        callout: {
+          type: "definition",
+          title: "A PDF is not an e-invoice",
+          text: "The UAE requirement is for structured invoice data that systems can exchange and process automatically, not simply a digital-looking document.",
+        },
         bullets: [
           "Corner 1 is the supplier, which sends invoice data to its Accredited Service Provider at Corner 2.",
           "Corner 2 validates and converts the data into the UAE's standard e-invoice format, then transmits it to the buyer's Accredited Service Provider at Corner 3.",
@@ -271,9 +298,20 @@ export const insightPosts: InsightPost[] = [
       {
         title: "Who Does This Apply To, and From When?",
         paragraphs: [
-          "Mandatory implementation is set out in Article 5 of Ministerial Decision No. 244 of 2025 and is phased by annual revenue and entity type.",
-          "Revenue is defined as gross income for the most recent accounting period, based on financial statements prepared under applicable UAE legislation, or other documentation acceptable to the FTA if financial statements are not available.",
+          {
+            text: "Mandatory implementation is set out in Article 5 of Ministerial Decision No. 244 of 2025 and is phased by annual revenue and entity type.",
+            sourceIndexes: [2],
+          },
+          {
+            text: "Revenue is defined as gross income for the most recent accounting period, based on financial statements prepared under applicable UAE legislation, or other documentation acceptable to the FTA if financial statements are not available.",
+            sourceIndexes: [2],
+          },
         ],
+        callout: {
+          type: "deadline",
+          title: "The first appointment deadline is 30 October 2026",
+          text: "Phase 1 businesses should have an Accredited Service Provider selected and appointed by this date. Their mandatory implementation date remains 1 January 2027.",
+        },
         table: {
           columns: ["Phase", "Who It Covers", "ASP Appointment Deadline", "Mandatory Go-Live"],
           rows: [
@@ -286,15 +324,29 @@ export const insightPosts: InsightPost[] = [
       {
         title: "What Changed Recently?",
         paragraphs: [
-          "The Phase 1 Accredited Service Provider deadline was originally set at 31 July 2026. Ministerial Resolution No. 66 of 2026 replaced that date with 30 October 2026. The mandatory 1 January 2027 go-live date for Phase 1 is unchanged.",
-          "Business-to-consumer transactions are not currently subject to the system. Article 5(2) of Ministerial Decision No. 244 of 2025 excludes them until a future decision issued by the Minister. This is a temporary carve-out, not a permanent exemption, so businesses that deal mostly with consumers should not assume it will remain indefinitely.",
+          {
+            text: "The Phase 1 Accredited Service Provider deadline was originally set at 31 July 2026. Ministerial Resolution No. 66 of 2026 replaced that date with 30 October 2026. The mandatory 1 January 2027 go-live date for Phase 1 is unchanged.",
+            sourceIndexes: [3],
+          },
+          {
+            text: "Business-to-consumer transactions are not currently subject to the system. Article 5(2) of Ministerial Decision No. 244 of 2025 excludes them until a future decision issued by the Minister. This is a temporary carve-out, not a permanent exemption, so businesses that deal mostly with consumers should not assume it will remain indefinitely.",
+            sourceIndexes: [2],
+          },
           "Any business could begin voluntary implementation from 1 July 2026, which is also when the government's pilot programme began. Voluntary implementation and participation in the selected pilot group are separate.",
         ],
+        callout: {
+          type: "warning",
+          title: "B2C is outside the system for now, not forever",
+          text: "Consumer transactions are temporarily carved out until a future Ministerial decision. Businesses should not design a permanent compliance position around the current exclusion.",
+        },
       },
       {
         title: "What Are the Penalties for Non-Compliance?",
         paragraphs: [
-          "Cabinet Decision No. 106 of 2025 sets out the administrative penalties for violations of the e-invoicing legislation. These do not apply to businesses participating on a voluntary basis before they become mandatorily subject to the system.",
+          {
+            text: "Cabinet Decision No. 106 of 2025 sets out the administrative penalties for violations of the e-invoicing legislation. These do not apply to businesses participating on a voluntary basis before they become mandatorily subject to the system.",
+            sourceIndexes: [4],
+          },
           "These are administrative penalties specific to e-invoicing, separate from existing VAT and corporate tax penalty regimes.",
         ],
         table: {
@@ -312,8 +364,14 @@ export const insightPosts: InsightPost[] = [
       {
         title: "Where Things Stand as of Late July 2026",
         paragraphs: [
-          "The e-invoicing exchange is live, and businesses can select and onboard a pre-approved Accredited Service Provider through EmaraTax to begin exchanging invoices.",
-          "The Ministry of Finance updates its provider list periodically. Because provider counts change, businesses should use the live accreditation list rather than rely on a dated number in an article.",
+          {
+            text: "The e-invoicing exchange is live, and businesses can select and onboard a pre-approved Accredited Service Provider through EmaraTax to begin exchanging invoices.",
+            sourceIndexes: [1, 5],
+          },
+          {
+            text: "The Ministry of Finance updates its provider list periodically. Because provider counts change, businesses should use the live accreditation list rather than rely on a dated number in an article.",
+            sourceIndexes: [5],
+          },
           "Amendments to the provider-accreditation framework also allow white-label solutions, giving local companies more ways to work with established international providers.",
         ],
       },
@@ -331,6 +389,11 @@ export const insightPosts: InsightPost[] = [
           "Identify who in your business is responsible for closing any data gaps.",
           "Treat this as a bookkeeping and systems-readiness exercise, not only an IT project. The accuracy of the underlying invoice and accounting data remains the business's responsibility.",
         ],
+        callout: {
+          type: "action",
+          title: "Phase 1 businesses should begin provider selection now",
+          text: "Map invoice-generating systems, identify in-scope transactions, review data gaps, and assign internal ownership before onboarding and testing begin.",
+        },
       },
     ],
     faqs: [
@@ -410,9 +473,17 @@ export const insightPosts: InsightPost[] = [
       {
         title: "1. Poor Financial Record Keeping",
         paragraphs: [
-          "One of the most immediate triggers for a tax audit is sub-standard bookkeeping. The UAE Corporate Tax framework strictly requires businesses to maintain clear, accurate financial records for at least 7 years.",
+          {
+            text: "One of the most immediate triggers for a tax audit is sub-standard bookkeeping. The UAE Corporate Tax framework strictly requires businesses to maintain clear, accurate financial records for at least 7 years.",
+            sourceIndexes: [3],
+          },
           "Incomplete or inconsistent records suggest to authorities that a business is either unorganized or actively concealing data. Utilizing professional accounting support and deploying proper ERP or cloud accounting software is no longer optional. It is a baseline survival requirement for UAE businesses.",
         ],
+        callout: {
+          type: "warning",
+          title: "Keep the evidence, not only the totals",
+          text: "A filed return is not a substitute for invoices, contracts, bank records, reconciliations, and the working papers that support it. Retain the underlying records for at least seven years.",
+        },
         bullets: [
           "Failing to maintain updated, contemporaneous accounting records",
           "Mixing personal and business expenses in a single account",
@@ -452,7 +523,10 @@ export const insightPosts: InsightPost[] = [
         title: "4. Late Corporate Tax Registration",
         paragraphs: [
           "There is a dangerous assumption among some entrepreneurs that corporate tax registration is voluntary, or only triggers once a specific revenue milestone is reached.",
-          "In reality, every taxable person, including Free Zone companies and individuals conducting business activities in the UAE, must register for Corporate Tax within the specific timelines mandated by the FTA.",
+          {
+            text: "In reality, taxable persons, including Free Zone companies and individuals conducting business activities in the UAE where the rules apply, must register for Corporate Tax within the timelines mandated by the FTA.",
+            sourceIndexes: [1],
+          },
           "Missing your registration deadline or filing your returns late carries immediate administrative penalties. A history of non-compliance also raises your risk profile significantly and increases the probability of a comprehensive tax audit.",
         ],
       },
@@ -580,11 +654,19 @@ export const insightPosts: InsightPost[] = [
           "License Architecture: selecting the precise business activities required to ensure smoother banking and fewer operational restrictions",
           "Futureproofing: structuring shareholding patterns and corporate divisions to accommodate future investor capital or ownership changes",
         ],
+        callout: {
+          type: "action",
+          title: "Decide how the company will operate before choosing a licence",
+          text: "Map the intended clients, UAE market access, visa needs, office position, ownership plan, and banking profile before comparing mainland and free-zone routes.",
+        },
       },
       {
         title: "2. Navigating the Evolving Regulatory and Tax Landscape",
         paragraphs: [
-          "The UAE's regulatory framework now matches the standards of leading global financial centres. Failing to maintain those standards can lead to serious fines or even operational disruption.",
+          {
+            text: "UAE businesses now operate within an established corporate tax framework alongside their other regulatory obligations. Failing to maintain the applicable standards can lead to penalties or operational disruption.",
+            sourceIndexes: [3],
+          },
         ],
         bullets: [
           "Building bookkeeping and accounting systems that meet FTA audit standards",
@@ -698,9 +780,17 @@ export const insightPosts: InsightPost[] = [
       {
         title: "1. Velocity: A Frictionless Setup Process",
         paragraphs: [
-          "In many traditional jurisdictions, incorporating a business, securing visas, and establishing banking can take months. The UAE has systematically re-engineered that process.",
+          {
+            text: "The UAE provides dedicated mainland and free-zone pathways for establishing a business, with digital services available across many licensing authorities.",
+            sourceIndexes: [1, 2],
+          },
           "Through modern digital frameworks, founders can move through company registration, residency visas, and banking much faster. For a first-time founder, that can mean moving from concept to global invoicing in a fraction of the usual time.",
         ],
+        callout: {
+          type: "action",
+          title: "Speed should follow structure",
+          text: "Before filing, confirm the activity, jurisdiction, ownership, visa requirements, office position, and banking plan. A fast application is only useful when the resulting company fits the operating model.",
+        },
       },
       {
         title: "2. Unmatched Strategic and Geographic Connectivity",
@@ -808,10 +898,18 @@ export const insightPosts: InsightPost[] = [
       {
         title: "What is a Corporate Tax Group?",
         paragraphs: [
-          "A Corporate Tax Group is a structure where two or more UAE-based companies are treated as a single taxable entity for corporate tax purposes.",
+          {
+            text: "A Corporate Tax Group is a structure where two or more eligible UAE juridical persons are treated as a single taxable person for corporate tax purposes.",
+            sourceIndexes: [1],
+          },
           "Instead of each company filing its own tax return, the group submits one consolidated tax return under a parent company.",
           "In simple terms: multiple companies operate independently, but for tax purposes, they are treated as one entity.",
         ],
+        callout: {
+          type: "definition",
+          title: "A tax group is not the same as an accounting group",
+          text: "Companies do not become a UAE Corporate Tax Group automatically because they share ownership or prepare consolidated accounts. The parent and subsidiaries must satisfy the tax-group conditions and apply through the required process.",
+        },
       },
       {
         title: "Who Can Form a Tax Group?",
@@ -955,8 +1053,16 @@ export const insightPosts: InsightPost[] = [
         title: "Corporate Tax Period and Filing Deadlines",
         paragraphs: [
           "Under UAE Corporate Tax, the tax period generally follows the financial year used by the taxable person. This means the income earned during the financial year forms the basis of the corporate tax return for that period.",
-          "The Federal Tax Authority has repeatedly reminded businesses that corporate tax returns and any corporate tax payable should generally be submitted within nine months from the end of the relevant tax period. The actual calendar deadline therefore depends on the company's financial year-end.",
+          {
+            text: "The Federal Tax Authority has repeatedly reminded businesses that corporate tax returns and any corporate tax payable should generally be submitted within nine months from the end of the relevant tax period. The actual calendar deadline therefore depends on the company's financial year-end.",
+            sourceIndexes: [1],
+          },
         ],
+        callout: {
+          type: "deadline",
+          title: "Count nine months from the tax period end",
+          text: "Do not assume every UAE company has the same filing date. Confirm the registered tax period, then work backward from the applicable nine-month deadline.",
+        },
         table: {
           columns: [
             "Financial Year Period",
@@ -1117,9 +1223,17 @@ export const insightPosts: InsightPost[] = [
       {
         title: "The General Corporate Tax Filing Rule",
         paragraphs: [
-          "As a general rule, a UAE corporate tax return is due within nine months after the end of the relevant tax period. For most companies, the tax period follows the financial year used for accounts and reporting.",
+          {
+            text: "As a general rule, a UAE corporate tax return is due within nine months after the end of the relevant tax period. For most companies, the tax period follows the financial year used for accounts and reporting.",
+            sourceIndexes: [1],
+          },
           "That means the filing deadline changes depending on the company financial year-end. A calendar-year company with a 31 December 2026 year-end would generally work toward a 30 September 2027 corporate tax filing deadline.",
         ],
+        callout: {
+          type: "deadline",
+          title: "The deadline follows the tax period",
+          text: "Verify the tax period shown in the FTA record instead of relying on a generic calendar. A different year-end produces a different filing date.",
+        },
         table: {
           columns: ["Financial Year-End", "Typical Filing Deadline", "What Should Be Ready Before Filing"],
           rows: [
@@ -1220,9 +1334,17 @@ export const insightPosts: InsightPost[] = [
       {
         title: "The Seven-Year Retention Rule",
         paragraphs: [
-          "UAE corporate tax record-keeping generally requires businesses to retain relevant records and documents for at least seven years after the end of the tax period to which they relate.",
+          {
+            text: "UAE corporate tax record-keeping generally requires businesses to retain relevant records and documents for at least seven years after the end of the tax period to which they relate.",
+            sourceIndexes: [1],
+          },
           "That retention period applies because the FTA must be able to verify the taxable income, exemption position, filing position, and supporting calculations after the return has been submitted.",
         ],
+        callout: {
+          type: "deadline",
+          title: "Retention period: at least seven years",
+          text: "Keep the records from the end of the relevant tax period, not merely from the date the return was filed. Preserve readable source documents and the calculations that connect them to the return.",
+        },
       },
       {
         title: "What Records Should a UAE Business Keep?",
@@ -1355,6 +1477,17 @@ export const insightPosts: InsightPost[] = [
       },
       {
         title: "Who Still Qualifies for 0% Corporate Tax?",
+        paragraphs: [
+          {
+            text: "The 0% rate is available only to a Qualifying Free Zone Person on Qualifying Income and remains subject to the statutory conditions, exclusions, and de minimis requirements.",
+            sourceIndexes: [1],
+          },
+        ],
+        callout: {
+          type: "warning",
+          title: "A free-zone licence does not guarantee 0% tax",
+          text: "The entity, income, substance, transactions, and compliance position must all be tested. Non-qualifying income or a failed condition can change the tax outcome.",
+        },
         table: {
           columns: ["Qualifying Activity", "Tax Rate", "Key Conditions"],
           rows: [
@@ -1416,9 +1549,17 @@ export const insightPosts: InsightPost[] = [
       {
         title: "Why This Milestone Matters",
         paragraphs: [
-          "The UAE corporate tax regime is no longer an early-stage transition. With more than 640,000 registrations confirmed, corporate tax is now part of normal operating reality for a very large share of the business market.",
+          {
+            text: "The UAE corporate tax regime is no longer an early-stage transition. The Federal Tax Authority reported more than 640,000 corporate tax registrations, showing how widely the system now reaches across the business market.",
+            sourceIndexes: [1],
+          },
           "For founders, SMEs, and established groups, that matters because the environment has shifted from observation to enforcement. Registration, record-keeping, and filing readiness are now baseline expectations rather than optional preparation work.",
         ],
+        callout: {
+          type: "action",
+          title: "Registration is only the first control point",
+          text: "Confirm the tax period, maintain the supporting records, close the accounts on time, and prepare the return before the filing window becomes urgent.",
+        },
       },
       {
         title: "What the Registration Numbers Signal",
@@ -1503,9 +1644,17 @@ export const insightPosts: InsightPost[] = [
       {
         title: "What Changed in 2025",
         paragraphs: [
-          "The 2025 visa updates continue the UAE's broader direction: attracting founders, investors, skilled professionals, and specialist talent through more flexible long-term residency options.",
+          {
+            text: "The UAE's long-term residency framework includes dedicated routes for investors, entrepreneurs, specialised talent, and skilled professionals, including Golden and Green Residency categories.",
+            sourceIndexes: [1, 2, 3],
+          },
           "For people entering the UAE market, the real significance is not just that visa categories exist, but that the residency framework is becoming more segmented and more strategic. Different profiles now need different planning paths.",
         ],
+        callout: {
+          type: "definition",
+          title: "Residency categories are evidence-based",
+          text: "Eligibility depends on the specific route and supporting evidence. A company licence, job title, investment, or qualification should not be treated as automatic approval.",
+        },
       },
       {
         title: "Why Entrepreneurs Should Pay Attention",
@@ -1617,8 +1766,16 @@ export const insightPosts: InsightPost[] = [
         title: "2. Choosing the Wrong Mainland, Free Zone, or Offshore Route",
         paragraphs: [
           "Mainland, free zone, and offshore structures are not interchangeable. The wrong route can create avoidable restrictions around market access, visas, banking expectations, office position, activity scope, or future operating flexibility.",
-          "Mainland is often better for direct UAE market access and local client work. Free zones can suit consulting, digital, trade, and international models when the zone and activity fit. Offshore is usually for holding or international structuring, not day-to-day UAE trading.",
+          {
+            text: "Mainland is often better for direct UAE market access and local client work. Free zones can suit consulting, digital, trade, and international models when the zone and activity fit. Offshore is usually for holding or international structuring, not day-to-day UAE trading.",
+            sourceIndexes: [1, 2],
+          },
         ],
+        callout: {
+          type: "warning",
+          title: "Do not choose the jurisdiction from price alone",
+          text: "Test the route against the intended activity, clients, market access, visas, office needs, banking profile, renewal cost, and tax position before paying for a package.",
+        },
         bullets: [
           "Use mainland when unrestricted local UAE operating activity matters",
           "Use free zone when the activity, package, client model, and banking profile fit",
@@ -1764,9 +1921,17 @@ export const insightPosts: InsightPost[] = [
       {
         title: "What the Golden Visa Is",
         paragraphs: [
-          "The Dubai Golden Visa is a long-term residency route designed to attract investors, founders, specialised professionals, high-performing students, and other qualifying profiles to the UAE.",
+          {
+            text: "The UAE Golden Visa is a long-term residency route designed for eligible investors, entrepreneurs, specialised talent, outstanding students, and other qualifying profiles.",
+            sourceIndexes: [1, 2],
+          },
           "Its appeal comes from stability. Instead of relying only on shorter residency cycles, eligible applicants can secure longer-term residence with a framework that also supports family planning and continuity.",
         ],
+        callout: {
+          type: "definition",
+          title: "Eligibility route first, document list second",
+          text: "The required evidence changes by category. Confirm the qualifying route before collecting documents or relying on a generic application checklist.",
+        },
       },
       {
         title: "Why It Gets So Much Attention",

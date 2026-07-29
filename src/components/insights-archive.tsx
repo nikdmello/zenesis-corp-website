@@ -50,7 +50,7 @@ export function InsightsArchive({ posts }: InsightsArchiveProps) {
           <Link
             key={post.slug}
             href={`/insights/${post.slug}`}
-            className="group grid gap-6 rounded-[2rem] border border-[#ddd3c6] bg-white px-5 py-5 shadow-[0_18px_48px_rgba(17,35,42,0.06)] transition-transform duration-200 hover:-translate-y-0.5 md:grid-cols-[0.88fr_1.12fr] md:items-center md:px-6 md:py-6"
+            className="group grid gap-6 rounded-[2rem] border border-[#ddd3c6] bg-white px-5 py-5 shadow-[0_18px_48px_rgba(17,35,42,0.06)] transition-transform duration-200 hover:-translate-y-0.5 md:grid-cols-[0.72fr_1.28fr] md:items-center md:px-6 md:py-6"
           >
             <div className="relative overflow-hidden rounded-[1.7rem] bg-[#11232a] shadow-[0_18px_48px_rgba(17,35,42,0.08)]">
               <Image
@@ -72,7 +72,7 @@ export function InsightsArchive({ posts }: InsightsArchiveProps) {
                 </span>
                 <span>{post.dateLabel}</span>
               </div>
-              <h2 className="mt-4 max-w-[18ch] text-[2.25rem] font-semibold leading-[1.06] tracking-[-0.05em] text-foreground md:text-[2.65rem]">
+              <h2 className="mt-4 w-full text-[1.8rem] font-semibold leading-[1.12] tracking-[-0.04em] text-foreground sm:text-[2.1rem] md:text-[2.35rem] xl:text-[2.5rem]">
                 {post.title}
               </h2>
               <p className="mt-4 max-w-3xl text-[1.08rem] leading-8 text-foreground/76">

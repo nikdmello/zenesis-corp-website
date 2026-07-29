@@ -245,9 +245,13 @@ const insightDocuments: SearchDocument[] = insightPosts.map((post) => ({
     post.category,
     ...post.sections.flatMap((section) => [
       section.title,
-      ...(section.paragraphs ?? []),
+      ...(section.paragraphs?.map((paragraph) =>
+        typeof paragraph === "string" ? paragraph : paragraph.text,
+      ) ?? []),
       ...(section.bullets ?? []),
       ...(section.table?.rows.flat() ?? []),
+      section.callout?.title ?? "",
+      section.callout?.text ?? "",
     ]),
     ...(post.closingParagraphs ?? []),
     post.closingCta ?? "",
