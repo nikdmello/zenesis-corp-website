@@ -72,7 +72,12 @@ export default function InsightsPage() {
                 </span>
                 <span>{featuredPost.dateLabel}</span>
               </div>
-              <h2 className="mt-5 max-w-[12ch] text-[3.2rem] font-semibold leading-[1] tracking-[-0.06em] text-foreground md:text-[4.4rem]">
+              <h2
+                className={`mt-5 font-semibold tracking-[-0.06em] text-foreground ${
+                  featuredPost.heroTitleClassName ??
+                  "max-w-[12ch] text-[3.2rem] leading-[1] md:text-[4.4rem]"
+                }`}
+              >
                 {featuredPost.title}
               </h2>
               <p className="mt-6 max-w-3xl text-[1.14rem] leading-8 text-foreground/76 md:text-[1.24rem] md:leading-9">

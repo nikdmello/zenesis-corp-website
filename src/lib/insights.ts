@@ -22,6 +22,7 @@ export type InsightPost = {
   heroImageSrc: string;
   heroImageAlt: string;
   heroImageClassName?: string;
+  heroTitleClassName?: string;
   keyTakeaways?: string[];
   relatedServiceHrefs?: string[];
   relatedInsightSlugs?: string[];
@@ -31,6 +32,7 @@ export type InsightPost = {
     answer: string;
   }[];
   closingParagraphs?: string[];
+  closingTitle?: string;
   closingCta?: string;
 };
 
@@ -111,9 +113,44 @@ const sourceLibrary = {
     publisher: "Federal Authority for Identity, Citizenship, Customs & Port Security",
     href: "https://icp.gov.ae/en/green-residency/",
   },
+  eInvoicingPortal: {
+    title: "UAE eInvoicing programme",
+    publisher: "UAE Ministry of Finance",
+    href: "https://mof.gov.ae/en/about-us/initiatives/einvoicing/",
+  },
+  eInvoicingImplementation: {
+    title: "Ministerial Decision No. 244 of 2025",
+    publisher: "UAE Ministry of Finance",
+    href: "https://mof.gov.ae/wp-content/uploads/2025/09/Ministerial-Decision-No.-244-of-2025-on-the-Implementation-of-the-Electronic-Invoicing-System.pdf",
+  },
+  eInvoicingAmendment: {
+    title: "Ministerial Resolution No. 66 of 2026",
+    publisher: "UAE Ministry of Finance",
+    href: "https://mof.gov.ae/wp-content/uploads/2026/05/Ministerial-Resolution-No.-66-of-2026-Amending-Certain-Provisions-of-Ministerial-Resolution-No.-244-of-2025-Regarding-the-Implementation-of-the-Electronic-Invoicing-System-En-20260514.pdf",
+  },
+  eInvoicingPenalties: {
+    title: "Cabinet Decision No. 106 of 2025",
+    publisher: "UAE Ministry of Finance",
+    href: "https://mof.gov.ae/wp-content/uploads/2025/11/Cabinet-Decision-Violations-and-Penalties-eInvoicing-24.11.25.pdf",
+  },
+  eInvoicingProviders: {
+    title: "Pre-approved eInvoicing Service Providers",
+    publisher: "UAE Ministry of Finance",
+    href: "https://mof.gov.ae/en/about-us/initiatives/einvoicing/pre-approved-einvoicing-service-providers/",
+  },
 } satisfies Record<string, InsightSource>;
 
 const insightCredibilityBySlug: Record<string, InsightCredibility> = {
+  "uae-mandatory-e-invoicing-deadlines-guide": {
+    updatedLabel: "July 29, 2026",
+    sources: [
+      sourceLibrary.eInvoicingPortal,
+      sourceLibrary.eInvoicingImplementation,
+      sourceLibrary.eInvoicingAmendment,
+      sourceLibrary.eInvoicingPenalties,
+      sourceLibrary.eInvoicingProviders,
+    ],
+  },
   "corporate-tax-mistakes-trigger-audits-uae": {
     updatedLabel: "July 22, 2026",
     sources: [sourceLibrary.corporateTaxGeneral, sourceLibrary.corporateTaxReturns, sourceLibrary.corporateTaxRecords],
@@ -169,6 +206,178 @@ export function getInsightCredibility(slug: string) {
 }
 
 export const insightPosts: InsightPost[] = [
+  {
+    slug: "uae-mandatory-e-invoicing-deadlines-guide",
+    category: "Accounting and Tax",
+    title: "UAE Mandatory E-Invoicing: Deadlines, Penalties, and What Businesses Need to Do Now",
+    description:
+      "UAE e-invoicing becomes mandatory in phases from 2027. Understand the confirmed deadlines, administrative penalties, scope, and practical preparation businesses should start now.",
+    dateLabel: "July 29, 2026",
+    author: "Cecilia D'Cunha",
+    heroImageSrc: versionedAssetPath("/insights/uae-e-invoicing-guide.webp", insightImageVersion),
+    heroImageAlt: "UAE finance professional reviewing structured electronic invoice data in a Dubai office",
+    heroImageClassName: "object-[68%_center]",
+    heroTitleClassName:
+      "max-w-[22ch] text-[2.8rem] leading-[1.02] sm:text-[3.35rem] md:text-[3.8rem] xl:text-[4.15rem]",
+    keyTakeaways: [
+      "Businesses with annual revenue of AED 50 million or more must appoint an Accredited Service Provider by 30 October 2026 and implement e-invoicing by 1 January 2027.",
+      "Businesses below the AED 50 million threshold must appoint a provider by 31 March 2027 and implement by 1 July 2027.",
+      "A PDF or emailed invoice is not an e-invoice under the UAE system; the required invoice is structured data exchanged through accredited providers.",
+    ],
+    relatedServiceHrefs: [
+      "/accounting-tax",
+      "/vat-filing-services-in-the-uae",
+      "/corporate-tax-filing-services-in-the-uae",
+    ],
+    relatedInsightSlugs: [
+      "financial-year-2026-uae-compliance-guide",
+      "uae-corporate-tax-record-keeping-requirements",
+      "uae-corporate-tax-filing-deadlines-2026",
+      "uae-free-zone-corporate-tax-rules-clarified-2026",
+    ],
+    sections: [
+      {
+        title: "UAE E-Invoicing in 2026 and 2027",
+        paragraphs: [
+          "The UAE is rolling out mandatory electronic invoicing in phases between 2026 and 2027. The rules are set out in Ministerial Decision No. 244 of 2025, and the Ministry of Finance has since confirmed a change to one of the key dates. As of 29 July 2026, the first deadline is about three months away.",
+          "This guide sets out exactly what has been decided, what changed recently, what the penalties are for missing a deadline, and what to do depending on the size of your business. Where a figure is likely to change over time, the live official source should always be checked.",
+        ],
+      },
+      {
+        title: "Quick Answer",
+        bullets: [
+          "E-invoicing becomes mandatory for businesses with annual revenue of AED 50 million or more from 1 January 2027. These businesses must appoint an Accredited Service Provider by 30 October 2026.",
+          "Businesses with revenue below AED 50 million have until 1 July 2027 to go live, with an Accredited Service Provider appointment deadline of 31 March 2027.",
+          "Government entities go live from 1 October 2027, also with an Accredited Service Provider deadline of 31 March 2027.",
+          "Business-to-consumer transactions are excluded for now, until a separate Ministerial decision brings them into scope.",
+          "Missing a deadline carries administrative penalties starting at AED 5,000 per month of delay, with additional per-invoice and per-day penalties for other failures.",
+          "The pilot programme began on 1 July 2026, and voluntary implementation became available from the same date. These are distinct routes.",
+        ],
+      },
+      {
+        title: "What Is E-Invoicing Under the UAE System?",
+        paragraphs: [
+          "An e-invoice is not a PDF, a scanned copy, or an emailed invoice. Under the Ministry of Finance's definition, it is a structured invoice, issued and exchanged electronically, that can be processed automatically by both the buyer's and the supplier's systems, and reported electronically to the Federal Tax Authority.",
+          "The UAE has adopted a Decentralized Continuous Transaction Control and Exchange model built on the international Peppol network using a UAE-specific data format called PINT AE. Official materials describe the commercial exchange as a four-corner model, with the Federal Tax Authority acting as the reporting endpoint often referred to as the fifth corner. In practical terms:",
+        ],
+        bullets: [
+          "Corner 1 is the supplier, which sends invoice data to its Accredited Service Provider at Corner 2.",
+          "Corner 2 validates and converts the data into the UAE's standard e-invoice format, then transmits it to the buyer's Accredited Service Provider at Corner 3.",
+          "Corner 3 delivers the invoice to the buyer at Corner 4.",
+          "In parallel, the required tax data is reported to the Federal Tax Authority, giving the authority visibility into transactions without placing it directly in the commercial exchange path.",
+          "Businesses do not connect to the FTA directly. They connect through an Accredited Service Provider, which handles validation, transmission, and tax reporting.",
+        ],
+      },
+      {
+        title: "Who Does This Apply To, and From When?",
+        paragraphs: [
+          "Mandatory implementation is set out in Article 5 of Ministerial Decision No. 244 of 2025 and is phased by annual revenue and entity type.",
+          "Revenue is defined as gross income for the most recent accounting period, based on financial statements prepared under applicable UAE legislation, or other documentation acceptable to the FTA if financial statements are not available.",
+        ],
+        table: {
+          columns: ["Phase", "Who It Covers", "ASP Appointment Deadline", "Mandatory Go-Live"],
+          rows: [
+            ["Phase 1", "Annual revenue of AED 50 million or more", "30 October 2026", "1 January 2027"],
+            ["Phase 2", "Annual revenue below AED 50 million", "31 March 2027", "1 July 2027"],
+            ["Phase 3", "Government entities", "31 March 2027", "1 October 2027"],
+          ],
+        },
+      },
+      {
+        title: "What Changed Recently?",
+        paragraphs: [
+          "The Phase 1 Accredited Service Provider deadline was originally set at 31 July 2026. Ministerial Resolution No. 66 of 2026 replaced that date with 30 October 2026. The mandatory 1 January 2027 go-live date for Phase 1 is unchanged.",
+          "Business-to-consumer transactions are not currently subject to the system. Article 5(2) of Ministerial Decision No. 244 of 2025 excludes them until a future decision issued by the Minister. This is a temporary carve-out, not a permanent exemption, so businesses that deal mostly with consumers should not assume it will remain indefinitely.",
+          "Any business could begin voluntary implementation from 1 July 2026, which is also when the government's pilot programme began. Voluntary implementation and participation in the selected pilot group are separate.",
+        ],
+      },
+      {
+        title: "What Are the Penalties for Non-Compliance?",
+        paragraphs: [
+          "Cabinet Decision No. 106 of 2025 sets out the administrative penalties for violations of the e-invoicing legislation. These do not apply to businesses participating on a voluntary basis before they become mandatorily subject to the system.",
+          "These are administrative penalties specific to e-invoicing, separate from existing VAT and corporate tax penalty regimes.",
+        ],
+        table: {
+          columns: ["Failure", "Administrative Penalty"],
+          rows: [
+            ["Failure to implement the system or appoint an ASP on time", "AED 5,000 for each month or part of a month of delay"],
+            ["Failure to issue and transmit an e-invoice on time", "AED 100 per invoice, capped at AED 5,000 per calendar month"],
+            ["Failure to issue and transmit an e-credit note on time", "AED 100 per credit note, capped at AED 5,000 per calendar month"],
+            ["Issuer fails to notify the FTA of a system failure", "AED 1,000 for each day of delay"],
+            ["Recipient fails to notify the FTA of a system failure", "AED 1,000 for each day of delay"],
+            ["Failure to notify the ASP of changes to registered data", "AED 1,000 for each day of delay"],
+          ],
+        },
+      },
+      {
+        title: "Where Things Stand as of Late July 2026",
+        paragraphs: [
+          "The e-invoicing exchange is live, and businesses can select and onboard a pre-approved Accredited Service Provider through EmaraTax to begin exchanging invoices.",
+          "The Ministry of Finance updates its provider list periodically. Because provider counts change, businesses should use the live accreditation list rather than rely on a dated number in an article.",
+          "Amendments to the provider-accreditation framework also allow white-label solutions, giving local companies more ways to work with established international providers.",
+        ],
+      },
+      {
+        title: "What to Do Now, by Revenue Band",
+        paragraphs: [
+          "If your annual revenue is AED 50 million or more, this is no longer a future problem. With the Accredited Service Provider deadline on 30 October 2026, the practical planning window is closing. At minimum, confirm which billing systems currently issue invoices, identify which transactions fall in scope, and begin evaluating providers now rather than in October.",
+          "If your annual revenue is below AED 50 million, your deadlines are further out: appoint a provider by 31 March 2027 and go live by 1 July 2027. But the preparation work is the same regardless of company size. Mapping invoicing systems, understanding data gaps, and choosing a provider all take time. Starting now avoids a rushed decision under deadline pressure.",
+          "For every business, regardless of phase:",
+        ],
+        bullets: [
+          "Identify every system in your business that currently generates invoices.",
+          "Determine which transactions are in scope for e-invoicing and which are, for now, business-to-consumer and excluded.",
+          "Compare what those systems currently capture against the mandatory field requirements published by the Ministry.",
+          "Identify who in your business is responsible for closing any data gaps.",
+          "Treat this as a bookkeeping and systems-readiness exercise, not only an IT project. The accuracy of the underlying invoice and accounting data remains the business's responsibility.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Is e-invoicing the same as sending a PDF invoice by email?",
+        answer:
+          "No. A PDF, scan, image, Word document, or emailed invoice does not meet the UAE Ministry of Finance definition. An e-invoice is structured data exchanged electronically through accredited service providers.",
+      },
+      {
+        question: "When does UAE e-invoicing become mandatory?",
+        answer:
+          "Businesses with annual revenue of AED 50 million or more must implement by 1 January 2027. Businesses below AED 50 million must implement by 1 July 2027. Government entities follow from 1 October 2027.",
+      },
+      {
+        question: "What is the first UAE e-invoicing deadline?",
+        answer:
+          "The first mandatory deadline is 30 October 2026, when businesses with annual revenue of AED 50 million or more must have appointed an Accredited Service Provider.",
+      },
+      {
+        question: "Do businesses connect directly to the FTA?",
+        answer:
+          "Businesses exchange structured invoices through Accredited Service Providers. The required tax data is then reported electronically to the Federal Tax Authority through the system.",
+      },
+      {
+        question: "Are business-to-consumer transactions included?",
+        answer:
+          "Business-to-consumer transactions are outside the mandatory scope for now. The legislation allows a future Ministerial decision to bring them into scope, so businesses should monitor official updates.",
+      },
+      {
+        question: "Can a business implement e-invoicing voluntarily?",
+        answer:
+          "Yes. Voluntary implementation became available from 1 July 2026. The government pilot programme also began on that date, but participation in the pilot and voluntary implementation are distinct.",
+      },
+      {
+        question: "Where is the current list of Accredited Service Providers?",
+        answer:
+          "The Ministry of Finance maintains a periodically updated list of pre-approved eInvoicing Service Providers on its official eInvoicing portal. Businesses should check that live list rather than rely on an older provider count.",
+      },
+    ],
+    closingParagraphs: [
+      "E-invoicing readiness starts with the same groundwork as any compliance deadline: knowing what your current systems capture, what is missing, and who is responsible for fixing it before the clock runs out.",
+      "The stronger approach is to connect systems preparation with bookkeeping, VAT, and corporate tax compliance rather than treating e-invoicing as a standalone software purchase.",
+    ],
+    closingTitle: "Getting Ready",
+    closingCta:
+      "If you want a second set of eyes on where your invoicing and bookkeeping stand against these requirements, Zenesis's accounting and tax team can help you work through it alongside your existing VAT and corporate tax compliance.",
+  },
   {
     slug: "corporate-tax-mistakes-trigger-audits-uae",
     category: "Accounting and Tax",

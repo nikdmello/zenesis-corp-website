@@ -103,6 +103,11 @@ export const legacyServiceMeta = {
 } satisfies Record<string, LegacyMeta>;
 
 export const legacyInsightMetaBySlug = {
+  "uae-mandatory-e-invoicing-deadlines-guide": {
+    title: "UAE E-Invoicing Deadlines, Penalties & Guide 2026-27",
+    description:
+      "UAE e-invoicing becomes mandatory in phases from 2027. See the confirmed deadlines, AED penalties, scope, and practical steps businesses should take now.",
+  },
   "complete-guide-to-corporate-tax-groups-uae": {
     title: "Complete Guide to UAE Corporate Tax Groups",
     description:
