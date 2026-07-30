@@ -33,7 +33,7 @@ export function ServiceCredibilityPanel({
         <div className={embedded ? "w-full" : "mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20"}>
           <div className={embedded ? "relative z-10 bg-transparent px-0 py-0" : "relative z-10 bg-transparent px-4 py-4 md:px-5"}>
             <div className="flex flex-col gap-4">
-              <div className="flex min-w-0 items-center gap-4">
+              <div className="flex min-w-0 items-start gap-4 sm:items-center">
                 <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-[#d8d0c2] bg-[#f5efe4]">
                   <Image
                     src={credibility.expert.imageSrc}
@@ -60,15 +60,15 @@ export function ServiceCredibilityPanel({
                   </h2>
                   <p
                     className={`mt-1 text-[0.84rem] font-medium ${
-                      dark ? "text-white/66" : "text-foreground/66"
+                      dark ? "text-white/88" : "text-[#11232a]/90"
                     }`}
                   >
                     {credibility.expert.role} <span className="mx-1">•</span>
                     {credibility.expert.credentials}
                   </p>
                   <p
-                    className={`mt-1.5 line-clamp-2 max-w-3xl text-[0.9rem] leading-6 ${
-                      dark ? "text-white/82" : "text-foreground/78"
+                    className={`mt-1.5 max-w-3xl text-[0.92rem] font-medium leading-6 md:line-clamp-2 ${
+                      dark ? "text-white/94" : "text-[#11232a]/90"
                     }`}
                   >
                     {credibility.expert.bio}

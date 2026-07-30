@@ -765,14 +765,14 @@ export function PageIntro({
       {usesAmbientBackgroundImage ? (
         <div
           className={[
-            "pointer-events-none absolute inset-y-0 right-0 w-[68%] overflow-hidden md:w-[52%] lg:w-[54%] xl:w-[56%]",
+            "pointer-events-none absolute inset-y-0 right-0 w-[48%] overflow-hidden sm:w-[54%] md:w-[52%] lg:w-[54%] xl:w-[56%]",
             ambientImageClassName ?? "",
           ]
             .filter(Boolean)
             .join(" ")}
         >
           <div
-            className="absolute inset-0 opacity-[0.56] md:opacity-[0.98]"
+            className="absolute inset-0 opacity-[0.4] sm:opacity-[0.52] md:opacity-[0.98]"
             style={{
               WebkitMaskImage:
                 "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 20%, rgba(0,0,0,0.42) 34%, rgba(0,0,0,0.78) 50%, #000 64%)",
@@ -793,6 +793,9 @@ export function PageIntro({
           </div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_44%,rgba(36,75,168,0.12),transparent_30%),linear-gradient(180deg,rgba(245,239,228,0.02)_0%,rgba(245,239,228,0.08)_72%,rgba(245,239,228,0.22)_100%)]" />
         </div>
+      ) : null}
+      {usesAmbientBackgroundImage ? (
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#f5efe4_0%,#f5efe4_72%,rgba(245,239,228,0.98)_82%,rgba(245,239,228,0.72)_92%,transparent_100%)] md:bg-none" />
       ) : null}
 
       <div
@@ -887,8 +890,8 @@ export function PageIntro({
             <p
               className={`${
                 usesEditorialIntro ? "mt-5 max-w-[40rem] text-[1rem] leading-7 md:text-[1.08rem] md:leading-8" : "mt-6 max-w-3xl text-[1.14rem] leading-8 md:text-[1.28rem] md:leading-9"
-              } font-medium ${
-                usesFullBackgroundImage ? "text-white/88" : "text-[#22343c]/78"
+              } ${
+                usesFullBackgroundImage ? "font-medium text-white/88" : "font-semibold text-[#11232a] md:font-medium md:text-[#11232a]/90"
               } ${usesFullBackgroundImage ? "hero-reveal hero-reveal-2" : ""}`}
             >
               {description}
