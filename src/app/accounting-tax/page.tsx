@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { JsonLd } from "@/components/json-ld";
+import { PageSectionNav, PageSectionNavMobile } from "@/components/page-section-nav";
+import { ReadingProgress } from "@/components/reading-progress";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
-import { CardAccent, PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
+import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
@@ -208,6 +210,16 @@ export const metadata: Metadata = toMetadata(
   "/accounting-tax",
 );
 
+const accountingPageLinks = [
+  { href: "#overview", label: "Overview" },
+  { href: "#who-its-for", label: "Who it's for" },
+  { href: "#core-services", label: "Core services" },
+  { href: "#how-zenesis-helps", label: "How Zenesis helps" },
+  { href: "#direct-answers", label: "Direct answers" },
+  { href: "#process", label: "Process" },
+  { href: "#primary-sources", label: "Primary sources" },
+] as const;
+
 export default function AccountingTaxPage() {
   const pageSchemas = [
     buildServiceSchema({
@@ -224,6 +236,7 @@ export default function AccountingTaxPage() {
 
   return (
     <SiteShell currentPath="/accounting-tax">
+      <ReadingProgress />
       {pageSchemas.map((schema, index) => (
         <JsonLd key={index} data={schema} />
       ))}
@@ -244,14 +257,19 @@ export default function AccountingTaxPage() {
         }
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
+      <PageSectionNavMobile items={accountingPageLinks} />
+
+      <section id="overview" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <article className="rounded-[2rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
-            <CardAccent />
-            <h2 className="section-title font-semibold text-[#11232a]">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start">
+          <article className="max-w-[54rem]">
+            <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+              Start here
+            </p>
+            <h2 className="mt-3 text-[1.75rem] font-semibold leading-[1.16] tracking-[-0.02em] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">
               Overview
             </h2>
-            <div className="mt-5 max-w-[88rem] space-y-5 text-[1.16rem] leading-9 text-[#11232a] md:text-[1.22rem]">
+            <div className="mt-7 max-w-[50rem] space-y-5 text-[1.12rem] leading-[2.08rem] text-[#07151b]/92 md:text-[1.18rem] md:leading-[2.2rem]">
               <p>
               UAE businesses are expected to maintain accurate financial
               records, file required tax returns, and stay ready for regulatory
@@ -264,7 +282,10 @@ export default function AccountingTaxPage() {
                 can support your day-to-day accounting and ongoing tax compliance.
               </p>
             </div>
-            <div className="mt-8 rounded-[1.6rem] border border-[#d8d0c2] bg-white p-4 shadow-[0_10px_28px_rgba(17,35,42,0.06)] md:p-5">
+            <div className="mt-9 border-t border-[#e4dbce] pt-8">
+              <p className="mb-5 text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+                Core services
+              </p>
               <ServiceSubpageLinks
                 items={reportingNeeds.map((item) => ({
                   label: item.title,
@@ -276,22 +297,23 @@ export default function AccountingTaxPage() {
               />
             </div>
           </article>
+          <PageSectionNav items={accountingPageLinks} />
+          </div>
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
+      <section id="who-its-for" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            eyebrow="Who It Helps"
+            eyebrow="Who it helps"
             title="Who it's for"
             description="These are the businesses most likely to need structured help across corporate tax, VAT, bookkeeping, and reporting."
           />
 
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {whoWeHelp.map((item) => (
-              <article key={item.title} className="rounded-[1.75rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)]">
-                <CardAccent />
-                <h3 className="overflow-hidden text-ellipsis whitespace-nowrap text-[1.18rem] font-semibold tracking-[-0.04em] !text-foreground md:text-[1.24rem] xl:text-[1.3rem]">
+              <article key={item.title} className="rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)]">
+                <h3 className="text-[1.18rem] font-semibold leading-tight !text-foreground md:text-[1.24rem]">
                   {item.title}
                 </h3>
                 <p className="mt-4 max-w-2xl text-[1.12rem] leading-8 !text-foreground/92">
@@ -303,10 +325,10 @@ export default function AccountingTaxPage() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section id="core-services" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            eyebrow="Service Lines"
+            eyebrow="Service lines"
             title="Core services"
             description="Each service line is a concrete part of the compliance and reporting stack."
           />
@@ -329,7 +351,7 @@ export default function AccountingTaxPage() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
+      <section id="how-zenesis-helps" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Why Zenesis"
@@ -339,9 +361,8 @@ export default function AccountingTaxPage() {
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {whyZenesis.map((item) => (
-              <article key={item.title} className="rounded-[1.75rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)]">
-                <CardAccent />
-                <h3 className="overflow-hidden text-ellipsis whitespace-nowrap text-[1.18rem] font-semibold tracking-[-0.04em] !text-foreground md:text-[1.24rem] xl:text-[1.3rem]">
+              <article key={item.title} className="rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)]">
+                <h3 className="text-[1.18rem] font-semibold leading-tight !text-foreground md:text-[1.24rem]">
                   {item.title}
                 </h3>
                 <p className="mt-4 text-[1.12rem] leading-8 !text-foreground/92">
@@ -354,27 +375,26 @@ export default function AccountingTaxPage() {
       </section>
 
       <ServiceAnswerSection
-        dark
         title="Direct answers"
         description="Short answers to the questions businesses usually need clarified before registrations, filings, and reporting work begin."
         items={directAnswers}
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section id="process" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            eyebrow="Working Rhythm"
+            eyebrow="Working rhythm"
             title="Process"
             description="Most businesses need the same practical rhythm: review the current position, prepare properly, file accurately, and keep the records ready for what comes next."
           />
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {workingRhythm.map((item) => (
-              <article key={item.step} className="rounded-[1.75rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)]">
+              <article key={item.step} className="rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)]">
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#8d7453]/18 bg-[#8d7453]/10 text-sm font-semibold tracking-[0.08em] text-[#8d7453]">
                   {item.step}
                 </div>
-                <h3 className="mt-4 overflow-hidden text-ellipsis whitespace-nowrap text-[1.18rem] font-semibold tracking-[-0.04em] text-foreground md:text-[1.24rem] xl:text-[1.3rem]">
+                <h3 className="mt-4 text-[1.18rem] font-semibold leading-tight text-foreground md:text-[1.24rem]">
                   {item.title}
                 </h3>
                 <p className="mt-4 text-[1.12rem] leading-8 text-muted">
@@ -386,7 +406,7 @@ export default function AccountingTaxPage() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f8f6f1] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <TalkToZenesisPanel
             wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10"

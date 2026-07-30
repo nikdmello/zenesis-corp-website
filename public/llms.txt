@@ -35,8 +35,6 @@ A: Zenesis freelance permit support starts from AED 4,000.
 ## Core service pages
 
 - [Business setup and company formation](/business-setup)
-- [Company formation in Dubai](/company-formation-dubai)
-- [Business setup services in the UAE](/business-setup-services-uae)
 - [Business setup cost in Dubai](/business-setup-cost-dubai)
 - [Accounting and tax](/accounting-tax)
 - [Visa and banking](/visa-and-banking)

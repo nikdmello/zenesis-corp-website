@@ -150,22 +150,22 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/business-setup/ourservices/company-formation",
-        destination: "/company-formation-dubai",
+        destination: "/business-setup",
         permanent: true,
       },
       {
         source: "/business-setup/ourservices/company-formation/",
-        destination: "/company-formation-dubai",
+        destination: "/business-setup",
         permanent: true,
       },
       {
         source: "/company-formation",
-        destination: "/company-formation-dubai",
+        destination: "/business-setup",
         permanent: true,
       },
       {
         source: "/company-formation/",
-        destination: "/company-formation-dubai",
+        destination: "/business-setup",
         permanent: true,
       },
       {
@@ -340,12 +340,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/business-setup/company-management-secretarial-and-compliance",
-        destination: "/business-setup-services-uae",
+        destination: "/business-setup",
         permanent: true,
       },
       {
         source: "/business-setup/company-management-secretarial-and-compliance/",
-        destination: "/business-setup-services-uae",
+        destination: "/business-setup",
         permanent: true,
       },
       {
@@ -360,12 +360,42 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/business-setup/general-trading-uae-license",
-        destination: "/business-setup-services-uae",
+        destination: "/mainland",
         permanent: true,
       },
       {
         source: "/business-setup/general-trading-uae-license/",
-        destination: "/business-setup-services-uae",
+        destination: "/mainland",
+        permanent: true,
+      },
+      {
+        source: "/business-setup-services-uae",
+        destination: "/business-setup",
+        permanent: true,
+      },
+      {
+        source: "/business-setup-services-uae/",
+        destination: "/business-setup",
+        permanent: true,
+      },
+      {
+        source: "/company-formation-dubai",
+        destination: "/business-setup",
+        permanent: true,
+      },
+      {
+        source: "/company-formation-dubai/",
+        destination: "/business-setup",
+        permanent: true,
+      },
+      {
+        source: "/low-cost-business-setup-uae",
+        destination: "/business-setup-cost-dubai",
+        permanent: true,
+      },
+      {
+        source: "/low-cost-business-setup-uae/",
+        destination: "/business-setup-cost-dubai",
         permanent: true,
       },
       {

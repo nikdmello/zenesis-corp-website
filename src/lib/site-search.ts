@@ -68,41 +68,6 @@ const topLevelPages: SearchDocument[] = [
       "business setup company dubai business setup services in uae business setup consultants in dubai company formation dubai mainland free zone offshore document attestation uae dubai",
   },
   {
-    href: "/business-setup-services-uae",
-    title: "Business setup services in UAE",
-    description:
-      "Full-service UAE business setup support across licensing, company formation, visas, banking, accounting, tax, renewals, and compliance.",
-    type: "Page",
-    section: "Business setup",
-    keywords: [
-      "business setup services in uae",
-      "business setup services dubai",
-      "company formation services uae",
-      "business setup consultants uae",
-      "uae company setup services",
-    ],
-    searchText:
-      "business setup services in uae business setup services dubai company formation services uae business setup consultants uae uae company setup services licensing mainland free zone offshore visas banking accounting tax renewals compliance",
-  },
-  {
-    href: "/company-formation-dubai",
-    title: "Company formation in Dubai",
-    description:
-      "Company formation in Dubai for mainland, free zone, and offshore structures with licensing, visas, banking, tax, renewals, and compliance support.",
-    type: "Page",
-    section: "Business setup",
-    keywords: [
-      "company formation dubai",
-      "company formation in dubai",
-      "company formation services dubai",
-      "dubai company formation",
-      "company registration dubai",
-      "business setup dubai",
-    ],
-    searchText:
-      "company formation dubai company formation in dubai company formation services dubai dubai company formation company registration dubai business setup dubai mainland free zone offshore licensing visas banking accounting tax renewals compliance",
-  },
-  {
     href: "/business-setup-cost-dubai",
     title: "Pricing",
     description:
@@ -140,23 +105,6 @@ const topLevelPages: SearchDocument[] = [
     ],
     searchText:
       "mainland vs free zone dubai free zone vs mainland company setup market access ownership visas office banking cost comparison business setup uae",
-  },
-  {
-    href: "/low-cost-business-setup-uae",
-    title: "Low cost business setup in UAE",
-    description:
-      "Compare the cheapest viable UAE business setup routes including freelance permits, free zone setup without visa, free zone with visa, and mainland setup.",
-    type: "Page",
-    section: "Pricing",
-    keywords: [
-      "low cost business setup uae",
-      "cheapest business setup in uae",
-      "cheap business setup dubai",
-      "low cost company formation uae",
-      "freelance permit cost",
-    ],
-    searchText:
-      "low cost business setup uae cheapest business setup in uae cheap business setup dubai low cost company formation freelance permit free zone without visa mainland setup cost",
   },
   {
     href: "/accounting-tax",

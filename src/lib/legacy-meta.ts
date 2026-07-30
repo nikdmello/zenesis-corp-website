@@ -25,7 +25,7 @@ export const legacyRouteMeta = {
   businessSetup: {
     title: "Business Setup Services in Dubai & UAE | Zenesis Corp",
     description:
-      "Business setup services in Dubai and the UAE for mainland, free zone, and offshore company formation, including licensing, visas, banking, tax, renewals, and compliance.",
+      "Business setup and company formation services in Dubai and the UAE for mainland, free zone, and offshore structures, including licensing, visas, banking, tax, renewals, and compliance.",
   },
   accountingTax: {
     title: "Accounting Services in UAE for Businesses",

@@ -10,24 +10,12 @@ export const navigation = [
       {
         title: "Business Setup",
         links: [
-          {
-            label: "Company formation",
-            href: "/company-formation-dubai",
-          },
-          {
-            label: "Setup services",
-            href: "/business-setup-services-uae",
-          },
           { label: "Mainland setup", href: "/mainland" },
           { label: "Free zone setup", href: "/free-zones" },
           { label: "Offshore setup", href: "/offshore" },
           {
             label: "Mainland vs free zone",
             href: "/mainland-vs-free-zone-dubai",
-          },
-          {
-            label: "Low-cost setup",
-            href: "/low-cost-business-setup-uae",
           },
           {
             label: "Document attestation",

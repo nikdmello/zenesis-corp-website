@@ -5,7 +5,7 @@ import {
 
 export function BusinessSetupCostTable() {
   return (
-    <div className="overflow-hidden rounded-[1.55rem] border border-[#d8d0c2] bg-white shadow-[0_16px_44px_rgba(17,35,42,0.08)]">
+    <div className="overflow-hidden rounded-lg border border-[#d8d0c2] bg-white">
       <div className="border-b border-[#d8d0c2] px-5 py-5 md:px-6">
         <h3 className="text-[1.28rem] font-semibold leading-tight tracking-[-0.04em] text-[#11232a] md:text-[1.55rem]">
           Dubai business setup cost comparison

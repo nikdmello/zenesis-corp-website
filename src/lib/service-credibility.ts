@@ -127,10 +127,7 @@ const visaNote =
 
 const setupPaths = new Set([
   "/business-setup",
-  "/business-setup-services-uae",
-  "/company-formation-dubai",
   "/mainland-vs-free-zone-dubai",
-  "/low-cost-business-setup-uae",
 ]);
 
 const taxPaths = new Set([

@@ -1,16 +1,26 @@
 import NextImage from "next/image";
 import type { Metadata } from "next";
-import { CardAccent, PageIntro, SiteShell } from "@/components/site-shell";
+import { ReadingProgress } from "@/components/reading-progress";
+import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
+import { PageSectionNav, PageSectionNavMobile } from "@/components/page-section-nav";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
+import { articleSectionHeadingClassName } from "@/lib/article-styles";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
 import { TeamProfiles } from "@/components/team-profiles";
 
 export const metadata: Metadata = toMetadata(legacyRouteMeta.about, "/about");
 
+const aboutPageLinks = [
+  { href: "#our-background", label: "Who we are" },
+  { href: "#leadership", label: "Leadership" },
+  { href: "#next-step", label: "Talk to Zenesis" },
+] as const;
+
 export default function AboutPage() {
   return (
     <SiteShell currentPath="/about">
+      <ReadingProgress />
       <PageIntro
         eyebrow="About Zenesis"
         title="About"
@@ -21,16 +31,33 @@ export default function AboutPage() {
         backgroundImageMode="ambient"
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 text-white md:py-20">
+      <PageSectionNavMobile items={aboutPageLinks} />
+
+      <section
+        id="our-background"
+        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18"
+      >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-8">
-            <div className="grid gap-7 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start">
+          <article className="flow-root min-w-0">
+              <div className="mb-8 xl:float-right xl:ml-12 xl:w-[52%] 2xl:w-[56%]">
+                <div className="overflow-hidden border-y border-[#d9d1c5] bg-[#f8f6f1]">
+                  <NextImage
+                    src={versionedAssetPath("/sections/team-photo-cropped.webp")}
+                    alt="Zenesis team"
+                    width={1600}
+                    height={1200}
+                    className="block aspect-[4/3] h-auto w-full object-cover"
+                  />
+                </div>
+              </div>
+
               <div>
-                <CardAccent />
-                <h2 className="section-title font-semibold text-[#11232a]">
-                  Who we are
-                </h2>
-                <div className="mt-5 max-w-[88rem] space-y-4 text-[1.15rem] font-medium leading-8 text-[#11232a] md:text-[1.2rem]">
+                <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                  Our background
+                </p>
+                <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>Who we are</h2>
+                <div className="mt-7 max-w-[50rem] space-y-5 text-[1.08rem] leading-[2rem] text-[#07151b]/92 md:text-[1.14rem] md:leading-[2.15rem]">
                   <p>
                     Zenesis Corporation supports entrepreneurs, investors, SMEs, and
                     international businesses with company formation, accounting, tax,
@@ -54,63 +81,33 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-
-              <div className="overflow-hidden rounded-[1.8rem]">
-                <NextImage
-                  src={versionedAssetPath("/sections/team-photo-cropped.webp")}
-                  alt="Zenesis team"
-                  width={1600}
-                  height={1200}
-                  className="block h-auto w-full rounded-[1.8rem]"
-                />
-              </div>
-            </div>
           </article>
+          <PageSectionNav items={aboutPageLinks} />
+          </div>
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 w-full md:w-[46vw] md:min-w-[34rem] xl:w-[52vw] xl:min-w-[42rem]"
-        >
-          <div
-            className="absolute inset-0 opacity-[0.32] md:opacity-[0.48] xl:opacity-[0.54]"
-            style={{
-              WebkitMaskImage:
-                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
-              maskImage:
-                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
-            }}
-          >
-            <NextImage
-              src="/sections/awards-and-recognition.webp"
-              alt=""
-              fill
-              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 46vw, 52vw"
-              className="object-cover object-right"
-            />
-          </div>
-        </div>
+      <section
+        id="leadership"
+        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-14 md:py-18"
+      >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <div className="max-w-4xl">
-            <h2 className="section-title font-semibold text-foreground">
-              Leadership
-            </h2>
-            <p className="mt-4 max-w-3xl text-[1.18rem] leading-9 text-muted">
-              The leadership team brings cross-border experience in incorporation,
-              tax, real estate management, people and culture, and risk and
-              crisis management.
-            </p>
-          </div>
+          <SectionHeading
+            eyebrow="The team"
+            title="Leadership"
+            description="The leadership team brings cross-border experience in incorporation, tax, real estate management, people and culture, and risk and crisis management."
+          />
 
-          <div className="mt-8">
+          <div className="mt-9">
             <TeamProfiles />
           </div>
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section
+        id="next-step"
+        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-16 md:py-20"
+      >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <TalkToZenesisPanel
             wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10"

@@ -3,7 +3,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ConsultationFormButton } from "@/components/consultation-button";
 import { JsonLd } from "@/components/json-ld";
-import { PrimarySources } from "@/components/primary-sources";
 import { ReadingProgress } from "@/components/reading-progress";
 import { SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
@@ -81,14 +80,6 @@ const articleSections = [
 const finalQuote =
   "Yes, you can have it all. You can be a great mom, a great wife, and a great entrepreneur. This does not have to be an either-or choice. Embrace the power of planning, prioritize what truly matters, and surround yourself with a strong support system.";
 
-const profileSources = [
-  {
-    title: "Cecilia D'Cunha: Transforming the UAE's Corporate Landscape",
-    publisher: "Global Leaders Today",
-    href: "https://globalleaderstoday.online/cecilia-dcunha-pioneering-business-leader-transforming-the-uaes-corporate-landscape/",
-  },
-] as const;
-
 function toSectionId(title: string) {
   return title
     .toLowerCase()
@@ -104,7 +95,6 @@ const profileGuideLinks = [
   })),
   { href: "#why-this-matters-for-clients", label: "Why this matters for clients" },
   { href: "#her-advice", label: "Her advice" },
-  { href: "#primary-sources", label: "Primary sources" },
 ];
 
 const featuredProfileSchemas = [
@@ -149,7 +139,7 @@ export default function FeaturedProfilePage() {
             </div>
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,35,42,0.08)_0%,rgba(17,35,42,0.02)_58%,rgba(17,35,42,0.28)_100%)]" />
           </div>
-          <div className="relative mx-auto w-full max-w-[94rem] px-6 md:px-10 xl:px-18">
+          <div className="relative mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
             <Link
               href="/insights"
               className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/8 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/12"
@@ -216,7 +206,7 @@ export default function FeaturedProfilePage() {
 
                 <section
                   id="profile-highlights"
-                  className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#8d7453] bg-[#f8f6f1] px-6 py-7 md:px-8"
+                  className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#d8d0c2] bg-[#f8f6f1] px-6 py-7 md:px-8"
                 >
                   <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
                     At a glance
@@ -311,11 +301,6 @@ export default function FeaturedProfilePage() {
                   </blockquote>
                 </section>
 
-                <PrimarySources
-                  sources={profileSources}
-                  note="This profile is adapted from the original Global Leaders Today feature and checked against the publisher's article."
-                  verificationLabel={`Published ${featuredProfile.dateLabel}.`}
-                />
               </div>
 
               <aside className="sticky top-28 hidden border-l border-[#ddd4c7] pl-7 lg:block">
@@ -333,8 +318,8 @@ export default function FeaturedProfilePage() {
           </div>
         </section>
 
-        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-14 md:py-16">
-          <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 xl:px-16">
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f8f6f1] py-14 md:py-16">
+          <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
             <TalkToZenesisPanel
               wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.18)] md:p-10"
               eyebrowClassName="eyebrow text-white/58"

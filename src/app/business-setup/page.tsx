@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { JsonLd } from "@/components/json-ld";
+import { PageSectionNav, PageSectionNavMobile } from "@/components/page-section-nav";
+import { ReadingProgress } from "@/components/reading-progress";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
-import { CardAccent, PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
+import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
@@ -132,19 +136,40 @@ const essentialServices = [
 const routeSignals = [
   {
     title: "Choose mainland if...",
+    href: "/mainland",
+    imageSrc: versionedAssetPath("/services/mainland.webp"),
+    imageAlt: "Mainland company setup consultation in Dubai",
     description:
       "you need local UAE market access, local clients, or a broader operating scope inside the country.",
   },
   {
     title: "Choose free zone if...",
+    href: "/free-zones",
+    imageSrc: versionedAssetPath("/services/freezone.webp"),
+    imageAlt: "Free zone company setup consultation in Dubai",
     description:
       "you want a structured setup package, a known zone ecosystem, or a route aligned with consulting, digital, trade, or investor-led models.",
   },
   {
     title: "Choose offshore if...",
+    href: "/offshore",
+    imageSrc: versionedAssetPath("/services/offshore.webp"),
+    imageAlt: "Offshore company setup planning in Dubai",
     description:
       "your priority is holding, structuring, or international use cases that do not depend on local day-to-day UAE operations.",
   },
+] as const;
+
+const businessSetupPageLinks = [
+  { href: "#overview", label: "Overview" },
+  { href: "#how-zenesis-helps", label: "How Zenesis helps" },
+  { href: "#setup-routes", label: "Setup routes" },
+  { href: "#before-the-quote", label: "Before the quote" },
+  { href: "#planning-tools", label: "Planning tools" },
+  { href: "#route-comparison", label: "Route comparison" },
+  { href: "#direct-answers", label: "Direct answers" },
+  { href: "#process", label: "Process" },
+  { href: "#primary-sources", label: "Primary sources" },
 ] as const;
 
 const processSteps = [
@@ -212,6 +237,26 @@ const directAnswers = [
     answer:
       "A lower headline setup cost often stops looking attractive when the route creates problems later with visas, office rules, banking expectations, license scope, or renewals. The better question is whether the route still fits once the company starts operating, not just whether the license is issued quickly.",
   },
+  {
+    question: "What do UAE business setup and company formation services usually include?",
+    answer:
+      "The service usually includes route selection, trade license activity guidance, document preparation, authority submissions, trade name steps, approvals, visas, bank-readiness support, renewals, and compliance follow-through. The exact scope depends on the selected route and operating plan.",
+  },
+  {
+    question: "Is business setup in Dubai different from business setup elsewhere in the UAE?",
+    answer:
+      "Dubai is one of the most common setup locations, but the right route can also depend on the emirate, free zone, authority, activity, visa plan, office needs, and cost position. The better choice is the jurisdiction and structure that fit how the company will operate.",
+  },
+  {
+    question: "Can foreigners own a company in Dubai?",
+    answer:
+      "Foreign ownership is available across many mainland activities and is a common feature of free zone structures. Some strategic or regulated activities follow specific rules, so the exact activity and authority should be checked before filing.",
+  },
+  {
+    question: "Can Zenesis support the company after formation?",
+    answer:
+      "Yes. Zenesis supports company visas, banking preparation, bookkeeping, VAT, corporate tax, renewals, amendments, document attestation, and other follow-through work where needed.",
+  },
 ] as const;
 
 const setupServiceCoverage = [
@@ -247,19 +292,22 @@ const setupServiceCoverage = [
   },
 ] as const;
 
+const readinessChecks = [
+  "Business activity and whether local UAE, free zone, international, or holding use is expected",
+  "Shareholder structure, passport details, manager role, and any overseas company documents",
+  "Visa needs for founders, employees, family sponsorship, and practical timing",
+  "Banking expectations, source-of-funds context, expected currencies, and likely transaction flow",
+  "First-year budget, renewal expectations, office needs, tax registration, and bookkeeping readiness",
+] as const;
+
+const formationDocuments = [
+  "Passport copies and basic shareholder details for each owner or manager involved",
+  "Proposed business activities, trade name options, and the expected operating model",
+  "Visa, office, and banking expectations so the right authority or free zone can be checked",
+  "Corporate documents, board resolutions, POAs, or attestations where a parent company or overseas shareholder is involved",
+] as const;
+
 const decisionResources = [
-  {
-    label: "Company formation Dubai",
-    href: "/company-formation-dubai",
-    description:
-      "Choose the right mainland, free zone, or offshore company formation route in Dubai.",
-  },
-  {
-    label: "Business setup services",
-    href: "/business-setup-services-uae",
-    description:
-      "See the full service path across licensing, visas, banking, accounting, tax, and renewals.",
-  },
   {
     label: "Business setup pricing",
     href: "/business-setup-cost-dubai",
@@ -271,12 +319,6 @@ const decisionResources = [
     href: "/mainland-vs-free-zone-dubai",
     description:
       "Compare market access, ownership, visas, office needs, banking, and cost tradeoffs.",
-  },
-  {
-    label: "Low-cost setup routes",
-    href: "/low-cost-business-setup-uae",
-    description:
-      "Compare the cheapest viable routes without choosing a structure that creates problems later.",
   },
 ] as const;
 
@@ -301,6 +343,7 @@ export default function BusinessSetupPage() {
 
   return (
     <SiteShell currentPath="/business-setup">
+      <ReadingProgress />
       {pageSchemas.map((schema, index) => (
         <JsonLd key={index} data={schema} />
       ))}
@@ -311,7 +354,7 @@ export default function BusinessSetupPage() {
           { label: "Business setup" },
         ]}
         title="Business setup in Dubai"
-        titleClassName="!max-w-none whitespace-nowrap !text-[1.72rem] sm:!text-[2.65rem] md:!text-[3.25rem] lg:!text-[4.15rem]"
+        titleClassName="!max-w-[58rem] !text-[1.72rem] sm:!text-[2.65rem] md:!text-[3.25rem] lg:!text-[4.15rem]"
         description="Company formation services for mainland, free zone, and offshore routes, with licensing, visas, banking, tax, renewals, and compliance planned around how the business will operate."
         backgroundImageSrc={versionedAssetPath("/services/business-setup.webp")}
         backgroundImageAlt="Business leader arriving in Jumeirah Lake Towers for UAE company setup"
@@ -322,14 +365,22 @@ export default function BusinessSetupPage() {
         }
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
+      <PageSectionNavMobile items={businessSetupPageLinks} />
+
+      <section
+        id="overview"
+        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18"
+      >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <article className="rounded-[2rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10">
-            <CardAccent />
-            <h2 className="section-title font-semibold text-[#11232a]">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start">
+          <article className="max-w-[54rem]">
+            <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+              Start here
+            </p>
+            <h2 className="mt-3 text-[1.75rem] font-semibold leading-[1.16] tracking-[-0.02em] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">
               Overview
             </h2>
-            <div className="mt-5 max-w-[88rem] space-y-5 text-[1.2rem] font-medium leading-9 text-[#11232a] md:text-[1.26rem]">
+            <div className="mt-7 max-w-[50rem] space-y-5 text-[1.12rem] leading-[2.08rem] text-[#07151b]/92 md:text-[1.18rem] md:leading-[2.2rem]">
               <p>
                 Zenesis provides business setup services in Dubai and the wider
                 UAE for founders, investors, SMEs, and international companies
@@ -345,28 +396,44 @@ export default function BusinessSetupPage() {
                 tax, and renewals connected after incorporation.
               </p>
             </div>
+            <div className="mt-9 border-t border-[#e4dbce] pt-8">
+              <p className="mb-5 text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+                Core services
+              </p>
+              <ServiceSubpageLinks
+                items={setupRoutes.map((route) => ({
+                  label: route.title,
+                  href: route.href,
+                  description: route.bestFor,
+                }))}
+                columnsClassName="sm:grid-cols-2 lg:grid-cols-3"
+                variant="compact"
+              />
+            </div>
           </article>
+          <PageSectionNav items={businessSetupPageLinks} />
+          </div>
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section id="how-zenesis-helps" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            eyebrow="Service coverage"
-            title="What business setup services should cover"
-            description="The useful service is not only license filing. The route, documents, visas, banking, tax, and renewal position all need to work together."
+            eyebrow="Why Zenesis"
+            title="How Zenesis helps"
+            description="The useful service is not only licence filing. Zenesis connects the route, documents, visas, banking, tax, and renewal position from the start."
           />
 
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {setupServiceCoverage.map((item) => (
               <article
                 key={item.title}
-                className="rounded-[1.55rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_14px_36px_rgba(17,35,42,0.08)]"
+                className="rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.07)]"
               >
-                <h2 className="text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">
+                <h3 className="text-[1.18rem] font-semibold leading-tight text-foreground md:text-[1.24rem]">
                   {item.title}
-                </h2>
-                <p className="mt-3 text-[1rem] font-medium leading-7 text-foreground/84">
+                </h3>
+                <p className="mt-4 text-[1.12rem] leading-8 text-foreground/92">
                   {item.description}
                 </p>
               </article>
@@ -375,11 +442,11 @@ export default function BusinessSetupPage() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section id="setup-routes" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            eyebrow=""
-            title="Main setup options"
+            eyebrow="Service lines"
+            title="Core services"
             description="Three common setup routes, each suited to a different operating model, ownership plan, and post-formation workflow."
           />
 
@@ -403,23 +470,54 @@ export default function BusinessSetupPage() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section id="before-the-quote" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            eyebrow="Decision guides"
-            title="Compare route, cost, and fit"
-            description="Use these pages when you are deciding whether to prioritize cost, mainland access, free zone flexibility, visas, or banking readiness."
+            eyebrow="Readiness check"
+            title="What to clarify before the quote"
+            description="A useful quote starts with the operating details that affect the route, documents, visas, banking, and total first-year position."
           />
-          <div className="mt-7">
-            <ServiceSubpageLinks items={decisionResources} columnsClassName="md:grid-cols-2 xl:grid-cols-5" />
+          <div className="mt-8 grid gap-8 lg:grid-cols-2">
+            <article className="border-t border-[#d8d0c2] pt-6">
+              <h3 className="text-[1.25rem] font-semibold text-[#11232a]">Operating and ownership details</h3>
+              <ul className="mt-5 divide-y divide-[#e4dbce] border-y border-[#e4dbce]">
+                {readinessChecks.map((item) => (
+                  <li key={item} className="py-4 text-[1rem] font-medium leading-7 text-[#11232a]/84">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+            <article className="border-t border-[#d8d0c2] pt-6">
+              <h3 className="text-[1.25rem] font-semibold text-[#11232a]">Documents usually checked early</h3>
+              <ul className="mt-5 divide-y divide-[#e4dbce] border-y border-[#e4dbce]">
+                {formationDocuments.map((item) => (
+                  <li key={item} className="py-4 text-[1rem] font-medium leading-7 text-[#11232a]/84">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
           </div>
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
-        <div className="mx-auto grid w-full max-w-[100rem] items-stretch gap-5 px-6 md:px-12 lg:grid-cols-[1.1fr_0.9fr] xl:px-20">
-          <article className="h-full rounded-[2rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_20px_60px_rgba(17,35,42,0.18)] md:p-8">
-            <CardAccent />
+      <section id="planning-tools" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f5efe4] py-16 md:py-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <SectionHeading
+            eyebrow="Planning tools"
+            title="Compare route, cost, and fit"
+            description="Use these pages when you are deciding whether to prioritize cost, mainland access, free zone flexibility, visas, or banking readiness."
+          />
+          <div className="mt-7">
+            <ServiceSubpageLinks items={decisionResources} columnsClassName="md:grid-cols-2" />
+          </div>
+        </div>
+      </section>
+
+      <section id="route-comparison" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
+        <div className="mx-auto grid w-full max-w-[100rem] items-stretch gap-5 px-6 md:px-12 lg:grid-cols-2 xl:px-20">
+          <article className="flex h-full flex-col rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_30px_rgba(17,35,42,0.1)] md:p-8">
             <p className="mt-5 text-[0.78rem] font-semibold uppercase tracking-[0.26em] text-[#8d7453]">
               Comparison
             </p>
@@ -430,40 +528,53 @@ export default function BusinessSetupPage() {
               Use these quick route signals to narrow the setup path before you compare licenses,
               visas, banking, and ongoing compliance.
             </p>
-            <div className="mt-7 space-y-3.5">
+            <div className="mt-7 grid flex-1 grid-rows-3 divide-y divide-[#d8d0c2] border-y border-[#d8d0c2]">
               {routeSignals.map((item, index) => (
-                <div
+                <Link
                   key={item.title}
-                  className="grid gap-4 rounded-[1.55rem] border border-[#d8d0c2] bg-white p-5 shadow-[0_12px_34px_rgba(17,35,42,0.08)] md:grid-cols-[auto_1fr]"
+                  href={item.href}
+                  className="group grid content-center gap-4 py-4 md:grid-cols-[5.75rem_1fr_auto] md:items-center"
                 >
-                  <div className="flex items-start">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#8d7453]/18 bg-[#8d7453]/10 text-sm font-semibold text-[#8d7453] shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
+                  <div className="relative h-[4.5rem] w-full overflow-hidden rounded-md border border-[#d8d0c2] bg-[#eee7dc] md:w-[5.75rem]">
+                    <Image
+                      src={item.imageSrc}
+                      alt={item.imageAlt}
+                      fill
+                      sizes="92px"
+                      className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                    />
+                    <span className="absolute left-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/92 text-[0.72rem] font-semibold text-[#8d7453] shadow-sm">
                       0{index + 1}
                     </span>
                   </div>
                   <div>
-                    <h3 className="text-[1.14rem] font-semibold tracking-[-0.03em] !text-foreground md:text-[1.18rem]">
+                    <h3 className="text-[1.14rem] font-semibold tracking-[-0.03em] !text-foreground transition-colors group-hover:!text-[#244ba8] md:text-[1.18rem]">
                       {item.title}
                     </h3>
                     <p className="mt-2 text-[1.08rem] font-medium leading-7 !text-foreground/92">
                       {item.description}
                     </p>
                   </div>
-                </div>
+                  <span
+                    aria-hidden="true"
+                    className="hidden text-lg text-[#8d7453] transition-transform duration-300 group-hover:translate-x-1 md:inline-flex"
+                  >
+                    &rarr;
+                  </span>
+                </Link>
               ))}
             </div>
           </article>
 
-          <article className="h-full rounded-[2rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_20px_60px_rgba(17,35,42,0.18)] md:p-8">
-            <CardAccent />
+          <article className="h-full rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_30px_rgba(17,35,42,0.1)] md:p-8">
             <p className="mt-5 text-[0.78rem] font-semibold uppercase tracking-[0.26em] text-[#6f5a42]">
               Formation reference
             </p>
             <h2 className="section-title mt-5 font-semibold !text-foreground">
               Route reference
             </h2>
-            <div className="mt-7 grid gap-4">
-              <div className="rounded-[1.45rem] border border-[#d8d0c2] bg-white p-5 shadow-[0_10px_28px_rgba(17,35,42,0.08)]">
+            <div className="mt-7 divide-y divide-[#d8d0c2] border-y border-[#d8d0c2]">
+              <div className="py-5">
                 <p className="text-[0.76rem] font-semibold uppercase tracking-[0.24em] text-[#8d7453]">
                   Structures
                 </p>
@@ -481,7 +592,7 @@ export default function BusinessSetupPage() {
                 </ul>
               </div>
 
-              <div className="rounded-[1.45rem] border border-[#d8d0c2] bg-white p-5 shadow-[0_10px_28px_rgba(17,35,42,0.08)]">
+              <div className="py-5">
                 <p className="text-[0.76rem] font-semibold uppercase tracking-[0.24em] text-[#8d7453]">
                   Popular free zones
                 </p>
@@ -499,7 +610,7 @@ export default function BusinessSetupPage() {
                 </ul>
               </div>
 
-              <div className="rounded-[1.45rem] border border-[#d8d0c2] bg-white p-5 shadow-[0_10px_28px_rgba(17,35,42,0.08)]">
+              <div className="py-5">
                 <p className="text-[0.76rem] font-semibold uppercase tracking-[0.24em] text-[#8d7453]">
                   Offshore options
                 </p>
@@ -524,7 +635,7 @@ export default function BusinessSetupPage() {
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            eyebrow=""
+            eyebrow="Follow-through"
             title="After setup"
             description="Formation is only the start. These are the follow-through services businesses usually need once the company is in place."
           />
@@ -547,24 +658,30 @@ export default function BusinessSetupPage() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
+      <ServiceAnswerSection
+        title="Direct answers"
+        description="Short answers to the questions that usually shape the setup route before paperwork begins."
+        items={directAnswers}
+      />
+
+      <section id="process" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            eyebrow=""
+            eyebrow="Working rhythm"
             title="Process"
             description="A practical sequence from the first consultation through licensing, banking, visas, and ongoing compliance support."
           />
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {processSteps.map((item) => (
-              <article key={item.step} className="rounded-[1.75rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.16)] md:p-9">
+              <article key={item.step} className="rounded-lg border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)] md:p-9">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#8d7453]/18 bg-[#8d7453]/10 text-[0.95rem] font-semibold tracking-[0.08em] text-[#8d7453]">
                   {item.step}
                 </div>
-                <h3 className="mt-4 text-[1.32rem] font-semibold leading-tight tracking-[-0.04em] !text-foreground md:text-[1.4rem] xl:text-[1.46rem]">
+                <h3 className="mt-4 text-[1.24rem] font-semibold leading-tight text-foreground md:text-[1.3rem]">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-[1.14rem] font-medium leading-8 !text-foreground/94 md:text-[1.18rem]">
+                <p className="mt-4 text-[1.12rem] leading-8 text-foreground/92">
                   {item.description}
                 </p>
               </article>
@@ -573,14 +690,7 @@ export default function BusinessSetupPage() {
         </div>
       </section>
 
-      <ServiceAnswerSection
-        dark
-        title="Direct answers"
-        description="Short answers to the questions that usually shape the setup route before paperwork begins."
-        items={directAnswers}
-      />
-
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f8f6f1] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <TalkToZenesisPanel
             wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10"

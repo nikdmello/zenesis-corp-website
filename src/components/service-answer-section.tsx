@@ -1,4 +1,4 @@
-import { SectionHeading } from "@/components/site-shell";
+import { articleSectionHeadingClassName } from "@/lib/article-styles";
 
 type ServiceAnswerItem = {
   question: string;
@@ -16,51 +16,44 @@ export function ServiceAnswerSection({
   title,
   description,
   items,
-  dark = false,
 }: ServiceAnswerSectionProps) {
   return (
     <section
-      className={`relative left-1/2 -mt-px w-screen -translate-x-1/2 py-16 md:py-20 ${
-        dark ? "bg-[#11232a]" : "bg-[#f5efe4]"
-      }`}
+      id="direct-answers"
+      className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-14 md:py-18"
     >
       <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-        <SectionHeading
-          eyebrow=""
-          title={title}
-          description={description}
-          titleClassName={dark ? "!text-white" : undefined}
-          descriptionClassName={dark ? "!text-white/92" : undefined}
-        />
+        <div>
+          <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+            Common questions
+          </p>
+          <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>{title}</h2>
+          <p className="mt-4 text-[1.06rem] leading-8 text-[#07151b]/76 md:text-[1.1rem]">
+            {description}
+          </p>
 
-        <div className="mt-9 grid gap-3">
-          {items.map((item, index) => (
-            <details
-              key={item.question}
-              className="group rounded-[1.25rem] border border-[#d8d0c2] bg-white text-[#11232a] shadow-[0_14px_38px_rgba(17,35,42,0.09)]"
-              open={index === 0}
-            >
-              <summary className="grid cursor-pointer list-none grid-cols-[2.75rem_1fr_2.25rem] items-center gap-3 px-5 py-5 marker:content-none sm:grid-cols-[3.5rem_1fr_2.5rem] sm:px-6 md:py-6">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d8d0c2] bg-[#fbf8f1] text-sm font-semibold text-[#8d7453]">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span className="min-w-0 text-[1.08rem] font-semibold leading-snug text-[#11232a] md:text-[1.18rem]">
-                  {item.question}
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#11232a]/12 bg-[#f5efe4] text-[1.5rem] font-light leading-none text-[#11232a] transition-transform duration-200 group-open:rotate-45"
-                >
-                  +
-                </span>
-              </summary>
-              <div className="px-5 pb-5 sm:pl-[6.5rem] sm:pr-8 md:pb-6">
-                <p className="max-w-5xl border-t border-[#d8d0c2]/80 pt-4 text-[1rem] font-medium leading-7 text-[#11232a]/78 md:text-[1.06rem]">
+          <div className="mt-7 divide-y divide-[#e4dbce] border-y border-[#e4dbce]">
+            {items.map((item, index) => (
+              <details key={item.question} className="group py-5" open={index === 0}>
+                <summary className="flex cursor-pointer list-none items-start justify-between gap-5 marker:content-none">
+                  <span className="flex min-w-0 items-start gap-3">
+                    <span className="mt-1 shrink-0 text-[0.72rem] font-semibold tabular-nums text-[#8d7453]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-[1.08rem] font-semibold leading-7 text-foreground md:text-[1.14rem]">
+                      {item.question}
+                    </span>
+                  </span>
+                  <span className="mt-0.5 shrink-0 text-2xl leading-none text-[#8d7453] transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p className="ml-9 mt-4 text-[1.02rem] leading-8 text-[#07151b]/82 md:text-[1.08rem]">
                   {item.answer}
                 </p>
-              </div>
-            </details>
-          ))}
+              </details>
+            ))}
+          </div>
         </div>
       </div>
     </section>

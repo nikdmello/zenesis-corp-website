@@ -10,6 +10,7 @@ import {
 import { HomepageServicesReveal } from "@/components/homepage-services-reveal";
 import { JsonLd } from "@/components/json-ld";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { SectionHeading, SiteShell } from "@/components/site-shell";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { versionedAssetPath } from "@/lib/asset-paths";
@@ -166,9 +167,12 @@ export default function Home() {
           </div>
           <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#11232a] via-[#11232a]/94 via-36% to-transparent md:h-72" />
 
-          <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[100rem] flex-col justify-end px-5 pb-12 pt-26 md:block md:px-12 md:pb-20 md:pt-12 xl:px-20">
-            <div className="bottom-12 mx-auto w-full md:absolute md:bottom-20 md:left-1/2 md:w-[min(100%-6rem,68rem)] md:-translate-x-1/2 xl:w-[min(100%-10rem,72rem)]">
+          <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[100rem] flex-col justify-end px-5 pb-3 pt-26 md:block md:px-12 md:pb-3 md:pt-12 xl:px-20">
+            <div className="bottom-3 mx-auto w-full md:absolute md:bottom-3 md:left-1/2 md:w-[min(100%-6rem,68rem)] md:-translate-x-1/2 xl:w-[min(100%-10rem,72rem)]">
               <div className="mx-auto w-full max-w-[48rem] px-0 py-4 sm:px-2 md:max-w-none md:px-0 md:py-0">
+                <p className="hero-reveal hero-reveal-1 mb-4 text-center text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#ead8b7]">
+                  Dubai and UAE business consultancy
+                </p>
                 <h1 className="hero-reveal hero-reveal-1 mx-auto max-w-[12ch] text-center text-[2.45rem] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:max-w-[14ch] sm:text-[clamp(3.2rem,7vw,3.95rem)] lg:max-w-[16ch] lg:text-[clamp(3.3rem,4.5vw,4.45rem)] 2xl:max-w-none 2xl:whitespace-nowrap">
                   Over 20 years of business setup in Dubai
                 </h1>
@@ -226,10 +230,13 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <div className="max-w-[50rem]">
-            <h2 className="section-title font-semibold text-white">
+            <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-white/68">
+              Trusted by
+            </p>
+            <h2 className="section-title mt-3 font-semibold text-white">
               Our clients
             </h2>
-            <p className="mt-4 max-w-4xl text-[1.16rem] leading-8 text-white/88 md:text-[1.24rem] md:leading-9">
+            <p className="mt-4 max-w-4xl text-[1.06rem] leading-8 text-white/84 md:text-[1.1rem]">
               Organizations and operators Zenesis supports across incorporation, compliance, residency, and ongoing business administration.
             </p>
           </div>
@@ -240,7 +247,7 @@ export default function Home() {
             {partnerLogos.map((logo) => (
               <div
                 key={logo.label}
-                className="flex min-h-[9rem] items-center justify-center rounded-[1.55rem] border border-[#d8d0c2] bg-white px-4 py-5 transition-transform duration-200 hover:-translate-y-0.5 md:min-h-[9.5rem]"
+                className="flex min-h-[7.5rem] items-center justify-center rounded-lg border border-[#d8d0c2] bg-white px-4 py-4 shadow-[0_8px_22px_rgba(17,35,42,0.08)] transition-transform duration-200 hover:-translate-y-0.5"
               >
                 <NextImage
                   src={logo.src}
@@ -289,18 +296,17 @@ export default function Home() {
         </div>
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
-          <div className="mb-10 md:mb-12">
-            <h2 className="text-[clamp(2.4rem,3.2vw,3.75rem)] font-semibold leading-[0.94] tracking-[-0.06em] text-[#07151b] xl:whitespace-nowrap">
-              Awards and recognition
-            </h2>
-            <p className="mt-4 max-w-4xl text-[1.16rem] leading-8 text-muted md:text-[1.24rem] md:leading-9">
-              Recognition that reflects Zenesis work in company formation and the leadership profile behind the firm.
-            </p>
+          <div className="mb-9">
+            <SectionHeading
+              eyebrow="Recognition"
+              title="Awards and recognition"
+              description="Recognition that reflects Zenesis work in company formation and the leadership profile behind the firm."
+            />
           </div>
 
-          <div className="overflow-hidden rounded-[2rem] border border-[#cfc4b4] bg-white/80 p-3 shadow-[0_24px_70px_rgba(17,35,42,0.13)] backdrop-blur-[2px] md:p-4">
+          <div className="overflow-hidden rounded-lg border border-[#cfc4b4] bg-white/82 p-3 shadow-[0_12px_34px_rgba(17,35,42,0.09)] md:p-4">
             <div className="grid gap-3 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch md:gap-4">
-              <div className="relative aspect-[1280/855] overflow-hidden rounded-[1.45rem] border border-[#d8cdbc] bg-[#eee7dc]">
+              <div className="relative aspect-[1280/855] overflow-hidden rounded-md border border-[#d8cdbc] bg-[#eee7dc]">
                   <NextImage
                     src={versionedAssetPath(
                       "/recognition/zenesis-award.webp",
@@ -315,7 +321,7 @@ export default function Home() {
 
               <Link
                 href={featuredProfile.href}
-                className="group flex h-full flex-col overflow-hidden rounded-[1.45rem] border border-[#d8cdbc] bg-white text-[#11232a] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-[#bda77f] hover:shadow-[0_16px_36px_rgba(17,35,42,0.12)] lg:aspect-[1280/855] lg:h-auto"
+                className="group relative flex h-full min-w-0 flex-col overflow-hidden rounded-md border border-[#ddd2c2] bg-white text-[#11232a] after:pointer-events-none after:absolute after:inset-y-0 after:right-0 after:z-20 after:w-px after:bg-[#ddd2c2] after:content-[''] transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(17,35,42,0.1)]"
               >
                 <div className="px-4 py-3.5 md:px-5 md:py-4">
                   <div className="flex items-start justify-between gap-6">
@@ -333,7 +339,7 @@ export default function Home() {
                         </p>
                       ) : null}
                     </div>
-                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#11232a]/8 text-[1.2rem]">
+                    <span className="text-[1.2rem]">
                       {leadershipFeatureSignal.icon}
                     </span>
                   </div>
@@ -374,7 +380,7 @@ export default function Home() {
                 ].map((image) => (
                   <div
                     key={image.src}
-                    className="relative aspect-[4/2.7] overflow-hidden rounded-[1.15rem] border border-[#ddd2c2] bg-[#eee7dc]"
+                    className="relative aspect-[4/2.7] overflow-hidden rounded-md border border-[#ddd2c2] bg-[#eee7dc]"
                   >
                     <NextImage
                       src={image.src}
@@ -473,49 +479,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-        <ScrollReveal>
-        <section>
-          <SectionHeading
-            eyebrow="FAQ"
-            eyebrowClassName="!text-white"
-            title="FAQ"
-            titleClassName="!text-white"
-            description="Common questions on setup routes, structures, visas, banking, attestation, and ongoing compliance in the UAE."
-            descriptionClassName="!text-white/88"
-          />
+      <ServiceAnswerSection
+        title="Direct answers"
+        description="Common questions on setup routes, structures, visas, banking, attestation, and ongoing compliance in the UAE."
+        items={homepageFaqs}
+      />
 
-          <div className="mt-10 grid gap-3">
-            {homepageFaqs.map((item) => (
-              <details
-                key={item.question}
-                className="group rounded-[1.35rem] border border-[#d8d0c2] bg-white px-5 py-4 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)]"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 marker:content-none">
-                  <h3 className="text-lg font-semibold tracking-[-0.03em] text-foreground">
-                    {item.question}
-                  </h3>
-                  <span className="shrink-0 text-2xl leading-none text-muted transition-transform duration-200 group-open:rotate-45">
-                    +
-                  </span>
-                </summary>
-                <p className="mt-4 max-w-5xl pr-8 text-[1.12rem] leading-8 text-muted">
-                  {item.answer}
-                </p>
-              </details>
-            ))}
-          </div>
-        </section>
-        </ScrollReveal>
-        </div>
-      </section>
-
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f8f6f1] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <ScrollReveal>
             <TalkToZenesisPanel
-              wrapperClassName="rounded-[2rem] bg-[#11232a] p-7 text-white shadow-[0_32px_110px_rgba(17,35,42,0.18)] md:p-10"
+              wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10"
               eyebrowClassName="eyebrow text-white/58"
               titleClassName="section-title mt-4 font-semibold text-white"
               textClassName="text-[1.24rem] font-semibold leading-9 text-white/94 md:text-[1.32rem]"

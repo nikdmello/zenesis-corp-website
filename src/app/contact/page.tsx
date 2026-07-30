@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import NextImage from "next/image";
 import { ConsultationInlinePanel } from "@/components/consultation-form";
+import { ReadingProgress } from "@/components/reading-progress";
 import { PageIntro, SiteShell } from "@/components/site-shell";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import {
@@ -16,6 +18,7 @@ export const metadata: Metadata = toMetadata(legacyRouteMeta.contact, "/contact"
 export default function ContactPage() {
   return (
     <SiteShell currentPath="/contact">
+      <ReadingProgress />
       <PageIntro
         eyebrow="Contact Zenesis"
         title="Contact us"
@@ -26,8 +29,21 @@ export default function ContactPage() {
         backgroundImageMode="ambient"
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
-        <div className="mx-auto grid w-full max-w-[100rem] gap-6 px-6 md:px-12 lg:grid-cols-[1.02fr_0.98fr] xl:px-20">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-white pb-0 pt-14 md:pt-18">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 w-[68%] sm:w-[60%] lg:w-[52%]"
+        >
+          <NextImage
+            src={versionedAssetPath("/sections/uae-flag.webp")}
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 52vw, (min-width: 640px) 60vw, 68vw"
+            className="object-cover object-center opacity-[0.42] saturate-[0.9]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#ffffff_0%,rgba(255,255,255,0.78)_18%,rgba(255,255,255,0.24)_52%,rgba(255,255,255,0.08)_100%)]" />
+        </div>
+        <div className="relative z-10 mx-auto grid w-full max-w-[100rem] gap-8 px-6 md:px-12 lg:grid-cols-[1.02fr_0.98fr] xl:px-20">
           <ConsultationInlinePanel />
 
           <div className="flex flex-col gap-6">
@@ -43,7 +59,7 @@ export default function ContactPage() {
                       href={googleMapsHref}
                       target="_blank"
                       rel="noreferrer"
-                      className="group rounded-[1.4rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)] transition-transform duration-200 hover:-translate-y-0.5"
+                      className="group rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.06)] transition-transform duration-200 hover:-translate-y-0.5"
                     >
                       <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
                         {item.label}
@@ -66,7 +82,7 @@ export default function ContactPage() {
                       href={whatsappHref}
                       target="_blank"
                       rel="noreferrer"
-                      className="group rounded-[1.4rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)] transition-transform duration-200 hover:-translate-y-0.5"
+                      className="group rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.06)] transition-transform duration-200 hover:-translate-y-0.5"
                     >
                       <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
                         {item.label}
@@ -86,7 +102,7 @@ export default function ContactPage() {
                 return (
                   <div
                     key={item.label}
-                    className="rounded-[1.4rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)]"
+                    className="rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.06)]"
                   >
                     <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
                       {item.label}
@@ -99,7 +115,7 @@ export default function ContactPage() {
               })}
             </div>
 
-            <article className="rounded-[1.6rem] border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)]">
+            <article className="rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.06)]">
               <h2 className="text-[1.24rem] font-semibold tracking-[-0.04em] text-foreground md:text-[1.32rem]">
                 Social Media
               </h2>
@@ -121,7 +137,7 @@ export default function ContactPage() {
               </div>
             </article>
 
-            <article className="overflow-hidden rounded-[2rem] border border-[#d8d0c2] bg-white p-4 shadow-[0_18px_50px_rgba(17,35,42,0.14)] md:p-5">
+            <article className="overflow-hidden rounded-lg border border-[#d8d0c2] bg-white p-4 shadow-[0_10px_28px_rgba(17,35,42,0.06)] md:p-5">
               <div className="flex items-center justify-between gap-4 px-2 pb-4 pt-1">
                 <div>
                   <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
@@ -140,7 +156,7 @@ export default function ContactPage() {
                   Open in Maps
                 </a>
               </div>
-              <div className="overflow-hidden rounded-[1.5rem] border border-foreground/10">
+              <div className="overflow-hidden rounded-md border border-foreground/10">
                 <iframe
                   src={googleMapsEmbedHref}
                   title="Zenesis location on Google Maps"

@@ -46,8 +46,8 @@ export function BusinessSetupPriceActions({
               aria-label={`Open consultation form for ${item.title} from ${item.price}`}
               className={
                 variant === "homepage"
-                  ? "group cursor-pointer rounded-[1rem] border border-[#d8d0c2] bg-white/70 p-4 text-left text-[#11232a] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#c9ae81] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244ba8]"
-                  : "flex h-full cursor-pointer flex-col rounded-[1.55rem] border border-[#d8d0c2] bg-white p-5 text-left text-[#11232a] shadow-[0_16px_44px_rgba(17,35,42,0.09)] transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244ba8] md:p-6"
+                  ? "group cursor-pointer rounded-lg border border-[#d8d0c2] bg-white/70 p-4 text-left text-[#11232a] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244ba8]"
+                  : "flex h-full cursor-pointer flex-col rounded-lg border border-[#d8d0c2] bg-white p-5 text-left text-[#11232a] transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244ba8] md:p-6"
               }
               onClick={() => setPresetEnquiry(enquiry)}
             >

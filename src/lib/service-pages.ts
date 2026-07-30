@@ -85,13 +85,8 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         description: "Check starting prices and the cost drivers behind mainland and free zone setup.",
       },
       {
-        label: "Company formation",
-        href: "/company-formation-dubai",
-        description: "Review mainland, free zone, and offshore formation routes side by side.",
-      },
-      {
-        label: "Setup services",
-        href: "/business-setup-services-uae",
+        label: "Business setup",
+        href: "/business-setup",
         description: "See how licensing, visas, banking, tax, and renewals fit into the full setup path.",
       },
     ],
@@ -218,18 +213,13 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         description: "Compare route tradeoffs before choosing a free zone package.",
       },
       {
-        label: "Low-cost setup",
-        href: "/low-cost-business-setup-uae",
-        description: "Check when a lean free zone route is viable and when it creates problems later.",
-      },
-      {
         label: "Business setup cost",
         href: "/business-setup-cost-dubai",
         description: "Compare starting prices across freelance, free zone, and mainland routes.",
       },
       {
-        label: "Company formation",
-        href: "/company-formation-dubai",
+        label: "Business setup",
+        href: "/business-setup",
         description: "Place free zone setup in the wider mainland, offshore, and Dubai formation picture.",
       },
     ],
@@ -356,13 +346,8 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     subpageLinks: [
       {
-        label: "Company formation",
-        href: "/company-formation-dubai",
-        description: "Compare offshore against mainland and free zone company formation routes.",
-      },
-      {
-        label: "Setup services",
-        href: "/business-setup-services-uae",
+        label: "Business setup",
+        href: "/business-setup",
         description: "See how structure choice connects to documents, banking, tax, and renewals.",
       },
       {

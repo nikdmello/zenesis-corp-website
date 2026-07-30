@@ -83,7 +83,7 @@ export function ServiceCredibilityPanel({
   }
 
   return (
-    <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-8 md:py-10">
+    <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f8f6f1] py-8 md:py-10">
       <div className="mx-auto w-full max-w-[78rem] px-6 md:px-10">
         <PrimarySources
           sources={credibility.sources}

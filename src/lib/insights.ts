@@ -1725,8 +1725,6 @@ export const insightPosts: InsightPost[] = [
     ],
     relatedServiceHrefs: [
       "/business-setup",
-      "/business-setup-services-uae",
-      "/company-formation-dubai",
       "/mainland-vs-free-zone-dubai",
       "/business-setup-cost-dubai",
     ],

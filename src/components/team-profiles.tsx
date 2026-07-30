@@ -1,113 +1,51 @@
 import Image from "next/image";
-import { CardAccent } from "@/components/site-shell";
 import { teamMembers } from "@/lib/site-content";
 
 type TeamMember = (typeof teamMembers)[number];
 
 function TeamCard({
   member,
-  variant,
 }: {
   member: TeamMember;
-  variant: "featured" | "standard";
 }) {
-  const isFeatured = variant === "featured";
-  const imageClassName =
-    member.name === "Prof. Jeevan D'Mello"
-      ? "object-cover object-[50%_12%] scale-[1.16]"
-      : "object-cover object-center";
-
   return (
-    <article
-      className={`flex h-full rounded-[2rem] border border-[#d9d2c5] bg-white shadow-[0_26px_80px_rgba(17,35,42,0.10)] ${
-        isFeatured
-          ? "flex-col gap-6 p-7 md:p-8 xl:flex-row xl:items-start"
-          : "flex-col gap-5 p-6 md:p-7"
-      }`}
-    >
-      <div
-        className={`relative shrink-0 overflow-hidden rounded-[1.5rem] border border-[#d9d2c5] bg-[#f8f8f6] ${
-          isFeatured
-            ? "aspect-[4/4.4] w-full xl:h-[17rem] xl:w-[15rem]"
-            : "aspect-[4/3.75] w-full"
-        }`}
-      >
+    <article className="flex h-full min-w-0 flex-col">
+      <div className="relative h-[19rem] w-full shrink-0 md:h-[21rem] xl:h-[19rem] 2xl:h-[21rem]">
         <Image
           src={member.imageSrc}
           alt={member.name}
           fill
-          sizes={
-            isFeatured
-              ? "(min-width: 1280px) 240px, (min-width: 768px) 40vw, 100vw"
-              : "(min-width: 1280px) 26vw, (min-width: 768px) 40vw, 100vw"
-          }
-          className={imageClassName}
+          sizes="(min-width: 1280px) 26vw, (min-width: 768px) 42vw, 100vw"
+          className="object-contain object-center"
         />
       </div>
 
-      <div className="min-w-0 flex-1">
+      <div className="min-w-0 flex flex-1 flex-col border-t border-[#d8d0c2] pt-5">
         <div>
-          <CardAccent />
-          <h3
-            className={`font-semibold tracking-[-0.05em] text-foreground ${
-              isFeatured
-                ? "text-[2.15rem] md:text-[2.35rem]"
-                : "text-[1.95rem] md:text-[2.1rem]"
-            }`}
-          >
-            {member.name}
-          </h3>
-          <p
-            className={`mt-2 font-semibold tracking-[-0.01em] text-foreground ${
-              isFeatured
-                ? "text-[1.06rem] leading-7 md:text-[1.1rem]"
-                : "text-[1.01rem] leading-7"
-            }`}
-          >
+          <p className="text-[0.74rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
             {member.title}
           </p>
-          <p
-            className={`mt-1 text-[#5d6b71] ${
-              isFeatured
-                ? "text-[0.98rem] leading-7 md:text-[1.02rem]"
-                : "text-[0.95rem] leading-7"
-            }`}
-          >
+          <h3 className="mt-2 text-[1.55rem] font-semibold leading-[1.12] text-foreground md:text-[1.65rem]">
+            {member.name}
+          </h3>
+          <p className="mt-2 text-[0.92rem] leading-6 text-[#5d6b71]">
             {member.credentials}
           </p>
         </div>
-        <p
-          className={`mt-4 text-muted ${
-            isFeatured
-              ? "text-[1.14rem] leading-8 md:text-[1.18rem]"
-              : "text-[1.08rem] leading-8"
-          }`}
-        >
+        <p className="mt-4 text-[0.98rem] leading-7 text-muted">
           {member.summary}
         </p>
-
       </div>
     </article>
   );
 }
 
 export function TeamProfiles() {
-  const leadMembers = teamMembers.slice(0, 2);
-  const supportingMembers = teamMembers.slice(2);
-
   return (
-    <div className="mt-10 space-y-6">
-      <div className="grid gap-6 xl:grid-cols-2">
-        {leadMembers.map((member) => (
-          <TeamCard key={member.name} member={member} variant="featured" />
-        ))}
-      </div>
-
-      <div className="grid gap-6 xl:grid-cols-3">
-        {supportingMembers.map((member) => (
-          <TeamCard key={member.name} member={member} variant="standard" />
-        ))}
-      </div>
+    <div className="grid auto-rows-fr items-stretch gap-x-8 gap-y-12 md:grid-cols-2 xl:grid-cols-3">
+      {teamMembers.map((member) => (
+        <TeamCard key={member.name} member={member} />
+      ))}
     </div>
   );
 }

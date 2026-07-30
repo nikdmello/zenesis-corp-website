@@ -21,22 +21,6 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
       imageClassName: "object-[58%_center]",
     },
     {
-      title: "Company formation Dubai",
-      href: "/company-formation-dubai",
-      description: "Choose the right mainland, free zone, or offshore formation route in Dubai.",
-      imageSrc: versionedAssetPath("/services/company-formation-dubai.webp"),
-      imageAlt: "Company formation route planning in Dubai",
-      imageClassName: "object-[82%_32%]",
-    },
-    {
-      title: "Business setup services",
-      href: "/business-setup-services-uae",
-      description: "See the full setup path from licensing through visas, banking, tax, and renewals.",
-      imageSrc: versionedAssetPath("/services/business-setup-services-uae.webp"),
-      imageAlt: "Business setup services planning in the UAE",
-      imageClassName: "object-[82%_32%]",
-    },
-    {
       title: "Business setup pricing",
       href: "/business-setup-cost-dubai",
       description: "Compare starting prices for freelance, free zone, and mainland setup routes.",
@@ -50,14 +34,6 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
       description: "Compare market access, visas, banking, office needs, and setup cost tradeoffs.",
       imageSrc: versionedAssetPath("/services/mainland-vs-freezone.webp"),
       imageAlt: "Mainland and free zone setup comparison in Dubai",
-      imageClassName: "object-[82%_34%]",
-    },
-    {
-      title: "Low-cost setup routes",
-      href: "/low-cost-business-setup-uae",
-      description: "Compare the cheapest viable routes without choosing the wrong structure.",
-      imageSrc: versionedAssetPath("/services/low-cost-setup.webp"),
-      imageAlt: "Low-cost UAE business setup route planning",
       imageClassName: "object-[82%_34%]",
     },
     {

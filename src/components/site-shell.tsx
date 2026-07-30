@@ -19,7 +19,10 @@ type SiteShellProps = {
 
 const servicesScrollIntentKey = "zenesis-scroll-to-services";
 
-export function SiteShell({ children, currentPath }: SiteShellProps) {
+export function SiteShell({
+  children,
+  currentPath,
+}: SiteShellProps) {
   const shellWidthClass = "max-w-[100rem]";
   const isHomepage = currentPath === "/";
   const router = useRouter();
@@ -90,10 +93,10 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
         className="site-background pointer-events-none fixed inset-0 -z-10"
       />
       <header
-        className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[rgba(12,27,34,0.82)] shadow-[0_16px_42px_rgba(7,21,27,0.16)] backdrop-blur-xl"
+        className="fixed left-0 right-0 top-0 z-50 border-b border-white/12 bg-[rgba(15,31,39,0.94)] backdrop-blur-xl"
       >
         <div
-          className={`mx-auto flex ${shellWidthClass} items-center justify-between gap-5 px-6 py-3.5 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center lg:px-10 xl:px-14 2xl:px-16`}
+          className={`mx-auto flex ${shellWidthClass} items-center justify-between gap-5 px-6 py-3 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center lg:px-10 xl:px-14 2xl:px-16`}
         >
           <Link href="/" className="flex shrink-0 items-center gap-3">
             <span className="lg:hidden">
@@ -113,12 +116,12 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                 width={360}
                 height={88}
                 sizes="180px"
-                className="h-10 w-auto object-contain brightness-0 invert 2xl:h-11"
+                className="h-9 w-auto object-contain brightness-0 invert 2xl:h-10"
               />
             </span>
           </Link>
 
-          <nav className="hidden min-w-0 items-center justify-center gap-1.5 justify-self-center px-1 py-0.5 text-[1rem] font-semibold text-white/95 lg:flex xl:gap-2.5 xl:text-[1.08rem] 2xl:gap-3 2xl:text-[1.16rem]">
+          <nav className="hidden min-w-0 items-center justify-center gap-1 justify-self-center px-1 py-0.5 text-[0.88rem] font-semibold text-white/88 lg:flex xl:gap-1.5 xl:text-[0.92rem] 2xl:gap-2 2xl:text-[0.96rem]">
             {navigation.map((item) => {
               const isActive =
                 item.href === currentPath ||
@@ -162,7 +165,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                     <Link
                       href={item.href}
                       onClick={(event) => handleServicesNavClick(event, item.href)}
-                      className={`group inline-flex items-center gap-1.5 px-1.5 py-2.5 transition-colors duration-200 hover:text-white xl:px-2 ${
+                      className={`group inline-flex items-center gap-1.5 px-1.5 py-2 transition-colors duration-200 hover:text-white xl:px-2 ${
                         isActive ? "text-white" : ""
                       }`}
                     >
@@ -198,8 +201,8 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                       }`}
                     >
                       <div
-                          className={`overflow-hidden rounded-[1.25rem] border border-white/10 bg-[rgba(15,31,39,0.98)] shadow-[0_24px_64px_rgba(7,21,27,0.32)] backdrop-blur-xl ${
-                          isServicesMenu ? "p-5" : "p-2.75"
+                          className={`overflow-hidden rounded-lg border border-white/12 bg-[rgba(15,31,39,0.99)] shadow-[0_18px_44px_rgba(7,21,27,0.24)] backdrop-blur-xl ${
+                          isServicesMenu ? "p-4" : "p-2.5"
                         }`}
                       >
                         <div
@@ -217,7 +220,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                               className={
                                 isServicesMenu
                                   ? "px-4 py-1 first:pl-0 last:pr-0 md:border-l md:border-white/10 md:first:border-l-0 md:pl-5 md:first:pl-0 md:pr-5 md:last:pr-0"
-                                  : "rounded-[0.95rem] border border-white/8 bg-white/[0.04] p-3"
+                                  : "rounded-md border border-white/8 bg-white/[0.04] p-3"
                               }
                             >
                               {isServicesMenu ? (
@@ -235,7 +238,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                                       current === group.title ? null : current,
                                     )
                                   }
-                                  className="block text-[1.24rem] font-semibold tracking-[-0.02em] text-white transition-colors hover:text-white/82"
+                                  className="block text-[1.08rem] font-semibold tracking-[-0.02em] text-white transition-colors hover:text-white/82"
                                 >
                                   <span className="relative inline-block">
                                     {group.title}
@@ -259,10 +262,10 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                                   <Link
                                     key={`${group.title}-${link.label}-${link.href}`}
                                     href={link.href}
-                                    className={`rounded-[0.8rem] transition-all duration-200 hover:bg-white/7 hover:text-white ${
+                                    className={`rounded-md transition-all duration-200 hover:bg-white/7 hover:text-white ${
                                       isServicesMenu
-                                        ? "px-0 py-2 text-[1.06rem] font-medium leading-[1.45] text-white/72 hover:translate-x-1 hover:px-3 hover:text-white"
-                                        : "px-2.75 py-2.25 text-[0.98rem] text-white/90"
+                                        ? "px-0 py-2 text-[0.96rem] font-medium leading-[1.45] text-white/72 hover:translate-x-1 hover:px-3 hover:text-white"
+                                        : "px-2.75 py-2.25 text-[0.92rem] text-white/90"
                                     }`}
                                   >
                                     <span className="block tracking-[-0.01em]">{link.label}</span>
@@ -291,7 +294,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                   onBlur={() =>
                     setHoveredNavHref((current) => (current === item.href ? null : current))
                   }
-                  className={`group px-1.5 py-2.5 transition-colors duration-200 hover:text-white xl:px-2 ${
+                  className={`group px-1.5 py-2 transition-colors duration-200 hover:text-white xl:px-2 ${
                     isActive ? "text-white" : ""
                   }`}
                 >
@@ -313,7 +316,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
             <div className="hidden lg:block">
               <SiteSearchForm compact className="w-[11.75rem] xl:w-[12rem] 2xl:w-[17rem]" />
             </div>
-            <div className="hidden h-11 items-center gap-3 rounded-full border border-white/12 bg-white/8 px-3.5 text-[0.96rem] font-medium text-white/92 shadow-[0_10px_24px_rgba(7,21,27,0.16)] lg:flex 2xl:px-4 2xl:text-[1rem]">
+            <div className="hidden h-10 items-center gap-3 border-l border-white/14 pl-3 text-[0.9rem] font-medium text-white/86 lg:flex 2xl:text-[0.94rem]">
               <a
                 href={whatsappHref}
                 target="_blank"
@@ -335,7 +338,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
             </div>
             <details className="relative lg:hidden">
               <summary
-                className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-white/12 bg-white/8 text-white shadow-[0_10px_24px_rgba(7,21,27,0.16)] marker:content-none"
+                className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-md border border-white/14 bg-white/6 text-white marker:content-none"
               >
                 <span className="sr-only">Open navigation menu</span>
                 <span className="flex flex-col gap-1.5">
@@ -351,7 +354,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                 </span>
               </summary>
 
-              <div className="absolute right-0 top-[calc(100%+0.85rem)] max-h-[calc(100dvh-5rem)] w-[19.75rem] overflow-y-auto rounded-[1.6rem] border border-white/10 bg-[rgba(15,31,39,0.985)] p-4 shadow-[0_24px_60px_rgba(7,21,27,0.28)] backdrop-blur-xl">
+              <div className="absolute right-0 top-[calc(100%+0.75rem)] max-h-[calc(100dvh-5rem)] w-[19.75rem] overflow-y-auto rounded-lg border border-white/12 bg-[rgba(15,31,39,0.99)] p-4 shadow-[0_18px_44px_rgba(7,21,27,0.24)] backdrop-blur-xl">
                 <p className="eyebrow px-1 text-white/48">Menu</p>
                 <div className="mt-3">
                   <SiteSearchForm compact className="w-full" />
@@ -364,7 +367,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                           key={item.href}
                           className="border-b border-white/8 py-1.5 last:border-b-0"
                         >
-                          <summary className="flex cursor-pointer list-none items-center justify-between rounded-[0.95rem] px-3 py-3 text-[1.12rem] font-semibold !text-white transition-colors hover:bg-white/6 marker:content-none">
+                          <summary className="flex cursor-pointer list-none items-center justify-between rounded-md px-3 py-3 text-[1.05rem] font-semibold !text-white transition-colors hover:bg-white/6 marker:content-none">
                             <span>{item.label}</span>
                             <ChevronDownIcon className="h-4 w-4 text-white/56" />
                           </summary>
@@ -392,7 +395,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                                     <Link
                                       key={`${group.title}-${link.label}-${link.href}`}
                                       href={link.href}
-                                      className="rounded-[0.9rem] px-3 py-2.5 text-[1.01rem] font-medium leading-6 !text-white/88 transition-all duration-200 hover:bg-white/7 hover:!text-white hover:pl-4"
+                                      className="rounded-md px-3 py-2.5 text-[0.96rem] font-medium leading-6 !text-white/88 transition-all duration-200 hover:bg-white/7 hover:!text-white hover:pl-4"
                                     >
                                       {link.label}
                                     </Link>
@@ -425,15 +428,15 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
       </header>
 
       <main
-        className={`mx-auto flex w-full ${shellWidthClass} flex-1 flex-col px-6 pb-24 pt-10 md:px-12 md:pt-14 xl:px-16`}
+        className={`mx-auto flex w-full ${shellWidthClass} flex-1 flex-col px-6 pt-10 md:px-12 md:pt-14 xl:px-16`}
       >
         {children}
       </main>
 
       <footer
-        className={`mx-auto w-full ${shellWidthClass} px-6 pb-8 md:px-12 xl:px-16`}
+        className="relative left-1/2 w-screen -translate-x-1/2 border-t border-[#d8d0c2] bg-[#f8f6f1]"
       >
-        <div className="rounded-[2rem] border border-foreground/10 bg-[linear-gradient(180deg,rgba(255,253,250,0.92)_0%,rgba(245,239,228,0.98)_100%)] px-6 py-8 shadow-[0_22px_70px_rgba(17,35,42,0.08)] md:px-8 md:py-9">
+        <div className={`mx-auto w-full ${shellWidthClass} px-6 py-12 md:px-12 md:py-14 xl:px-16`}>
         <div className="grid gap-10 md:grid-cols-[0.95fr_1.15fr_0.9fr] md:gap-8">
           <div className="pr-2">
             <Image
@@ -451,7 +454,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
           </div>
 
           <div className="md:border-l md:border-r md:border-foreground/10 md:px-8">
-            <p className="text-[1.2rem] font-semibold tracking-[-0.03em] text-[#8d7453]">
+            <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
               Navigation
             </p>
             <div className="mt-5 grid gap-5">
@@ -520,7 +523,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
           </div>
 
           <div>
-            <p className="text-[1.2rem] font-semibold tracking-[-0.03em] text-[#8d7453]">
+            <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
               Contact
             </p>
             <ConsultationFormButton
@@ -541,7 +544,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                     : null;
 
                 return (
-                  <div key={item.label} className="rounded-[1rem] border border-foreground/8 bg-white px-4 py-3.5 shadow-[0_8px_20px_rgba(17,35,42,0.05)]">
+                  <div key={item.label} className="rounded-lg border border-[#d8d0c2] bg-white/72 px-4 py-3.5">
                     <p className="text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-muted">
                       {item.label}
                     </p>
@@ -568,7 +571,7 @@ export function SiteShell({ children, currentPath }: SiteShellProps) {
                 );
               })}
             </div>
-            <div className="mt-4 rounded-[1rem] border border-foreground/8 bg-white px-4 py-3.5 shadow-[0_8px_20px_rgba(17,35,42,0.05)]">
+            <div className="mt-4 rounded-lg border border-[#d8d0c2] bg-white/72 px-4 py-3.5">
               <p className="text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-muted">
                 Social Media
               </p>
@@ -803,17 +806,14 @@ export function PageIntro({
           className={[
             usesFullBackgroundImage
               ? "mt-auto max-w-[48rem] border-l-4 border-[#244ba8] pl-5 pb-10 sm:pl-6 md:pl-7 md:pb-14"
-              : "max-w-[58rem] rounded-[1.9rem] border border-[#ddd4c7] bg-[linear-gradient(180deg,rgba(255,255,255,0.78)_0%,rgba(255,251,246,0.56)_100%)] px-5 py-5 shadow-[0_20px_52px_rgba(17,35,42,0.06)] backdrop-blur-[10px] sm:px-6 md:px-7 md:py-6",
+              : "max-w-[52rem] border-l-4 border-[#244ba8] py-1 pl-5 sm:pl-6 md:pl-7",
             contentClassName ?? "",
           ]
             .filter(Boolean)
             .join(" ")}
         >
           {usesEditorialIntro ? (
-            <div className="mb-5 flex items-center gap-3">
-              <span className="h-[3px] w-9 rounded-full bg-[#b88d53]" />
-              <span className="h-px flex-1 bg-[linear-gradient(90deg,rgba(184,141,83,0.34)_0%,rgba(184,141,83,0.06)_52%,transparent_100%)]" />
-            </div>
+            <div className="mb-5 h-px w-12 bg-[#b88d53]" />
           ) : null}
           {breadcrumb ? (
             breadcrumbItems ? (
@@ -864,7 +864,9 @@ export function PageIntro({
           {eyebrow ? (
             <p
               className={`eyebrow ${
-                usesFullBackgroundImage ? "hero-reveal text-white/78" : "text-accent"
+                usesFullBackgroundImage
+                  ? "hero-reveal text-white/78"
+                  : "!text-[0.76rem] font-semibold uppercase !tracking-[0.22em] text-[#8d7453]"
               } ${breadcrumb ? "mt-5" : ""}`}
             >
               {eyebrow}
@@ -1008,13 +1010,22 @@ export function SectionHeading({
   descriptionClassName,
 }: SectionHeadingProps) {
   return (
-    <div className="max-w-5xl">
-      <p className={["eyebrow text-accent", eyebrowClassName ?? ""].filter(Boolean).join(" ")}>
-        {eyebrow}
-      </p>
+    <div className="max-w-[54rem]">
+      {eyebrow ? (
+        <p
+          className={[
+            "eyebrow !text-[0.76rem] font-semibold uppercase !tracking-[0.22em] text-[#8d7453]",
+            eyebrowClassName ?? "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        >
+          {eyebrow}
+        </p>
+      ) : null}
       <h2
         className={[
-          "section-title font-semibold text-foreground",
+          `${eyebrow ? "mt-3" : ""} section-title w-full !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-foreground sm:!text-[1.9rem] md:!text-[2.05rem]`,
           titleClassName ?? "",
         ]
           .filter(Boolean)
@@ -1025,7 +1036,7 @@ export function SectionHeading({
       {description ? (
         <p
           className={[
-            "mt-4 max-w-4xl text-[1.16rem] leading-8 text-muted md:text-[1.24rem] md:leading-9",
+            "text-muted mt-4 max-w-[50rem] !text-[1.06rem] !leading-8 text-[#07151b]/76 md:!text-[1.1rem]",
             descriptionClassName ?? "",
           ]
             .filter(Boolean)

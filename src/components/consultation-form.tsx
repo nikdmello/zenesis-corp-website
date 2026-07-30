@@ -680,7 +680,7 @@ export function ConsultationInlinePanel({
   return (
     <form
       onSubmit={onSubmit}
-      className="overflow-hidden rounded-[2rem] border border-foreground/10 bg-[#fffdfa] shadow-[0_24px_80px_rgba(17,35,42,0.12)]"
+      className="overflow-hidden rounded-lg border border-foreground/10 bg-[#fffdfa] shadow-[0_12px_34px_rgba(17,35,42,0.07)]"
     >
       <div className="relative overflow-hidden bg-[#11232a] p-6 text-white md:p-8">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(36,75,168,0.48),transparent_32%),linear-gradient(145deg,rgba(255,255,255,0.08),transparent_42%)]" />
@@ -698,7 +698,7 @@ export function ConsultationInlinePanel({
       <div className="p-6 md:p-8">
         {submittedPayload ? (
           <div className="grid gap-5">
-            <div className="rounded-[1.5rem] border border-foreground/10 bg-[#f8f5ef] p-5">
+            <div className="rounded-md border border-foreground/10 bg-[#f8f6f1] p-5">
               <p className="text-[1.18rem] font-semibold tracking-[-0.03em] text-foreground">
                 Your enquiry has been sent.
               </p>

@@ -146,7 +146,7 @@ export function HomepageReviewsCarousel({
                   href={googleReviewsHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="group relative flex h-full min-h-[18rem] min-w-0 flex-col rounded-[1.7rem] border border-[#d8d0c2] bg-[linear-gradient(145deg,#ffffff_0%,#ffffff_62%,#faf5eb_100%)] p-5 text-[#11232a] shadow-[0_12px_32px_rgba(17,35,42,0.055)] transition-[transform,border-color,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:border-[#cdb98f] hover:shadow-[0_18px_42px_rgba(17,35,42,0.1)] md:p-5.5"
+                  className="group relative flex h-[17rem] min-w-0 flex-col rounded-lg border border-[#d8d0c2] bg-white p-4 text-[#11232a] transition-transform duration-300 ease-out hover:-translate-y-0.5 md:h-[17.5rem] md:p-5"
                 >
                   <div className="flex items-center justify-between gap-4">
                     <span
@@ -163,11 +163,11 @@ export function HomepageReviewsCarousel({
                     </span>
                   </div>
 
-                  <p className="mt-2 text-[1.08rem] leading-7 text-[#11232a] md:text-[1.14rem] md:leading-8">
+                  <p className="mt-2 line-clamp-4 overflow-hidden text-[1.05rem] leading-7 text-[#11232a] md:text-[1.1rem] md:leading-7">
                     &ldquo;{item.quote}&rdquo;
                   </p>
 
-                  <div className="mt-auto flex items-center justify-between gap-4 border-t border-[#d8d0c2]/70 pt-4">
+                  <div className="mt-auto flex items-center justify-between gap-4 border-t border-[#d8d0c2]/70 pt-3">
                     <div className="flex min-w-0 items-center gap-3">
                       <span
                         aria-hidden="true"
@@ -178,9 +178,6 @@ export function HomepageReviewsCarousel({
                       <div className="min-w-0">
                         <p className="text-[0.96rem] font-semibold leading-tight tracking-[-0.02em] text-[#11232a] md:text-[1rem]">
                           {item.name}
-                        </p>
-                        <p className="mt-0.5 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[#8d7453]">
-                          Google review
                         </p>
                       </div>
                     </div>

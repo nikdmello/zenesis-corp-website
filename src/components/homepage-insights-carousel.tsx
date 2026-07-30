@@ -206,16 +206,16 @@ export function HomepageInsightsCarousel({
                 <Link
                   key={item.slug}
                   href={`/insights/${item.slug}`}
-                  className="group flex h-full min-h-[29rem] self-stretch flex-col rounded-[1.75rem] border border-[#d8d0c2] bg-white p-4 text-[#11232a] transition-transform duration-300 hover:-translate-y-1 md:min-h-[29.5rem]"
+                  className="group flex h-[40rem] self-stretch flex-col rounded-lg border border-[#d8d0c2] bg-white p-3 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)] transition-transform duration-300 hover:-translate-y-0.5 md:h-[41rem]"
                 >
                   <div className="relative z-10 flex min-h-full flex-1 flex-col">
-                    <div className="relative overflow-hidden rounded-[1.35rem] bg-[#11232a]">
+                    <div className="relative h-56 shrink-0 overflow-hidden rounded-md bg-[#11232a] md:h-64 lg:h-60 xl:h-64">
                       <Image
                         src={item.heroImageSrc}
                         alt={item.heroImageAlt}
-                        width={640}
-                        height={420}
-                        className={`aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] ${item.heroImageClassName ?? "object-center"}`}
+                        fill
+                        sizes="(min-width: 1280px) 30vw, (min-width: 1024px) 31vw, (min-width: 768px) 88vw, 92vw"
+                        className={`object-cover transition-transform duration-500 group-hover:scale-[1.04] ${item.heroImageClassName ?? "object-center"}`}
                       />
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgba(17,35,42,0.46)_100%)]" />
                     </div>
@@ -229,10 +229,10 @@ export function HomepageInsightsCarousel({
                         </span>
                         <span>{item.dateLabel}</span>
                       </div>
-                      <h3 className="mt-4 min-h-[5.8rem] text-2xl font-semibold leading-[1.05] tracking-[-0.03em] text-foreground">
+                      <h3 className="mt-4 line-clamp-3 h-[5.8rem] overflow-hidden text-2xl font-semibold leading-[1.05] tracking-[-0.03em] text-foreground">
                         {item.title}
                       </h3>
-                      <p className="mt-4 flex-1 text-[1.08rem] leading-8 text-muted">
+                      <p className="mt-4 line-clamp-4 flex-1 overflow-hidden text-[1.08rem] leading-8 text-muted">
                         {item.description}
                       </p>
                       <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors group-hover:text-accent-strong">

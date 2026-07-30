@@ -185,7 +185,7 @@ export default async function InsightArticlePage({
             </div>
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,35,42,0.08)_0%,rgba(17,35,42,0.02)_58%,rgba(17,35,42,0.28)_100%)]" />
           </div>
-          <div className="relative mx-auto w-full max-w-[94rem] px-6 md:px-10 xl:px-18">
+          <div className="relative mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
             <Link
               href="/insights"
               className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/8 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/12"
@@ -721,8 +721,8 @@ export default async function InsightArticlePage({
           </section>
         ) : null}
 
-        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-14 md:py-16">
-          <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 xl:px-16">
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f8f6f1] py-14 md:py-16">
+          <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
             <TalkToZenesisPanel
               wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.18)] md:p-10"
               eyebrowClassName="eyebrow text-white/58"

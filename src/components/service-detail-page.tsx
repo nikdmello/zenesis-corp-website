@@ -1,23 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
+import { ReadingProgress } from "@/components/reading-progress";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
-import { CardAccent, PageIntro, SiteShell } from "@/components/site-shell";
+import { PageIntro, SiteShell } from "@/components/site-shell";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
+import { articleSectionHeadingClassName } from "@/lib/article-styles";
 import { insightPosts } from "@/lib/insights";
 import { pickInsightLinks } from "@/lib/internal-links";
 import type { ServiceDetailConfig } from "@/lib/service-pages";
 import {
-  buildFaqSchema,
   buildBreadcrumbSchema,
+  buildFaqSchema,
   buildServiceSchema,
   getAbsoluteUrl,
 } from "@/lib/seo";
 
+function toSectionId(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
-  const hasAmbientIntro = Boolean(config.introBackgroundImageSrc);
   const knowledgeSections =
     config.knowledgeSections && config.knowledgeSections.length > 0
       ? config.knowledgeSections
@@ -40,6 +48,18 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
     config.relatedInsightSlugs,
   );
   const canonicalPath = `/${config.slug}`;
+  const guideLinks = [
+    { href: "#overview", label: config.introTitle },
+    ...knowledgeSections.map((section) => ({
+      href: `#${toSectionId(section.title)}`,
+      label: section.title,
+    })),
+    { href: "#what-we-handle", label: config.pointsTitle },
+    ...(config.directAnswers?.length
+      ? [{ href: "#direct-answers", label: "Direct answers" }]
+      : []),
+    { href: "#primary-sources", label: "Primary sources" },
+  ];
   const serviceSchemas = [
     buildServiceSchema({
       title: config.title,
@@ -69,8 +89,10 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
         ]
       : []),
   ];
+
   return (
     <SiteShell currentPath={config.currentPath}>
+      <ReadingProgress />
       {serviceSchemas.map((schema, index) => (
         <JsonLd key={index} data={schema} />
       ))}
@@ -83,10 +105,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
               ? [{ label: "Services", href: "/#services" }, { label: config.title }]
               : [
                   { label: "Services", href: "/#services" },
-                  {
-                    label: parentServiceLabel,
-                    href: config.backHref,
-                  },
+                  { label: parentServiceLabel, href: config.backHref },
                   { label: config.title },
                 ]
         }
@@ -107,162 +126,189 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
         }
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <article className={`rounded-[2rem] border border-[#d8d0c2] p-8 text-[#11232a] shadow-[0_22px_70px_rgba(17,35,42,0.16)] md:p-10 ${
-            config.topLevelService
-              ? "bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)]"
-              : "bg-white"
-          }`}>
-            <div className={config.overviewImageSrc ? "grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start" : ""}>
-              <div>
-                <CardAccent />
-                <h2 className={`section-title font-semibold ${hasAmbientIntro ? "text-[#11232a]" : "text-foreground"}`}>
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-14 md:py-18">
+        <div className="mx-auto w-full max-w-[104rem] px-7 md:px-14 xl:px-24">
+          <div className="mx-auto max-w-[78rem] lg:grid lg:grid-cols-[minmax(0,54rem)_17rem] lg:items-start lg:gap-12 xl:gap-16">
+            <div className="min-w-0 space-y-14 md:space-y-16">
+              <nav
+                aria-label="On this page"
+                className="border-y border-[#d9d1c5] bg-[#f8f6f1] px-6 py-7 md:px-8 lg:hidden"
+              >
+                <details className="group">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+                    <span>
+                      <span className="block text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                        On this page
+                      </span>
+                      <span className="mt-2 block text-[0.98rem] leading-7 text-[#07151b]/68">
+                        {guideLinks.length} sections
+                      </span>
+                    </span>
+                    <span className="text-2xl leading-none text-[#8d7453] transition-transform group-open:rotate-45">
+                      +
+                    </span>
+                  </summary>
+                  <GuideLinks items={guideLinks} className="mt-6 space-y-3 border-t border-[#d9d1c5] pt-5" />
+                </details>
+              </nav>
+
+              <section
+                id="overview"
+                className="mx-auto w-full max-w-[54rem] scroll-mt-28"
+              >
+                <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                  Overview
+                </p>
+                <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>
                   {config.introTitle}
                 </h2>
                 <div
-                  className={`mt-5 max-w-[88rem] space-y-5 text-[1.16rem] leading-9 md:text-[1.22rem] ${
-                    hasAmbientIntro ? "text-[#11232a]" : "text-muted"
-                  }`}
+                  className={`mt-7 max-w-[50rem] space-y-5 ${
+                    config.overviewImageSrc
+                      ? "text-[1.08rem] leading-[2rem] md:text-[1.14rem] md:leading-[2.15rem]"
+                      : "text-[1.12rem] leading-[2.08rem] md:text-[1.18rem] md:leading-[2.2rem]"
+                  } text-[#07151b]/92`}
                 >
                   {config.introParagraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
                 </div>
-              </div>
 
-              {config.overviewImageSrc ? (
-                <div className="overflow-hidden rounded-[1.8rem] border border-[#d8d0c2] bg-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.1)]">
-                  <Image
-                    src={config.overviewImageSrc}
-                    alt={config.overviewImageAlt ?? config.title}
-                    width={1600}
-                    height={1040}
-                    className={`aspect-[16/11] w-full object-cover ${config.overviewImagePosition ?? "object-center"}`}
-                  />
-                </div>
-              ) : null}
-            </div>
-
-            {config.subpageLinks?.length ? (
-              <div className={`mt-8 ${config.topLevelService ? "rounded-[1.6rem] border border-[#d8d0c2] bg-white p-4 shadow-[0_10px_28px_rgba(17,35,42,0.06)] md:p-5" : ""}`}>
-                <ServiceSubpageLinks items={config.subpageLinks} columnsClassName="md:grid-cols-3" />
-              </div>
-            ) : null}
-          </article>
-        </div>
-      </section>
-
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <div className="max-w-[56rem]">
-            <h2 className="section-title font-semibold text-foreground">
-              What helps clients make the right decision
-            </h2>
-            <p className="mt-4 max-w-[52rem] text-[1.12rem] leading-8 text-muted md:text-[1.16rem] md:leading-9">
-              The right choice usually becomes clearer when the business model,
-              ownership structure, timing, and post-setup needs are looked at
-              together instead of in isolation.
-            </p>
-          </div>
-
-          <div
-            className={`mt-10 grid gap-5 ${
-              knowledgeSections.length > 1 ? "lg:grid-cols-2" : ""
-            }`}
-          >
-            {knowledgeSections.map((section) => (
-              <article key={section.title} className="rounded-[2rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_20px_60px_rgba(17,35,42,0.18)] md:p-10">
-                <CardAccent />
-                <h2 className="section-title font-semibold text-foreground">
-                  {section.title}
-                </h2>
-                {section.intro ? (
-                  <p className="mt-5 max-w-[42rem] text-[1.08rem] leading-8 text-muted md:text-[1.12rem] md:leading-9">
-                    {section.intro}
-                  </p>
+                {config.overviewImageSrc ? (
+                  <div className="mt-8 overflow-hidden border-y border-[#d9d1c5] bg-[#f8f6f1] py-4">
+                    <Image
+                      src={config.overviewImageSrc}
+                      alt={config.overviewImageAlt ?? config.title}
+                      width={1600}
+                      height={1040}
+                      className={`aspect-[16/9] w-full object-cover ${config.overviewImagePosition ?? "object-center"}`}
+                    />
+                  </div>
                 ) : null}
-                <div className="mt-6 grid gap-3">
-                  {section.items.map((item) => (
-                    <div
-                      key={item}
-                      className="rounded-[1.3rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] px-4 py-4 text-[1.02rem] leading-7 text-foreground shadow-[0_8px_24px_rgba(17,35,42,0.06)]"
-                    >
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <article className="rounded-[2rem] border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-8 text-[#11232a] shadow-[0_20px_60px_rgba(17,35,42,0.12)] md:p-10">
-            <CardAccent />
-            <h2 className="section-title font-semibold text-foreground">
-              {config.pointsTitle}
-            </h2>
-            <div className="mt-6 grid gap-3">
-              {config.points.map((point) => (
-                <div
-                  key={point}
-                  className="rounded-[1.3rem] border border-[#d8d0c2] bg-white px-4 py-4 text-[1.05rem] font-medium text-foreground shadow-[0_8px_22px_rgba(17,35,42,0.05)]"
+                {config.subpageLinks?.length ? (
+                  <div className="mt-9 border-t border-[#e4dbce] pt-8">
+                    <p className="mb-5 text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+                      Useful next steps
+                    </p>
+                    <ServiceSubpageLinks
+                      items={config.subpageLinks}
+                      columnsClassName="md:grid-cols-2"
+                      variant="compact"
+                    />
+                  </div>
+                ) : null}
+              </section>
+
+              {knowledgeSections.map((section) => (
+                <section
+                  key={section.title}
+                  id={toSectionId(section.title)}
+                  className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-t border-[#e4dbce] pt-10"
                 >
-                  {point}
-                </div>
+                  <h2 className={articleSectionHeadingClassName}>{section.title}</h2>
+                  {section.intro ? (
+                    <p className="mt-6 max-w-[50rem] text-[1.08rem] leading-[2rem] text-[#07151b]/84 md:text-[1.14rem] md:leading-[2.15rem]">
+                      {section.intro}
+                    </p>
+                  ) : null}
+                  <ul className="mt-7 max-w-[52rem] divide-y divide-[#e4dbce] border-y border-[#e4dbce]">
+                    {section.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b]/92 md:text-[1.08rem]"
+                      >
+                        <span className="mt-[0.72rem] h-2 w-2 shrink-0 rounded-full bg-[#8d7453]" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
               ))}
+
+              <section
+                id="what-we-handle"
+                className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#244ba8] bg-[#f3f7ff] px-6 py-8 md:px-8"
+              >
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#244ba8]">
+                  How Zenesis helps
+                </p>
+                <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>
+                  {config.pointsTitle}
+                </h2>
+                <ul className="mt-6 divide-y divide-[#cfdaf1] border-y border-[#cfdaf1]">
+                  {config.points.map((point) => (
+                    <li
+                      key={point}
+                      className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b]/92 md:text-[1.08rem]"
+                    >
+                      <span className="mt-[0.72rem] h-2 w-2 shrink-0 rounded-full bg-[#244ba8]" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             </div>
-          </article>
+
+            <aside className="sticky top-24 hidden max-h-[calc(100vh-7rem)] overflow-y-auto border-l border-[#d9d1c5] pl-7 lg:block">
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+                On this page
+              </p>
+              <GuideLinks items={guideLinks} className="mt-5 space-y-3.5" />
+              <div className="mt-7 border-t border-[#d9d1c5] pt-6">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#1f7652]">
+                  Reviewed guidance
+                </p>
+                <a
+                  href="#primary-sources"
+                  className="mt-3 inline-flex text-[0.82rem] font-semibold text-[#244ba8] hover:underline"
+                >
+                  View primary sources
+                </a>
+              </div>
+            </aside>
+          </div>
         </div>
       </section>
 
       {relatedInsights.length ? (
-        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-14 md:py-18">
           <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-            <div className="max-w-5xl">
-              <h2 className="section-title font-semibold text-foreground">
-                Related reading
+            <div className="max-w-[54rem]">
+              <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                Related guidance
+              </p>
+              <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>
+                Continue reading
               </h2>
-              <p className="mt-4 max-w-4xl text-[1.16rem] leading-8 text-muted md:text-[1.24rem] md:leading-9">
-                Useful insight articles that connect the service decision to structure, compliance, or timing questions around it.
+              <p className="mt-4 max-w-[50rem] text-[1.08rem] leading-8 text-[#07151b]/76">
+                Useful guides that connect this service decision to structure, compliance, and timing.
               </p>
             </div>
-
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
+            <div className="mt-8 grid gap-5 md:grid-cols-3">
               {relatedInsights.map((post) => (
                 <Link
                   key={post.slug}
                   href={`/insights/${post.slug}`}
-                  className="group overflow-hidden rounded-[1.75rem] border border-[#d8d0c2] bg-white text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.08)] transition-transform duration-200 hover:-translate-y-0.5"
+                  className="group overflow-hidden border border-[#d8d0c2] bg-white text-[#11232a] shadow-[0_14px_36px_rgba(17,35,42,0.07)] transition-transform duration-200 hover:-translate-y-0.5"
                 >
-                  <div className="relative overflow-hidden bg-[#11232a]">
-                    <Image
-                      src={post.heroImageSrc}
-                      alt={post.heroImageAlt}
-                      width={960}
-                      height={620}
-                      className={`aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${post.heroImageClassName ?? "object-center"}`}
-                    />
-                  </div>
-                  <div className="p-6">
-                    <CardAccent />
-                    <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-                      {post.category} <span className="text-[#11232a]/42">/</span>{" "}
-                      <span className="text-[#11232a]/58">{post.dateLabel}</span>
+                  <Image
+                    src={post.heroImageSrc}
+                    alt={post.heroImageAlt}
+                    width={960}
+                    height={620}
+                    className={`aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${post.heroImageClassName ?? "object-center"}`}
+                  />
+                  <div className="border-t border-[#e4dbce] p-5">
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">
+                      {post.category} / {post.dateLabel}
                     </p>
-                    <h3 className="mt-4 text-[1.28rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">
+                    <h3 className="mt-3 text-[1.16rem] font-semibold leading-7 text-foreground">
                       {post.title}
                     </h3>
-                    <p className="mt-4 text-[1.02rem] leading-7 text-foreground/88">
-                      {post.description}
-                    </p>
-                    <div className="mt-5 inline-flex items-center gap-2 text-[0.98rem] font-semibold text-[#244ba8]">
-                      Read article
-                      <span aria-hidden="true">→</span>
-                    </div>
+                    <span className="mt-4 inline-flex text-[0.9rem] font-semibold text-[#244ba8]">
+                      Read article →
+                    </span>
                   </div>
                 </Link>
               ))}
@@ -279,7 +325,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
         />
       ) : null}
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f8f6f1] py-14 md:py-16">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <TalkToZenesisPanel
             wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10"
@@ -292,7 +338,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
               ]
             }
             title={config.supportTitle}
-            buttonClassName="inline-flex rounded-full border border-[#e2c58f] bg-[linear-gradient(180deg,#f4e4be_0%,#e7cc97_100%)] px-6 py-3 text-sm font-semibold !text-[#11232a] shadow-[0_16px_36px_rgba(231,204,151,0.24)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[linear-gradient(180deg,#f1dfb1_0%,#dfc186_100%)]"
+            buttonClassName="inline-flex rounded-full border border-[#e2c58f] bg-[linear-gradient(180deg,#f4e4be_0%,#e7cc97_100%)] px-6 py-3 text-sm font-semibold !text-[#11232a]"
             imageClassName="object-cover object-[74%_center]"
           />
         </div>
@@ -300,5 +346,31 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
 
       <ServiceCredibilityPanel path={canonicalPath} variant="sources" />
     </SiteShell>
+  );
+}
+
+function GuideLinks({
+  items,
+  className,
+}: {
+  items: readonly { href: string; label: string }[];
+  className: string;
+}) {
+  return (
+    <ol className={className}>
+      {items.map((item, index) => (
+        <li key={item.href}>
+          <a
+            href={item.href}
+            className="group flex items-start gap-3 text-[0.84rem] font-semibold leading-5 text-foreground/72 hover:text-[#244ba8]"
+          >
+            <span className="mt-px text-[0.68rem] tabular-nums text-[#8d7453]">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span>{item.label}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
   );
 }

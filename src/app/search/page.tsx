@@ -70,7 +70,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           />
 
           {query && results.length === 0 ? (
-            <div className="mt-10 rounded-[2rem] border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_20px_60px_rgba(17,35,42,0.18)] md:p-10">
+            <div className="mt-10 rounded-lg border border-[#d8d0c2] bg-white p-8 text-[#11232a] md:p-10">
               <h2 className="text-[1.4rem] font-semibold tracking-[-0.03em] text-foreground">
                 No direct matches found
               </h2>
@@ -90,7 +90,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               <Link
                 key={`${result.href}-${result.title}`}
                 href={result.href}
-                className="group rounded-[1.75rem] border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.14)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_22px_58px_rgba(17,35,42,0.18)]"
+                className="group rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] transition-transform duration-200 hover:-translate-y-0.5"
               >
                 <div
                   title={result.section ? `${result.type} • ${result.section}` : result.type}

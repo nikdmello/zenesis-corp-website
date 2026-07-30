@@ -50,15 +50,15 @@ export function InsightsArchive({ posts }: InsightsArchiveProps) {
           <Link
             key={post.slug}
             href={`/insights/${post.slug}`}
-            className="group grid gap-6 rounded-[2rem] border border-[#ddd3c6] bg-white px-5 py-5 shadow-[0_18px_48px_rgba(17,35,42,0.06)] transition-transform duration-200 hover:-translate-y-0.5 md:grid-cols-[0.72fr_1.28fr] md:items-center md:px-6 md:py-6"
+            className="group grid gap-6 rounded-lg border border-[#ddd3c6] bg-white p-5 transition-transform duration-200 hover:-translate-y-0.5 md:grid-cols-[0.72fr_1.28fr] md:items-center md:p-6"
           >
-            <div className="relative overflow-hidden rounded-[1.7rem] bg-[#11232a] shadow-[0_18px_48px_rgba(17,35,42,0.08)]">
+            <div className="relative h-56 overflow-hidden rounded-lg border border-[#d8d0c2] bg-[#11232a] md:h-60 xl:h-64">
               <Image
                 src={post.heroImageSrc}
                 alt={post.heroImageAlt}
-                width={960}
-                height={620}
-                className={`aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${post.heroImageClassName ?? "object-center"}`}
+                fill
+                sizes="(min-width: 1280px) 34vw, (min-width: 768px) 38vw, 92vw"
+                className={`object-cover transition-transform duration-500 group-hover:scale-[1.03] ${post.heroImageClassName ?? "object-center"}`}
               />
             </div>
 

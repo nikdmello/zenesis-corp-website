@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/json-ld";
+import { PageSectionNav, PageSectionNavMobile } from "@/components/page-section-nav";
+import { ReadingProgress } from "@/components/reading-progress";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
@@ -95,11 +97,13 @@ const nextStepLinks = [
     href: "/business-setup-cost-dubai",
     description: "Compare starting prices and the cost drivers behind each setup route.",
   },
-  {
-    label: "Low-cost setup",
-    href: "/low-cost-business-setup-uae",
-    description: "Check the cheapest viable routes without choosing a structure that blocks operations later.",
-  },
+] as const;
+
+const comparisonPageLinks = [
+  { href: "#route-comparison", label: "Route comparison" },
+  { href: "#next-steps", label: "Next steps" },
+  { href: "#direct-answers", label: "Direct answers" },
+  { href: "#primary-sources", label: "Primary sources" },
 ] as const;
 
 export const metadata: Metadata = buildPageMetadata({
@@ -123,6 +127,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
 
   return (
     <SiteShell currentPath="/business-setup">
+      <ReadingProgress />
       {schemas.map((schema, index) => (
         <JsonLd key={index} data={schema} />
       ))}
@@ -144,17 +149,18 @@ export default function MainlandVsFreeZoneDubaiPage() {
         }
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+      <PageSectionNavMobile items={comparisonPageLinks} />
+
+      <section id="route-comparison" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18">
+        <div className="mx-auto grid w-full max-w-[100rem] gap-12 px-6 md:px-12 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start xl:px-20">
+          <div className="min-w-0">
           <SectionHeading
-            eyebrow=""
+            eyebrow="Decision table"
             title="Route comparison"
             description="Use this as a decision tool before comparing license packages. The right setup route should match how the company will actually operate."
-            titleClassName="!text-white"
-            descriptionClassName="!text-white/88"
           />
 
-          <div className="mt-8 overflow-hidden rounded-[1.55rem] border border-[#d8d0c2] bg-white shadow-[0_16px_44px_rgba(17,35,42,0.08)]">
+          <div className="mt-8 overflow-hidden rounded-lg border border-[#d8d0c2] bg-white">
             <div className="overflow-x-auto">
               <table className="min-w-[64rem] border-collapse text-left">
                 <thead className="bg-[#f5efe4] text-[#11232a]">
@@ -191,10 +197,12 @@ export default function MainlandVsFreeZoneDubaiPage() {
               </table>
             </div>
           </div>
+          </div>
+          <PageSectionNav items={comparisonPageLinks} />
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section id="next-steps" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f5efe4] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Next step"
@@ -213,8 +221,8 @@ export default function MainlandVsFreeZoneDubaiPage() {
         items={faqs}
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-14 md:py-16">
-        <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 xl:px-16">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f8f6f1] py-14 md:py-16">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <TalkToZenesisPanel
             wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.18)] md:p-10"
             eyebrowClassName="eyebrow text-white/58"

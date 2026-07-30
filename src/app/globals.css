@@ -117,14 +117,6 @@ a {
   text-wrap-style: balance;
 }
 
-.eyebrow {
-  display: none !important;
-}
-
-.eyebrow + * {
-  margin-top: 0 !important;
-}
-
 .hero-image {
   animation: hero-image-settle 1400ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }

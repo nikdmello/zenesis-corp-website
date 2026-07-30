@@ -24,16 +24,6 @@ const serviceSubpageVisuals: Record<
     imageAlt: "Business setup and company formation planning in Dubai",
     imageClassName: "object-[58%_center]",
   },
-  "/business-setup-services-uae": {
-    imageSrc: versionedAssetPath("/services/business-setup-services-uae.webp"),
-    imageAlt: "Business setup services planning in the UAE",
-    imageClassName: "object-[82%_32%]",
-  },
-  "/company-formation-dubai": {
-    imageSrc: versionedAssetPath("/services/company-formation-dubai.webp"),
-    imageAlt: "Company formation route planning in Dubai",
-    imageClassName: "object-[82%_32%]",
-  },
   "/business-setup-cost-dubai": {
     imageSrc: versionedAssetPath("/services/business-setup-cost-uae.webp"),
     imageAlt: "Business setup pricing and free zone package review",
@@ -42,11 +32,6 @@ const serviceSubpageVisuals: Record<
   "/mainland-vs-free-zone-dubai": {
     imageSrc: versionedAssetPath("/services/mainland-vs-freezone.webp"),
     imageAlt: "Mainland and free zone setup comparison in Dubai",
-    imageClassName: "object-[82%_34%]",
-  },
-  "/low-cost-business-setup-uae": {
-    imageSrc: versionedAssetPath("/services/low-cost-setup.webp"),
-    imageAlt: "Low-cost UAE business setup route planning",
     imageClassName: "object-[82%_34%]",
   },
   "/mainland": {
@@ -134,8 +119,8 @@ export function ServiceSubpageLinks({
           <Link
             key={item.href}
             href={item.href}
-            className={`group flex flex-col justify-between overflow-hidden border border-[#d8d0c2] bg-white text-foreground shadow-[0_14px_36px_rgba(17,35,42,0.08)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/20 hover:shadow-[0_18px_44px_rgba(17,35,42,0.11)] ${
-              isCompact ? "min-h-[8.1rem] rounded-[1.2rem]" : "min-h-[9.5rem] rounded-[1.45rem]"
+            className={`group flex flex-col justify-between overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-foreground shadow-[0_10px_28px_rgba(17,35,42,0.05)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/24 ${
+              isCompact ? "min-h-[8.1rem]" : "min-h-[9.5rem]"
             }`}
           >
             {visual ? (
@@ -186,11 +171,9 @@ export function ServiceSubpageLinks({
                 </span>
                 <span
                   aria-hidden="true"
-                  className={`inline-flex shrink-0 items-center justify-center rounded-full border border-[#244ba8]/14 bg-[#244ba8]/8 font-semibold text-[#244ba8] transition-transform duration-200 group-hover:translate-x-0.5 ${
-                    isCompact ? "h-9 w-9 text-[0.95rem]" : "h-10 w-10 text-[1rem]"
-                  }`}
+                  className="shrink-0 text-[1rem] font-semibold text-[#244ba8] transition-transform duration-200 group-hover:translate-x-0.5"
                 >
-                  {"->"}
+                  →
                 </span>
               </div>
             </div>
