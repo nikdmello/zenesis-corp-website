@@ -414,6 +414,7 @@ function CountryFlag({ label }: { label: string }) {
       height={15}
       loading="lazy"
       src={`https://flagcdn.com/40x30/${flagIso}.png`}
+      unoptimized
       width={20}
     />
   );
@@ -469,7 +470,7 @@ function CountryCodePicker({
         type="button"
         aria-expanded={isOpen}
         aria-haspopup="listbox"
-        className="flex h-full min-h-[3.25rem] w-full items-center gap-2 rounded-xl border border-foreground/12 bg-white px-3 py-3 text-left text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+        className="flex h-full min-h-[3.25rem] w-full items-center gap-2 rounded-[0.55rem] border border-[#8d7453]/22 bg-white px-3 py-3 text-left text-base font-normal text-foreground shadow-inner outline-none transition-all focus:border-[#b79056] focus:shadow-[0_0_0_4px_rgba(183,144,86,0.12)]"
         onClick={() => setIsOpen((current) => !current)}
       >
         <CountryFlag label={selectedCountry.label} />
@@ -480,7 +481,7 @@ function CountryCodePicker({
       </button>
       {isOpen ? (
         <div
-          className="absolute left-0 top-[calc(100%+0.35rem)] z-40 max-h-64 w-[19rem] overflow-y-auto rounded-xl border border-foreground/12 bg-white py-1.5 text-foreground shadow-[0_18px_48px_rgba(17,35,42,0.18)]"
+          className="absolute left-0 top-[calc(100%+0.35rem)] z-40 max-h-64 w-[19rem] overflow-y-auto rounded-[0.7rem] border border-[#8d7453]/22 bg-white py-1.5 text-foreground shadow-[0_18px_48px_rgba(17,35,42,0.18)]"
           role="listbox"
           aria-label="Country code"
         >
@@ -945,14 +946,14 @@ export function ConsultationModal({
     >
       <form
         onSubmit={onSubmit}
-        className="consultation-panel flex min-h-0 max-h-[calc(100dvh-1rem)] w-full max-w-4xl flex-col overflow-hidden rounded-[1.4rem] border border-white/20 bg-[#fffdfa] shadow-[0_36px_120px_rgba(0,0,0,0.34)] md:max-h-[calc(100dvh-2rem)] md:max-w-[42rem] md:rounded-[1.55rem]"
+        className="consultation-panel flex min-h-0 max-h-[calc(100dvh-1rem)] w-full max-w-4xl flex-col overflow-hidden rounded-[0.75rem] border border-[#ead5aa]/55 bg-[#fffdfa] shadow-[0_36px_120px_rgba(0,0,0,0.38),0_0_0_1px_rgba(255,255,255,0.08)] md:max-h-[calc(100dvh-2rem)] md:max-w-[42rem]"
       >
         <div className="relative shrink-0 overflow-hidden border-b border-white/10 bg-[#11232a] px-5 pb-4 pt-4 text-white md:px-6 md:pb-5 md:pt-5">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(36,75,168,0.48),transparent_32%),linear-gradient(145deg,rgba(255,255,255,0.08),transparent_42%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_86%_12%,rgba(234,213,170,0.2),transparent_30%),radial-gradient(circle_at_18%_18%,rgba(36,75,168,0.34),transparent_32%),linear-gradient(145deg,rgba(255,255,255,0.08),transparent_42%)]" />
           <button
             type="button"
             aria-label="Close consultation form"
-            className="absolute right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full border border-white/16 bg-white/10 text-lg leading-none text-white shadow-sm transition-all hover:bg-white/16 active:scale-95 active:bg-white/24 md:right-6 md:top-6"
+            className="absolute right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-[0.55rem] border border-[#ead5aa]/34 bg-white/8 text-lg leading-none text-[#f7e8c7] shadow-sm transition-all hover:border-[#ead5aa]/60 hover:bg-white/14 active:scale-95 active:bg-white/20 md:right-6 md:top-6"
             onPointerDown={(event) => {
               event.preventDefault();
               event.stopPropagation();
@@ -988,7 +989,7 @@ export function ConsultationModal({
         <div className="relative min-h-0 overflow-y-auto p-4 md:p-5">
           {submittedPayload ? (
             <div className="grid gap-5">
-              <div className="rounded-[1.35rem] border border-foreground/10 bg-[#f8f5ef] p-5">
+              <div className="rounded-[0.7rem] border border-[#8d7453]/18 bg-[#f8f5ef] p-5">
                 <p className="text-[1.18rem] font-semibold tracking-[-0.03em] text-foreground">
                   Your enquiry has been sent.
                 </p>
@@ -1000,14 +1001,14 @@ export function ConsultationModal({
                 <button
                   type="button"
                   onClick={() => openWhatsAppConsultation(submittedPayload)}
-                  className="inline-flex items-center justify-center rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold !text-white shadow-[0_16px_36px_rgba(37,211,102,0.24)] transition-colors hover:bg-[#1ebe5d]"
+                  className="inline-flex items-center justify-center rounded-[0.7rem] bg-[#25D366] px-6 py-3 text-sm font-semibold !text-white shadow-[0_16px_36px_rgba(37,211,102,0.24)] transition-colors hover:bg-[#1ebe5d]"
                 >
                   Continue on WhatsApp
                 </button>
                 <button
                   type="button"
                   onClick={closeModal}
-                  className="inline-flex items-center justify-center rounded-full border border-foreground/12 bg-white px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-[#f8f5ef]"
+                  className="inline-flex items-center justify-center rounded-[0.7rem] border border-[#8d7453]/22 bg-white px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-[#f8f5ef]"
                 >
                   Close
                 </button>
@@ -1024,7 +1025,7 @@ export function ConsultationModal({
                     Select the topics that apply and we will build the message for you.
                   </p>
                   {presetEnquiry || selectedShortcutLabels.length ? (
-                    <p className="rounded-xl border border-accent/12 bg-[rgba(36,75,168,0.06)] px-4 py-3 text-sm font-medium leading-6 text-foreground">
+                    <p className="rounded-[0.6rem] border border-accent/12 bg-[rgba(36,75,168,0.06)] px-4 py-3 text-sm font-medium leading-6 text-foreground">
                       {selectedShortcutLabels.length
                         ? `Selected topics: ${selectedShortcutLabels.join(", ")}`
                         : `Request: ${presetEnquiry}`}
@@ -1044,7 +1045,7 @@ export function ConsultationModal({
 
                           setSelectedShortcutLabels(nextLabels);
                         }}
-                        className={`rounded-full border px-4 py-2.5 text-[0.98rem] font-medium transition-colors md:px-4 md:py-2 md:text-[0.95rem] ${
+                        className={`rounded-[0.55rem] border px-4 py-2.5 text-[0.98rem] font-medium transition-colors md:px-4 md:py-2 md:text-[0.95rem] ${
                           selectedShortcutLabels.includes(item.label)
                             ? "border-accent bg-[rgba(36,75,168,0.08)] text-accent"
                             : "border-foreground/10 bg-white text-foreground hover:border-accent/40 hover:bg-[rgba(36,75,168,0.04)]"
@@ -1063,7 +1064,7 @@ export function ConsultationModal({
                       id={nameId}
                       name="name"
                       required
-                      className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                      className="rounded-[0.55rem] border border-[#8d7453]/22 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-all focus:border-[#b79056] focus:shadow-[0_0_0_4px_rgba(183,144,86,0.12)]"
                       autoComplete="name"
                     />
                   </label>
@@ -1075,7 +1076,7 @@ export function ConsultationModal({
                       name="email"
                       type="email"
                       required
-                      className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                      className="rounded-[0.55rem] border border-[#8d7453]/22 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-all focus:border-[#b79056] focus:shadow-[0_0_0_4px_rgba(183,144,86,0.12)]"
                       autoComplete="email"
                     />
                   </label>
@@ -1098,7 +1099,7 @@ export function ConsultationModal({
                       id={mobileId}
                       name="mobile"
                       required
-                      className="min-w-0 rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                      className="min-w-0 rounded-[0.55rem] border border-[#8d7453]/22 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-all focus:border-[#b79056] focus:shadow-[0_0_0_4px_rgba(183,144,86,0.12)]"
                       autoComplete="tel-national"
                       inputMode="tel"
                     />
@@ -1114,7 +1115,7 @@ export function ConsultationModal({
                     value={additionalNote}
                     onChange={(event) => setAdditionalNote(event.currentTarget.value)}
                     rows={2}
-                    className="resize-none rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                    className="resize-none rounded-[0.55rem] border border-[#8d7453]/22 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-all focus:border-[#b79056] focus:shadow-[0_0_0_4px_rgba(183,144,86,0.12)]"
                     placeholder="Add any short detail you want included."
                   />
                 </label>
@@ -1122,7 +1123,7 @@ export function ConsultationModal({
 
               <button
                 type="submit"
-                className="mt-5 w-full rounded-full bg-[#11232a] px-6 py-3 text-sm font-semibold !text-white shadow-[0_16px_36px_rgba(17,35,42,0.16)] transition-colors hover:bg-[#18343d] md:mt-5"
+                className="mt-5 w-full rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3.5 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_16px_34px_rgba(17,35,42,0.18),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] hover:shadow-[0_20px_40px_rgba(17,35,42,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2 md:mt-5"
               >
                 Submit enquiry
               </button>

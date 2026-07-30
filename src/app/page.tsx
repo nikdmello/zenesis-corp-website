@@ -195,7 +195,7 @@ export default function Home() {
                   <ConsultationFormButton
                     label="Schedule a Free Consultation"
                     leadingIcon={
-                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#11232a] text-[#f4dfb5] shadow-[0_5px_14px_rgba(17,35,42,0.22)] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#11232a] text-[#f4dfb5] shadow-[0_5px_14px_rgba(17,35,42,0.22)] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105">
                         <svg
                           aria-hidden="true"
                           viewBox="0 0 24 24"

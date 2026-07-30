@@ -85,16 +85,16 @@ export function SiteSearchForm({
       <div
         aria-expanded={shouldShowResults}
         aria-controls={shouldShowResults ? listboxId : undefined}
-        className={`flex items-center overflow-hidden rounded-full border shadow-[0_10px_24px_rgba(7,21,27,0.16)] ${
+        className={`flex items-center overflow-hidden rounded-[0.7rem] border transition-all duration-300 ${
           isLight
-            ? "border-foreground/10 bg-white text-foreground"
-            : "border-white/12 bg-white/8 text-white backdrop-blur-xl"
+            ? "border-foreground/10 bg-white text-foreground shadow-[0_10px_24px_rgba(7,21,27,0.12)] focus-within:border-[#8d7453]/45 focus-within:shadow-[0_14px_30px_rgba(7,21,27,0.16)]"
+            : "border-[#ead5aa]/28 bg-[linear-gradient(135deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.055)_100%)] text-white shadow-[0_12px_28px_rgba(7,21,27,0.24),inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/5 backdrop-blur-xl focus-within:border-[#ead5aa]/65 focus-within:bg-white/12 focus-within:shadow-[0_16px_34px_rgba(7,21,27,0.3),0_0_0_3px_rgba(234,213,170,0.1),inset_0_1px_0_rgba(255,255,255,0.14)]"
         } ${
           compact ? "h-11 pl-3 pr-3" : "h-14 pl-4 pr-2"
         }`}
       >
         <SearchIcon
-          className={`shrink-0 ${isLight ? "text-foreground/46" : "text-white/62"} ${
+          className={`shrink-0 transition-colors duration-300 ${isLight ? "text-foreground/46" : "text-[#ead5aa]"} ${
             compact ? "h-4 w-4" : "h-5 w-5"
           }`}
         />
@@ -117,7 +117,7 @@ export function SiteSearchForm({
           aria-autocomplete="list"
           placeholder={placeholder}
           className={`w-full bg-transparent outline-none ${
-            isLight ? "text-foreground placeholder:text-foreground/40" : "text-white placeholder:text-white/42"
+            isLight ? "text-foreground placeholder:text-foreground/40" : "text-white placeholder:text-white/58"
           } ${
             compact
               ? "px-2 text-[0.94rem] font-medium"

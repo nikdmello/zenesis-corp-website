@@ -62,7 +62,11 @@ export function ConsultationFormButton({
 
   return (
     <>
-      <button type="button" className={className} onClick={() => setIsOpen(true)}>
+      <button
+        type="button"
+        className={`!rounded-[0.7rem] ${className ?? ""}`}
+        onClick={() => setIsOpen(true)}
+      >
         <span className="inline-flex items-center gap-2">
           {leadingIcon}
           <span>{label}</span>
@@ -119,7 +123,7 @@ export function ConsultationFormButtonWithScrollPrompt({
     <>
       <button
         type="button"
-        className={className}
+        className={`!rounded-[0.7rem] ${className ?? ""}`}
         onClick={() => {
           markConsultationPromptSeen();
           hasTriggeredRef.current = true;
