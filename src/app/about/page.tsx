@@ -40,23 +40,22 @@ export default function AboutPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start">
           <article className="flow-root min-w-0">
-              <div className="mb-8 xl:float-right xl:ml-12 xl:w-[52%] 2xl:w-[56%]">
-                <div className="overflow-hidden border-y border-[#d9d1c5] bg-[#f8f6f1]">
-                  <NextImage
-                    src={versionedAssetPath("/sections/team-photo-cropped.webp")}
-                    alt="Zenesis team"
-                    width={1600}
-                    height={1200}
-                    className="block aspect-[4/3] h-auto w-full object-cover"
-                  />
-                </div>
-              </div>
-
               <div>
                 <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
                   Our background
                 </p>
                 <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>Who we are</h2>
+                <div className="mb-8 mt-7 xl:float-right xl:ml-12 xl:mt-7 xl:w-[44%] 2xl:w-[48%]">
+                  <div className="overflow-hidden border-y border-[#d9d1c5] bg-[#f8f6f1]">
+                    <NextImage
+                      src={versionedAssetPath("/sections/team-photo-cropped.webp")}
+                      alt="Zenesis team"
+                      width={1600}
+                      height={1200}
+                      className="block aspect-[4/3] h-auto w-full object-cover"
+                    />
+                  </div>
+                </div>
                 <div className="mt-7 max-w-[50rem] space-y-5 text-[1.08rem] leading-[2rem] text-[#07151b]/92 md:text-[1.14rem] md:leading-[2.15rem]">
                   <p>
                     Zenesis Corporation supports entrepreneurs, investors, SMEs, and
