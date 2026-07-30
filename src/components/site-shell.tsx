@@ -528,7 +528,25 @@ export function SiteShell({
             </p>
             <ConsultationFormButton
               label="Schedule a Free Consultation"
-              className="mt-5 inline-flex w-full items-center justify-center rounded-full border border-[#8d7453]/22 bg-[#11232a] px-5 py-3 text-center text-sm font-semibold !text-white shadow-[0_12px_26px_rgba(17,35,42,0.12)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b2f38]"
+              leadingIcon={
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#11232a] text-[#f4dfb5] shadow-[0_5px_14px_rgba(17,35,42,0.22)] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-3.5 w-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M7 3v3M17 3v3M4.5 9h15" />
+                    <rect x="4.5" y="5" width="15" height="15" rx="3" />
+                    <path d="m9.5 14 1.7 1.7 3.6-4" />
+                  </svg>
+                </span>
+              }
+              className="group mt-5 inline-flex min-h-14 w-full items-center justify-center rounded-full border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-5 py-3 text-center text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_18px_40px_rgba(17,35,42,0.18),inset_0_1px_0_rgba(255,255,255,0.9)] outline-none ring-1 ring-white/30 transition-all duration-300 hover:-translate-y-1 hover:border-[#fff1d3] hover:brightness-[1.04] hover:shadow-[0_22px_46px_rgba(17,35,42,0.24),inset_0_1px_0_rgba(255,255,255,0.95)] focus-visible:ring-2 focus-visible:ring-[#c6a15f] focus-visible:ring-offset-3 focus-visible:ring-offset-[#f5efe4] active:translate-y-0"
             />
             <div className="mt-5 grid gap-4">
               {contactDetails.map((item) => {

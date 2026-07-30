@@ -106,8 +106,6 @@ export default function BusinessSetupCostDubaiPage() {
         ]}
         title="Business setup cost in Dubai"
         description={introDescription}
-        ctaHref="/contact"
-        ctaLabel="Book a consultation"
         backgroundImageSrc={versionedAssetPath("/services/business-setup-cost-uae.webp")}
         backgroundImageAlt="Dubai business setup cost and company formation pricing"
         backgroundImagePosition="!object-[82%_32%]"

@@ -170,33 +170,49 @@ export default function Home() {
           <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[100rem] flex-col justify-end px-5 pb-3 pt-26 md:block md:px-12 md:pb-3 md:pt-12 xl:px-20">
             <div className="bottom-3 mx-auto w-full md:absolute md:bottom-3 md:left-1/2 md:w-[min(100%-6rem,68rem)] md:-translate-x-1/2 xl:w-[min(100%-10rem,72rem)]">
               <div className="mx-auto w-full max-w-[48rem] px-0 py-4 sm:px-2 md:max-w-none md:px-0 md:py-0">
-                <p className="hero-reveal hero-reveal-1 mb-4 text-center text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#ead8b7]">
-                  Dubai and UAE business consultancy
-                </p>
-                <h1 className="hero-reveal hero-reveal-1 mx-auto max-w-[12ch] text-center text-[2.45rem] font-semibold leading-[0.94] tracking-[-0.05em] text-white sm:max-w-[14ch] sm:text-[clamp(3.2rem,7vw,3.95rem)] lg:max-w-[16ch] lg:text-[clamp(3.3rem,4.5vw,4.45rem)] 2xl:max-w-none 2xl:whitespace-nowrap">
-                  Over 20 years of business setup in Dubai
+                <h1 className="hero-reveal hero-reveal-1 mx-auto max-w-none text-center text-[clamp(1.55rem,7.8vw,2.45rem)] font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-[clamp(3rem,6vw,3.7rem)] sm:leading-[0.94] sm:tracking-[-0.05em] xl:text-[clamp(3rem,4vw,3.8rem)] xl:whitespace-nowrap 2xl:text-[clamp(3.3rem,4.5vw,4.45rem)]">
+                  <span className="block whitespace-nowrap xl:inline">Over 20 years of </span>
+                  <span className="block whitespace-nowrap xl:inline">business setup in Dubai</span>
                 </h1>
 
-                <div className="hero-reveal hero-reveal-2 mx-auto mt-5 flex w-full max-w-[46rem] items-center justify-center gap-1 text-center sm:max-w-[50rem] lg:gap-1.5 2xl:max-w-none">
+                <div className="hero-reveal hero-reveal-2 mx-auto mt-5 flex w-fit max-w-full items-center justify-center gap-2 text-center sm:gap-2.5">
                   <span
                     aria-hidden="true"
-                    className="hero-subtitle-accent h-[2px] w-2.5 shrink-0 sm:w-4 lg:w-5 xl:w-7 2xl:w-10"
+                    className="hero-subtitle-accent h-[2px] w-3 shrink-0 sm:w-5"
                   />
-                  <p className="hero-subtitle-copy block min-w-0 flex-1 whitespace-normal px-0 text-center text-[#f7efe1] [text-wrap:pretty] 2xl:flex-none 2xl:whitespace-nowrap">
-                    Business setup, corporate tax, visa and banking, and ongoing corporate support
+                  <p className="hero-subtitle-copy block max-w-[calc(100vw-5rem)] flex-none whitespace-normal px-0 text-center text-[#f7efe1] [text-wrap:pretty] sm:max-w-none sm:whitespace-nowrap">
+                    Dubai and UAE business consultancy
                   </p>
                   <span
                     aria-hidden="true"
-                    className="hero-subtitle-accent h-[2px] w-2.5 shrink-0 sm:w-4 lg:w-5 xl:w-7 2xl:w-10"
+                    className="hero-subtitle-accent h-[2px] w-3 shrink-0 sm:w-5"
                   />
                 </div>
               </div>
 
-              <div className="hero-reveal hero-reveal-3 mt-5 flex justify-center md:mt-10">
+              <div className="hero-reveal hero-reveal-3 mt-2 flex justify-center">
                 <div className="flex flex-col items-center gap-4">
                   <ConsultationFormButton
                     label="Schedule a Free Consultation"
-                    className="inline-flex min-h-12 w-full max-w-[22rem] items-center justify-center whitespace-nowrap rounded-full bg-white px-5 py-3.5 text-sm font-semibold tracking-[0.01em] !text-[#07151b] shadow-[0_18px_44px_rgba(17,35,42,0.12)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white/92 sm:w-fit sm:max-w-none sm:px-7 sm:text-base"
+                    leadingIcon={
+                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#11232a] text-[#f4dfb5] shadow-[0_5px_14px_rgba(17,35,42,0.22)] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105">
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 24 24"
+                          className="h-3.5 w-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M7 3v3M17 3v3M4.5 9h15" />
+                          <rect x="4.5" y="5" width="15" height="15" rx="3" />
+                          <path d="m9.5 14 1.7 1.7 3.6-4" />
+                        </svg>
+                      </span>
+                    }
+                    className="group inline-flex min-h-14 w-full max-w-[22rem] items-center justify-center whitespace-nowrap rounded-full border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-5 py-3 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_20px_48px_rgba(7,21,27,0.28),inset_0_1px_0_rgba(255,255,255,0.9)] outline-none ring-1 ring-white/20 transition-all duration-300 hover:-translate-y-1 hover:border-[#fff1d3] hover:brightness-[1.04] hover:shadow-[0_24px_56px_rgba(7,21,27,0.34),inset_0_1px_0_rgba(255,255,255,0.95)] focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#11232a] active:translate-y-0 sm:w-fit sm:max-w-none sm:px-7 sm:text-base"
                   />
 
                   <div className="hero-reveal hero-reveal-4 flex items-center gap-3.5 text-white">
