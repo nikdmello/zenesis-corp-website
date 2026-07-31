@@ -268,6 +268,17 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Free zone setup should be checked against where clients are, whether mainland access is needed, and how the company will invoice and bank",
         ],
       },
+      {
+        title: "How Zenesis supports different jurisdictions",
+        intro:
+          "The delivery model depends on the authority involved, so Zenesis makes the distinction clear before an application begins.",
+        items: [
+          "Zenesis acts as an agent in Ajman and Ras Al Khaimah",
+          "For Abu Dhabi and ADGM requirements, Zenesis can assess the need and coordinate a referral to an appropriately licensed consultant",
+          "For Jebel Ali requirements, Zenesis can assess the need and coordinate a referral to an appropriately licensed consultant",
+          "Partner supported assistance is not presented as direct Zenesis agency representation",
+        ],
+      },
     ],
     directAnswers: [
       {
@@ -863,6 +874,28 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Post-approval help around Emirates ID, family sponsorship, and later changes or renewals",
         ],
       },
+      {
+        title: "Current five-year and ten-year routes",
+        intro:
+          "Golden Residency duration and evidence depend on the category. The route should be identified before documents are prepared.",
+        items: [
+          "Five-year routes include qualifying real-estate investors, entrepreneurs, and outstanding high-school students",
+          "Ten-year routes include qualifying public investors, exceptional talents and specialists, outstanding university students, humanitarian pioneers, and frontline heroes",
+          "Each category follows its own investment, valuation, accreditation, recommendation, education, or service evidence",
+          "The relevant authority makes the final eligibility and approval decision",
+        ],
+      },
+      {
+        title: "Evidence checked before submission",
+        intro:
+          "Zenesis helps organise the file around the selected route rather than relying on one generic checklist.",
+        items: [
+          "Investment, property, company, tax-payment, or project-valuation evidence where the selected route requires it",
+          "Professional accreditation, recommendation letters, qualifications, experience, employment, or salary records for specialist routes",
+          "Academic results and education recommendations for outstanding-student routes",
+          "Passport, residence, insurance, family, attestation, medical, and Emirates ID documents as applicable to the stage",
+        ],
+      },
     ],
     directAnswers: [
       {
@@ -887,9 +920,9 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       },
     ],
     relatedInsightSlugs: [
-      "corporate-tax-mistakes-trigger-audits-uae",
-      "financial-year-2026-uae-compliance-guide",
-      "uae-corporate-tax-registrations-cross-640000-businesses",
+      "complete-dubai-golden-visa-guide",
+      "uae-visa-reforms-2025-entrepreneurs-expats",
+      "business-consultant-beyond-company-registration",
     ],
     pointsTitle: "What we handle",
     points: [
@@ -902,6 +935,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     supportTitle: "Talk to Zenesis",
     supportParagraphs: [
       "Reach out if you want long-term residency in the UAE and need clarity on whether your investment, business role, or professional profile is likely to qualify.",
+      "For the complete category-by-category requirements, read the linked UAE Golden Residency guide before starting an application.",
     ],
     backHref: "/visa-and-banking",
     backLabel: "Back to Visa and Banking",

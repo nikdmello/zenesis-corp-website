@@ -163,6 +163,7 @@ const routeSignals = [
 const businessSetupPageLinks = [
   { href: "#overview", label: "Overview" },
   { href: "#how-zenesis-helps", label: "How Zenesis helps" },
+  { href: "#jurisdiction-support", label: "Jurisdiction support" },
   { href: "#setup-routes", label: "Setup routes" },
   { href: "#before-the-quote", label: "Before the quote" },
   { href: "#planning-tools", label: "Planning tools" },
@@ -256,6 +257,11 @@ const directAnswers = [
     question: "Can Zenesis support the company after formation?",
     answer:
       "Yes. Zenesis supports company visas, banking preparation, bookkeeping, VAT, corporate tax, renewals, amendments, document attestation, and other follow-through work where needed.",
+  },
+  {
+    question: "Can Zenesis help with an Abu Dhabi, ADGM, or Jebel Ali company?",
+    answer:
+      "Yes. Zenesis can review the proposed activity, ownership, visa, and operating requirements before referring or coordinating with an appropriately licensed consultant. Zenesis does not act directly as an agent in Abu Dhabi, ADGM, or Jebel Ali.",
   },
 ] as const;
 
@@ -438,6 +444,48 @@ export default function BusinessSetupPage() {
                 </p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="jurisdiction-support"
+        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-16 md:py-20"
+      >
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <SectionHeading
+            eyebrow="Delivery model"
+            title="Direct and partner supported setup routes"
+            description="The way Zenesis supports an application depends on the jurisdiction. We make that delivery model clear before the setup process begins."
+          />
+
+          <div className="mt-9 grid gap-5 lg:grid-cols-2">
+            <article className="rounded-lg border border-[#d8d0c2] bg-[#f8f5ef] p-7 text-[#11232a] shadow-[0_12px_30px_rgba(17,35,42,0.07)] md:p-8">
+              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+                Direct Zenesis support
+              </p>
+              <h3 className="mt-4 text-[1.45rem] font-semibold tracking-[-0.025em]">
+                Ajman and Ras Al Khaimah
+              </h3>
+              <p className="mt-4 text-[1.08rem] leading-8 text-[#11232a]/84">
+                Zenesis acts as an agent in Ajman and Ras Al Khaimah and can support the
+                relevant setup route directly.
+              </p>
+            </article>
+
+            <article className="rounded-lg border border-[#d8d0c2] bg-[#11232a] p-7 text-white shadow-[0_14px_34px_rgba(17,35,42,0.14)] md:p-8">
+              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#ead5aa]">
+                Partner supported routes
+              </p>
+              <h3 className="mt-4 text-[1.45rem] font-semibold tracking-[-0.025em] text-white">
+                Abu Dhabi, ADGM, and Jebel Ali
+              </h3>
+              <p className="mt-4 text-[1.08rem] leading-8 text-white/84">
+                Zenesis can assess the requirement and refer or coordinate with an
+                appropriately licensed consultant. Zenesis does not act directly as an
+                agent in these jurisdictions.
+              </p>
+            </article>
           </div>
         </div>
       </section>

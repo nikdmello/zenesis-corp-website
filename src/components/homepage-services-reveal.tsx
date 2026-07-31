@@ -111,9 +111,10 @@ export function HomepageServicesReveal({
 
         <div className="relative z-10 mt-9 grid items-stretch gap-4 md:grid-cols-2 xl:grid-cols-4">
           {items.map((item, index) => (
-            <article
+            <Link
               key={item.title}
-              className="group flex h-full flex-col rounded-lg border border-[#d8cfbf] bg-white p-5 shadow-[0_10px_28px_rgba(17,35,42,0.07)] transition-transform duration-200 hover:-translate-y-0.5"
+              href={item.href}
+              className="group flex h-full flex-col rounded-lg border border-[#d8cfbf] bg-white p-5 shadow-[0_10px_28px_rgba(17,35,42,0.07)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#bca57f] hover:shadow-[0_16px_34px_rgba(17,35,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#244ba8] focus-visible:ring-offset-4"
             >
               <div className="flex items-start gap-3">
                     <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#d8d0c2] bg-[#f8f2e7] text-[#8d7453]">
@@ -143,14 +144,16 @@ export function HomepageServicesReveal({
                           </li>
                         ))}
               </ul>
-              <Link
-                href={item.href}
-                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#244ba8]"
-              >
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#244ba8]">
                 {item.cta}
-                <span aria-hidden="true">-&gt;</span>
-              </Link>
-            </article>
+                <span
+                  aria-hidden="true"
+                  className="transition-transform duration-200 group-hover:translate-x-1"
+                >
+                  -&gt;
+                </span>
+              </span>
+            </Link>
           ))}
         </div>
       </div>

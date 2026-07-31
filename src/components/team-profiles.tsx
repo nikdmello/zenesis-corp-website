@@ -10,14 +10,16 @@ function TeamCard({
 }) {
   return (
     <article className="flex h-full min-w-0 flex-col">
-      <div className="relative h-[19rem] w-full shrink-0 md:h-[21rem] xl:h-[19rem] 2xl:h-[21rem]">
-        <Image
-          src={member.imageSrc}
-          alt={member.name}
-          fill
-          sizes="(min-width: 1280px) 26vw, (min-width: 768px) 42vw, 100vw"
-          className="object-contain object-center"
-        />
+      <div className="flex h-[19rem] w-full shrink-0 justify-center md:h-[21rem] xl:h-[19rem] 2xl:h-[21rem]">
+        <div className="relative h-full aspect-[4/5]">
+          <Image
+            src={member.imageSrc}
+            alt={member.name}
+            fill
+            sizes="(min-width: 1280px) 26vw, (min-width: 768px) 42vw, 100vw"
+            className="object-cover object-center"
+          />
+        </div>
       </div>
 
       <div className="min-w-0 flex flex-1 flex-col border-t border-[#d8d0c2] pt-5">

@@ -116,9 +116,9 @@ const sourceLibrary = {
     href: "https://u.ae/en/information-and-services/visa-and-emirates-id/residence-visas/golden-visa",
   },
   icpGoldenVisa: {
-    title: "Golden Visa services",
+    title: "UAE Golden Residency categories and requirements",
     publisher: "Federal Authority for Identity, Citizenship, Customs & Port Security",
-    href: "https://icp.gov.ae/en/services/golden-visa/",
+    href: "https://icp.gov.ae/en/uae-golden-residency/",
   },
   icpGreenResidency: {
     title: "Green Residency",
@@ -208,8 +208,8 @@ const insightCredibilityBySlug: Record<string, InsightCredibility> = {
     sources: [sourceLibrary.mainlandSetup, sourceLibrary.freeZoneSetup, sourceLibrary.corporateTaxGeneral],
   },
   "complete-dubai-golden-visa-guide": {
-    updatedLabel: "July 22, 2026",
-    sources: [sourceLibrary.goldenVisa, sourceLibrary.icpGoldenVisa],
+    updatedLabel: "July 31, 2026",
+    sources: [sourceLibrary.icpGoldenVisa, sourceLibrary.goldenVisa],
   },
 };
 
@@ -1899,16 +1899,16 @@ export const insightPosts: InsightPost[] = [
     category: "Visa and Banking",
     title: "Complete Dubai Golden Visa Guide",
     description:
-      "An evergreen guide to what the Dubai Golden Visa is, who it is designed for, the main eligibility routes, and how to approach the process more carefully.",
-    dateLabel: "August 29, 2022",
+      "A current guide to UAE Golden Residency categories, five-year and ten-year routes, key documents, and how to prepare for category-specific assessment.",
+    dateLabel: "July 31, 2026",
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/services/golden-visa.webp"),
     heroImageAlt: "Dubai Golden Visa planning visual focused on residency and eligibility guidance",
     heroImageClassName: "object-[28%_82%]",
     keyTakeaways: [
-      "The Golden Visa works best when the eligibility category is identified correctly first.",
-      "Long-term residency value comes from stability, but approval still depends on evidence quality.",
-      "Existing UAE company, investment, or employment records often need to be coordinated into the application strategy.",
+      "Golden Residency is issued for five or ten years depending on the eligibility category.",
+      "Investment, entrepreneurship, talent, student, humanitarian, and frontline categories follow different evidence routes.",
+      "Eligibility and approval remain subject to the relevant authority and the applicant's supporting evidence.",
     ],
     relatedServiceHrefs: [
       "/golden-visa-services-in-the-uae",
@@ -1920,10 +1920,10 @@ export const insightPosts: InsightPost[] = [
         title: "What the Golden Visa Is",
         paragraphs: [
           {
-            text: "The UAE Golden Visa is a long-term residency route designed for eligible investors, entrepreneurs, specialised talent, outstanding students, and other qualifying profiles.",
-            sourceIndexes: [1, 2],
+            text: "The UAE Golden Residency is a renewable long-term residence for eligible applicants. Depending on the category, it is issued for five or ten years without requiring a sponsor.",
+            sourceIndexes: [1],
           },
-          "Its appeal comes from stability. Instead of relying only on shorter residency cycles, eligible applicants can secure longer-term residence with a framework that also supports family planning and continuity.",
+          "Eligible holders can live, work, study, and invest in the UAE and may sponsor a spouse and children in accordance with the applicable requirements.",
         ],
         callout: {
           type: "definition",
@@ -1939,26 +1939,33 @@ export const insightPosts: InsightPost[] = [
         ],
       },
       {
-        title: "Common Eligibility Routes",
-        bullets: [
-          "Investors, including certain property-based routes",
-          "Entrepreneurs and founders with qualifying business activity or approvals",
-          "Specialised professionals in fields such as medicine, science, engineering, technology, and other strategic sectors",
-          "Exceptional talent categories in culture, digital fields, and related disciplines",
-          "Outstanding students and graduates under qualifying criteria",
-        ],
+        title: "Five-year and ten-year routes by category",
+        table: {
+          columns: ["Category", "Published duration", "Key starting point"],
+          rows: [
+            ["Public investment", "10 years", "Minimum AED 2 million qualifying investment or another published investment route"],
+            ["Real estate investment", "5 years", "Qualifying UAE property ownership valued at AED 2 million or more"],
+            ["Entrepreneurs", "5 years", "Innovative or technology-based project with the required valuation and authority or incubator letter"],
+            ["Exceptional talent and specialised expertise", "10 years", "Category-specific accreditation, recommendation, experience, or qualification evidence"],
+            ["Outstanding students", "5 or 10 years", "Academic excellence and the required school, university, or education recommendation"],
+            ["Humanitarian pioneers and frontline heroes", "10 years", "Documented recognition, service, contribution, or relevant authority evidence"],
+          ],
+        },
       },
       {
-        title: "What Applicants Usually Need to Prepare",
+        title: "What the main categories need to prove",
         paragraphs: [
-          "The exact document set depends on the category, but most applicants need a structured file rather than a loose collection of papers.",
+          {
+            text: "The official requirements are category-specific. The correct evidence route should be confirmed before an applicant relies on a generic document checklist.",
+            sourceIndexes: [1],
+          },
         ],
         bullets: [
-          "Proof of the qualifying basis, such as investment, employment, academic standing, or business ownership",
-          "Identity and passport documents",
-          "Supporting financial or ownership records where required",
-          "Attested qualifications or category-specific approvals where applicable",
-          "Medical and Emirates ID coordination once the application progresses",
+          "Investors may need investment-fund, commercial-licence, tax-payment, or land-registration evidence depending on the route",
+          "Entrepreneurs may need an auditor's project-value letter and confirmation from an accredited incubator or relevant emirate authority",
+          "Doctors, scientists, inventors, creatives, executives, athletes, and specialists follow different accreditation or recommendation routes",
+          "Outstanding students need the applicable academic results and recommendation evidence",
+          "Passport, residence, insurance, qualification, employment, and family documents depend on the category and application stage",
         ],
       },
       {
@@ -1968,14 +1975,21 @@ export const insightPosts: InsightPost[] = [
           "Using incomplete or weak supporting documents",
           "Assuming property, salary, or company status automatically guarantees approval",
           "Treating the process as simple form submission rather than category-based review",
+          "Using requirements from one emirate or category as though they apply to every application",
         ],
       },
       {
-        title: "How to Approach It Properly",
+        title: "Authority and application route",
         paragraphs: [
-          "A strong Golden Visa application starts with identifying the right route, confirming the evidence required for that route, and sequencing the paperwork properly.",
-          "For people already connected to the UAE through business setup, investments, or employment, the Golden Visa process also needs to be coordinated with company records, visas, or ownership documents that already exist.",
+          "A strong application starts with the correct eligibility category, the current official service route, and the documents required by the responsible authority.",
+          "ICP provides the federal Golden Residency framework and eligibility information. Application procedures and supporting approvals can also depend on the emirate and category, including GDRFA processes in Dubai.",
+          "Zenesis can help organise the eligibility review and document sequence, but the relevant government authority makes the final eligibility and approval decision.",
         ],
+        callout: {
+          type: "warning",
+          title: "Confirm requirements before applying",
+          text: "Eligibility criteria, documents, service channels, fees, and processing requirements can change. Confirm the current authority requirements for the applicant's category and emirate before submission.",
+        },
       },
     ],
     closingParagraphs: [

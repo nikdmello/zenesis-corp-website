@@ -32,7 +32,15 @@ export function BusinessSetupRouteCard({
   const hasImage = Boolean(imageSrc && imageAlt);
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#11232a] shadow-[0_12px_30px_rgba(17,35,42,0.06)]">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#11232a] shadow-[0_12px_30px_rgba(17,35,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#bca57f] hover:shadow-[0_16px_36px_rgba(17,35,42,0.12)] focus-within:border-[#bca57f] focus-within:shadow-[0_16px_36px_rgba(17,35,42,0.12)]">
+      <Link
+        href={href}
+        aria-label={`${ctaLabel}: ${title}`}
+        className="absolute inset-0 z-10 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#244ba8]"
+      >
+        <span className="sr-only">{ctaLabel}: {title}</span>
+      </Link>
+
       {hasImage ? (
         <div className="overflow-hidden border-b border-[#e4dbce] bg-[#f8f6f1]">
           <Image
@@ -57,7 +65,7 @@ export function BusinessSetupRouteCard({
           {frontSummary}
         </p>
 
-        <details className="group/details mt-5 border-y border-[#e4dbce] py-4">
+        <details className="group/details relative z-20 mt-5 border-y border-[#e4dbce] bg-white py-4">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[0.9rem] font-semibold text-[#244ba8] marker:content-none">
             <span>What this includes</span>
             <span className="text-xl leading-none text-[#8d7453] transition-transform group-open/details:rotate-45">
@@ -81,7 +89,7 @@ export function BusinessSetupRouteCard({
 
         <Link
           href={href}
-          className="mt-auto inline-flex items-center gap-2 pt-5 text-[0.94rem] font-semibold text-[#244ba8] hover:underline"
+          className="relative z-20 mt-auto inline-flex items-center gap-2 pt-5 text-[0.94rem] font-semibold text-[#244ba8] hover:underline"
         >
           <span>{ctaLabel}</span>
           <span aria-hidden="true">→</span>

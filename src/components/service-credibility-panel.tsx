@@ -49,7 +49,7 @@ export function ServiceCredibilityPanel({
                       dark ? "text-[#d5be8b]" : "text-[#8d7453]"
                     }`}
                   >
-                    Reviewed by Zenesis
+                    Reviewed by
                   </p>
                   <h2
                     className={`mt-1 text-[1rem] font-semibold leading-tight md:text-[1.08rem] ${

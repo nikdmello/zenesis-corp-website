@@ -24,7 +24,7 @@ const comparisonRows = [
     factor: "Market access",
     mainland: "Usually better for direct UAE market access, local contracts, and broader operating flexibility.",
     freeZone:
-      "Usually better for free zone activity, international work, consulting, digital, trade, and founder-led packages.",
+      "Usually better for free zone or international activity. Eligible Dubai free zone companies may obtain a separate mainland operating permit for approved activities.",
   },
   {
     factor: "Ownership",
@@ -77,7 +77,17 @@ const faqs = [
   {
     question: "Can a free zone company trade directly in the UAE mainland?",
     answer:
-      "Not automatically. The correct route depends on the business activity, emirate, client type, and whether an additional permit, distribution arrangement, branch, or mainland structure is needed.",
+      "Not automatically. In Dubai, eligible free zone companies holding a Dubai Unified Licence may apply for the Free Zone Mainland Operating Permit for approved activities. Other businesses may still need a branch, distribution arrangement, mainland structure, or another authority approval.",
+  },
+  {
+    question: "What is the Free Zone Mainland Operating Permit?",
+    answer:
+      "It is a Dubai framework introduced under Executive Council Resolution No. 11 of 2025. In its initial phase, eligible Dubai free zone companies can apply through Invest in Dubai to conduct approved mainland activities while retaining their free zone entity.",
+  },
+  {
+    question: "Does the new permit make mainland and free zone companies the same?",
+    answer:
+      "No. The permit creates a structured route for eligible activities, but it does not remove the differences in licensing, office position, operating scope, tax records, renewals, or long-term commercial fit.",
   },
 ] as const;
 
@@ -101,6 +111,7 @@ const nextStepLinks = [
 
 const comparisonPageLinks = [
   { href: "#route-comparison", label: "Route comparison" },
+  { href: "#mainland-permit", label: "Mainland permit" },
   { href: "#next-steps", label: "Next steps" },
   { href: "#direct-answers", label: "Direct answers" },
   { href: "#primary-sources", label: "Primary sources" },
@@ -199,6 +210,54 @@ export default function MainlandVsFreeZoneDubaiPage() {
           </div>
           </div>
           <PageSectionNav items={comparisonPageLinks} />
+        </div>
+      </section>
+
+      <section
+        id="mainland-permit"
+        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#11232a] py-16 text-white md:py-20 [&_.eyebrow]:text-[#ead5aa] [&_.section-title]:text-white [&_.text-muted]:text-white/84"
+      >
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <SectionHeading
+            eyebrow="Current Dubai framework"
+            title="A new route from a Dubai free zone to the mainland"
+            description="The Free Zone Mainland Operating Permit changes the comparison for some companies, but it does not make mainland access automatic."
+          />
+
+          <div className="mt-9 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {[
+              {
+                title: "Who can apply",
+                text: "Eligible companies licensed in Dubai free zones that hold a Dubai Unified Licence.",
+              },
+              {
+                title: "Initial activity scope",
+                text: "Non-regulated activities including technology, consultancy, design, professional services, and trading.",
+              },
+              {
+                title: "Validity and fee",
+                text: "Six months at AED 5,000, renewable for the same period and fee under the published initial framework.",
+              },
+              {
+                title: "Records and tax",
+                text: "Separate financial records are required for mainland activity, with the related revenue subject to the published corporate tax treatment.",
+              },
+            ].map((item) => (
+              <article
+                key={item.title}
+                className="rounded-lg border border-white/14 bg-white/7 p-6 backdrop-blur-sm"
+              >
+                <h3 className="text-[1.16rem] font-semibold text-white">{item.title}</h3>
+                <p className="mt-4 text-[1rem] leading-7 text-white/82">{item.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-7 border-l-2 border-[#ead5aa] pl-5 text-[1.03rem] leading-8 text-white/86">
+            A permanent mainland company may still be the stronger route where a business needs
+            broader local operations, regulated activities, a long-term mainland presence, or an
+            operating model that falls outside the permit.
+          </div>
         </div>
       </section>
 

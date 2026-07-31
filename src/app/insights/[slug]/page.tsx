@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/json-ld";
 import { PrimarySources } from "@/components/primary-sources";
 import { ReadingProgress } from "@/components/reading-progress";
 import { SiteShell } from "@/components/site-shell";
+import { SourceCitationLink } from "@/components/source-citation-link";
 import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { articleSectionHeadingClassName } from "@/lib/article-styles";
 import {
@@ -248,7 +249,7 @@ export default async function InsightArticlePage({
                       </div>
                       <div className="min-w-0">
                         <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
-                          Written by Zenesis
+                          Written by
                         </p>
                         <h2 className="mt-1 text-[1rem] font-semibold leading-tight text-foreground md:text-[1.08rem]">
                           {post.author}
@@ -402,14 +403,10 @@ export default async function InsightArticlePage({
                             {sourceIndexes?.length ? (
                               <span className="inline-flex whitespace-nowrap align-super text-[0.72em] leading-none">
                                 {sourceIndexes.map((sourceIndex) => (
-                                  <a
+                                  <SourceCitationLink
                                     key={sourceIndex}
-                                    href={`#source-${sourceIndex}`}
-                                    aria-label={`View source ${sourceIndex}`}
-                                    className="font-semibold !text-[#244ba8] hover:underline"
-                                  >
-                                    [{sourceIndex}]
-                                  </a>
+                                    sourceIndex={sourceIndex}
+                                  />
                                 ))}
                               </span>
                             ) : null}
@@ -610,7 +607,7 @@ export default async function InsightArticlePage({
                       </div>
                       <div className="min-w-0">
                         <p className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">
-                          Written by Zenesis
+                          Written by
                         </p>
                         <p className="mt-1 text-[0.94rem] font-semibold leading-5 text-foreground">
                           {post.author}

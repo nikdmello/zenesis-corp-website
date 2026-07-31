@@ -55,6 +55,11 @@ const sources = {
     publisher: "The Official Platform of the UAE Government",
     href: "https://u.ae/en/information-and-services/business/doing-business-in-free-zones/running-a-business-in-a-free-zone-",
   },
+  freeZoneMainlandPermit: {
+    title: "Dubai launches the Free Zone Mainland Operating Permit",
+    publisher: "Government of Dubai Media Office",
+    href: "https://www.mediaoffice.ae/en/news/2025/october/08-10/dubai-launches-free-zone-mainland-operating-permit",
+  },
   offshoreRegistry: {
     title: "RAK ICC regulations and policies",
     publisher: "RAK International Corporate Centre",
@@ -106,9 +111,9 @@ const sources = {
     href: "https://u.ae/en/information-and-services/visa-and-emirates-id/residence-visas/golden-visa",
   },
   icpGoldenVisa: {
-    title: "Golden Visa services",
+    title: "UAE Golden Residency categories and requirements",
     publisher: "Federal Authority for Identity, Citizenship, Customs & Port Security",
-    href: "https://icp.gov.ae/en/services/golden-visa/",
+    href: "https://icp.gov.ae/en/uae-golden-residency/",
   },
   bankingKyc: {
     title: "Guidance on customer due diligence, KYC, and record-keeping",
@@ -117,7 +122,7 @@ const sources = {
   },
 } satisfies Record<string, CredibilitySource>;
 
-const checkedLabel = "Sources checked July 22, 2026";
+const checkedLabel = "Sources checked July 31, 2026";
 const setupNote =
   "Licensing routes, permitted activities, documents, government fees, and processing requirements vary by authority and can change. Confirm the exact route before filing.";
 const taxNote =
@@ -144,7 +149,9 @@ export function getServiceCredibility(path: string): ServiceCredibility | undefi
       expert: experts.cecilia,
       verificationLabel: checkedLabel,
       note: setupNote,
-      sources: [sources.mainlandSetup, sources.freeZoneSetup],
+      sources: path === "/mainland-vs-free-zone-dubai"
+        ? [sources.mainlandSetup, sources.freeZoneSetup, sources.freeZoneMainlandPermit]
+        : [sources.mainlandSetup, sources.freeZoneSetup],
     };
   }
 

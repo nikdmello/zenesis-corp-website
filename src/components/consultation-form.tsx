@@ -73,6 +73,16 @@ const enquiryShortcuts = [
   },
 ] as const;
 
+const jurisdictionOptions = [
+  "Not decided",
+  "Ajman",
+  "Ras Al Khaimah",
+  "Abu Dhabi or ADGM",
+  "Jebel Ali",
+  "Dubai mainland",
+  "Another UAE jurisdiction",
+] as const;
+
 function buildEnquiryMessage(
   selectedShortcutLabels: string[],
   presetEnquiry?: string,
@@ -663,12 +673,22 @@ export function ConsultationInlinePanel({
     event.preventDefault();
 
     const form = new FormData(event.currentTarget);
+    const preferredJurisdiction = String(
+      form.get("preferredJurisdiction") ?? "",
+    ).trim();
     const payload: ConsultationLeadPayload = {
       name: String(form.get("name") ?? "").trim(),
       countryCode: selectedCountryValue,
       mobile: String(form.get("mobile") ?? "").trim(),
       email: String(form.get("email") ?? "").trim(),
-      enquiry: enquiryValue.trim(),
+      enquiry: [
+        enquiryValue.trim(),
+        preferredJurisdiction
+          ? `Preferred jurisdiction: ${preferredJurisdiction}`
+          : "",
+      ]
+        .filter(Boolean)
+        .join("\n\n"),
       source: "inline-panel",
       pagePath: window.location.pathname,
       pageTitle: document.title,
@@ -770,6 +790,25 @@ export function ConsultationInlinePanel({
                   ))}
                 </div>
               </div>
+
+              <label className="grid gap-2 text-sm font-semibold text-foreground">
+                <span>
+                  Preferred jurisdiction{" "}
+                  <span className="font-normal text-muted">(optional)</span>
+                </span>
+                <select
+                  name="preferredJurisdiction"
+                  defaultValue=""
+                  className="rounded-[0.55rem] border border-[#8d7453]/22 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-all focus:border-[#b79056] focus:shadow-[0_0_0_4px_rgba(183,144,86,0.12)]"
+                >
+                  <option value="">Select a jurisdiction</option>
+                  {jurisdictionOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </label>
 
               <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={nameId}>
                 Name
@@ -903,12 +942,22 @@ export function ConsultationModal({
     event.preventDefault();
 
     const form = new FormData(event.currentTarget);
+    const preferredJurisdiction = String(
+      form.get("preferredJurisdiction") ?? "",
+    ).trim();
     const payload: ConsultationLeadPayload = {
       name: String(form.get("name") ?? "").trim(),
       countryCode: selectedCountryValue,
       mobile: String(form.get("mobile") ?? "").trim(),
       email: String(form.get("email") ?? "").trim(),
-      enquiry: enquiryValue.trim(),
+      enquiry: [
+        enquiryValue.trim(),
+        preferredJurisdiction
+          ? `Preferred jurisdiction: ${preferredJurisdiction}`
+          : "",
+      ]
+        .filter(Boolean)
+        .join("\n\n"),
       source: "modal",
       pagePath: window.location.pathname,
       pageTitle: document.title,
@@ -1056,6 +1105,25 @@ export function ConsultationModal({
                     ))}
                   </div>
                 </div>
+
+                <label className="grid gap-2 text-sm font-semibold text-foreground">
+                  <span>
+                    Preferred jurisdiction{" "}
+                    <span className="font-normal text-muted">(optional)</span>
+                  </span>
+                  <select
+                    name="preferredJurisdiction"
+                    defaultValue=""
+                    className="rounded-[0.55rem] border border-[#8d7453]/22 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-all focus:border-[#b79056] focus:shadow-[0_0_0_4px_rgba(183,144,86,0.12)]"
+                  >
+                    <option value="">Select a jurisdiction</option>
+                    {jurisdictionOptions.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </label>
 
                 <div className="grid gap-3 md:grid-cols-2">
                   <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={nameId}>
