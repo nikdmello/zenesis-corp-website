@@ -1,11 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ConsultationFormButton } from "@/components/consultation-button";
 import { JsonLd } from "@/components/json-ld";
 import { ReadingProgress } from "@/components/reading-progress";
 import { SiteShell } from "@/components/site-shell";
-import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { articleSectionHeadingClassName } from "@/lib/article-styles";
 import { insightAuthorProfiles } from "@/lib/insights";
 import { featuredProfile } from "@/lib/site-content";
@@ -318,35 +316,6 @@ export default function FeaturedProfilePage() {
           </div>
         </section>
 
-        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f8f6f1] py-14 md:py-16">
-          <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-            <TalkToZenesisPanel
-              wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.18)] md:p-10"
-              eyebrowClassName="eyebrow text-white/58"
-              titleClassName="section-title mt-4 font-semibold text-white"
-              textClassName="text-[1.22rem] font-medium leading-9 text-white/94"
-              title="Discuss your setup or compliance needs with Zenesis."
-              paragraphs={[
-                "If you are comparing company setup routes, working through banking or visa steps, or need help with ongoing compliance in the UAE, the useful next move is a direct consultation.",
-              ]}
-              imageClassName="object-cover object-[74%_center]"
-              actions={
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                  <ConsultationFormButton
-                    label="Book a consultation"
-                    className="inline-flex rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3 text-center text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03]"
-                  />
-                  <Link
-                    href="/about"
-                    className="rounded-[0.7rem] border border-[#244ba8]/20 bg-white px-6 py-3 text-center text-sm font-semibold !text-[#244ba8] transition-colors hover:border-[#244ba8]/34 hover:bg-[#f8f5ef]"
-                  >
-                    About Zenesis
-                  </Link>
-                </div>
-              }
-            />
-          </div>
-        </section>
       </article>
     </SiteShell>
   );

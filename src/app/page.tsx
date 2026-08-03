@@ -12,7 +12,6 @@ import { JsonLd } from "@/components/json-ld";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { SectionHeading, SiteShell } from "@/components/site-shell";
-import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import {
   featuredProfile,
@@ -501,31 +500,6 @@ export default function Home() {
         items={homepageFaqs}
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f8f6f1] py-16 md:py-20">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <ScrollReveal>
-            <TalkToZenesisPanel
-              wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10"
-              eyebrowClassName="eyebrow text-white/58"
-              titleClassName="section-title mt-4 font-semibold text-white"
-              textClassName="text-[1.24rem] font-semibold leading-9 text-white/94 md:text-[1.32rem]"
-              title="Talk to Zenesis"
-              paragraphs={[
-                "Tell Zenesis what you want to build, where you plan to operate, and what support you need next.",
-              ]}
-              actions={
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <ConsultationFormButton
-                    label="Book a consultation"
-                    className="rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3 text-center text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03]"
-                  />
-                </div>
-              }
-              imageClassName="object-cover object-[74%_center]"
-            />
-          </ScrollReveal>
-        </div>
-      </section>
       </div>
     </SiteShell>
   );

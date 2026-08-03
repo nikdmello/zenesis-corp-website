@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { InsightsArchive } from "@/components/insights-archive";
 import { PageSectionNav, PageSectionNavMobile } from "@/components/page-section-nav";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
-import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import { featuredProfile } from "@/lib/site-content";
 import { insightPosts } from "@/lib/insights";
@@ -21,7 +20,6 @@ const insightsPageLinks = [
   { href: "#latest", label: "Latest from Zenesis" },
   { href: "#articles", label: "Articles" },
   { href: "#featured-profile", label: "Featured profile" },
-  { href: "#next-step", label: "Talk to Zenesis" },
 ] as const;
 
 export default function InsightsPage() {
@@ -155,22 +153,6 @@ export default function InsightsPage() {
               </span>
             </div>
           </Link>
-        </div>
-      </section>
-
-      <section id="next-step" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-14 md:py-16">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <TalkToZenesisPanel
-            wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10"
-            eyebrowClassName="eyebrow text-white/58"
-            titleClassName="section-title mt-4 font-semibold text-white"
-            textClassName="text-[1.18rem] leading-9 text-white/94 md:text-[1.22rem]"
-            paragraphs={[
-              "If you want help understanding how a filing, structure, or compliance change affects the business in practice, Zenesis can help you work through the right next step.",
-            ]}
-            buttonClassName="inline-flex rounded-full border border-[#e2c58f] bg-[linear-gradient(180deg,#f4e4be_0%,#e7cc97_100%)] px-6 py-3 text-sm font-semibold !text-[#11232a] shadow-[0_16px_36px_rgba(231,204,151,0.24)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[linear-gradient(180deg,#f1dfb1_0%,#dfc186_100%)]"
-            imageClassName="object-cover object-[74%_center]"
-          />
         </div>
       </section>
     </SiteShell>

@@ -7,7 +7,6 @@ import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
 import { PageIntro, SiteShell } from "@/components/site-shell";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
-import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { articleSectionHeadingClassName } from "@/lib/article-styles";
 import { insightPosts } from "@/lib/insights";
 import { pickInsightLinks } from "@/lib/internal-links";
@@ -325,25 +324,6 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
           items={config.directAnswers}
         />
       ) : null}
-
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f8f6f1] py-14 md:py-16">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <TalkToZenesisPanel
-            wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10"
-            eyebrowClassName="eyebrow text-white/58"
-            titleClassName="section-title mt-4 font-semibold text-white"
-            textClassName="text-[1.16rem] leading-9 text-white/94 md:text-[1.22rem]"
-            paragraphs={
-              config.supportParagraphs ?? [
-                "If you are comparing routes, the key questions are usually market access, ownership, visa needs, banking expectations, and what the business needs to do after incorporation.",
-              ]
-            }
-            title={config.supportTitle}
-            buttonClassName="inline-flex rounded-full border border-[#e2c58f] bg-[linear-gradient(180deg,#f4e4be_0%,#e7cc97_100%)] px-6 py-3 text-sm font-semibold !text-[#11232a]"
-            imageClassName="object-cover object-[74%_center]"
-          />
-        </div>
-      </section>
 
       <ServiceCredibilityPanel path={canonicalPath} variant="sources" />
     </SiteShell>

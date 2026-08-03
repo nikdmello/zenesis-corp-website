@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { ReadingProgress } from "@/components/reading-progress";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { PageSectionNav, PageSectionNavMobile } from "@/components/page-section-nav";
-import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { articleSectionHeadingClassName } from "@/lib/article-styles";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
@@ -14,7 +13,6 @@ export const metadata: Metadata = toMetadata(legacyRouteMeta.about, "/about");
 const aboutPageLinks = [
   { href: "#our-background", label: "Who we are" },
   { href: "#leadership", label: "Leadership" },
-  { href: "#next-step", label: "Talk to Zenesis" },
 ] as const;
 
 export default function AboutPage() {
@@ -100,25 +98,6 @@ export default function AboutPage() {
           <div className="mt-9">
             <TeamProfiles />
           </div>
-        </div>
-      </section>
-
-      <section
-        id="next-step"
-        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-16 md:py-20"
-      >
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <TalkToZenesisPanel
-            wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.12)] md:p-10"
-            eyebrowClassName="eyebrow text-white/58"
-            titleClassName="section-title mt-4 font-semibold text-white"
-            textClassName="text-lg leading-8 text-white/94"
-            paragraphs={[
-              "Tell us what you want to achieve, and our team will guide you through the right setup, documents, costs, and next steps.",
-            ]}
-            buttonClassName="inline-flex rounded-full border border-[#e2c58f] bg-[linear-gradient(180deg,#f4e4be_0%,#e7cc97_100%)] px-6 py-3 text-sm font-semibold !text-[#11232a] shadow-[0_16px_36px_rgba(231,204,151,0.24)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[linear-gradient(180deg,#f1dfb1_0%,#dfc186_100%)]"
-            imageClassName="object-cover object-[72%_center]"
-          />
         </div>
       </section>
     </SiteShell>
