@@ -25,9 +25,9 @@ export default function AboutPage() {
         eyebrow="About Zenesis"
         title="About"
         description="The background, experience, and working approach behind Zenesis in the UAE."
-        backgroundImageSrc={versionedAssetPath("/sections/team-photo-cropped.webp")}
-        backgroundImageAlt="Zenesis team photo"
-        backgroundImagePosition="!object-[58%_28%]"
+        backgroundImageSrc={versionedAssetPath("/sections/awards-and-recognition.webp")}
+        backgroundImageAlt="Zenesis awards and recognition"
+        backgroundImagePosition="!object-[58%_48%]"
         backgroundImageMode="ambient"
       />
 
