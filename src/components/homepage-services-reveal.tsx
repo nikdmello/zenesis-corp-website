@@ -74,7 +74,7 @@ export function HomepageServicesReveal({
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 w-full md:w-[46vw] md:min-w-[34rem] xl:w-[52vw] xl:min-w-[42rem]"
+        className="pointer-events-none absolute inset-y-0 right-0 w-full max-w-[56rem] md:w-[46vw] md:min-w-[34rem] xl:w-[52vw] xl:min-w-[42rem]"
       >
         <div
           className="absolute inset-0 opacity-[0.36] md:opacity-[0.54] xl:opacity-[0.6]"
@@ -89,7 +89,7 @@ export function HomepageServicesReveal({
             src="/sections/uae-flag.webp"
             alt=""
             fill
-            sizes="(max-width: 767px) 100vw, (max-width: 1279px) 46vw, 52vw"
+            sizes="(max-width: 767px) 100vw, (max-width: 1279px) 46vw, 896px"
             className="object-cover object-right"
           />
         </div>
@@ -101,7 +101,7 @@ export function HomepageServicesReveal({
           <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
             Explore all services
           </p>
-          <h2 className="section-title mt-3 font-semibold text-[#07151b]">
+          <h2 className="section-title mt-3 w-full !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-[#07151b] sm:!text-[1.9rem] md:!text-[2.05rem]">
             Our services
           </h2>
           <p className="mt-4 text-[1.06rem] leading-8 text-[#30434b] md:text-[1.1rem]">

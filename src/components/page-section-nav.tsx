@@ -1,3 +1,5 @@
+import { CleanSectionLink } from "@/components/clean-section-link";
+
 type PageSectionNavItem = {
   href: `#${string}`;
   label: string;
@@ -19,7 +21,7 @@ export function PageSectionNav({ items, className = "" }: PageSectionNavProps) {
       <ol className="mt-5 space-y-3.5">
         {items.map((item, index) => (
           <li key={item.href}>
-            <a
+            <CleanSectionLink
               href={item.href}
               className="group flex items-start gap-3 text-[0.84rem] font-semibold leading-5 text-foreground/72 hover:text-[#244ba8]"
             >
@@ -27,7 +29,7 @@ export function PageSectionNav({ items, className = "" }: PageSectionNavProps) {
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span>{item.label}</span>
-            </a>
+            </CleanSectionLink>
           </li>
         ))}
       </ol>
@@ -58,7 +60,7 @@ export function PageSectionNavMobile({ items, className = "" }: PageSectionNavPr
         <ol className="mt-5 space-y-3 border-t border-[#d9d1c5] pt-5">
           {items.map((item, index) => (
             <li key={item.href}>
-              <a
+              <CleanSectionLink
                 href={item.href}
                 className="flex items-start gap-3 text-[0.92rem] font-semibold leading-6 text-foreground"
               >
@@ -66,7 +68,7 @@ export function PageSectionNavMobile({ items, className = "" }: PageSectionNavPr
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <span>{item.label}</span>
-              </a>
+              </CleanSectionLink>
             </li>
           ))}
         </ol>

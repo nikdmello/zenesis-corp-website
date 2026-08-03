@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
+import { CleanSectionLink } from "@/components/clean-section-link";
 import { ReadingProgress } from "@/components/reading-progress";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
@@ -259,12 +260,12 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#1f7652]">
                   Reviewed guidance
                 </p>
-                <a
+                <CleanSectionLink
                   href="#primary-sources"
                   className="mt-3 inline-flex text-[0.82rem] font-semibold text-[#244ba8] hover:underline"
                 >
                   View primary sources
-                </a>
+                </CleanSectionLink>
               </div>
             </aside>
           </div>
@@ -360,15 +361,15 @@ function GuideLinks({
     <ol className={className}>
       {items.map((item, index) => (
         <li key={item.href}>
-          <a
-            href={item.href}
+          <CleanSectionLink
+            href={item.href as `#${string}`}
             className="group flex items-start gap-3 text-[0.84rem] font-semibold leading-5 text-foreground/72 hover:text-[#244ba8]"
           >
             <span className="mt-px text-[0.68rem] tabular-nums text-[#8d7453]">
               {String(index + 1).padStart(2, "0")}
             </span>
             <span>{item.label}</span>
-          </a>
+          </CleanSectionLink>
         </li>
       ))}
     </ol>

@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment, type ReactNode, useEffect, useState } from "react";
+import { CleanSectionLink } from "@/components/clean-section-link";
 import {
   ConsultationFormButton,
   ConsultationSessionPrompt,
@@ -749,6 +750,8 @@ export function PageIntro({
     ctaLabel?.toLowerCase().includes("consultation") ?? false;
   const primaryCtaClassName =
     "rounded-full bg-[#244ba8] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b3c86]";
+  const ctaIsSectionLink = ctaHref?.startsWith("#") ?? false;
+  const secondaryIsSectionLink = secondaryHref?.startsWith("#") ?? false;
 
   return (
     <section
@@ -783,7 +786,7 @@ export function PageIntro({
       {usesAmbientBackgroundImage ? (
         <div
           className={[
-            "pointer-events-none absolute inset-y-0 right-0 w-[48%] overflow-hidden sm:w-[54%] md:w-[52%] lg:w-[54%] xl:w-[56%]",
+            "pointer-events-none absolute inset-y-0 right-0 w-[48%] max-w-[52rem] overflow-hidden sm:w-[54%] md:w-[52%] lg:w-[54%] xl:w-[56%]",
             ambientImageClassName ?? "",
           ]
             .filter(Boolean)
@@ -804,8 +807,8 @@ export function PageIntro({
               fill
               loading="lazy"
               fetchPriority="low"
-              quality={68}
-              sizes="(max-width: 767px) 92vw, (max-width: 1279px) 54vw, 50vw"
+              quality={76}
+              sizes="(max-width: 767px) 92vw, (max-width: 1279px) 54vw, 832px"
               className={`object-cover object-right-top saturate-[0.94] contrast-[0.98] ${backgroundImagePosition ?? "object-[82%_24%]"}`}
             />
           </div>
@@ -930,6 +933,13 @@ export function PageIntro({
                       "I would like to schedule a free consultation with Zenesis."
                     }
                   />
+                ) : ctaIsSectionLink ? (
+                  <CleanSectionLink
+                    href={ctaHref as `#${string}`}
+                    className={primaryCtaClassName}
+                  >
+                    {ctaLabel}
+                  </CleanSectionLink>
                 ) : (
                   <Link
                     href={ctaHref}
@@ -941,16 +951,29 @@ export function PageIntro({
               ) : null}
 
               {secondaryHref && secondaryLabel ? (
-                <Link
-                  href={secondaryHref}
-                  className={`rounded-full px-6 py-3 text-center text-sm font-semibold transition-colors ${
-                    usesFullBackgroundImage
-                      ? "border border-white/24 bg-white/12 !text-white backdrop-blur-md hover:bg-white/20"
-                      : "border border-[#244ba8] bg-[#244ba8] !text-white hover:bg-[#1b3c86]"
-                  }`}
-                >
-                  {secondaryLabel}
-                </Link>
+                secondaryIsSectionLink ? (
+                  <CleanSectionLink
+                    href={secondaryHref as `#${string}`}
+                    className={`rounded-full px-6 py-3 text-center text-sm font-semibold transition-colors ${
+                      usesFullBackgroundImage
+                        ? "border border-white/24 bg-white/12 !text-white backdrop-blur-md hover:bg-white/20"
+                        : "border border-[#244ba8] bg-[#244ba8] !text-white hover:bg-[#1b3c86]"
+                    }`}
+                  >
+                    {secondaryLabel}
+                  </CleanSectionLink>
+                ) : (
+                  <Link
+                    href={secondaryHref}
+                    className={`rounded-full px-6 py-3 text-center text-sm font-semibold transition-colors ${
+                      usesFullBackgroundImage
+                        ? "border border-white/24 bg-white/12 !text-white backdrop-blur-md hover:bg-white/20"
+                        : "border border-[#244ba8] bg-[#244ba8] !text-white hover:bg-[#1b3c86]"
+                    }`}
+                  >
+                    {secondaryLabel}
+                  </Link>
+                )
               ) : null}
             </div>
           )}

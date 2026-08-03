@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ConsultationFormButton } from "@/components/consultation-button";
+import { CleanSectionLink } from "@/components/clean-section-link";
 import { JsonLd } from "@/components/json-ld";
 import { PrimarySources } from "@/components/primary-sources";
 import { ReadingProgress } from "@/components/reading-progress";
@@ -651,12 +652,12 @@ export default async function InsightArticlePage({
                     <p className="mt-2 text-[0.82rem] leading-5 text-foreground/68">
                       Last reviewed {credibility.updatedLabel}
                     </p>
-                    <a
+                    <CleanSectionLink
                       href="#primary-sources"
                       className="mt-3 inline-flex text-[0.82rem] font-semibold text-[#244ba8] hover:underline"
                     >
                       View primary sources
-                    </a>
+                    </CleanSectionLink>
                   </section>
                 ) : null}
               </aside>

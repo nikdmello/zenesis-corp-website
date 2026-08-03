@@ -32,13 +32,13 @@ export default function ContactPage() {
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-white pb-0 pt-14 md:pt-18">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 w-[68%] sm:w-[60%] lg:w-[52%]"
+          className="pointer-events-none absolute inset-y-0 right-0 w-[68%] max-w-[56rem] sm:w-[60%] lg:w-[52%]"
         >
           <NextImage
             src={versionedAssetPath("/sections/uae-flag.webp")}
             alt=""
             fill
-            sizes="(min-width: 1024px) 52vw, (min-width: 640px) 60vw, 68vw"
+            sizes="(min-width: 1024px) 896px, (min-width: 640px) 60vw, 68vw"
             className="object-cover object-center opacity-[0.42] saturate-[0.9]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,#ffffff_0%,rgba(255,255,255,0.78)_18%,rgba(255,255,255,0.24)_52%,rgba(255,255,255,0.08)_100%)]" />

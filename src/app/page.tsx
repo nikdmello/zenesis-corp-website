@@ -170,7 +170,7 @@ export default function Home() {
           <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[100rem] flex-col justify-end px-5 pb-3 pt-26 md:block md:px-12 md:pb-3 md:pt-12 xl:px-20">
             <div className="bottom-3 mx-auto w-full md:absolute md:bottom-3 md:left-1/2 md:w-[min(100%-6rem,68rem)] md:-translate-x-1/2 xl:w-[min(100%-10rem,72rem)]">
               <div className="mx-auto w-full max-w-[48rem] px-0 py-4 sm:px-2 md:max-w-none md:px-0 md:py-0">
-                <h1 className="hero-reveal hero-reveal-1 mx-auto max-w-none text-center text-[clamp(1.55rem,7.8vw,2.45rem)] font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-[clamp(3rem,6vw,3.7rem)] sm:leading-[0.94] sm:tracking-[-0.05em] xl:text-[clamp(3rem,4vw,3.8rem)] xl:whitespace-nowrap 2xl:text-[clamp(3.3rem,4.5vw,4.45rem)]">
+                <h1 className="hero-reveal hero-reveal-1 relative left-1/2 w-screen -translate-x-1/2 px-5 text-center text-[clamp(1.58rem,7.8vw,2.45rem)] font-medium leading-[1.02] tracking-[-0.018em] text-white sm:text-[clamp(3rem,6vw,3.7rem)] sm:leading-[0.98] md:px-12 xl:whitespace-nowrap xl:text-[clamp(3rem,4vw,3.8rem)] 2xl:text-[clamp(3.3rem,4.5vw,4.45rem)]">
                   <span className="block whitespace-nowrap xl:inline">Over 20 years of </span>
                   <span className="block whitespace-nowrap xl:inline">business setup in Dubai</span>
                 </h1>
@@ -249,7 +249,7 @@ export default function Home() {
             <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-white/68">
               Trusted by
             </p>
-            <h2 className="section-title mt-3 font-semibold text-white">
+            <h2 className="section-title mt-3 w-full !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-white sm:!text-[1.9rem] md:!text-[2.05rem]">
               Our clients
             </h2>
             <p className="mt-4 max-w-4xl text-[1.06rem] leading-8 text-white/84 md:text-[1.1rem]">
@@ -290,7 +290,7 @@ export default function Home() {
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 w-full md:w-[46vw] md:min-w-[34rem] xl:w-[52vw] xl:min-w-[42rem]"
+          className="pointer-events-none absolute inset-y-0 right-0 w-full max-w-[64rem] md:w-[46vw] md:min-w-[34rem] xl:w-[52vw] xl:min-w-[42rem]"
         >
           <div
             className="absolute inset-0 opacity-[0.32] md:opacity-[0.5] xl:opacity-[0.56]"
@@ -305,7 +305,7 @@ export default function Home() {
               src="/sections/awards-and-recognition.webp"
               alt=""
               fill
-              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 46vw, 52vw"
+              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 46vw, 1024px"
               className="object-cover object-right"
             />
           </div>
@@ -439,7 +439,7 @@ export default function Home() {
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 w-full md:w-[46vw] md:min-w-[34rem] xl:w-[52vw] xl:min-w-[42rem]"
+          className="pointer-events-none absolute inset-y-0 right-0 w-full max-w-[64rem] md:w-[46vw] md:min-w-[34rem] xl:w-[52vw] xl:min-w-[42rem]"
         >
           <div
             className="absolute inset-0 opacity-[0.32] md:opacity-[0.48] xl:opacity-[0.54]"
@@ -454,7 +454,7 @@ export default function Home() {
               src="/sections/client-reviews.webp"
               alt=""
               fill
-              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 46vw, 52vw"
+              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 46vw, 1024px"
               className="object-cover object-right"
             />
           </div>
