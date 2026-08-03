@@ -158,7 +158,10 @@ export function getServiceCredibility(path: string): ServiceCredibility | undefi
   if (taxPaths.has(path)) {
     return {
       expert: experts.sajal,
-      verificationLabel: checkedLabel,
+      verificationLabel:
+        path === "/vat-filing-services-in-the-uae"
+          ? "Sources checked August 3, 2026"
+          : checkedLabel,
       note: taxNote,
       sources: path === "/vat-filing-services-in-the-uae"
         ? [sources.vatReturns, sources.vatRegistration]
