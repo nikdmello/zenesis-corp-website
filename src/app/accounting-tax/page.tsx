@@ -45,13 +45,14 @@ const accountingServices = [
     ],
   },
   {
-    title: "VAT Filing",
+    title: "VAT Registration and Filing",
     href: "/vat-filing-services-in-the-uae",
     imageSrc: "/services/vat-filing.webp",
     imageAlt: "VAT filing and reconciliation support in the UAE",
     description:
-      "VAT filing support matters most to businesses that need their returns prepared accurately, submitted on time, and backed by proper reconciliations.",
+      "VAT support covers registration when the applicable rules are met, followed by accurate recurring returns backed by proper reconciliations.",
     points: [
+      "Assess the VAT registration position and prepare the application information and supporting documents.",
       "Prepare VAT returns from sales, purchases, invoices, and the records behind them.",
       "Reconcile input and output VAT before filing so the position is clearer.",
       "Support filing periods, payment steps, and any audit-related follow-up.",
@@ -169,10 +170,10 @@ const reportingNeeds = [
       "For annual return preparation, calculations, and FTA portal submission support.",
   },
   {
-    title: "VAT filing",
+    title: "VAT registration and filing",
     href: "/vat-filing-services-in-the-uae",
     description:
-      "For recurring VAT returns, reconciliations, and payment-related follow-through.",
+      "For VAT registration support, recurring returns, reconciliations, and payment-related follow-through.",
   },
   {
     title: "Bookkeeping",

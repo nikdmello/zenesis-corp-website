@@ -56,7 +56,7 @@ const customerPaths = [
     href: "/accounting-tax",
     icon: "accounting",
     cta: "Tax support",
-    items: ["Bookkeeping", "VAT filing", "Corporate tax"],
+    items: ["Bookkeeping", "VAT registration and filing", "Corporate tax"],
   },
   {
     title: "Visa and banking",
@@ -112,12 +112,12 @@ const homepageFaqs = [
   {
     question: "What accounting and tax support can Zenesis handle after setup?",
     answer:
-      "Zenesis can support bookkeeping, VAT filing, corporate tax registration, and annual corporate tax filing after setup. That can include recurring bookkeeping, VAT reconciliations, payroll support, audit-ready records, and work across accounting tools such as QuickBooks, Zoho Books, Tally, and Excel.",
+      "Zenesis can support bookkeeping, VAT registration and filing, corporate tax registration, and annual corporate tax filing after setup. That can include VAT registration assessment and application preparation, recurring bookkeeping, VAT reconciliations, payroll support, audit-ready records, and work across accounting tools such as QuickBooks, Zoho Books, Tally, and Excel.",
   },
   {
     question: "Can Zenesis help if my business is already running in the UAE?",
     answer:
-      "Yes. The services are not only for first-time incorporation. Existing businesses can use Zenesis for bookkeeping, VAT filing, corporate tax support, renewals, document handling, banking-related support, and other corporate services where the business already exists but needs cleaner execution.",
+      "Yes. The services are not only for first-time incorporation. Existing businesses can use Zenesis for bookkeeping, VAT registration and filing, corporate tax support, renewals, document handling, banking-related support, and other corporate services where the business already exists but needs cleaner execution.",
   },
   {
     question: "What happens after the first consultation?",
@@ -516,8 +516,8 @@ export default function Home() {
               actions={
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <ConsultationFormButton
-                    label="Schedule a Free Consultation"
-                    className="rounded-full border border-[#e2c58f] bg-[linear-gradient(180deg,#f4e4be_0%,#e7cc97_100%)] px-6 py-3 text-center text-sm font-semibold !text-[#11232a] shadow-[0_16px_36px_rgba(231,204,151,0.24)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[linear-gradient(180deg,#f1dfb1_0%,#dfc186_100%)]"
+                    label="Book a consultation"
+                    className="rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3 text-center text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03]"
                   />
                 </div>
               }

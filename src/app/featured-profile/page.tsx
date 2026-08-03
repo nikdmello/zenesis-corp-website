@@ -333,12 +333,12 @@ export default function FeaturedProfilePage() {
               actions={
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                   <ConsultationFormButton
-                    label="Schedule a Free Consultation"
-                    className="inline-flex rounded-full border border-[#e2c58f] bg-[linear-gradient(180deg,#f4e4be_0%,#e7cc97_100%)] px-6 py-3 text-center text-sm font-semibold !text-[#11232a] shadow-[0_16px_36px_rgba(231,204,151,0.24)] transition-transform duration-200 hover:-translate-y-0.5"
+                    label="Book a consultation"
+                    className="inline-flex rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3 text-center text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03]"
                   />
                   <Link
                     href="/about"
-                    className="rounded-full border border-white/20 bg-white/10 px-6 py-3 text-center text-sm font-semibold !text-white backdrop-blur-md transition-colors hover:bg-white/[0.18]"
+                    className="rounded-[0.7rem] border border-[#244ba8]/20 bg-white px-6 py-3 text-center text-sm font-semibold !text-[#244ba8] transition-colors hover:border-[#244ba8]/34 hover:bg-[#f8f5ef]"
                   >
                     About Zenesis
                   </Link>

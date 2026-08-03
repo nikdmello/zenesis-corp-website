@@ -86,9 +86,9 @@ export const legacyServiceMeta = {
       "Zenesis Corp offers reliable corporate tax filing services in the UAE, ensuring accurate submissions, regulatory compliance, and expert tax support for businesses.",
   },
   "vat-filing-services-in-the-uae": {
-    title: "Best VAT Consultants in UAE | Filing & Compliance",
+    title: "VAT Registration and Filing Services UAE | Zenesis",
     description:
-      "Zenesis Corp provides professional VAT filing services in the UAE, ensuring accurate returns, timely submissions, and full compliance with UAE tax regulations.",
+      "Get UAE VAT registration and filing support from Zenesis, including registration assessment, application preparation, accurate returns, reconciliations, and ongoing compliance.",
   },
   "professional-bookkeeping-services-in-dubai": {
     title: "Top Accounting & Bookkeeping Company in Dubai | Zenesis Corp",

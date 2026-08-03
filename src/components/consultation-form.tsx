@@ -874,7 +874,7 @@ export function ConsultationInlinePanel({
 
             <button
               type="submit"
-              className="mt-6 w-full rounded-full bg-[#11232a] px-6 py-3 text-sm font-semibold !text-white shadow-[0_16px_36px_rgba(17,35,42,0.16)] transition-colors hover:bg-[#18343d]"
+              className="mt-6 w-full rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3.5 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
             >
               Submit enquiry
             </button>
@@ -1191,7 +1191,7 @@ export function ConsultationModal({
 
               <button
                 type="submit"
-                className="mt-5 w-full rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3.5 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_16px_34px_rgba(17,35,42,0.18),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] hover:shadow-[0_20px_40px_rgba(17,35,42,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2 md:mt-5"
+                className="mt-5 w-full rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3.5 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2 md:mt-5"
               >
                 Submit enquiry
               </button>

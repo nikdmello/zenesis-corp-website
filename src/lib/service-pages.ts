@@ -1132,10 +1132,10 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
   "vat-filing-services-in-the-uae": {
     slug: "vat-filing-services-in-the-uae",
     currentPath: "/accounting-tax",
-    title: "VAT filing",
-    eyebrow: "VAT Filing",
+    title: "VAT registration and filing",
+    eyebrow: "VAT Registration and Filing",
     description:
-      "Keep VAT returns accurate, timely, and better supported by reconciliations, invoice checks, payment follow-through, and audit-ready records.",
+      "Get support with VAT registration, accurate recurring returns, reconciliations, invoice checks, payment follow-through, and audit-ready records.",
     backgroundImageSrc: versionedAssetPath("/services/vat-filing.webp"),
     backgroundImageAlt: "VAT filing support and reconciliation review in the UAE",
     introBackgroundImageSrc: versionedAssetPath("/services/vat-filing.webp"),
@@ -1147,11 +1147,23 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     overviewImagePosition: "object-[84%_32%]",
     introTitle: "Overview",
     introParagraphs: [
+      "Zenesis supports both VAT registration and ongoing VAT filing. For a new or growing business, that starts with reviewing whether the mandatory or voluntary registration rules apply and preparing the information and supporting documents for the application.",
       "VAT filing becomes difficult when invoices, purchases, and records are not being reviewed in a consistent way before the return is due.",
       "Once a business is VAT registered, the filing cycle becomes recurring. Most businesses file quarterly, some monthly, and the work needs to stay organized between periods rather than only when the deadline approaches.",
       "Zenesis helps you build a steadier VAT process so returns are prepared from cleaner records, reconciliations are clearer, and the business is in a better position if the FTA asks questions later.",
     ],
     knowledgeSections: [
+      {
+        title: "When VAT registration becomes relevant",
+        intro:
+          "Registration depends on taxable activity and turnover rather than company age alone, so the position should be monitored as the business starts trading.",
+        items: [
+          "Review whether the mandatory registration threshold has been reached or is expected within the applicable period",
+          "Assess whether voluntary registration may be available and commercially appropriate",
+          "Prepare the turnover evidence, licence documents, ownership information, and supporting records required for the application",
+          "Set up the filing calendar and record-keeping process once registration is approved",
+        ],
+      },
       {
         title: "What a VAT return usually needs",
         intro:
@@ -1177,6 +1189,11 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     directAnswers: [
       {
+        question: "Does Zenesis provide VAT registration support?",
+        answer:
+          "Yes. Zenesis can assess the business's VAT registration position, help prepare the application information and supporting documents, and support the transition into recurring VAT filing once registration is approved.",
+      },
+      {
         question: "Do all UAE businesses file VAT on the same schedule?",
         answer:
           "No. Many businesses file quarterly, while some file monthly depending on their FTA-assigned VAT period. The practical point is that the records have to stay ready throughout the period instead of being rebuilt only when the filing deadline arrives.",
@@ -1199,6 +1216,8 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     pointsTitle: "What we handle",
     points: [
+      "Assess whether mandatory or voluntary VAT registration applies",
+      "Prepare VAT registration information and supporting documents",
       "Prepare the VAT return from your sales, purchases, and supporting records",
       "Reconcile input and output VAT before filing so the position is clearer",
       "Review tax invoices and supporting documents for filing readiness",
@@ -1207,7 +1226,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     supportTitle: "Talk to Zenesis",
     supportParagraphs: [
-      "Reach out if VAT returns are becoming rushed, records are not staying organized between periods, or you want recurring support instead of treating each filing as a last-minute task.",
+      "Reach out if you need to establish your VAT registration position, prepare a registration application, or keep recurring returns and records organized after registration.",
     ],
     backHref: "/accounting-tax",
     backLabel: "Back to Accounting & Tax",

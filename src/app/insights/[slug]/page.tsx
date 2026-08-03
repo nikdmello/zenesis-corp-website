@@ -9,7 +9,6 @@ import { PrimarySources } from "@/components/primary-sources";
 import { ReadingProgress } from "@/components/reading-progress";
 import { SiteShell } from "@/components/site-shell";
 import { SourceCitationLink } from "@/components/source-citation-link";
-import { TalkToZenesisPanel } from "@/components/talk-to-zenesis-panel";
 import { articleSectionHeadingClassName } from "@/lib/article-styles";
 import {
   getInsightCredibility,
@@ -132,18 +131,6 @@ export default async function InsightArticlePage({
   const relatedInsights = post.relatedInsightSlugs
     ?.map((relatedSlug) => insightPosts.find((item) => item.slug === relatedSlug))
     .filter((item): item is (typeof insightPosts)[number] => Boolean(item)) ?? [];
-  const categoryHubHref =
-    post.category === "Accounting and Tax"
-      ? "/accounting-tax"
-      : post.category === "Business Setup"
-        ? "/business-setup"
-        : "/visa-and-banking";
-  const categoryHubLabel =
-    post.category === "Accounting and Tax"
-      ? "View Accounting & Tax"
-      : post.category === "Business Setup"
-        ? "View Business Setup"
-        : "View Visa & Banking";
   const guideLinks = [
     ...post.sections.map((section) => ({
       href: `#${toInsightSectionId(section.title)}`,
@@ -585,9 +572,16 @@ export default async function InsightArticlePage({
                   </div>
 
                   {post.closingCta ? (
-                    <p className="mt-7 rounded-[1.4rem] border border-[#dfd5c7] bg-white px-5 py-4 text-[1.04rem] leading-[1.95rem] text-foreground md:text-[1.08rem]">
-                      {post.closingCta}
-                    </p>
+                    <div className="mt-7 border-t border-[#dfd5c7] pt-6">
+                      <p className="max-w-[48rem] text-[1.04rem] font-medium leading-[1.95rem] text-foreground md:text-[1.08rem]">
+                        {post.closingCta}
+                      </p>
+                      <ConsultationFormButton
+                        label="Book a consultation"
+                        className="mt-5 inline-flex rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
+                        presetEnquiry={post.closingCta}
+                      />
+                    </div>
                   ) : null}
                 </section>
               ) : null}
@@ -719,35 +713,6 @@ export default async function InsightArticlePage({
           </section>
         ) : null}
 
-        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f8f6f1] py-14 md:py-16">
-          <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-            <TalkToZenesisPanel
-              wrapperClassName="rounded-[2rem] bg-[#11232a] p-8 text-white shadow-[0_22px_70px_rgba(17,35,42,0.18)] md:p-10"
-              eyebrowClassName="eyebrow text-white/58"
-              titleClassName="section-title mt-4 font-semibold text-white"
-              textClassName="text-[1.22rem] font-medium leading-9 text-white/94"
-              title="Discuss how this applies to your structure."
-              paragraphs={[
-                "If your business operates through multiple entities, free zones, or a cross-border structure, the useful next step is to review how the practical filing and setup choices line up with your compliance position.",
-              ]}
-              imageClassName="object-cover object-[74%_center]"
-              actions={
-                <div className="flex flex-col gap-4 sm:flex-row">
-                <ConsultationFormButton
-                  label="Schedule a Free Consultation"
-                  className="rounded-full border border-[#e2c58f] bg-[linear-gradient(180deg,#f4e4be_0%,#e7cc97_100%)] px-6 py-3 text-center text-sm font-semibold !text-[#11232a] shadow-[0_16px_36px_rgba(231,204,151,0.24)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[linear-gradient(180deg,#f1dfb1_0%,#dfc186_100%)]"
-                />
-                <Link
-                  href={categoryHubHref}
-                  className="rounded-full border border-white/20 bg-white/10 px-6 py-3 text-center text-sm font-semibold !text-white backdrop-blur-md transition-colors hover:bg-white/[0.18]"
-                >
-                  {categoryHubLabel}
-                </Link>
-                </div>
-              }
-            />
-          </div>
-        </section>
       </article>
     </SiteShell>
   );
