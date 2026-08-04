@@ -14,12 +14,12 @@ export const navigation = [
           { label: "Free zone setup", href: "/free-zones" },
           { label: "Offshore setup", href: "/offshore" },
           {
-            label: "Mainland vs free zone",
-            href: "/mainland-vs-free-zone-dubai",
+            label: "Compare setup routes",
+            href: "/business-setup#planning-tools",
           },
           {
-            label: "Document attestation",
-            href: "/document-attestation-services-in-uae",
+            label: "Pricing",
+            href: "/business-setup-cost-dubai",
           },
         ],
       },
@@ -56,6 +56,15 @@ export const navigation = [
             label: "Banking support",
             href: "/open-a-bank-account-easily",
           },
+        ],
+      },
+      {
+        title: "Corporate Support",
+        links: [
+          { label: "Liquidation and restoration", href: "/corporate-support#liquidation-restoration" },
+          { label: "Branch office support", href: "/corporate-support#branch-office" },
+          { label: "Renewals and amendments", href: "/corporate-support#renewals-amendments" },
+          { label: "Document attestation", href: "/document-attestation-services-in-uae" },
         ],
       },
     ],
@@ -548,6 +557,7 @@ export const offshoreOptions = [
   "JAFZA",
   "RAK Offshore / RAK ICC",
   "Ajman Offshore",
+  "British Virgin Islands (BVI)",
 ] as const;
 
 export const setupStructures = [

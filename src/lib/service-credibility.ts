@@ -95,6 +95,21 @@ const sources = {
     publisher: "UAE Ministry of Foreign Affairs",
     href: "https://www.mofa.gov.ae/Services/Attestation",
   },
+  businessClosure: {
+    title: "Closing a business on the mainland",
+    publisher: "The Official Platform of the UAE Government",
+    href: "https://u.ae/en/information-and-services/business/doing-business-on-the-mainland/closing-a-business-on-the-mainland-",
+  },
+  foreignBranches: {
+    title: "Branches of foreign company services",
+    publisher: "UAE Ministry of Economy and Tourism",
+    href: "https://www.moet.gov.ae/en/w/foreign-company-services-beta-version",
+  },
+  foreignBranchRequirements: {
+    title: "Requirements for establishing a branch of a foreign company",
+    publisher: "UAE Ministry of Economy and Tourism",
+    href: "https://www.moet.gov.ae/en/-/what-are-the-requirements-for-establishing-a-branch-of-a-foreign-company-",
+  },
   establishmentCard: {
     title: "Issuing an Establishment Card",
     publisher: "Federal Authority for Identity, Citizenship, Customs & Port Security",
@@ -201,6 +216,12 @@ export function getServiceCredibility(path: string): ServiceCredibility | undefi
       verificationLabel: checkedLabel,
       note: "The required attestation chain depends on where the document was issued, its type, and where it will be used. The issuing and receiving authorities make the final determination.",
       sources: [sources.documentAttestation],
+    },
+    "/corporate-support": {
+      expert: experts.cecilia,
+      verificationLabel: "Sources checked August 4, 2026",
+      note: "Renewal, amendment, liquidation, restoration, branch, and attestation requirements vary by legal form and jurisdiction. Timelines and document lists are confirmed case by case with the relevant authority before work begins.",
+      sources: [sources.businessClosure, sources.foreignBranches, sources.foreignBranchRequirements, sources.documentAttestation],
     },
     "/uae-company-visa": {
       expert: experts.cecilia,

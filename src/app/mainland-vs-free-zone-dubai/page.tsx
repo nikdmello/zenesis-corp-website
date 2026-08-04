@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { PageSectionNav, PageSectionNavMobile } from "@/components/page-section-nav";
 import { ReadingProgress } from "@/components/reading-progress";
@@ -88,6 +89,11 @@ const faqs = [
     answer:
       "No. The permit creates a structured route for eligible activities, but it does not remove the differences in licensing, office position, operating scope, tax records, renewals, or long-term commercial fit.",
   },
+  {
+    question: "Is an offshore company an alternative to mainland or free zone setup?",
+    answer:
+      "Only when the company does not need a normal UAE operating licence. Offshore structures are generally used for holding, ownership, or international activity rather than local UAE operations, residence visas, or a local office. The right jurisdiction depends on the intended activity, ownership, banking, and substance requirements.",
+  },
 ] as const;
 
 const nextStepLinks = [
@@ -108,8 +114,27 @@ const nextStepLinks = [
   },
 ] as const;
 
+const routeFitRows = [
+  {
+    route: "Mainland",
+    bestFor: "Businesses that need broad local UAE operations, direct client work, or a long-term mainland presence.",
+    visasAndOffice: "Residence visas and an operating office can be built into the structure, subject to the activity and authority requirements.",
+  },
+  {
+    route: "Free zone",
+    bestFor: "Founder-led services, international trade, or businesses that fit a specific zone and package.",
+    visasAndOffice: "Visa and workspace options usually depend on the selected free zone package.",
+  },
+  {
+    route: "Offshore",
+    bestFor: "Holding assets or shares, international structuring, and activities that do not require a local UAE operating licence.",
+    visasAndOffice: "Generally not designed to provide UAE residence visas or a local operating office.",
+  },
+] as const;
+
 const comparisonPageLinks = [
   { href: "#route-comparison", label: "Route comparison" },
+  { href: "#where-offshore-fits", label: "Where offshore fits" },
   { href: "#mainland-permit", label: "Mainland permit" },
   { href: "#next-steps", label: "Next steps" },
   { href: "#direct-answers", label: "Direct answers" },
@@ -209,6 +234,66 @@ export default function MainlandVsFreeZoneDubaiPage() {
           </div>
           </div>
           <PageSectionNav items={comparisonPageLinks} />
+        </div>
+      </section>
+
+      <section
+        id="where-offshore-fits"
+        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f5efe4] py-16 md:py-20"
+      >
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <SectionHeading
+            eyebrow="The third route"
+            title="Where offshore fits"
+            description="Offshore belongs in the route decision, but it is not a direct substitute for an operating mainland or free zone company. It is usually considered when the purpose is holding, ownership, or international structuring rather than day-to-day UAE operations."
+          />
+
+          <div className="mt-9 overflow-hidden rounded-lg border border-[#d8d0c2] bg-white">
+            <div className="overflow-x-auto">
+              <table className="min-w-[62rem] border-collapse text-left">
+                <thead className="bg-[#11232a] text-white">
+                  <tr>
+                    {["Route", "Typical fit", "Visas and office position"].map((heading) => (
+                      <th
+                        key={heading}
+                        scope="col"
+                        className="px-5 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.16em]"
+                      >
+                        {heading}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {routeFitRows.map((row) => (
+                    <tr key={row.route} className="border-t border-[#e4dacb]">
+                      <th scope="row" className="w-[10rem] px-5 py-5 text-[1.04rem] font-semibold text-[#11232a]">
+                        {row.route}
+                      </th>
+                      <td className="px-5 py-5 text-[0.98rem] font-medium leading-7 text-[#11232a]/84">
+                        {row.bestFor}
+                      </td>
+                      <td className="px-5 py-5 text-[0.98rem] font-medium leading-7 text-[#11232a]/84">
+                        {row.visasAndOffice}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="mt-7 flex flex-col gap-4 border-l-2 border-[#b79248] pl-5 sm:flex-row sm:items-center sm:justify-between">
+            <p className="max-w-4xl text-[1rem] font-medium leading-7 text-[#11232a]/82">
+              Zenesis can compare UAE offshore routes such as JAFZA Offshore, RAK ICC, and Ajman Offshore, as well as international options such as BVI where relevant. Final suitability depends on the intended use and the rules of the selected registry.
+            </p>
+            <Link
+              href="/offshore"
+              className="inline-flex shrink-0 items-center justify-center border border-[#11232a] bg-[#11232a] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#1c343d]"
+            >
+              Explore offshore options
+            </Link>
+          </div>
         </div>
       </section>
 

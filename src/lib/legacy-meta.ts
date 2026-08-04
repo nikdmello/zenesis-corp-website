@@ -37,6 +37,11 @@ export const legacyRouteMeta = {
     description:
       "Get insights on UAE business visas, investor visas, residency options, and application processes for entrepreneurs.",
   },
+  corporateSupport: {
+    title: "Corporate Support Services UAE | Zenesis Corp",
+    description:
+      "Corporate support for UAE companies including renewals, amendments, liquidation, restoration, branch office support, document attestation, and ongoing company administration.",
+  },
   goldenVisaServices: {
     title: "UAE Golden Visa Guide for Investors & Professionals",
     description:
@@ -56,9 +61,9 @@ export const legacyServiceMeta = {
       "Compare free zone company formation in Dubai and the UAE by activity, package, ownership, visas, office rules, banking practicality, renewal costs, and operating fit.",
   },
   offshore: {
-    title: "Offshore Company Formation UAE | JAFZA, RAK ICC & Ajman",
+    title: "Offshore Company Formation | UAE & BVI Options",
     description:
-      "Set up an offshore company in the UAE for holding, asset ownership, international structuring, or succession planning with jurisdiction and banking guidance.",
+      "Compare JAFZA, RAK ICC, Ajman Offshore, and BVI company formation for holding, asset ownership, international structuring, or succession planning.",
   },
   "document-attestation-services-in-uae": {
     title: "Document Attestation Services in UAE | Zenesis Corp",

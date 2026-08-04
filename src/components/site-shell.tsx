@@ -193,7 +193,7 @@ export function SiteShell({
                           : "pointer-events-none translate-y-1.5 opacity-0"
                       } ${
                         isServicesMenu
-                          ? "w-[45rem]"
+                          ? "w-[62rem]"
                           : groupCount > 2
                             ? "w-[28rem]"
                             : groupCount > 1
@@ -209,7 +209,7 @@ export function SiteShell({
                         <div
                           className={`grid gap-2.5 ${
                             isServicesMenu
-                              ? "md:grid-cols-3 md:gap-0"
+                              ? "md:grid-cols-4 md:gap-0"
                               : groupCount > 1
                                 ? "md:grid-cols-2"
                                 : "md:grid-cols-1"
@@ -265,11 +265,11 @@ export function SiteShell({
                                     href={link.href}
                                     className={`rounded-md transition-all duration-200 hover:bg-white/7 hover:text-white ${
                                       isServicesMenu
-                                        ? "px-0 py-2 text-[0.96rem] font-medium leading-[1.45] text-white/72 hover:translate-x-1 hover:px-3 hover:text-white"
+                                        ? "-mx-3 px-3 py-2 text-[0.96rem] font-medium leading-[1.45] text-white/72 hover:text-white"
                                         : "px-2.75 py-2.25 text-[0.92rem] text-white/90"
                                     }`}
                                   >
-                                    <span className="block tracking-[-0.01em]">{link.label}</span>
+                                    <span className="block whitespace-nowrap tracking-[-0.01em]">{link.label}</span>
                                   </Link>
                                 ))}
                               </div>
@@ -628,7 +628,7 @@ function getServiceGroupHref(groupTitle: string) {
     case "Accounting and Tax":
       return "/accounting-tax";
     case "Corporate Support":
-      return "/contact";
+      return "/corporate-support";
     case "Visa and Banking":
       return "/visa-and-banking";
     default:

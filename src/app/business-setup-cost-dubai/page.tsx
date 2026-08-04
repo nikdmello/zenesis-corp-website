@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BusinessSetupCostTable } from "@/components/business-setup-cost-table";
 import { BusinessSetupPriceActions } from "@/components/business-setup-price-actions";
@@ -25,40 +26,12 @@ import {
 
 const pageTitle = "Business Setup Cost in Dubai 2026 | Zenesis Prices";
 const pageDescription =
-  "Compare 2026 business setup costs in Dubai, including freelance, free zone, visa, and mainland options, plus the cheapest viable routes and key cost drivers.";
+  "Compare 2026 business setup costs in Dubai and the UAE, including freelance, free zone, mainland, visa, and offshore options, plus key cost drivers.";
 const introDescription =
   "Published starting prices, cheapest viable routes, and practical cost drivers for UAE company formation, with the full quote confirmed before filing begins.";
 
-const lowCostRouteGuidance = [
-  {
-    title: "Freelance permit",
-    pricingTitle: "Freelance Permit",
-    bestFor: "Independent professionals who need a lean entry route before building a larger company structure.",
-    caution: "Check activity scope, visa needs, banking expectations, and whether the permit fits future client work.",
-  },
-  {
-    title: "Free Zone Company Setup",
-    pricingTitle: "Free Zone Company Setup",
-    bestFor: "Founders who want a UAE company structure without immediate residency or employee visa requirements.",
-    caution: "The cheapest zone may not be the right zone for banking, renewals, office rules, or activity fit.",
-  },
-  {
-    title: "Free Zone Company Setup + Visa",
-    pricingTitle: "Free Zone Company Setup + Visa",
-    bestFor: "Entrepreneurs who need company setup aligned with UAE residency planning.",
-    caution: "Budget for visa allocation, establishment card, medical, Emirates ID, health insurance, and renewal rules.",
-  },
-  {
-    title: "Mainland Company Setup",
-    pricingTitle: "Mainland Company Setup",
-    bestFor: "Businesses that need direct UAE market access, local clients, or broader operating flexibility.",
-    caution: "Do not compare mainland only on headline license cost. Office, approvals, and visa planning can change the real budget.",
-  },
-] as const;
-
 const pricingPageLinks = [
   { href: "#starting-prices", label: "Starting prices" },
-  { href: "#low-cost-routes", label: "Low-cost routes" },
   { href: "#cost-drivers", label: "What affects cost" },
   { href: "#setup-routes", label: "Setup routes" },
   { href: "#direct-answers", label: "Pricing FAQ" },
@@ -132,32 +105,15 @@ export default function BusinessSetupCostDubaiPage() {
           <p className="mt-5 max-w-5xl text-[0.98rem] font-medium leading-7 text-white/72">
             {businessSetupPricingDisclaimer}
           </p>
-        </div>
-      </section>
-
-      <section id="low-cost-routes" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-14 md:py-18">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <SectionHeading
-            eyebrow="Lowest viable route"
-            title="Compare low-cost setup options"
-            description="The cheapest route is useful only when it still fits the activity, visa plan, banking expectations, renewal position, and way the company needs to operate."
-          />
-          <div className="mt-8 grid gap-x-8 gap-y-10 md:grid-cols-2 xl:grid-cols-4">
-            {lowCostRouteGuidance.map((item) => {
-              const price = businessSetupStartingPrices.find((option) => option.title === item.pricingTitle);
-              return (
-                <article key={item.title} className="border-t border-[#d8d0c2] pt-5 text-[#11232a]">
-                  <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
-                    From {price?.price}
-                  </p>
-                  <h2 className="mt-3 text-[1.2rem] font-semibold leading-tight">{item.title}</h2>
-                  <p className="mt-4 text-[1rem] font-medium leading-7 text-[#11232a]/86">{item.bestFor}</p>
-                  <p className="mt-4 border-l-2 border-[#244ba8] pl-4 text-[0.94rem] font-medium leading-6 text-[#11232a]/76">
-                    {item.caution}
-                  </p>
-                </article>
-              );
-            })}
+          <div className="mt-7 grid gap-5 border-t border-white/14 pt-7 md:grid-cols-2">
+            <div>
+              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#d5be8b]">Lowest entry price</p>
+              <p className="mt-3 text-[1.05rem] font-medium leading-7 text-white/88">A freelance permit starts from AED 4,000 when the activity and operating model fit a permit route.</p>
+            </div>
+            <div>
+              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#d5be8b]">Lowest company route</p>
+              <p className="mt-3 text-[1.05rem] font-medium leading-7 text-white/88">A free zone company without a visa starts from AED 7,000, but zone, activity, banking, office, and renewal fit still matter.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -218,20 +174,44 @@ export default function BusinessSetupCostDubaiPage() {
 
           <BusinessSetupPriceActions variant="servicePage" />
 
-          <div className="mt-8 grid gap-4">
+          <div className="mt-8 grid gap-4 lg:grid-cols-2">
             <Link
               href="/mainland-vs-free-zone-dubai"
-              className="rounded-lg border border-[#d8d0c2] bg-white px-5 py-5 text-[#11232a] transition-transform duration-200 hover:-translate-y-0.5"
+              className="group grid overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#11232a] transition-transform duration-200 hover:-translate-y-0.5 md:grid-cols-[18rem_minmax(0,1fr)]"
             >
-              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
-                Compare routes
-              </p>
-              <h2 className="mt-3 text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">
-                Mainland vs free zone Dubai
-              </h2>
-              <p className="mt-3 text-[1rem] font-medium leading-7 text-foreground/84">
-                See when mainland flexibility is worth the cost and when a free zone package is the better fit.
-              </p>
+              <div className="relative min-h-[12rem] overflow-hidden bg-[#e9e3d9] md:min-h-[15rem]">
+                <Image
+                  src={versionedAssetPath("/services/mainland-vs-freezone.webp")}
+                  alt="Mainland and free zone company setup comparison in Dubai"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 288px"
+                  className="object-cover object-[82%_34%] transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="px-5 py-6 md:px-7 md:py-7">
+                <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">Compare routes</p>
+                <h2 className="mt-3 text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">Mainland vs free zone Dubai</h2>
+                <p className="mt-3 text-[1rem] font-medium leading-7 text-foreground/84">See when mainland flexibility is worth the cost and when a free zone package is the better fit.</p>
+              </div>
+            </Link>
+            <Link
+              href="/offshore"
+              className="group grid overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#11232a] transition-transform duration-200 hover:-translate-y-0.5 md:grid-cols-[18rem_minmax(0,1fr)]"
+            >
+              <div className="relative min-h-[12rem] overflow-hidden bg-[#e9e3d9] md:min-h-[15rem]">
+                <Image
+                  src={versionedAssetPath("/services/offshore.webp")}
+                  alt="Offshore company setup and jurisdiction comparison"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 288px"
+                  className="object-cover object-[72%_22%] transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="px-5 py-6 md:px-7 md:py-7">
+                <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">Starting from AED 7,500</p>
+                <h2 className="mt-3 text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">Offshore setup</h2>
+                <p className="mt-3 text-[1rem] font-medium leading-7 text-foreground/84">Compare JAFZA, RAK ICC, Ajman Offshore, and international options such as BVI by intended use, registry requirements, registered agent support, documentation, banking practicality, and renewal cost.</p>
+              </div>
             </Link>
           </div>
         </div>

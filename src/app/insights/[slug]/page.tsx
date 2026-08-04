@@ -676,7 +676,7 @@ export default async function InsightArticlePage({
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="group overflow-hidden rounded-[1.75rem] border border-[#d8d0c2] bg-white text-[#11232a] shadow-[0_18px_50px_rgba(17,35,42,0.08)] transition-transform duration-200 hover:-translate-y-0.5"
+                    className="group h-full overflow-hidden border border-[#d8d0c2] bg-white text-[#11232a] transition-[border-color,background-color,transform] duration-200 hover:-translate-y-0.5 hover:border-[#b79248] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244ba8]"
                   >
                     {item.imageSrc ? (
                       <div className="overflow-hidden border-b border-[#d8d0c2] bg-[#f8f5ef]">

@@ -325,6 +325,12 @@ const decisionResources = [
     description:
       "Compare market access, ownership, visas, office needs, banking, and cost tradeoffs.",
   },
+  {
+    label: "Offshore options",
+    href: "/offshore",
+    description:
+      "Compare JAFZA, RAK ICC, Ajman Offshore, and BVI for holding, ownership, and international structures.",
+  },
 ] as const;
 
 export const metadata: Metadata = toMetadata(
@@ -481,8 +487,7 @@ export default function BusinessSetupPage() {
               </h3>
               <p className="mt-4 text-[1.08rem] leading-8 text-white/84">
                 Zenesis can assess the requirement and refer or coordinate with an
-                appropriately licensed consultant. Zenesis does not act directly as an
-                agent in these jurisdictions.
+                appropriately licensed consultant for the relevant jurisdiction.
               </p>
             </article>
           </div>
@@ -557,7 +562,7 @@ export default function BusinessSetupPage() {
             description="Use these pages when you are deciding whether to prioritize cost, mainland access, free zone flexibility, visas, or banking readiness."
           />
           <div className="mt-7">
-            <ServiceSubpageLinks items={decisionResources} columnsClassName="md:grid-cols-2" />
+            <ServiceSubpageLinks items={decisionResources} columnsClassName="md:grid-cols-3" />
           </div>
         </div>
       </section>

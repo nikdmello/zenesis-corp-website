@@ -8,6 +8,87 @@ import { submitConsultationLeadToZohoWebform } from "@/lib/zoho-webform";
 
 const whatsappNumber = "971589142200";
 const homepageConsultationPromptSeenKey = "zenesis-homepage-consultation-prompt-seen";
+const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY?.trim() ?? "";
+const recaptchaAction = "consultation_lead";
+
+type ConsultationLeadSubmission = ConsultationLeadPayload & {
+  captchaToken: string;
+  startedAt: string;
+  website: string;
+};
+
+type GrecaptchaApi = {
+  ready(callback: () => void): void;
+  execute(siteKey: string, options: { action: string }): Promise<string>;
+};
+
+function getGrecaptcha() {
+  return (window as Window & { grecaptcha?: GrecaptchaApi }).grecaptcha;
+}
+
+function loadRecaptchaScript() {
+  if (!recaptchaSiteKey) {
+    return Promise.resolve();
+  }
+
+  const existingScript = document.querySelector<HTMLScriptElement>(
+    `script[src^="https://www.google.com/recaptcha/api.js"]`,
+  );
+
+  if (existingScript) {
+    return Promise.resolve();
+  }
+
+  return new Promise<void>((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(
+      recaptchaSiteKey,
+    )}`;
+    script.async = true;
+    script.defer = true;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error("Unable to load reCAPTCHA."));
+    document.head.appendChild(script);
+  });
+}
+
+async function getRecaptchaToken() {
+  if (!recaptchaSiteKey) {
+    return "";
+  }
+
+  await loadRecaptchaScript();
+
+  return new Promise<string>((resolve, reject) => {
+    const grecaptcha = getGrecaptcha();
+
+    if (!grecaptcha) {
+      reject(new Error("reCAPTCHA is not ready."));
+      return;
+    }
+
+    grecaptcha.ready(() => {
+      grecaptcha
+        .execute(recaptchaSiteKey, { action: recaptchaAction })
+        .then(resolve)
+        .catch(() => reject(new Error("reCAPTCHA verification failed.")));
+    });
+  });
+}
+
+async function submitConsultationLead(payload: ConsultationLeadSubmission) {
+  const response = await fetch("/api/consultation-leads", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    throw new Error("Unable to submit the enquiry.");
+  }
+}
 
 function hasSeenHomepageConsultationPrompt() {
   try {
@@ -659,6 +740,9 @@ export function ConsultationInlinePanel({
     [],
   );
   const [additionalNote, setAdditionalNote] = useState("");
+  const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStartedAt] = useState(() => String(Date.now()));
   const [submittedPayload, setSubmittedPayload] = useState<ConsultationLeadPayload | null>(null);
   const selectedCountryValue =
     countryCodes.find((item) => item.label === selectedCountryLabel)?.value ??
@@ -669,7 +753,7 @@ export function ConsultationInlinePanel({
     [additionalNote, presetEnquiry, selectedShortcutLabels],
   );
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const form = new FormData(event.currentTarget);
@@ -694,8 +778,25 @@ export function ConsultationInlinePanel({
       pageTitle: document.title,
     };
 
-    submitConsultationLeadToZohoWebform(payload);
-    setSubmittedPayload(payload);
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      await submitConsultationLead({
+        ...payload,
+        captchaToken: await getRecaptchaToken(),
+        startedAt: String(form.get("startedAt") ?? formStartedAt),
+        website: String(form.get("website") ?? ""),
+      });
+      submitConsultationLeadToZohoWebform(payload);
+      setSubmittedPayload(payload);
+    } catch {
+      setSubmitError(
+        "We could not submit the enquiry. Please try again or continue on WhatsApp.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -739,6 +840,7 @@ export function ConsultationInlinePanel({
                 type="button"
                 onClick={() => {
                   setSubmittedPayload(null);
+                  setSubmitError("");
                   setSelectedShortcutLabels([]);
                   setAdditionalNote("");
                 }}
@@ -870,13 +972,30 @@ export function ConsultationInlinePanel({
                   placeholder="Add any short detail you want included."
                 />
               </label>
+
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
+              <input type="hidden" name="startedAt" value={formStartedAt} />
             </div>
+
+            {submitError ? (
+              <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+                {submitError}
+              </p>
+            ) : null}
 
             <button
               type="submit"
-              className="mt-6 w-full rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3.5 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
+              disabled={isSubmitting}
+              className="mt-6 w-full rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3.5 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0"
             >
-              Submit enquiry
+              {isSubmitting ? "Submitting..." : "Submit enquiry"}
             </button>
           </>
         )}
@@ -908,6 +1027,9 @@ export function ConsultationModal({
     [],
   );
   const [additionalNote, setAdditionalNote] = useState("");
+  const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStartedAt] = useState(() => String(Date.now()));
   const [submittedPayload, setSubmittedPayload] = useState<ConsultationLeadPayload | null>(null);
   const selectedCountryValue =
     countryCodes.find((item) => item.label === selectedCountryLabel)?.value ??
@@ -938,7 +1060,7 @@ export function ConsultationModal({
     };
   }, [isOpen, onOpenChange]);
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const form = new FormData(event.currentTarget);
@@ -963,8 +1085,25 @@ export function ConsultationModal({
       pageTitle: document.title,
     };
 
-    submitConsultationLeadToZohoWebform(payload);
-    setSubmittedPayload(payload);
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      await submitConsultationLead({
+        ...payload,
+        captchaToken: await getRecaptchaToken(),
+        startedAt: String(form.get("startedAt") ?? formStartedAt),
+        website: String(form.get("website") ?? ""),
+      });
+      submitConsultationLeadToZohoWebform(payload);
+      setSubmittedPayload(payload);
+    } catch {
+      setSubmitError(
+        "We could not submit the enquiry. Please try again or continue on WhatsApp.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   function closeModal() {
@@ -1187,13 +1326,30 @@ export function ConsultationModal({
                     placeholder="Add any short detail you want included."
                   />
                 </label>
+
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  aria-hidden="true"
+                />
+                <input type="hidden" name="startedAt" value={formStartedAt} />
               </div>
+
+              {submitError ? (
+                <p className="mt-4 rounded-[0.6rem] border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+                  {submitError}
+                </p>
+              ) : null}
 
               <button
                 type="submit"
-                className="mt-5 w-full rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3.5 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2 md:mt-5"
+                disabled={isSubmitting}
+                className="mt-5 w-full rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3.5 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0 md:mt-5"
               >
-                Submit enquiry
+                {isSubmitting ? "Submitting..." : "Submit enquiry"}
               </button>
             </>
           )}

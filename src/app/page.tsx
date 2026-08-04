@@ -66,10 +66,10 @@ const customerPaths = [
   },
   {
     title: "Corporate support",
-    href: "/contact",
+    href: "/corporate-support",
     icon: "support",
     cta: "Corporate support",
-    items: ["License renewals", "PRO services", "Company amendments"],
+    items: ["Renewals and amendments", "Liquidation and restoration", "Document attestation"],
   },
 ] as const;
 

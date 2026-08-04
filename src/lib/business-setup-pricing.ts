@@ -7,7 +7,7 @@ export const businessSetupPricingLastUpdated = {
 } as const;
 
 export const businessSetupPricingSummary =
-  "Zenesis business setup consultancy prices in Dubai and the UAE start from AED 4,000 for freelance permits, AED 7,000 for free zone company setup without visa, AED 15,000 for free zone company setup with visa, and AED 10,000 for mainland company setup.";
+  "Zenesis business setup consultancy prices start from AED 4,000 for freelance permits, AED 7,000 for free zone company setup without visa, AED 15,000 for free zone company setup with visa, AED 10,000 for mainland company setup, and AED 7,500 for offshore company setup.";
 
 export const businessSetupPricingAnswer =
   `${businessSetupPricingSummary} Final pricing depends on jurisdiction, business activity, visa requirements, government fees, office package, and approvals.`;
@@ -113,15 +113,20 @@ export const businessSetupStartingPrices = [
     description:
       "For independent professionals who need a lean UAE permit route before expanding.",
   },
+  {
+    title: "Offshore Company Setup",
+    price: "AED 7,500",
+    numericPrice: 7500,
+    qualifier: "starting from",
+    href: "/offshore",
+    description:
+      "For holding, ownership, and international structures where an offshore route fits the intended use.",
+  },
 ] as const;
 
 export const businessSetupPricingFaqs = [
   {
     question: "How much does business setup in Dubai cost with Zenesis?",
-    answer: businessSetupPricingAnswer,
-  },
-  {
-    question: "What are Zenesis business setup consultancy prices in Dubai?",
     answer: businessSetupPricingAnswer,
   },
   {
@@ -138,6 +143,11 @@ export const businessSetupPricingFaqs = [
     question: "How much does a freelance permit cost with Zenesis?",
     answer:
       "Zenesis freelance permit support starts from AED 4,000. The final cost depends on the relevant permit route, activity, authority requirements, visa needs, and approvals.",
+  },
+  {
+    question: "How much does offshore company setup cost with Zenesis?",
+    answer:
+      "Zenesis offshore company setup starts from AED 7,500. The confirmed quote depends on whether the suitable route is JAFZA, RAK ICC, Ajman Offshore, BVI, or another supported jurisdiction, along with the intended use, registered agent, documentation, compliance, and renewal requirements.",
   },
   {
     question: "Why can the final business setup cost change?",
@@ -183,5 +193,12 @@ export const businessSetupCostComparisonRows = [
     bestFor: "Businesses that need mainland licensing and broader UAE market access.",
     includes: "Mainland setup route guidance, activity review, and documentation support.",
     finalCostDependsOn: "Business activity, license requirements, government fees, office needs, and visa planning.",
+  },
+  {
+    setupType: "Offshore Company Setup",
+    startingPrice: "AED 7,500",
+    bestFor: "Holding, ownership, and international structures that do not need day-to-day UAE operating activity.",
+    includes: "Jurisdiction review, structure guidance, and incorporation-document support.",
+    finalCostDependsOn: "Jurisdiction, including JAFZA, RAK ICC, Ajman, or BVI, intended use, registered agent, documents, compliance, and renewals.",
   },
 ] as const;

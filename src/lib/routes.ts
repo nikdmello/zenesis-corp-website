@@ -16,6 +16,7 @@ export const coreIndexableRoutes = [
   { path: "/mainland-vs-free-zone-dubai", priority: 0.85, changeFrequency: "monthly" },
   { path: "/accounting-tax", priority: 0.9, changeFrequency: "weekly" },
   { path: "/visa-and-banking", priority: 0.9, changeFrequency: "weekly" },
+  { path: "/corporate-support", priority: 0.9, changeFrequency: "weekly" },
   { path: "/insights", priority: 0.8, changeFrequency: "weekly" },
   { path: "/featured-profile", priority: 0.7, changeFrequency: "monthly" },
 ] as const satisfies ReadonlyArray<IndexableRoute>;

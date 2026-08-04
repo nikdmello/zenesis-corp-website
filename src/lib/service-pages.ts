@@ -16,7 +16,7 @@ type ServiceDirectAnswer = {
 
 export type ServiceDetailConfig = {
   slug: string;
-  currentPath: "/business-setup" | "/accounting-tax" | "/visa-and-banking";
+  currentPath: "/business-setup" | "/accounting-tax" | "/visa-and-banking" | "/corporate-support";
   title: string;
   eyebrow: string;
   description: string;
@@ -44,7 +44,7 @@ export type ServiceDetailConfig = {
   separateSupportSection?: boolean;
   hideBreadcrumb?: boolean;
   topLevelService?: boolean;
-  backHref: "/business-setup" | "/accounting-tax" | "/visa-and-banking";
+  backHref: "/business-setup" | "/accounting-tax" | "/visa-and-banking" | "/corporate-support";
   backLabel: string;
   metadata: Metadata;
 };
@@ -242,8 +242,14 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         items: [
           "DMCC for a premium Dubai ecosystem and strong trade positioning",
           "Dubai South for logistics, aviation, and regional connectivity near Al Maktoum Airport",
-          "IFZA and Meydan for flexible licensing and popular founder-led setup packages",
-          "RAKEZ, Shams, Ajman, Fujairah, Sharjah Airport, and Umm Al Quwain where activity fit, cost, or location can matter more than headline prestige",
+          "IFZA for flexible Dubai licensing packages across common consulting, service, and trading activities",
+          "Meydan Free Zone for Dubai based founder led and digital business packages",
+          "RAKEZ for Ras Al Khaimah industrial, commercial, service, and cost conscious setup routes",
+          "Shams for media, creative, consulting, and founder led businesses in Sharjah",
+          "Ajman Free Zone for trading, service, industrial, and ecommerce routes in Ajman",
+          "Sharjah Airport International Free Zone for trade, logistics, and industrial access near the airport",
+          "Fujairah Free Zone for east coast trade, logistics, and port connected activity",
+          "Umm Al Quwain Free Trade Zone for lean service, consultancy, and commercial setup packages",
         ],
       },
       {
@@ -392,6 +398,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "JAFZA is often chosen for stronger recognition and for structures that may need Dubai property ownership relevance",
           "RAK ICC is widely used for international business company registration and holding structures",
           "Ajman Offshore is often considered for a more cost-conscious offshore setup route",
+          "The British Virgin Islands is an international offshore option that may be considered where the ownership, holding, or cross-border use case calls for a non-UAE registry",
           "All offshore structures need to be checked against their limits on local trading, visas, and physical UAE operating activity",
         ],
       },
@@ -430,9 +437,9 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "No, not as a normal operating route. Offshore structures are generally not designed for day-to-day local UAE trading, staffing, or office-based operating activity, so they should be chosen for ownership and structuring reasons rather than local market access.",
       },
       {
-        question: "What usually drives the choice between JAFZA, RAK ICC, and Ajman Offshore?",
+        question: "What usually drives the choice between UAE offshore routes and BVI?",
         answer:
-          "The choice usually depends on what the company is meant to hold, whether Dubai property relevance matters, how the structure will be presented to banks or counterparties, and the practical cost-versus-recognition tradeoff behind the setup.",
+          "The choice depends on what the company is meant to hold, whether a UAE or international registry is more suitable, whether Dubai property relevance matters, how the structure will be presented to banks or counterparties, and the cost, administration, and recognition tradeoffs behind the setup.",
       },
       {
         question: "What do people most often misunderstand about offshore structures?",
@@ -447,7 +454,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     pointsTitle: "What we handle",
     points: [
-      "Compare the offshore jurisdictions that suit holding, protection, or international ownership goals, including JAFZA, RAK ICC, and Ajman Offshore",
+      "Compare offshore jurisdictions that suit holding, protection, or international ownership goals, including JAFZA, RAK ICC, Ajman Offshore, and BVI",
       "Handle incorporation documents, registered-agent coordination, and compliance paperwork",
       "Explain where offshore is suitable for international trading, commission income, consultancy income, property holding, or global asset ownership",
       "Structure the company around shareholders, assets, and planned international use",
@@ -457,7 +464,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     supportTitle: "Talk to Zenesis",
     supportParagraphs: [
       "Reach out if your priority is asset holding, group structuring, family ownership planning, or international arrangements rather than local UAE operating activity.",
-      "Zenesis can help you choose between JAFZA, RAK ICC, and Ajman Offshore based on whether the main goal is ownership, protection, property, banking, or international commercial use.",
+      "Zenesis can help compare JAFZA, RAK ICC, Ajman Offshore, and BVI based on whether the main goal is ownership, protection, property, banking, or international commercial use.",
     ],
     backHref: "/business-setup",
     backLabel: "Back to Business Setup",
@@ -467,7 +474,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
   },
   "document-attestation-services-in-uae": {
     slug: "document-attestation-services-in-uae",
-    currentPath: "/business-setup",
+    currentPath: "/corporate-support",
     title: "Document attestation",
     eyebrow: "Document Attestation",
     description:
@@ -551,8 +558,8 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "Reach out before submitting documents to a UAE authority if you want clarity on the attestation path, expected steps, and whether home-country, embassy, or MOFA action is required.",
       "Zenesis can help you avoid rejected submissions by checking the legalization path first and handling the process in the right order.",
     ],
-    backHref: "/business-setup",
-    backLabel: "Back to Business Setup",
+    backHref: "/corporate-support",
+    backLabel: "Back to Corporate Support",
     metadata: {
       ...toMetadata(
         legacyServiceMeta["document-attestation-services-in-uae"],

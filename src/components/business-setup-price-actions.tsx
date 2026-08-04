@@ -32,8 +32,8 @@ export function BusinessSetupPriceActions({
       <div
         className={
           variant === "homepage"
-            ? "grid gap-3 md:grid-cols-2 xl:grid-cols-4"
-            : "mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4"
+            ? "grid gap-3 md:grid-cols-2 xl:grid-cols-5"
+            : "mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-5"
         }
       >
         {businessSetupStartingPrices.map((item) => {
