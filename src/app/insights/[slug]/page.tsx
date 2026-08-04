@@ -177,7 +177,7 @@ export default async function InsightArticlePage({
           <div className="relative mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
             <Link
               href="/insights"
-              className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/8 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/12"
+              className="inline-flex items-center gap-2 border border-white/18 bg-white/8 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-[#ead5aa]/60 hover:bg-white/12"
             >
               <span aria-hidden="true">←</span>
               Back to Insights
@@ -441,7 +441,7 @@ export default async function InsightArticlePage({
                   ) : null}
 
                   {section.table ? (
-                    <div className="mt-6 overflow-hidden rounded-[1.6rem] border border-[#e4dbce] bg-[#fcfbf8] shadow-[0_12px_30px_rgba(17,35,42,0.05)]">
+                    <div className="mt-6 overflow-hidden border border-[#d8d0c2] bg-[#fcfbf8]">
                       <div className="overflow-x-auto">
                         <table className="min-w-full border-collapse">
                           <thead>
@@ -516,7 +516,7 @@ export default async function InsightArticlePage({
               ) : null}
 
               {relatedInsights.length ? (
-                <section className="rounded-[2rem] border border-[#e7ded1] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">
+                <section className="border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 md:p-8">
                   <h2 className={articleSectionHeadingClassName}>
                     Related compliance guides
                   </h2>
@@ -525,7 +525,7 @@ export default async function InsightArticlePage({
                       <Link
                         key={item.slug}
                         href={`/insights/${item.slug}`}
-                        className="group overflow-hidden rounded-[1.35rem] border border-[#e7ded1] bg-white shadow-[0_8px_20px_rgba(17,35,42,0.03)] transition-transform duration-200 hover:-translate-y-0.5"
+                        className="group overflow-hidden border border-[#d8d0c2] bg-white transition-[border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-[#b79248] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244ba8]"
                       >
                         <div className="overflow-hidden border-b border-[#e7ded1] bg-[#f8f5ef]">
                           <Image
@@ -556,7 +556,7 @@ export default async function InsightArticlePage({
               ) : null}
 
               {post.closingParagraphs?.length ? (
-                <section className="rounded-[2rem] border border-[#e7ded1] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 shadow-[0_12px_30px_rgba(17,35,42,0.04)] md:p-8">
+                <section className="border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 md:p-8">
                   <h2 className={articleSectionHeadingClassName}>
                     {post.closingTitle ?? "Final Thoughts"}
                   </h2>
@@ -578,7 +578,7 @@ export default async function InsightArticlePage({
                       </p>
                       <ConsultationFormButton
                         label="Book a consultation"
-                        className="mt-5 inline-flex rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
+                        className="mt-5 inline-flex border border-[#c6a15f] bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3 text-sm font-semibold tracking-[0.015em] !text-[#11232a] transition-all hover:-translate-y-0.5 hover:border-[#9f7b3f] hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
                         presetEnquiry={post.closingCta}
                       />
                     </div>

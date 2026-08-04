@@ -289,7 +289,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
             </p>
             <Link
               href="/offshore"
-              className="inline-flex shrink-0 items-center justify-center border border-[#11232a] bg-[#11232a] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#1c343d]"
+              className="inline-flex shrink-0 items-center justify-center border border-[#11232a] bg-[#11232a] px-5 py-3 text-sm font-semibold !text-white transition-colors hover:bg-[#1c343d] hover:!text-white"
             >
               Explore offshore options
             </Link>
