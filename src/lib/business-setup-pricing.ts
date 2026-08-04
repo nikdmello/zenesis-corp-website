@@ -115,7 +115,7 @@ export const businessSetupStartingPrices = [
     title: "Mainland Company Setup",
     price: "AED 10,000",
     numericPrice: 10000,
-    qualifier: "starting from",
+    qualifier: "mainland route",
     href: "/business-setup",
     description:
       "For businesses that need mainland licensing and broader access to the UAE market.",
@@ -124,7 +124,7 @@ export const businessSetupStartingPrices = [
     title: "Freelance Permit",
     price: "AED 4,000",
     numericPrice: 4000,
-    qualifier: "starting from",
+    qualifier: "permit route",
     href: "/business-setup",
     description:
       "For independent professionals who need a lean UAE permit route before expanding.",
@@ -134,7 +134,7 @@ export const businessSetupStartingPrices = [
     price: "AED 7,500-15,000",
     numericPrice: 7500,
     maxNumericPrice: 15000,
-    qualifier: "starting range",
+    qualifier: "UAE offshore",
     href: "/offshore",
     description:
       "For Ajman, RAK, or Jebel Ali offshore routes where a UAE offshore structure fits the intended use.",
@@ -144,7 +144,7 @@ export const businessSetupStartingPrices = [
     price: "AED 8,000-15,000",
     numericPrice: 8000,
     maxNumericPrice: 15000,
-    qualifier: "starting range",
+    qualifier: "international offshore",
     href: "/offshore",
     description:
       "For BVI, Nevis, Mauritius, Seychelles, or Hong Kong structures where an international offshore route fits.",

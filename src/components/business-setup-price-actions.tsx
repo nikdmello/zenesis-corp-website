@@ -32,12 +32,13 @@ export function BusinessSetupPriceActions({
       <div
         className={
           variant === "homepage"
-            ? "grid gap-3 md:grid-cols-2 xl:grid-cols-5"
-            : "mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-5"
+            ? "grid gap-3 md:grid-cols-2 lg:grid-cols-3"
+            : "mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3"
         }
       >
         {businessSetupStartingPrices.map((item) => {
           const enquiry = buildPricingEnquiry(item);
+          const hasPriceRange = "maxNumericPrice" in item;
 
           return (
             <button
@@ -72,8 +73,8 @@ export function BusinessSetupPriceActions({
               <div
                 className={
                   variant === "homepage"
-                    ? "mt-3 flex items-baseline gap-1.5 whitespace-nowrap text-[#244ba8]"
-                    : "mt-5 inline-flex min-w-max items-baseline gap-2 whitespace-nowrap text-[#244ba8]"
+                    ? "mt-3 flex min-w-0 flex-wrap items-baseline gap-x-1.5 gap-y-1 text-[#244ba8]"
+                    : "mt-5 flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1 text-[#244ba8]"
                 }
               >
                 <span
@@ -83,13 +84,13 @@ export function BusinessSetupPriceActions({
                       : "text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#8d7453]"
                   }
                 >
-                  From
+                  {hasPriceRange ? "Range" : "From"}
                 </span>
                 <span
                   className={
                     variant === "homepage"
-                      ? "text-[1.72rem] font-semibold leading-none tracking-[-0.05em]"
-                      : "text-[1.86rem] font-semibold leading-none tracking-[-0.04em] md:text-[2.08rem]"
+                      ? "text-[1.72rem] font-semibold leading-none tracking-[-0.04em]"
+                      : "text-[1.86rem] font-semibold leading-none tracking-[-0.035em] md:text-[2rem]"
                   }
                 >
                   {item.price}

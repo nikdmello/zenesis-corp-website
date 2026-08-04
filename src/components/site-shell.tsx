@@ -133,7 +133,7 @@ export function SiteShell({
                     )));
               const isHovered = hoveredNavHref === item.href;
               const isDesktopMenuOpen = openDesktopMenuHref === item.href;
-              const shouldShowUnderline = isActive || isHovered || isDesktopMenuOpen;
+              const shouldShowUnderline = isHovered || isDesktopMenuOpen;
               if ("groups" in item) {
                 const isServicesMenu = item.label === "Services";
                 const groupCount = item.groups.length;
