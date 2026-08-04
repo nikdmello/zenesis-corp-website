@@ -285,7 +285,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
 
           <div className="mt-7 flex flex-col gap-4 border-l-2 border-[#b79248] pl-5 sm:flex-row sm:items-center sm:justify-between">
             <p className="max-w-4xl text-[1rem] font-medium leading-7 text-[#11232a]/82">
-              Zenesis can compare UAE offshore routes such as JAFZA Offshore, RAK ICC, and Ajman Offshore, as well as international options such as BVI where relevant. Final suitability depends on the intended use and the rules of the selected registry.
+              Zenesis can compare UAE offshore routes such as Ajman, RAK, and Jebel Ali, as well as international options such as BVI, Nevis, Mauritius, Seychelles, and Hong Kong where relevant. Final suitability depends on the intended use and the rules of the selected registry.
             </p>
             <Link
               href="/offshore"

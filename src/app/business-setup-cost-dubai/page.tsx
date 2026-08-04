@@ -26,7 +26,7 @@ import {
 
 const pageTitle = "Business Setup Cost in Dubai 2026 | Zenesis Prices";
 const pageDescription =
-  "Compare 2026 business setup costs in Dubai and the UAE, including freelance, free zone, mainland, visa, and offshore options, plus key cost drivers.";
+  "Compare 2026 business setup costs in Dubai and the UAE, including freelance, free zone, mainland, visa, UAE offshore, and international offshore options.";
 const introDescription =
   "Published starting prices, cheapest viable routes, and practical cost drivers for UAE company formation, with the full quote confirmed before filing begins.";
 
@@ -208,9 +208,9 @@ export default function BusinessSetupCostDubaiPage() {
                 />
               </div>
               <div className="px-5 py-6 md:px-7 md:py-7">
-                <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">Starting from AED 7,500</p>
+                <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">UAE offshore from AED 7,500</p>
                 <h2 className="mt-3 text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">Offshore setup</h2>
-                <p className="mt-3 text-[1rem] font-medium leading-7 text-foreground/84">Compare JAFZA, RAK ICC, Ajman Offshore, and international options such as BVI by intended use, registry requirements, registered agent support, documentation, banking practicality, and renewal cost.</p>
+                <p className="mt-3 text-[1rem] font-medium leading-7 text-foreground/84">Compare Ajman, RAK, and Jebel Ali offshore routes from AED 7,500 to AED 15,000, and international options such as BVI, Nevis, Mauritius, Seychelles, and Hong Kong from AED 8,000 to AED 15,000.</p>
               </div>
             </Link>
           </div>

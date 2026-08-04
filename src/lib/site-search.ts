@@ -71,7 +71,7 @@ const topLevelPages: SearchDocument[] = [
     href: "/business-setup-cost-dubai",
     title: "Pricing",
     description:
-      "Zenesis business setup consultancy prices in Dubai, including freelance permits from AED 4,000, free zone setup from AED 7,000, free zone with visa from AED 15,000, and mainland setup from AED 10,000.",
+      "Zenesis business setup consultancy prices in Dubai and the UAE, including freelance permits from AED 4,000, free zone setup from AED 7,000, free zone with visa from AED 15,000, mainland setup from AED 10,000, UAE offshore setup from AED 7,500 to AED 15,000, and international offshore setup from AED 8,000 to AED 15,000.",
     type: "Page",
     section: "Main navigation",
     keywords: [
@@ -82,12 +82,16 @@ const topLevelPages: SearchDocument[] = [
       "free zone setup cost",
       "mainland setup cost",
       "freelance permit cost",
+      "offshore company setup cost",
+      "uae offshore company setup cost",
+      "international offshore company setup cost",
+      "bvi company setup cost",
       "cheapest business setup in uae",
       "low cost business setup dubai",
       "mainland vs free zone cost",
     ],
     searchText:
-      "business setup cost in dubai company formation cost dubai business setup cost in uae low cost business setup dubai cheapest business setup in uae mainland vs free zone cost business setup consultancy prices zenesis AED 4000 freelance permit AED 7000 free zone setup without visa AED 15000 free zone setup with visa AED 10000 mainland company setup pricing comparison",
+      "business setup cost in dubai company formation cost dubai business setup cost in uae low cost business setup dubai cheapest business setup in uae mainland vs free zone cost offshore company setup cost uae offshore company setup cost international offshore company setup cost bvi company setup cost zenesis AED 4000 freelance permit AED 7000 free zone setup without visa AED 15000 free zone setup with visa AED 10000 mainland company setup AED 7500 to AED 15000 UAE offshore Ajman RAK Jebel Ali AED 8000 to AED 15000 international offshore BVI Nevis Mauritius Seychelles Hong Kong pricing comparison",
   },
   {
     href: "/mainland-vs-free-zone-dubai",

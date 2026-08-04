@@ -52,6 +52,7 @@ type ServiceSchemaInput = {
     title: string;
     description: string;
     numericPrice: number;
+    maxNumericPrice?: number;
     href: string;
   }>;
 };
@@ -328,6 +329,16 @@ export function buildServiceSchema({ title, description, path, offers }: Service
               description: offer.description,
               price: offer.numericPrice,
               priceCurrency: "AED",
+              ...(offer.maxNumericPrice
+                ? {
+                    priceSpecification: {
+                      "@type": "PriceSpecification",
+                      priceCurrency: "AED",
+                      minPrice: offer.numericPrice,
+                      maxPrice: offer.maxNumericPrice,
+                    },
+                  }
+                : {}),
               url: getAbsoluteUrl(offer.href),
               availability: "https://schema.org/InStock",
               itemOffered: {

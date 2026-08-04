@@ -137,7 +137,7 @@ export const formationOptions = [
   {
     title: "Offshore",
     description:
-      "Offshore setup can fit international holdings, asset protection, and non-local trading activity through routes such as JAFZA, RAK ICC, and Ajman offshore.",
+      "Offshore setup can fit international holdings, asset protection, and non-local trading activity through UAE routes such as Ajman, RAK, and Jebel Ali, plus international routes such as BVI, Nevis, Mauritius, Seychelles, and Hong Kong.",
   },
 ] as const;
 
@@ -554,10 +554,14 @@ export const freeZoneExamples = [
 ] as const;
 
 export const offshoreOptions = [
-  "JAFZA",
-  "RAK Offshore / RAK ICC",
   "Ajman Offshore",
+  "RAK Offshore / RAK ICC",
+  "Jebel Ali Offshore",
   "British Virgin Islands (BVI)",
+  "Nevis",
+  "Mauritius",
+  "Seychelles",
+  "Hong Kong",
 ] as const;
 
 export const setupStructures = [

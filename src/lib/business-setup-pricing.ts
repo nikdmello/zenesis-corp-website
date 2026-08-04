@@ -2,12 +2,12 @@ export const businessSetupPricingDisclaimer =
   "Starting prices are indicative. Your confirmed quote will reflect the jurisdiction, business activity, visa requirements, government fees, office package, approvals, and the exact sequence needed for your setup.";
 
 export const businessSetupPricingLastUpdated = {
-  label: "July 7, 2026",
-  isoDate: "2026-07-07",
+  label: "August 4, 2026",
+  isoDate: "2026-08-04",
 } as const;
 
 export const businessSetupPricingSummary =
-  "Zenesis business setup consultancy prices start from AED 4,000 for freelance permits, AED 7,000 for free zone company setup without visa, AED 15,000 for free zone company setup with visa, AED 10,000 for mainland company setup, and AED 7,500 for offshore company setup.";
+  "Zenesis business setup consultancy prices start from AED 4,000 for freelance permits, AED 7,000 for free zone company setup without visa, AED 15,000 for free zone company setup with visa, AED 10,000 for mainland company setup, AED 7,500 to AED 15,000 for UAE offshore company setup, and AED 8,000 to AED 15,000 for international offshore company setup.";
 
 export const businessSetupPricingAnswer =
   `${businessSetupPricingSummary} Final pricing depends on jurisdiction, business activity, visa requirements, government fees, office package, and approvals.`;
@@ -40,6 +40,22 @@ export const marketCostGuideRows = [
     costDrivers:
       "Business activity, legal form, trade name, approvals, office requirements, immigration file, and visa planning.",
     zenesisPosition: "Zenesis mainland company setup starts from AED 10,000.",
+  },
+  {
+    route: "UAE offshore company setup",
+    typicalRange: "AED 7,500 to AED 15,000",
+    costDrivers:
+      "Chosen UAE offshore jurisdiction, registered-agent requirements, intended use, documents, compliance work, and renewal position.",
+    zenesisPosition:
+      "Zenesis UAE offshore setup support for Ajman, RAK, and Jebel Ali routes starts from AED 7,500 to AED 15,000.",
+  },
+  {
+    route: "International offshore company setup",
+    typicalRange: "AED 8,000 to AED 15,000",
+    costDrivers:
+      "International jurisdiction, registry requirements, registered-agent requirements, documents, compliance work, and renewal position.",
+    zenesisPosition:
+      "Zenesis international offshore setup support for BVI, Nevis, Mauritius, Seychelles, and Hong Kong routes starts from AED 8,000 to AED 15,000.",
   },
 ] as const;
 
@@ -114,13 +130,24 @@ export const businessSetupStartingPrices = [
       "For independent professionals who need a lean UAE permit route before expanding.",
   },
   {
-    title: "Offshore Company Setup",
-    price: "AED 7,500",
+    title: "UAE Offshore Company Setup",
+    price: "AED 7,500-15,000",
     numericPrice: 7500,
-    qualifier: "starting from",
+    maxNumericPrice: 15000,
+    qualifier: "starting range",
     href: "/offshore",
     description:
-      "For holding, ownership, and international structures where an offshore route fits the intended use.",
+      "For Ajman, RAK, or Jebel Ali offshore routes where a UAE offshore structure fits the intended use.",
+  },
+  {
+    title: "International Offshore Company Setup",
+    price: "AED 8,000-15,000",
+    numericPrice: 8000,
+    maxNumericPrice: 15000,
+    qualifier: "starting range",
+    href: "/offshore",
+    description:
+      "For BVI, Nevis, Mauritius, Seychelles, or Hong Kong structures where an international offshore route fits.",
   },
 ] as const;
 
@@ -147,7 +174,7 @@ export const businessSetupPricingFaqs = [
   {
     question: "How much does offshore company setup cost with Zenesis?",
     answer:
-      "Zenesis offshore company setup starts from AED 7,500. The confirmed quote depends on whether the suitable route is JAFZA, RAK ICC, Ajman Offshore, BVI, or another supported jurisdiction, along with the intended use, registered agent, documentation, compliance, and renewal requirements.",
+      "Zenesis UAE offshore company setup for Ajman, RAK, and Jebel Ali routes starts from AED 7,500 to AED 15,000. International offshore company setup for BVI, Nevis, Mauritius, Seychelles, and Hong Kong routes starts from AED 8,000 to AED 15,000. The confirmed quote depends on the jurisdiction, intended use, registered agent, documentation, compliance, and renewal requirements.",
   },
   {
     question: "Why can the final business setup cost change?",
@@ -195,10 +222,17 @@ export const businessSetupCostComparisonRows = [
     finalCostDependsOn: "Business activity, license requirements, government fees, office needs, and visa planning.",
   },
   {
-    setupType: "Offshore Company Setup",
-    startingPrice: "AED 7,500",
-    bestFor: "Holding, ownership, and international structures that do not need day-to-day UAE operating activity.",
+    setupType: "UAE Offshore Company Setup",
+    startingPrice: "AED 7,500-15,000",
+    bestFor: "Ajman, RAK, or Jebel Ali offshore structures used for holding, ownership, and international arrangements.",
     includes: "Jurisdiction review, structure guidance, and incorporation-document support.",
-    finalCostDependsOn: "Jurisdiction, including JAFZA, RAK ICC, Ajman, or BVI, intended use, registered agent, documents, compliance, and renewals.",
+    finalCostDependsOn: "UAE offshore jurisdiction, intended use, registered agent, documents, compliance, and renewals.",
+  },
+  {
+    setupType: "International Offshore Company Setup",
+    startingPrice: "AED 8,000-15,000",
+    bestFor: "BVI, Nevis, Mauritius, Seychelles, or Hong Kong structures for international holding or ownership needs.",
+    includes: "Jurisdiction review, structure guidance, and incorporation-document support.",
+    finalCostDependsOn: "International jurisdiction, intended use, registry and agent requirements, documents, compliance, and renewals.",
   },
 ] as const;

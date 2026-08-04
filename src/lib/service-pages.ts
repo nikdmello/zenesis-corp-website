@@ -344,7 +344,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     title: "Offshore setup",
     eyebrow: "Offshore",
     description:
-      "Use offshore structures for holding, ownership, and international arrangements that do not depend on day-to-day local UAE operations.",
+      "Compare UAE and international offshore structures for holding, ownership, and international arrangements that do not depend on day-to-day local UAE operations.",
     backgroundImageSrc: versionedAssetPath("/services/offshore.webp"),
     backgroundImageAlt: "Advisors discussing offshore structuring options",
     introBackgroundImageSrc: versionedAssetPath("/services/offshore.webp"),
@@ -359,7 +359,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     introParagraphs: [
       "Offshore setup is usually used for holding companies, asset ownership, succession planning, and international arrangements that do not depend on day-to-day trading inside the UAE.",
       "This route is often used by owners who want a tax-efficient holding structure, privacy around beneficial ownership at the registry level, and a company that is not designed for local UAE operating activity.",
-      "Zenesis helps you decide whether offshore is the right route at all, then guides the jurisdiction choice and setup process so the structure matches the ownership objective behind it.",
+      "Zenesis helps you decide whether offshore is the right route at all, then guides the jurisdiction choice and setup process so the structure matches the ownership objective behind it. UAE offshore setup for Ajman, RAK, and Jebel Ali routes starts from AED 7,500 to AED 15,000, while international offshore setup for BVI, Nevis, Mauritius, Seychelles, and Hong Kong routes starts from AED 8,000 to AED 15,000.",
     ],
     subpageLinks: [
       {
@@ -393,12 +393,12 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         title: "Common offshore routes",
         intro:
-          "The UAE offshore options are not identical, and the right one depends on what the company is meant to hold or do.",
+          "UAE offshore and international offshore options are not identical, and the right one depends on what the company is meant to hold or do.",
         items: [
-          "JAFZA is often chosen for stronger recognition and for structures that may need Dubai property ownership relevance",
+          "Jebel Ali offshore is often chosen for stronger recognition and for structures that may need Dubai property ownership relevance",
           "RAK ICC is widely used for international business company registration and holding structures",
           "Ajman Offshore is often considered for a more cost-conscious offshore setup route",
-          "The British Virgin Islands is an international offshore option that may be considered where the ownership, holding, or cross-border use case calls for a non-UAE registry",
+          "BVI, Nevis, Mauritius, Seychelles, and Hong Kong are international offshore options where the ownership, holding, or cross-border use case calls for a non-UAE registry",
           "All offshore structures need to be checked against their limits on local trading, visas, and physical UAE operating activity",
         ],
       },
@@ -407,6 +407,8 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         intro:
           "Offshore setup should be evaluated by use case, jurisdiction recognition, document needs, and banking practicality rather than headline incorporation cost alone.",
         items: [
+          "UAE offshore company setup for Ajman, RAK, and Jebel Ali routes starts from AED 7,500 to AED 15,000",
+          "International offshore company setup for BVI, Nevis, Mauritius, Seychelles, and Hong Kong routes starts from AED 8,000 to AED 15,000",
           "Cost can vary by jurisdiction, registered-agent requirements, document preparation, compliance work, and renewal position",
           "Banking is not automatic and usually depends on the ownership profile, source of funds, intended use, counterparties, and jurisdiction",
           "Common documents include passport copies, proof of address, shareholder details, structure charts, business rationale, POAs, and board resolutions where applicable",
@@ -439,7 +441,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "What usually drives the choice between UAE offshore routes and BVI?",
         answer:
-          "The choice depends on what the company is meant to hold, whether a UAE or international registry is more suitable, whether Dubai property relevance matters, how the structure will be presented to banks or counterparties, and the cost, administration, and recognition tradeoffs behind the setup.",
+          "The choice depends on what the company is meant to hold, whether a UAE or international registry is more suitable, whether Dubai property relevance matters, how the structure will be presented to banks or counterparties, and the cost, administration, and recognition tradeoffs behind the setup. Zenesis UAE offshore setup for Ajman, RAK, and Jebel Ali routes starts from AED 7,500 to AED 15,000, while international offshore setup for BVI, Nevis, Mauritius, Seychelles, and Hong Kong routes starts from AED 8,000 to AED 15,000.",
       },
       {
         question: "What do people most often misunderstand about offshore structures?",
@@ -454,7 +456,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     pointsTitle: "What we handle",
     points: [
-      "Compare offshore jurisdictions that suit holding, protection, or international ownership goals, including JAFZA, RAK ICC, Ajman Offshore, and BVI",
+      "Compare offshore jurisdictions that suit holding, protection, or international ownership goals, including Ajman, RAK, Jebel Ali, BVI, Nevis, Mauritius, Seychelles, and Hong Kong",
       "Handle incorporation documents, registered-agent coordination, and compliance paperwork",
       "Explain where offshore is suitable for international trading, commission income, consultancy income, property holding, or global asset ownership",
       "Structure the company around shareholders, assets, and planned international use",
@@ -464,7 +466,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     supportTitle: "Talk to Zenesis",
     supportParagraphs: [
       "Reach out if your priority is asset holding, group structuring, family ownership planning, or international arrangements rather than local UAE operating activity.",
-      "Zenesis can help compare JAFZA, RAK ICC, Ajman Offshore, and BVI based on whether the main goal is ownership, protection, property, banking, or international commercial use.",
+      "Zenesis can help compare UAE offshore routes such as Ajman, RAK, and Jebel Ali, plus international offshore routes such as BVI, Nevis, Mauritius, Seychelles, and Hong Kong, based on whether the main goal is ownership, protection, property, banking, or international commercial use.",
     ],
     backHref: "/business-setup",
     backLabel: "Back to Business Setup",

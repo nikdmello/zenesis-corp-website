@@ -329,7 +329,7 @@ const decisionResources = [
     label: "Offshore options",
     href: "/offshore",
     description:
-      "Compare JAFZA, RAK ICC, Ajman Offshore, and BVI for holding, ownership, and international structures.",
+      "Compare Ajman, RAK, Jebel Ali, BVI, Nevis, Mauritius, Seychelles, and Hong Kong for holding, ownership, and international structures.",
   },
 ] as const;
 

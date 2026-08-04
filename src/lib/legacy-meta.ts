@@ -61,9 +61,9 @@ export const legacyServiceMeta = {
       "Compare free zone company formation in Dubai and the UAE by activity, package, ownership, visas, office rules, banking practicality, renewal costs, and operating fit.",
   },
   offshore: {
-    title: "Offshore Company Formation | UAE & BVI Options",
+    title: "Offshore Company Formation | UAE & International Options",
     description:
-      "Compare JAFZA, RAK ICC, Ajman Offshore, and BVI company formation for holding, asset ownership, international structuring, or succession planning.",
+      "Compare Ajman, RAK, Jebel Ali, BVI, Nevis, Mauritius, Seychelles, and Hong Kong offshore company formation for holding, asset ownership, international structuring, or succession planning.",
   },
   "document-attestation-services-in-uae": {
     title: "Document Attestation Services in UAE | Zenesis Corp",
