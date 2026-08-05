@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { createPortal } from "react-dom";
 import { type ConsultationLeadPayload } from "@/lib/consultation-lead";
-import { submitConsultationLeadToZohoWebform } from "@/lib/zoho-webform";
 
 const whatsappNumber = "971589142200";
 const homepageConsultationPromptSeenKey = "zenesis-homepage-consultation-prompt-seen";
@@ -788,7 +787,6 @@ export function ConsultationInlinePanel({
         startedAt: String(form.get("startedAt") ?? formStartedAt),
         website: String(form.get("website") ?? ""),
       });
-      submitConsultationLeadToZohoWebform(payload);
       setSubmittedPayload(payload);
     } catch {
       setSubmitError(
@@ -1095,7 +1093,6 @@ export function ConsultationModal({
         startedAt: String(form.get("startedAt") ?? formStartedAt),
         website: String(form.get("website") ?? ""),
       });
-      submitConsultationLeadToZohoWebform(payload);
       setSubmittedPayload(payload);
     } catch {
       setSubmitError(

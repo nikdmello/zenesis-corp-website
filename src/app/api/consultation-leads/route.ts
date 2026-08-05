@@ -1,5 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { type ConsultationLeadPayload } from "@/lib/consultation-lead";
+import {
+  buildConsultationDescription,
+  splitLeadName,
+  type ConsultationLeadPayload,
+} from "@/lib/consultation-lead";
 
 export const runtime = "nodejs";
 
@@ -16,6 +20,12 @@ type CaptchaVerificationResult = {
   score?: number;
   action?: string;
   errorCodes?: string[];
+};
+
+type ZohoSubmissionResult = {
+  ok: boolean;
+  reason?: string;
+  status?: number;
 };
 
 function getClientIp(request: NextRequest) {
@@ -44,7 +54,8 @@ async function verifyRecaptcha(
   const secret = process.env.RECAPTCHA_SECRET_KEY?.trim();
 
   if (!secret) {
-    return { ok: true };
+    console.error("RECAPTCHA_SECRET_KEY is not configured");
+    return { ok: false, reason: "secret_not_configured" };
   }
 
   if (!token) {
@@ -129,6 +140,64 @@ async function verifyRecaptcha(
   }
 }
 
+async function submitLeadToZoho(
+  payload: ConsultationLeadPayload,
+): Promise<ZohoSubmissionResult> {
+  const actionUrl = process.env.ZOHO_WEBFORM_ACTION_URL?.trim();
+  const xnQsjsdp = process.env.ZOHO_WEBFORM_XNQSJSDP?.trim();
+  const xmIwtLD = process.env.ZOHO_WEBFORM_XMIWTLD?.trim();
+  const actionType = process.env.ZOHO_WEBFORM_ACTION_TYPE?.trim() ?? "TGVhZHM=";
+  const returnUrl = process.env.ZOHO_WEBFORM_RETURN_URL?.trim() ?? "null";
+  const zcGad = process.env.ZOHO_WEBFORM_ZCGAD?.trim() ?? "";
+  const leadSource = process.env.ZOHO_WEBFORM_LEAD_SOURCE?.trim() ?? "Chat";
+
+  if (!actionUrl || !xnQsjsdp || !xmIwtLD) {
+    console.error("Private Zoho webform configuration is incomplete");
+    return { ok: false, reason: "zoho_not_configured" };
+  }
+
+  const { firstName, lastName } = splitLeadName(payload.name);
+  const form = new URLSearchParams({
+    xnQsjsdp,
+    xmIwtLD,
+    actionType,
+    returnURL: returnUrl,
+    "First Name": firstName,
+    "Last Name": lastName,
+    Email: payload.email,
+    Phone: `${payload.countryCode} ${payload.mobile}`.trim(),
+    Description: buildConsultationDescription(payload),
+    "Lead Source": leadSource,
+    aG9uZXlwb3Q: "",
+  });
+
+  if (zcGad) {
+    form.set("zc_gad", zcGad);
+  }
+
+  try {
+    const response = await fetch(actionUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: form,
+      redirect: "manual",
+      signal: AbortSignal.timeout(8000),
+    });
+
+    if (response.status < 200 || response.status >= 400) {
+      console.error("Zoho webform submission failed", { status: response.status });
+      return { ok: false, reason: "zoho_http_error", status: response.status };
+    }
+
+    return { ok: true, status: response.status };
+  } catch (error) {
+    console.error("Zoho webform submission failed", error);
+    return { ok: false, reason: "zoho_exception" };
+  }
+}
+
 export async function POST(request: NextRequest) {
   let payload: ConsultationLeadRequest;
 
@@ -162,6 +231,19 @@ export async function POST(request: NextRequest) {
         ...(process.env.NODE_ENV === "development" ? { captcha } : {}),
       },
       { status: 403 },
+    );
+  }
+
+  const zoho = await submitLeadToZoho(payload);
+
+  if (!zoho.ok) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error: "submission_failed",
+        ...(process.env.NODE_ENV === "development" ? { zoho } : {}),
+      },
+      { status: 502 },
     );
   }
 
