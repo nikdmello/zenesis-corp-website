@@ -69,10 +69,10 @@ export function HelpWidget() {
   return (
     <div
       ref={widgetRef}
-      className="fixed bottom-5 right-5 z-[80] w-fit md:bottom-6 md:right-6"
+      className="fixed bottom-5 left-5 z-[80] w-fit md:bottom-6 md:left-6"
     >
       {isOpen ? (
-        <div className="fixed inset-x-3 bottom-[calc(5rem+env(safe-area-inset-bottom,0px))] max-h-[min(36rem,calc(100dvh-7rem))] overflow-hidden rounded-[1.65rem] border border-white/10 bg-[rgba(15,31,39,0.98)] text-white shadow-[0_28px_80px_rgba(7,21,27,0.3)] backdrop-blur-xl sm:absolute sm:inset-x-auto sm:bottom-[calc(100%+0.85rem)] sm:right-0 sm:w-[min(24rem,calc(100vw-2rem))] sm:max-h-none">
+        <div className="fixed inset-x-3 bottom-[calc(5rem+env(safe-area-inset-bottom,0px))] max-h-[min(36rem,calc(100dvh-7rem))] overflow-hidden rounded-[1.65rem] border border-white/10 bg-[rgba(15,31,39,0.98)] text-white shadow-[0_28px_80px_rgba(7,21,27,0.3)] backdrop-blur-xl sm:absolute sm:inset-x-auto sm:bottom-[calc(100%+0.85rem)] sm:left-0 sm:w-[min(24rem,calc(100vw-2rem))] sm:max-h-none">
           <div className="border-b border-white/8 px-4 py-4 sm:px-5">
             <div className="flex items-start justify-between gap-4">
               <div>

@@ -67,6 +67,13 @@ export const insightAuthorProfiles = {
     imageSrc: versionedAssetPath("/people/Cecilia_DCunha.webp"),
     bio: "A qualified Chartered Secretary with degrees in Commerce and Law and more than 30 years of experience across offshore incorporation, UAE company setup, and corporate compliance.",
   },
+  "Glenita D'Souza": {
+    credentials: "CA Intermediate (IPCC), BCom",
+    role: "Accounts Manager and Compliance Officer",
+    profileHref: "/about",
+    imageSrc: versionedAssetPath("/people/Glenita_D'Souza.webp"),
+    bio: "Glenita oversees management accounts, bookkeeping, VAT and corporate tax compliance, UAE free zone company formations, and HR consultancy support for clients at Zenesis.",
+  },
 } as const;
 
 const sourceLibrary = {
