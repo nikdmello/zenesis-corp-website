@@ -169,23 +169,18 @@ export default function Home() {
           <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[100rem] flex-col justify-end px-5 pb-3 pt-26 md:block md:px-12 md:pb-3 md:pt-12 xl:px-20">
             <div className="bottom-3 mx-auto w-full md:absolute md:bottom-3 md:left-1/2 md:w-[min(100%-6rem,68rem)] md:-translate-x-1/2 xl:w-[min(100%-10rem,72rem)]">
               <div className="mx-auto w-full max-w-[48rem] px-0 py-4 sm:px-2 md:max-w-none md:px-0 md:py-0">
-                <h1 className="hero-reveal hero-reveal-1 relative left-1/2 w-screen -translate-x-1/2 px-5 text-center text-[clamp(1.58rem,7.8vw,2.45rem)] font-medium leading-[1.02] tracking-[-0.018em] text-white sm:text-[clamp(3rem,6vw,3.7rem)] sm:leading-[0.98] md:px-12 xl:whitespace-nowrap xl:text-[clamp(3rem,4vw,3.8rem)] 2xl:text-[clamp(3.3rem,4.5vw,4.45rem)]">
-                  <span className="block whitespace-nowrap xl:inline">Over 20 years of </span>
-                  <span className="block whitespace-nowrap xl:inline">business setup in Dubai</span>
+                <h1 className="hero-reveal hero-reveal-1 relative left-1/2 w-screen -translate-x-1/2 px-5 text-center text-[1.45rem] font-medium leading-[1.1] tracking-[0] text-white min-[380px]:text-[1.7rem] sm:text-[2.35rem] sm:leading-[1.04] md:px-12 md:text-[2.8rem] lg:text-[3.05rem] xl:whitespace-nowrap xl:text-[2.15rem] min-[1900px]:text-[3rem] min-[2200px]:text-[3.6rem]">
+                  <span className="block whitespace-nowrap xl:inline">Over <span className="relative inline-block">20 years<span aria-hidden="true" className="hero-subtitle-accent absolute inset-x-0 -bottom-0.5 h-[2px] scale-x-[-1]" /></span> of </span>
+                  <span className="block xl:inline">
+                    <span className="block whitespace-nowrap xl:inline">UAE and international </span>
+                    <span className="block whitespace-nowrap xl:inline">business setup experience</span>
+                  </span>
                 </h1>
 
-                <div className="hero-reveal hero-reveal-2 mx-auto mt-5 flex w-fit max-w-full items-center justify-center gap-2 text-center sm:gap-2.5">
-                  <span
-                    aria-hidden="true"
-                    className="hero-subtitle-accent h-[2px] w-3 shrink-0 sm:w-5"
-                  />
-                  <p className="hero-subtitle-copy block max-w-[calc(100vw-5rem)] flex-none whitespace-normal px-0 text-center text-[#f7efe1] [text-wrap:pretty] sm:max-w-none sm:whitespace-nowrap">
-                    Dubai and UAE business consultancy
+                <div className="hero-reveal hero-reveal-2 mx-auto mt-5 w-full max-w-[58rem] px-4 text-center lg:px-1">
+                  <p className="hero-subtitle-copy mx-auto block w-fit max-w-full whitespace-normal px-0 text-center text-[#f7efe1] [text-wrap:balance] lg:max-w-none lg:whitespace-nowrap">
+                    Company formation, licensing, visas, banking, compliance, and ongoing corporate support
                   </p>
-                  <span
-                    aria-hidden="true"
-                    className="hero-subtitle-accent h-[2px] w-3 shrink-0 sm:w-5"
-                  />
                 </div>
               </div>
 
@@ -211,7 +206,7 @@ export default function Home() {
                         </svg>
                       </span>
                     }
-                    className="group inline-flex min-h-14 w-full max-w-[22rem] items-center justify-center whitespace-nowrap rounded-full border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-5 py-3 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_20px_48px_rgba(7,21,27,0.28),inset_0_1px_0_rgba(255,255,255,0.9)] outline-none ring-1 ring-white/20 transition-all duration-300 hover:-translate-y-1 hover:border-[#fff1d3] hover:brightness-[1.04] hover:shadow-[0_24px_56px_rgba(7,21,27,0.34),inset_0_1px_0_rgba(255,255,255,0.95)] focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#11232a] active:translate-y-0 sm:w-fit sm:max-w-none sm:px-7 sm:text-base"
+                    className="group inline-flex min-h-12 w-fit max-w-full items-center justify-center whitespace-nowrap rounded-full border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-4 py-2 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_20px_48px_rgba(7,21,27,0.28),inset_0_1px_0_rgba(255,255,255,0.9)] outline-none ring-1 ring-white/20 transition-all duration-300 hover:-translate-y-1 hover:border-[#fff1d3] hover:brightness-[1.04] hover:shadow-[0_24px_56px_rgba(7,21,27,0.34),inset_0_1px_0_rgba(255,255,255,0.95)] focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#11232a] active:translate-y-0 sm:px-6 sm:text-base"
                   />
 
                   <div className="hero-reveal hero-reveal-4 flex items-center gap-3.5 text-white">

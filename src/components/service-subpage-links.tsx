@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CleanSectionLink } from "@/components/clean-section-link";
 import { versionedAssetPath } from "@/lib/asset-paths";
 
 export type ServiceSubpageLinkItem = {
@@ -115,14 +116,9 @@ export function ServiceSubpageLinks({
             }
           : serviceSubpageVisuals[item.href];
 
-        return (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={`group flex flex-col justify-between overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-foreground shadow-[0_10px_28px_rgba(17,35,42,0.05)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/24 ${
-              isCompact ? "min-h-[8.1rem]" : "min-h-[9.5rem]"
-            }`}
-          >
+        const className = `group flex flex-col justify-between overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-foreground shadow-[0_10px_28px_rgba(17,35,42,0.05)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/24 ${isCompact ? "min-h-[8.1rem]" : "min-h-[9.5rem]"}`;
+        const content = (
+          <>
             {visual ? (
               <div className="overflow-hidden border-b border-[#e5dccf] bg-[#f8f5ef]">
                 <Image
@@ -177,7 +173,13 @@ export function ServiceSubpageLinks({
                 </span>
               </div>
             </div>
-          </Link>
+          </>
+        );
+
+        return item.href.startsWith("#") ? (
+          <CleanSectionLink key={item.href} href={item.href as `#${string}`} className={className}>{content}</CleanSectionLink>
+        ) : (
+          <Link key={item.href} href={item.href} className={className}>{content}</Link>
         );
       })}
     </div>

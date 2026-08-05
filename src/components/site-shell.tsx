@@ -19,6 +19,7 @@ type SiteShellProps = {
 };
 
 const servicesScrollIntentKey = "zenesis-scroll-to-services";
+const sectionScrollIntentKey = "zenesis-scroll-to-section";
 
 export function SiteShell({
   children,
@@ -66,6 +67,51 @@ export function SiteShell({
       });
     });
   }, [isHomepage]);
+
+  useEffect(() => {
+    const sectionId = window.sessionStorage.getItem(sectionScrollIntentKey);
+
+    if (!sectionId) {
+      return;
+    }
+
+    window.sessionStorage.removeItem(sectionScrollIntentKey);
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.replaceState(null, "", currentPath);
+      });
+    });
+  }, [currentPath]);
+
+  const handleSectionLinkClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    const hashIndex = href.indexOf("#");
+
+    if (hashIndex === -1) {
+      return;
+    }
+
+    const targetPath = href.slice(0, hashIndex) || currentPath;
+    const sectionId = href.slice(hashIndex + 1);
+
+    if (!sectionId) {
+      return;
+    }
+
+    event.preventDefault();
+
+    if (targetPath === currentPath) {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", targetPath);
+      return;
+    }
+
+    window.sessionStorage.setItem(sectionScrollIntentKey, sectionId);
+    router.push(targetPath, { scroll: false });
+  };
 
   const handleServicesNavClick = (
     event: React.MouseEvent<HTMLAnchorElement>,
@@ -193,7 +239,7 @@ export function SiteShell({
                           : "pointer-events-none translate-y-1.5 opacity-0"
                       } ${
                         isServicesMenu
-                          ? "w-[62rem]"
+                          ? "w-[min(calc(100vw-2rem),80rem)]"
                           : groupCount > 2
                             ? "w-[28rem]"
                             : groupCount > 1
@@ -209,7 +255,7 @@ export function SiteShell({
                         <div
                           className={`grid gap-2.5 ${
                             isServicesMenu
-                              ? "md:grid-cols-4 md:gap-0"
+                              ? "md:grid-cols-[0.9fr_1fr_0.9fr_1.1fr_1.1fr] md:gap-0"
                               : groupCount > 1
                                 ? "md:grid-cols-2"
                                 : "md:grid-cols-1"
@@ -220,13 +266,14 @@ export function SiteShell({
                               key={group.title}
                               className={
                                 isServicesMenu
-                                  ? "px-4 py-1 first:pl-0 last:pr-0 md:border-l md:border-white/10 md:first:border-l-0 md:pl-5 md:first:pl-0 md:pr-5 md:last:pr-0"
+                                  ? "min-w-0 px-3 py-1 first:pl-0 last:pr-0 md:border-l md:border-white/10 md:first:border-l-0 md:pl-4 md:first:pl-0 md:pr-4 md:last:pr-0 xl:pl-5 xl:pr-5"
                                   : "rounded-md border border-white/8 bg-white/[0.04] p-3"
                               }
                             >
                               {isServicesMenu ? (
                                 <Link
                                   href={getServiceGroupHref(group.title)}
+                                  onClick={(event) => handleSectionLinkClick(event, getServiceGroupHref(group.title))}
                                   onMouseEnter={() => setHoveredServiceGroupTitle(group.title)}
                                   onMouseLeave={() =>
                                     setHoveredServiceGroupTitle((current) =>
@@ -239,7 +286,7 @@ export function SiteShell({
                                       current === group.title ? null : current,
                                     )
                                   }
-                                  className="block text-[1.08rem] font-semibold tracking-[-0.02em] text-white transition-colors hover:text-white/82"
+                                  className="block text-[1rem] font-semibold leading-[1.3] tracking-[-0.02em] text-white transition-colors hover:text-white/82 xl:text-[1.04rem]"
                                 >
                                   <span className="relative inline-block">
                                     {group.title}
@@ -263,13 +310,14 @@ export function SiteShell({
                                   <Link
                                     key={`${group.title}-${link.label}-${link.href}`}
                                     href={link.href}
+                                    onClick={(event) => handleSectionLinkClick(event, link.href)}
                                     className={`rounded-md transition-all duration-200 hover:bg-white/7 hover:text-white ${
                                       isServicesMenu
                                         ? "-mx-3 px-3 py-2 text-[0.96rem] font-medium leading-[1.45] text-white/72 hover:text-white"
                                         : "px-2.75 py-2.25 text-[0.92rem] text-white/90"
                                     }`}
                                   >
-                                    <span className="block whitespace-nowrap tracking-[-0.01em]">{link.label}</span>
+                                    <span className={`block tracking-[-0.01em] ${isServicesMenu ? "whitespace-normal [overflow-wrap:anywhere]" : "whitespace-nowrap"}`}>{link.label}</span>
                                   </Link>
                                 ))}
                               </div>
@@ -381,6 +429,7 @@ export function SiteShell({
                               >
                                 <Link
                                   href={getServiceGroupHref(group.title)}
+                                  onClick={(event) => handleSectionLinkClick(event, getServiceGroupHref(group.title))}
                                   className="group/title block px-1"
                                 >
                                   <span className="relative inline-block text-[1.08rem] font-semibold tracking-[-0.02em] !text-white">
@@ -393,9 +442,10 @@ export function SiteShell({
                                 </Link>
                                 <div className="mt-2.5 flex flex-col gap-0.5">
                                   {group.links.map((link) => (
-                                    <Link
+                                  <Link
                                       key={`${group.title}-${link.label}-${link.href}`}
-                                      href={link.href}
+                                    href={link.href}
+                                    onClick={(event) => handleSectionLinkClick(event, link.href)}
                                       className="rounded-md px-3 py-2.5 text-[0.96rem] font-medium leading-6 !text-white/88 transition-all duration-200 hover:bg-white/7 hover:!text-white hover:pl-4"
                                     >
                                       {link.label}
@@ -490,6 +540,7 @@ export function SiteShell({
                         <div key={group.title}>
                           <Link
                             href={getServiceGroupHref(group.title)}
+                            onClick={(event) => handleSectionLinkClick(event, getServiceGroupHref(group.title))}
                             className="inline-flex text-[0.96rem] font-semibold tracking-[-0.02em] text-foreground/78 transition-colors hover:text-foreground"
                           >
                             {group.title}
@@ -499,6 +550,7 @@ export function SiteShell({
                               <Link
                                 key={`${group.title}-${link.label}-${link.href}`}
                                 href={link.href}
+                                onClick={(event) => handleSectionLinkClick(event, link.href)}
                                 className="pl-3 text-[1.02rem] leading-7 text-foreground/82 transition-colors hover:text-foreground"
                               >
                                 {link.label}
@@ -629,6 +681,10 @@ function getServiceGroupHref(groupTitle: string) {
       return "/accounting-tax";
     case "Corporate Support":
       return "/corporate-support";
+    case "Corporate License Lifecycle":
+      return "/corporate-support#license-lifecycle";
+    case "Corporate Services":
+      return "/corporate-support#corporate-services";
     case "Visa and Banking":
       return "/visa-and-banking";
     default:

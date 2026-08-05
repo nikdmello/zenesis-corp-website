@@ -149,11 +149,23 @@ a {
 
 .hero-subtitle-copy {
   color: #f7efe1;
-  font-size: clamp(0.98rem, 1.2vw, 1.34rem);
+  font-size: 0.98rem;
   font-weight: 500;
-  line-height: 1.6;
-  letter-spacing: -0.018em;
+  line-height: 1.5;
+  letter-spacing: 0;
   text-shadow: 0 0 18px rgba(244, 231, 207, 0.08);
+}
+
+@media (min-width: 1024px) {
+  .hero-subtitle-copy {
+    font-size: 1.12rem;
+  }
+}
+
+@media (min-width: 1900px) {
+  .hero-subtitle-copy {
+    font-size: 1.3rem;
+  }
 }
 
 .tech-hero {

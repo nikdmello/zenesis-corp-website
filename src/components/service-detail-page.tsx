@@ -189,7 +189,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                 {config.subpageLinks?.length ? (
                   <div className="mt-9 border-t border-[#e4dbce] pt-8">
                     <p className="mb-5 text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
-                      Useful next steps
+                      Related services
                     </p>
                     <ServiceSubpageLinks
                       items={config.subpageLinks}

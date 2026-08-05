@@ -477,10 +477,10 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
   "document-attestation-services-in-uae": {
     slug: "document-attestation-services-in-uae",
     currentPath: "/corporate-support",
-    title: "Document attestation",
-    eyebrow: "Document Attestation",
+    title: "Document attestation and legalization",
+    eyebrow: "Attestation and Legalization",
     description:
-      "Get personal, educational, and commercial documents attested for UAE use with a process that is handled clearly from review through MOFA.",
+      "Authenticate personal, educational, and corporate documents for UAE business setup, visas, family sponsorship, professional licensing, and government use.",
     backgroundImageSrc: versionedAssetPath("/services/document-attestation.webp"),
     backgroundImageAlt: "Professional document attestation support in the UAE",
     introBackgroundImageSrc: versionedAssetPath("/services/document-attestation.webp"),
@@ -494,7 +494,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     introParagraphs: [
       "If a document was issued outside the UAE, it often needs formal attestation before a UAE authority, employer, university, bank, or registry will accept it.",
       "The attestation requirement exists to confirm authenticity, reduce fraud risk, and ensure foreign documents can be used properly for work, study, immigration, legal, and business purposes in the UAE.",
-      "Zenesis helps you understand which documents need attestation, what order the process should follow, and how to move them through the required legalization and MOFA steps without unnecessary rework.",
+      "Zenesis handles personal certificates and corporate documents through the required issuing-country, embassy or consulate, and UAE Ministry of Foreign Affairs steps, based on the document and its intended use.",
     ],
     knowledgeSections: [
       {
@@ -881,6 +881,29 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Document strategy across evidence, attestations, financial support, and category-specific submissions",
           "Submission and follow-up through the proper UAE authority channels such as ICP, GDRFA, or TAMM where applicable",
           "Post-approval help around Emirates ID, family sponsorship, and later changes or renewals",
+        ],
+      },
+      {
+        title: "Corporate document attestation",
+        intro:
+          "Foreign companies may need legalized corporate records before they can establish operations, appoint representatives, or complete authority filings in the UAE.",
+        items: [
+          "Certificates of incorporation and commercial register extracts",
+          "Memorandum and articles of association",
+          "Board resolutions and powers of attorney",
+          "Shareholder records and good standing certificates",
+          "Other corporate documents required for UAE business setup or ongoing filings",
+        ],
+      },
+      {
+        title: "Personal document attestation",
+        intro:
+          "Personal certificates are commonly required for employment, professional licensing, family sponsorship, and official registrations.",
+        items: [
+          "Degrees, diplomas, school certificates, and professional qualifications",
+          "Marriage certificates for spouse visas and family sponsorship",
+          "Birth certificates for child visas and official registrations",
+          "Police clearance certificates, affidavits, and personal declarations",
         ],
       },
       {

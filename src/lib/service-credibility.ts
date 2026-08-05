@@ -37,6 +37,14 @@ const experts = {
     imageSrc: versionedAssetPath("/people/Sajal_Arora.webp"),
     profileHref: "/about",
   },
+  glenita: {
+    name: "Glenita D'Souza",
+    credentials: "CA Intermediate (IPCC), BCom",
+    role: "Accounts Manager and Compliance Officer",
+    bio: "Glenita oversees management accounts, bookkeeping, VAT and corporate tax compliance, UAE free zone company formations, and HR consultancy support for clients at Zenesis.",
+    imageSrc: versionedAssetPath("/people/Glenita_D'Souza.webp"),
+    profileHref: "/about",
+  },
 } as const;
 
 const sources = {
@@ -172,7 +180,7 @@ export function getServiceCredibility(path: string): ServiceCredibility | undefi
 
   if (taxPaths.has(path)) {
     return {
-      expert: experts.sajal,
+      expert: experts.glenita,
       verificationLabel:
         path === "/vat-filing-services-in-the-uae"
           ? "Sources checked August 3, 2026"

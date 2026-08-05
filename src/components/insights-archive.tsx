@@ -25,7 +25,7 @@ export function InsightsArchive({ posts }: InsightsArchiveProps) {
 
   return (
     <div className="mt-10">
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-[#d8d0c2]">
         {categories.map((category) => {
           const isActive = category === activeCategory;
           return (
@@ -33,10 +33,10 @@ export function InsightsArchive({ posts }: InsightsArchiveProps) {
               key={category}
               type="button"
               onClick={() => setActiveCategory(category)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+              className={`border-b-2 px-0 pb-2 pt-1 text-sm font-semibold transition-colors ${
                 isActive
-                  ? "bg-[#11232a] text-white"
-                  : "border border-[#d6cdbc] bg-white text-foreground/72 hover:bg-[#f8f5ef]"
+                  ? "border-[#244ba8] text-[#11232a]"
+                  : "border-transparent text-foreground/62 hover:border-[#8d7453]/42 hover:text-[#11232a]"
               }`}
             >
               {category}

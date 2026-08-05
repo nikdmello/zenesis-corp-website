@@ -226,7 +226,7 @@ export const insightPosts: InsightPost[] = [
     description:
       "UAE e-invoicing becomes mandatory in phases from 2027. Understand the confirmed deadlines, administrative penalties, scope, and practical preparation businesses should start now.",
     dateLabel: "July 29, 2026",
-    author: "Cecilia D'Cunha",
+    author: "Glenita D'Souza",
     heroImageSrc: versionedAssetPath("/insights/uae-e-invoicing-guide.webp", insightImageVersion),
     heroImageAlt: "UAE finance professional reviewing structured electronic invoice data in a Dubai office",
     heroImageClassName: "object-[68%_center]",
@@ -448,7 +448,7 @@ export const insightPosts: InsightPost[] = [
     description:
       "The most common corporate tax compliance mistakes that attract scrutiny from the Federal Tax Authority, and how businesses can reduce audit risk in the UAE.",
     dateLabel: "June 5, 2026",
-    author: "Cecilia D'Cunha",
+    author: "Glenita D'Souza",
     heroImageSrc: versionedAssetPath("/insights/corporate-tax-mistakes.webp", insightImageVersion),
     heroImageAlt: "UAE corporate tax compliance visual for common audit-triggering mistakes",
     keyTakeaways: [
@@ -874,7 +874,7 @@ export const insightPosts: InsightPost[] = [
     description:
       "A practical overview of what corporate tax groups are, who can form them, why they matter, the core eligibility rules, and the tradeoffs businesses should weigh before choosing this structure.",
     dateLabel: "April 20, 2026",
-    author: "Cecilia D'Cunha",
+    author: "Glenita D'Souza",
     heroImageSrc: versionedAssetPath("/insights/corporate-tax-groups.webp", insightImageVersion),
     heroImageAlt: "UAE corporate tax groups visual showing structured group taxation and compliance",
     keyTakeaways: [
@@ -992,7 +992,7 @@ export const insightPosts: InsightPost[] = [
     description:
       "A practical guide to the financial year in UAE for 2026, including corporate tax filing deadlines, VAT cut-off, audit timing, record-keeping, and year-end compliance planning.",
     dateLabel: "April 15, 2026",
-    author: "Cecilia D'Cunha",
+    author: "Glenita D'Souza",
     heroImageSrc: versionedAssetPath("/insights/financial-year-2026-compliance.webp", insightImageVersion),
     heroImageAlt: "Financial year 2026 compliance visual for UAE reporting, planning, and tax timing",
     keyTakeaways: [
@@ -1198,7 +1198,7 @@ export const insightPosts: InsightPost[] = [
     description:
       "A practical 2026 guide to UAE corporate tax filing deadlines, financial year-end timing, return preparation, payment readiness, and common filing risks.",
     dateLabel: "July 15, 2026",
-    author: "Cecilia D'Cunha",
+    author: "Glenita D'Souza",
     heroImageSrc: versionedAssetPath("/services/corporate-tax-filing.webp"),
     heroImageAlt: "Corporate tax filing preparation and deadline planning for UAE businesses",
     heroImageClassName: "object-center",
@@ -1310,7 +1310,7 @@ export const insightPosts: InsightPost[] = [
     description:
       "A practical guide to UAE corporate tax record-keeping, the seven-year retention rule, and the documents businesses should keep ready for review.",
     dateLabel: "July 15, 2026",
-    author: "Cecilia D'Cunha",
+    author: "Glenita D'Souza",
     heroImageSrc: versionedAssetPath("/insights/corporate-tax-mistakes.webp", insightImageVersion),
     heroImageAlt: "UAE corporate tax record-keeping visual with documents and compliance review",
     keyTakeaways: [
@@ -1532,7 +1532,7 @@ export const insightPosts: InsightPost[] = [
     description:
       "What rising corporate tax registrations say about UAE compliance expectations, and the practical steps businesses should take now.",
     dateLabel: "January 20, 2026",
-    author: "Cecilia D'Cunha",
+    author: "Glenita D'Souza",
     heroImageSrc: versionedAssetPath("/insights/640000-corporate-tax-registrations.webp", insightImageVersion),
     heroImageAlt: "Professionals reviewing UAE corporate tax documentation",
     keyTakeaways: [

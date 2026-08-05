@@ -59,12 +59,20 @@ export const navigation = [
         ],
       },
       {
-        title: "Corporate Support",
+        title: "Corporate License Lifecycle",
         links: [
-          { label: "Liquidation and restoration", href: "/corporate-support#liquidation-restoration" },
-          { label: "Branch office support", href: "/corporate-support#branch-office" },
-          { label: "Renewals and amendments", href: "/corporate-support#renewals-amendments" },
-          { label: "Document attestation", href: "/document-attestation-services-in-uae" },
+          { label: "License renewals", href: "/corporate-support#license-renewals" },
+          { label: "Liquidations", href: "/corporate-support#company-liquidation" },
+          { label: "Restoration", href: "/corporate-support#company-restoration" },
+        ],
+      },
+      {
+        title: "Corporate Services",
+        links: [
+          { label: "License amendment", href: "/corporate-support#company-amendments" },
+          { label: "Corporate secretarial and compliance", href: "/corporate-support#secretarial-compliance" },
+          { label: "Document attestation and legalization", href: "/document-attestation-services-in-uae" },
+          { label: "Branch and representative offices", href: "/corporate-support#branch-representative-office" },
         ],
       },
     ],

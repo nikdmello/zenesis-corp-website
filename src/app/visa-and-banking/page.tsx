@@ -24,6 +24,7 @@ const visaBankingPageLinks = [
   { href: "#who-its-for", label: "Who it's for" },
   { href: "#core-services", label: "Core services" },
   { href: "#how-zenesis-helps", label: "How Zenesis helps" },
+  { href: "#case-study", label: "Case study" },
   { href: "#direct-answers", label: "Direct answers" },
   { href: "#process", label: "Process" },
   { href: "#primary-sources", label: "Primary sources" },
@@ -296,6 +297,31 @@ export default function VisaAndBankingPage() {
                 </p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="case-study" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-16 md:py-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1fr)] lg:items-start">
+            <SectionHeading
+              eyebrow="Client case"
+              title="When Every Minute Matters"
+              description="An urgent visa follow-through case where fast coordination helped a family resolve a re-entry issue the same day."
+            />
+            <article className="border-l-4 border-[#244ba8] bg-[#f8f6f1] px-6 py-7 text-[#11232a] md:px-8 md:py-8">
+              <p className="text-[1.16rem] font-semibold leading-8 tracking-[-0.02em] text-[#11232a]">
+                A client had obtained a UAE residency visa through his company and later sponsored his wife&apos;s residence visa. Because of travel disruption outside their control, she was unable to enter the UAE within the permitted six-month period.
+              </p>
+              <div className="mt-6 space-y-5 text-[1.04rem] font-medium leading-8 text-[#11232a]/84">
+                <p>When the couple arrived in Dubai, the client was allowed to enter, but his wife was stopped at immigration because a re-entry permit was required.</p>
+                <p>The call came through on a Sunday. Zenesis coordinated immediately with the sponsor at the airport, collected the required Emirates ID details, prepared the documents, and submitted the re-entry permit application without delay.</p>
+                <p>The permit was approved within one hour, including document collection time, and the client&apos;s wife was able to enter the UAE the same day.</p>
+              </div>
+              <p className="mt-6 border-t border-[#d8d0c2] pt-5 text-[0.95rem] font-medium leading-7 text-[#11232a]/68">
+                Approval times depend on the authority, case facts, documents, and eligibility. This case reflects one urgent situation where the right process and immediate follow-through made the difference.
+              </p>
+            </article>
           </div>
         </div>
       </section>

@@ -128,7 +128,7 @@ export function HomepageInsightsCarousel({
 
   return (
     <div>
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-white/14">
         {categories.map((category) => {
           const isActive = category === activeCategory;
           return (
@@ -148,10 +148,10 @@ export function HomepageInsightsCarousel({
                       : 0,
                 );
               }}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+              className={`border-b-2 px-0 pb-2 pt-1 text-sm font-semibold transition-colors ${
                 isActive
-                  ? "bg-white text-[#11232a]"
-                  : "border border-white/18 bg-white/8 text-white/78 hover:bg-white/14 hover:text-white"
+                  ? "border-[#d5be8b] text-white"
+                  : "border-transparent text-white/68 hover:border-white/28 hover:text-white"
               }`}
             >
               {category}
