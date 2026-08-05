@@ -149,7 +149,7 @@ async function submitLeadToZoho(
   const actionType = process.env.ZOHO_WEBFORM_ACTION_TYPE?.trim() ?? "TGVhZHM=";
   const returnUrl = process.env.ZOHO_WEBFORM_RETURN_URL?.trim() ?? "null";
   const zcGad = process.env.ZOHO_WEBFORM_ZCGAD?.trim() ?? "";
-  const leadSource = process.env.ZOHO_WEBFORM_LEAD_SOURCE?.trim() ?? "Chat";
+  const leadSource = "Website Enquiry";
 
   if (!actionUrl || !xnQsjsdp || !xmIwtLD) {
     console.error("Private Zoho webform configuration is incomplete");
