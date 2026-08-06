@@ -233,7 +233,11 @@ export function SiteShell({
                     </Link>
 
                     <div
-                      className={`absolute left-1/2 top-full -translate-x-1/2 pt-3 transition-all duration-200 ease-out ${
+                      className={`${
+                        isServicesMenu
+                          ? "fixed left-1/2 top-[3.25rem]"
+                          : "absolute left-1/2 top-full"
+                      } -translate-x-1/2 pt-3 transition-all duration-200 ease-out ${
                         isDesktopMenuOpen
                           ? "pointer-events-auto translate-y-0 opacity-100"
                           : "pointer-events-none translate-y-1.5 opacity-0"
