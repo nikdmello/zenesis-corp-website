@@ -78,7 +78,7 @@ export function SiteShell({
     window.sessionStorage.removeItem(sectionScrollIntentKey);
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "auto", block: "start" });
         window.history.replaceState(null, "", currentPath);
       });
     });
@@ -102,9 +102,12 @@ export function SiteShell({
     }
 
     event.preventDefault();
+    setOpenDesktopMenuHref(null);
+    setHoveredNavHref(null);
+    setHoveredServiceGroupTitle(null);
 
     if (targetPath === currentPath) {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "auto", block: "start" });
       window.history.replaceState(null, "", targetPath);
       return;
     }
@@ -275,9 +278,8 @@ export function SiteShell({
                               }
                             >
                               {isServicesMenu ? (
-                                <Link
+                                <a
                                   href={getServiceGroupHref(group.title)}
-                                  onClick={(event) => handleSectionLinkClick(event, getServiceGroupHref(group.title))}
                                   onMouseEnter={() => setHoveredServiceGroupTitle(group.title)}
                                   onMouseLeave={() =>
                                     setHoveredServiceGroupTitle((current) =>
@@ -303,7 +305,7 @@ export function SiteShell({
                                       }`}
                                     />
                                   </span>
-                                </Link>
+                                </a>
                               ) : (
                                 <p className="whitespace-nowrap text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-white/52">
                                   {group.title}
@@ -431,9 +433,8 @@ export function SiteShell({
                                 key={group.title}
                                 className="border-b border-white/8 py-3 last:border-b-0"
                               >
-                                <Link
+                                <a
                                   href={getServiceGroupHref(group.title)}
-                                  onClick={(event) => handleSectionLinkClick(event, getServiceGroupHref(group.title))}
                                   className="group/title block px-1"
                                 >
                                   <span className="relative inline-block text-[1.08rem] font-semibold tracking-[-0.02em] !text-white">
@@ -443,7 +444,7 @@ export function SiteShell({
                                       className="absolute left-0 top-full mt-[2px] h-[1.5px] w-0 bg-current opacity-80 transition-[width,opacity] duration-300 ease-out group-hover/title:w-full"
                                     />
                                   </span>
-                                </Link>
+                                </a>
                                 <div className="mt-2.5 flex flex-col gap-0.5">
                                   {group.links.map((link) => (
                                   <Link
@@ -542,13 +543,12 @@ export function SiteShell({
                     <div className="mt-3 grid gap-3 pl-1">
                       {item.groups.map((group) => (
                         <div key={group.title}>
-                          <Link
+                          <a
                             href={getServiceGroupHref(group.title)}
-                            onClick={(event) => handleSectionLinkClick(event, getServiceGroupHref(group.title))}
                             className="inline-flex text-[0.96rem] font-semibold tracking-[-0.02em] text-foreground/78 transition-colors hover:text-foreground"
                           >
                             {group.title}
-                          </Link>
+                          </a>
                           <div className="mt-1.5 grid gap-1.5">
                             {group.links.map((link) => (
                               <Link
