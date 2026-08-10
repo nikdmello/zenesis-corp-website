@@ -153,9 +153,10 @@ export default function ContactPage() {
                   href={googleMapsHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="shrink-0 rounded-full border border-foreground/10 bg-white px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-foreground/5"
+                  className="group shrink-0 inline-flex min-h-11 items-center gap-2 border border-[#c7a66a] bg-[#11232a] px-4 py-2 text-sm font-semibold !text-white shadow-[0_10px_24px_rgba(17,35,42,0.16)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#dfc488] hover:bg-[#18313a] hover:!text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
                 >
-                  Open in Maps
+                  <span>Open in Maps</span>
+                  <span aria-hidden="true" className="text-base leading-none transition-transform group-hover:translate-x-0.5">↗</span>
                 </a>
               </div>
               <div className="overflow-hidden rounded-md border border-foreground/10">

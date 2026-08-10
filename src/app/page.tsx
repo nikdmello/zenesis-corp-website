@@ -206,7 +206,7 @@ export default function Home() {
                         </svg>
                       </span>
                     }
-                    className="group inline-flex min-h-12 w-fit max-w-full items-center justify-center whitespace-nowrap rounded-full border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-4 py-2 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_20px_48px_rgba(7,21,27,0.28),inset_0_1px_0_rgba(255,255,255,0.9)] outline-none ring-1 ring-white/20 transition-all duration-300 hover:-translate-y-1 hover:border-[#fff1d3] hover:brightness-[1.04] hover:shadow-[0_24px_56px_rgba(7,21,27,0.34),inset_0_1px_0_rgba(255,255,255,0.95)] focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#11232a] active:translate-y-0 sm:px-6 sm:text-base"
+                    className="group inline-flex min-h-12 w-fit max-w-full items-center justify-center whitespace-nowrap rounded-full border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-4 py-2 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_20px_48px_rgba(7,21,27,0.28),inset_0_1px_0_rgba(255,255,255,0.9)] outline-none ring-1 ring-white/20 transition-all duration-300 hover:-translate-y-1 hover:border-[#fff1d3] hover:brightness-[1.04] hover:shadow-[0_24px_56px_rgba(7,21,27,0.34),inset_0_1px_0_rgba(255,255,255,0.95)] focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#11232a] active:translate-y-0 sm:px-6 sm:text-base md:relative md:top-1"
                   />
 
                   <div className="hero-reveal hero-reveal-4 flex items-center gap-3.5 text-white">
