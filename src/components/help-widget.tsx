@@ -72,8 +72,8 @@ export function HelpWidget() {
       className="fixed bottom-5 left-5 z-[80] w-fit md:bottom-6 md:left-6"
     >
       {isOpen ? (
-        <div className="fixed inset-x-3 bottom-[calc(5rem+env(safe-area-inset-bottom,0px))] max-h-[min(36rem,calc(100dvh-7rem))] overflow-hidden rounded-[1.65rem] border border-white/10 bg-[rgba(15,31,39,0.98)] text-white shadow-[0_28px_80px_rgba(7,21,27,0.3)] backdrop-blur-xl sm:absolute sm:inset-x-auto sm:bottom-[calc(100%+0.85rem)] sm:left-0 sm:w-[min(24rem,calc(100vw-2rem))] sm:max-h-none">
-          <div className="border-b border-white/8 px-4 py-4 sm:px-5">
+        <div className="fixed inset-x-3 bottom-[calc(5rem+env(safe-area-inset-bottom,0px))] max-h-[min(36rem,calc(100dvh-7rem))] overflow-hidden rounded-lg border border-[#d8d0c2] bg-[#11232a] text-white shadow-[0_24px_64px_rgba(7,21,27,0.28)] sm:absolute sm:inset-x-auto sm:bottom-[calc(100%+0.85rem)] sm:left-0 sm:w-[min(24rem,calc(100vw-2rem))] sm:max-h-none">
+          <div className="border-b border-white/12 px-4 py-4 sm:px-5">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-[1.08rem] font-semibold tracking-[-0.03em] text-white">
@@ -83,7 +83,7 @@ export function HelpWidget() {
               <button
                 type="button"
                 onClick={closeHelp}
-                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/72 transition-colors hover:bg-white/8 hover:text-white"
+                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-white/15 bg-white/[0.06] text-white/72 transition-colors hover:border-[#e5cfaa]/45 hover:bg-white/[0.1] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9b97e]"
                 aria-label="Close help panel"
               >
                 <CloseIcon className="h-4 w-4" />
@@ -97,7 +97,7 @@ export function HelpWidget() {
           >
             {!selectedTopic ? (
               <>
-                <div className="rounded-[1.2rem] border border-white/8 bg-white/[0.03] p-4">
+                <section className="border-b border-white/12 pb-5">
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/42">
                     Fastest ways to reach us
                   </p>
@@ -119,9 +119,9 @@ export function HelpWidget() {
                       icon={<ArrowIcon className="h-4 w-4" />}
                     />
                   </div>
-                </div>
+                </section>
 
-                <div className="mt-5 rounded-[1.2rem] border border-white/8 bg-white/[0.03] p-4">
+                <section className="pt-5">
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/42">
                     Popular questions
                   </p>
@@ -131,26 +131,26 @@ export function HelpWidget() {
                         key={topic.id}
                         type="button"
                         onClick={() => setSelectedTopicId(topic.id)}
-                        className="group flex w-full items-start justify-between gap-3 rounded-[1.05rem] border border-white/8 bg-white/[0.03] px-3.5 py-3 text-left transition-colors hover:bg-white/[0.06]"
+                        className="group flex w-full items-start justify-between gap-3 border-b border-white/10 px-0 py-3 text-left transition-colors last:border-b-0 hover:text-[#f4e7cf] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#d9b97e]"
                       >
                         <div className="min-w-0">
                           <p className="text-[0.98rem] font-semibold leading-6 tracking-[-0.02em] text-white">
                             {topic.title}
                           </p>
                         </div>
-                        <span className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#d8c3a2]/22 bg-[#d8c3a2]/10 text-[#f4e7cf] transition-all group-hover:border-[#d8c3a2]/34 group-hover:bg-[#d8c3a2]/16 group-hover:text-white">
+                        <span className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-[#d8c3a2]/30 text-[#f4e7cf] transition-colors group-hover:bg-[#d8c3a2]/12 group-hover:text-white">
                           <ArrowIcon className="h-3.5 w-3.5" />
                         </span>
                       </button>
                     ))}
                   </div>
-                </div>
+                </section>
 
               </>
             ) : (
               <>
-                <div className="rounded-[1.2rem] border border-white/8 bg-white/[0.03] p-4">
-                  <h3 className="mt-2 text-[1.12rem] font-semibold leading-6 tracking-[-0.03em] text-white">
+                <section className="border-b border-white/12 pb-5">
+                  <h3 className="text-[1.12rem] font-semibold leading-6 tracking-[-0.03em] text-white">
                     {selectedTopic.title}
                   </h3>
                   <p className="mt-2 text-[0.96rem] leading-7 text-white/74">
@@ -164,7 +164,7 @@ export function HelpWidget() {
                     {selectedTopic.hrefLabel}
                     <ArrowIcon className="h-4 w-4" />
                   </Link>
-                </div>
+                </section>
 
                 <div className="mt-5">
                   <button
@@ -177,7 +177,7 @@ export function HelpWidget() {
                   </button>
                 </div>
 
-                <div className="mt-5 rounded-[1.2rem] border border-white/8 bg-white/[0.03] p-4">
+                <section className="mt-5 border-t border-white/12 pt-5">
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/42">
                     More questions
                   </p>
@@ -190,22 +190,22 @@ export function HelpWidget() {
                           key={topic.id}
                           type="button"
                           onClick={() => setSelectedTopicId(topic.id)}
-                          className="group flex w-full items-start justify-between gap-3 rounded-[1.05rem] border border-white/8 bg-white/[0.03] px-3.5 py-3 text-left transition-colors hover:bg-white/[0.06]"
+                          className="group flex w-full items-start justify-between gap-3 border-b border-white/10 px-0 py-3 text-left transition-colors last:border-b-0 hover:text-[#f4e7cf] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#d9b97e]"
                         >
                           <div className="min-w-0">
                             <p className="text-[0.98rem] font-semibold leading-6 tracking-[-0.02em] text-white">
                               {topic.title}
                             </p>
                           </div>
-                          <span className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#d8c3a2]/22 bg-[#d8c3a2]/10 text-[#f4e7cf] transition-all group-hover:border-[#d8c3a2]/34 group-hover:bg-[#d8c3a2]/16 group-hover:text-white">
+                          <span className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-[#d8c3a2]/30 text-[#f4e7cf] transition-colors group-hover:bg-[#d8c3a2]/12 group-hover:text-white">
                             <ArrowIcon className="h-3.5 w-3.5" />
                           </span>
                         </button>
                     ))}
                   </div>
-                </div>
+                </section>
 
-                <div className="mt-5 rounded-[1.2rem] border border-white/8 bg-white/[0.03] p-4">
+                <section className="mt-5 border-t border-white/12 pt-5">
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/42">
                     Reach Zenesis directly
                   </p>
@@ -222,7 +222,7 @@ export function HelpWidget() {
                       icon={<ArrowIcon className="h-4 w-4" />}
                     />
                   </div>
-                </div>
+                </section>
               </>
             )}
           </div>
@@ -239,10 +239,10 @@ export function HelpWidget() {
 
           setIsOpen(true);
         }}
-        className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-[#11232a] text-white shadow-[0_20px_48px_rgba(7,21,27,0.26)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#173039]"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-lg border border-[#e2cfaa] bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] text-[#11232a] shadow-[0_14px_32px_rgba(7,21,27,0.2),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
         aria-label={isOpen ? "Close help panel" : "Open help panel"}
       >
-        <HelpIcon className="h-9 w-9 text-[#f4e7cf]" />
+        <HelpIcon className="h-7 w-7" />
       </button>
     </div>
   );
@@ -257,7 +257,7 @@ type ActionLinkProps = {
 
 function ActionLink({ href, label, icon, external = false }: ActionLinkProps) {
   const className =
-    "inline-flex items-center justify-between gap-3 rounded-[999px] border border-[#d8c3a2]/26 bg-[#d8c3a2]/12 px-3.5 py-2.5 text-[0.98rem] font-semibold text-[#f4e7cf] transition-colors hover:bg-[#d8c3a2]/18 hover:text-white";
+    "inline-flex items-center justify-between gap-3 rounded-[0.7rem] border border-[#e2cfaa] bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-3.5 py-2.5 text-[0.96rem] font-semibold !text-[#11232a] shadow-[0_8px_20px_rgba(7,21,27,0.16),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9b97e]";
 
   if (external) {
     return (

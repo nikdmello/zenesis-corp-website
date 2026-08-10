@@ -133,6 +133,28 @@ const topLevelPages: SearchDocument[] = [
       "visa banking golden visa company visa bank account support residency kyc uae dubai",
   },
   {
+    href: "/corporate-support",
+    title: "Corporate support",
+    description:
+      "UAE company renewals, amendments, liquidation, restoration, corporate secretarial work, UBO compliance, historical ESR review, branch offices, and document attestation.",
+    type: "Page",
+    section: "Services",
+    keywords: [
+      "corporate support",
+      "corporate secretarial",
+      "UBO",
+      "ultimate beneficial owner",
+      "ESR",
+      "economic substance regulations",
+      "license renewal",
+      "company liquidation",
+      "company restoration",
+      "company amendments",
+    ],
+    searchText:
+      "corporate support UAE corporate secretarial compliance UBO ultimate beneficial owner records filings register ESR economic substance regulations historical review renewals amendments liquidation restoration branch representative office document attestation legalization",
+  },
+  {
     href: "/insights",
     title: "Insights",
     description:
@@ -189,12 +211,19 @@ const insightDocuments: SearchDocument[] = insightPosts.map((post) => ({
   description: post.description,
   type: "Insight",
   section: post.category,
-  keywords: [post.author, post.category, ...post.sections.map((section) => section.title)],
+  keywords: [
+    post.author,
+    post.category,
+    ...post.sections.map((section) => section.title),
+    ...(post.keyTakeaways ?? []),
+    ...(post.faqs?.map((faq) => faq.question) ?? []),
+  ],
   searchText: [
     post.title,
     post.description,
     post.author,
     post.category,
+    ...(post.keyTakeaways ?? []),
     ...post.sections.flatMap((section) => [
       section.title,
       ...(section.paragraphs?.map((paragraph) =>
@@ -207,6 +236,7 @@ const insightDocuments: SearchDocument[] = insightPosts.map((post) => ({
     ]),
     ...(post.closingParagraphs ?? []),
     post.closingCta ?? "",
+    ...(post.faqs?.flatMap((faq) => [faq.question, faq.answer]) ?? []),
   ]
     .filter(Boolean)
     .join(" "),

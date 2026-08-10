@@ -1,6 +1,7 @@
 "use client";
 
 import type { AnchorHTMLAttributes, MouseEvent, ReactNode } from "react";
+import { usePathname } from "next/navigation";
 
 type CleanSectionLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: `#${string}`;
@@ -13,6 +14,8 @@ export function CleanSectionLink({
   onClick,
   ...props
 }: CleanSectionLinkProps) {
+  const pathname = usePathname();
+
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
     onClick?.(event);
 
@@ -43,7 +46,7 @@ export function CleanSectionLink({
   };
 
   return (
-    <a href={href} onClick={handleClick} {...props}>
+    <a href={pathname} onClick={handleClick} {...props}>
       {children}
     </a>
   );

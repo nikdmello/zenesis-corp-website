@@ -174,7 +174,7 @@ export default function FeaturedProfilePage() {
 
         <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-14 md:py-18">
           <div className="mx-auto w-full max-w-[104rem] px-7 md:px-14 xl:px-24">
-            <div className="mx-auto max-w-[78rem] lg:grid lg:grid-cols-[minmax(0,54rem)_17rem] lg:items-start lg:gap-12 xl:gap-16">
+            <div className="max-w-[78rem] lg:grid lg:grid-cols-[minmax(0,54rem)_17rem] lg:items-start lg:gap-12 xl:gap-16">
               <div className="min-w-0 space-y-16">
                 <section className="border-y border-[#e4dbce] py-5 lg:hidden">
                   <ProfileIdentity profile={profile} compact />
@@ -204,7 +204,7 @@ export default function FeaturedProfilePage() {
 
                 <section
                   id="profile-highlights"
-                  className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#d8d0c2] bg-[#f8f6f1] px-6 py-7 md:px-8"
+                  className="w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#d8d0c2] bg-[#f8f6f1] px-6 py-7 md:px-8"
                 >
                   <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
                     At a glance
@@ -229,7 +229,7 @@ export default function FeaturedProfilePage() {
                   <section
                     key={section.title}
                     id={toSectionId(section.title)}
-                    className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-t border-[#e4dbce] pt-10"
+                    className="w-full max-w-[54rem] scroll-mt-28 border-t border-[#e4dbce] pt-10"
                   >
                     <h2 className={articleSectionHeadingClassName}>
                       {section.title}
@@ -261,7 +261,7 @@ export default function FeaturedProfilePage() {
 
                 <section
                   id="why-this-matters-for-clients"
-                  className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#1f7652] bg-[#edf7f1] px-6 py-7 md:px-8"
+                  className="w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#1f7652] bg-[#edf7f1] px-6 py-7 md:px-8"
                 >
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#185d41]">
                     Client perspective
@@ -286,7 +286,7 @@ export default function FeaturedProfilePage() {
 
                 <section
                   id="her-advice"
-                  className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-y border-[#e4dbce] py-10"
+                  className="w-full max-w-[54rem] scroll-mt-28 border-y border-[#e4dbce] py-10"
                 >
                   <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
                     In her words

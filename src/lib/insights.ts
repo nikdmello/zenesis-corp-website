@@ -182,17 +182,29 @@ const sourceLibrary = {
     publisher: "General Directorate of Residency and Foreigners Affairs Dubai",
     href: "https://gdrfad.gov.ae/en/services/bf4095ea-56e2-11ea-0320-0050569629e8",
   },
+  beneficialOwnerProcedures: {
+    title: "Cabinet Decision No. 109 of 2023 on Regulating the Beneficial Owner Procedures",
+    publisher: "UAE Ministry of Economy and Tourism",
+    href: "https://www.moet.gov.ae/documents/20121/0/Cabinet%2BDecision%2B109-2023%2BEnglish%2BVersion%2B06062024.pdf/f7138fc2-fe12-cef3-077b-b4c49c12eabd",
+  },
+  economicSubstanceAmendment: {
+    title: "Cancellation of Economic Substance reporting requirements after 2022",
+    publisher: "UAE Ministry of Finance",
+    href: "https://mof.gov.ae/en/news/ministry-of-finance-announces-amendment-to-cabinet-decision-on-economic-substance-requirements/",
+  },
 } satisfies Record<string, InsightSource>;
 
 const insightCredibilityBySlug: Record<string, InsightCredibility> = {
   "just-registered-uae-company-what-comes-next": {
-    updatedLabel: "August 2, 2026",
+    updatedLabel: "August 10, 2026",
     sources: [
       sourceLibrary.vatRegistration,
       sourceLibrary.corporateTaxRegistration,
       sourceLibrary.corporateTaxRegistrationTimeline,
       sourceLibrary.establishmentCard,
       sourceLibrary.privateSectorResidencePermit,
+      sourceLibrary.beneficialOwnerProcedures,
+      sourceLibrary.economicSubstanceAmendment,
     ],
   },
   "uae-mandatory-e-invoicing-deadlines-guide": {
@@ -210,8 +222,8 @@ const insightCredibilityBySlug: Record<string, InsightCredibility> = {
     sources: [sourceLibrary.corporateTaxGeneral, sourceLibrary.corporateTaxReturns, sourceLibrary.corporateTaxRecords],
   },
   "business-consultant-beyond-company-registration": {
-    updatedLabel: "July 22, 2026",
-    sources: [sourceLibrary.mainlandSetup, sourceLibrary.freeZoneSetup, sourceLibrary.corporateTaxGeneral],
+    updatedLabel: "August 10, 2026",
+    sources: [sourceLibrary.mainlandSetup, sourceLibrary.freeZoneSetup, sourceLibrary.corporateTaxGeneral, sourceLibrary.beneficialOwnerProcedures, sourceLibrary.economicSubstanceAmendment],
   },
   "why-first-time-entrepreneurs-are-choosing-uae": {
     updatedLabel: "July 22, 2026",
@@ -266,8 +278,8 @@ export const insightPosts: InsightPost[] = [
     title: "Just Registered Your UAE Company? Here's What Comes Next",
     displayTitle: "What to Do After Registering Your UAE Company",
     description:
-      "A practical first 90-day checklist for banking, visas, bookkeeping, VAT, Corporate Tax, and the recurring obligations that follow UAE company registration.",
-    dateLabel: "August 2, 2026",
+      "A practical first 90-day checklist for banking, visas, bookkeeping, VAT, Corporate Tax, UBO records, and the recurring obligations that follow UAE company registration.",
+    dateLabel: "August 10, 2026",
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/insights/first-time-entrepreneurs.webp"),
     heroImageAlt: "UAE business owner planning the first operational steps after company registration",
@@ -275,7 +287,7 @@ export const insightPosts: InsightPost[] = [
     keyTakeaways: [
       "A trade licence is the start of the operational sequence, not the end: banking, immigration, bookkeeping, and tax obligations still need to be organised.",
       "Bookkeeping should begin with the first transaction so VAT and Corporate Tax decisions are based on complete records.",
-      "Government fees, processing times, and registration rules can change, so confirm the current position for your entity before acting.",
+      "Confirm the company's beneficial-owner records early, but do not follow outdated checklists that treat ESR notifications as a current filing for financial years ending after 31 December 2022.",
     ],
     relatedServiceHrefs: [
       "/open-a-bank-account-easily",
@@ -284,6 +296,7 @@ export const insightPosts: InsightPost[] = [
       "/vat-filing-services-in-the-uae",
       "/corporate-tax-registration-in-the-uae",
       "/accounting-tax",
+      "/corporate-support",
     ],
     relatedInsightSlugs: [
       "business-consultant-beyond-company-registration",
@@ -293,28 +306,24 @@ export const insightPosts: InsightPost[] = [
     ],
     sections: [
       {
-        title: "The First 90 Days After UAE Company Registration",
+        title: "The First 30 to 90 Days After UAE Company Registration",
         paragraphs: [
-          "You have your UAE trade licence. The company name is registered and the incorporation paperwork is complete. Now comes the operational sequence that turns the licence into a working business.",
-          "This is a checklist for the next 30 to 90 days, not a formation guide. The exact route depends on the entity, emirate, activity, shareholders, employees, and tax position.",
+          "You have your UAE trade licence. The company name is registered, the paperwork is filed, and it finally feels real. Now comes the operational sequence that turns a licence into a working business. Some steps are mandatory, while others depend on your activity, turnover, staffing plans, and company structure. Getting the order wrong tends to cost more time than getting it right the first time.",
+          "This is a checklist for the next 30 to 90 days, not a formation guide. If you are still deciding between mainland and free zone, see our guide on mainland versus free zone instead.",
         ],
       },
       {
         title: "Quick Answer",
-        bullets: [
-          "Prepare and submit the corporate bank account application.",
-          "Obtain the establishment card and begin the employee or investor visa sequence where required.",
-          "Start bookkeeping from the first business transaction.",
-          "Monitor whether the VAT registration threshold applies.",
-          "Complete Corporate Tax registration within the deadline applicable to the entity.",
-          "Record licence, establishment card, visa, VAT, and Corporate Tax renewal or filing dates.",
+        paragraphs: [
+          "In roughly this order: open your corporate bank account, apply for your establishment card and start the visa process, set up bookkeeping from your first transaction, check whether you need to register for VAT, register for Corporate Tax within the deadline that applies to your entity, confirm the beneficial-owner information filed with the licensing authority and keep the company's UBO register current, treat ESR as a historical-period check rather than a routine current filing, and keep renewals and amendments on your calendar going forward.",
         ],
       },
       {
-        title: "Open Your Corporate Bank Account",
+        title: "Open Your Corporate Bank Account First",
         paragraphs: [
-          "A trade licence does not include a bank account. Banks generally review the licence, constitutional documents, shareholder and signatory identification, business activity, expected transactions, and source of funds as part of their KYC and risk review.",
-          "Approval and timing remain at the bank's discretion. No adviser, including Zenesis, can guarantee account approval or a fixed timeline. A complete, consistent file gives the bank a clearer basis for its review.",
+          "A trade licence does not come with a bank account attached. UAE banks commonly request documents such as your trade licence, Memorandum of Association, shareholder and signatory Emirates ID or passport copies, and an explanation of your business activity and expected source of funds as part of their KYC review. Exact requirements vary by bank, activity, ownership structure, and risk profile.",
+          "Bank account approval is solely at the bank's discretion after KYC, compliance, and risk review. No adviser, including Zenesis, can guarantee approval or a fixed timeline, and a trade licence alone does not guarantee an account. Companies with a clear, well-documented business activity and complete KYC paperwork tend to move through review faster than companies that submit incomplete files.",
+          "See our guide on opening a UAE business bank account for a fuller breakdown of what banks look for.",
         ],
         callout: {
           type: "warning",
@@ -323,33 +332,33 @@ export const insightPosts: InsightPost[] = [
         },
       },
       {
-        title: "Get the Establishment Card and Visas Moving",
+        title: "Get Your Team's Visas Moving",
         paragraphs: [
           {
-            text: "The ICP establishment card records details including the trade name, licence number, partners, and activity. The official service requires a valid trade licence and an Emirates ID or Unified Number for an authorised signatory. Free zone companies submit through their respective free zone authority.",
+            text: "The establishment card is issued by the Federal Authority for Identity, Citizenship, Customs and Port Security. This electronic card records your trade name, licence number, partners, and activity type, and is a prerequisite for visa processing. It requires a valid trade licence and the Emirates ID, or Unified Number for those without one yet, of an authorised signatory. For free zone companies, the application goes through the specific free zone authority rather than directly through ICP.",
             sourceIndexes: [4],
           },
           {
-            text: "ICP currently publishes application, annual issuance, smart-services, and electronic-system subscription fees totalling approximately AED 2,300 for the relevant private-establishment route, with a stated service completion time of two days. Confirm the category and current fee before applying.",
+            text: "For the cited ICP private-establishment service route, published government fees run to roughly AED 2,300 in total, with application, annual issuance, smart services, and system subscription fees combined. ICP states a service completion time of two days. The applicable route, fees, and timing can differ for free zones and other establishment categories.",
             sourceIndexes: [4],
           },
         ],
         bullets: [
           "Obtain the establishment card through the applicable authority route.",
-          "Confirm the labour quota and work-permit requirements for the planned team.",
-          "Complete the entry permit, medical fitness, and Emirates ID stages for each applicant.",
-          "Complete residence-permit issuance through the authority responsible for the emirate and entity.",
+          "Confirm the labour quota and work permit requirements for the planned team.",
+          "Complete the entry permit, medical fitness test, and Emirates ID application for each employee.",
+          "Complete residence permit issuance through the authority responsible for the emirate and entity.",
         ],
       },
       {
-        title: "Understand Dubai Residence Permit Fees and Timing",
+        title: "Understand Residence Permit Fees and Timing",
         paragraphs: [
           {
-            text: "For Dubai private-sector workers, GDRFA publishes a two-year renewable residence permit. Its current service page lists AED 200 for the permit, AED 10 each for Knowledge and Innovation Dirham charges, AED 500 for in-country processing, and AED 20 for delivery, totalling approximately AED 740 when all listed items apply.",
+            text: "For the cited Dubai private-sector service route, GDRFA issues a two-year renewable residence permit. Published fees for that route total roughly AED 740 per person, covering the permit fee, Knowledge and Innovation Dirham charges, in-country processing, and delivery. Validity and fees vary by permit category, sponsor, applicant circumstances, and authority.",
             sourceIndexes: [5],
           },
           {
-            text: "GDRFA states an expected completion time of 48 hours. That is the authority's service estimate once the applicable application is ready; it is not a guarantee for the complete end-to-end visa process.",
+            text: "GDRFA states a completion time of 48 hours once a complete application is submitted. Fees and processing times are set by the relevant government authority and can change.",
             sourceIndexes: [5],
           },
         ],
@@ -357,21 +366,22 @@ export const insightPosts: InsightPost[] = [
       {
         title: "Start Bookkeeping From Day One",
         paragraphs: [
-          "Bookkeeping should not wait until transaction volume becomes substantial. VAT assessments, Corporate Tax compliance, management reporting, and bank questions all depend on complete records from the beginning.",
-          "Choose a workable accounting process, retain invoices and supporting documents, separate business and personal spending, and reconcile transactions regularly. Reconstructing months of activity under deadline pressure is slower and more expensive than maintaining records as the business operates.",
+          "It is tempting to treat bookkeeping as something to sort out later, once the business has real transaction volume. The problem is that VAT and Corporate Tax registration both depend on accurate revenue figures from your very first transaction, not from whenever you eventually get around to organising your records. Reconstructing six months of invoices under deadline pressure is a common and avoidable source of stress.",
+          "Setting up clean records early, whether in QuickBooks, Zoho Books, Tally, or even a well-organised spreadsheet to start, makes the next steps considerably easier. See our bookkeeping services page for what ongoing support looks like.",
         ],
       },
       {
         title: "Know Your VAT Registration Trigger",
         paragraphs: [
           {
-            text: "For UAE-resident businesses, VAT registration is mandatory when taxable supplies and imports exceed AED 375,000 over the previous 12 months or are expected to exceed that threshold within the next 30 days. Voluntary registration may be available above AED 187,500. Different rules can apply to non-resident businesses making taxable supplies in the UAE.",
+            text: "Per the Federal Tax Authority, VAT registration is mandatory for UAE-resident businesses once the value of taxable supplies and imports exceeds AED 375,000 over the past 12 months, or is expected to exceed that threshold within the next 30 days. Voluntary registration is available once taxable supplies, imports, or taxable expenses exceed AED 187,500. Non-resident businesses making taxable supplies in the UAE face a different, stricter rule with no threshold, unless another UAE party is responsible for settling the VAT.",
             sourceIndexes: [1],
           },
           {
-            text: "The FTA states that a person required to register must submit the application within 30 days of the obligation arising. Zenesis provides VAT registration support, including assessing whether the obligation applies and preparing the relevant information and documents for the application.",
+            text: "Once the obligation to register arises, the application must be submitted within 30 days, or a late registration penalty applies. Registration itself is free, is completed through the EmaraTax platform, and the FTA states an estimated 45 minutes to submit the application and 20 business days to process it.",
             sourceIndexes: [1],
           },
+          "This is general information about the registration requirement itself, not a substitute for advice on your specific filing position. Zenesis offers VAT registration support alongside ongoing filing, from assessing whether the obligation applies through preparing and submitting the EmaraTax registration application itself.",
         ],
         callout: {
           type: "action",
@@ -380,18 +390,18 @@ export const insightPosts: InsightPost[] = [
         },
       },
       {
-        title: "Register for Corporate Tax on Time",
+        title: "Corporate Tax Registration Is Not Optional",
         paragraphs: [
           {
-            text: "UAE juridical persons subject to Corporate Tax must register with the FTA and obtain a Corporate Tax Registration Number. For a UAE resident juridical person incorporated, established, or otherwise recognised on or after 1 March 2024, FTA guidance states that the application is due within three months of incorporation, establishment, or recognition.",
+            text: "Every juridical person subject to UAE Corporate Tax must register with the FTA and obtain a Corporate Tax Registration Number. For newly incorporated UAE juridical persons, the general rule under FTA Decision No. 3 of 2024 is that an entity incorporated, established, or recognised on or after 1 March 2024 must apply within three months of incorporation, establishment, or recognition. Deadlines can vary by entity type and individual circumstance, so confirm the exact deadline that applies through EmaraTax.",
             sourceIndexes: [2, 3],
           },
           {
-            text: "The FTA currently lists an AED 10,000 administrative penalty for late Corporate Tax registration. It also describes a waiver initiative linked to submitting the first Tax Return, or Annual Declaration where applicable, within seven months from the end of the first tax period. Confirm whether the initiative and its conditions apply to the entity before relying on it.",
+            text: "Registration is free of charge, the FTA states roughly 25 minutes to submit the application and 20 business days to process it, and missing the deadline carries an AED 10,000 administrative penalty. A separate FTA initiative waives that penalty if the first Tax Return, or Annual Declaration for exempt persons, is submitted within seven months of the end of the first tax period, whether or not the penalty has already been charged or paid.",
             sourceIndexes: [2],
           },
           {
-            text: "Natural persons follow a different threshold-based rule, and branches or other entity types may require different treatment. Confirm the deadline and registration position for the specific legal form rather than applying a general checklist without review.",
+            text: "For freelancers and sole establishments, natural persons must register for Corporate Tax only if business revenue exceeds AED 1,000,000 in a calendar year, excluding salary, private investment income, and real-estate investment income. UAE branches of a UAE parent company do not need to register separately because they are treated as an extension of the parent.",
             sourceIndexes: [2],
           },
         ],
@@ -399,20 +409,41 @@ export const insightPosts: InsightPost[] = [
       {
         title: "Keep Renewals and Amendments on Your Calendar",
         paragraphs: [
-          "Once the initial setup is complete, recurring obligations can include trade-licence renewal, establishment-card renewal, visa renewals, VAT returns, Corporate Tax returns, and bookkeeping or record-retention work.",
-          "Changes to the activity, shareholders, authorised signatories, address, or operating model may also need to be recorded with the relevant licensing, immigration, banking, and tax authorities. Maintain one compliance calendar with an owner and next action for every obligation.",
+          "Once the initial setup is done, a few things stay on a recurring clock: trade licence renewal, establishment card renewal, VAT and Corporate Tax filing cycles once registered, and any amendment, such as a change of activity, a new shareholder, or an address change, that needs to be reflected with the relevant authority.",
+          "Some recurring renewals may fall later, but deadlines and company changes should be recorded from the outset because an amendment or filing obligation can require earlier action. See our accounting and tax page for how ongoing support is structured.",
         ],
+      },
+      {
+        title: "Complete the Corporate Housekeeping",
+        paragraphs: [
+          {
+            text: "A newly registered company should confirm the natural person or people who ultimately own or control it, provide the required beneficial-owner information to the relevant registrar or licensing authority, and maintain an accurate UBO register. Cabinet Decision No. 109 of 2023 sets out the UAE beneficial-owner procedures, including ownership or control tests and the records a legal person must maintain. The exact submission route depends on the licensing authority and legal form.",
+            sourceIndexes: [6],
+          },
+          {
+            text: "Economic Substance Regulations still appear in many older UAE setup checklists, but the Ministry of Finance cancelled ESR notification and reporting requirements for financial years ending after 31 December 2022. A company can still have unresolved obligations for earlier periods and must respond to authority information or amendment requests and settle any applicable penalties. For a newly registered 2026 company, ESR should therefore be checked for historical or exceptional relevance, not presented as a routine new filing.",
+            sourceIndexes: [7],
+          },
+          "Zenesis supports beneficial-owner records and filings, corporate registers, resolutions, and case-specific compliance reviews through its corporate support service.",
+        ],
+        callout: {
+          type: "warning",
+          title: "Do not rely on an outdated ESR checklist",
+          text: "Current UBO obligations and historical ESR matters are separate. Confirm the company's actual position rather than assuming both require a new filing.",
+        },
       },
       {
         title: "Post-Registration Sequence at a Glance",
         table: {
-          columns: ["Step", "What it covers", "Published timing or trigger"],
+          columns: ["Step", "What it covers", "Published fee or position", "Timing or trigger"],
           rows: [
-            ["Corporate bank account", "KYC, activity, ownership, and source-of-funds review", "No fixed timeline; bank discretion"],
-            ["Establishment card", "Immigration establishment record", "ICP states 2 days for its service"],
-            ["Dubai residence permit", "Two-year renewable private-sector residence", "GDRFA states 48 hours for its service"],
-            ["VAT registration", "Required when the applicable threshold or rule is met", "Apply within 30 days after the obligation arises"],
-            ["Corporate Tax registration", "FTA registration for taxable persons", "New UAE juridical persons generally within 3 months"],
+            ["Corporate bank account", "KYC review and source of funds", "Bank dependent; not government set", "No fixed timeline; bank discretion"],
+            ["Establishment card", "Prerequisite for visa processing", "Approximately AED 2,300 total", "ICP states 2 days"],
+            ["Residence permit, per person", "Two-year permit for the cited Dubai route", "Approximately AED 740 total", "GDRFA Dubai states 48 hours"],
+            ["VAT registration", "Required once the applicable threshold or rule is met", "Free", "FTA states approximately 20 business days"],
+            ["Corporate Tax registration", "Newly incorporated entities generally apply within 3 months", "Free; AED 10,000 penalty if late", "FTA states approximately 20 business days"],
+            ["UBO records", "Beneficial-owner details and company register", "Authority dependent", "Confirm at setup and update when ownership or control changes"],
+            ["Economic Substance", "Earlier-period ESR obligations or authority follow-up", "Not applicable to a routine current filing", "Review only for historical or exceptional relevance"],
           ],
         },
       },
@@ -426,25 +457,35 @@ export const insightPosts: InsightPost[] = [
       {
         question: "Do I need to register for VAT immediately after incorporation?",
         answer:
-          "Not solely because the company has been incorporated. For UAE-resident businesses, the mandatory threshold is generally AED 375,000 of taxable supplies and imports over the previous 12 months or expected within the next 30 days. Different rules can apply to non-residents.",
+          "Only if taxable supplies and imports already exceed AED 375,000 over the past 12 months, or are expected to cross that threshold within the next 30 days. Below that, voluntary registration is available from AED 187,500. If neither applies yet, immediate registration is not required.",
       },
       {
-        question: "When must a newly incorporated UAE company register for Corporate Tax?",
+        question: "What happens if I miss the Corporate Tax registration deadline?",
         answer:
-          "FTA guidance states that a UAE resident juridical person incorporated, established, or recognised on or after 1 March 2024 must generally apply within three months. Confirm the rule applicable to the entity's legal form and circumstances.",
+          "An AED 10,000 administrative penalty applies. The FTA's penalty-waiver initiative can exempt a person who submits the first Tax Return, or Annual Declaration where applicable, within seven months of the end of the first tax period.",
       },
       {
-        question: "What comes before an employee residence permit?",
+        question: "What do I need before I can apply for my first employee's visa?",
         answer:
-          "The company generally needs the applicable immigration establishment record or establishment card before progressing through work-permit, entry-permit, medical-fitness, Emirates ID, and residence stages. The exact route depends on the entity and authority.",
+          "A valid trade licence and an approved establishment card from ICP, or from the relevant free zone authority for free zone companies, come first. Labour quota, entry permit, medical test, and Emirates ID follow from there.",
+      },
+      {
+        question: "How long is a UAE residence permit valid?",
+        answer:
+          "Validity depends on the permit category and sponsor. For the Dubai private-sector route described above, GDRFA publishes a two-year renewable permit; other UAE residence permits may have different validity periods.",
+      },
+      {
+        question: "Does a newly registered UAE company still need to file an ESR notification or report?",
+        answer:
+          "Not for financial years ending after 31 December 2022. The UAE Ministry of Finance cancelled those ESR notification and reporting requirements. Earlier-period obligations, authority requests, amendments, and penalties can still need attention, so an older company should confirm its historical position.",
       },
     ],
-    closingTitle: "Ready to Get the Sequence Right?",
+    closingTitle: "Ready to Get Set Up Right?",
     closingParagraphs: [
-      "Getting the operational sequence right helps prevent incomplete bank files, delayed hiring, missed registration deadlines, and records that later need to be reconstructed.",
+      "Getting the sequence right the first time avoids rework, avoidable penalties, and stalled hiring.",
     ],
     closingCta:
-      "Book a consultation with Zenesis to review banking readiness, visas, bookkeeping, and the VAT and Corporate Tax timeline for your company.",
+      "Book a consultation with Zenesis to walk through banking readiness, visas, bookkeeping, and your VAT and Corporate Tax registration timeline for your specific company.",
   },
   {
     slug: "uae-mandatory-e-invoicing-deadlines-guide",
@@ -865,7 +906,7 @@ export const insightPosts: InsightPost[] = [
         title: "Why Basic Setup Support Is No Longer Enough",
         paragraphs: [
           "The UAE is home to more than 1.4 million active corporate entities, fuelled by SME growth and digital innovation. That expansion has brought a much more sophisticated regulatory environment.",
-          "Entrepreneurs no longer just need a trade license. They must navigate a strict 9% Corporate Tax framework, ongoing VAT commitments, rigorous Anti-Money Laundering and Know Your Customer banking standards, and mandatory compliance filings such as ESR and UBO registers.",
+          "Entrepreneurs no longer just need a trade license. They must navigate Corporate Tax, ongoing VAT commitments, rigorous Anti-Money Laundering and Know Your Customer banking standards, and continuing obligations such as maintaining accurate UBO records. Economic Substance notification and reporting requirements were cancelled for financial years ending after 31 December 2022, although unresolved earlier periods may still need review.",
           "In this environment, starting a company is relatively straightforward. The real challenge is building a stable, scalable, and compliant corporate structure.",
         ],
       },

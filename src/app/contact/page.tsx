@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import NextImage from "next/image";
 import { ConsultationInlinePanel } from "@/components/consultation-form";
-import { ReadingProgress } from "@/components/reading-progress";
 import { PageIntro, SiteShell } from "@/components/site-shell";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import {
@@ -18,7 +17,6 @@ export const metadata: Metadata = toMetadata(legacyRouteMeta.contact, "/contact"
 export default function ContactPage() {
   return (
     <SiteShell currentPath="/contact">
-      <ReadingProgress />
       <PageIntro
         eyebrow="Contact Zenesis"
         title="Contact us"
@@ -27,6 +25,7 @@ export default function ContactPage() {
         backgroundImageAlt="Zenesis awards and recognition"
         backgroundImagePosition="!object-[58%_48%]"
         backgroundImageMode="ambient"
+        preloadBackgroundImage
       />
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-white pb-0 pt-14 md:pt-18">
@@ -119,19 +118,22 @@ export default function ContactPage() {
               <h2 className="text-[1.24rem] font-semibold tracking-[-0.04em] text-foreground md:text-[1.32rem]">
                 Social Media
               </h2>
-              <div className="mt-4 flex flex-wrap gap-3">
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
                 {socialLinks.map((item) => (
                   <a
                     key={item.label}
                     href={item.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-3 rounded-full border border-foreground/10 bg-[#f8f5ef] px-4 py-3 text-[1rem] font-semibold text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-[#244ba8]/20 hover:text-[#244ba8]"
+                    className="group inline-flex min-h-12 items-center justify-between gap-3 rounded-[0.7rem] border border-[#e2cfaa] bg-[linear-gradient(135deg,#fffaf0_0%,#f1dfbd_58%,#dfc48f_100%)] px-4 py-3 text-[0.96rem] font-semibold text-[#11232a] shadow-[0_10px_24px_rgba(17,35,42,0.09),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-[1.025] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
                   >
-                    {item.label === "Facebook" ? <FacebookIcon className="h-5 w-5 fill-current" /> : null}
-                    {item.label === "LinkedIn" ? <LinkedInIcon className="h-5 w-5 fill-current" /> : null}
-                    {item.label === "Instagram" ? <InstagramIcon className="h-5 w-5 stroke-current" /> : null}
-                    {item.label}
+                    <span className="inline-flex items-center gap-2.5">
+                      {item.label === "Facebook" ? <FacebookIcon className="h-5 w-5 fill-current" /> : null}
+                      {item.label === "LinkedIn" ? <LinkedInIcon className="h-5 w-5 fill-current" /> : null}
+                      {item.label === "Instagram" ? <InstagramIcon className="h-5 w-5 stroke-current" /> : null}
+                      {item.label}
+                    </span>
+                    <span aria-hidden="true" className="text-lg leading-none transition-transform group-hover:translate-x-0.5">→</span>
                   </a>
                 ))}
               </div>

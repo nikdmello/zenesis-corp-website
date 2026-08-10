@@ -68,6 +68,14 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
       imageAlt: "Document attestation support in the UAE",
       imageClassName: "object-[86%_36%]",
     },
+    {
+      title: "Corporate support",
+      href: "/corporate-support",
+      description: "Keep UBO records, company changes, renewals, governance, and ongoing compliance organised after setup.",
+      imageSrc: versionedAssetPath("/services/corporate-secretarial-and-compliance.webp"),
+      imageAlt: "Corporate secretarial and compliance support in the UAE",
+      imageClassName: "object-center",
+    },
   ],
   "Accounting and Tax": [
     {

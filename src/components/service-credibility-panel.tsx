@@ -7,6 +7,8 @@ type ServiceCredibilityPanelProps = {
   dark?: boolean;
   variant?: "expertise" | "sources";
   embedded?: boolean;
+  contentClassName?: string;
+  contained?: boolean;
 };
 
 export function ServiceCredibilityPanel({
@@ -14,6 +16,8 @@ export function ServiceCredibilityPanel({
   dark = false,
   variant = "sources",
   embedded = false,
+  contentClassName = "",
+  contained = false,
 }: ServiceCredibilityPanelProps) {
   const credibility = getServiceCredibility(path);
 
@@ -83,8 +87,8 @@ export function ServiceCredibilityPanel({
   }
 
   return (
-    <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f8f6f1] py-8 md:py-10">
-      <div className="mx-auto w-full max-w-[78rem] px-6 md:px-10">
+    <section className={`relative -mt-px bg-[#f8f6f1] py-8 md:py-10 ${contained ? "w-full" : "left-1/2 w-screen -translate-x-1/2"}`}>
+      <div className={`mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20 ${contentClassName}`}>
         <PrimarySources
           sources={credibility.sources}
           note={credibility.note}

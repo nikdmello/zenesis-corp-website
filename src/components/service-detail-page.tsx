@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { CleanSectionLink } from "@/components/clean-section-link";
+import { PageGuideLayout, type PageGuideItem } from "@/components/page-guide-layout";
 import { ReadingProgress } from "@/components/reading-progress";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
@@ -48,10 +49,10 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
     config.relatedInsightSlugs,
   );
   const canonicalPath = `/${config.slug}`;
-  const guideLinks = [
+  const guideLinks: PageGuideItem[] = [
     { href: "#overview", label: config.introTitle },
     ...knowledgeSections.map((section) => ({
-      href: `#${toSectionId(section.title)}`,
+      href: `#${toSectionId(section.title)}` as `#${string}`,
       label: section.title,
     })),
     { href: "#what-we-handle", label: config.pointsTitle },
@@ -121,14 +122,12 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
         }
         ambientImageClassName={config.introAmbientImageClassName}
         contentClassName={config.introContentClassName}
-        footerContent={
-          <ServiceCredibilityPanel path={canonicalPath} variant="expertise" embedded />
-        }
       />
+      <PageGuideLayout items={guideLinks} credibilityPath={canonicalPath}>
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-14 md:py-18">
         <div className="mx-auto w-full max-w-[104rem] px-7 md:px-14 xl:px-24">
-          <div className="mx-auto max-w-[78rem] lg:grid lg:grid-cols-[minmax(0,54rem)_17rem] lg:items-start lg:gap-12 xl:gap-16">
+          <div className="max-w-[78rem]">
             <div className="min-w-0 space-y-14 md:space-y-16">
               <nav
                 aria-label="On this page"
@@ -154,7 +153,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
 
               <section
                 id="overview"
-                className="mx-auto w-full max-w-[54rem] scroll-mt-28"
+                className="w-full max-w-[54rem] scroll-mt-28"
               >
                 <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
                   Overview
@@ -204,7 +203,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                 <section
                   key={section.title}
                   id={toSectionId(section.title)}
-                  className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-t border-[#e4dbce] pt-10"
+                  className="w-full max-w-[54rem] scroll-mt-28 border-t border-[#e4dbce] pt-10"
                 >
                   <h2 className={articleSectionHeadingClassName}>{section.title}</h2>
                   {section.intro ? (
@@ -228,7 +227,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
 
               <section
                 id="what-we-handle"
-                className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#244ba8] bg-[#f3f7ff] px-6 py-8 md:px-8"
+                className="w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#244ba8] bg-[#f3f7ff] px-6 py-8 md:px-8"
               >
                 <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#244ba8]">
                   How Zenesis helps
@@ -250,23 +249,6 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
               </section>
             </div>
 
-            <aside className="sticky top-24 hidden max-h-[calc(100vh-7rem)] overflow-y-auto border-l border-[#d9d1c5] pl-7 lg:block">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
-                On this page
-              </p>
-              <GuideLinks items={guideLinks} className="mt-5 space-y-3.5" />
-              <div className="mt-7 border-t border-[#d9d1c5] pt-6">
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#1f7652]">
-                  Reviewed guidance
-                </p>
-                <CleanSectionLink
-                  href="#primary-sources"
-                  className="mt-3 inline-flex text-[0.82rem] font-semibold text-[#244ba8] hover:underline"
-                >
-                  View primary sources
-                </CleanSectionLink>
-              </div>
-            </aside>
           </div>
         </div>
       </section>
@@ -326,6 +308,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
       ) : null}
 
       <ServiceCredibilityPanel path={canonicalPath} variant="sources" />
+      </PageGuideLayout>
     </SiteShell>
   );
 }

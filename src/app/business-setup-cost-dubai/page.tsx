@@ -5,7 +5,8 @@ import { BusinessSetupCostTable } from "@/components/business-setup-cost-table";
 import { BusinessSetupPriceActions } from "@/components/business-setup-price-actions";
 import { BusinessSetupPricingFaq } from "@/components/business-setup-pricing-faq";
 import { JsonLd } from "@/components/json-ld";
-import { PageSectionNav, PageSectionNavMobile } from "@/components/page-section-nav";
+import { PageGuideLayout } from "@/components/page-guide-layout";
+import { PageSectionNavMobile } from "@/components/page-section-nav";
 import { ReadingProgress } from "@/components/reading-progress";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
@@ -81,38 +82,34 @@ export default function BusinessSetupCostDubaiPage() {
         backgroundImageAlt="Dubai business setup cost and company formation pricing"
         backgroundImagePosition="!object-[82%_32%]"
         backgroundImageMode="ambient"
-        footerContent={
-          <ServiceCredibilityPanel path="/business-setup-cost-dubai" variant="expertise" embedded />
-        }
       />
 
       <PageSectionNavMobile items={pricingPageLinks} />
+      <PageGuideLayout items={pricingPageLinks} credibilityPath="/business-setup-cost-dubai">
 
-      <section id="starting-prices" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#11232a] py-14 md:py-18">
+      <section id="starting-prices" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 border-b border-[#d9d1c5] bg-white py-14 md:py-18">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Pricing overview"
             title="Compare Zenesis starting prices"
             description="A full-width comparison of the main setup routes founders ask about when estimating the cost of starting a business in Dubai or the UAE."
-            titleClassName="!text-white"
-            descriptionClassName="!text-white/88"
           />
 
           <div className="mt-8 md:mt-10">
             <BusinessSetupCostTable />
           </div>
 
-          <p className="mt-5 max-w-5xl text-[0.98rem] font-medium leading-7 text-white/72">
+          <p className="mt-5 max-w-5xl text-[0.98rem] font-medium leading-7 text-[#11232a]/72">
             {businessSetupPricingDisclaimer}
           </p>
-          <div className="mt-7 grid gap-5 border-t border-white/14 pt-7 md:grid-cols-2">
+          <div className="mt-7 grid gap-5 border-t border-[#d9d1c5] pt-7 md:grid-cols-2">
             <div>
-              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#d5be8b]">Lowest entry price</p>
-              <p className="mt-3 text-[1.05rem] font-medium leading-7 text-white/88">A freelance permit starts from AED 4,000 when the activity and operating model fit a permit route.</p>
+              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">Lowest entry price</p>
+              <p className="mt-3 text-[1.05rem] font-medium leading-7 text-[#11232a]/88">A freelance permit starts from AED 4,000 when the activity and operating model fit a permit route.</p>
             </div>
             <div>
-              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#d5be8b]">Lowest company route</p>
-              <p className="mt-3 text-[1.05rem] font-medium leading-7 text-white/88">A free zone company without a visa starts from AED 7,000, but zone, activity, banking, office, and renewal fit still matter.</p>
+              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">Lowest company route</p>
+              <p className="mt-3 text-[1.05rem] font-medium leading-7 text-[#11232a]/88">A free zone company without a visa starts from AED 7,000, but zone, activity, banking, office, and renewal fit still matter.</p>
             </div>
           </div>
         </div>
@@ -120,7 +117,6 @@ export default function BusinessSetupCostDubaiPage() {
 
       <section id="cost-drivers" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start">
           <div className="min-w-0">
           <SectionHeading
             eyebrow="2026 cost guide"
@@ -158,8 +154,6 @@ export default function BusinessSetupCostDubaiPage() {
               one that still works once licensing, banking, and post-setup obligations begin.
             </p>
           </div>
-          </div>
-          <PageSectionNav items={pricingPageLinks} />
           </div>
         </div>
       </section>
@@ -224,6 +218,7 @@ export default function BusinessSetupCostDubaiPage() {
       />
 
       <ServiceCredibilityPanel path="/business-setup-cost-dubai" variant="sources" />
+      </PageGuideLayout>
     </SiteShell>
   );
 }

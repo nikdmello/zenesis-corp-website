@@ -2,7 +2,8 @@ import NextImage from "next/image";
 import type { Metadata } from "next";
 import { ReadingProgress } from "@/components/reading-progress";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
-import { PageSectionNav, PageSectionNavMobile } from "@/components/page-section-nav";
+import { PageGuideLayout } from "@/components/page-guide-layout";
+import { PageSectionNavMobile } from "@/components/page-section-nav";
 import { articleSectionHeadingClassName } from "@/lib/article-styles";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
@@ -30,13 +31,13 @@ export default function AboutPage() {
       />
 
       <PageSectionNavMobile items={aboutPageLinks} />
+      <PageGuideLayout items={aboutPageLinks} credibilityPath="/about" navigationLabel="On this page">
 
       <section
         id="our-background"
         className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18"
       >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start">
           <article className="flow-root min-w-0">
               <div>
                 <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
@@ -79,8 +80,6 @@ export default function AboutPage() {
                 </div>
               </div>
           </article>
-          <PageSectionNav items={aboutPageLinks} />
-          </div>
         </div>
       </section>
 
@@ -100,6 +99,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      </PageGuideLayout>
     </SiteShell>
   );
 }

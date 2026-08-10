@@ -118,6 +118,16 @@ const sources = {
     publisher: "UAE Ministry of Economy and Tourism",
     href: "https://www.moet.gov.ae/en/-/what-are-the-requirements-for-establishing-a-branch-of-a-foreign-company-",
   },
+  beneficialOwnerProcedures: {
+    title: "Cabinet Decision No. 109 of 2023 on beneficial-owner procedures",
+    publisher: "UAE Ministry of Economy and Tourism",
+    href: "https://www.moet.gov.ae/documents/20121/0/Cabinet%2BDecision%2B109-2023%2BEnglish%2BVersion%2B06062024.pdf/f7138fc2-fe12-cef3-077b-b4c49c12eabd",
+  },
+  economicSubstanceAmendment: {
+    title: "Cancellation of Economic Substance reporting requirements after 2022",
+    publisher: "UAE Ministry of Finance",
+    href: "https://mof.gov.ae/en/news/ministry-of-finance-announces-amendment-to-cabinet-decision-on-economic-substance-requirements/",
+  },
   establishmentCard: {
     title: "Issuing an Establishment Card",
     publisher: "Federal Authority for Identity, Citizenship, Customs & Port Security",
@@ -227,9 +237,9 @@ export function getServiceCredibility(path: string): ServiceCredibility | undefi
     },
     "/corporate-support": {
       expert: experts.cecilia,
-      verificationLabel: "Sources checked August 4, 2026",
+      verificationLabel: "Sources checked August 10, 2026",
       note: "Renewal, amendment, liquidation, restoration, branch, and attestation requirements vary by legal form and jurisdiction. Timelines and document lists are confirmed case by case with the relevant authority before work begins.",
-      sources: [sources.businessClosure, sources.foreignBranches, sources.foreignBranchRequirements, sources.documentAttestation],
+      sources: [sources.businessClosure, sources.foreignBranches, sources.foreignBranchRequirements, sources.beneficialOwnerProcedures, sources.economicSubstanceAmendment, sources.documentAttestation],
     },
     "/uae-company-visa": {
       expert: experts.cecilia,

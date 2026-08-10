@@ -84,6 +84,25 @@ export function SiteShell({
     });
   }, [currentPath]);
 
+  useEffect(() => {
+    const sectionId = window.location.hash.slice(1);
+
+    if (!sectionId) {
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "auto", block: "start" });
+        window.history.replaceState(
+          null,
+          "",
+          `${window.location.pathname}${window.location.search}`,
+        );
+      });
+    });
+  }, [currentPath]);
+
   const handleSectionLinkClick = (
     event: React.MouseEvent<HTMLAnchorElement>,
     href: string,
@@ -280,6 +299,7 @@ export function SiteShell({
                               {isServicesMenu ? (
                                 <a
                                   href={getServiceGroupHref(group.title)}
+                                  onClick={(event) => handleSectionLinkClick(event, getServiceGroupSectionHref(group.title))}
                                   onMouseEnter={() => setHoveredServiceGroupTitle(group.title)}
                                   onMouseLeave={() =>
                                     setHoveredServiceGroupTitle((current) =>
@@ -315,7 +335,7 @@ export function SiteShell({
                                 {group.links.map((link) => (
                                   <Link
                                     key={`${group.title}-${link.label}-${link.href}`}
-                                    href={link.href}
+                                    href={link.href.split("#")[0] || currentPath}
                                     onClick={(event) => handleSectionLinkClick(event, link.href)}
                                     className={`rounded-md transition-all duration-200 hover:bg-white/7 hover:text-white ${
                                       isServicesMenu
@@ -435,6 +455,7 @@ export function SiteShell({
                               >
                                 <a
                                   href={getServiceGroupHref(group.title)}
+                                  onClick={(event) => handleSectionLinkClick(event, getServiceGroupSectionHref(group.title))}
                                   className="group/title block px-1"
                                 >
                                   <span className="relative inline-block text-[1.08rem] font-semibold tracking-[-0.02em] !text-white">
@@ -449,7 +470,7 @@ export function SiteShell({
                                   {group.links.map((link) => (
                                   <Link
                                       key={`${group.title}-${link.label}-${link.href}`}
-                                    href={link.href}
+                                    href={link.href.split("#")[0] || currentPath}
                                     onClick={(event) => handleSectionLinkClick(event, link.href)}
                                       className="rounded-md px-3 py-2.5 text-[0.96rem] font-medium leading-6 !text-white/88 transition-all duration-200 hover:bg-white/7 hover:!text-white hover:pl-4"
                                     >
@@ -545,6 +566,7 @@ export function SiteShell({
                         <div key={group.title}>
                           <a
                             href={getServiceGroupHref(group.title)}
+                            onClick={(event) => handleSectionLinkClick(event, getServiceGroupSectionHref(group.title))}
                             className="inline-flex text-[0.96rem] font-semibold tracking-[-0.02em] text-foreground/78 transition-colors hover:text-foreground"
                           >
                             {group.title}
@@ -553,7 +575,7 @@ export function SiteShell({
                             {group.links.map((link) => (
                               <Link
                                 key={`${group.title}-${link.label}-${link.href}`}
-                                href={link.href}
+                                href={link.href.split("#")[0] || currentPath}
                                 onClick={(event) => handleSectionLinkClick(event, link.href)}
                                 className="pl-3 text-[1.02rem] leading-7 text-foreground/82 transition-colors hover:text-foreground"
                               >
@@ -686,13 +708,24 @@ function getServiceGroupHref(groupTitle: string) {
     case "Corporate Support":
       return "/corporate-support";
     case "Corporate License Lifecycle":
-      return "/corporate-support#license-lifecycle";
+      return "/corporate-support";
     case "Corporate Services":
-      return "/corporate-support#corporate-services";
+      return "/corporate-support";
     case "Visa and Banking":
       return "/visa-and-banking";
     default:
       return "/";
+  }
+}
+
+function getServiceGroupSectionHref(groupTitle: string) {
+  switch (groupTitle) {
+    case "Corporate License Lifecycle":
+      return "/corporate-support#license-lifecycle";
+    case "Corporate Services":
+      return "/corporate-support#corporate-services";
+    default:
+      return getServiceGroupHref(groupTitle);
   }
 }
 
@@ -762,6 +795,7 @@ type PageIntroProps = {
   backgroundImageAlt?: string;
   backgroundImagePosition?: string;
   backgroundImageMode?: "full" | "ambient";
+  preloadBackgroundImage?: boolean;
   ambientImageClassName?: string;
   contentClassName?: string;
   titleClassName?: string;
@@ -788,6 +822,7 @@ export function PageIntro({
   backgroundImageAlt,
   backgroundImagePosition,
   backgroundImageMode = "full",
+  preloadBackgroundImage = false,
   ambientImageClassName,
   contentClassName,
   titleClassName,
@@ -819,8 +854,8 @@ export function PageIntro({
         usesFullBackgroundImage
           ? "relative left-1/2 -mt-10 w-screen -translate-x-1/2 overflow-hidden pt-20 pb-10 md:-mt-14 md:pt-28 md:pb-16"
           : usesAmbientBackgroundImage
-            ? "relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-[#f5efe4] pt-24 pb-14 md:pt-28 md:pb-16"
-            : "relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] pt-24 pb-14 md:pt-28 md:pb-16",
+            ? "relative left-1/2 -mt-px flex min-h-[17rem] w-screen -translate-x-1/2 items-center overflow-hidden bg-[#f5efe4] py-7 md:min-h-[18rem] md:py-8"
+            : "relative left-1/2 -mt-px flex min-h-[17rem] w-screen -translate-x-1/2 items-center bg-[#f5efe4] py-7 md:min-h-[18rem] md:py-8",
         showBottomBorder ? "border-b border-foreground/8" : "",
       ]
         .filter(Boolean)
@@ -865,8 +900,9 @@ export function PageIntro({
               src={backgroundImageSrc!}
               alt={backgroundImageAlt ?? ""}
               fill
-              loading="lazy"
-              fetchPriority="low"
+              preload={preloadBackgroundImage}
+              loading={preloadBackgroundImage ? undefined : "lazy"}
+              fetchPriority={preloadBackgroundImage ? undefined : "low"}
               quality={76}
               sizes="(max-width: 767px) 92vw, (max-width: 1279px) 54vw, 832px"
               className={`object-cover object-right-top saturate-[0.94] contrast-[0.98] ${backgroundImagePosition ?? "object-[82%_24%]"}`}

@@ -10,19 +10,23 @@ type ServiceAnswerSectionProps = {
   description: string;
   items: readonly ServiceAnswerItem[];
   dark?: boolean;
+  contentClassName?: string;
+  contained?: boolean;
 };
 
 export function ServiceAnswerSection({
   title,
   description,
   items,
+  contentClassName = "",
+  contained = false,
 }: ServiceAnswerSectionProps) {
   return (
     <section
       id="direct-answers"
-      className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-14 md:py-18"
+      className={`relative -mt-px scroll-mt-28 bg-[#f8f6f1] py-14 md:py-18 ${contained ? "w-full" : "left-1/2 w-screen -translate-x-1/2"}`}
     >
-      <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+      <div className={`mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20 ${contentClassName}`}>
         <div>
           <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
             Common questions

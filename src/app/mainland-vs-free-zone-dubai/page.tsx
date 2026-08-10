@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
-import { PageSectionNav, PageSectionNavMobile } from "@/components/page-section-nav";
+import { PageGuideLayout } from "@/components/page-guide-layout";
+import { PageSectionNavMobile } from "@/components/page-section-nav";
 import { ReadingProgress } from "@/components/reading-progress";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
@@ -179,15 +180,13 @@ export default function MainlandVsFreeZoneDubaiPage() {
         backgroundImageAlt="Mainland vs free zone company setup comparison in Dubai"
         backgroundImagePosition="!object-[82%_34%]"
         backgroundImageMode="ambient"
-        footerContent={
-          <ServiceCredibilityPanel path="/mainland-vs-free-zone-dubai" variant="expertise" embedded />
-        }
       />
 
       <PageSectionNavMobile items={comparisonPageLinks} />
+      <PageGuideLayout items={comparisonPageLinks} credibilityPath="/mainland-vs-free-zone-dubai">
 
       <section id="route-comparison" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18">
-        <div className="mx-auto grid w-full max-w-[100rem] gap-12 px-6 md:px-12 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start xl:px-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="min-w-0">
           <SectionHeading
             eyebrow="Decision table"
@@ -233,7 +232,6 @@ export default function MainlandVsFreeZoneDubaiPage() {
             </div>
           </div>
           </div>
-          <PageSectionNav items={comparisonPageLinks} />
         </div>
       </section>
 
@@ -365,6 +363,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
       />
 
       <ServiceCredibilityPanel path="/mainland-vs-free-zone-dubai" variant="sources" />
+      </PageGuideLayout>
     </SiteShell>
   );
 }

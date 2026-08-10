@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { InsightsArchive } from "@/components/insights-archive";
-import { PageSectionNav, PageSectionNavMobile } from "@/components/page-section-nav";
+import { PageGuideLayout } from "@/components/page-guide-layout";
+import { PageSectionNavMobile } from "@/components/page-section-nav";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import { featuredProfile } from "@/lib/site-content";
@@ -38,9 +39,10 @@ export default function InsightsPage() {
       />
 
       <PageSectionNavMobile items={insightsPageLinks} />
+      <PageGuideLayout items={insightsPageLinks} credibilityPath="/insights">
 
       <section id="latest" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18">
-        <div className="mx-auto grid w-full max-w-[100rem] gap-12 px-6 md:px-12 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start xl:px-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="min-w-0">
           <SectionHeading
             eyebrow="Blog"
@@ -93,7 +95,6 @@ export default function InsightsPage() {
             </div>
           </Link>
           </div>
-          <PageSectionNav items={insightsPageLinks} />
         </div>
       </section>
 
@@ -155,6 +156,7 @@ export default function InsightsPage() {
           </Link>
         </div>
       </section>
+      </PageGuideLayout>
     </SiteShell>
   );
 }

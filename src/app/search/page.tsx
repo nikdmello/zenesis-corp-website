@@ -9,7 +9,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Search | Zenesis Corporation",
   description:
-    "Search Zenesis pages, services, and insight articles across business setup, accounting and tax, and visa and banking.",
+    "Search Zenesis pages, services, and insight articles across business setup, accounting and tax, visa and banking, and corporate support.",
   path: "/search",
   noIndex: true,
 });
@@ -36,7 +36,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
             </h1>
             <p className="mt-6 max-w-3xl text-[1.12rem] leading-8 text-muted md:text-[1.2rem] md:leading-9">
               Search pages, services, and insight articles across business setup,
-              accounting and tax, and visa and banking.
+              accounting and tax, visa and banking, and corporate support.
             </p>
             <div className="mt-8 max-w-[46rem]">
               <SiteSearchForm

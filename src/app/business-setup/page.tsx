@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { JsonLd } from "@/components/json-ld";
-import { PageSectionNav, PageSectionNavMobile } from "@/components/page-section-nav";
+import { PageGuideLayout } from "@/components/page-guide-layout";
+import { PageSectionNavMobile } from "@/components/page-section-nav";
 import { ReadingProgress } from "@/components/reading-progress";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
@@ -371,19 +372,16 @@ export default function BusinessSetupPage() {
         backgroundImageAlt="Business leader arriving in Jumeirah Lake Towers for UAE company setup"
         backgroundImagePosition="!object-[58%_center]"
         backgroundImageMode="ambient"
-        footerContent={
-          <ServiceCredibilityPanel path="/business-setup" variant="expertise" embedded />
-        }
       />
 
       <PageSectionNavMobile items={businessSetupPageLinks} />
+      <PageGuideLayout items={businessSetupPageLinks} credibilityPath="/business-setup">
 
       <section
         id="overview"
         className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18"
       >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start">
           <article className="max-w-[54rem]">
             <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
               Start here
@@ -422,8 +420,6 @@ export default function BusinessSetupPage() {
               />
             </div>
           </article>
-          <PageSectionNav items={businessSetupPageLinks} />
-          </div>
         </div>
       </section>
 
@@ -743,6 +739,7 @@ export default function BusinessSetupPage() {
       </section>
 
       <ServiceCredibilityPanel path="/business-setup" variant="sources" />
+      </PageGuideLayout>
     </SiteShell>
   );
 }

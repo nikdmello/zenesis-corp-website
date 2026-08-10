@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { CleanSectionLink } from "@/components/clean-section-link";
 import { JsonLd } from "@/components/json-ld";
-import { PageSectionNav, PageSectionNavMobile } from "@/components/page-section-nav";
+import { PageGuideLayout } from "@/components/page-guide-layout";
+import { PageSectionNavMobile } from "@/components/page-section-nav";
 import { ReadingProgress } from "@/components/reading-progress";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
@@ -43,6 +44,8 @@ const directAnswers = [
   { question: "What is usually involved in opening a UAE branch of a foreign company?", answer: "The process normally connects parent company approval, appointment of the branch manager, attested parent documents, activity approvals, local licensing, and Ministry registration where applicable. The exact path depends on the authority and activity." },
   { question: "What is the difference between a branch and a representative office?", answer: "A branch can generally conduct the approved activities of its parent company and generate UAE revenue. A representative office is limited to market research, promotion, and liaison work and cannot conduct revenue-generating commercial activity." },
   { question: "When should a company start its license renewal?", answer: "Zenesis recommends starting around 30 days before expiry. A straightforward renewal may take 3 to 7 working days, but authority approvals, tenancy, office, immigration, compliance, or outstanding penalty issues can extend that timing." },
+  { question: "What UBO records does a UAE company need to maintain?", answer: "A UAE company should identify the natural person or people who ultimately own or control it, provide the required beneficial-owner information to the relevant registrar or licensing authority, and keep its UBO register accurate when ownership or control changes. The exact filing route depends on the legal form and licensing authority." },
+  { question: "Does a UAE company still need to file an ESR notification or report?", answer: "Not for financial years ending after 31 December 2022. The UAE Ministry of Finance cancelled those Economic Substance notification and reporting requirements. Earlier-period obligations, authority requests, amendments, and penalties can still require review, so older companies should confirm their historical position." },
 ] as const;
 
 const process = [
@@ -92,9 +95,9 @@ function DetailSection({
   ) : null;
 
   return (
-    <section id={id} className={`relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 py-16 md:py-20 ${dark ? "bg-[#11232a] text-white [&_.eyebrow]:text-white/68 [&_.section-title]:text-white" : "bg-white text-[#11232a]"}`}>
-      <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-        {image ? <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.88fr)] lg:gap-14">{copy}{image}</div> : copy}
+    <section id={id} className={`relative -mt-px w-full scroll-mt-28 py-16 md:py-20 ${dark ? "bg-[#11232a] text-white [&_.eyebrow]:text-white/68 [&_.section-title]:text-white" : "bg-white text-[#11232a]"}`}>
+      <div className="w-full px-6 md:px-12 xl:px-16">
+        {image ? <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.88fr)] lg:gap-14">{copy}{image}</div> : <div className="max-w-[54rem]">{copy}</div>}
       </div>
     </section>
   );
@@ -115,12 +118,12 @@ function DetailList({ items }: { items: readonly string[] }) {
 
 function ServiceGroupSection({ id, title, description, items }: { id: string; title: string; description: string; items: readonly { label: string; href: string; description: string; imageSrc: string; imageAlt: string }[] }) {
   return (
-    <section id={id} className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#244ba8] py-16 text-white md:py-20">
-      <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+    <section id={id} className="relative -mt-px w-full scroll-mt-28 bg-[#244ba8] py-16 text-white md:py-20">
+      <div className="w-full px-6 md:px-12 xl:px-16">
         <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-white/68">Corporate support</p>
         <h2 className="mt-3 text-[1.9rem] font-semibold leading-[1.14] sm:text-[2.1rem] md:text-[2.35rem]">{title}</h2>
         <p className="mt-5 max-w-[48rem] text-[1.08rem] leading-8 text-white/82">{description}</p>
-        <div className={`mt-9 grid gap-4 ${items.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2 xl:grid-cols-4"}`}>
+        <div className={`mt-9 grid gap-4 ${items.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
           {items.map((item) => {
             const className = "group flex min-h-full flex-col overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#11232a] shadow-[0_12px_30px_rgba(17,35,42,0.08)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#bca57f] hover:shadow-[0_16px_36px_rgba(17,35,42,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#244ba8]";
             const content = <><div className="overflow-hidden border-b border-[#e4dbce] bg-[#f8f6f1]"><Image src={item.imageSrc} alt={item.imageAlt} width={1200} height={800} sizes={items.length === 3 ? "(min-width: 768px) 33vw, 100vw" : "(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"} className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" /></div><div className="flex flex-1 flex-col p-6"><h3 className="text-[1.18rem] font-semibold leading-7 tracking-[-0.02em] !text-[#07151b]">{item.label}</h3><p className="mt-4 text-[1rem] leading-7 text-[#07151b]/78">{item.description}</p><span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-[#244ba8]">View service <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span></span></div></>;
@@ -153,25 +156,25 @@ export default function CorporateSupportPage() {
         breadcrumb={[{ label: "Services", href: "/#services" }, { label: "Corporate support" }]}
         title="Corporate support"
         description="Ongoing company administration for renewals, amendments, liquidation, restoration, branch offices, and document attestation across the UAE jurisdictions Zenesis supports."
-        backgroundImageSrc={versionedAssetPath("/services/document-attestation.webp")}
-        backgroundImageAlt="Corporate records and document support for a UAE company"
-        backgroundImagePosition="!object-[76%_center]"
+        backgroundImageSrc={versionedAssetPath("/services/branch-and-representative-offices.webp")}
+        backgroundImageAlt="International business leaders planning a UAE branch or representative office"
+        backgroundImagePosition="!object-[center_42%]"
         backgroundImageMode="ambient"
-        footerContent={<ServiceCredibilityPanel path="/corporate-support" variant="expertise" embedded />}
       />
       <PageSectionNavMobile items={pageLinks} />
 
-      <section id="overview" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18">
-        <div className="mx-auto grid w-full max-w-[100rem] gap-12 px-6 md:px-12 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start xl:px-20">
-          <article className="max-w-[54rem]">
+      <PageGuideLayout items={pageLinks} credibilityPath="/corporate-support">
+
+      <section id="overview" className="relative -mt-px w-full scroll-mt-28 bg-white py-14 md:py-18">
+        <div className="w-full px-6 md:px-12 xl:px-16">
+          <article className="flex max-w-[54rem] flex-col items-start">
             <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">After formation</p>
             <h2 className="mt-3 text-[1.75rem] font-semibold leading-[1.16] tracking-[-0.02em] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">Keep the company record current</h2>
-            <div className="mt-7 space-y-5 text-[1.12rem] leading-[2.08rem] text-[#07151b]/92 md:text-[1.18rem] md:leading-[2.2rem]">
+            <div className="mt-7 w-full space-y-5 text-[1.12rem] leading-[2.08rem] text-[#07151b]/92 md:text-[1.18rem] md:leading-[2.2rem]">
               <p>Company administration continues after incorporation. Licences renew, ownership or manager details change, documents need attestation, foreign parents open branches, and some companies eventually need formal liquidation or restoration.</p>
               <p>Zenesis starts with the company record and the relevant jurisdiction. That matters because the authority, legal form, current status, outstanding obligations, and requested action determine the real process.</p>
             </div>
           </article>
-          <PageSectionNav items={pageLinks} />
         </div>
       </section>
 
@@ -204,7 +207,7 @@ export default function CorporateSupportPage() {
 
       <DetailSection id="secretarial-compliance" eyebrow="Ongoing governance" title="Corporate secretarial and compliance services" dark imageSrc={versionedAssetPath("/services/corporate-secretarial-and-compliance.webp")} imageAlt="A corporate governance professional preparing a UAE board meeting">
         <p>Running a UAE company involves continuing record maintenance, regulatory filings, and reporting obligations. Zenesis supports companies across UAE jurisdictions, including businesses with international operations or more structured governance needs.</p>
-        <DetailList items={["Ultimate Beneficial Owner identification, filings, and register maintenance", "Economic Substance classification, assessment, notifications, and reporting where applicable", "Statutory registers, shareholder resolutions, and board documentation", "Annual filings, authority submissions, and compliance tracking", "Proactive reminders and updates", "Accurate records that support audits, banking, and good standing"]} />
+        <DetailList items={["Ultimate Beneficial Owner identification, filings, and register maintenance", "Historical Economic Substance review for periods ending on or before 31 December 2022 and authority follow-up where applicable", "Statutory registers, shareholder resolutions, and board documentation", "Annual filings, authority submissions, and compliance tracking", "Proactive reminders and updates", "Accurate records that support audits, banking, and good standing"]} />
         <p><Link href="/document-attestation-services-in-uae" className="font-semibold text-[#ead5aa] underline decoration-[#ead5aa]/50 underline-offset-4">Document attestation and legalization</Link> supports this work when corporate or personal documents must be authenticated for company formation, visas, family sponsorship, professional licensing, or government use.</p>
       </DetailSection>
 
@@ -222,13 +225,14 @@ export default function CorporateSupportPage() {
         <p><Link href="/document-attestation-services-in-uae" className="font-semibold text-[#ead5aa] underline decoration-[#ead5aa]/50 underline-offset-4">View the full document attestation service</Link> for the process, document categories, and common requirements.</p>
       </DetailSection>
 
-      <ServiceAnswerSection title="Direct answers" description="Clear answers before a corporate action is scoped with the relevant authority." items={directAnswers} />
+      <ServiceAnswerSection title="Direct answers" description="Clear answers before a corporate action is scoped with the relevant authority." items={directAnswers} contained />
 
-      <section id="process" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f5efe4] py-16 md:py-20">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20"><SectionHeading eyebrow="Working rhythm" title="Process" description="A case specific path from company record review through authority completion." /><div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">{process.map((item) => <article key={item.step} className="border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)]"><div className="text-sm font-semibold tracking-[0.12em] text-[#8d7453]">{item.step}</div><h3 className="mt-4 text-[1.18rem] font-semibold">{item.title}</h3><p className="mt-4 text-[1.06rem] leading-8 text-[#11232a]/82">{item.description}</p></article>)}</div></div>
+      <section id="process" className="relative -mt-px w-full scroll-mt-28 bg-[#f5efe4] py-16 md:py-20">
+        <div className="w-full px-6 md:px-12 xl:px-16"><SectionHeading eyebrow="Working rhythm" title="Process" description="A case specific path from company record review through authority completion." /><div className="mt-10 grid gap-5 md:grid-cols-2">{process.map((item) => <article key={item.step} className="border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)]"><div className="text-sm font-semibold tracking-[0.12em] text-[#8d7453]">{item.step}</div><h3 className="mt-4 text-[1.18rem] font-semibold">{item.title}</h3><p className="mt-4 text-[1.06rem] leading-8 text-[#11232a]/82">{item.description}</p></article>)}</div></div>
       </section>
 
-      <ServiceCredibilityPanel path="/corporate-support" variant="sources" />
+      <ServiceCredibilityPanel path="/corporate-support" variant="sources" contained />
+      </PageGuideLayout>
     </SiteShell>
   );
 }

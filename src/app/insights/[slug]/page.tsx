@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ConsultationFormButton } from "@/components/consultation-button";
 import { CleanSectionLink } from "@/components/clean-section-link";
+import { PageRailLayout } from "@/components/page-guide-layout";
 import { JsonLd } from "@/components/json-ld";
 import { PrimarySources } from "@/components/primary-sources";
 import { ReadingProgress } from "@/components/reading-progress";
@@ -144,6 +145,51 @@ export default async function InsightArticlePage({
       : []),
   ];
 
+  const articleRail = (
+    <aside className="sticky top-24 hidden max-h-[calc(100vh-7rem)] overflow-y-auto py-8 lg:block">
+      {authorProfile ? (
+        <section className="border-b border-[#d9d1c5] pb-6">
+          <div className="flex items-center gap-3">
+            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-[#d8d0c2] bg-[#f5efe4]">
+              <Image src={authorProfile.imageSrc} alt={post.author} fill sizes="48px" className="scale-[1.15] object-cover object-center" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">Written by</p>
+              <p className="mt-1 text-[0.94rem] font-semibold leading-5 text-foreground">{post.author}</p>
+              <p className="mt-0.5 text-[0.76rem] leading-5 text-foreground/62">{authorProfile.credentials}</p>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {guideLinks.length ? (
+        <nav aria-label="Article sections" className="border-b border-[#d9d1c5] py-6">
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">In this guide</p>
+          <ol className="mt-4 space-y-2.5">
+            {guideLinks.map((item, index) => (
+              <li key={item.href}>
+                <CleanSectionLink href={item.href as `#${string}`} className="group flex items-start gap-2.5 text-[0.82rem] font-semibold leading-5 text-foreground/72 hover:text-[#244ba8]">
+                  <span className="mt-px text-[0.66rem] tabular-nums text-[#8d7453]">{String(index + 1).padStart(2, "0")}</span>
+                  <span>{item.label}</span>
+                </CleanSectionLink>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      ) : null}
+
+      {credibility ? (
+        <section className="pt-6">
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#1f7652]">Officially sourced</p>
+          <p className="mt-2 text-[0.82rem] leading-5 text-foreground/68">Last reviewed {credibility.updatedLabel}</p>
+          <CleanSectionLink href="#primary-sources" className="mt-3 inline-flex text-[0.82rem] font-semibold text-[#244ba8] hover:underline">
+            View primary sources
+          </CleanSectionLink>
+        </section>
+      ) : null}
+    </aside>
+  );
+
   return (
     <SiteShell currentPath="/insights">
       <ReadingProgress />
@@ -217,10 +263,11 @@ export default async function InsightArticlePage({
             </div>
           </div>
         </section>
+        <PageRailLayout rail={articleRail}>
 
         <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-14 md:py-18">
           <div className="mx-auto w-full max-w-[104rem] px-7 md:px-14 xl:px-24">
-            <div className="mx-auto max-w-[78rem] lg:grid lg:grid-cols-[minmax(0,54rem)_17rem] lg:items-start lg:gap-12 xl:gap-16">
+            <div className="max-w-[78rem]">
               <div className="min-w-0 space-y-16">
               {authorProfile ? (
                 <section className="border-y border-[#e4dbce] py-5 lg:hidden">
@@ -321,7 +368,7 @@ export default async function InsightArticlePage({
               ) : null}
 
               {post.keyTakeaways?.length ? (
-                <section className="mx-auto w-full max-w-[54rem] border-l-4 border-[#8d7453] bg-[#f8f6f1] px-6 py-7 md:px-8">
+                <section className="w-full max-w-[54rem] border-l-4 border-[#8d7453] bg-[#f8f6f1] px-6 py-7 md:px-8">
                   <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
                     Summary
                   </p>
@@ -352,8 +399,8 @@ export default async function InsightArticlePage({
                   id={toInsightSectionId(section.title)}
                   className={`scroll-mt-28 ${
                     isQuickAnswer
-                      ? "mx-auto w-full max-w-[58rem] border-y-2 border-[#244ba8] bg-[#f3f7ff] px-6 py-8 md:px-8"
-                      : `mx-auto w-full border-t border-[#e4dbce] pt-10 ${
+                      ? "w-full max-w-[58rem] border-y-2 border-[#244ba8] bg-[#f3f7ff] px-6 py-8 md:px-8"
+                      : `w-full border-t border-[#e4dbce] pt-10 ${
                           section.table ? "max-w-[62rem]" : "max-w-[54rem]"
                         }`
                   }`}
@@ -484,7 +531,7 @@ export default async function InsightArticlePage({
               {post.faqs?.length ? (
                 <section
                   id="direct-answers"
-                  className="mx-auto w-full max-w-[54rem] scroll-mt-28 border-t border-[#e4dbce] pt-10"
+                  className="w-full max-w-[54rem] scroll-mt-28 border-t border-[#e4dbce] pt-10"
                 >
                   <h2 className={articleSectionHeadingClassName}>
                     Direct answers
@@ -587,74 +634,6 @@ export default async function InsightArticlePage({
               ) : null}
               </div>
 
-              <aside className="sticky top-24 hidden max-h-[calc(100vh-7rem)] overflow-y-auto border-l border-[#d9d1c5] pl-7 lg:block">
-                {authorProfile ? (
-                  <section className="border-b border-[#d9d1c5] pb-6">
-                    <div className="flex items-center gap-3">
-                      <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-[#d8d0c2] bg-[#f5efe4]">
-                        <Image
-                          src={authorProfile.imageSrc}
-                          alt={post.author}
-                          fill
-                          sizes="48px"
-                          className="scale-[1.15] object-cover object-center"
-                        />
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">
-                          Written by
-                        </p>
-                        <p className="mt-1 text-[0.94rem] font-semibold leading-5 text-foreground">
-                          {post.author}
-                        </p>
-                        <p className="mt-0.5 text-[0.76rem] leading-5 text-foreground/62">
-                          {authorProfile.credentials}
-                        </p>
-                      </div>
-                    </div>
-                  </section>
-                ) : null}
-
-                {guideLinks.length ? (
-                  <nav aria-label="Article sections" className="border-b border-[#d9d1c5] py-6">
-                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">
-                      In this guide
-                    </p>
-                    <ol className="mt-4 space-y-2.5">
-                      {guideLinks.map((item, index) => (
-                        <li key={item.href}>
-                          <a
-                            href={item.href}
-                            className="group flex items-start gap-2.5 text-[0.82rem] font-semibold leading-5 text-foreground/72 hover:text-[#244ba8]"
-                          >
-                            <span className="mt-px text-[0.66rem] tabular-nums text-[#8d7453]">
-                              {String(index + 1).padStart(2, "0")}
-                            </span>
-                            <span>{item.label}</span>
-                          </a>
-                        </li>
-                      ))}
-                    </ol>
-                  </nav>
-                ) : null}
-
-                {credibility ? (
-                  <section className="pt-6">
-                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#1f7652]">
-                      Officially sourced
-                    </p>
-                    <p className="mt-2 text-[0.82rem] leading-5 text-foreground/68">
-                      Last reviewed {credibility.updatedLabel}
-                    </p>
-                    <CleanSectionLink
-                      href="#primary-sources"
-                      className="mt-3 inline-flex text-[0.82rem] font-semibold text-[#244ba8] hover:underline"
-                    >
-                      View primary sources
-                    </CleanSectionLink>
-                  </section>
-                ) : null}
-              </aside>
             </div>
           </div>
         </section>
@@ -662,7 +641,7 @@ export default async function InsightArticlePage({
         {relatedServices.length ? (
           <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-14 md:py-18">
             <div className="mx-auto w-full max-w-[100rem] px-7 md:px-14 xl:px-24">
-              <div className="mx-auto max-w-[72rem]">
+              <div className="max-w-[72rem]">
                 <h2 className={articleSectionHeadingClassName}>
                   Related services
                 </h2>
@@ -671,7 +650,7 @@ export default async function InsightArticlePage({
                 </p>
               </div>
 
-              <div className="mx-auto mt-10 grid max-w-[72rem] gap-5 md:grid-cols-3">
+              <div className="mt-10 grid max-w-[72rem] gap-5 md:grid-cols-3">
                 {relatedServices.map((item) => (
                   <Link
                     key={item.href}
@@ -712,6 +691,7 @@ export default async function InsightArticlePage({
             </div>
           </section>
         ) : null}
+        </PageRailLayout>
 
       </article>
     </SiteShell>
