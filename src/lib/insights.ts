@@ -271,7 +271,7 @@ export function getInsightCredibility(slug: string) {
   return insightCredibilityBySlug[slug];
 }
 
-export const insightPosts: InsightPost[] = [
+const insightPostDrafts: InsightPost[] = [
   {
     slug: "just-registered-uae-company-what-comes-next",
     category: "Business Setup",
@@ -2269,6 +2269,14 @@ export const insightPosts: InsightPost[] = [
       "If you want help understanding which Golden Visa route fits your profile, Zenesis can help you assess the category and prepare the next steps.",
   },
 ];
+
+const unpublishedInsightSlugs = new Set([
+  "just-registered-uae-company-what-comes-next",
+]);
+
+export const insightPosts = insightPostDrafts.filter(
+  (post) => !unpublishedInsightSlugs.has(post.slug),
+);
 
 export function getInsightPost(slug: string) {
   return insightPosts.find((post) => post.slug === slug);
