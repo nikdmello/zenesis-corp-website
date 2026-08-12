@@ -165,6 +165,7 @@ const businessSetupPageLinks = [
   { href: "#how-zenesis-helps", label: "How Zenesis helps" },
   { href: "#jurisdiction-support", label: "Jurisdiction support" },
   { href: "#setup-routes", label: "Setup routes" },
+  { href: "#sme-business-setup", label: "SME setup" },
   { href: "#before-the-quote", label: "Before the quote" },
   { href: "#planning-tools", label: "Planning tools" },
   { href: "#route-comparison", label: "Route comparison" },
@@ -262,6 +263,11 @@ const directAnswers = [
     question: "Can Zenesis help with an Abu Dhabi, ADGM, or Jebel Ali company?",
     answer:
       "Yes. Zenesis can review the proposed activity, ownership, visa, and operating requirements before referring or coordinating with an appropriately licensed consultant. Zenesis does not act directly as an agent in Abu Dhabi, ADGM, or Jebel Ali.",
+  },
+  {
+    question: "Is business setup different for a small or medium-sized business?",
+    answer:
+      "The core process is the same, but SME-scale setups can differ in visa allocation, activity scope, and route selection depending on the business. Zenesis sizes the structure to the business rather than defaulting to a general enterprise package.",
   },
 ] as const;
 
@@ -396,7 +402,9 @@ export default function BusinessSetupPage() {
                 comparing mainland, free zone, and offshore company formation
                 routes. The right structure depends on your activity, ownership
                 plan, target market, visa requirements, office needs, banking
-                expectations, and tax position.
+                expectations, and tax position. Zenesis supports businesses across
+                a range of sectors, including technology, professional services,
+                and other industries entering the UAE.
               </p>
               <p>
                 As a business setup consultant in Dubai, Zenesis helps you compare
@@ -515,6 +523,41 @@ export default function BusinessSetupPage() {
               />
             ))}
           </div>
+
+          <article
+            id="sme-business-setup"
+            className="mt-12 max-w-[54rem] scroll-mt-28 border-t border-[#d8d0c2] pt-10"
+          >
+            <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+              SME planning
+            </p>
+            <h2 className="mt-3 text-[1.75rem] font-semibold leading-[1.16] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">
+              Business setup for SME businesses
+            </h2>
+            <div className="mt-6 space-y-5 text-[1.08rem] leading-8 text-[#07151b]/88 md:text-[1.12rem]">
+              <p>
+                Setting up at SME scale can look a little different from a large
+                corporate setup. Depending on the business, it may involve a smaller
+                initial visa allocation, an activity scope suited to one core activity
+                or a small number of related activities, and a route chosen partly for
+                cost efficiency without giving up what the business needs to operate.
+              </p>
+              <p>
+                Founders setting up at SME scale should decide early how many visas the
+                company needs in year one, whether the planned activity fits a narrower
+                licence or needs a broader scope, and whether a free zone package or
+                mainland licence better matches the target clients and hiring plan. See{" "}
+                <Link className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4" href="/business-setup-cost-dubai">
+                  business setup pricing
+                </Link>{" "}
+                for starting costs by route, and{" "}
+                <Link className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4" href="/insights/top-5-mistakes-starting-business-dubai">
+                  avoid the most common setup mistakes
+                </Link>{" "}
+                before filing.
+              </p>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -735,6 +778,7 @@ export default function BusinessSetupPage() {
               </article>
             ))}
           </div>
+
         </div>
       </section>
 

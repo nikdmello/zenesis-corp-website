@@ -33,6 +33,36 @@ type InsightArticlePageProps = {
   }>;
 };
 
+function renderParagraphText(
+  text: string,
+  inlineLinks?: Array<{ text: string; href: string }>,
+) {
+  if (!inlineLinks?.length) return text;
+
+  const parts: React.ReactNode[] = [];
+  let cursor = 0;
+
+  inlineLinks.forEach((inlineLink) => {
+    const start = text.indexOf(inlineLink.text, cursor);
+    if (start === -1) return;
+
+    parts.push(text.slice(cursor, start));
+    parts.push(
+      <Link
+        key={`${inlineLink.href}-${start}`}
+        href={inlineLink.href}
+        className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4"
+      >
+        {inlineLink.text}
+      </Link>,
+    );
+    cursor = start + inlineLink.text.length;
+  });
+
+  parts.push(text.slice(cursor));
+  return parts;
+}
+
 function toInsightSectionId(title: string) {
   return title
     .toLowerCase()
@@ -453,6 +483,8 @@ export default async function InsightArticlePage({
                         const text = typeof paragraph === "string" ? paragraph : paragraph.text;
                         const sourceIndexes =
                           typeof paragraph === "string" ? undefined : paragraph.sourceIndexes;
+                        const inlineLinks =
+                          typeof paragraph === "string" ? undefined : paragraph.inlineLinks;
 
                         return (
                           <p
@@ -463,7 +495,7 @@ export default async function InsightArticlePage({
                                 : "leading-[2rem] md:leading-[2.15rem]"
                             }`}
                           >
-                            {text}
+                            {renderParagraphText(text, inlineLinks)}
                             {sourceIndexes?.length ? (
                               <span className="inline-flex whitespace-nowrap align-super text-[0.72em] leading-none">
                                 {sourceIndexes.map((sourceIndex) => (

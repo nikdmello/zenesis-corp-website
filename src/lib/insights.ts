@@ -9,6 +9,10 @@ export type InsightSection = {
     | {
         text: string;
         sourceIndexes?: number[];
+        inlineLinks?: Array<{
+          text: string;
+          href: string;
+        }>;
       }
   >;
   bullets?: string[];
@@ -978,7 +982,15 @@ export const insightPosts: InsightPost[] = [
         title: "The Cost of Cheap Setups",
         paragraphs: [
           "Opting for the cheapest available license without thinking through banking restrictions or tax consequences is one of the most common first-time founder mistakes.",
-          "Correcting the wrong structure, changing activities mid-year, or appealing compliance penalties often costs far more than structuring the business properly from the beginning.",
+          {
+            text: "Correcting the wrong structure, changing activities mid-year, or appealing compliance penalties often costs far more than structuring the business properly from the beginning. Compare what a realistic first-year budget looks like before choosing a setup from its headline price.",
+            inlineLinks: [
+              {
+                text: "what a realistic first-year budget looks like",
+                href: "/business-setup-cost-dubai",
+              },
+            ],
+          },
         ],
       },
       {
@@ -1052,8 +1064,14 @@ export const insightPosts: InsightPost[] = [
         title: "1. Velocity: A Frictionless Setup Process",
         paragraphs: [
           {
-            text: "The UAE provides dedicated mainland and free-zone pathways for establishing a business, with digital services available across many licensing authorities.",
+            text: "The UAE provides dedicated mainland and free-zone pathways for establishing a business, with digital services available across many licensing authorities. Founders should start by comparing mainland and free zone setup routes against how the business needs to operate.",
             sourceIndexes: [1, 2],
+            inlineLinks: [
+              {
+                text: "comparing mainland and free zone setup routes",
+                href: "/business-setup",
+              },
+            ],
           },
           "Through modern digital frameworks, founders can move through company registration, residency visas, and banking much faster. For a first-time founder, that can mean moving from concept to global invoicing in a fraction of the usual time.",
         ],
@@ -2021,7 +2039,15 @@ export const insightPosts: InsightPost[] = [
       {
         title: "1. Choosing the Cheapest Setup Package Without Checking Fit",
         paragraphs: [
-          "The cheapest advertised business setup package in Dubai is not always the cheapest route once the company starts operating. A low headline price may exclude visas, establishment card steps, office upgrades, activity changes, attestation, banking preparation, tax registration, or renewal costs.",
+          {
+            text: "The cheapest advertised business setup package in Dubai is not always the cheapest route once the company starts operating. Compare starting prices before choosing a route because a low headline price may exclude visas, establishment card steps, office upgrades, activity changes, attestation, banking preparation, tax registration, or renewal costs.",
+            inlineLinks: [
+              {
+                text: "Compare starting prices before choosing a route",
+                href: "/business-setup-cost-dubai",
+              },
+            ],
+          },
           "This becomes a real problem when the low-cost route does not support the founder's client model, visa needs, or bank account file. The question is not only what the license costs today, but whether the setup will still work after approval.",
         ],
         bullets: [

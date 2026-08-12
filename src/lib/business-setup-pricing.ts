@@ -183,7 +183,7 @@ export const businessSetupPricingFaqs = [
   {
     question: "What is the cheapest way to set up a business in Dubai or the UAE?",
     answer:
-      "The cheapest viable route is usually a lean freelance permit or a low-cost free zone setup, but the lowest headline price is not always the safest option. The right route still needs to fit the activity, visa plan, banking expectations, renewal costs, and how the business will operate after setup.",
+      "It depends on whether you need a registered company or a permit to work as an individual. The cheapest option overall is the Freelance Permit, starting from AED 4,000: a permit to work under approved activities individually, not a registered company. If you need a company, Zenesis Free Zone Company Setup without a visa starts from AED 7,000. The final cost depends on the selected free zone, activity, office or flexi-desk package, government fees, approvals, and any additional visa or banking support required.",
   },
   {
     question: "Is mainland or free zone setup cheaper in Dubai?",

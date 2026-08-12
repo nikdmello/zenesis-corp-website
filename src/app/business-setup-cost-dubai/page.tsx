@@ -112,6 +112,43 @@ export default function BusinessSetupCostDubaiPage() {
               <p className="mt-3 text-[1.05rem] font-medium leading-7 text-[#11232a]/88">A free zone company without a visa starts from AED 7,000, but zone, activity, banking, office, and renewal fit still matter.</p>
             </div>
           </div>
+
+          <article className="mt-9 max-w-[58rem] border-t border-[#d9d1c5] pt-8">
+            <h2 className="text-[1.55rem] font-semibold leading-tight text-[#11232a] md:text-[1.75rem]">
+              What&apos;s the cheapest way to set up in the UAE?
+            </h2>
+            <div className="mt-5 space-y-4 text-[1.04rem] font-medium leading-8 text-[#11232a]/84 md:text-[1.08rem]">
+              <p>
+                The cheapest way to set up in the UAE depends on whether you need a
+                registered company or a permit to work as an individual. The cheapest
+                Zenesis route overall is the Freelance Permit, starting from AED 4,000.
+                This is a permit to work under approved activities as an individual,
+                not a registered company, and it does not carry a company visa quota
+                the way a licensed company does.
+              </p>
+              <p>
+                If the business needs a registered company, Zenesis Free Zone Company
+                Setup without a visa starts from AED 7,000. The final cost depends on
+                the selected free zone, business activity, office or flexi-desk package,
+                government fees, approvals, and any additional visa or banking support
+                required.
+              </p>
+              <p>
+                The starting price is only the entry point. A realistic setup budget
+                should account for visa costs where needed, the applicable office or
+                flexi-desk package, government and approval fees, and banking preparation
+                or support where required. Licence renewal is a separate recurring cost
+                when the initial licence term ends and should be planned from the outset.
+                The lowest-priced route is not automatically the right fit if the business
+                needs employees, specific banking support, or broader trading activity.
+                Compare the full route options above, or learn{" "}
+                <Link className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4" href="/insights/top-5-mistakes-starting-business-dubai">
+                  where cost decisions go wrong
+                </Link>{" "}
+                before deciding on cost alone.
+              </p>
+            </div>
+          </article>
         </div>
       </section>
 
