@@ -281,7 +281,7 @@ export const insightPosts: InsightPost[] = [
       "A practical first 90-day checklist for banking, visas, bookkeeping, VAT, Corporate Tax, UBO records, and the recurring obligations that follow UAE company registration.",
     dateLabel: "August 12, 2026",
     author: "Cecilia D'Cunha",
-    heroImageSrc: versionedAssetPath("/insights/first-time-entrepreneurs.webp"),
+    heroImageSrc: versionedAssetPath("/insights/just-registered-uae-company-what-comes-next.webp"),
     heroImageAlt: "UAE business owner planning the first operational steps after company registration",
     heroImageClassName: "object-center",
     keyTakeaways: [
