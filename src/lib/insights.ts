@@ -196,7 +196,7 @@ const sourceLibrary = {
 
 const insightCredibilityBySlug: Record<string, InsightCredibility> = {
   "just-registered-uae-company-what-comes-next": {
-    updatedLabel: "August 10, 2026",
+    updatedLabel: "August 12, 2026",
     sources: [
       sourceLibrary.vatRegistration,
       sourceLibrary.corporateTaxRegistration,
@@ -271,7 +271,7 @@ export function getInsightCredibility(slug: string) {
   return insightCredibilityBySlug[slug];
 }
 
-const insightPostDrafts: InsightPost[] = [
+export const insightPosts: InsightPost[] = [
   {
     slug: "just-registered-uae-company-what-comes-next",
     category: "Business Setup",
@@ -279,7 +279,7 @@ const insightPostDrafts: InsightPost[] = [
     displayTitle: "What to Do After Registering Your UAE Company",
     description:
       "A practical first 90-day checklist for banking, visas, bookkeeping, VAT, Corporate Tax, UBO records, and the recurring obligations that follow UAE company registration.",
-    dateLabel: "August 10, 2026",
+    dateLabel: "August 12, 2026",
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/insights/first-time-entrepreneurs.webp"),
     heroImageAlt: "UAE business owner planning the first operational steps after company registration",
@@ -353,14 +353,8 @@ const insightPostDrafts: InsightPost[] = [
       {
         title: "Understand Residence Permit Fees and Timing",
         paragraphs: [
-          {
-            text: "For the cited Dubai private-sector service route, GDRFA issues a two-year renewable residence permit. Published fees for that route total roughly AED 740 per person, covering the permit fee, Knowledge and Innovation Dirham charges, in-country processing, and delivery. Validity and fees vary by permit category, sponsor, applicant circumstances, and authority.",
-            sourceIndexes: [5],
-          },
-          {
-            text: "GDRFA states a completion time of 48 hours once a complete application is submitted. Fees and processing times are set by the relevant government authority and can change.",
-            sourceIndexes: [5],
-          },
+          "For practical budgeting, allow approximately AED 6,000 to AED 8,000 per person for the residence visa process. This planning range is based on indicative Meydan Free Zone costs of approximately AED 3,500 for the entry permit, AED 1,500 for an in-country change of status when required, and AED 1,000 for the medical examination and Emirates ID, plus applicable professional service fees. Without a change of status, the underlying process cost is lower. This is not a universal UAE price: the final amount depends on the free zone or authority, visa category, applicant circumstances, insurance and work-permit requirements, and the professional support required.",
+          "Allow approximately two to four days for the residence visa process once the required application stages and documents are in place. This is an indicative working timeframe, not a guarantee. Timing remains authority and case dependent and can change.",
         ],
       },
       {
@@ -378,7 +372,7 @@ const insightPostDrafts: InsightPost[] = [
             sourceIndexes: [1],
           },
           {
-            text: "Once the obligation to register arises, the application must be submitted within 30 days, or a late registration penalty applies. Registration itself is free, is completed through the EmaraTax platform, and the FTA states an estimated 45 minutes to submit the application and 20 business days to process it.",
+            text: "Once the obligation to register arises, the application must be submitted within 30 days, or a late registration penalty applies. The FTA does not charge a government application fee for VAT registration, but professional service fees apply when Zenesis assesses, prepares, and submits the application. Registration is completed through the EmaraTax platform, and the FTA states an estimated 45 minutes to submit the application and 20 business days to process it.",
             sourceIndexes: [1],
           },
           "This is general information about the registration requirement itself, not a substitute for advice on your specific filing position. Zenesis offers VAT registration support alongside ongoing filing, from assessing whether the obligation applies through preparing and submitting the EmaraTax registration application itself.",
@@ -397,7 +391,7 @@ const insightPostDrafts: InsightPost[] = [
             sourceIndexes: [2, 3],
           },
           {
-            text: "Registration is free of charge, the FTA states roughly 25 minutes to submit the application and 20 business days to process it, and missing the deadline carries an AED 10,000 administrative penalty. A separate FTA initiative waives that penalty if the first Tax Return, or Annual Declaration for exempt persons, is submitted within seven months of the end of the first tax period, whether or not the penalty has already been charged or paid.",
+            text: "The FTA does not charge a government application fee for Corporate Tax registration, but professional service fees apply when Zenesis prepares and submits the application. The FTA states roughly 25 minutes to submit the application and 20 business days to process it, and missing the deadline carries an AED 10,000 administrative penalty. A separate FTA initiative waives that penalty if the first Tax Return, or Annual Declaration for exempt persons, is submitted within seven months of the end of the first tax period, whether or not the penalty has already been charged or paid.",
             sourceIndexes: [2],
           },
           {
@@ -439,9 +433,9 @@ const insightPostDrafts: InsightPost[] = [
           rows: [
             ["Corporate bank account", "KYC review and source of funds", "Bank dependent; not government set", "No fixed timeline; bank discretion"],
             ["Establishment card", "Prerequisite for visa processing", "Approximately AED 2,300 total", "ICP states 2 days"],
-            ["Residence permit, per person", "Two-year permit for the cited Dubai route", "Approximately AED 740 total", "GDRFA Dubai states 48 hours"],
-            ["VAT registration", "Required once the applicable threshold or rule is met", "Free", "FTA states approximately 20 business days"],
-            ["Corporate Tax registration", "Newly incorporated entities generally apply within 3 months", "Free; AED 10,000 penalty if late", "FTA states approximately 20 business days"],
+            ["Residence visa process, per person", "Entry permit, status change when required, medical examination, Emirates ID, and professional support", "Approximately AED 6,000 to AED 8,000 based on an indicative Meydan Free Zone route", "2 to 4 days; authority and case dependent"],
+            ["VAT registration", "Required once the applicable threshold or rule is met", "No FTA application fee; professional service fees apply", "FTA states approximately 20 business days"],
+            ["Corporate Tax registration", "Newly incorporated entities: within 3 months of incorporation", "No FTA application fee; professional service fees apply (AED 10,000 penalty if late)", "Approximately 20 business days (FTA)"],
             ["UBO records", "Beneficial-owner details and company register", "Authority dependent", "Confirm at setup and update when ownership or control changes"],
             ["Economic Substance", "Earlier-period ESR obligations or authority follow-up", "Not applicable to a routine current filing", "Review only for historical or exceptional relevance"],
           ],
@@ -2269,14 +2263,6 @@ const insightPostDrafts: InsightPost[] = [
       "If you want help understanding which Golden Visa route fits your profile, Zenesis can help you assess the category and prepare the next steps.",
   },
 ];
-
-const unpublishedInsightSlugs = new Set([
-  "just-registered-uae-company-what-comes-next",
-]);
-
-export const insightPosts = insightPostDrafts.filter(
-  (post) => !unpublishedInsightSlugs.has(post.slug),
-);
 
 export function getInsightPost(slug: string) {
   return insightPosts.find((post) => post.slug === slug);
