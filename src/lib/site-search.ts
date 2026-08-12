@@ -230,6 +230,7 @@ const insightDocuments: SearchDocument[] = insightPosts.map((post) => ({
         typeof paragraph === "string" ? paragraph : paragraph.text,
       ) ?? []),
       ...(section.bullets ?? []),
+      ...(section.numberedBullets ?? []),
       ...(section.table?.rows.flat() ?? []),
       section.callout?.title ?? "",
       section.callout?.text ?? "",

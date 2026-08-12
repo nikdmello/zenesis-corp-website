@@ -17,7 +17,6 @@ import {
   insightAuthorProfiles,
   insightPosts,
 } from "@/lib/insights";
-import { pickServiceLinks, serviceLinksByCategory } from "@/lib/internal-links";
 import { legacyInsightMetaBySlug } from "@/lib/legacy-meta";
 import {
   buildArticleSchema,
@@ -39,6 +38,20 @@ function toInsightSectionId(title: string) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+}
+
+const relatedGuideStopWords = new Set([
+  "and", "are", "complete", "for", "from", "guide", "how", "in", "of",
+  "the", "to", "uae", "what", "your",
+]);
+
+function getRelatedGuideTokens(value: string) {
+  return new Set(
+    value
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter((token) => token.length > 2 && !relatedGuideStopWords.has(token)),
+  );
 }
 
 const insightCalloutStyles = {
@@ -125,13 +138,29 @@ export default async function InsightArticlePage({
     ]),
     ...(post.faqs?.length ? [buildFaqSchema(post.faqs)] : []),
   ];
-  const relatedServices =
-    pickServiceLinks(post.category, post.relatedServiceHrefs) ??
-    serviceLinksByCategory[post.category] ??
-    [];
-  const relatedInsights = post.relatedInsightSlugs
+  const explicitlyRelatedInsights = post.relatedInsightSlugs
     ?.map((relatedSlug) => insightPosts.find((item) => item.slug === relatedSlug))
     .filter((item): item is (typeof insightPosts)[number] => Boolean(item)) ?? [];
+  const explicitSlugs = new Set(explicitlyRelatedInsights.map((item) => item.slug));
+  const postTokens = getRelatedGuideTokens(`${post.title} ${post.description}`);
+  const rankedRelatedInsights = insightPosts
+    .filter((item) => item.slug !== post.slug && !explicitSlugs.has(item.slug))
+    .map((item, index) => {
+      const itemTokens = getRelatedGuideTokens(`${item.title} ${item.description}`);
+      const sharedTokenCount = [...itemTokens].filter((token) => postTokens.has(token)).length;
+
+      return {
+        item,
+        index,
+        score: sharedTokenCount * 2 + (item.category === post.category ? 5 : 0),
+      };
+    })
+    .sort((a, b) => b.score - a.score || a.index - b.index)
+    .map(({ item }) => item);
+  const relatedInsights = [
+    ...explicitlyRelatedInsights,
+    ...rankedRelatedInsights,
+  ].slice(0, 2);
   const guideLinks = [
     ...post.sections.map((section) => ({
       href: `#${toInsightSectionId(section.title)}`,
@@ -487,6 +516,19 @@ export default async function InsightArticlePage({
                     </ul>
                   ) : null}
 
+                  {section.numberedBullets?.length ? (
+                    <ol className="mt-7 max-w-[52rem] list-decimal divide-y divide-[#e4dbce] border-y border-[#e4dbce] pl-10 marker:font-semibold marker:text-[#8d7453]">
+                      {section.numberedBullets.map((item) => (
+                        <li
+                          key={item}
+                          className="py-4 pl-2 text-[1.02rem] leading-8 text-[#07151b]/92 md:text-[1.08rem]"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ol>
+                  ) : null}
+
                   {section.table ? (
                     <div className="mt-6 overflow-hidden border border-[#d8d0c2] bg-[#fcfbf8]">
                       <div className="overflow-x-auto">
@@ -562,45 +604,40 @@ export default async function InsightArticlePage({
                 />
               ) : null}
 
-              {relatedInsights.length ? (
-                <section className="border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 md:p-8">
-                  <h2 className={articleSectionHeadingClassName}>
-                    Related compliance guides
+              <section className="border-y border-[#d8d0c2] py-6">
+                  <h2 className="text-[1.35rem] font-semibold tracking-[-0.03em] text-foreground">
+                    Related guides
                   </h2>
-                  <div className="mt-6 grid gap-4 md:grid-cols-2">
+                  <div className="mt-4 grid gap-3 md:grid-cols-2">
                     {relatedInsights.map((item) => (
                       <Link
                         key={item.slug}
                         href={`/insights/${item.slug}`}
-                        className="group overflow-hidden border border-[#d8d0c2] bg-white transition-[border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-[#b79248] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244ba8]"
+                        className="group flex min-h-28 overflow-hidden border border-[#d8d0c2] bg-white transition-colors duration-200 hover:border-[#b79248] hover:bg-[#fcfaf6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244ba8]"
                       >
-                        <div className="overflow-hidden border-b border-[#e7ded1] bg-[#f8f5ef]">
+                        <div className="w-28 shrink-0 overflow-hidden border-r border-[#e7ded1] bg-[#f8f5ef] sm:w-32">
                           <Image
                             src={item.heroImageSrc}
-                            alt={item.heroImageAlt}
-                            width={720}
-                            height={450}
-                            className={`aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${
+                            alt=""
+                            width={256}
+                            height={192}
+                            className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${
                               item.heroImageClassName ?? "object-center"
                             }`}
                           />
                         </div>
-                        <div className="px-5 py-5">
-                          <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+                        <div className="self-center px-4 py-3">
+                          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">
                             {item.category}
                           </p>
-                          <h3 className="mt-3 text-[1.1rem] font-semibold leading-tight tracking-[-0.03em] text-foreground">
+                          <h3 className="mt-2 text-[1rem] font-semibold leading-snug tracking-[-0.02em] text-foreground group-hover:text-[#244ba8]">
                             {item.title}
                           </h3>
-                          <p className="mt-3 text-[0.98rem] leading-7 text-foreground/84">
-                            {item.description}
-                          </p>
                         </div>
                       </Link>
                     ))}
                   </div>
                 </section>
-              ) : null}
 
               {post.closingParagraphs?.length ? (
                 <section className="border border-[#d8d0c2] bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ef_100%)] p-7 md:p-8">
@@ -638,59 +675,6 @@ export default async function InsightArticlePage({
           </div>
         </section>
 
-        {relatedServices.length ? (
-          <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-14 md:py-18">
-            <div className="mx-auto w-full max-w-[100rem] px-7 md:px-14 xl:px-24">
-              <div className="max-w-[72rem]">
-                <h2 className={articleSectionHeadingClassName}>
-                  Related services
-                </h2>
-                <p className="mt-4 max-w-4xl text-[1.14rem] leading-[2rem] text-[#07151b]/82 md:text-[1.2rem] md:leading-[2.2rem]">
-                  If this topic is relevant to your structure or next step, these are the service pages most closely connected to it.
-                </p>
-              </div>
-
-              <div className="mt-10 grid max-w-[72rem] gap-5 md:grid-cols-3">
-                {relatedServices.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="group h-full overflow-hidden border border-[#d8d0c2] bg-white text-[#11232a] transition-[border-color,background-color,transform] duration-200 hover:-translate-y-0.5 hover:border-[#b79248] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244ba8]"
-                  >
-                    {item.imageSrc ? (
-                      <div className="overflow-hidden border-b border-[#d8d0c2] bg-[#f8f5ef]">
-                        <Image
-                          src={item.imageSrc}
-                          alt={item.imageAlt ?? item.title}
-                          width={720}
-                          height={450}
-                          className={`aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${
-                            item.imageClassName ?? "object-center"
-                          }`}
-                        />
-                      </div>
-                    ) : null}
-                    <div className="p-6">
-                    <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-                      Service
-                    </p>
-                    <h3 className="mt-4 text-[1.26rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">
-                      {item.title}
-                    </h3>
-                    <p className="mt-4 text-[1.02rem] leading-7 text-foreground/88">
-                      {item.description}
-                    </p>
-                    <div className="mt-5 inline-flex items-center gap-2 text-[0.98rem] font-semibold text-[#244ba8]">
-                      Open service
-                      <span aria-hidden="true">→</span>
-                    </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </section>
-        ) : null}
         </PageRailLayout>
 
       </article>

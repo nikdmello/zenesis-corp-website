@@ -116,17 +116,17 @@ function DetailList({ items }: { items: readonly string[] }) {
   );
 }
 
-function ServiceGroupSection({ id, title, description, items }: { id: string; title: string; description: string; items: readonly { label: string; href: string; description: string; imageSrc: string; imageAlt: string }[] }) {
+function ServiceGroupSection({ id, title, description, items, compact = false }: { id: string; title: string; description: string; items: readonly { label: string; href: string; description: string; imageSrc: string; imageAlt: string }[]; compact?: boolean }) {
   return (
-    <section id={id} className="relative -mt-px w-full scroll-mt-28 bg-[#244ba8] py-16 text-white md:py-20">
+    <section id={id} className={`relative -mt-px w-full scroll-mt-28 bg-[#244ba8] text-white ${compact ? "py-11 md:py-14" : "py-16 md:py-20"}`}>
       <div className="w-full px-6 md:px-12 xl:px-16">
         <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-white/68">Corporate support</p>
-        <h2 className="mt-3 text-[1.9rem] font-semibold leading-[1.14] sm:text-[2.1rem] md:text-[2.35rem]">{title}</h2>
-        <p className="mt-5 max-w-[48rem] text-[1.08rem] leading-8 text-white/82">{description}</p>
-        <div className={`mt-9 grid gap-4 ${items.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
+        <h2 className={`mt-3 font-semibold leading-[1.14] ${compact ? "text-[1.7rem] sm:text-[1.85rem] md:text-[2rem]" : "text-[1.9rem] sm:text-[2.1rem] md:text-[2.35rem]"}`}>{title}</h2>
+        <p className={`max-w-[48rem] text-white/82 ${compact ? "mt-3 text-[1rem] leading-7" : "mt-5 text-[1.08rem] leading-8"}`}>{description}</p>
+        <div className={`grid gap-4 ${compact ? "mt-7 md:grid-cols-2" : `mt-9 ${items.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"}`}`}>
           {items.map((item) => {
-            const className = "group flex min-h-full flex-col overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#11232a] shadow-[0_12px_30px_rgba(17,35,42,0.08)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#bca57f] hover:shadow-[0_16px_36px_rgba(17,35,42,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#244ba8]";
-            const content = <><div className="overflow-hidden border-b border-[#e4dbce] bg-[#f8f6f1]"><Image src={item.imageSrc} alt={item.imageAlt} width={1200} height={800} sizes={items.length === 3 ? "(min-width: 768px) 33vw, 100vw" : "(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"} className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" /></div><div className="flex flex-1 flex-col p-6"><h3 className="text-[1.18rem] font-semibold leading-7 tracking-[-0.02em] !text-[#07151b]">{item.label}</h3><p className="mt-4 text-[1rem] leading-7 text-[#07151b]/78">{item.description}</p><span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-[#244ba8]">View service <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span></span></div></>;
+            const className = `group flex min-h-full overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#11232a] shadow-[0_12px_30px_rgba(17,35,42,0.08)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#bca57f] hover:shadow-[0_16px_36px_rgba(17,35,42,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#244ba8] ${compact ? "min-h-36 flex-row" : "flex-col"}`;
+            const content = compact ? <><div className="w-32 shrink-0 overflow-hidden border-r border-[#e4dbce] bg-[#f8f6f1] sm:w-40"><Image src={item.imageSrc} alt={item.imageAlt} width={480} height={480} sizes="(min-width: 640px) 160px, 128px" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" /></div><div className="flex flex-1 flex-col justify-center px-4 py-4"><h3 className="text-[1.05rem] font-semibold leading-6 tracking-[-0.02em] !text-[#07151b]">{item.label}</h3><p className="mt-2 text-[0.92rem] leading-6 text-[#07151b]/76">{item.description}</p><span className="mt-3 inline-flex items-center gap-2 text-[0.78rem] font-semibold text-[#244ba8]">View service <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span></span></div></> : <><div className="overflow-hidden border-b border-[#e4dbce] bg-[#f8f6f1]"><Image src={item.imageSrc} alt={item.imageAlt} width={1200} height={800} sizes={items.length === 3 ? "(min-width: 768px) 33vw, 100vw" : "(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"} className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" /></div><div className="flex flex-1 flex-col p-6"><h3 className="text-[1.18rem] font-semibold leading-7 tracking-[-0.02em] !text-[#07151b]">{item.label}</h3><p className="mt-4 text-[1rem] leading-7 text-[#07151b]/78">{item.description}</p><span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-[#244ba8]">View service <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span></span></div></>;
 
             return item.href.startsWith("#") ? (
               <CleanSectionLink key={item.label} href={item.href as `#${string}`} className={className}>{content}</CleanSectionLink>
@@ -178,7 +178,7 @@ export default function CorporateSupportPage() {
         </div>
       </section>
 
-      <ServiceGroupSection id="license-lifecycle" title="Corporate License Lifecycle" description="Support for keeping a company active, closing it correctly, or returning an eligible company to good standing." items={lifecycleLinks} />
+      <ServiceGroupSection id="license-lifecycle" title="Corporate License Lifecycle" description="Support for keeping a company active, closing it correctly, or returning an eligible company to good standing." items={lifecycleLinks} compact />
 
       <DetailSection id="license-renewals" eyebrow="Keep the company active" title="Company license renewal" imageSrc={versionedAssetPath("/services/license-renewals.webp")} imageAlt="A UAE business staying operational while its company license renewal is coordinated">
         <p>An active business license supports uninterrupted operations, employee visa validity, authority standing, and continued banking activity. Zenesis coordinates mainland and free zone renewals, including connected office, immigration, amendment, and compliance requirements.</p>
@@ -197,7 +197,7 @@ export default function CorporateSupportPage() {
         <p>The route can require payment of penalties, renewal of the license, updated company documents, shareholder or manager resolutions, outstanding compliance filings, and authority approvals. Zenesis first checks the company record and restoration window before confirming whether reinstatement is practical.</p>
       </DetailSection>
 
-      <ServiceGroupSection id="corporate-services" title="Corporate Services" description="Ongoing support for company changes, governance, document legalization, and international expansion into the UAE." items={corporateServiceLinks} />
+      <ServiceGroupSection id="corporate-services" title="Corporate Services" description="Ongoing support for company changes, governance, document legalization, and international expansion into the UAE." items={corporateServiceLinks} compact />
 
       <DetailSection id="company-amendments" eyebrow="Keep records accurate" title="Company amendments and corporate changes" imageSrc={versionedAssetPath("/services/license-amendments.webp")} imageAlt="UAE business advisers reviewing company license amendments" imagePosition="left">
         <p>Ownership, activities, management, trade names, and offices can change as a business develops. These changes need to be approved and reflected across the relevant company and authority records for mainland, free zone, and offshore entities.</p>
