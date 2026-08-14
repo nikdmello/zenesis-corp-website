@@ -161,7 +161,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     relatedInsightSlugs: [
       "why-first-time-entrepreneurs-are-choosing-uae",
       "business-consultant-beyond-company-registration",
-      "top-5-mistakes-starting-business-dubai",
+      "business-setup-mistakes-dubai",
     ],
     pointsTitle: "What we handle",
     points: [
@@ -316,7 +316,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     relatedInsightSlugs: [
       "uae-free-zone-corporate-tax-rules-clarified-2026",
       "why-first-time-entrepreneurs-are-choosing-uae",
-      "top-5-mistakes-starting-business-dubai",
+      "business-setup-mistakes-dubai",
     ],
     pointsTitle: "What we handle",
     points: [
@@ -452,7 +452,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     relatedInsightSlugs: [
       "business-consultant-beyond-company-registration",
       "why-first-time-entrepreneurs-are-choosing-uae",
-      "top-5-mistakes-starting-business-dubai",
+      "business-setup-mistakes-dubai",
     ],
     pointsTitle: "What we handle",
     points: [

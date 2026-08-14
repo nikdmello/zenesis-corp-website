@@ -160,7 +160,7 @@ export const defaultInsightSlugsByCategory: Record<string, string[]> = {
   "Business Setup": [
     "why-first-time-entrepreneurs-are-choosing-uae",
     "business-consultant-beyond-company-registration",
-    "top-5-mistakes-starting-business-dubai",
+    "business-setup-mistakes-dubai",
   ],
   "Accounting and Tax": [
     "uae-corporate-tax-filing-deadlines-2026",

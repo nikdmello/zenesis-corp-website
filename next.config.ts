@@ -897,12 +897,22 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/top-5-mistakes-to-avoid-when-starting-a-business-in-dubai",
-        destination: "/insights/top-5-mistakes-starting-business-dubai",
+        destination: "/insights/business-setup-mistakes-dubai",
         permanent: true,
       },
       {
         source: "/top-5-mistakes-to-avoid-when-starting-a-business-in-dubai/",
-        destination: "/insights/top-5-mistakes-starting-business-dubai",
+        destination: "/insights/business-setup-mistakes-dubai",
+        permanent: true,
+      },
+      {
+        source: "/insights/top-5-mistakes-starting-business-dubai",
+        destination: "/insights/business-setup-mistakes-dubai",
+        permanent: true,
+      },
+      {
+        source: "/insights/top-5-mistakes-starting-business-dubai/",
+        destination: "/insights/business-setup-mistakes-dubai",
         permanent: true,
       },
       {

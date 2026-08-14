@@ -142,7 +142,7 @@ export default function BusinessSetupCostDubaiPage() {
                 The lowest-priced route is not automatically the right fit if the business
                 needs employees, specific banking support, or broader trading activity.
                 Compare the full route options above, or learn{" "}
-                <Link className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4" href="/insights/top-5-mistakes-starting-business-dubai">
+                <Link className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4" href="/insights/business-setup-mistakes-dubai">
                   where cost decisions go wrong
                 </Link>{" "}
                 before deciding on cost alone.

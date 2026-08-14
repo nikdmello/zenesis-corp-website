@@ -262,7 +262,7 @@ const insightCredibilityBySlug: Record<string, InsightCredibility> = {
     updatedLabel: "July 22, 2026",
     sources: [sourceLibrary.icpGreenResidency, sourceLibrary.goldenVisa, sourceLibrary.icpGoldenVisa],
   },
-  "top-5-mistakes-starting-business-dubai": {
+  "business-setup-mistakes-dubai": {
     updatedLabel: "July 22, 2026",
     sources: [sourceLibrary.mainlandSetup, sourceLibrary.freeZoneSetup, sourceLibrary.corporateTaxGeneral],
   },
@@ -305,7 +305,7 @@ export const insightPosts: InsightPost[] = [
     ],
     relatedInsightSlugs: [
       "business-consultant-beyond-company-registration",
-      "top-5-mistakes-starting-business-dubai",
+      "business-setup-mistakes-dubai",
       "uae-corporate-tax-filing-deadlines-2026",
       "uae-corporate-tax-record-keeping-requirements",
     ],
@@ -1998,7 +1998,7 @@ export const insightPosts: InsightPost[] = [
       "If you need help connecting company setup, residency planning, and the right visa route, Zenesis can help you map the next step clearly.",
   },
   {
-    slug: "top-5-mistakes-starting-business-dubai",
+    slug: "business-setup-mistakes-dubai",
     category: "Business Setup",
     title: "Business Setup Mistakes in Dubai: 7 Costly Errors to Avoid",
     description:

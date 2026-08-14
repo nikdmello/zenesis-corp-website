@@ -551,7 +551,7 @@ export default function BusinessSetupPage() {
                   business setup pricing
                 </Link>{" "}
                 for starting costs by route, and{" "}
-                <Link className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4" href="/insights/top-5-mistakes-starting-business-dubai">
+                <Link className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4" href="/insights/business-setup-mistakes-dubai">
                   avoid the most common setup mistakes
                 </Link>{" "}
                 before filing.
