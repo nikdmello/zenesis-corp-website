@@ -27,7 +27,7 @@ import {
 
 const pageTitle = "Business Setup Cost in Dubai 2026 | Zenesis Prices";
 const pageDescription =
-  "Compare 2026 business setup costs in Dubai and the UAE, including freelance, free zone, mainland, visa, UAE offshore, and international offshore options.";
+  "Compare Zenesis business setup prices in Dubai: freelance permits from AED 4,000, free zone from AED 7,000, mainland from AED 10,000.";
 const introDescription =
   "Published starting prices, cheapest viable routes, and practical cost drivers for UAE company formation, with the full quote confirmed before filing begins.";
 

@@ -617,6 +617,11 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     directAnswers: [
       {
+        question: "Can Zenesis help with corporate USD and AED account setup?",
+        answer:
+          "Yes. Zenesis supports corporate USD and AED account applications by helping identify a suitable banking route, organize company and shareholder documents, and prepare the compliance, KYC, and source-of-funds information banks typically review. Final account approval remains at the bank's discretion.",
+      },
+      {
         question: "Why do some business bank applications take much longer than expected?",
         answer:
           "Banks usually slow down when the KYC pack is weak, the business explanation is vague, the shareholder profile is unclear, or the requested account does not match the company structure. The delay is often less about the form itself and more about how credible and complete the file looks to the bank.",

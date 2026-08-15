@@ -10,10 +10,10 @@ export const legacyRouteMeta = {
   home: {
     title: "Award-Winning Business Setup in Dubai & UAE | Zenesis Corp",
     description:
-      "Zenesis Corp is an award-winning business setup firm in Dubai and the UAE, supporting company formation, visa, banking, accounting, tax, and ongoing corporate support.",
+      "Zenesis Corp is an award-winning business setup firm in Dubai and the UAE, supporting formation, visas, banking, accounting, tax, and corporate support.",
   },
   about: {
-    title: "About Zenesis Corp | Award-Winning Business Consultancy in UAE",
+    title: "Zenesis Corp | Award-Winning UAE Business Consultancy",
     description:
       "With over two decades in the UAE market, Zenesis Corp supports businesses through expert consulting, governance, and operational guidance.",
   },
@@ -25,7 +25,7 @@ export const legacyRouteMeta = {
   businessSetup: {
     title: "Business Setup Services in Dubai & UAE | Zenesis Corp",
     description:
-      "Business setup and company formation services in Dubai and the UAE for mainland, free zone, and offshore structures, including licensing, visas, banking, tax, renewals, and compliance.",
+      "Zenesis supports mainland, free zone, and offshore business setup in Dubai and the UAE, covering licensing, visas, banking, and post-formation support.",
   },
   accountingTax: {
     title: "Accounting Services in UAE for Businesses",
@@ -58,7 +58,7 @@ export const legacyServiceMeta = {
   "free-zones": {
     title: "Free Zone Company Formation Dubai | Costs, Visas & Banking",
     description:
-      "Compare free zone company formation in Dubai and the UAE by activity, package, ownership, visas, office rules, banking practicality, renewal costs, and operating fit.",
+      "Set up your free zone company in Dubai or RAK with Zenesis. Support for licensing, documentation, compliance, visas, and banking.",
   },
   offshore: {
     title: "Offshore Company Formation | UAE & International Options",
@@ -76,19 +76,19 @@ export const legacyServiceMeta = {
       "Prepare for UAE business bank account opening with KYC support, company documents, shareholder records, source-of-funds context, and banking route guidance.",
   },
   "uae-company-visa": {
-    title: "UAE Business Visa Solutions | Trusted Advisors – Zenesis Corp",
+    title: "UAE Business Visa Solutions | Zenesis Corp",
     description:
-      "Get expert support for UAE business visas with structured processing and transparent guidance. From eligibility checks to visa approvals, Zenesis Corp delivers reliable visa solutions.",
+      "Get expert support for UAE business visas with structured processing and clear guidance, from eligibility checks through visa approval.",
   },
   "corporate-tax-registration-in-the-uae": {
-    title: "Register for Corporate Tax UAE | Mandatory Compliance | Free Consultation",
+    title: "Corporate Tax Registration UAE | Free Consultation",
     description:
-      "Register for corporate tax in the UAE with expert guidance. Mandatory for eligible businesses. Zenesis Corp offers free consultation and end-to-end compliance support.",
+      "Register for corporate tax in the UAE with expert guidance. Mandatory for eligible businesses. Free consultation and compliance support.",
   },
   "corporate-tax-filing-services-in-the-uae": {
-    title: "Corporate Tax Consultants in Dubai - File Returns Easily with Zenesis",
+    title: "Corporate Tax Filing Services UAE | Zenesis Corp",
     description:
-      "Zenesis Corp offers reliable corporate tax filing services in the UAE, ensuring accurate submissions, regulatory compliance, and expert tax support for businesses.",
+      "Zenesis Corp offers reliable corporate tax filing services in the UAE, ensuring accurate submissions and regulatory compliance.",
   },
   "vat-filing-services-in-the-uae": {
     title: "VAT Registration and Filing Services UAE | Zenesis",
@@ -98,7 +98,7 @@ export const legacyServiceMeta = {
   "professional-bookkeeping-services-in-dubai": {
     title: "Top Accounting & Bookkeeping Company in Dubai | Zenesis Corp",
     description:
-      "Professional accounting and bookkeeping services in Dubai by Zenesis Corp. Accurate records, compliance-focused reporting, and expert financial support for UAE businesses.",
+      "Professional accounting and bookkeeping services in Dubai by Zenesis Corp, with accurate records and compliance-focused reporting.",
   },
   "golden-visa-services-in-the-uae": {
     title: "UAE Golden Visa Guide for Investors & Professionals",
@@ -108,6 +108,21 @@ export const legacyServiceMeta = {
 } satisfies Record<string, LegacyMeta>;
 
 export const legacyInsightMetaBySlug = {
+  "business-consultant-beyond-company-registration": {
+    title: "Business Consultant Beyond Company Registration | Zenesis",
+    description:
+      "Why company registration is only the first milestone, and how a business consultant helps you structure, scale, and stay compliant.",
+  },
+  "corporate-tax-mistakes-trigger-audits-uae": {
+    title: "8 Corporate Tax Mistakes That Trigger UAE Audits | Zenesis",
+    description:
+      "The most common corporate tax compliance mistakes that attract scrutiny from the Federal Tax Authority, and how businesses can reduce audit risk in the UAE.",
+  },
+  "why-first-time-entrepreneurs-are-choosing-uae": {
+    title: "Why First-Time Entrepreneurs Are Choosing the UAE",
+    description:
+      "Why first-time founders are using the UAE as a global launchpad for faster setup, stronger market access, tax efficiency, and cleaner scaling.",
+  },
   "uae-mandatory-e-invoicing-deadlines-guide": {
     title: "UAE E-Invoicing Deadlines, Penalties & Guide 2026-27",
     description:

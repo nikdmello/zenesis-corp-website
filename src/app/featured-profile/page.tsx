@@ -15,7 +15,7 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Cecilia D'Cunha in Global Leaders Today | Zenesis Corporation",
+  title: "Cecilia D'Cunha in Global Leaders Today | Zenesis",
   description:
     "An editorial feature on Cecilia D'Cunha covering her background in offshore incorporation, UAE business setup, and corporate compliance.",
   path: "/featured-profile",
