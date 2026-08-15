@@ -26,9 +26,6 @@ export function PrimarySources({
       id="primary-sources"
       className="scroll-mt-28 border-y border-[#d9d1c5] bg-[#f8f6f1] px-6 py-9 md:px-8"
     >
-      <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-        Guidance checked
-      </p>
       <h2 className={articleSectionHeadingClassName}>Primary sources</h2>
       <p className="mt-4 max-w-4xl text-[1.04rem] leading-8 text-[#07151b]/78">
         {note}
