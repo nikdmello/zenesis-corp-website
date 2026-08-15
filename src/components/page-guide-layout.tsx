@@ -58,7 +58,7 @@ export function PageGuideRail({ items, credibilityPath, className = "", navigati
 
       {credibility ? (
         <section className="pt-6">
-          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#1f7652]">Officially sourced</p>
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#1f7652]">Official sources</p>
           <p className="mt-2 text-[0.82rem] leading-5 text-foreground/68">Last reviewed {reviewedLabel}</p>
           <CleanSectionLink href="#primary-sources" className="mt-3 inline-flex text-[0.82rem] font-semibold text-[#244ba8] hover:underline">
             View primary sources
