@@ -1474,11 +1474,12 @@ export const insightPosts: InsightPost[] = [
           "A UAE company may be able to change its financial year, but the change should be planned carefully and may require approval or updates with the relevant authority. The business should consider corporate tax periods, VAT cut-off, audit timing, and group reporting before making a change.",
       },
     ],
+    closingTitle: "Ready for a Cleaner Year-End?",
     closingParagraphs: [
-      "The financial year is not merely an accounting requirement. It is a strategic decision that influences every aspect of your compliance framework.",
-      "Businesses that plan their financial year carefully are better positioned to manage tax obligations, maintain accurate reporting, and operate efficiently.",
-      "Choosing a financial year that aligns with your business model, planning for tax deadlines in advance, maintaining strong VAT reconciliation processes, and ensuring alignment across group entities are all critical steps toward long-term compliance success.",
+      "A clear year-end plan keeps bookkeeping, VAT reconciliation, audit preparation, and Corporate Tax filing moving together instead of becoming separate last-minute problems.",
     ],
+    closingCta:
+      "Book a consultation with Zenesis to review your financial year, filing timeline, records, VAT reconciliation, and year-end compliance priorities.",
   },
   {
     slug: "uae-corporate-tax-filing-deadlines-2026",
