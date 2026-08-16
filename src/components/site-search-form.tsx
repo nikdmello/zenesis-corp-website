@@ -155,7 +155,7 @@ export function SiteSearchForm({
                   >
                     <div
                       title={result.section ? `${result.type} • ${result.section}` : result.type}
-                      className={`flex items-center gap-2 whitespace-nowrap text-[0.72rem] font-semibold uppercase tracking-[0.16em] ${
+                      className={`flex items-center gap-2 whitespace-nowrap text-sm font-semibold ${
                         isLight ? "text-[#8d7453]" : "text-white/48"
                       }`}
                     >

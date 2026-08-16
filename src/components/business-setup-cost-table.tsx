@@ -10,7 +10,7 @@ export function BusinessSetupCostTable() {
         <h3 className="text-[1.28rem] font-semibold leading-tight tracking-[-0.04em] text-[#11232a] md:text-[1.55rem]">
           Dubai business setup cost comparison
         </h3>
-        <p className="mt-3 text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[#8d7453]/78">
+        <p className="mt-3 text-sm font-medium text-[#8d7453]/78">
           Updated{" "}
           <time dateTime={businessSetupPricingLastUpdated.isoDate}>
             {businessSetupPricingLastUpdated.label}

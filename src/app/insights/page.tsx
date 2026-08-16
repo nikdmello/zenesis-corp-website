@@ -56,7 +56,7 @@ export default function InsightsPage() {
           >
             <div>
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.98rem] text-foreground/66">
-                <span className="text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-[#8d7453]">
+                <span className="text-sm font-semibold text-[#8d7453]">
                   {featuredPost.category}
                 </span>
                 <span aria-hidden="true" className="text-foreground/28">
@@ -132,7 +132,7 @@ export default function InsightsPage() {
             </div>
             <div className="max-w-3xl">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.98rem] text-foreground/66">
-                <span className="text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-[#8d7453]">
+                <span className="text-sm font-semibold text-[#8d7453]">
                   Featured profile
                 </span>
                 <span aria-hidden="true" className="text-foreground/28">

@@ -98,7 +98,7 @@ export function HelpWidget() {
             {!selectedTopic ? (
               <>
                 <section className="border-b border-white/12 pb-5">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/42">
+                  <p className="text-sm font-medium text-white/58">
                     Fastest ways to reach us
                   </p>
                   <div className="mt-3 grid gap-2.5">
@@ -122,7 +122,7 @@ export function HelpWidget() {
                 </section>
 
                 <section className="pt-5">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/42">
+                  <p className="text-sm font-medium text-white/58">
                     Popular questions
                   </p>
                   <div className="mt-3 grid gap-2">
@@ -178,7 +178,7 @@ export function HelpWidget() {
                 </div>
 
                 <section className="mt-5 border-t border-white/12 pt-5">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/42">
+                  <p className="text-sm font-medium text-white/58">
                     More questions
                   </p>
                   <div className="mt-3 grid gap-2">
@@ -206,7 +206,7 @@ export function HelpWidget() {
                 </section>
 
                 <section className="mt-5 border-t border-white/12 pt-5">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/42">
+                  <p className="text-sm font-medium text-white/58">
                     Reach Zenesis directly
                   </p>
                   <div className="mt-3 grid gap-2.5">

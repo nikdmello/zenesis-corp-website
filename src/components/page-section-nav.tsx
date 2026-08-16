@@ -19,7 +19,7 @@ export function PageSectionNavMobile({ items, className = "" }: PageSectionNavPr
       <details className="group">
         <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
           <span>
-            <span className="block text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+            <span className="block text-sm font-semibold text-[#8d7453]">
               On this page
             </span>
             <span className="mt-2 block text-[0.96rem] leading-7 text-[#07151b]/68">

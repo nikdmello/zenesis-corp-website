@@ -221,7 +221,7 @@ export function HomepageInsightsCarousel({
                     </div>
                     <div className="flex flex-1 flex-col p-3 pt-6">
                       <div className="min-h-[2.25rem] flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.88rem] text-muted/84">
-                        <span className="text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                        <span className="text-sm font-semibold text-[#8d7453]">
                           {item.category}
                         </span>
                         <span aria-hidden="true" className="text-muted/34">

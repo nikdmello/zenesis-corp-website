@@ -1601,8 +1601,8 @@ export const insightPosts: InsightPost[] = [
       "A practical guide to UAE corporate tax record-keeping, the seven-year retention rule, and the documents businesses should keep ready for review.",
     dateLabel: "July 15, 2026",
     author: "Glenita D'Souza",
-    heroImageSrc: versionedAssetPath("/insights/corporate-tax-mistakes.webp", insightImageVersion),
-    heroImageAlt: "UAE corporate tax record-keeping visual with documents and compliance review",
+    heroImageSrc: versionedAssetPath("/insights/corporate-tax.webp", insightImageVersion),
+    heroImageAlt: "UAE corporate tax advisers reviewing financial records and supporting documents in Dubai",
     keyTakeaways: [
       "UAE taxable and exempt persons are expected to retain relevant corporate tax records for at least seven years after the tax period.",
       "Record-keeping is not only about storage; the documents need to support the figures and positions used in the return.",

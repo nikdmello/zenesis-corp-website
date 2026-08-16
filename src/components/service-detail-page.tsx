@@ -136,7 +136,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                 <details className="group">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
                     <span>
-                      <span className="block text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                      <span className="block text-sm font-semibold text-[#8d7453]">
                         On this page
                       </span>
                       <span className="mt-2 block text-[0.98rem] leading-7 text-[#07151b]/68">
@@ -155,10 +155,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                 id="overview"
                 className="w-full max-w-[54rem] scroll-mt-28"
               >
-                <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-                  Overview
-                </p>
-                <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>
+                <h2 className={articleSectionHeadingClassName}>
                   {config.introTitle}
                 </h2>
                 <div
@@ -187,7 +184,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
 
                 {config.subpageLinks?.length ? (
                   <div className="mt-9 border-t border-[#e4dbce] pt-8">
-                    <p className="mb-5 text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+                    <p className="mb-5 text-sm font-semibold text-[#8d7453]">
                       Related services
                     </p>
                     <ServiceSubpageLinks
@@ -229,10 +226,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                 id="what-we-handle"
                 className="w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#244ba8] bg-[#f3f7ff] px-6 py-8 md:px-8"
               >
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#244ba8]">
-                  How Zenesis helps
-                </p>
-                <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>
+                <h2 className={articleSectionHeadingClassName}>
                   {config.pointsTitle}
                 </h2>
                 <ul className="mt-6 divide-y divide-[#cfdaf1] border-y border-[#cfdaf1]">
@@ -257,10 +251,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
         <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-14 md:py-18">
           <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
             <div className="max-w-[54rem]">
-              <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-                Related guidance
-              </p>
-              <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>
+              <h2 className={articleSectionHeadingClassName}>
                 Continue reading
               </h2>
               <p className="mt-4 max-w-[50rem] text-[1.08rem] leading-8 text-[#07151b]/76">
@@ -282,7 +273,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                     className={`aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${post.heroImageClassName ?? "object-center"}`}
                   />
                   <div className="border-t border-[#e4dbce] p-5">
-                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">
+                    <p className="text-sm font-semibold text-[#8d7453]">
                       {post.category} / {post.dateLabel}
                     </p>
                     <h3 className="mt-3 text-[1.16rem] font-semibold leading-7 text-foreground">

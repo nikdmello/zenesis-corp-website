@@ -245,8 +245,8 @@ export const socialLinks = [
 
 export const partnerLogos = [
   {
-    label: "Administrapolis",
-    src: "/partners/administrapolis.webp",
+    label: "Sobha",
+    src: "/partners/sobha.webp",
     isEmphasized: true,
   },
   {
@@ -274,8 +274,8 @@ export const partnerLogos = [
     isEmphasized: true,
   },
   {
-    label: "Sobha",
-    src: "/partners/sobha.webp",
+    label: "Administrapolis",
+    src: "/partners/administrapolis.webp",
     isEmphasized: true,
   },
   {

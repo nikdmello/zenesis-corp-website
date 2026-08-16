@@ -40,10 +40,7 @@ export default function AboutPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <article className="flow-root min-w-0">
               <div>
-                <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-                  Our background
-                </p>
-                <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>Who we are</h2>
+                <h2 className={articleSectionHeadingClassName}>Who we are</h2>
                 <div className="mb-8 mt-7 xl:float-right xl:ml-12 xl:mt-7 xl:w-[44%] 2xl:w-[48%]">
                   <div className="overflow-hidden border-y border-[#d9d1c5] bg-[#f8f6f1]">
                     <NextImage

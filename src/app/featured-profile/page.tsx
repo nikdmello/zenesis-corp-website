@@ -149,7 +149,7 @@ export default function FeaturedProfilePage() {
             <div className="mt-4 lg:min-h-[16rem] xl:min-h-[17rem]">
               <header className="relative z-10 max-w-[58rem]">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.98rem] text-white/72">
-                  <span className="text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-[#d8c3a2]">
+                  <span className="text-sm font-semibold text-[#d8c3a2]">
                     Leadership Feature
                   </span>
                   <span aria-hidden="true" className="text-white/34">
@@ -187,7 +187,7 @@ export default function FeaturedProfilePage() {
                   <details className="group">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
                       <span>
-                        <span className="block text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                        <span className="block text-sm font-semibold text-[#8d7453]">
                           In this profile
                         </span>
                         <span className="mt-2 block text-[0.98rem] leading-7 text-[#07151b]/68">
@@ -206,10 +206,7 @@ export default function FeaturedProfilePage() {
                   id="profile-highlights"
                   className="w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#d8d0c2] bg-[#f8f6f1] px-6 py-7 md:px-8"
                 >
-                  <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-                    At a glance
-                  </p>
-                  <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>
+                  <h2 className={articleSectionHeadingClassName}>
                     Profile highlights
                   </h2>
                   <ul className="mt-5 divide-y divide-[#ddd4c7] border-y border-[#ddd4c7]">
@@ -263,10 +260,7 @@ export default function FeaturedProfilePage() {
                   id="why-this-matters-for-clients"
                   className="w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#1f7652] bg-[#edf7f1] px-6 py-7 md:px-8"
                 >
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#185d41]">
-                    Client perspective
-                  </p>
-                  <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>
+                  <h2 className={articleSectionHeadingClassName}>
                     Why this matters for clients
                   </h2>
                   <div className="mt-5 space-y-5 text-[1.08rem] leading-8 text-[#07151b]/92 md:text-[1.14rem]">
@@ -288,10 +282,7 @@ export default function FeaturedProfilePage() {
                   id="her-advice"
                   className="w-full max-w-[54rem] scroll-mt-28 border-y border-[#e4dbce] py-10"
                 >
-                  <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-                    In her words
-                  </p>
-                  <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>
+                  <h2 className={articleSectionHeadingClassName}>
                     Her advice
                   </h2>
                   <blockquote className="mt-6 text-[1.2rem] font-medium leading-9 text-foreground md:text-[1.35rem] md:leading-10">
@@ -306,7 +297,7 @@ export default function FeaturedProfilePage() {
                   <ProfileIdentity profile={profile} />
                 </div>
                 <nav aria-label="In this profile" className="pt-6">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+                  <p className="text-sm font-semibold text-[#8d7453]">
                     In this profile
                   </p>
                   <ProfileGuideList className="mt-5 space-y-3.5" />
@@ -340,7 +331,7 @@ function ProfileIdentity({ profile, compact = false }: { profile: Profile; compa
         />
       </div>
       <div className="min-w-0">
-        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">
+        <p className="text-sm font-medium text-[#8d7453]">
           Featured leader
         </p>
         <p className="mt-1 text-[0.94rem] font-semibold text-foreground">

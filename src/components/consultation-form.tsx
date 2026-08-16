@@ -805,8 +805,7 @@ export function ConsultationInlinePanel({
       <div className="relative overflow-hidden bg-[#11232a] p-6 text-white md:p-8">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(36,75,168,0.48),transparent_32%),linear-gradient(145deg,rgba(255,255,255,0.08),transparent_42%)]" />
         <div className="relative z-10">
-          <p className="eyebrow text-white/58">Consultation</p>
-          <h2 className="mt-4 text-[clamp(1.9rem,3vw,3rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
+          <h2 className="text-[clamp(1.9rem,3vw,3rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
             Schedule a free consultation.
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-white/88">

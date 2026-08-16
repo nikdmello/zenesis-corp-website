@@ -55,10 +55,7 @@ export function BusinessSetupRouteCard({
       ) : null}
 
       <div className={`flex flex-1 flex-col ${isEssential ? "p-5" : "p-6"}`}>
-        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
-          {isEssential ? "Related service" : "Setup route"}
-        </p>
-        <h3 className="mt-3 text-[1.28rem] font-semibold leading-7 tracking-[-0.02em] text-foreground md:text-[1.38rem]">
+        <h3 className="text-[1.28rem] font-semibold leading-7 tracking-[-0.02em] text-foreground md:text-[1.38rem]">
           {title}
         </h3>
         <p className="mt-4 text-[1rem] leading-7 text-[#07151b]/78">

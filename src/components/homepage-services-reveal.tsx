@@ -98,10 +98,7 @@ export function HomepageServicesReveal({
 
       <div className="relative mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <div className="max-w-[54rem]">
-          <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-            Explore all services
-          </p>
-          <h2 className="section-title mt-3 w-full !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-[#07151b] sm:!text-[1.9rem] md:!text-[2.05rem]">
+          <h2 className="section-title w-full border-t border-[#b88d53]/55 pt-5 !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-[#07151b] sm:!text-[1.9rem] md:!text-[2.05rem]">
             Our services
           </h2>
           <p className="mt-4 text-[1.06rem] leading-8 text-[#30434b] md:text-[1.1rem]">

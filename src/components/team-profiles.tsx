@@ -24,7 +24,7 @@ function TeamCard({
 
       <div className="min-w-0 flex flex-1 flex-col border-t border-[#d8d0c2] pt-5">
         <div>
-          <p className="text-[0.74rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+          <p className="text-sm font-semibold text-[#8d7453]">
             {member.title}
           </p>
           <h3 className="mt-2 text-[1.55rem] font-semibold leading-[1.12] text-foreground md:text-[1.65rem]">

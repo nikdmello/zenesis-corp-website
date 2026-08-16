@@ -55,8 +55,8 @@ export function BusinessSetupPriceActions({
               <p
                 className={
                   variant === "homepage"
-                    ? "text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]"
-                    : "text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]"
+                    ? "text-xs font-semibold text-[#8d7453]"
+                    : "text-sm font-semibold text-[#8d7453]"
                 }
               >
                 {item.qualifier}
@@ -80,8 +80,8 @@ export function BusinessSetupPriceActions({
                 <span
                   className={
                     variant === "homepage"
-                      ? "text-[0.74rem] font-semibold uppercase tracking-[0.16em] text-[#8d7453]"
-                      : "text-[0.92rem] font-semibold uppercase tracking-[0.16em] text-[#8d7453]"
+                      ? "text-sm font-semibold text-[#8d7453]"
+                      : "text-[0.92rem] font-semibold text-[#8d7453]"
                   }
                 >
                   {hasPriceRange ? "Range" : "From"}

@@ -94,7 +94,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               >
                 <div
                   title={result.section ? `${result.type} • ${result.section}` : result.type}
-                  className="flex items-center gap-2 whitespace-nowrap text-[0.84rem] font-semibold uppercase tracking-[0.16em] text-[#8d7453]"
+                  className="flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-[#8d7453]"
                 >
                   <span className="shrink-0">{result.type}</span>
                   {result.section ? (

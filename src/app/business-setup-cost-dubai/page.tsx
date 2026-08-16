@@ -104,11 +104,11 @@ export default function BusinessSetupCostDubaiPage() {
           </p>
           <div className="mt-7 grid gap-5 border-t border-[#d9d1c5] pt-7 md:grid-cols-2">
             <div>
-              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">Lowest entry price</p>
+              <p className="text-sm font-semibold text-[#8d7453]">Lowest entry price</p>
               <p className="mt-3 text-[1.05rem] font-medium leading-7 text-[#11232a]/88">A freelance permit starts from AED 4,000 when the activity and operating model fit a permit route.</p>
             </div>
             <div>
-              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">Lowest company route</p>
+              <p className="text-sm font-semibold text-[#8d7453]">Lowest company route</p>
               <p className="mt-3 text-[1.05rem] font-medium leading-7 text-[#11232a]/88">A free zone company without a visa starts from AED 7,000, but zone, activity, banking, office, and renewal fit still matter.</p>
             </div>
           </div>
@@ -167,10 +167,7 @@ export default function BusinessSetupCostDubaiPage() {
                 key={item.title}
                 className="rounded-lg border border-[#d8d0c2] bg-[#f8f6f1] p-6 text-[#11232a]"
               >
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
-                  Cost driver
-                </p>
-                <h3 className="mt-3 text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-[#11232a]">
+                <h3 className="text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-[#11232a]">
                   {item.title}
                 </h3>
                 <p className="mt-3 text-[1rem] font-medium leading-7 text-[#11232a]/84">
@@ -220,8 +217,7 @@ export default function BusinessSetupCostDubaiPage() {
                 />
               </div>
               <div className="px-5 py-6 md:px-7 md:py-7">
-                <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">Compare routes</p>
-                <h2 className="mt-3 text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">Mainland vs free zone Dubai</h2>
+                <h2 className="text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">Mainland vs free zone Dubai</h2>
                 <p className="mt-3 text-[1rem] font-medium leading-7 text-foreground/84">See when mainland flexibility is worth the cost and when a free zone package is the better fit.</p>
               </div>
             </Link>
@@ -239,7 +235,7 @@ export default function BusinessSetupCostDubaiPage() {
                 />
               </div>
               <div className="px-5 py-6 md:px-7 md:py-7">
-                <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">UAE offshore from AED 7,500</p>
+                <p className="text-sm font-semibold text-[#8d7453]">UAE offshore from AED 7,500</p>
                 <h2 className="mt-3 text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">Offshore setup</h2>
                 <p className="mt-3 text-[1rem] font-medium leading-7 text-foreground/84">Compare Ajman, RAK, and Jebel Ali offshore routes from AED 7,500 to AED 15,000, and international options such as BVI, Nevis, Mauritius, Seychelles, and Hong Kong from AED 8,000 to AED 15,000.</p>
               </div>

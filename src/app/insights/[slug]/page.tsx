@@ -213,7 +213,7 @@ export default async function InsightArticlePage({
               <Image src={authorProfile.imageSrc} alt={post.author} fill sizes="48px" className="scale-[1.15] object-cover object-center" />
             </div>
             <div className="min-w-0">
-              <p className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">Written by</p>
+              <p className="text-sm font-medium text-[#8d7453]">Written by</p>
               <p className="mt-1 text-[0.94rem] font-semibold leading-5 text-foreground">{post.author}</p>
               <p className="mt-0.5 text-[0.76rem] leading-5 text-foreground/62">{authorProfile.credentials}</p>
             </div>
@@ -223,7 +223,7 @@ export default async function InsightArticlePage({
 
       {guideLinks.length ? (
         <nav aria-label="Article sections" className="border-b border-[#d9d1c5] py-6">
-          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">In this guide</p>
+          <p className="text-sm font-semibold text-[#8d7453]">In this guide</p>
           <ol className="mt-4 space-y-2.5">
             {guideLinks.map((item, index) => (
               <li key={item.href}>
@@ -287,7 +287,7 @@ export default async function InsightArticlePage({
             <div className="mt-4 lg:min-h-[16rem] xl:min-h-[17rem]">
               <header className="relative z-10 max-w-[58rem]">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.98rem] text-white/72">
-                  <span className="text-[0.78rem] font-semibold uppercase tracking-[0.24em] text-[#d8c3a2]">
+                  <span className="text-sm font-semibold text-[#d8c3a2]">
                     {post.category}
                   </span>
                   <span aria-hidden="true" className="text-white/34">
@@ -338,7 +338,7 @@ export default async function InsightArticlePage({
                         />
                       </div>
                       <div className="min-w-0">
-                        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+                        <p className="text-sm font-medium text-[#8d7453]">
                           Written by
                         </p>
                         <h2 className="mt-1 text-[1rem] font-semibold leading-tight text-foreground md:text-[1.08rem]">
@@ -365,7 +365,7 @@ export default async function InsightArticlePage({
                   <details className="group sm:hidden">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
                       <span>
-                        <span className="block text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                        <span className="block text-sm font-semibold text-[#8d7453]">
                           In this guide
                         </span>
                         <span className="mt-2 block text-[0.98rem] leading-7 text-[#07151b]/68">
@@ -394,7 +394,7 @@ export default async function InsightArticlePage({
                   </details>
                   <div className="hidden flex-col gap-5 sm:flex md:flex-row md:items-start md:justify-between">
                     <div className="md:max-w-[15rem]">
-                      <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+                      <p className="text-sm font-semibold text-[#8d7453]">
                         In this guide
                       </p>
                       <p className="mt-2 text-[0.98rem] leading-7 text-[#07151b]/68">
@@ -424,10 +424,7 @@ export default async function InsightArticlePage({
 
               {post.keyTakeaways?.length ? (
                 <section className="w-full max-w-[54rem] border-l-4 border-[#8d7453] bg-[#f8f6f1] px-6 py-7 md:px-8">
-                  <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-                    Summary
-                  </p>
-                  <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>
+                  <h2 className={articleSectionHeadingClassName}>
                     Key takeaways
                   </h2>
                   <ul className="mt-5 divide-y divide-[#ddd4c7] border-y border-[#ddd4c7]">
@@ -460,11 +457,6 @@ export default async function InsightArticlePage({
                         }`
                   }`}
                 >
-                  {isQuickAnswer ? (
-                    <p className="mb-3 text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#244ba8]">
-                      At a glance
-                    </p>
-                  ) : null}
                   <h2 className={articleSectionHeadingClassName}>
                     {section.title}
                   </h2>
@@ -515,7 +507,7 @@ export default async function InsightArticlePage({
                       }`}
                     >
                       <p
-                        className={`text-[0.72rem] font-semibold uppercase tracking-[0.2em] ${
+                        className={`text-sm font-semibold ${
                           insightCalloutStyles[section.callout.type].labelClassName
                         }`}
                       >
@@ -655,7 +647,7 @@ export default async function InsightArticlePage({
                           />
                         </div>
                         <div className="self-center px-4 py-3">
-                          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">
+                          <p className="text-sm font-semibold text-[#8d7453]">
                             {item.category}
                           </p>
                           <h3 className="mt-2 text-[1rem] font-semibold leading-snug tracking-[-0.02em] text-foreground group-hover:text-[#244ba8]">

@@ -197,10 +197,7 @@ export default function VisaAndBankingPage() {
       <section id="overview" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <article className="max-w-[54rem]">
-            <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-              Start here
-            </p>
-            <h2 className="mt-3 text-[1.75rem] font-semibold leading-[1.16] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.16] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">
               Overview
             </h2>
             <div className="mt-7 max-w-[50rem] space-y-5 text-[1.12rem] leading-[2.08rem] text-[#07151b]/92 md:text-[1.18rem] md:leading-[2.2rem]">
@@ -209,9 +206,9 @@ export default function VisaAndBankingPage() {
               ))}
             </div>
             <div className="mt-9 border-t border-[#e4dbce] pt-8">
-              <p className="mb-5 text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+              <h3 className="mb-5 text-base font-semibold text-[#11232a]">
                 Core services
-              </p>
+              </h3>
               <ServiceSubpageLinks
                 items={config.subpageLinks ?? []}
                 columnsClassName="sm:grid-cols-2 lg:grid-cols-3"

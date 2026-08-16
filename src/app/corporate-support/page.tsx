@@ -57,13 +57,11 @@ const process = [
 
 function DetailSection({
   id,
-  eyebrow,
   title,
   children,
   dark = false,
   imageSrc,
   imageAlt,
-  imagePosition = "right",
 }: {
   id: string;
   eyebrow: string;
@@ -74,21 +72,14 @@ function DetailSection({
   imageAlt?: string;
   imagePosition?: "left" | "right";
 }) {
-  const copy = (
-    <div className={imagePosition === "left" ? "lg:order-2" : undefined}>
-      <SectionHeading eyebrow={eyebrow} title={title} />
-      <div className={`mt-7 max-w-[62rem] space-y-5 text-[1.08rem] leading-8 ${dark ? "text-white/90" : "text-[#11232a]/86"}`}>{children}</div>
-    </div>
-  );
-
   const image = imageSrc && imageAlt ? (
-    <div className={`overflow-hidden rounded-lg border ${dark ? "border-white/14 bg-white/5" : "border-[#ded5c8] bg-[#f5efe4]"} ${imagePosition === "left" ? "lg:order-1" : undefined}`}>
+    <div className={`overflow-hidden rounded-lg border ${dark ? "border-white/14 bg-white/5" : "border-[#ded5c8] bg-[#f5efe4]"}`}>
       <Image
         src={imageSrc}
         alt={imageAlt}
         width={1200}
         height={800}
-        sizes="(min-width: 1280px) 42vw, (min-width: 1024px) 40vw, 100vw"
+        sizes="(min-width: 1280px) 38vw, (min-width: 768px) 42vw, 100vw"
         className="aspect-[3/2] w-full object-cover"
       />
     </div>
@@ -97,7 +88,19 @@ function DetailSection({
   return (
     <section id={id} className={`relative -mt-px w-full scroll-mt-28 py-16 md:py-20 ${dark ? "bg-[#11232a] text-white [&_.eyebrow]:text-white/68 [&_.section-title]:text-white" : "bg-white text-[#11232a]"}`}>
       <div className="w-full px-6 md:px-12 xl:px-16">
-        {image ? <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.88fr)] lg:gap-14">{copy}{image}</div> : <div className="max-w-[54rem]">{copy}</div>}
+        <div className="flow-root max-w-[92rem]">
+          <div className="mb-5 h-px w-full bg-[#b88d53]/55" />
+          {image ? (
+            <div className="mb-7 hidden w-[42%] min-w-[20rem] max-w-[38rem] md:float-right md:ml-10 md:block lg:ml-14 lg:w-[40%]">
+              {image}
+            </div>
+          ) : null}
+          <h2 className="section-title w-full !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-foreground sm:!text-[1.9rem] md:!text-[2.05rem]">
+            {title}
+          </h2>
+          {image ? <div className="mt-7 md:hidden">{image}</div> : null}
+          <div className={`mt-7 space-y-5 text-[1.08rem] leading-8 ${dark ? "text-white/90" : "text-[#11232a]/86"}`}>{children}</div>
+        </div>
       </div>
     </section>
   );
@@ -105,9 +108,9 @@ function DetailSection({
 
 function DetailList({ items }: { items: readonly string[] }) {
   return (
-    <ul className="grid gap-3 sm:grid-cols-2">
+    <ul className="divide-y divide-current/15 border-y border-current/15">
       {items.map((item) => (
-        <li key={item} className="flex items-start gap-3 rounded-lg border border-current/15 bg-current/[0.035] px-4 py-4 leading-7">
+        <li key={item} className="flex items-start gap-3 py-3.5 leading-7">
           <span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#b9955f]" />
           <span>{item}</span>
         </li>
@@ -120,8 +123,7 @@ function ServiceGroupSection({ id, title, description, items, compact = false }:
   return (
     <section id={id} className={`relative -mt-px w-full scroll-mt-28 bg-[#244ba8] text-white ${compact ? "py-11 md:py-14" : "py-16 md:py-20"}`}>
       <div className="w-full px-6 md:px-12 xl:px-16">
-        <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-white/68">Corporate support</p>
-        <h2 className={`mt-3 font-semibold leading-[1.14] ${compact ? "text-[1.7rem] sm:text-[1.85rem] md:text-[2rem]" : "text-[1.9rem] sm:text-[2.1rem] md:text-[2.35rem]"}`}>{title}</h2>
+        <h2 className={`font-semibold leading-[1.14] ${compact ? "text-[1.7rem] sm:text-[1.85rem] md:text-[2rem]" : "text-[1.9rem] sm:text-[2.1rem] md:text-[2.35rem]"}`}>{title}</h2>
         <p className={`max-w-[48rem] text-white/82 ${compact ? "mt-3 text-[1rem] leading-7" : "mt-5 text-[1.08rem] leading-8"}`}>{description}</p>
         <div className={`grid gap-4 ${compact ? "mt-7 md:grid-cols-2" : `mt-9 ${items.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"}`}`}>
           {items.map((item) => {
@@ -168,8 +170,7 @@ export default function CorporateSupportPage() {
       <section id="overview" className="relative -mt-px w-full scroll-mt-28 bg-white py-14 md:py-18">
         <div className="w-full px-6 md:px-12 xl:px-16">
           <article className="flex max-w-[54rem] flex-col items-start">
-            <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">After formation</p>
-            <h2 className="mt-3 text-[1.75rem] font-semibold leading-[1.16] tracking-[-0.02em] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">Keep the company record current</h2>
+            <h2 className="text-[1.75rem] font-semibold leading-[1.16] tracking-[-0.02em] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">Keep the company record current</h2>
             <div className="mt-7 w-full space-y-5 text-[1.12rem] leading-[2.08rem] text-[#07151b]/92 md:text-[1.18rem] md:leading-[2.2rem]">
               <p>Company administration continues after incorporation. Licences renew, ownership or manager details change, documents need attestation, foreign parents open branches, and some companies eventually need formal liquidation or restoration.</p>
               <p>Zenesis starts with the company record and the relevant jurisdiction. That matters because the authority, legal form, current status, outstanding obligations, and requested action determine the real process.</p>

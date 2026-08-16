@@ -389,10 +389,7 @@ export default function BusinessSetupPage() {
       >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <article className="max-w-[54rem]">
-            <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-              Start here
-            </p>
-            <h2 className="mt-3 text-[1.75rem] font-semibold leading-[1.16] tracking-[-0.02em] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.16] tracking-[-0.02em] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">
               Overview
             </h2>
             <div className="mt-7 max-w-[50rem] space-y-5 text-[1.12rem] leading-[2.08rem] text-[#07151b]/92 md:text-[1.18rem] md:leading-[2.2rem]">
@@ -414,9 +411,9 @@ export default function BusinessSetupPage() {
               </p>
             </div>
             <div className="mt-9 border-t border-[#e4dbce] pt-8">
-              <p className="mb-5 text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+              <h3 className="mb-5 text-base font-semibold text-[#11232a]">
                 Core services
-              </p>
+              </h3>
               <ServiceSubpageLinks
                 items={setupRoutes.map((route) => ({
                   label: route.title,
@@ -470,7 +467,7 @@ export default function BusinessSetupPage() {
 
           <div className="mt-9 grid gap-5 lg:grid-cols-2">
             <article className="rounded-lg border border-[#d8d0c2] bg-[#f8f5ef] p-7 text-[#11232a] shadow-[0_12px_30px_rgba(17,35,42,0.07)] md:p-8">
-              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#8d7453]">
+              <p className="text-sm font-semibold text-[#8d7453]">
                 Direct Zenesis support
               </p>
               <h3 className="mt-4 text-[1.45rem] font-semibold tracking-[-0.025em]">
@@ -483,7 +480,7 @@ export default function BusinessSetupPage() {
             </article>
 
             <article className="rounded-lg border border-[#d8d0c2] bg-[#11232a] p-7 text-white shadow-[0_14px_34px_rgba(17,35,42,0.14)] md:p-8">
-              <p className="text-[0.74rem] font-semibold uppercase tracking-[0.2em] text-[#ead5aa]">
+              <p className="text-sm font-semibold text-[#ead5aa]">
                 Partner supported routes
               </p>
               <h3 className="mt-4 text-[1.45rem] font-semibold tracking-[-0.025em] text-white">
@@ -528,10 +525,7 @@ export default function BusinessSetupPage() {
             id="sme-business-setup"
             className="mt-12 max-w-[54rem] scroll-mt-28 border-t border-[#d8d0c2] pt-10"
           >
-            <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-              SME planning
-            </p>
-            <h2 className="mt-3 text-[1.75rem] font-semibold leading-[1.16] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.16] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">
               Business setup for SME businesses
             </h2>
             <div className="mt-6 space-y-5 text-[1.08rem] leading-8 text-[#07151b]/88 md:text-[1.12rem]">
@@ -609,9 +603,6 @@ export default function BusinessSetupPage() {
       <section id="route-comparison" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
         <div className="mx-auto grid w-full max-w-[100rem] items-stretch gap-5 px-6 md:px-12 lg:grid-cols-2 xl:px-20">
           <article className="flex h-full flex-col rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_30px_rgba(17,35,42,0.1)] md:p-8">
-            <p className="mt-5 text-[0.78rem] font-semibold uppercase tracking-[0.26em] text-[#8d7453]">
-              Comparison
-            </p>
             <h2 className="section-title mt-5 font-semibold !text-foreground">
               Route comparison
             </h2>
@@ -658,17 +649,14 @@ export default function BusinessSetupPage() {
           </article>
 
           <article className="h-full rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_30px_rgba(17,35,42,0.1)] md:p-8">
-            <p className="mt-5 text-[0.78rem] font-semibold uppercase tracking-[0.26em] text-[#6f5a42]">
-              Formation reference
-            </p>
             <h2 className="section-title mt-5 font-semibold !text-foreground">
               Route reference
             </h2>
             <div className="mt-7 divide-y divide-[#d8d0c2] border-y border-[#d8d0c2]">
               <div className="py-5">
-                <p className="text-[0.76rem] font-semibold uppercase tracking-[0.24em] text-[#8d7453]">
+                <h3 className="text-base font-semibold text-[#11232a]">
                   Structures
-                </p>
+                </h3>
                 <ul className="mt-3 space-y-2.5 text-[1.04rem] leading-7 !text-foreground/92">
                   {setupStructures.map((item) => (
                     <li key={item} className="flex items-start gap-3">
@@ -684,9 +672,9 @@ export default function BusinessSetupPage() {
               </div>
 
               <div className="py-5">
-                <p className="text-[0.76rem] font-semibold uppercase tracking-[0.24em] text-[#8d7453]">
+                <h3 className="text-base font-semibold text-[#11232a]">
                   Popular free zones
-                </p>
+                </h3>
                 <ul className="mt-3 space-y-2.5 text-[1.04rem] leading-7 !text-foreground/92">
                   {freeZoneExamples.slice(0, 6).map((item) => (
                     <li key={item} className="flex items-start gap-3">
@@ -702,9 +690,9 @@ export default function BusinessSetupPage() {
               </div>
 
               <div className="py-5">
-                <p className="text-[0.76rem] font-semibold uppercase tracking-[0.24em] text-[#8d7453]">
+                <h3 className="text-base font-semibold text-[#11232a]">
                   Offshore options
-                </p>
+                </h3>
                 <ul className="mt-3 space-y-2.5 text-[1.04rem] leading-7 !text-foreground/92">
                   {offshoreOptions.map((item) => (
                     <li key={item} className="flex items-start gap-3">

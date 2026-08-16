@@ -34,7 +34,7 @@ export function PageGuideRail({ items, credibilityPath, className = "", navigati
               />
             </div>
             <div className="min-w-0">
-              <p className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">Reviewed by</p>
+              <p className="text-sm font-medium text-[#8d7453]">Reviewed by</p>
               <p className="mt-1 text-[0.94rem] font-semibold leading-5 text-foreground">{credibility.expert.name}</p>
               <p className="mt-0.5 text-[0.76rem] leading-5 text-foreground/62">{credibility.expert.credentials}</p>
             </div>
@@ -43,7 +43,7 @@ export function PageGuideRail({ items, credibilityPath, className = "", navigati
       ) : null}
 
       <nav aria-label="Page sections" className="border-b border-[#d9d1c5] py-6">
-        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#8d7453]">{navigationLabel}</p>
+        <p className="text-sm font-semibold text-[#8d7453]">{navigationLabel}</p>
         <ol className="mt-4 space-y-2.5">
           {items.map((item, index) => (
             <li key={item.href}>

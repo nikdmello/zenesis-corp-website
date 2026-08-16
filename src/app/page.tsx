@@ -170,7 +170,7 @@ export default function Home() {
             <div className="bottom-3 mx-auto w-full md:absolute md:bottom-3 md:left-1/2 md:w-[min(100%-6rem,68rem)] md:-translate-x-1/2 xl:w-[min(100%-10rem,72rem)]">
               <div className="mx-auto w-full max-w-[48rem] px-0 py-4 sm:px-2 md:max-w-none md:px-0 md:py-0">
                 <h1 className="hero-reveal hero-reveal-1 relative left-1/2 w-screen -translate-x-1/2 px-5 text-center text-[1.45rem] font-medium leading-[1.1] tracking-[0] text-white min-[380px]:text-[1.7rem] sm:text-[2.35rem] sm:leading-[1.04] md:px-12 md:text-[2.8rem] lg:text-[3.05rem] xl:whitespace-nowrap xl:text-[2.15rem] min-[1900px]:text-[3rem] min-[2200px]:text-[3.6rem]">
-                  <span className="block whitespace-nowrap xl:inline">Over <span className="relative inline-block">20 years<span aria-hidden="true" className="hero-subtitle-accent absolute inset-x-0 -bottom-0.5 h-[2px] scale-x-[-1]" /></span> of </span>
+                  <span className="block whitespace-nowrap xl:inline">Over <span className="relative inline-block">20 years<span aria-hidden="true" className="hero-subtitle-accent absolute inset-x-0 -bottom-1 h-1 scale-x-[-1]" /></span> of </span>
                   <span className="block xl:inline">
                     <span className="block whitespace-nowrap xl:inline">UAE and international </span>
                     <span className="block whitespace-nowrap xl:inline">business setup experience</span>
@@ -240,11 +240,8 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <div className="max-w-[50rem]">
-            <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-white/68">
-              Trusted by
-            </p>
-            <h2 className="section-title mt-3 w-full !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-white sm:!text-[1.9rem] md:!text-[2.05rem]">
-              Our clients
+            <h2 className="section-title w-full border-t border-[#b88d53]/55 pt-5 !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-white sm:!text-[1.9rem] md:!text-[2.05rem]">
+              Our premier clients
             </h2>
             <p className="mt-4 max-w-4xl text-[1.06rem] leading-8 text-white/84 md:text-[1.1rem]">
               Organizations and operators Zenesis supports across incorporation, compliance, residency, and ongoing business administration.

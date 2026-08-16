@@ -49,7 +49,7 @@ export function ServiceCredibilityPanel({
                 </div>
                 <div className="min-w-0">
                   <p
-                    className={`text-[0.7rem] font-semibold uppercase tracking-[0.2em] ${
+                    className={`text-sm font-medium ${
                       dark ? "text-[#d5be8b]" : "text-[#8d7453]"
                     }`}
                   >

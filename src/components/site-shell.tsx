@@ -327,7 +327,7 @@ export function SiteShell({
                                   </span>
                                 </a>
                               ) : (
-                                <p className="whitespace-nowrap text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-white/52">
+                                <p className="whitespace-nowrap text-sm font-medium text-white/62">
                                   {group.title}
                                 </p>
                               )}
@@ -430,7 +430,7 @@ export function SiteShell({
               </summary>
 
               <div className="absolute right-0 top-[calc(100%+0.75rem)] max-h-[calc(100dvh-5rem)] w-[19.75rem] overflow-y-auto rounded-lg border border-white/12 bg-[rgba(15,31,39,0.99)] p-4 shadow-[0_18px_44px_rgba(7,21,27,0.24)] backdrop-blur-xl">
-                <p className="eyebrow px-1 text-white/48">Menu</p>
+                <p className="px-1 text-sm font-medium text-white/58">Menu</p>
                 <div className="mt-3">
                   <SiteSearchForm compact className="w-full" />
                 </div>
@@ -531,7 +531,7 @@ export function SiteShell({
           </div>
 
           <div className="md:border-l md:border-r md:border-foreground/10 md:px-8">
-            <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+            <p className="text-sm font-semibold text-[#8d7453]">
               Navigation
             </p>
             <div className="mt-5 grid gap-5">
@@ -602,7 +602,7 @@ export function SiteShell({
           </div>
 
           <div>
-            <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
+            <p className="text-sm font-semibold text-[#8d7453]">
               Contact
             </p>
             <ConsultationFormButton
@@ -642,7 +642,7 @@ export function SiteShell({
 
                 return (
                   <div key={item.label} className="rounded-lg border border-[#d8d0c2] bg-white/72 px-4 py-3.5">
-                    <p className="text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-muted">
+                    <p className="text-sm font-medium text-muted">
                       {item.label}
                     </p>
                     {href ? (
@@ -669,7 +669,7 @@ export function SiteShell({
               })}
             </div>
             <div className="mt-4 rounded-lg border border-[#d8d0c2] bg-white/72 px-4 py-3.5">
-              <p className="text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-muted">
+              <p className="text-sm font-medium text-muted">
                 Social Media
               </p>
               <div className="mt-3 flex flex-wrap gap-3">
@@ -814,7 +814,6 @@ type PageIntroProps = {
 };
 
 export function PageIntro({
-  eyebrow,
   breadcrumb,
   title,
   description,
@@ -938,7 +937,7 @@ export function PageIntro({
           {breadcrumb ? (
             breadcrumbItems ? (
               <div
-                className={`relative z-20 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 pointer-events-auto text-[0.72rem] font-semibold uppercase tracking-[0.14em] ${
+                className={`relative z-20 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 pointer-events-auto text-sm font-medium ${
                   usesFullBackgroundImage ? "text-white/68" : "text-[#244ba8]"
                 }`}
               >
@@ -973,7 +972,7 @@ export function PageIntro({
               </div>
             ) : (
               <p
-                className={`text-[0.72rem] font-semibold uppercase tracking-[0.14em] ${
+                className={`text-sm font-medium ${
                   usesFullBackgroundImage ? "text-white/68" : "text-[#244ba8]"
                 }`}
               >
@@ -981,19 +980,8 @@ export function PageIntro({
               </p>
             )
           ) : null}
-          {eyebrow ? (
-            <p
-              className={`eyebrow ${
-                usesFullBackgroundImage
-                  ? "hero-reveal text-white/78"
-                  : "!text-[0.76rem] font-semibold uppercase !tracking-[0.22em] text-[#8d7453]"
-              } ${breadcrumb ? "mt-5" : ""}`}
-            >
-              {eyebrow}
-            </p>
-          ) : null}
           <h1
-            className={`${eyebrow ? "mt-6" : breadcrumb ? "mt-4" : "mt-0"} ${
+            className={`${breadcrumb ? "mt-4" : "mt-0"} ${
               usesFullBackgroundImage
                 ? "max-w-[20ch] text-[3.05rem] [text-wrap:balance] sm:max-w-[21ch] sm:text-[4.05rem] lg:max-w-[22ch] lg:text-[4.75rem]"
                 : "max-w-[22ch] text-[2.35rem] [text-wrap:balance] sm:max-w-[23ch] sm:text-[3.25rem] lg:max-w-[24ch] lg:text-[4.05rem]"
@@ -1100,7 +1088,7 @@ export function PageIntro({
                       {item.icon}
                     </span>
                     <div>
-                      <p className={`eyebrow ${usesFullBackgroundImage ? "text-white/66" : "text-muted"}`}>
+                      <p className={`text-sm font-medium ${usesFullBackgroundImage ? "text-white/66" : "text-muted"}`}>
                         {item.label}
                       </p>
                       <p
@@ -1129,7 +1117,7 @@ export function PageIntro({
 }
 
 type SectionHeadingProps = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description?: string;
   eyebrowClassName?: string;
@@ -1142,30 +1130,16 @@ type CardAccentProps = {
 };
 
 export function SectionHeading({
-  eyebrow,
   title,
   description,
-  eyebrowClassName,
   titleClassName,
   descriptionClassName,
 }: SectionHeadingProps) {
   return (
     <div className="max-w-[54rem]">
-      {eyebrow ? (
-        <p
-          className={[
-            "eyebrow !text-[0.76rem] font-semibold uppercase !tracking-[0.22em] text-[#8d7453]",
-            eyebrowClassName ?? "",
-          ]
-            .filter(Boolean)
-            .join(" ")}
-        >
-          {eyebrow}
-        </p>
-      ) : null}
       <h2
         className={[
-          `${eyebrow ? "mt-3" : ""} section-title w-full !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-foreground sm:!text-[1.9rem] md:!text-[2.05rem]`,
+          "section-title w-full border-t border-[#b88d53]/55 pt-5 !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-foreground sm:!text-[1.9rem] md:!text-[2.05rem]",
           titleClassName ?? "",
         ]
           .filter(Boolean)

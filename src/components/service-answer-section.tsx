@@ -28,10 +28,7 @@ export function ServiceAnswerSection({
     >
       <div className={`mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20 ${contentClassName}`}>
         <div>
-          <p className="text-[0.76rem] font-semibold uppercase tracking-[0.22em] text-[#8d7453]">
-            Common questions
-          </p>
-          <h2 className={`mt-3 ${articleSectionHeadingClassName}`}>{title}</h2>
+          <h2 className={articleSectionHeadingClassName}>{title}</h2>
           <p className="mt-4 text-[1.06rem] leading-8 text-[#07151b]/76 md:text-[1.1rem]">
             {description}
           </p>
