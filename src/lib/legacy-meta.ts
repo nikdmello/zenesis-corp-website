@@ -114,9 +114,9 @@ export const legacyInsightMetaBySlug = {
       "Why company registration is only the first milestone, and how a business consultant helps you structure, scale, and stay compliant.",
   },
   "corporate-tax-mistakes-trigger-audits-uae": {
-    title: "8 Corporate Tax Mistakes That Trigger UAE Audits | Zenesis",
+    title: "UAE Corporate Tax Audit Guide 2026 | Zenesis",
     description:
-      "The most common corporate tax compliance mistakes that attract scrutiny from the Federal Tax Authority, and how businesses can reduce audit risk in the UAE.",
+      "How UAE corporate tax audits work, records the FTA can inspect, common risk areas, notice procedures, and practical steps to prepare.",
   },
   "why-first-time-entrepreneurs-are-choosing-uae": {
     title: "Why First-Time Entrepreneurs Are Choosing the UAE",

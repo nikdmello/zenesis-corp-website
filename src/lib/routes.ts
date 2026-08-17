@@ -22,11 +22,13 @@ export const coreIndexableRoutes = [
 ] as const satisfies ReadonlyArray<IndexableRoute>;
 
 export function getServiceIndexableRoutes(): IndexableRoute[] {
-  return Object.values(serviceDetailPages).map((service) => ({
-    path: `/${service.slug}`,
-    priority: service.topLevelService ? 0.9 : 0.8,
-    changeFrequency: "monthly",
-  }));
+  return Object.values(serviceDetailPages)
+    .filter((service) => !service.topLevelService)
+    .map((service) => ({
+      path: `/${service.slug}`,
+      priority: 0.8,
+      changeFrequency: "monthly",
+    }));
 }
 
 export function getInsightIndexableRoutes(): IndexableRoute[] {
