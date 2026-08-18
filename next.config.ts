@@ -12,7 +12,58 @@ const cacheableAssetFolders = [
   "services",
 ];
 
+const legacyZenesisAeHosts = ["zenesis.ae", "www.zenesis.ae"];
+const legacyZenesisAeRedirectMap = [
+  { source: "/", destination: "https://www.zenesiscorp.com/" },
+  { source: "/about-us", destination: "https://www.zenesiscorp.com/about" },
+  { source: "/contact-us", destination: "https://www.zenesiscorp.com/contact" },
+  {
+    source: "/ourservices/company-formation",
+    destination: "https://www.zenesiscorp.com/business-setup",
+  },
+  {
+    source: "/ourservices/accounting-services",
+    destination: "https://www.zenesiscorp.com/accounting-tax",
+  },
+  {
+    source: "/ourservices/corporate-services",
+    destination: "https://www.zenesiscorp.com/corporate-support",
+  },
+  { source: "/dmcc", destination: "https://www.zenesiscorp.com/free-zones" },
+  { source: "/dubai-freezone", destination: "https://www.zenesiscorp.com/free-zones" },
+  { source: "/panama", destination: "https://www.zenesiscorp.com/offshore" },
+  { source: "/virtual-office", destination: "https://www.zenesiscorp.com/corporate-support" },
+  {
+    source: "/financial-management-dashboards",
+    destination: "https://www.zenesiscorp.com/accounting-tax",
+  },
+  {
+    source: "/how-to-set-up-a-company-bank-account-in-the-uae",
+    destination: "https://www.zenesiscorp.com/open-a-bank-account-easily",
+  },
+  {
+    source: "/start-your-digital-nomad-journey-with-dubais-1-year-remote-work-visa",
+    destination: "https://www.zenesiscorp.com/visa-and-banking",
+  },
+  {
+    source: "/5-productivity-hacks-while-working-from-home",
+    destination: "https://www.zenesiscorp.com/insights",
+  },
+  { source: "/setup-guides", destination: "https://www.zenesiscorp.com/insights" },
+  { source: "/faqs", destination: "https://www.zenesiscorp.com/business-setup" },
+] as const;
+
+const legacyZenesisAeRedirects = legacyZenesisAeHosts.flatMap((host) =>
+  legacyZenesisAeRedirectMap.map(({ source, destination }) => ({
+    source: source === "/" ? source : `${source}/:path*`,
+    has: [{ type: "host" as const, value: host }],
+    destination,
+    permanent: true,
+  })),
+);
+
 const nextConfig: NextConfig = {
+  skipTrailingSlashRedirect: true,
   allowedDevOrigins: ["192.168.8.67", "192.168.8.69"],
   images: {
     qualities: [68, 75],
@@ -53,6 +104,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      ...legacyZenesisAeRedirects,
+      {
+        source: "/:path+/",
+        destination: "/:path+",
+        permanent: true,
+      },
       {
         source: "/home",
         destination: "/",
