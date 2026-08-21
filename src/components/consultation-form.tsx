@@ -4,6 +4,11 @@ import Image from "next/image";
 import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { createPortal } from "react-dom";
 import { type ConsultationLeadPayload } from "@/lib/consultation-lead";
+import {
+  getCurrentPagePath,
+  trackConversionEvent,
+} from "@/lib/conversion-analytics";
+import { getLeadAttribution } from "@/lib/lead-attribution";
 
 const whatsappNumber = "971589142200";
 const homepageConsultationPromptSeenKey = "zenesis-homepage-consultation-prompt-seen";
@@ -212,6 +217,11 @@ function buildWhatsAppConsultationMessage(payload: ConsultationLeadPayload) {
 }
 
 function openWhatsAppConsultation(payload: ConsultationLeadPayload) {
+  trackConversionEvent("contact_whatsapp_click", {
+    link_label: "Continue on WhatsApp after consultation form",
+    link_url: `https://wa.me/${whatsappNumber}`,
+    page_path: getCurrentPagePath(),
+  });
   window.open(
     `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
       buildWhatsAppConsultationMessage(payload),
@@ -616,7 +626,17 @@ export function ConsultationFormButton({
 
   return (
     <>
-      <button type="button" className={className} onClick={() => setIsOpen(true)}>
+      <button
+        type="button"
+        className={className}
+        onClick={() => {
+          trackConversionEvent("consultation_cta_click", {
+            cta_label: label,
+            page_path: getCurrentPagePath(),
+          });
+          setIsOpen(true);
+        }}
+      >
         <span className="inline-flex items-center gap-2">
           {leadingIcon}
           <span>{label}</span>
@@ -627,6 +647,7 @@ export function ConsultationFormButton({
         isOpen={isOpen}
         onOpenChange={setIsOpen}
         presetEnquiry={presetEnquiry}
+        trigger="cta"
       />
     </>
   );
@@ -675,6 +696,10 @@ export function ConsultationFormButtonWithScrollPrompt({
         type="button"
         className={className}
         onClick={() => {
+          trackConversionEvent("consultation_cta_click", {
+            cta_label: label,
+            page_path: getCurrentPagePath(),
+          });
           markHomepageConsultationPromptSeen();
           hasTriggeredRef.current = true;
           setIsOpen(true);
@@ -695,6 +720,7 @@ export function ConsultationFormButtonWithScrollPrompt({
           setIsOpen(nextIsOpen);
         }}
         presetEnquiry={presetEnquiry}
+        trigger="scroll-or-cta"
       />
     </>
   );
@@ -742,6 +768,7 @@ export function ConsultationInlinePanel({
   const [submitError, setSubmitError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStartedAt] = useState(() => String(Date.now()));
+  const hasTrackedFormStart = useRef(false);
   const [submittedPayload, setSubmittedPayload] = useState<ConsultationLeadPayload | null>(null);
   const selectedCountryValue =
     countryCodes.find((item) => item.label === selectedCountryLabel)?.value ??
@@ -773,12 +800,17 @@ export function ConsultationInlinePanel({
         .filter(Boolean)
         .join("\n\n"),
       source: "inline-panel",
-      pagePath: window.location.pathname,
+      pagePath: getCurrentPagePath(),
       pageTitle: document.title,
+      attribution: getLeadAttribution(),
     };
 
     setIsSubmitting(true);
     setSubmitError("");
+    trackConversionEvent("consultation_form_submit", {
+      form_type: "inline-panel",
+      page_path: payload.pagePath,
+    });
 
     try {
       await submitConsultationLead({
@@ -788,7 +820,15 @@ export function ConsultationInlinePanel({
         website: String(form.get("website") ?? ""),
       });
       setSubmittedPayload(payload);
+      trackConversionEvent("consultation_form_success", {
+        form_type: "inline-panel",
+        page_path: payload.pagePath,
+      });
     } catch {
+      trackConversionEvent("consultation_form_error", {
+        form_type: "inline-panel",
+        page_path: payload.pagePath,
+      });
       setSubmitError(
         "We could not submit the enquiry. Please try again or continue on WhatsApp.",
       );
@@ -800,6 +840,17 @@ export function ConsultationInlinePanel({
   return (
     <form
       onSubmit={onSubmit}
+      onFocusCapture={() => {
+        if (hasTrackedFormStart.current) {
+          return;
+        }
+
+        hasTrackedFormStart.current = true;
+        trackConversionEvent("consultation_form_start", {
+          form_type: "inline-panel",
+          page_path: getCurrentPagePath(),
+        });
+      }}
       className="overflow-hidden rounded-lg border border-foreground/10 bg-[#fffdfa] shadow-[0_12px_34px_rgba(17,35,42,0.07)]"
     >
       <div className="relative overflow-hidden bg-[#11232a] p-6 text-white md:p-8">
@@ -1005,12 +1056,14 @@ type ConsultationModalProps = {
   isOpen: boolean;
   onOpenChange: (isOpen: boolean) => void;
   presetEnquiry?: string;
+  trigger?: string;
 };
 
 export function ConsultationModal({
   isOpen,
   onOpenChange,
   presetEnquiry,
+  trigger = "unspecified",
 }: ConsultationModalProps) {
   const nameId = useId();
   const countryCodeId = useId();
@@ -1027,6 +1080,7 @@ export function ConsultationModal({
   const [submitError, setSubmitError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStartedAt] = useState(() => String(Date.now()));
+  const hasTrackedFormStart = useRef(false);
   const [submittedPayload, setSubmittedPayload] = useState<ConsultationLeadPayload | null>(null);
   const selectedCountryValue =
     countryCodes.find((item) => item.label === selectedCountryLabel)?.value ??
@@ -1050,12 +1104,16 @@ export function ConsultationModal({
 
     document.addEventListener("keydown", onKeyDown);
     document.body.style.overflow = "hidden";
+    trackConversionEvent("consultation_modal_open", {
+      trigger,
+      page_path: getCurrentPagePath(),
+    });
 
     return () => {
       document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = "";
     };
-  }, [isOpen, onOpenChange]);
+  }, [isOpen, onOpenChange, trigger]);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -1078,12 +1136,17 @@ export function ConsultationModal({
         .filter(Boolean)
         .join("\n\n"),
       source: "modal",
-      pagePath: window.location.pathname,
+      pagePath: getCurrentPagePath(),
       pageTitle: document.title,
+      attribution: getLeadAttribution(),
     };
 
     setIsSubmitting(true);
     setSubmitError("");
+    trackConversionEvent("consultation_form_submit", {
+      form_type: "modal",
+      page_path: payload.pagePath,
+    });
 
     try {
       await submitConsultationLead({
@@ -1093,7 +1156,15 @@ export function ConsultationModal({
         website: String(form.get("website") ?? ""),
       });
       setSubmittedPayload(payload);
+      trackConversionEvent("consultation_form_success", {
+        form_type: "modal",
+        page_path: payload.pagePath,
+      });
     } catch {
+      trackConversionEvent("consultation_form_error", {
+        form_type: "modal",
+        page_path: payload.pagePath,
+      });
       setSubmitError(
         "We could not submit the enquiry. Please try again or continue on WhatsApp.",
       );
@@ -1130,6 +1201,17 @@ export function ConsultationModal({
     >
       <form
         onSubmit={onSubmit}
+        onFocusCapture={() => {
+          if (hasTrackedFormStart.current) {
+            return;
+          }
+
+          hasTrackedFormStart.current = true;
+          trackConversionEvent("consultation_form_start", {
+            form_type: "modal",
+            page_path: getCurrentPagePath(),
+          });
+        }}
         className="consultation-panel flex min-h-0 max-h-[calc(100dvh-1rem)] w-full max-w-4xl flex-col overflow-hidden rounded-[0.75rem] border border-[#ead5aa]/55 bg-[#fffdfa] shadow-[0_36px_120px_rgba(0,0,0,0.38),0_0_0_1px_rgba(255,255,255,0.08)] md:max-h-[calc(100dvh-2rem)] md:max-w-[42rem]"
       >
         <div className="relative shrink-0 overflow-hidden border-b border-white/10 bg-[#11232a] px-5 pb-4 pt-4 text-white md:px-6 md:pb-5 md:pt-5">

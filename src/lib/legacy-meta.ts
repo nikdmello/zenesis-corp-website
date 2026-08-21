@@ -55,6 +55,11 @@ export const legacyServiceMeta = {
     description:
       "Plan mainland company formation in Dubai with guidance on activity selection, legal structure, office needs, visas, banking, approvals, cost drivers, and renewals.",
   },
+  "general-trading-license-dubai": {
+    title: "General Trading License Dubai | Setup & Activity Guidance",
+    description:
+      "Plan a general trading license in Dubai or the UAE with guidance on activity scope, mainland and free zone options, approvals, documents, customs, banking, and tax readiness.",
+  },
   "free-zones": {
     title: "Free Zone Company Formation Dubai | Costs, Visas & Banking",
     description:

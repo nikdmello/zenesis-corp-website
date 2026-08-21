@@ -75,6 +75,11 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     subpageLinks: [
       {
+        label: "General trading licence",
+        href: "/general-trading-license-dubai",
+        description: "Plan a broader trading activity scope, approvals, customs readiness, banking, and tax follow-through.",
+      },
+      {
         label: "Mainland vs free zone",
         href: "/mainland-vs-free-zone-dubai",
         description: "Compare market access, visas, office needs, banking, and cost before choosing a route.",
@@ -183,6 +188,147 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       ...toMetadata(legacyServiceMeta.mainland, "/mainland"),
     },
   },
+  "general-trading-license-dubai": {
+    slug: "general-trading-license-dubai",
+    currentPath: "/business-setup",
+    title: "General trading licence in Dubai",
+    eyebrow: "Commercial licensing",
+    description:
+      "Plan the right activity scope, jurisdiction, approvals, documents, customs position, banking, and compliance path for a UAE general trading company.",
+    backgroundImageSrc: versionedAssetPath("/services/general-trading-license-dubai.webp"),
+    backgroundImageAlt: "Founders reviewing a general trading licence plan with a Dubai business consultant",
+    introBackgroundImageSrc: versionedAssetPath("/services/general-trading-license-dubai.webp"),
+    introBackgroundImageAlt: "General trading licence consultation in Dubai",
+    introBackgroundImageMode: "ambient",
+    introBackgroundImagePosition: "!object-[68%_center]",
+    introAmbientImageClassName: "!w-[82%] md:!w-[70%] lg:!w-[72%] xl:!w-[74%]",
+    overviewImageSrc: versionedAssetPath("/services/general-trading-license-dubai.webp"),
+    overviewImageAlt: "General trading company activity and document planning",
+    overviewImagePosition: "object-[68%_center]",
+    introTitle: "Overview",
+    introParagraphs: [
+      "A general trading licence can suit a business that plans to trade across several product categories rather than operate under one narrow commercial activity. The exact permitted scope still depends on the authority, jurisdiction, and activities approved on the licence.",
+      "It is not blanket permission to trade every product. Regulated, restricted, or specialist goods can require separate activity wording, external approvals, registrations, facilities, or import and export steps.",
+      "Zenesis helps founders compare mainland and free zone routes, define the intended products and markets, prepare the application, and plan the operational work that follows licensing.",
+    ],
+    subpageLinks: [
+      {
+        label: "Mainland setup",
+        href: "/mainland",
+        description: "Review the route for direct UAE market access, office planning, visas, and local operations.",
+      },
+      {
+        label: "Free zone setup",
+        href: "/free-zones",
+        description: "Compare trading-focused free zones by activity, facilities, visas, renewal cost, and market access.",
+      },
+      {
+        label: "Business setup cost",
+        href: "/business-setup-cost-dubai",
+        description: "Understand the cost drivers that sit behind licence, office, visa, approval, and support fees.",
+      },
+    ],
+    knowledgeSections: [
+      {
+        title: "Decisions to make before applying",
+        intro:
+          "The application should start with a clear trading model. A broad licence name does not replace accurate activity and product planning.",
+        items: [
+          "List the products or product categories the company expects to buy, sell, import, export, or distribute",
+          "Identify where suppliers, customers, warehouses, and delivery activity will be located",
+          "Confirm whether any goods need regulator approval, specialist storage, product registration, or restricted-goods clearance",
+          "Set the ownership, manager, visa, office, and expected transaction profile before choosing a package",
+        ],
+      },
+      {
+        title: "Mainland or free zone",
+        intro:
+          "Both routes can support trading businesses, but they do not create the same operating position.",
+        items: [
+          "Mainland can be a stronger fit when the company needs direct UAE market access, local premises, or broad domestic client and supplier activity",
+          "A free zone can suit international trade, re-export, logistics, or businesses built around a specific zone ecosystem and facility package",
+          "The right comparison includes permitted activity wording, mainland access, warehouse or office needs, visas, renewal costs, and banking practicality",
+          "The cheapest licence can become expensive if it does not match where goods move or where customers are served",
+        ],
+      },
+      {
+        title: "Application and approval sequence",
+        intro:
+          "Official UAE guidance places activity selection, legal form, trade name, initial approval, constitutional documents, premises, and any additional approvals before final licence issuance.",
+        items: [
+          "Confirm activities and legal form, then reserve an acceptable trade name",
+          "Prepare shareholder, manager, beneficial-owner, and business-model information for the relevant authority",
+          "Complete initial approval, constitutional documents, premises requirements, and any regulator clearances",
+          "Submit the complete file, pay the confirmed government fees, and review the issued licence before operational use",
+        ],
+      },
+      {
+        title: "What comes after the licence",
+        intro:
+          "A trading company still needs an operating file that makes sense to customs, banks, tax authorities, suppliers, and customers.",
+        items: [
+          "Complete customs or import-export registration where the business model requires it",
+          "Prepare supplier, customer, source-of-funds, expected-turnover, and transaction-flow evidence for banking",
+          "Assess VAT and corporate tax registration, invoicing, bookkeeping, inventory, and record-keeping obligations",
+          "Track licence, establishment, visa, premises, approval, and product-registration renewals rather than treating incorporation as the finish line",
+        ],
+      },
+    ],
+    directAnswers: [
+      {
+        question: "What is a general trading licence in Dubai?",
+        answer:
+          "It is a commercial licence used for a business that intends to trade across multiple approved product categories. The authority decides the final activity wording and permitted scope, so the proposed products should be reviewed before filing.",
+      },
+      {
+        question: "Can a general trading licence cover every product?",
+        answer:
+          "No. Regulated, restricted, or specialist goods can need separate activities, external approvals, registrations, facilities, or permits. The issued licence and applicable regulator rules control what the company may trade.",
+      },
+      {
+        question: "Is mainland or free zone better for general trading?",
+        answer:
+          "It depends on where the goods move, where customers are located, whether local premises or warehousing are needed, and how the company will import, export, distribute, bank, and hire. Those operating facts should decide the jurisdiction.",
+      },
+      {
+        question: "How much does a general trading licence cost?",
+        answer:
+          "There is no reliable one-price answer. Jurisdiction, activities, legal form, premises, visas, customs needs, external approvals, government fees, and selected support all affect the first-year and renewal cost.",
+      },
+      {
+        question: "Does the licence guarantee customs registration or a bank account?",
+        answer:
+          "No. Customs and banking have their own requirements and approvals. Zenesis can help prepare the company and supporting file, while the relevant authority or bank makes the final decision.",
+      },
+    ],
+    relatedInsightSlugs: [
+      "business-setup-mistakes-dubai",
+      "just-registered-uae-company-what-comes-next",
+      "why-first-time-entrepreneurs-are-choosing-uae",
+    ],
+    pointsTitle: "What we handle",
+    points: [
+      "Review the intended products, markets, suppliers, customers, and transaction model before activity selection",
+      "Compare mainland and relevant free zone routes against the real operating plan",
+      "Prepare trade name, shareholder, manager, beneficial-owner, and application documents",
+      "Coordinate licensing steps and identify where additional authority approvals may apply",
+      "Plan premises, visas, customs readiness, banking documents, VAT, corporate tax, bookkeeping, and renewals",
+      "Keep the setup scope clear so the company is built for what it actually needs to trade",
+    ],
+    supportTitle: "Talk to Zenesis",
+    supportParagraphs: [
+      "Tell us what you plan to trade, where suppliers and customers are based, whether goods will enter the UAE, and how many visas or premises you expect to need.",
+      "Zenesis can then narrow the licence scope and jurisdiction before you commit to a package that may not fit the business.",
+    ],
+    backHref: "/business-setup",
+    backLabel: "Back to Business Setup",
+    metadata: {
+      ...toMetadata(
+        legacyServiceMeta["general-trading-license-dubai"],
+        "/general-trading-license-dubai",
+      ),
+    },
+  },
   "free-zones": {
     slug: "free-zones",
     currentPath: "/business-setup",
@@ -207,6 +353,11 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "Zenesis helps you compare the zones that actually fit your business instead of choosing based on price alone. The right zone also affects visas, office requirements, banking documents, and how practical the business will be after setup.",
     ],
     subpageLinks: [
+      {
+        label: "General trading licence",
+        href: "/general-trading-license-dubai",
+        description: "Check whether a trading licence, zone package, facilities, and market-access model fit the business.",
+      },
       {
         label: "Mainland vs free zone",
         href: "/mainland-vs-free-zone-dubai",

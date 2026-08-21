@@ -40,6 +40,26 @@ function isMeaningfulString(value: unknown, maxLength: number) {
   return typeof value === "string" && value.trim().length > 0 && value.length <= maxLength;
 }
 
+function isOptionalString(value: unknown, maxLength: number) {
+  return value === undefined || (typeof value === "string" && value.length <= maxLength);
+}
+
+function hasValidAttribution(payload: ConsultationLeadRequest) {
+  const attribution = payload.attribution;
+
+  return Boolean(
+    attribution &&
+      isMeaningfulString(attribution.landingPage, 1000) &&
+      isMeaningfulString(attribution.referrer, 2000) &&
+      isOptionalString(attribution.utmSource, 300) &&
+      isOptionalString(attribution.utmMedium, 300) &&
+      isOptionalString(attribution.utmCampaign, 500) &&
+      isOptionalString(attribution.utmTerm, 500) &&
+      isOptionalString(attribution.utmContent, 500) &&
+      isOptionalString(attribution.gclid, 500),
+  );
+}
+
 function isLikelyAutomated(payload: ConsultationLeadRequest) {
   const startedAt = Number(payload.startedAt);
   const elapsedMs = Number.isFinite(startedAt) ? Date.now() - startedAt : 0;
@@ -171,6 +191,25 @@ async function submitLeadToZoho(
     aG9uZXlwb3Q: "",
   });
 
+  const optionalAttributionFields = [
+    [process.env.ZOHO_WEBFORM_LANDING_PAGE_FIELD, payload.attribution.landingPage],
+    [process.env.ZOHO_WEBFORM_REFERRER_FIELD, payload.attribution.referrer],
+    [process.env.ZOHO_WEBFORM_UTM_SOURCE_FIELD, payload.attribution.utmSource],
+    [process.env.ZOHO_WEBFORM_UTM_MEDIUM_FIELD, payload.attribution.utmMedium],
+    [process.env.ZOHO_WEBFORM_UTM_CAMPAIGN_FIELD, payload.attribution.utmCampaign],
+    [process.env.ZOHO_WEBFORM_UTM_TERM_FIELD, payload.attribution.utmTerm],
+    [process.env.ZOHO_WEBFORM_UTM_CONTENT_FIELD, payload.attribution.utmContent],
+    [process.env.ZOHO_WEBFORM_GCLID_FIELD, payload.attribution.gclid],
+  ] as const;
+
+  for (const [fieldName, value] of optionalAttributionFields) {
+    const resolvedFieldName = fieldName?.trim();
+
+    if (resolvedFieldName && value) {
+      form.set(resolvedFieldName, value);
+    }
+  }
+
   if (zcGad) {
     form.set("zc_gad", zcGad);
   }
@@ -216,7 +255,11 @@ export async function POST(request: NextRequest) {
     !isMeaningfulString(payload.mobile, 40) ||
     !isMeaningfulString(payload.email, 160) ||
     typeof payload.enquiry !== "string" ||
-    payload.enquiry.length > 4000
+    payload.enquiry.length > 4000 ||
+    !isMeaningfulString(payload.pagePath, 1000) ||
+    !isMeaningfulString(payload.pageTitle, 500) ||
+    !["inline-panel", "modal"].includes(payload.source) ||
+    !hasValidAttribution(payload)
   ) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }

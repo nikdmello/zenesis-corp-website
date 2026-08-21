@@ -66,7 +66,7 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
   allowedDevOrigins: ["192.168.8.67", "192.168.8.69"],
   images: {
-    qualities: [68, 75],
+    qualities: [68, 75, 76],
     remotePatterns: [
       {
         protocol: "https",

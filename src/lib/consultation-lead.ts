@@ -1,3 +1,14 @@
+export type ConsultationLeadAttribution = {
+  landingPage: string;
+  referrer: string;
+  utmSource: string;
+  utmMedium: string;
+  utmCampaign: string;
+  utmTerm: string;
+  utmContent: string;
+  gclid: string;
+};
+
 export type ConsultationLeadPayload = {
   name: string;
   countryCode: string;
@@ -7,6 +18,7 @@ export type ConsultationLeadPayload = {
   source: "inline-panel" | "modal";
   pagePath: string;
   pageTitle: string;
+  attribution: ConsultationLeadAttribution;
 };
 
 export function splitLeadName(name: string) {
@@ -41,6 +53,14 @@ export function buildConsultationDescription(payload: ConsultationLeadPayload) {
     `Source: ${payload.source}`,
     `Page: ${payload.pagePath}`,
     `Page title: ${payload.pageTitle}`,
+    `Landing page: ${payload.attribution.landingPage}`,
+    `Referrer: ${payload.attribution.referrer}`,
+    `UTM source: ${payload.attribution.utmSource || "Not provided"}`,
+    `UTM medium: ${payload.attribution.utmMedium || "Not provided"}`,
+    `UTM campaign: ${payload.attribution.utmCampaign || "Not provided"}`,
+    `UTM term: ${payload.attribution.utmTerm || "Not provided"}`,
+    `UTM content: ${payload.attribution.utmContent || "Not provided"}`,
+    `Google click ID: ${payload.attribution.gclid || "Not provided"}`,
     `Mobile: ${payload.countryCode} ${payload.mobile}`,
     `Email: ${payload.email}`,
   ];

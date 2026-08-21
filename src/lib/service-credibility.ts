@@ -68,6 +68,11 @@ const sources = {
     publisher: "Government of Dubai Media Office",
     href: "https://www.mediaoffice.ae/en/news/2025/october/08-10/dubai-launches-free-zone-mainland-operating-permit",
   },
+  dubaiBusinessLicensing: {
+    title: "Business licensing in Dubai",
+    publisher: "Dubai Department of Economy and Tourism",
+    href: "https://www.dubaidet.gov.ae/en/licences-and-permits/business-licensing",
+  },
   offshoreRegistry: {
     title: "RAK ICC regulations and policies",
     publisher: "RAK International Corporate Centre",
@@ -210,6 +215,12 @@ export function getServiceCredibility(path: string): ServiceCredibility | undefi
       verificationLabel: checkedLabel,
       note: setupNote,
       sources: [sources.mainlandSetup],
+    },
+    "/general-trading-license-dubai": {
+      expert: experts.cecilia,
+      verificationLabel: "Sources checked August 21, 2026",
+      note: "A general trading licence is not blanket permission to trade every product. Activity wording, regulated goods, external approvals, customs requirements, office needs, and government fees must be confirmed for the proposed business before filing.",
+      sources: [sources.mainlandSetup, sources.dubaiBusinessLicensing],
     },
     "/free-zones": {
       expert: experts.cecilia,

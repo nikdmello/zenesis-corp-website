@@ -2,6 +2,10 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  getCurrentPagePath,
+  trackConversionEvent,
+} from "@/lib/conversion-analytics";
 
 const consultationPromptSeenKey = "zenesis-consultation-prompt-seen";
 
@@ -65,7 +69,13 @@ export function ConsultationFormButton({
       <button
         type="button"
         className={`!rounded-[0.7rem] ${className ?? ""}`}
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          trackConversionEvent("consultation_cta_click", {
+            cta_label: label,
+            page_path: getCurrentPagePath(),
+          });
+          setIsOpen(true);
+        }}
       >
         <span className="inline-flex items-center gap-2">
           {leadingIcon}
@@ -78,6 +88,7 @@ export function ConsultationFormButton({
           isOpen={isOpen}
           onOpenChange={setIsOpen}
           presetEnquiry={resolvedPresetEnquiry}
+          trigger="cta"
         />
       ) : null}
     </>
@@ -125,6 +136,10 @@ export function ConsultationFormButtonWithScrollPrompt({
         type="button"
         className={`!rounded-[0.7rem] ${className ?? ""}`}
         onClick={() => {
+          trackConversionEvent("consultation_cta_click", {
+            cta_label: label,
+            page_path: getCurrentPagePath(),
+          });
           markConsultationPromptSeen();
           hasTriggeredRef.current = true;
           setIsOpen(true);
@@ -146,6 +161,7 @@ export function ConsultationFormButtonWithScrollPrompt({
             setIsOpen(nextIsOpen);
           }}
           presetEnquiry={presetEnquiry}
+          trigger="scroll-or-cta"
         />
       ) : null}
     </>
@@ -199,6 +215,7 @@ export function ConsultationSessionPrompt() {
         }
         setIsOpen(nextIsOpen);
       }}
+      trigger="session-prompt"
     />
   ) : null;
 }

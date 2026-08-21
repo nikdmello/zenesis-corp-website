@@ -14,6 +14,10 @@ export const navigation = [
           { label: "Free zone setup", href: "/free-zones" },
           { label: "Offshore setup", href: "/offshore" },
           {
+            label: "General trading licence",
+            href: "/general-trading-license-dubai",
+          },
+          {
             label: "Compare setup routes",
             href: "/business-setup#planning-tools",
           },

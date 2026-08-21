@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { JsonLd } from "@/components/json-ld";
+import { InteractionAnalytics } from "@/components/interaction-analytics";
 import { buildPageMetadata, getOrganizationSchemas, siteUrl } from "@/lib/seo";
 import { legacyRouteMeta } from "@/lib/legacy-meta";
 import "./globals.css";
@@ -52,6 +53,7 @@ export default function RootLayout({
         {organizationSchemas.map((schema, index) => (
           <JsonLd key={index} data={schema} />
         ))}
+        <InteractionAnalytics />
         {children}
         {isVercelDeployment ? (
           <>

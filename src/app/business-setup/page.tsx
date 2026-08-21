@@ -321,6 +321,12 @@ const formationDocuments = [
 
 const decisionResources = [
   {
+    label: "General trading licence",
+    href: "/general-trading-license-dubai",
+    description:
+      "Plan the activity scope, jurisdiction, approvals, customs position, banking, and post-licence requirements for a trading company.",
+  },
+  {
     label: "Business setup pricing",
     href: "/business-setup-cost-dubai",
     description:
@@ -595,7 +601,7 @@ export default function BusinessSetupPage() {
             description="Use these pages when you are deciding whether to prioritize cost, mainland access, free zone flexibility, visas, or banking readiness."
           />
           <div className="mt-7">
-            <ServiceSubpageLinks items={decisionResources} columnsClassName="md:grid-cols-3" />
+            <ServiceSubpageLinks items={decisionResources} columnsClassName="md:grid-cols-2 xl:grid-cols-4" />
           </div>
         </div>
       </section>
