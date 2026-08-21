@@ -101,6 +101,23 @@ a {
   transform: translateY(0);
 }
 
+.site-reveal-target {
+  transition:
+    opacity 720ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 720ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.site-reveal-pending {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+.site-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .section-title {
   font-size: clamp(2.15rem, 3vw, 3.45rem);
   line-height: 0.95;
@@ -437,6 +454,68 @@ a {
   }
 }
 
+.balanced-editorial-grid > *:last-child {
+  border-bottom-width: 0;
+}
+
+@media (min-width: 48rem) {
+  .balanced-editorial-grid-2 > *:nth-child(odd),
+  .balanced-editorial-grid-3 > *:nth-child(odd),
+  .balanced-editorial-grid-4 > *:nth-child(odd) {
+    padding-right: 2rem;
+    border-right-width: 1px;
+  }
+
+  .balanced-editorial-grid-2 > *:nth-child(even),
+  .balanced-editorial-grid-3 > *:nth-child(even),
+  .balanced-editorial-grid-4 > *:nth-child(even) {
+    padding-left: 2rem;
+  }
+
+  .balanced-editorial-grid-2 > *:nth-last-child(-n + 2),
+  .balanced-editorial-grid-3 > *:nth-last-child(-n + 2),
+  .balanced-editorial-grid-4 > *:nth-last-child(-n + 2) {
+    border-bottom-width: 0;
+  }
+}
+
+@media (min-width: 80rem) {
+  .balanced-editorial-grid-3 > * {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    border-right-width: 1px;
+  }
+
+  .balanced-editorial-grid-3 > *:nth-child(3n + 1) {
+    padding-left: 0;
+  }
+
+  .balanced-editorial-grid-3 > *:nth-child(3n) {
+    padding-right: 0;
+    border-right-width: 0;
+  }
+
+  .balanced-editorial-grid-3 > *:nth-last-child(-n + 3) {
+    border-bottom-width: 0;
+  }
+
+  .balanced-editorial-grid-4 > * {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    border-right-width: 1px;
+    border-bottom-width: 0;
+  }
+
+  .balanced-editorial-grid-4 > *:first-child {
+    padding-left: 0;
+  }
+
+  .balanced-editorial-grid-4 > *:last-child {
+    padding-right: 0;
+    border-right-width: 0;
+  }
+}
+
 @media (max-width: 767px) {
   .tech-hero-grid {
     opacity: 0.34;
@@ -516,5 +595,117 @@ a {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .site-reveal-target,
+  .site-reveal-pending,
+  .site-reveal-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+@keyframes premier-clients-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.premier-clients-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-block: 1px solid rgb(184 141 83 / 38%);
+  background: #fff;
+  box-shadow: 0 18px 55px rgb(0 0 0 / 16%);
+}
+
+.premier-clients-carousel::before,
+.premier-clients-carousel::after {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: clamp(2rem, 7vw, 7rem);
+  content: "";
+  pointer-events: none;
+}
+
+.premier-clients-carousel::before {
+  left: 0;
+  background: linear-gradient(90deg, #fff 10%, rgb(255 255 255 / 0%));
+}
+
+.premier-clients-carousel::after {
+  right: 0;
+  background: linear-gradient(270deg, #fff 10%, rgb(255 255 255 / 0%));
+}
+
+.premier-clients-track {
+  display: flex;
+  width: max-content;
+  animation: premier-clients-scroll 34s linear infinite;
+  will-change: transform;
+}
+
+.premier-clients-carousel:hover .premier-clients-track {
+  animation-play-state: paused;
+}
+
+.premier-client-logo {
+  display: flex;
+  width: clamp(13rem, 20vw, 19rem);
+  min-height: 10rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgb(17 35 42 / 12%);
+  padding: 1.75rem 2.25rem;
+}
+
+.premier-client-logo img {
+  filter: saturate(0.82);
+  opacity: 0.9;
+  transition: filter 240ms ease, opacity 240ms ease, transform 240ms ease;
+}
+
+.premier-client-logo:hover img {
+  filter: saturate(1);
+  opacity: 1;
+  transform: scale(1.035);
+}
+
+@media (max-width: 639px) {
+  .premier-client-logo {
+    width: 13rem;
+    min-height: 8.5rem;
+    padding: 1.4rem 1.75rem;
+  }
+
+  .premier-clients-track {
+    animation-duration: 28s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premier-clients-carousel {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .premier-clients-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .premier-clients-track {
+    animation: none;
+  }
+
+  .premier-clients-track .premier-client-logo:nth-child(n + 9) {
+    display: none;
   }
 }

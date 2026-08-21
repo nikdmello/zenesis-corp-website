@@ -918,11 +918,11 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     eyebrow: "Visa and Banking",
     description:
       "Support across Golden Visa, company visas, and business banking, with the right sequence for residency, documentation, and account opening.",
-    backgroundImageSrc: versionedAssetPath("/services/visa-and-banking.webp"),
-    backgroundImageAlt: "Business traveler receiving UAE visa and banking support",
-    introBackgroundImageSrc: versionedAssetPath("/services/visa-and-banking.webp"),
-    introBackgroundImageAlt: "Business traveler arriving in Dubai for visa and banking support",
-    introBackgroundImagePosition: "!object-[58%_16%]",
+    backgroundImageSrc: versionedAssetPath("/services/visa-banking-consultation.webp"),
+    backgroundImageAlt: "Visa and banking consultation in Dubai",
+    introBackgroundImageSrc: versionedAssetPath("/services/visa-banking-consultation.webp"),
+    introBackgroundImageAlt: "Business advisers discussing visa and banking requirements in Dubai",
+    introBackgroundImagePosition: "!object-[58%_top]",
     introTitle: "Overview",
     introParagraphs: [
       "Visa and banking needs usually begin as soon as the company structure is clear. Founders may need residency, teams may need company visas, and banks may need a stronger KYC pack before an account can move forward.",

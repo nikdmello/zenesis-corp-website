@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment, type ReactNode, useEffect, useState } from "react";
+import { Fragment, type ReactNode, useEffect, useRef, useState } from "react";
 import { CleanSectionLink } from "@/components/clean-section-link";
 import {
   ConsultationFormButton,
@@ -27,10 +27,63 @@ export function SiteShell({
 }: SiteShellProps) {
   const shellWidthClass = "max-w-[100rem]";
   const isHomepage = currentPath === "/";
+  const mainRef = useRef<HTMLElement>(null);
   const router = useRouter();
   const [hoveredNavHref, setHoveredNavHref] = useState<string | null>(null);
   const [openDesktopMenuHref, setOpenDesktopMenuHref] = useState<string | null>(null);
   const [hoveredServiceGroupTitle, setHoveredServiceGroupTitle] = useState<string | null>(null);
+
+  useEffect(() => {
+    const main = mainRef.current;
+    if (!main || !("IntersectionObserver" in window)) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const sections = Array.from(main.querySelectorAll("section")).filter(
+      (section) => !section.parentElement?.closest("section"),
+    );
+    const animatedTargets: HTMLElement[] = [];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const target = (entry.target as HTMLElement).dataset.revealTarget;
+          const content = target ? document.getElementById(target) : null;
+          content?.classList.remove("site-reveal-pending");
+          content?.classList.add("site-reveal-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -7% 0px", threshold: 0.06 },
+    );
+
+    sections.forEach((section, index) => {
+      if (section.querySelector(".scroll-reveal")) return;
+      const eligibleChildren = Array.from(section.children).filter(
+        (child): child is HTMLElement => child instanceof HTMLElement && !child.hasAttribute("aria-hidden"),
+      );
+      const content =
+        eligibleChildren.find((child) => child.classList.contains("mx-auto")) ??
+        eligibleChildren[0];
+      if (!content) return;
+
+      const sectionRect = section.getBoundingClientRect();
+      if (sectionRect.top <= window.innerHeight * 0.9) return;
+
+      const targetId = `site-reveal-${currentPath.replace(/[^a-z0-9]/gi, "-")}-${index}`;
+      content.id = content.id || targetId;
+      section.dataset.revealTarget = content.id;
+      content.classList.add("site-reveal-target", "site-reveal-pending");
+      animatedTargets.push(content);
+      observer.observe(section);
+    });
+
+    return () => {
+      observer.disconnect();
+      animatedTargets.forEach((target) => {
+        target.classList.remove("site-reveal-target", "site-reveal-pending", "site-reveal-visible");
+      });
+    };
+  }, [currentPath]);
 
   const scrollToServicesSection = () => {
     const servicesSection = document.getElementById("services");
@@ -505,6 +558,7 @@ export function SiteShell({
       </header>
 
       <main
+        ref={mainRef}
         className={`mx-auto flex w-full ${shellWidthClass} flex-1 flex-col px-6 pt-10 md:px-12 md:pt-14 xl:px-16`}
       >
         {children}
@@ -1136,21 +1190,24 @@ export function SectionHeading({
   descriptionClassName,
 }: SectionHeadingProps) {
   return (
-    <div className="max-w-[54rem]">
-      <h2
-        className={[
-          "section-title w-full border-t border-[#b88d53]/55 pt-5 !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-foreground sm:!text-[1.9rem] md:!text-[2.05rem]",
-          titleClassName ?? "",
-        ]
-          .filter(Boolean)
-          .join(" ")}
-      >
-        {title}
-      </h2>
+    <div className="max-w-[62rem]">
+      <div>
+        <div className="h-px w-16 bg-[#b88d53]/75" />
+        <h2
+          className={[
+            "section-title mt-5 w-full !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-foreground sm:!text-[1.9rem] md:!text-[2.05rem]",
+            titleClassName ?? "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        >
+          {title}
+        </h2>
+      </div>
       {description ? (
         <p
           className={[
-            "text-muted mt-4 max-w-[50rem] !text-[1.06rem] !leading-8 text-[#07151b]/76 md:!text-[1.1rem]",
+            "text-muted mt-5 max-w-[54rem] !text-[1.06rem] !leading-8 text-[#07151b]/76 md:!text-[1.1rem]",
             descriptionClassName ?? "",
           ]
             .filter(Boolean)

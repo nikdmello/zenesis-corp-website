@@ -229,7 +229,18 @@ export default function CorporateSupportPage() {
       <ServiceAnswerSection title="Direct answers" description="Clear answers before a corporate action is scoped with the relevant authority." items={directAnswers} contained />
 
       <section id="process" className="relative -mt-px w-full scroll-mt-28 bg-[#f5efe4] py-16 md:py-20">
-        <div className="w-full px-6 md:px-12 xl:px-16"><SectionHeading eyebrow="Working rhythm" title="Process" description="A case specific path from company record review through authority completion." /><div className="mt-10 grid gap-5 md:grid-cols-2">{process.map((item) => <article key={item.step} className="border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)]"><div className="text-sm font-semibold tracking-[0.12em] text-[#8d7453]">{item.step}</div><h3 className="mt-4 text-[1.18rem] font-semibold">{item.title}</h3><p className="mt-4 text-[1.06rem] leading-8 text-[#11232a]/82">{item.description}</p></article>)}</div></div>
+        <div className="w-full px-6 md:px-12 xl:px-16">
+          <SectionHeading eyebrow="Working rhythm" title="Process" description="A case specific path from company record review through authority completion." />
+          <div className="balanced-editorial-grid balanced-editorial-grid-4 mt-10 grid border-y-2 border-[#8d7453]/45 md:grid-cols-2 xl:grid-cols-4">
+            {process.map((item) => (
+              <article key={item.step} className="border-b border-[#d8d0c2] py-7">
+                <div className="text-sm font-semibold text-[#8d7453]">{item.step}</div>
+                <h3 className="mt-4 text-[1.18rem] font-semibold">{item.title}</h3>
+                <p className="mt-4 text-[1.02rem] leading-8 text-[#11232a]/74">{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
 
       <ServiceCredibilityPanel path="/corporate-support" variant="sources" contained />

@@ -290,121 +290,64 @@ export const partnerLogos = [
 
 export const testimonials = [
   {
-    name: "Mr Martin Bruce",
+    name: "Sabin Madhavan",
     quote:
-      "They were extremely helpful and efficient in setting up my company and getting my visa processed in time.",
-  },
-  {
-    name: "Mr Ramzi Ghurani",
-    quote:
-      "Zenesis gave our family a clear understanding of the process, timing, and costs involved and got everything ready in time.",
-  },
-  {
-    name: "Mr Premnath Kapoor",
-    quote:
-      "Their response to our queries was very quick and their services were prompt and efficient.",
-  },
-  {
-    name: "Mr Rajiv Shah",
-    quote:
-      "Their advice is impartial, informative and, most importantly, tailored to the client’s specific needs.",
-  },
-  {
-    name: "Mr Divakar Rao",
-    quote:
-      "Their professionalism and efficiency can be trusted, which also reflects in the cost-effective services they provide.",
-  },
-  {
-    name: "Hoshedar Cooper",
-    quote:
-      "A very reliable and efficient service provider for offshore company requirements in the United Arab Emirates.",
-  },
-  {
-    name: "Thanseer Alifca",
-    quote:
-      "It was so helpful to create a plan for new company formation in Dubai’s JLT Free Zone and map out the actions needed for the startup.",
-  },
-  {
-    name: "Simon Marriott",
-    quote:
-      "Their knowledge of requirements, procedures, and timescales was entirely accurate and they clearly had a strong working relationship with the Free Zone.",
-  },
-  {
-    name: "Rhea DSouza",
-    quote:
-      "The team at Zenesis are knowledgeable and reliable consultants to work with.",
+      "It has been a long journey with Team Zenesis. Thanks for helping build my business from bootstrap to a company with more than 120 employees.",
   },
   {
     name: "Ray Hogan",
     quote:
-      "Cecilia and the team really take the time to understand our clients' individual needs and deliver a first-class solution.",
+      "I have worked with Zenesis Corporation for over 10 years. They take the time to understand each client's needs and deliver a first-class solution.",
   },
   {
-    name: "Parag Paresh And Co",
+    name: "Mr Martin Bruce",
     quote:
-      "We are very happy with the consistently good services of the Zenesis team.",
+      "They were extremely helpful and efficient in setting up my company, processing my visa in time, and introducing me to bankers for the company account.",
   },
   {
-    name: "Veronica Odeja",
+    name: "Mr Divakar Rao",
     quote:
-      "The ideas, expertise, and skills they brought to our project gave our team immense knowledge and know-how.",
+      "Zenesis provided excellent service in forming BVI companies throughout our eight-year association. Their professionalism, efficiency, and cost-effective service can be trusted.",
   },
   {
     name: "Shams Dharamshi",
     quote:
-      "The Zenesis team is efficient and knowledgeable, reducing the hassle and burden on us.",
+      "The Zenesis team facilitated the issuance of visas, reducing the hassle and burden on us. I strongly recommend their company formation and visa processing services.",
   },
   {
-    name: "D Singh",
+    name: "Mr Premnath Kapoor",
     quote:
-      "The Zenesis team is accessible and responsive and always provides an effective solution for clients’ needs.",
+      "Zenesis helped us set up our free zone company and finalize our residency visas. Their responses were quick and their service was prompt and efficient.",
+  },
+  {
+    name: "Mr Ramzi Ghurani",
+    quote:
+      "Zenesis provided the right solution for our family's UAE property investment and asset protection needs, with clear guidance on the process, timing, and costs.",
   },
   {
     name: "Mohammed Muqthar",
     quote:
-      "They were transparent throughout my Dubai Free Zone company formation and offered a good quote too.",
-  },
-  {
-    name: "Gnanasundaram Thanaseelan",
-    quote: "Best and prompt service within a committed time frame.",
-  },
-  {
-    name: "Al Khayam Exhibition",
-    quote:
-      "Highly recommended for company formation services, with economical charges and very well-trained consultants.",
-  },
-  {
-    name: "Ajay Gupta",
-    quote: "Work ethics, proper guidance, and timely service.",
+      "I had an amazing experience with my Dubai free zone company formation. They were transparent in sharing everything and provided a good quote too.",
   },
   {
     name: "Nisha Vs",
     quote:
-      "Excellent consultants who have never disappointed us over the last three years.",
-  },
-  {
-    name: "Hasan Rangoonwalla",
-    quote:
-      "They have a good understanding of the client's requirements and are a good team to work with.",
-  },
-  {
-    name: "Karan Kapoor",
-    quote:
-      "Very efficient and been a pleasure to deal with. Would recommend them.",
+      "Excellent consultants who have never disappointed us over the last three years, and we look forward to many more years with Zenesis.",
   },
   {
     name: "Justina Gina",
     quote:
-      "It was a great transparent and efficient experience with Zenesis. Strong follow up. Exceptional service. Great team.",
+      "It was a transparent and efficient experience with Zenesis. Strong follow-up, exceptional service, and a great team.",
   },
   {
     name: "Abdul Gaffar",
-    quote: "Received timely assistance and genuine advisory.",
+    quote:
+      "I received timely assistance and genuine advice. The team is friendly, and I would recommend their business setup service to others.",
   },
   {
     name: "Fastline Khasab",
     quote:
-      "With quick responses, Team Zenesis have been consistent in their excellent satisfactory services.",
+      "With quick responses, Team Zenesis has been consistent in providing excellent service. I highly recommend them to anyone looking to start a business in Dubai.",
   },
 ] as const;
 

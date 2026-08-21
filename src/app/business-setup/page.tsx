@@ -121,7 +121,7 @@ const essentialServices = [
   {
     title: "Visa and Banking",
     href: "/visa-and-banking",
-    imageSrc: "/services/visa-and-banking.webp",
+    imageSrc: "/services/visa-banking-consultation.webp",
     imageAlt: "Residency and business banking consultation in Dubai",
     description:
       "Residency and banking support matters when founders, investors, and teams need visas or account opening tied to business setup.",
@@ -394,6 +394,7 @@ export default function BusinessSetupPage() {
         className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18"
       >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:gap-16">
           <article className="max-w-[54rem]">
             <h2 className="text-[1.75rem] font-semibold leading-[1.16] tracking-[-0.02em] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">
               Overview
@@ -416,21 +417,30 @@ export default function BusinessSetupPage() {
                 tax, and renewals connected after incorporation.
               </p>
             </div>
-            <div className="mt-9 border-t border-[#e4dbce] pt-8">
-              <h3 className="mb-5 text-base font-semibold text-[#11232a]">
-                Core services
-              </h3>
-              <ServiceSubpageLinks
-                items={setupRoutes.map((route) => ({
-                  label: route.title,
-                  href: route.href,
-                  description: route.bestFor,
-                }))}
-                columnsClassName="sm:grid-cols-2 lg:grid-cols-3"
-                variant="compact"
-              />
-            </div>
           </article>
+          <aside className="border-t-4 border-[#244ba8] bg-[#11232a] px-6 py-7 text-white md:px-8 md:py-9">
+            <h2 className="text-[1.45rem] font-semibold leading-tight text-white md:text-[1.7rem]">The setup route starts with five decisions</h2>
+            <ol className="mt-6 divide-y divide-white/14 border-y border-white/14">
+              {[
+                ["01", "Activity", "What the company will actually sell or deliver."],
+                ["02", "Market", "Whether clients are in the UAE, abroad, or both."],
+                ["03", "People", "Who needs ownership, residency, or employee visas."],
+                ["04", "Operations", "The office, banking, and approval position required."],
+                ["05", "First-year cost", "Setup fees plus the obligations that follow incorporation."],
+              ].map(([number, title, description]) => (
+                <li key={number} className="grid grid-cols-[2.5rem_6rem_1fr] gap-3 py-4">
+                  <span className="text-sm font-semibold text-[#ead5aa]">{number}</span>
+                  <strong className="text-[0.96rem] font-semibold text-white">{title}</strong>
+                  <span className="text-[0.9rem] leading-6 text-white/68">{description}</span>
+                </li>
+              ))}
+            </ol>
+            <Link href="/business-setup-cost-dubai" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#ead5aa] hover:text-white">
+              Compare starting prices <span aria-hidden="true">→</span>
+            </Link>
+          </aside>
+          </div>
+
         </div>
       </section>
 
@@ -442,16 +452,17 @@ export default function BusinessSetupPage() {
             description="The useful service is not only licence filing. Zenesis connects the route, documents, visas, banking, tax, and renewal position from the start."
           />
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {setupServiceCoverage.map((item) => (
+          <div className="balanced-editorial-grid balanced-editorial-grid-3 mt-10 grid border-y border-white/18 md:grid-cols-2 xl:grid-cols-3">
+            {setupServiceCoverage.map((item, index) => (
               <article
                 key={item.title}
-                className="rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.07)]"
+                className="border-b border-white/18 py-7 text-white"
               >
-                <h3 className="text-[1.18rem] font-semibold leading-tight text-foreground md:text-[1.24rem]">
+                <span className="text-sm font-semibold text-[#ead5aa]">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="mt-4 text-[1.18rem] font-semibold leading-tight text-white md:text-[1.24rem]">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-[1.12rem] leading-8 text-foreground/92">
+                <p className="mt-4 text-[1.04rem] leading-8 text-white/76">
                   {item.description}
                 </p>
               </article>
@@ -757,16 +768,16 @@ export default function BusinessSetupPage() {
             description="A practical sequence from the first consultation through licensing, banking, visas, and ongoing compliance support."
           />
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="balanced-editorial-grid balanced-editorial-grid-3 mt-10 grid border-y-2 border-[#8d7453]/45 md:grid-cols-2 xl:grid-cols-3">
             {processSteps.map((item) => (
-              <article key={item.step} className="rounded-lg border border-[#d8d0c2] bg-white p-8 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)] md:p-9">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#8d7453]/18 bg-[#8d7453]/10 text-[0.95rem] font-semibold tracking-[0.08em] text-[#8d7453]">
+              <article key={item.step} className="relative border-b border-[#cfc5b7] py-7">
+                <div className="inline-flex h-10 w-10 items-center justify-center border border-[#8d7453]/30 bg-white text-[0.86rem] font-semibold text-[#8d7453]">
                   {item.step}
                 </div>
-                <h3 className="mt-4 text-[1.24rem] font-semibold leading-tight text-foreground md:text-[1.3rem]">
+                <h3 className="mt-5 text-[1.24rem] font-semibold leading-tight text-foreground md:text-[1.3rem]">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-[1.12rem] leading-8 text-foreground/92">
+                <p className="mt-4 text-[1.04rem] leading-8 text-foreground/76">
                   {item.description}
                 </p>
               </article>

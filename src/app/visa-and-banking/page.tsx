@@ -5,7 +5,6 @@ import { PageSectionNavMobile } from "@/components/page-section-nav";
 import { ReadingProgress } from "@/components/reading-progress";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
-import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import { serviceDetailPages } from "@/lib/service-pages";
@@ -205,16 +204,6 @@ export default function VisaAndBankingPage() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-            <div className="mt-9 border-t border-[#e4dbce] pt-8">
-              <h3 className="mb-5 text-base font-semibold text-[#11232a]">
-                Core services
-              </h3>
-              <ServiceSubpageLinks
-                items={config.subpageLinks ?? []}
-                columnsClassName="sm:grid-cols-2 lg:grid-cols-3"
-                variant="compact"
-              />
-            </div>
           </article>
         </div>
       </section>
@@ -226,16 +215,17 @@ export default function VisaAndBankingPage() {
             title="Who it's for"
             description="The founders, teams, investors, and operating companies most likely to need residency and banking support connected properly."
           />
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {whoWeHelp.map((item) => (
+          <div className="balanced-editorial-grid balanced-editorial-grid-2 mt-10 grid border-y border-white/18 md:grid-cols-2">
+            {whoWeHelp.map((item, index) => (
               <article
                 key={item.title}
-                className="rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)]"
+                className="border-b border-white/18 py-7 text-white"
               >
-                <h3 className="text-[1.18rem] font-semibold leading-tight text-foreground md:text-[1.24rem]">
+                <span className="text-sm font-semibold text-[#ead5aa]">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="mt-4 text-[1.18rem] font-semibold leading-tight text-white md:text-[1.24rem]">
                   {item.title}
                 </h3>
-                <p className="mt-4 max-w-2xl text-[1.12rem] leading-8 text-foreground/92">
+                <p className="mt-4 max-w-2xl text-[1.04rem] leading-8 text-white/74">
                   {item.description}
                 </p>
               </article>
@@ -276,16 +266,17 @@ export default function VisaAndBankingPage() {
             title="How Zenesis helps"
             description="The goal is to connect company structure, residency, documentation, and banking so each approval supports the next step."
           />
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {whyZenesis.map((item) => (
+          <div className="balanced-editorial-grid balanced-editorial-grid-3 mt-10 grid border-y border-white/18 md:grid-cols-2 xl:grid-cols-3">
+            {whyZenesis.map((item, index) => (
               <article
                 key={item.title}
-                className="rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)]"
+                className="border-b border-white/18 py-7 text-white"
               >
-                <h3 className="text-[1.18rem] font-semibold leading-tight text-foreground md:text-[1.24rem]">
+                <span className="text-sm font-semibold text-[#ead5aa]">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="mt-4 text-[1.18rem] font-semibold leading-tight text-white md:text-[1.24rem]">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-[1.12rem] leading-8 text-foreground/92">
+                <p className="mt-4 text-[1.04rem] leading-8 text-white/74">
                   {item.description}
                 </p>
               </article>
@@ -332,13 +323,13 @@ export default function VisaAndBankingPage() {
             title="Process"
             description="A practical sequence from company and eligibility review through residency, KYC, account-opening support, and final follow-through."
           />
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="balanced-editorial-grid balanced-editorial-grid-4 mt-10 grid border-y-2 border-[#8d7453]/45 md:grid-cols-2 xl:grid-cols-4">
             {processSteps.map((item) => (
               <article
                 key={item.step}
-                className="rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)]"
+                className="border-b border-[#d8d0c2] py-7"
               >
-                <div className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#8d7453]/18 bg-[#8d7453]/10 text-sm font-semibold tracking-[0.08em] text-[#8d7453]">
+                <div className="inline-flex h-10 w-10 items-center justify-center border border-[#8d7453]/30 bg-white text-sm font-semibold text-[#8d7453]">
                   {item.step}
                 </div>
                 <h3 className="mt-4 text-[1.18rem] font-semibold leading-tight text-foreground md:text-[1.24rem]">

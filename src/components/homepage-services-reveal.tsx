@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 type ServiceRevealItem = {
   title: string;
@@ -7,6 +8,9 @@ type ServiceRevealItem = {
   cta: string;
   items: readonly string[];
   icon: "business" | "accounting" | "visa" | "support";
+  imageSrc: string;
+  imageAlt: string;
+  lead: string;
 };
 
 type HomepageServicesRevealProps = {
@@ -93,64 +97,70 @@ export function HomepageServicesReveal({
             className="object-cover object-right"
           />
         </div>
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(245,239,228,0.18)_0%,rgba(245,239,228,0.08)_26%,rgba(245,239,228,0.02)_62%,rgba(245,239,228,0)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(248,246,241,0.2)_0%,rgba(248,246,241,0.1)_28%,rgba(248,246,241,0.02)_68%,transparent_100%)]" />
       </div>
 
       <div className="relative mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-        <div className="max-w-[54rem]">
-          <h2 className="section-title w-full border-t border-[#b88d53]/55 pt-5 !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-[#07151b] sm:!text-[1.9rem] md:!text-[2.05rem]">
+        <div className="max-w-[62rem] border-b border-[#cfc5b7] pb-8">
+          <div>
+            <div className="h-px w-16 bg-[#b88d53]/75" />
+            <h2 className="section-title mt-5 w-full !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-[#07151b] sm:!text-[1.9rem] md:!text-[2.05rem]">
             Our services
-          </h2>
-          <p className="mt-4 text-[1.06rem] leading-8 text-[#30434b] md:text-[1.1rem]">
+            </h2>
+          </div>
+          <p className="mt-5 max-w-[54rem] text-[1.06rem] leading-8 text-[#30434b] md:text-[1.1rem]">
             From choosing the right setup route to visa, banking, tax, and ongoing compliance, Zenesis supports every stage of operating in the UAE.
           </p>
         </div>
 
-        <div className="relative z-10 mt-9 grid items-stretch gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="relative z-10 divide-y divide-[#cfc5b7]">
           {items.map((item, index) => (
-            <Link
-              key={item.title}
-              href={item.href}
-              className="group flex h-full flex-col rounded-lg border border-[#d8cfbf] bg-white p-5 shadow-[0_10px_28px_rgba(17,35,42,0.07)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#bca57f] hover:shadow-[0_16px_34px_rgba(17,35,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#244ba8] focus-visible:ring-offset-4"
-            >
-              <div className="flex items-start gap-3">
-                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#d8d0c2] bg-[#f8f2e7] text-[#8d7453]">
-                      <ServiceIcon type={item.icon} />
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-[0.72rem] font-semibold tracking-[0.18em] text-[#8d7453]">
-                        {stageNumberByIndex[index]}
-                      </p>
-                      <h3 className="mt-1 text-[1.16rem] font-semibold leading-tight text-[#07151b] xl:text-[1.2rem]">
-                        {item.title}
-                      </h3>
-                    </div>
+            <ScrollReveal key={item.title} delay={index * 70}>
+              <Link
+                href={item.href}
+                className="group grid grid-cols-[3.25rem_minmax(0,1fr)] gap-x-4 gap-y-5 py-7 text-[#07151b] transition-colors duration-300 hover:bg-white/72 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#244ba8] focus-visible:ring-inset md:min-h-[15rem] md:grid-cols-[5rem_minmax(12rem,0.72fr)_minmax(18rem,1fr)_8rem] md:items-center md:gap-8 md:px-5 lg:min-h-[17rem]"
+              >
+              <div className="flex flex-col items-center self-start pt-0.5 md:self-center md:pt-0">
+                <span className="text-[0.88rem] font-semibold tabular-nums text-[#8d7453]">
+                  {stageNumberByIndex[index]}
+                </span>
+                <span className="mt-4 flex h-10 w-10 items-center justify-center border border-[#d8d0c2] bg-white text-[#8d7453]">
+                  <ServiceIcon type={item.icon} />
+                </span>
               </div>
 
-              <ul className="mt-5 flex-1 divide-y divide-[#e4dbce] border-y border-[#e4dbce]">
-                        {item.items.map((entry) => (
-                          <li
-                            key={entry}
-                      className="flex items-start gap-2.5 py-3 text-[0.94rem] leading-6 text-[#07151b]/78"
-                          >
-                            <span
-                              aria-hidden="true"
-                        className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#b79056]"
-                            />
-                            <span>{entry}</span>
-                          </li>
-                        ))}
-              </ul>
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#244ba8]">
+              <div>
+                <p className="text-sm font-semibold text-[#8d7453]">{item.lead}</p>
+                <h3 className="mt-2 text-[1.55rem] font-semibold leading-[1.08] text-[#07151b] md:text-[1.72rem]">
+                  {item.title}
+                </h3>
+                <ul className="mt-5 space-y-2 text-[0.96rem] leading-6 text-[#07151b]/72">
+                  {item.items.map((entry) => <li key={entry}>{entry}</li>)}
+                </ul>
+              </div>
+
+              <div className="relative col-span-2 aspect-[16/9] w-full overflow-hidden md:col-span-1 md:aspect-auto md:h-full md:min-h-[12rem]">
+                <Image
+                  src={item.imageSrc}
+                  alt={item.imageAlt}
+                  fill
+                  sizes="(min-width: 1280px) 38vw, (min-width: 768px) 34vw, calc(100vw - 3rem)"
+                  className={`object-cover transition-transform duration-700 group-hover:scale-[1.025] ${index === 0 || index === 2 ? "object-top" : "object-center"}`}
+                />
+                <div className="absolute inset-0 border border-black/8" />
+              </div>
+
+              <span className="col-span-2 inline-flex items-center justify-between border-t border-[#d8d0c2] pt-4 text-sm font-semibold text-[#244ba8] md:col-span-1 md:justify-end md:border-t-0 md:pt-0">
                 {item.cta}
                 <span
                   aria-hidden="true"
                   className="transition-transform duration-200 group-hover:translate-x-1"
                 >
-                  -&gt;
+                  →
                 </span>
               </span>
-            </Link>
+              </Link>
+            </ScrollReveal>
           ))}
         </div>
       </div>

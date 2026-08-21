@@ -6,7 +6,6 @@ import { PageSectionNavMobile } from "@/components/page-section-nav";
 import { ReadingProgress } from "@/components/reading-progress";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
-import { ServiceSubpageLinks } from "@/components/service-subpage-links";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import { legacyRouteMeta, toMetadata } from "@/lib/legacy-meta";
@@ -156,33 +155,6 @@ const workingRhythm = [
   },
 ] as const;
 
-const reportingNeeds = [
-  {
-    title: "Corporate tax registration",
-    href: "/corporate-tax-registration-in-the-uae",
-    description:
-      "For businesses that need the tax setup handled correctly before the filing cycle starts.",
-  },
-  {
-    title: "Corporate tax filing",
-    href: "/corporate-tax-filing-services-in-the-uae",
-    description:
-      "For annual return preparation, calculations, and FTA portal submission support.",
-  },
-  {
-    title: "VAT registration and filing",
-    href: "/vat-filing-services-in-the-uae",
-    description:
-      "For VAT registration support, recurring returns, reconciliations, and payment-related follow-through.",
-  },
-  {
-    title: "Bookkeeping",
-    href: "/professional-bookkeeping-services-in-dubai",
-    description:
-      "For weekly or monthly books, cleaner reports, and steadier financial records.",
-  },
-] as const;
-
 const directAnswers = [
   {
     question: "Does every UAE business need bookkeeping and tax support?",
@@ -277,20 +249,6 @@ export default function AccountingTaxPage() {
                 can support your day-to-day accounting and ongoing tax compliance.
               </p>
             </div>
-            <div className="mt-9 border-t border-[#e4dbce] pt-8">
-              <h3 className="mb-5 text-base font-semibold text-[#11232a]">
-                Core services
-              </h3>
-              <ServiceSubpageLinks
-                items={reportingNeeds.map((item) => ({
-                  label: item.title,
-                  href: item.href,
-                  description: item.description,
-                }))}
-                columnsClassName="sm:grid-cols-2 lg:grid-cols-4"
-                variant="compact"
-              />
-            </div>
           </article>
         </div>
       </section>
@@ -303,13 +261,14 @@ export default function AccountingTaxPage() {
             description="These are the businesses most likely to need structured help across corporate tax, VAT, bookkeeping, and reporting."
           />
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {whoWeHelp.map((item) => (
-              <article key={item.title} className="rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)]">
-                <h3 className="text-[1.18rem] font-semibold leading-tight !text-foreground md:text-[1.24rem]">
+          <div className="balanced-editorial-grid balanced-editorial-grid-2 mt-10 grid border-y border-white/18 md:grid-cols-2">
+            {whoWeHelp.map((item, index) => (
+              <article key={item.title} className="border-b border-white/18 py-7 text-white">
+                <span className="text-sm font-semibold text-[#ead5aa]">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="mt-4 text-[1.18rem] font-semibold leading-tight !text-white md:text-[1.24rem]">
                   {item.title}
                 </h3>
-                <p className="mt-4 max-w-2xl text-[1.12rem] leading-8 !text-foreground/92">
+                <p className="mt-4 max-w-2xl text-[1.04rem] leading-8 !text-white/74">
                   {item.description}
                 </p>
               </article>
@@ -352,13 +311,14 @@ export default function AccountingTaxPage() {
             description="The goal is not just to file. It is to keep the business organized enough that filing, review, and future growth become easier."
           />
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {whyZenesis.map((item) => (
-              <article key={item.title} className="rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)]">
-                <h3 className="text-[1.18rem] font-semibold leading-tight !text-foreground md:text-[1.24rem]">
+          <div className="balanced-editorial-grid balanced-editorial-grid-3 mt-10 grid border-y border-white/18 md:grid-cols-2 xl:grid-cols-3">
+            {whyZenesis.map((item, index) => (
+              <article key={item.title} className="border-b border-white/18 py-7 text-white">
+                <span className="text-sm font-semibold text-[#ead5aa]">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="mt-4 text-[1.18rem] font-semibold leading-tight !text-white md:text-[1.24rem]">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-[1.12rem] leading-8 !text-foreground/92">
+                <p className="mt-4 text-[1.04rem] leading-8 !text-white/74">
                   {item.description}
                 </p>
               </article>
@@ -381,10 +341,10 @@ export default function AccountingTaxPage() {
             description="Most businesses need the same practical rhythm: review the current position, prepare properly, file accurately, and keep the records ready for what comes next."
           />
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="balanced-editorial-grid balanced-editorial-grid-4 mt-10 grid border-y-2 border-[#8d7453]/45 md:grid-cols-2 xl:grid-cols-4">
             {workingRhythm.map((item) => (
-              <article key={item.step} className="rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.08)]">
-                <div className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#8d7453]/18 bg-[#8d7453]/10 text-sm font-semibold tracking-[0.08em] text-[#8d7453]">
+              <article key={item.step} className="border-b border-[#d8d0c2] py-7">
+                <div className="inline-flex h-10 w-10 items-center justify-center border border-[#8d7453]/30 bg-white text-sm font-semibold text-[#8d7453]">
                   {item.step}
                 </div>
                 <h3 className="mt-4 text-[1.18rem] font-semibold leading-tight text-foreground md:text-[1.24rem]">

@@ -124,9 +124,9 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
       title: "Visa and banking",
       href: "/visa-and-banking",
       description: "Plan residency, visas, and banking in the right operating sequence.",
-      imageSrc: versionedAssetPath("/services/visa-and-banking.webp"),
-      imageAlt: "Visa and banking support planning in the UAE",
-      imageClassName: "object-[58%_center]",
+      imageSrc: versionedAssetPath("/services/visa-banking-consultation.webp"),
+      imageAlt: "Visa and banking consultation in Dubai",
+      imageClassName: "object-top",
     },
     {
       title: "Golden Visa",

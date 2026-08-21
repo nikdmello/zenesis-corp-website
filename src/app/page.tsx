@@ -2,7 +2,9 @@ import NextImage from "next/image";
 import Link from "next/link";
 import { ConsultationFormButton } from "@/components/consultation-button";
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
+import { AwardsVideoExperience } from "@/components/awards-video-experience";
 import { HomepageReviewsCarousel } from "@/components/homepage-reviews-carousel";
+import { PremierClientsCarousel } from "@/components/premier-clients-carousel";
 import {
   HomepageInsightsCarousel,
   type HomepageInsightCard,
@@ -15,7 +17,6 @@ import { SectionHeading, SiteShell } from "@/components/site-shell";
 import { versionedAssetPath } from "@/lib/asset-paths";
 import {
   featuredProfile,
-  partnerLogos,
   testimonials,
 } from "@/lib/site-content";
 import { insightPosts } from "@/lib/insights";
@@ -44,6 +45,9 @@ const customerPaths = [
     href: "/business-setup",
     icon: "business",
     cta: "Setup options",
+    imageSrc: "/services/business-setup-services-uae.webp",
+    imageAlt: "Business advisers planning a UAE company setup route",
+    lead: "Start a company",
     items: [
       "Mainland company formation",
       "Free zone company formation",
@@ -55,6 +59,9 @@ const customerPaths = [
     href: "/accounting-tax",
     icon: "accounting",
     cta: "Tax support",
+    imageSrc: "/services/accounting-and-tax.webp",
+    imageAlt: "Accounting and tax review for a UAE business",
+    lead: "Keep the company compliant",
     items: ["Bookkeeping", "VAT registration and filing", "Corporate tax"],
   },
   {
@@ -62,6 +69,9 @@ const customerPaths = [
     href: "/visa-and-banking",
     icon: "visa",
     cta: "Visa and banking",
+    imageSrc: "/services/visa-banking-consultation.webp",
+    imageAlt: "Business advisers discussing visa and banking requirements in Dubai",
+    lead: "Move people and money",
     items: ["Golden Visa", "Company visas", "Bank account support"],
   },
   {
@@ -69,6 +79,9 @@ const customerPaths = [
     href: "/corporate-support",
     icon: "support",
     cta: "Corporate support",
+    imageSrc: "/services/branch-and-representative-offices.webp",
+    imageAlt: "Corporate support for an established UAE company",
+    lead: "Maintain or change a company",
     items: ["Renewals and amendments", "Liquidation and restoration", "Document attestation"],
   },
 ] as const;
@@ -147,9 +160,16 @@ const homepageInsightCards: HomepageInsightCard[] = insightPosts.map(
   }),
 );
 
+const experienceLedger = [
+  { value: "20+", label: "years supporting UAE and international business setup" },
+  { value: "480+", label: "Google reviews from clients and business owners" },
+  { value: "18", label: "UAE free zone and offshore setup routes covered in our guidance" },
+  { value: "8", label: "legal structures compared for UAE company formation" },
+] as const;
+
 export default function Home() {
   const googleReviewCountLabel = "480+ reviews";
-  const [, leadershipFeatureSignal] = trustSignals;
+  const [companyFormationAward] = trustSignals;
   const faqSchema = buildFaqSchema(homepageFaqs);
 
   return (
@@ -169,16 +189,18 @@ export default function Home() {
           <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[100rem] flex-col justify-end px-5 pb-3 pt-26 md:block md:px-12 md:pb-3 md:pt-12 xl:px-20">
             <div className="bottom-3 mx-auto w-full md:absolute md:bottom-3 md:left-1/2 md:w-[min(100%-6rem,68rem)] md:-translate-x-1/2 xl:w-[min(100%-10rem,72rem)]">
               <div className="mx-auto w-full max-w-[48rem] px-0 py-4 sm:px-2 md:max-w-none md:px-0 md:py-0">
-                <h1 className="hero-reveal hero-reveal-1 relative left-1/2 w-screen -translate-x-1/2 px-5 text-center text-[1.45rem] font-medium leading-[1.1] tracking-[0] text-white min-[380px]:text-[1.7rem] sm:text-[2.35rem] sm:leading-[1.04] md:px-12 md:text-[2.8rem] lg:text-[3.05rem] xl:whitespace-nowrap xl:text-[2.15rem] min-[1900px]:text-[3rem] min-[2200px]:text-[3.6rem]">
-                  <span className="block whitespace-nowrap xl:inline">Over <span className="relative inline-block">20 years<span aria-hidden="true" className="hero-subtitle-accent absolute inset-x-0 -bottom-1 h-1 scale-x-[-1]" /></span> of </span>
+                <h1 className="hero-reveal hero-reveal-1 mx-auto max-w-[22rem] px-2 text-center text-[1.4rem] font-medium leading-[1.12] tracking-[0] text-white min-[380px]:text-[1.5rem] sm:max-w-none sm:text-[2.35rem] sm:leading-[1.04] md:px-12 md:text-[2.8rem] lg:text-[3.05rem] xl:whitespace-nowrap xl:text-[2.15rem] min-[1900px]:text-[3rem] min-[2200px]:text-[3.6rem]">
+                  <span className="block sm:whitespace-nowrap xl:inline">Over <span className="relative inline-block">20 years<span aria-hidden="true" className="hero-subtitle-accent absolute inset-x-0 -bottom-1 h-1 scale-x-[-1]" /></span> of </span>
                   <span className="block xl:inline">
-                    <span className="block whitespace-nowrap xl:inline">UAE and international </span>
-                    <span className="block whitespace-nowrap xl:inline">business setup experience</span>
+                    <span className="block sm:whitespace-nowrap xl:inline">UAE and international </span>
+                    <span className="block sm:hidden">business setup</span>
+                    <span className="block sm:hidden">experience</span>
+                    <span className="hidden sm:block sm:whitespace-nowrap xl:inline">business setup experience</span>
                   </span>
                 </h1>
 
-                <div className="hero-reveal hero-reveal-2 mx-auto mt-5 w-full max-w-[58rem] px-4 text-center lg:px-1">
-                  <p className="hero-subtitle-copy mx-auto block w-fit max-w-full whitespace-normal px-0 text-center text-[#f7efe1] [text-wrap:balance] lg:max-w-none lg:whitespace-nowrap">
+                <div className="hero-reveal hero-reveal-2 mx-auto mt-5 w-full max-w-[58rem] px-5 text-center sm:px-4 lg:px-1">
+                  <p className="hero-subtitle-copy mx-auto block w-fit max-w-[21rem] whitespace-normal px-0 text-center text-[#f7efe1] [text-wrap:balance] sm:max-w-full lg:max-w-none lg:whitespace-nowrap">
                     Company formation, licensing, visas, banking, compliance, and ongoing corporate support
                   </p>
                 </div>
@@ -234,9 +256,20 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="relative left-1/2 w-screen -translate-x-1/2 border-y border-white/12 bg-[#11232a] text-white">
+          <div className="mx-auto grid w-full max-w-[100rem] px-6 sm:grid-cols-2 md:px-12 xl:grid-cols-4 xl:px-20">
+            {experienceLedger.map((item, index) => (
+              <ScrollReveal key={item.value} delay={index * 70} className="flex flex-col items-center border-b border-white/12 py-7 text-center last:border-b-0 sm:border-r sm:px-6 sm:[&:nth-child(2n)]:border-r-0 sm:[&:nth-last-child(-n+2)]:border-b-0 xl:border-b-0 xl:border-r xl:py-8 xl:[&:nth-child(2n)]:border-r xl:last:border-r-0">
+                <p className="text-[1.65rem] font-semibold leading-none text-[#ead5aa] md:text-[1.9rem]">{item.value}</p>
+                <p className="mt-3 max-w-[21rem] text-[0.92rem] leading-6 text-white/70">{item.label}</p>
+              </ScrollReveal>
+            ))}
+          </div>
+        </section>
+
         <HomepageServicesReveal items={customerPaths} />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
+      <section id="premier-clients" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <div className="max-w-[50rem]">
@@ -250,156 +283,65 @@ export default function Home() {
         </ScrollReveal>
 
         <ScrollReveal>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
-            {partnerLogos.map((logo) => (
-              <div
-                key={logo.label}
-                className="flex min-h-[7.5rem] items-center justify-center rounded-lg border border-[#d8d0c2] bg-white px-4 py-4 shadow-[0_8px_22px_rgba(17,35,42,0.08)] transition-transform duration-200 hover:-translate-y-0.5"
-              >
-                <NextImage
-                  src={logo.src}
-                  alt={`${logo.label} logo`}
-                  width={320}
-                  height={140}
-                  sizes="(min-width: 1024px) 18vw, (min-width: 640px) 40vw, 70vw"
-                  className={`w-auto max-w-full object-contain opacity-90 ${
-                    "isEmphasized" in logo && logo.isEmphasized
-                      ? "h-24 md:h-[5.5rem]"
-                      : "h-20 md:h-[4.75rem]"
-                  }`}
-                />
-              </div>
-            ))}
+          <div className="mt-8">
+            <PremierClientsCarousel />
           </div>
         </ScrollReveal>
         </div>
       </section>
 
       <section
-        id="client-reviews"
+        id="awards-recognition"
         className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20"
       >
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 w-full max-w-[64rem] md:w-[46vw] md:min-w-[34rem] xl:w-[52vw] xl:min-w-[42rem]"
-        >
-          <div
-            className="absolute inset-0 opacity-[0.32] md:opacity-[0.5] xl:opacity-[0.56]"
-            style={{
-              WebkitMaskImage:
-                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
-              maskImage:
-                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
-            }}
-          >
-            <NextImage
-              src="/sections/awards-and-recognition.webp"
-              alt=""
-              fill
-              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 46vw, 1024px"
-              className="object-cover object-right"
-            />
-          </div>
-        </div>
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <div className="mb-9">
             <SectionHeading
               eyebrow="Recognition"
               title="Awards and recognition"
-              description="Recognition that reflects Zenesis work in company formation and the leadership profile behind the firm."
+              description="Ceremony moments and recognition for Zenesis work across business consultancy, company formation, and leadership."
             />
           </div>
 
-          <div className="overflow-hidden rounded-lg border border-[#cfc4b4] bg-white/82 p-3 shadow-[0_12px_34px_rgba(17,35,42,0.09)] md:p-4">
-            <div className="grid gap-3 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch md:gap-4">
-              <div className="relative aspect-[1280/855] overflow-hidden rounded-md border border-[#d8cdbc] bg-[#eee7dc]">
-                  <NextImage
-                    src={versionedAssetPath(
-                      "/recognition/zenesis-award.webp",
-                      "20260727-award",
-                    )}
-                    alt="Zenesis award recognition poster for excellence in company formation"
-                    fill
-                    className="object-contain"
-                    sizes="(min-width: 1024px) 44vw, 100vw"
-                  />
-              </div>
+          <div className="border-y border-[#cfc4b4] py-6 md:py-8">
+            <AwardsVideoExperience />
 
-              <Link
-                href={featuredProfile.href}
-                className="group relative flex h-full min-w-0 flex-col overflow-hidden rounded-md border border-[#ddd2c2] bg-white text-[#11232a] after:pointer-events-none after:absolute after:inset-y-0 after:right-0 after:z-20 after:w-px after:bg-[#ddd2c2] after:content-[''] transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(17,35,42,0.1)]"
-              >
-                <div className="px-4 py-3.5 md:px-5 md:py-4">
-                  <div className="flex items-start justify-between gap-6">
-                    <div className="max-w-4xl">
-                      <p className="eyebrow text-muted">
-                        {leadershipFeatureSignal.label}
-                      </p>
-                      <h3 className="mt-2 text-[clamp(1.38rem,1.8vw,1.8rem)] font-semibold leading-[1] tracking-[-0.045em] text-foreground">
-                        {leadershipFeatureSignal.value}
-                      </h3>
-                      {"detail" in leadershipFeatureSignal &&
-                      typeof leadershipFeatureSignal.detail === "string" ? (
-                        <p className="mt-2 max-w-3xl text-[0.93rem] leading-[1.4] text-muted md:text-[0.96rem]">
-                          {leadershipFeatureSignal.detail}
-                        </p>
-                      ) : null}
-                    </div>
-                    <span className="text-[1.2rem]">
-                      {leadershipFeatureSignal.icon}
-                    </span>
-                  </div>
-                </div>
-                <div className="relative aspect-[4/1.65] overflow-hidden border-t border-[#e3d9ca] lg:aspect-auto lg:min-h-0 lg:flex-1">
-                  <NextImage
-                    src={featuredProfile.imageSrc}
-                    alt={featuredProfile.imageAlt}
-                    fill
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
-                    sizes="(min-width: 1024px) 42vw, 100vw"
-                  />
-                </div>
-              </Link>
+            <h3 className="mt-4 text-[1.35rem] font-semibold leading-[1.16] text-[#11232a] sm:hidden">
+              Best Real Estate Management Consultancy of the Year
+            </h3>
+
+            <div className="mt-8 grid gap-5 md:grid-cols-2">
+              <div className="relative aspect-[3/2] overflow-hidden border border-[#d8cdbc] bg-[#07151b]">
+                <NextImage
+                  src="/recognition/zenesis-irecms-awards.webp"
+                  alt="Cecilia D'Cunha and the Zenesis team holding awards at IRECMS Dubai"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover object-center transition-transform duration-500 hover:scale-[1.015]"
+                />
+              </div>
+              <div className="relative aspect-[3/2] overflow-hidden border border-[#d8cdbc] bg-[#07151b]">
+                <NextImage
+                  src="/recognition/zenesis-best-real-estate-management-consultancy.webp"
+                  alt="Zenesis receiving the Best Real Estate Management Consultancy of the Year award"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover object-center transition-transform duration-500 hover:scale-[1.015]"
+                />
+              </div>
             </div>
 
-            <div className="mt-3 border-t border-[#d8cdbc] pt-3 md:mt-4 md:pt-4">
-              <div className="grid gap-3 md:grid-cols-3">
-                {[
-                  {
-                    src: versionedAssetPath(
-                      "/recognition/zenesis-award1.webp",
-                      "20260728-award1",
-                    ),
-                    alt: "Zenesis team receiving company formation award in Dubai",
-                    position: "54% center",
-                  },
-                  {
-                    src: "/recognition/zenesis-award2.webp",
-                    alt: "Zenesis award recognition ceremony moment",
-                    position: "center center",
-                  },
-                  {
-                    src: "/recognition/zenesis-award3.webp",
-                    alt: "Zenesis representatives holding company award",
-                    position: "center 42%",
-                  },
-                ].map((image) => (
-                  <div
-                    key={image.src}
-                    className="relative aspect-[4/2.7] overflow-hidden rounded-md border border-[#ddd2c2] bg-[#eee7dc]"
-                  >
-                    <NextImage
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      sizes="(min-width: 1280px) 28vw, (min-width: 768px) 30vw, 100vw"
-                      className="object-cover transition-transform duration-500 hover:scale-[1.015]"
-                      style={{ objectPosition: image.position }}
-                    />
-                  </div>
-                ))}
+            <div className="mt-8 grid gap-6 border-t border-[#cfc4b4] pt-7 md:grid-cols-2">
+              <div>
+                <p className="text-sm font-semibold text-[#8d7453]">{companyFormationAward.detail}</p>
+                <h3 className="mt-3 text-[1.25rem] font-semibold text-[#11232a]">{companyFormationAward.value}</h3>
               </div>
+              <Link href={featuredProfile.href} className="group border-l-0 border-[#cfc4b4] md:border-l md:pl-7">
+                <p className="text-sm font-semibold text-[#8d7453]">Leadership profile</p>
+                <h3 className="mt-3 text-[1.25rem] font-semibold text-[#11232a] transition-colors group-hover:text-[#244ba8]">Cecilia D&apos;Cunha in Global Leaders Today</h3>
+                <span className="mt-3 inline-flex text-sm font-semibold text-[#244ba8]">Read the profile →</span>
+              </Link>
             </div>
           </div>
         </ScrollReveal>
@@ -427,7 +369,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f5efe4] py-16 md:py-20">
+      <section id="client-reviews" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-20 bg-[#f5efe4] py-16 md:py-20">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 right-0 w-full max-w-[64rem] md:w-[46vw] md:min-w-[34rem] xl:w-[52vw] xl:min-w-[42rem]"
@@ -458,7 +400,7 @@ export default function Home() {
               eyebrowClassName="!text-[#8d7453]"
               title="Client reviews"
               titleClassName="!text-[#07151b]"
-              description="Recent client feedback on responsiveness, setup support, tax handling, and the practical follow-through clients needed after formation."
+              description="Client feedback on business growth, long-term support, company formation, visas, banking, and offshore structures."
               descriptionClassName="!text-muted"
             />
             <div className="flex items-center gap-4 md:shrink-0">

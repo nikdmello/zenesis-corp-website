@@ -161,13 +161,14 @@ export default function BusinessSetupCostDubaiPage() {
             description="The lowest advertised license price rarely tells the whole story. These are the factors that usually change the real business setup cost in Dubai, free zone setup cost, or mainland company formation budget after the headline quote."
           />
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
-            {setupCostDecisionFactors.map((item) => (
+          <div className="balanced-editorial-grid balanced-editorial-grid-2 mt-9 grid border-y border-[#cfc5b7] md:grid-cols-2">
+            {setupCostDecisionFactors.map((item, index) => (
               <article
                 key={item.title}
-                className="rounded-lg border border-[#d8d0c2] bg-[#f8f6f1] p-6 text-[#11232a]"
+                className="border-b border-[#d8d0c2] py-7 text-[#11232a]"
               >
-                <h3 className="text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-[#11232a]">
+                <span className="text-sm font-semibold text-[#8d7453]">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="mt-4 text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-[#11232a]">
                   {item.title}
                 </h3>
                 <p className="mt-3 text-[1rem] font-medium leading-7 text-[#11232a]/84">
