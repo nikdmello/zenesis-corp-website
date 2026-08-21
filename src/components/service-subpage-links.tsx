@@ -40,6 +40,11 @@ const serviceSubpageVisuals: Record<
     imageAlt: "Mainland company setup planning in Dubai",
     imageClassName: "object-[68%_24%]",
   },
+  "/general-trading-license-dubai": {
+    imageSrc: versionedAssetPath("/services/general-trading-license-dubai.webp"),
+    imageAlt: "General trading licence planning with a Dubai business consultant",
+    imageClassName: "object-[68%_center]",
+  },
   "/free-zones": {
     imageSrc: versionedAssetPath("/services/freezone.webp"),
     imageAlt: "Free zone company setup planning in Dubai",
