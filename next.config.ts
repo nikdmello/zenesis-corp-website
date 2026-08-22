@@ -417,12 +417,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/business-setup/general-trading-uae-license",
-        destination: "/mainland",
+        destination: "/general-trading-license-dubai",
         permanent: true,
       },
       {
         source: "/business-setup/general-trading-uae-license/",
-        destination: "/mainland",
+        destination: "/general-trading-license-dubai",
         permanent: true,
       },
       {
