@@ -177,6 +177,7 @@ const taxPaths = new Set([
   "/accounting-tax",
   "/corporate-tax-registration-in-the-uae",
   "/corporate-tax-filing-services-in-the-uae",
+  "/vat-registration-services-uae",
   "/vat-filing-services-in-the-uae",
   "/professional-bookkeeping-services-in-dubai",
 ]);
@@ -197,12 +198,14 @@ export function getServiceCredibility(path: string): ServiceCredibility | undefi
     return {
       expert: experts.glenita,
       verificationLabel:
-        path === "/vat-filing-services-in-the-uae"
+        path === "/vat-filing-services-in-the-uae" || path === "/vat-registration-services-uae"
           ? "Sources checked August 3, 2026"
           : checkedLabel,
       note: taxNote,
       sources: path === "/vat-filing-services-in-the-uae"
-        ? [sources.vatReturns, sources.vatRegistration]
+        ? [sources.vatReturns]
+        : path === "/vat-registration-services-uae"
+          ? [sources.vatRegistration]
         : path === "/corporate-tax-registration-in-the-uae"
           ? [sources.corporateTaxRegistration, sources.corporateTaxGeneral]
           : [sources.corporateTaxReturns, sources.corporateTaxGeneral],

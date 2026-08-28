@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ConsultationFormButton } from "@/components/consultation-button";
 import { CleanSectionLink } from "@/components/clean-section-link";
+import { createContextualLinker } from "@/components/contextual-links";
 import { PageRailLayout } from "@/components/page-guide-layout";
 import { JsonLd } from "@/components/json-ld";
 import { PrimarySources } from "@/components/primary-sources";
@@ -32,36 +33,6 @@ type InsightArticlePageProps = {
     slug: string;
   }>;
 };
-
-function renderParagraphText(
-  text: string,
-  inlineLinks?: Array<{ text: string; href: string }>,
-) {
-  if (!inlineLinks?.length) return text;
-
-  const parts: React.ReactNode[] = [];
-  let cursor = 0;
-
-  inlineLinks.forEach((inlineLink) => {
-    const start = text.indexOf(inlineLink.text, cursor);
-    if (start === -1) return;
-
-    parts.push(text.slice(cursor, start));
-    parts.push(
-      <Link
-        key={`${inlineLink.href}-${start}`}
-        href={inlineLink.href}
-        className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4"
-      >
-        {inlineLink.text}
-      </Link>,
-    );
-    cursor = start + inlineLink.text.length;
-  });
-
-  parts.push(text.slice(cursor));
-  return parts;
-}
 
 function toInsightSectionId(title: string) {
   return title
@@ -145,6 +116,8 @@ export default async function InsightArticlePage({
   if (!post) {
     notFound();
   }
+
+  const linkContext = createContextualLinker(`/insights/${post.slug}`, 6);
 
   const credibility = getInsightCredibility(post.slug);
   const authorProfile =
@@ -252,7 +225,7 @@ export default async function InsightArticlePage({
         <JsonLd key={index} data={schema} />
       ))}
       <article>
-        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] py-7 text-white md:py-8">
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-[#011735] py-7 text-white md:py-8">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(36,75,168,0.24),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_44%)]" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-full overflow-hidden md:w-[min(56vw,60rem)]">
             <div
@@ -306,12 +279,12 @@ export default async function InsightArticlePage({
                 <h1
                   className={`mt-7 font-semibold tracking-[-0.06em] text-white ${
                     post.heroTitleClassName ??
-                    "w-full text-[2.5rem] leading-[1.06] sm:text-[3rem] md:text-[3.35rem] xl:text-[3.5rem]"
+                    "w-full text-[2.25rem] leading-[1.08] sm:text-[2.75rem] md:text-[3.15rem] xl:text-[3.5rem]"
                   }`}
                 >
                   {post.displayTitle ?? post.title}
                 </h1>
-                <p className="mt-7 max-w-4xl text-[1.16rem] font-medium leading-8 text-white/86 md:text-[1.28rem] md:leading-9">
+                <p className="mt-6 max-w-4xl text-[1.06rem] font-medium leading-[1.9rem] text-white/86 md:text-[1.16rem] md:leading-8">
                   {post.description}
                 </p>
               </header>
@@ -320,10 +293,10 @@ export default async function InsightArticlePage({
         </section>
         <PageRailLayout rail={articleRail}>
 
-        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-14 md:py-18">
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-11 md:py-14">
           <div className="mx-auto w-full max-w-[104rem] px-7 md:px-14 xl:px-24">
             <div className="max-w-[78rem]">
-              <div className="min-w-0 space-y-16">
+              <div className="min-w-0 space-y-12">
               {authorProfile ? (
                 <section className="border-y border-[#e4dbce] py-5 lg:hidden">
                   <div className="flex items-center">
@@ -341,7 +314,7 @@ export default async function InsightArticlePage({
                         <p className="text-sm font-medium text-[#8d7453]">
                           Written by
                         </p>
-                        <h2 className="mt-1 text-[1rem] font-semibold leading-tight text-foreground md:text-[1.08rem]">
+                        <h2 className="mt-1 text-[1rem] font-semibold leading-tight text-foreground md:text-[1.04rem]">
                           {post.author}
                         </h2>
                         <p className="mt-1 text-[0.84rem] font-medium text-foreground/66">
@@ -431,7 +404,7 @@ export default async function InsightArticlePage({
                     {post.keyTakeaways.map((item) => (
                       <li
                         key={item}
-                        className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b] md:text-[1.08rem]"
+                        className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b] md:text-[1.04rem]"
                       >
                         <span className="mt-[0.7rem] h-2 w-2 shrink-0 rounded-full bg-[#8d7453]" />
                         <span>{item}</span>
@@ -477,13 +450,13 @@ export default async function InsightArticlePage({
                         return (
                           <p
                             key={text}
-                            className={`text-[1.08rem] text-[#07151b]/92 md:text-[1.14rem] ${
+                            className={`text-[1.04rem] text-[#07151b]/92 md:text-[1.08rem] ${
                               isIntroSection
                                 ? "leading-[2.1rem] md:leading-[2.25rem]"
-                                : "leading-[2rem] md:leading-[2.15rem]"
+                                : "leading-[1.9rem] md:leading-[1.95rem]"
                             }`}
                           >
-                            {renderParagraphText(text, inlineLinks)}
+                            {linkContext(text, inlineLinks)}
                             {sourceIndexes?.length ? (
                               <span className="inline-flex whitespace-nowrap align-super text-[0.72em] leading-none">
                                 {sourceIndexes.map((sourceIndex) => (
@@ -513,7 +486,7 @@ export default async function InsightArticlePage({
                       >
                         {insightCalloutStyles[section.callout.type].label}
                       </p>
-                      <h3 className="mt-2 text-[1.08rem] font-semibold leading-7 text-foreground">
+                      <h3 className="mt-2 text-[1.04rem] font-semibold leading-7 text-foreground">
                         {section.callout.title}
                       </h3>
                       <p className="mt-2 text-[0.98rem] leading-7 text-[#07151b]/82">
@@ -527,7 +500,7 @@ export default async function InsightArticlePage({
                       {section.bullets.map((item) => (
                         <li
                           key={item}
-                          className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b]/92 md:text-[1.08rem]"
+                          className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b]/92 md:text-[1.04rem]"
                         >
                           <span className="mt-[0.7rem] h-2 w-2 shrink-0 rounded-full bg-[#8d7453]" />
                           <span>{item}</span>
@@ -541,7 +514,7 @@ export default async function InsightArticlePage({
                       {section.numberedBullets.map((item) => (
                         <li
                           key={item}
-                          className="py-4 pl-2 text-[1.02rem] leading-8 text-[#07151b]/92 md:text-[1.08rem]"
+                          className="py-4 pl-2 text-[1.02rem] leading-8 text-[#07151b]/92 md:text-[1.04rem]"
                         >
                           {item}
                         </li>
@@ -601,13 +574,13 @@ export default async function InsightArticlePage({
                   <div className="mt-6 divide-y divide-[#e4dbce] border-y border-[#e4dbce] bg-white">
                     {post.faqs.map((item) => (
                       <details key={item.question} className="group py-5">
-                        <summary className="flex cursor-pointer list-none items-start justify-between gap-4 text-[1.08rem] font-semibold leading-7 text-foreground md:text-[1.14rem]">
+                        <summary className="flex cursor-pointer list-none items-start justify-between gap-4 text-[1.04rem] font-semibold leading-7 text-foreground md:text-[1.08rem]">
                           <span>{item.question}</span>
                           <span className="mt-1 shrink-0 text-2xl leading-none text-[#8d7453] transition-transform duration-200 group-open:rotate-45">
                             +
                           </span>
                         </summary>
-                        <p className="mt-4 max-w-5xl text-[1.02rem] leading-8 text-[#07151b]/84 md:text-[1.08rem]">
+                        <p className="mt-4 max-w-5xl text-[1.02rem] leading-8 text-[#07151b]/84 md:text-[1.04rem]">
                           {item.answer}
                         </p>
                       </details>
@@ -668,7 +641,7 @@ export default async function InsightArticlePage({
                     {post.closingParagraphs.map((paragraph) => (
                       <p
                         key={paragraph}
-                        className="text-[1.14rem] leading-[2rem] text-[#07151b] md:text-[1.22rem] md:leading-[2.3rem]"
+                        className="text-[1.08rem] leading-[1.9rem] text-[#07151b] md:text-[1.22rem] md:leading-[2.3rem]"
                       >
                         {paragraph}
                       </p>
@@ -677,12 +650,12 @@ export default async function InsightArticlePage({
 
                   {post.closingCta ? (
                     <div className="mt-7 border-t border-[#dfd5c7] pt-6">
-                      <p className="max-w-[48rem] text-[1.04rem] font-medium leading-[1.95rem] text-foreground md:text-[1.08rem]">
+                      <p className="max-w-[48rem] text-[1.04rem] font-medium leading-[1.95rem] text-foreground md:text-[1.04rem]">
                         {post.closingCta}
                       </p>
                       <ConsultationFormButton
                         label="Book a consultation"
-                        className="mt-5 inline-flex border border-[#c6a15f] bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3 text-sm font-semibold tracking-[0.015em] !text-[#11232a] transition-all hover:-translate-y-0.5 hover:border-[#9f7b3f] hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
+                        className="mt-5 inline-flex border border-[#c6a15f] bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3 text-sm font-semibold tracking-[0.015em] !text-[#011735] transition-all hover:-translate-y-0.5 hover:border-[#9f7b3f] hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
                         presetEnquiry={post.closingCta}
                       />
                     </div>

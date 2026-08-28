@@ -144,7 +144,7 @@ export function ServiceSubpageLinks({
                   className={`font-semibold tracking-[-0.03em] text-foreground ${
                     isCompact
                       ? "text-[1rem] leading-6 md:text-[1.04rem]"
-                      : "text-[1.08rem] leading-7 md:text-[1.12rem]"
+                      : "text-[1.04rem] leading-7 md:text-[1.06rem]"
                   }`}
                 >
                   {item.label}

@@ -117,9 +117,18 @@ const topLevelPages: SearchDocument[] = [
       "Corporate tax, VAT, bookkeeping, reporting, and compliance support for UAE businesses.",
     type: "Page",
     section: "Services",
-    keywords: ["accounting", "tax", "vat", "bookkeeping", "corporate tax"],
+    keywords: [
+      "accounting services dubai",
+      "accounting firm dubai",
+      "accounting company dubai",
+      "accounting",
+      "tax",
+      "vat",
+      "bookkeeping",
+      "corporate tax",
+    ],
     searchText:
-      "accounting tax corporate tax vat bookkeeping reporting compliance uae dubai",
+      "accounting services dubai accounting firm dubai accounting company dubai accounting tax corporate tax vat bookkeeping outsourced accounting reporting compliance uae",
   },
   {
     href: "/visa-and-banking",

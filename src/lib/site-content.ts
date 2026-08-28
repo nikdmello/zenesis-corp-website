@@ -34,6 +34,10 @@ export const navigation = [
             label: "Bookkeeping",
             href: "/professional-bookkeeping-services-in-dubai",
           },
+          {
+            label: "VAT registration",
+            href: "/vat-registration-services-uae",
+          },
           { label: "VAT filing", href: "/vat-filing-services-in-the-uae" },
           {
             label: "Corporate tax registration",

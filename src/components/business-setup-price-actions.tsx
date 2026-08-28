@@ -51,8 +51,8 @@ export function BusinessSetupPriceActions({
               aria-label={`Open consultation form for ${item.title} from ${item.price}`}
               className={
                 variant === "homepage"
-                  ? "group cursor-pointer rounded-lg border border-[#d8d0c2] bg-white/70 p-4 text-left text-[#11232a] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244ba8]"
-                  : "flex h-full cursor-pointer flex-col rounded-lg border border-[#d8d0c2] bg-white p-5 text-left text-[#11232a] transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244ba8] md:p-6"
+                  ? "group cursor-pointer rounded-lg border border-[#d8d0c2] bg-white/70 p-4 text-left text-[#011735] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244ba8]"
+                  : "flex h-full cursor-pointer flex-col rounded-lg border border-[#d8d0c2] bg-white p-5 text-left text-[#011735] transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#244ba8] md:p-6"
               }
               onClick={() => {
                 trackConversionEvent("consultation_cta_click", {
@@ -71,15 +71,15 @@ export function BusinessSetupPriceActions({
               >
                 {item.qualifier}
               </p>
-              <h4
+              <h3
                 className={
                   variant === "homepage"
                     ? "mt-2 min-h-[2.3rem] text-[0.96rem] font-semibold leading-tight tracking-[-0.02em] text-[#07151b]"
-                    : "mt-4 min-h-[3.05rem] text-[1.2rem] font-semibold leading-tight tracking-[-0.03em] text-[#11232a] md:min-h-[3.25rem] md:text-[1.28rem]"
+                    : "mt-4 min-h-[3.05rem] text-[1.2rem] font-semibold leading-tight tracking-[-0.03em] text-[#011735] md:min-h-[3.25rem] md:text-[1.28rem]"
                 }
               >
                 {item.title}
-              </h4>
+              </h3>
               <div
                 className={
                   variant === "homepage"
@@ -110,7 +110,7 @@ export function BusinessSetupPriceActions({
                 className={
                   variant === "homepage"
                     ? "mt-3 text-[0.9rem] font-medium leading-6 text-[#30434b]"
-                    : "mt-5 flex-1 text-[1.02rem] font-medium leading-7 text-[#11232a]/82"
+                    : "mt-5 flex-1 text-[1.02rem] font-medium leading-7 text-[#011735]/82"
                 }
               >
                 {item.description}

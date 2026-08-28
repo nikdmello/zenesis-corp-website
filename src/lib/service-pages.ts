@@ -1317,13 +1317,141 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       ),
     },
   },
+  "vat-registration-services-uae": {
+    slug: "vat-registration-services-uae",
+    currentPath: "/accounting-tax",
+    title: "VAT registration services",
+    eyebrow: "VAT Registration",
+    description:
+      "Establish whether VAT registration applies, prepare the supporting evidence, and complete the UAE application with a clear filing plan for what follows.",
+    backgroundImageSrc: versionedAssetPath("/services/vat-filing.webp"),
+    backgroundImageAlt: "VAT registration application review for a UAE business",
+    introBackgroundImageSrc: versionedAssetPath("/services/vat-filing.webp"),
+    introBackgroundImageAlt: "VAT registration support in the UAE",
+    introBackgroundImageMode: "ambient",
+    introBackgroundImagePosition: "!object-[84%_32%]",
+    overviewImageSrc: versionedAssetPath("/services/vat-filing.webp"),
+    overviewImageAlt: "VAT registration application review for a UAE business",
+    overviewImagePosition: "object-[84%_32%]",
+    introTitle: "Overview",
+    introParagraphs: [
+      "VAT registration is a threshold and evidence decision, not a box to tick simply because a company has been incorporated. The business needs to understand which supplies count, whether the mandatory or voluntary rules apply, and what records support the position.",
+      "Zenesis reviews the business activity and turnover evidence, prepares the application information, and helps organize the supporting documents needed for submission through EmaraTax.",
+      "The registration decision also starts an ongoing compliance cycle. The filing period, invoice controls, bookkeeping rhythm, and responsibility for future returns should be clear before the first deadline arrives.",
+    ],
+    subpageLinks: [
+      {
+        label: "VAT filing services",
+        href: "/vat-filing-services-in-the-uae",
+        description: "Prepare recurring VAT returns, reconciliations, invoice checks, and filing follow-through after registration.",
+      },
+      {
+        label: "Bookkeeping services",
+        href: "/professional-bookkeeping-services-in-dubai",
+        description: "Keep the records behind VAT returns current and usable throughout the filing period.",
+      },
+    ],
+    knowledgeSections: [
+      {
+        title: "When registration becomes mandatory",
+        intro:
+          "The position depends on taxable supplies and imports over the applicable look-back or forward-looking period, not on company age alone.",
+        items: [
+          "Review taxable supplies and imports against the mandatory registration threshold",
+          "Consider expected taxable activity where the threshold may be exceeded in the next 30 days",
+          "Check the different position that can apply to non-resident businesses making taxable supplies in the UAE",
+          "Document the calculation and assumptions behind the registration decision",
+        ],
+      },
+      {
+        title: "Voluntary registration",
+        intro:
+          "A business below the mandatory threshold may still qualify to register voluntarily, but eligibility and commercial fit should both be reviewed.",
+        items: [
+          "Assess taxable supplies, imports, and eligible taxable expenses against the voluntary threshold",
+          "Consider the effect on invoicing, customers, input tax recovery, and recurring compliance work",
+          "Prepare evidence that supports the voluntary application rather than relying on estimates alone",
+        ],
+      },
+      {
+        title: "Documents and application preparation",
+        intro:
+          "A cleaner application connects the licence, ownership, activity, turnover, and banking evidence into one consistent file.",
+        items: [
+          "Trade licence, constitutional documents, and authorized-signatory information",
+          "Owner, shareholder, and contact details required for the tax profile",
+          "Sales records, invoices, contracts, bank statements, and turnover calculations supporting registration",
+          "Business activity, customer, supplier, and import or export information where relevant",
+        ],
+      },
+      {
+        title: "What happens after approval",
+        intro:
+          "Registration creates recurring obligations, so the first filing period should not be the first time the records are reviewed.",
+        items: [
+          "Confirm the effective registration date and assigned tax periods",
+          "Apply the TRN correctly to compliant tax invoices and business records",
+          "Set a bookkeeping and reconciliation rhythm before the first return",
+          "Move into recurring VAT filing support with clear responsibility for deadlines and payment steps",
+        ],
+      },
+    ],
+    directAnswers: [
+      {
+        question: "When must a UAE business register for VAT?",
+        answer:
+          "A UAE-resident business generally has to register when taxable supplies and imports exceed the mandatory threshold over the relevant previous 12 months, or are expected to exceed it in the next 30 days. The calculation should be checked against the business's actual supplies and evidence before an application is made.",
+      },
+      {
+        question: "Can a business register voluntarily below the mandatory threshold?",
+        answer:
+          "Potentially. Voluntary registration can be available when the applicable taxable supplies, imports, or taxable expenses exceed the voluntary threshold. Eligibility does not automatically mean it is the right commercial decision, because registration also creates invoicing, record-keeping, and filing obligations.",
+      },
+      {
+        question: "What evidence is normally needed for VAT registration?",
+        answer:
+          "The exact file depends on the business, but it commonly includes licence and ownership documents, authorized-signatory details, sales evidence, invoices, contracts, bank statements, turnover calculations, and information explaining the activity and expected taxable supplies.",
+      },
+      {
+        question: "What happens after a VAT registration is approved?",
+        answer:
+          "The business receives a TRN and assigned tax periods, then has to issue compliant tax invoices, maintain supporting records, prepare returns, and meet filing and payment deadlines. The bookkeeping and filing process should be set before the first return becomes urgent.",
+      },
+    ],
+    pointsTitle: "What we handle",
+    points: [
+      "Review the mandatory or voluntary VAT registration position",
+      "Calculate and document the taxable turnover basis used for the decision",
+      "Prepare application information and supporting evidence",
+      "Support the EmaraTax registration submission and follow-up questions",
+      "Clarify the effective date, tax periods, invoicing, and record-keeping steps after approval",
+      "Hand the business into a recurring VAT filing and reconciliation process",
+    ],
+    relatedInsightSlugs: [
+      "financial-year-2026-uae-compliance-guide",
+      "uae-corporate-tax-record-keeping-requirements",
+      "uae-mandatory-e-invoicing-deadlines-guide",
+    ],
+    supportTitle: "Talk to Zenesis",
+    supportParagraphs: [
+      "Reach out if you need to confirm the VAT registration position, prepare the evidence, or move from registration into a reliable filing process.",
+    ],
+    backHref: "/accounting-tax",
+    backLabel: "Back to Accounting & Tax",
+    metadata: {
+      ...toMetadata(
+        legacyServiceMeta["vat-registration-services-uae"],
+        "/vat-registration-services-uae",
+      ),
+    },
+  },
   "vat-filing-services-in-the-uae": {
     slug: "vat-filing-services-in-the-uae",
     currentPath: "/accounting-tax",
-    title: "VAT registration and filing",
-    eyebrow: "VAT Registration and Filing",
+    title: "VAT filing services",
+    eyebrow: "VAT Filing",
     description:
-      "Get support with VAT registration, accurate recurring returns, reconciliations, invoice checks, payment follow-through, and audit-ready records.",
+      "Prepare recurring UAE VAT returns with cleaner reconciliations, invoice checks, deadline management, payment follow-through, and audit-ready records.",
     backgroundImageSrc: versionedAssetPath("/services/vat-filing.webp"),
     backgroundImageAlt: "VAT filing support and reconciliation review in the UAE",
     introBackgroundImageSrc: versionedAssetPath("/services/vat-filing.webp"),
@@ -1335,23 +1463,23 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     overviewImagePosition: "object-[84%_32%]",
     introTitle: "Overview",
     introParagraphs: [
-      "Zenesis supports both VAT registration and ongoing VAT filing. For a new or growing business, that starts with reviewing whether the mandatory or voluntary registration rules apply and preparing the information and supporting documents for the application.",
       "VAT filing becomes difficult when invoices, purchases, and records are not being reviewed in a consistent way before the return is due.",
       "Once a business is VAT registered, the filing cycle becomes recurring. Most businesses file quarterly, some monthly, and the work needs to stay organized between periods rather than only when the deadline approaches.",
       "Zenesis helps you build a steadier VAT process so returns are prepared from cleaner records, reconciliations are clearer, and the business is in a better position if the FTA asks questions later.",
     ],
-    knowledgeSections: [
+    subpageLinks: [
       {
-        title: "When VAT registration becomes relevant",
-        intro:
-          "Registration depends on taxable activity and turnover rather than company age alone, so the position should be monitored as the business starts trading.",
-        items: [
-          "Review whether the mandatory registration threshold has been reached or is expected within the applicable period",
-          "Assess whether voluntary registration may be available and commercially appropriate",
-          "Prepare the turnover evidence, licence documents, ownership information, and supporting records required for the application",
-          "Set up the filing calendar and record-keeping process once registration is approved",
-        ],
+        label: "VAT registration services",
+        href: "/vat-registration-services-uae",
+        description: "Assess the registration threshold, prepare supporting evidence, and complete the application before filing begins.",
       },
+      {
+        label: "Bookkeeping services",
+        href: "/professional-bookkeeping-services-in-dubai",
+        description: "Keep the sales, purchase, invoice, and bank records behind each VAT return current.",
+      },
+    ],
+    knowledgeSections: [
       {
         title: "What a VAT return usually needs",
         intro:
@@ -1377,11 +1505,6 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     directAnswers: [
       {
-        question: "Does Zenesis provide VAT registration support?",
-        answer:
-          "Yes. Zenesis can assess the business's VAT registration position, help prepare the application information and supporting documents, and support the transition into recurring VAT filing once registration is approved.",
-      },
-      {
         question: "Do all UAE businesses file VAT on the same schedule?",
         answer:
           "No. Many businesses file quarterly, while some file monthly depending on their FTA-assigned VAT period. The practical point is that the records have to stay ready throughout the period instead of being rebuilt only when the filing deadline arrives.",
@@ -1404,8 +1527,6 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     pointsTitle: "What we handle",
     points: [
-      "Assess whether mandatory or voluntary VAT registration applies",
-      "Prepare VAT registration information and supporting documents",
       "Prepare the VAT return from your sales, purchases, and supporting records",
       "Reconcile input and output VAT before filing so the position is clearer",
       "Review tax invoices and supporting documents for filing readiness",
@@ -1414,7 +1535,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     supportTitle: "Talk to Zenesis",
     supportParagraphs: [
-      "Reach out if you need to establish your VAT registration position, prepare a registration application, or keep recurring returns and records organized after registration.",
+      "Reach out if recurring VAT returns, reconciliations, invoice checks, or filing deadlines need a clearer and more reliable process.",
     ],
     backHref: "/accounting-tax",
     backLabel: "Back to Accounting & Tax",
@@ -1447,6 +1568,18 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "Clean books are what help a business stay audit-ready, understand cash flow, catch financial issues earlier, and avoid last-minute accounting pressure before VAT or corporate tax deadlines.",
       "Zenesis helps you keep records current, reconcile accounts properly, and produce reports that are actually useful for compliance and running the business.",
     ],
+    subpageLinks: [
+      {
+        label: "Accounting and tax",
+        href: "/accounting-tax",
+        description: "See how bookkeeping supports VAT, corporate tax, financial reporting, and the wider compliance cycle.",
+      },
+      {
+        label: "VAT filing services",
+        href: "/vat-filing-services-in-the-uae",
+        description: "Use current books and reconciliations to prepare stronger recurring VAT returns.",
+      },
+    ],
     knowledgeSections: [
       {
         title: "Why bookkeeping matters beyond data entry",
@@ -1468,6 +1601,17 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Financial reporting such as P&L, balance sheet, and cash flow views",
           "Support for payroll records and tax-linked readiness",
           "Work within the tools the business already uses, including QuickBooks, Zoho Books, Tally, and Excel",
+        ],
+      },
+      {
+        title: "When outsourced accounting makes sense",
+        intro:
+          "An outsourced finance rhythm can suit businesses that need reliable monthly control and reporting without building a full internal accounting team.",
+        items: [
+          "The transaction volume is growing but an in-house finance hire is not yet justified",
+          "VAT, corporate tax, payroll, and management reporting need one coordinated record base",
+          "Founders need regular reporting and reconciliations instead of year-end cleanup",
+          "The internal team needs an external accounting function with defined responsibilities and deadlines",
         ],
       },
     ],

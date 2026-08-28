@@ -41,7 +41,7 @@ export default function InsightsPage() {
       <PageSectionNavMobile items={insightsPageLinks} />
       <PageGuideLayout items={insightsPageLinks} credibilityPath="/insights">
 
-      <section id="latest" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18">
+      <section id="latest" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="min-w-0">
           <SectionHeading
@@ -72,16 +72,16 @@ export default function InsightsPage() {
               >
                 {featuredPost.displayTitle ?? featuredPost.title}
               </h2>
-              <p className="mt-6 max-w-3xl text-[1.14rem] leading-8 text-foreground/76 md:text-[1.24rem] md:leading-9">
+              <p className="mt-5 max-w-3xl text-[1.04rem] leading-[1.9rem] text-foreground/76 md:text-[1.12rem] md:leading-8">
                 {featuredPost.description}
               </p>
-              <span className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#11232a] px-6 py-3 text-sm font-semibold text-white transition-colors group-hover:bg-[#1b3040]">
+              <span className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#011735] px-6 py-3 text-sm font-semibold text-white transition-colors group-hover:bg-[#1b3040]">
                 Read featured article
                 <span aria-hidden="true">→</span>
               </span>
             </div>
 
-            <div className="block self-start overflow-hidden rounded-lg border border-[#d8d0c2] bg-[#11232a]">
+            <div className="block self-start overflow-hidden rounded-lg border border-[#d8d0c2] bg-[#011735]">
               <div className="relative overflow-hidden">
                 <Image
                   src={featuredPost.heroImageSrc}
@@ -98,7 +98,7 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      <section id="articles" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-14 md:py-18">
+      <section id="articles" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Archive"
@@ -109,7 +109,7 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      <section id="featured-profile" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18">
+      <section id="featured-profile" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Leadership"
@@ -121,7 +121,7 @@ export default function InsightsPage() {
             href={featuredProfile.href}
             className="group mt-9 grid gap-7 rounded-lg border border-[#d8d0c2] bg-[#f8f6f1] p-5 text-foreground transition-transform duration-200 hover:-translate-y-0.5 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:p-6"
           >
-            <div className="overflow-hidden rounded-lg border border-[#d8d0c2] bg-[#11232a]">
+            <div className="overflow-hidden rounded-lg border border-[#d8d0c2] bg-[#011735]">
               <Image
                 src={featuredProfile.imageSrc}
                 alt={featuredProfile.imageAlt}
@@ -143,12 +143,12 @@ export default function InsightsPage() {
               <h2 className="mt-5 text-[2.4rem] font-semibold leading-[1.06] tracking-[-0.04em] text-foreground md:text-[3.1rem]">
                 Cecilia D&apos;Cunha
               </h2>
-              <p className="mt-6 text-[1.14rem] leading-8 text-foreground/76 md:text-[1.22rem] md:leading-9">
+              <p className="mt-5 text-[1.04rem] leading-[1.9rem] text-foreground/76 md:text-[1.12rem] md:leading-8">
                 Read the full leadership profile covering Cecilia&apos;s early
                 offshore incorporation work, her move into the UAE in 1998, and
                 the experience that shaped Zenesis.
               </p>
-              <span className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#11232a] px-6 py-3 text-sm font-semibold text-white transition-colors group-hover:bg-[#1b3040]">
+              <span className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#011735] px-6 py-3 text-sm font-semibold text-white transition-colors group-hover:bg-[#1b3040]">
                 Read profile
                 <span aria-hidden="true">→</span>
               </span>

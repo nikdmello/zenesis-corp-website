@@ -114,7 +114,7 @@ export default function FeaturedProfilePage() {
         <JsonLd key={index} data={schema} />
       ))}
       <article>
-        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] py-7 text-white md:py-8">
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-[#011735] py-7 text-white md:py-8">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(36,75,168,0.24),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_44%)]" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-full overflow-hidden md:w-[min(56vw,60rem)]">
             <div
@@ -161,10 +161,10 @@ export default function FeaturedProfilePage() {
                   </span>
                   <span>{featuredProfile.dateLabel}</span>
                 </div>
-                <h1 className="mt-7 w-full text-[2.5rem] font-semibold leading-[1.06] tracking-[-0.06em] text-white sm:text-[3rem] md:text-[3.35rem] xl:text-[3.5rem]">
+                <h1 className="mt-7 w-full text-[2.25rem] font-semibold leading-[1.08] tracking-[-0.06em] text-white sm:text-[2.75rem] md:text-[3.15rem] xl:text-[3.5rem]">
                   Cecilia D&apos;Cunha in Global Leaders Today
                 </h1>
-                <p className="mt-7 max-w-4xl text-[1.16rem] font-medium leading-8 text-white/86 md:text-[1.28rem] md:leading-9">
+                <p className="mt-6 max-w-4xl text-[1.06rem] font-medium leading-[1.9rem] text-white/86 md:text-[1.16rem] md:leading-8">
                   {featuredProfile.summary}
                 </p>
               </header>
@@ -172,10 +172,10 @@ export default function FeaturedProfilePage() {
           </div>
         </section>
 
-        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-14 md:py-18">
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-11 md:py-14">
           <div className="mx-auto w-full max-w-[104rem] px-7 md:px-14 xl:px-24">
             <div className="max-w-[78rem] lg:grid lg:grid-cols-[minmax(0,54rem)_17rem] lg:items-start lg:gap-12 xl:gap-16">
-              <div className="min-w-0 space-y-16">
+              <div className="min-w-0 space-y-12">
                 <section className="border-y border-[#e4dbce] py-5 lg:hidden">
                   <ProfileIdentity profile={profile} compact />
                 </section>
@@ -213,7 +213,7 @@ export default function FeaturedProfilePage() {
                     {profileHighlights.map((item) => (
                       <li
                         key={item}
-                        className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b] md:text-[1.08rem]"
+                        className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b] md:text-[1.04rem]"
                       >
                         <span className="mt-[0.7rem] h-2 w-2 shrink-0 rounded-full bg-[#8d7453]" />
                         <span>{item}</span>
@@ -235,7 +235,7 @@ export default function FeaturedProfilePage() {
                       {section.paragraphs.map((paragraph) => (
                         <p
                           key={paragraph}
-                          className="text-[1.08rem] leading-[2rem] text-[#07151b]/92 md:text-[1.14rem] md:leading-[2.15rem]"
+                          className="text-[1.04rem] leading-[1.9rem] text-[#07151b]/92 md:text-[1.08rem] md:leading-[1.95rem]"
                         >
                           {paragraph}
                           <a
@@ -249,7 +249,7 @@ export default function FeaturedProfilePage() {
                       ))}
                     </div>
                     {"quote" in section && section.quote ? (
-                      <blockquote className="mt-8 border-l-4 border-[#244ba8] bg-[#f3f7ff] px-6 py-6 text-[1.12rem] font-medium leading-8 text-[#07151b] md:px-8 md:text-[1.18rem] md:leading-9">
+                      <blockquote className="mt-8 border-l-4 border-[#244ba8] bg-[#f3f7ff] px-6 py-6 text-[1.06rem] font-medium leading-8 text-[#07151b] md:px-8 md:text-[1.1rem] md:leading-9">
                         &ldquo;{section.quote}&rdquo;
                       </blockquote>
                     ) : null}
@@ -263,7 +263,7 @@ export default function FeaturedProfilePage() {
                   <h2 className={articleSectionHeadingClassName}>
                     Why this matters for clients
                   </h2>
-                  <div className="mt-5 space-y-5 text-[1.08rem] leading-8 text-[#07151b]/92 md:text-[1.14rem]">
+                  <div className="mt-5 space-y-5 text-[1.04rem] leading-8 text-[#07151b]/92 md:text-[1.08rem]">
                     <p>
                       Cecilia&apos;s background is not just a personal profile. It explains why
                       Zenesis is able to guide businesses through company formation,

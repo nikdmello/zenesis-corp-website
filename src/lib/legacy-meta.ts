@@ -28,9 +28,9 @@ export const legacyRouteMeta = {
       "Zenesis supports mainland, free zone, and offshore business setup in Dubai and the UAE, covering licensing, visas, banking, and post-formation support.",
   },
   accountingTax: {
-    title: "Accounting Services in UAE for Businesses",
+    title: "Accounting Services Dubai | UAE Business Support",
     description:
-      "Explore accounting services, bookkeeping, financial reporting, and compliance solutions for businesses in the UAE.",
+      "Accounting services in Dubai for UAE businesses, covering bookkeeping, financial reporting, VAT, corporate tax, reconciliations, and ongoing compliance.",
   },
   visaAndBanking: {
     title: "UAE Business Visa & Residency Guide",
@@ -40,7 +40,7 @@ export const legacyRouteMeta = {
   corporateSupport: {
     title: "Corporate Support Services UAE | Zenesis Corp",
     description:
-      "Corporate support for UAE companies including renewals, amendments, liquidation, restoration, branch office support, document attestation, and ongoing company administration.",
+      "UAE corporate support for company renewals, amendments, liquidation, restoration, branch offices, document attestation, UBO filings, and administration.",
   },
   goldenVisaServices: {
     title: "UAE Golden Visa Guide for Investors & Professionals",
@@ -53,12 +53,12 @@ export const legacyServiceMeta = {
   mainland: {
     title: "Mainland Company Formation Dubai | Cost, Visas & Setup",
     description:
-      "Plan mainland company formation in Dubai with guidance on activity selection, legal structure, office needs, visas, banking, approvals, cost drivers, and renewals.",
+      "Plan mainland company formation in Dubai, including activities, legal structures, office requirements, visas, banking, approvals, costs, and renewals.",
   },
   "general-trading-license-dubai": {
     title: "General Trading License Dubai | Setup & Activity Guidance",
     description:
-      "Plan a general trading license in Dubai or the UAE with guidance on activity scope, mainland and free zone options, approvals, documents, customs, banking, and tax readiness.",
+      "Plan a Dubai general trading licence with guidance on activities, jurisdiction, approvals, documents, customs, banking, tax, and ongoing compliance.",
   },
   "free-zones": {
     title: "Free Zone Company Formation Dubai | Costs, Visas & Banking",
@@ -68,7 +68,7 @@ export const legacyServiceMeta = {
   offshore: {
     title: "Offshore Company Formation | UAE & International Options",
     description:
-      "Compare Ajman, RAK, Jebel Ali, BVI, Nevis, Mauritius, Seychelles, and Hong Kong offshore company formation for holding, asset ownership, international structuring, or succession planning.",
+      "Compare UAE and international offshore company formation for holding companies, asset ownership, cross-border structures, and succession planning.",
   },
   "document-attestation-services-in-uae": {
     title: "Document Attestation Services in UAE | Zenesis Corp",
@@ -96,14 +96,19 @@ export const legacyServiceMeta = {
       "Zenesis Corp offers reliable corporate tax filing services in the UAE, ensuring accurate submissions and regulatory compliance.",
   },
   "vat-filing-services-in-the-uae": {
-    title: "VAT Registration and Filing Services UAE | Zenesis",
+    title: "VAT Filing Services UAE | Returns & Compliance",
     description:
-      "Get UAE VAT registration and filing support from Zenesis, including registration assessment, application preparation, accurate returns, reconciliations, and ongoing compliance.",
+      "Prepare UAE VAT returns with support for reconciliations, invoice checks, filing deadlines, payment follow-through, corrections, and audit-ready records.",
+  },
+  "vat-registration-services-uae": {
+    title: "VAT Registration Services UAE | Zenesis Corp",
+    description:
+      "Get UAE VAT registration support with threshold assessment, document preparation, EmaraTax application guidance, and a clear handover into ongoing VAT compliance.",
   },
   "professional-bookkeeping-services-in-dubai": {
-    title: "Top Accounting & Bookkeeping Company in Dubai | Zenesis Corp",
+    title: "Bookkeeping Services Dubai | Outsourced Accounting",
     description:
-      "Professional accounting and bookkeeping services in Dubai by Zenesis Corp, with accurate records and compliance-focused reporting.",
+      "Outsourced bookkeeping services in Dubai for current books, bank reconciliations, management reporting, payroll support, VAT, corporate tax, and audit readiness.",
   },
   "golden-visa-services-in-the-uae": {
     title: "UAE Golden Visa Guide for Investors & Professionals",
@@ -113,6 +118,11 @@ export const legacyServiceMeta = {
 } satisfies Record<string, LegacyMeta>;
 
 export const legacyInsightMetaBySlug = {
+  "just-registered-uae-company-what-comes-next": {
+    title: "UAE Company Registration: What Comes Next?",
+    description:
+      "A practical 90-day UAE company checklist covering immigration, visas, banking, Corporate Tax, bookkeeping, VAT, UBO filings, ESR, and renewals.",
+  },
   "business-consultant-beyond-company-registration": {
     title: "Business Consultant Beyond Company Registration | Zenesis",
     description:
@@ -171,7 +181,7 @@ export const legacyInsightMetaBySlug = {
   "business-setup-mistakes-dubai": {
     title: "Business Setup Mistakes in Dubai | 7 Costly Errors to Avoid",
     description:
-      "Avoid common business setup mistakes in Dubai, from choosing the wrong mainland or free zone route to underestimating license scope, visas, banking, tax, and renewal costs.",
+      "Avoid common Dubai business setup mistakes involving route selection, licence scope, visas, banking, tax readiness, renewals, and hidden costs.",
   },
   "complete-dubai-golden-visa-guide": {
     title: "Complete Dubai Golden Visa Guide",

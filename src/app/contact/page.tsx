@@ -58,12 +58,12 @@ export default function ContactPage() {
                       href={googleMapsHref}
                       target="_blank"
                       rel="noreferrer"
-                      className="group rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.06)] transition-transform duration-200 hover:-translate-y-0.5"
+                      className="group rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#011735] shadow-[0_10px_28px_rgba(17,35,42,0.06)] transition-transform duration-200 hover:-translate-y-0.5"
                     >
-                      <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
+                      <h2 className="text-[1.04rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.08rem]">
                         {item.label}
                       </h2>
-                      <p className="mt-4 text-[1.02rem] font-semibold leading-7 tracking-[-0.03em] text-foreground md:text-[1.08rem]">
+                      <p className="mt-4 text-[1.02rem] font-semibold leading-7 tracking-[-0.03em] text-foreground md:text-[1.04rem]">
                         {item.value}
                       </p>
                       <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors group-hover:text-accent-strong">
@@ -81,16 +81,16 @@ export default function ContactPage() {
                       href={whatsappHref}
                       target="_blank"
                       rel="noreferrer"
-                      className="group rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.06)] transition-transform duration-200 hover:-translate-y-0.5"
+                      className="group rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#011735] shadow-[0_10px_28px_rgba(17,35,42,0.06)] transition-transform duration-200 hover:-translate-y-0.5"
                     >
-                      <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
+                      <h2 className="text-[1.04rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.08rem]">
                         {item.label}
                       </h2>
                       <div className="mt-4 flex items-center gap-3">
                         <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_24px_rgba(37,211,102,0.22)]">
                           <WhatsAppIcon className="h-5 w-5 fill-current" />
                         </span>
-                        <p className="text-[1.12rem] font-semibold leading-8 tracking-[-0.03em] text-foreground md:text-[1.18rem]">
+                        <p className="text-[1.06rem] font-semibold leading-8 tracking-[-0.03em] text-foreground md:text-[1.1rem]">
                           {item.value}
                         </p>
                       </div>
@@ -101,12 +101,12 @@ export default function ContactPage() {
                 return (
                   <div
                     key={item.label}
-                    className="rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.06)]"
+                    className="rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#011735] shadow-[0_10px_28px_rgba(17,35,42,0.06)]"
                   >
-                    <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
+                    <h2 className="text-[1.04rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.08rem]">
                       {item.label}
                     </h2>
-                    <p className="mt-4 text-[1.12rem] font-semibold leading-8 tracking-[-0.03em] text-foreground md:text-[1.18rem]">
+                    <p className="mt-4 text-[1.06rem] font-semibold leading-8 tracking-[-0.03em] text-foreground md:text-[1.1rem]">
                       {item.value}
                     </p>
                   </div>
@@ -114,7 +114,7 @@ export default function ContactPage() {
               })}
             </div>
 
-            <article className="rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#11232a] shadow-[0_10px_28px_rgba(17,35,42,0.06)]">
+            <article className="rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#011735] shadow-[0_10px_28px_rgba(17,35,42,0.06)]">
               <h2 className="text-[1.24rem] font-semibold tracking-[-0.04em] text-foreground md:text-[1.32rem]">
                 Social Media
               </h2>
@@ -125,7 +125,7 @@ export default function ContactPage() {
                     href={item.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group inline-flex min-h-12 items-center justify-between gap-3 rounded-[0.7rem] border border-[#e2cfaa] bg-[linear-gradient(135deg,#fffaf0_0%,#f1dfbd_58%,#dfc48f_100%)] px-4 py-3 text-[0.96rem] font-semibold text-[#11232a] shadow-[0_10px_24px_rgba(17,35,42,0.09),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-[1.025] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
+                    className="group inline-flex min-h-12 items-center justify-between gap-3 rounded-[0.7rem] border border-[#e2cfaa] bg-[linear-gradient(135deg,#fffaf0_0%,#f1dfbd_58%,#dfc48f_100%)] px-4 py-3 text-[0.96rem] font-semibold text-[#011735] shadow-[0_10px_24px_rgba(17,35,42,0.09),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-[1.025] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
                   >
                     <span className="inline-flex items-center gap-2.5">
                       {item.label === "Facebook" ? <FacebookIcon className="h-5 w-5 fill-current" /> : null}
@@ -142,7 +142,7 @@ export default function ContactPage() {
             <article className="overflow-hidden rounded-lg border border-[#d8d0c2] bg-white p-4 shadow-[0_10px_28px_rgba(17,35,42,0.06)] md:p-5">
               <div className="flex items-center justify-between gap-4 px-2 pb-4 pt-1">
                 <div>
-                  <h2 className="text-[1.08rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.14rem]">
+                  <h2 className="text-[1.04rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.08rem]">
                     Office Map
                   </h2>
                   <p className="mt-3 text-[clamp(1.7rem,2.6vw,2.6rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-foreground">
@@ -153,7 +153,7 @@ export default function ContactPage() {
                   href={googleMapsHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="group shrink-0 inline-flex min-h-11 items-center gap-2 border border-[#c7a66a] bg-[#11232a] px-4 py-2 text-sm font-semibold !text-white shadow-[0_10px_24px_rgba(17,35,42,0.16)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#dfc488] hover:bg-[#18313a] hover:!text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
+                  className="group shrink-0 inline-flex min-h-11 items-center gap-2 border border-[#c7a66a] bg-[#011735] px-4 py-2 text-sm font-semibold !text-white shadow-[0_10px_24px_rgba(17,35,42,0.16)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#dfc488] hover:bg-[#18313a] hover:!text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
                 >
                   <span>Open in Maps</span>
                   <span aria-hidden="true" className="text-base leading-none transition-transform group-hover:translate-x-0.5">↗</span>

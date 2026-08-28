@@ -5,7 +5,6 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 type ServiceRevealItem = {
   title: string;
   href: string;
-  cta: string;
   items: readonly string[];
   icon: "business" | "accounting" | "visa" | "support";
   imageSrc: string;
@@ -118,7 +117,7 @@ export function HomepageServicesReveal({
             <ScrollReveal key={item.title} delay={index * 70}>
               <Link
                 href={item.href}
-                className="group grid grid-cols-[3.25rem_minmax(0,1fr)] gap-x-4 gap-y-5 py-7 text-[#07151b] transition-colors duration-300 hover:bg-white/72 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#244ba8] focus-visible:ring-inset md:min-h-[15rem] md:grid-cols-[5rem_minmax(12rem,0.72fr)_minmax(18rem,1fr)_8rem] md:items-center md:gap-8 md:px-5 lg:min-h-[17rem]"
+                className="group grid grid-cols-[3.25rem_minmax(0,1fr)] gap-x-4 gap-y-5 py-7 text-[#07151b] transition-colors duration-300 hover:bg-white/72 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#244ba8] focus-visible:ring-inset md:min-h-[15rem] md:grid-cols-[5rem_minmax(12rem,0.72fr)_minmax(18rem,1fr)] md:items-center md:gap-8 md:px-5 lg:min-h-[17rem]"
               >
               <div className="flex flex-col items-center self-start pt-0.5 md:self-center md:pt-0">
                 <span className="text-[0.88rem] font-semibold tabular-nums text-[#8d7453]">
@@ -149,16 +148,6 @@ export function HomepageServicesReveal({
                 />
                 <div className="absolute inset-0 border border-black/8" />
               </div>
-
-              <span className="col-span-2 inline-flex items-center justify-between border-t border-[#d8d0c2] pt-4 text-sm font-semibold text-[#244ba8] md:col-span-1 md:justify-end md:border-t-0 md:pt-0">
-                {item.cta}
-                <span
-                  aria-hidden="true"
-                  className="transition-transform duration-200 group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </span>
               </Link>
             </ScrollReveal>
           ))}

@@ -25,13 +25,11 @@ import { buildFaqSchema } from "@/lib/seo";
 
 const trustSignals = [
   {
-    icon: "🏅",
     label: "Excellence in company formation",
     value: "Excellence in Company Formation Award",
     detail: "Dubai, UAE · 2025",
   },
   {
-    icon: "📰",
     label: "Featured Profile",
     value: "Cecilia D'Cunha in Global Leaders Today",
     detail:
@@ -163,8 +161,8 @@ const homepageInsightCards: HomepageInsightCard[] = insightPosts.map(
 const experienceLedger = [
   { value: "20+", label: "years supporting UAE and international business setup" },
   { value: "480+", label: "Google reviews from clients and business owners" },
-  { value: "18", label: "UAE free zone and offshore setup routes covered in our guidance" },
-  { value: "8", label: "legal structures compared for UAE company formation" },
+  { value: "18", label: "UAE free zone and offshore jurisdictions covered" },
+  { value: "5", label: "service areas managed by one team" },
 ] as const;
 
 export default function Home() {
@@ -256,12 +254,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="relative left-1/2 w-screen -translate-x-1/2 border-y border-white/12 bg-[#11232a] text-white">
-          <div className="mx-auto grid w-full max-w-[100rem] px-6 sm:grid-cols-2 md:px-12 xl:grid-cols-4 xl:px-20">
+        <section className="relative left-1/2 w-screen -translate-x-1/2 border-y border-white/12 bg-[#011735] text-white">
+          <div className="mx-auto grid w-full max-w-[100rem] grid-cols-2 px-4 md:px-12 xl:grid-cols-4 xl:px-20">
             {experienceLedger.map((item, index) => (
-              <ScrollReveal key={item.value} delay={index * 70} className="flex flex-col items-center border-b border-white/12 py-7 text-center last:border-b-0 sm:border-r sm:px-6 sm:[&:nth-child(2n)]:border-r-0 sm:[&:nth-last-child(-n+2)]:border-b-0 xl:border-b-0 xl:border-r xl:py-8 xl:[&:nth-child(2n)]:border-r xl:last:border-r-0">
-                <p className="text-[1.65rem] font-semibold leading-none text-[#ead5aa] md:text-[1.9rem]">{item.value}</p>
-                <p className="mt-3 max-w-[21rem] text-[0.92rem] leading-6 text-white/70">{item.label}</p>
+              <ScrollReveal key={item.value} delay={index * 70} className="flex flex-col items-center border-b border-r border-white/12 px-3 py-5 text-center even:border-r-0 [&:nth-last-child(-n+2)]:border-b-0 md:px-6 xl:border-b-0 xl:border-r xl:py-8 xl:even:border-r xl:last:border-r-0">
+                <p className="text-[1.8rem] font-semibold leading-none text-[#ead5aa] md:text-[2.15rem]">{item.value}</p>
+                <p className="mt-2 max-w-[19rem] text-[0.78rem] leading-5 text-white/64 md:mt-3 md:text-[0.88rem] md:leading-6">{item.label}</p>
               </ScrollReveal>
             ))}
           </div>
@@ -269,7 +267,7 @@ export default function Home() {
 
         <HomepageServicesReveal items={customerPaths} />
 
-      <section id="premier-clients" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
+      <section id="premier-clients" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#011735] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <div className="max-w-[50rem]">
@@ -307,39 +305,18 @@ export default function Home() {
           <div className="border-y border-[#cfc4b4] py-6 md:py-8">
             <AwardsVideoExperience />
 
-            <h3 className="mt-4 text-[1.35rem] font-semibold leading-[1.16] text-[#11232a] sm:hidden">
+            <h3 className="mt-4 text-[1.35rem] font-semibold leading-[1.16] text-[#011735] sm:hidden">
               Best Real Estate Management Consultancy of the Year
             </h3>
-
-            <div className="mt-8 grid gap-5 md:grid-cols-2">
-              <div className="relative aspect-[3/2] overflow-hidden border border-[#d8cdbc] bg-[#07151b]">
-                <NextImage
-                  src="/recognition/zenesis-irecms-awards.webp"
-                  alt="Cecilia D'Cunha and the Zenesis team holding awards at IRECMS Dubai"
-                  fill
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover object-center transition-transform duration-500 hover:scale-[1.015]"
-                />
-              </div>
-              <div className="relative aspect-[3/2] overflow-hidden border border-[#d8cdbc] bg-[#07151b]">
-                <NextImage
-                  src="/recognition/zenesis-best-real-estate-management-consultancy.webp"
-                  alt="Zenesis receiving the Best Real Estate Management Consultancy of the Year award"
-                  fill
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover object-center transition-transform duration-500 hover:scale-[1.015]"
-                />
-              </div>
-            </div>
 
             <div className="mt-8 grid gap-6 border-t border-[#cfc4b4] pt-7 md:grid-cols-2">
               <div>
                 <p className="text-sm font-semibold text-[#8d7453]">{companyFormationAward.detail}</p>
-                <h3 className="mt-3 text-[1.25rem] font-semibold text-[#11232a]">{companyFormationAward.value}</h3>
+                <h3 className="mt-3 text-[1.25rem] font-semibold text-[#011735]">{companyFormationAward.value}</h3>
               </div>
               <Link href={featuredProfile.href} className="group border-l-0 border-[#cfc4b4] md:border-l md:pl-7">
                 <p className="text-sm font-semibold text-[#8d7453]">Leadership profile</p>
-                <h3 className="mt-3 text-[1.25rem] font-semibold text-[#11232a] transition-colors group-hover:text-[#244ba8]">Cecilia D&apos;Cunha in Global Leaders Today</h3>
+                <h3 className="mt-3 text-[1.25rem] font-semibold text-[#011735] transition-colors group-hover:text-[#244ba8]">Cecilia D&apos;Cunha in Global Leaders Today</h3>
                 <span className="mt-3 inline-flex text-sm font-semibold text-[#244ba8]">Read the profile →</span>
               </Link>
             </div>
@@ -348,15 +325,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
+      <section id="homepage-insights" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#011735] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <SectionHeading
             eyebrow="Blog"
             eyebrowClassName="!text-white/68"
-            title="Latest blog posts"
+            title="Latest insights"
             titleClassName="!text-white"
-            description="Recent guidance on business setup, accounting and tax, and visa and banking questions for UAE founders and operators."
+            description="Practical guidance for setting up, operating, and keeping a business compliant in the UAE."
             descriptionClassName="!text-white/84"
           />
         </ScrollReveal>
@@ -369,29 +346,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="client-reviews" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-20 bg-[#f5efe4] py-16 md:py-20">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 w-full max-w-[64rem] md:w-[46vw] md:min-w-[34rem] xl:w-[52vw] xl:min-w-[42rem]"
-        >
-          <div
-            className="absolute inset-0 opacity-[0.32] md:opacity-[0.48] xl:opacity-[0.54]"
-            style={{
-              WebkitMaskImage:
-                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
-              maskImage:
-                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.32) 36%, rgba(0,0,0,0.72) 58%, #000 76%, #000 100%)",
-            }}
-          >
-            <NextImage
-              src="/sections/client-reviews.webp"
-              alt=""
-              fill
-              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 46vw, 1024px"
-              className="object-cover object-right"
-            />
-          </div>
-        </div>
+      <section id="client-reviews" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-20 border-y border-[#d8d0c2] bg-[#f8f6f1] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
@@ -400,7 +355,7 @@ export default function Home() {
               eyebrowClassName="!text-[#8d7453]"
               title="Client reviews"
               titleClassName="!text-[#07151b]"
-              description="Client feedback on business growth, long-term support, company formation, visas, banking, and offshore structures."
+              description="What clients say about working with Zenesis across company formation, visas, banking, and long-term business support."
               descriptionClassName="!text-muted"
             />
             <div className="flex items-center gap-4 md:shrink-0">

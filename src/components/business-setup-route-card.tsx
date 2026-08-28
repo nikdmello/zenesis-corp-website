@@ -32,7 +32,7 @@ export function BusinessSetupRouteCard({
   const hasImage = Boolean(imageSrc && imageAlt);
 
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#11232a] shadow-[0_12px_30px_rgba(17,35,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#bca57f] hover:shadow-[0_16px_36px_rgba(17,35,42,0.12)] focus-within:border-[#bca57f] focus-within:shadow-[0_16px_36px_rgba(17,35,42,0.12)]">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#011735] shadow-[0_12px_30px_rgba(17,35,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#bca57f] hover:shadow-[0_16px_36px_rgba(17,35,42,0.12)] focus-within:border-[#bca57f] focus-within:shadow-[0_16px_36px_rgba(17,35,42,0.12)]">
       <Link
         href={href}
         aria-label={`${ctaLabel}: ${title}`}

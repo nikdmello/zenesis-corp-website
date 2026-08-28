@@ -56,7 +56,7 @@ export function HomepageReviewsCarousel({
             href={googleReviewsHref}
             target="_blank"
             rel="noreferrer"
-            className="group relative flex min-h-[19rem] w-[88%] shrink-0 snap-start flex-col rounded-lg border border-[#d8d0c2] bg-white p-5 text-[#11232a] transition-transform duration-300 ease-out hover:-translate-y-0.5 sm:w-[calc((100%-1.25rem)/2)] xl:w-[calc((100%-2.5rem)/3)]"
+            className="group relative flex min-h-[19rem] w-[88%] shrink-0 snap-start flex-col rounded-lg border border-[#d8d0c2] bg-white p-5 text-[#011735] transition-transform duration-300 ease-out hover:-translate-y-0.5 sm:w-[calc((100%-1.25rem)/2)] xl:w-[calc((100%-2.5rem)/3)]"
           >
             <div className="flex items-center justify-between gap-4">
               <span
@@ -73,7 +73,7 @@ export function HomepageReviewsCarousel({
               </span>
             </div>
 
-            <p className="mt-3 text-[1.05rem] leading-7 text-[#11232a] md:text-[1.1rem] md:leading-7">
+            <p className="mt-3 text-[1.05rem] leading-7 text-[#011735] md:text-[1.1rem] md:leading-7">
               &ldquo;{item.quote}&rdquo;
             </p>
 
@@ -81,11 +81,11 @@ export function HomepageReviewsCarousel({
               <div className="flex min-w-0 items-center gap-3">
                 <span
                   aria-hidden="true"
-                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#11232a] text-[0.78rem] font-semibold uppercase tracking-[0.04em] text-white"
+                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#011735] text-[0.78rem] font-semibold uppercase tracking-[0.04em] text-white"
                 >
                   {getInitials(item.name)}
                 </span>
-                <p className="min-w-0 text-[0.96rem] font-semibold leading-tight tracking-[-0.02em] text-[#11232a] md:text-[1rem]">
+                <p className="min-w-0 text-[0.96rem] font-semibold leading-tight tracking-[-0.02em] text-[#011735] md:text-[1rem]">
                   {item.name}
                 </p>
               </div>
@@ -106,12 +106,12 @@ export function HomepageReviewsCarousel({
           aria-label="Previous review"
           disabled={activeIndex === 0}
           onClick={() => scrollToReview(activeIndex - 1)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#11232a]/16 bg-white text-[#11232a] transition-colors hover:border-[#11232a]/34 disabled:cursor-not-allowed disabled:opacity-35"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#011735]/16 bg-white text-[#011735] transition-colors hover:border-[#011735]/34 disabled:cursor-not-allowed disabled:opacity-35"
         >
           <span aria-hidden="true">←</span>
         </button>
 
-        <p className="min-w-[4.5rem] text-center text-sm font-semibold tabular-nums text-[#11232a]/66">
+        <p className="min-w-[4.5rem] text-center text-sm font-semibold tabular-nums text-[#011735]/66">
           {String(activeIndex + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}
         </p>
 
@@ -120,7 +120,7 @@ export function HomepageReviewsCarousel({
           aria-label="Next review"
           disabled={activeIndex === testimonials.length - 1}
           onClick={() => scrollToReview(activeIndex + 1)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#11232a]/16 bg-white text-[#11232a] transition-colors hover:border-[#11232a]/34 disabled:cursor-not-allowed disabled:opacity-35"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#011735]/16 bg-white text-[#011735] transition-colors hover:border-[#011735]/34 disabled:cursor-not-allowed disabled:opacity-35"
         >
           <span aria-hidden="true">→</span>
         </button>

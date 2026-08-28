@@ -1,4 +1,5 @@
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
+import { createContextualLinker } from "@/components/contextual-links";
 import { JsonLd } from "@/components/json-ld";
 import { PageGuideLayout } from "@/components/page-guide-layout";
 import { PageSectionNavMobile } from "@/components/page-section-nav";
@@ -156,6 +157,7 @@ const processSteps = [
 ] as const;
 
 export default function VisaAndBankingPage() {
+  const linkContext = createContextualLinker("/visa-and-banking", 4);
   const schemas = [
     buildServiceSchema({
       title: config.title,
@@ -193,22 +195,22 @@ export default function VisaAndBankingPage() {
       <PageSectionNavMobile items={visaBankingPageLinks} />
       <PageGuideLayout items={visaBankingPageLinks} credibilityPath="/visa-and-banking">
 
-      <section id="overview" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18">
+      <section id="overview" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <article className="max-w-[54rem]">
-            <h2 className="text-[1.75rem] font-semibold leading-[1.16] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.16] text-[#011735] sm:text-[1.9rem] md:text-[2.05rem]">
               Overview
             </h2>
-            <div className="mt-7 max-w-[50rem] space-y-5 text-[1.12rem] leading-[2.08rem] text-[#07151b]/92 md:text-[1.18rem] md:leading-[2.2rem]">
+            <div className="mt-7 max-w-[50rem] space-y-5 text-[1.06rem] leading-[1.9rem] text-[#07151b]/92 md:text-[1.1rem] md:leading-[2rem]">
               {config.introParagraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+                <p key={paragraph}>{linkContext(paragraph)}</p>
               ))}
             </div>
           </article>
         </div>
       </section>
 
-      <section id="who-its-for" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
+      <section id="who-its-for" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#011735] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Who it helps"
@@ -222,7 +224,7 @@ export default function VisaAndBankingPage() {
                 className="border-b border-white/18 py-7 text-white"
               >
                 <span className="text-sm font-semibold text-[#ead5aa]">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="mt-4 text-[1.18rem] font-semibold leading-tight text-white md:text-[1.24rem]">
+                <h3 className="mt-4 text-[1.1rem] font-semibold leading-tight text-white md:text-[1.24rem]">
                   {item.title}
                 </h3>
                 <p className="mt-4 max-w-2xl text-[1.04rem] leading-8 text-white/74">
@@ -259,7 +261,7 @@ export default function VisaAndBankingPage() {
         </div>
       </section>
 
-      <section id="how-zenesis-helps" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
+      <section id="how-zenesis-helps" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#011735] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Why Zenesis"
@@ -273,7 +275,7 @@ export default function VisaAndBankingPage() {
                 className="border-b border-white/18 py-7 text-white"
               >
                 <span className="text-sm font-semibold text-[#ead5aa]">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="mt-4 text-[1.18rem] font-semibold leading-tight text-white md:text-[1.24rem]">
+                <h3 className="mt-4 text-[1.1rem] font-semibold leading-tight text-white md:text-[1.24rem]">
                   {item.title}
                 </h3>
                 <p className="mt-4 text-[1.04rem] leading-8 text-white/74">
@@ -293,16 +295,16 @@ export default function VisaAndBankingPage() {
               title="When Every Minute Matters"
               description="An urgent visa follow-through case where fast coordination helped a family resolve a re-entry issue the same day."
             />
-            <article className="border-l-4 border-[#244ba8] bg-[#f8f6f1] px-6 py-7 text-[#11232a] md:px-8 md:py-8">
-              <p className="text-[1.16rem] font-semibold leading-8 tracking-[-0.02em] text-[#11232a]">
+            <article className="border-l-4 border-[#244ba8] bg-[#f8f6f1] px-6 py-7 text-[#011735] md:px-8 md:py-8">
+              <p className="text-[1.16rem] font-semibold leading-8 tracking-[-0.02em] text-[#011735]">
                 A client had obtained a UAE residency visa through his company and later sponsored his wife&apos;s residence visa. Because of travel disruption outside their control, she was unable to enter the UAE within the permitted six-month period.
               </p>
-              <div className="mt-6 space-y-5 text-[1.04rem] font-medium leading-8 text-[#11232a]/84">
+              <div className="mt-6 space-y-5 text-[1.04rem] font-medium leading-8 text-[#011735]/84">
                 <p>When the couple arrived in Dubai, the client was allowed to enter, but his wife was stopped at immigration because a re-entry permit was required.</p>
                 <p>The call came through on a Sunday. Zenesis coordinated immediately with the sponsor at the airport, collected the required Emirates ID details, prepared the documents, and submitted the re-entry permit application without delay.</p>
                 <p>The permit was approved within one hour, including document collection time, and the client&apos;s wife was able to enter the UAE the same day.</p>
               </div>
-              <p className="mt-6 border-t border-[#d8d0c2] pt-5 text-[0.95rem] font-medium leading-7 text-[#11232a]/68">
+              <p className="mt-6 border-t border-[#d8d0c2] pt-5 text-[0.95rem] font-medium leading-7 text-[#011735]/68">
                 Approval times depend on the authority, case facts, documents, and eligibility. This case reflects one urgent situation where the right process and immediate follow-through made the difference.
               </p>
             </article>
@@ -332,10 +334,10 @@ export default function VisaAndBankingPage() {
                 <div className="inline-flex h-10 w-10 items-center justify-center border border-[#8d7453]/30 bg-white text-sm font-semibold text-[#8d7453]">
                   {item.step}
                 </div>
-                <h3 className="mt-4 text-[1.18rem] font-semibold leading-tight text-foreground md:text-[1.24rem]">
+                <h3 className="mt-4 text-[1.1rem] font-semibold leading-tight text-foreground md:text-[1.24rem]">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-[1.12rem] leading-8 text-muted">
+                <p className="mt-4 text-[1.06rem] leading-8 text-muted">
                   {item.description}
                 </p>
               </article>

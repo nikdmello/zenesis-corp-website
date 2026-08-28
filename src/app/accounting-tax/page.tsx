@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
+import { createContextualLinker } from "@/components/contextual-links";
 import { JsonLd } from "@/components/json-ld";
 import { PageGuideLayout } from "@/components/page-guide-layout";
 import { PageSectionNavMobile } from "@/components/page-section-nav";
@@ -44,14 +45,26 @@ const accountingServices = [
     ],
   },
   {
-    title: "VAT Registration and Filing",
+    title: "VAT Registration",
+    href: "/vat-registration-services-uae",
+    imageSrc: "/services/vat-filing.webp",
+    imageAlt: "VAT registration application support in the UAE",
+    description:
+      "VAT registration support connects the threshold decision and application evidence to the filing process that follows.",
+    points: [
+      "Assess whether mandatory or voluntary VAT registration applies.",
+      "Prepare the turnover evidence, application information, and supporting documents.",
+      "Set the invoicing, record-keeping, and filing rhythm after approval.",
+    ],
+  },
+  {
+    title: "VAT Filing",
     href: "/vat-filing-services-in-the-uae",
     imageSrc: "/services/vat-filing.webp",
     imageAlt: "VAT filing and reconciliation support in the UAE",
     description:
-      "VAT support covers registration when the applicable rules are met, followed by accurate recurring returns backed by proper reconciliations.",
+      "VAT filing support keeps recurring returns, invoice checks, reconciliations, deadlines, and payment follow-through under control.",
     points: [
-      "Assess the VAT registration position and prepare the application information and supporting documents.",
       "Prepare VAT returns from sales, purchases, invoices, and the records behind them.",
       "Reconcile input and output VAT before filing so the position is clearer.",
       "Support filing periods, payment steps, and any audit-related follow-up.",
@@ -188,12 +201,31 @@ const accountingPageLinks = [
   { href: "#who-its-for", label: "Who it's for" },
   { href: "#core-services", label: "Core services" },
   { href: "#how-zenesis-helps", label: "How Zenesis helps" },
+  { href: "#accounting-expertise", label: "Accounting expertise" },
   { href: "#direct-answers", label: "Direct answers" },
   { href: "#process", label: "Process" },
   { href: "#primary-sources", label: "Primary sources" },
 ] as const;
 
+const accountingExperts = [
+  {
+    name: "Sajal Arora",
+    credentials: "BCom, CA, CFA",
+    role: "Director - Accountancy and Taxation",
+    description:
+      "More than 13 years of experience across finance, taxation, auditing, banking, treasury, costing, and project financing.",
+  },
+  {
+    name: "Glenita D'Souza",
+    credentials: "CA Intermediate (IPCC), BCom",
+    role: "Accounts Manager and Compliance Officer",
+    description:
+      "Hands-on responsibility across management accounts, bookkeeping, VAT, corporate tax compliance, and client reporting support.",
+  },
+] as const;
+
 export default function AccountingTaxPage() {
+  const linkContext = createContextualLinker("/accounting-tax", 4);
   const pageSchemas = [
     buildServiceSchema({
       title: "Accounting and tax",
@@ -220,7 +252,7 @@ export default function AccountingTaxPage() {
           { label: "Accounting and tax" },
         ]}
         title="Accounting and tax"
-        description="Corporate tax, VAT, bookkeeping, and filing support for UAE businesses that need cleaner records and steadier compliance."
+        description="Accounting services in Dubai for UAE businesses that need reliable bookkeeping, financial reporting, VAT, corporate tax, and ongoing compliance support."
         backgroundImageSrc={versionedAssetPath("/services/accounting-and-tax.webp")}
         backgroundImageAlt="Financial professional reviewing accounting and tax records"
         backgroundImagePosition="!object-[66%_center]"
@@ -230,30 +262,25 @@ export default function AccountingTaxPage() {
       <PageSectionNavMobile items={accountingPageLinks} />
       <PageGuideLayout items={accountingPageLinks} credibilityPath="/accounting-tax">
 
-      <section id="overview" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18">
+      <section id="overview" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <article className="max-w-[54rem]">
-            <h2 className="text-[1.75rem] font-semibold leading-[1.16] tracking-[-0.02em] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.16] tracking-[-0.02em] text-[#011735] sm:text-[1.9rem] md:text-[2.05rem]">
               Overview
             </h2>
-            <div className="mt-7 max-w-[50rem] space-y-5 text-[1.12rem] leading-[2.08rem] text-[#07151b]/92 md:text-[1.18rem] md:leading-[2.2rem]">
+            <div className="mt-7 max-w-[50rem] space-y-5 text-[1.06rem] leading-[1.9rem] text-[#07151b]/92 md:text-[1.1rem] md:leading-[2rem]">
               <p>
-              UAE businesses are expected to maintain accurate financial
-              records, file required tax returns, and stay ready for regulatory
-              review. Zenesis helps businesses keep their books organized,
-              manage VAT and corporate tax obligations, and reduce the risk of
-              missed deadlines or inaccurate filings.
+                {linkContext("UAE businesses need accounting records that work for day-to-day decisions as well as VAT, corporate tax, reporting, and regulatory review. Zenesis provides accounting services in Dubai for businesses that need their books, reconciliations, reports, and filing responsibilities managed as one connected process.")}
               </p>
               <p>
-                Whether you are newly incorporated or already operating, the team
-                can support your day-to-day accounting and ongoing tax compliance.
+                {linkContext("Whether you are newly incorporated or already operating, the team can support your day-to-day accounting and ongoing tax compliance.")}
               </p>
             </div>
           </article>
         </div>
       </section>
 
-      <section id="who-its-for" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
+      <section id="who-its-for" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#011735] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Who it helps"
@@ -265,7 +292,7 @@ export default function AccountingTaxPage() {
             {whoWeHelp.map((item, index) => (
               <article key={item.title} className="border-b border-white/18 py-7 text-white">
                 <span className="text-sm font-semibold text-[#ead5aa]">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="mt-4 text-[1.18rem] font-semibold leading-tight !text-white md:text-[1.24rem]">
+                <h3 className="mt-4 text-[1.1rem] font-semibold leading-tight !text-white md:text-[1.24rem]">
                   {item.title}
                 </h3>
                 <p className="mt-4 max-w-2xl text-[1.04rem] leading-8 !text-white/74">
@@ -285,7 +312,7 @@ export default function AccountingTaxPage() {
             description="Each service line is a concrete part of the compliance and reporting stack."
           />
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {accountingServices.map((item) => (
               <BusinessSetupRouteCard
                 key={item.title}
@@ -303,7 +330,7 @@ export default function AccountingTaxPage() {
         </div>
       </section>
 
-      <section id="how-zenesis-helps" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#11232a] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
+      <section id="how-zenesis-helps" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#011735] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Why Zenesis"
@@ -315,12 +342,32 @@ export default function AccountingTaxPage() {
             {whyZenesis.map((item, index) => (
               <article key={item.title} className="border-b border-white/18 py-7 text-white">
                 <span className="text-sm font-semibold text-[#ead5aa]">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="mt-4 text-[1.18rem] font-semibold leading-tight !text-white md:text-[1.24rem]">
+                <h3 className="mt-4 text-[1.1rem] font-semibold leading-tight !text-white md:text-[1.24rem]">
                   {item.title}
                 </h3>
                 <p className="mt-4 text-[1.04rem] leading-8 !text-white/74">
                   {item.description}
                 </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="accounting-expertise" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-16 md:py-20">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+          <SectionHeading
+            eyebrow="Named expertise"
+            title="Accounting and tax leadership"
+            description="The work is supported by named professionals whose experience covers accounting, taxation, audit, reporting, and compliance in the UAE."
+          />
+          <div className="mt-10 grid max-w-[72rem] border-y border-[#d8d0c2] md:grid-cols-2">
+            {accountingExperts.map((expert) => (
+              <article key={expert.name} className="border-b border-[#d8d0c2] py-7 md:pr-10 md:odd:border-r md:even:pl-10">
+                <p className="text-sm font-semibold text-[#8d7453]">{expert.credentials}</p>
+                <h3 className="mt-3 text-[1.24rem] font-semibold text-[#011735]">{expert.name}</h3>
+                <p className="mt-2 text-[0.98rem] font-semibold text-[#244ba8]">{expert.role}</p>
+                <p className="mt-4 max-w-[34rem] text-[1.04rem] leading-8 text-[#07151b]/78">{expert.description}</p>
               </article>
             ))}
           </div>
@@ -347,10 +394,10 @@ export default function AccountingTaxPage() {
                 <div className="inline-flex h-10 w-10 items-center justify-center border border-[#8d7453]/30 bg-white text-sm font-semibold text-[#8d7453]">
                   {item.step}
                 </div>
-                <h3 className="mt-4 text-[1.18rem] font-semibold leading-tight text-foreground md:text-[1.24rem]">
+                <h3 className="mt-4 text-[1.1rem] font-semibold leading-tight text-foreground md:text-[1.24rem]">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-[1.12rem] leading-8 text-muted">
+                <p className="mt-4 text-[1.06rem] leading-8 text-muted">
                   {item.description}
                 </p>
               </article>

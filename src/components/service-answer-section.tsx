@@ -24,12 +24,12 @@ export function ServiceAnswerSection({
   return (
     <section
       id="direct-answers"
-      className={`relative -mt-px scroll-mt-28 bg-[#f8f6f1] py-14 md:py-18 ${contained ? "w-full" : "left-1/2 w-screen -translate-x-1/2"}`}
+      className={`relative -mt-px scroll-mt-28 bg-[#f8f6f1] py-11 md:py-14 ${contained ? "w-full" : "left-1/2 w-screen -translate-x-1/2"}`}
     >
       <div className={`mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20 ${contentClassName}`}>
         <div>
           <h2 className={articleSectionHeadingClassName}>{title}</h2>
-          <p className="mt-4 text-[1.06rem] leading-8 text-[#07151b]/76 md:text-[1.1rem]">
+          <p className="mt-4 text-[1.02rem] leading-8 text-[#07151b]/76 md:text-[1.06rem]">
             {description}
           </p>
 
@@ -41,7 +41,7 @@ export function ServiceAnswerSection({
                     <span className="mt-1 shrink-0 text-[0.72rem] font-semibold tabular-nums text-[#8d7453]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-[1.08rem] font-semibold leading-7 text-foreground md:text-[1.14rem]">
+                    <span className="text-[1.04rem] font-semibold leading-7 text-foreground md:text-[1.08rem]">
                       {item.question}
                     </span>
                   </span>
@@ -49,7 +49,7 @@ export function ServiceAnswerSection({
                     +
                   </span>
                 </summary>
-                <p className="ml-9 mt-4 text-[1.02rem] leading-8 text-[#07151b]/82 md:text-[1.08rem]">
+                <p className="ml-9 mt-4 text-[1.02rem] leading-8 text-[#07151b]/82 md:text-[1.04rem]">
                   {item.answer}
                 </p>
               </details>

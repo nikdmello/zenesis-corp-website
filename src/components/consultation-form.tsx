@@ -853,7 +853,7 @@ export function ConsultationInlinePanel({
       }}
       className="overflow-hidden rounded-lg border border-foreground/10 bg-[#fffdfa] shadow-[0_12px_34px_rgba(17,35,42,0.07)]"
     >
-      <div className="relative overflow-hidden bg-[#11232a] p-6 text-white md:p-8">
+      <div className="relative overflow-hidden bg-[#011735] p-6 text-white md:p-8">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(36,75,168,0.48),transparent_32%),linear-gradient(145deg,rgba(255,255,255,0.08),transparent_42%)]" />
         <div className="relative z-10">
           <h2 className="text-[clamp(1.9rem,3vw,3rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
@@ -1041,7 +1041,7 @@ export function ConsultationInlinePanel({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="mt-6 w-full rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3.5 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0"
+              className="mt-6 w-full rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3.5 text-sm font-semibold tracking-[0.015em] !text-[#011735] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0"
             >
               {isSubmitting ? "Submitting..." : "Submit enquiry"}
             </button>
@@ -1183,7 +1183,7 @@ export function ConsultationModal({
 
   return createPortal(
     <div
-      className="consultation-backdrop fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-[#11232a]/78 px-3 py-2 backdrop-blur-md md:items-center md:px-5 md:py-8"
+      className="consultation-backdrop fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-[#011735]/78 px-3 py-2 backdrop-blur-md md:items-center md:px-5 md:py-8"
       role="dialog"
       aria-modal="true"
       aria-labelledby="consultation-form-title"
@@ -1214,7 +1214,7 @@ export function ConsultationModal({
         }}
         className="consultation-panel flex min-h-0 max-h-[calc(100dvh-1rem)] w-full max-w-4xl flex-col overflow-hidden rounded-[0.75rem] border border-[#ead5aa]/55 bg-[#fffdfa] shadow-[0_36px_120px_rgba(0,0,0,0.38),0_0_0_1px_rgba(255,255,255,0.08)] md:max-h-[calc(100dvh-2rem)] md:max-w-[42rem]"
       >
-        <div className="relative shrink-0 overflow-hidden border-b border-white/10 bg-[#11232a] px-5 pb-4 pt-4 text-white md:px-6 md:pb-5 md:pt-5">
+        <div className="relative shrink-0 overflow-hidden border-b border-white/10 bg-[#011735] px-5 pb-4 pt-4 text-white md:px-6 md:pb-5 md:pt-5">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_86%_12%,rgba(234,213,170,0.2),transparent_30%),radial-gradient(circle_at_18%_18%,rgba(36,75,168,0.34),transparent_32%),linear-gradient(145deg,rgba(255,255,255,0.08),transparent_42%)]" />
           <button
             type="button"
@@ -1425,7 +1425,7 @@ export function ConsultationModal({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-5 w-full rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3.5 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0 md:mt-5"
+                className="mt-5 w-full rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3.5 text-sm font-semibold tracking-[0.015em] !text-[#011735] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0 md:mt-5"
               >
                 {isSubmitting ? "Submitting..." : "Submit enquiry"}
               </button>

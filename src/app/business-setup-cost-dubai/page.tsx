@@ -87,7 +87,7 @@ export default function BusinessSetupCostDubaiPage() {
       <PageSectionNavMobile items={pricingPageLinks} />
       <PageGuideLayout items={pricingPageLinks} credibilityPath="/business-setup-cost-dubai">
 
-      <section id="starting-prices" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 border-b border-[#d9d1c5] bg-white py-14 md:py-18">
+      <section id="starting-prices" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 border-b border-[#d9d1c5] bg-white py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Pricing overview"
@@ -99,25 +99,25 @@ export default function BusinessSetupCostDubaiPage() {
             <BusinessSetupCostTable />
           </div>
 
-          <p className="mt-5 max-w-5xl text-[0.98rem] font-medium leading-7 text-[#11232a]/72">
+          <p className="mt-5 max-w-5xl text-[0.98rem] font-medium leading-7 text-[#011735]/72">
             {businessSetupPricingDisclaimer}
           </p>
           <div className="mt-7 grid gap-5 border-t border-[#d9d1c5] pt-7 md:grid-cols-2">
             <div>
               <p className="text-sm font-semibold text-[#8d7453]">Lowest entry price</p>
-              <p className="mt-3 text-[1.05rem] font-medium leading-7 text-[#11232a]/88">A freelance permit starts from AED 4,000 when the activity and operating model fit a permit route.</p>
+              <p className="mt-3 text-[1.05rem] font-medium leading-7 text-[#011735]/88">A freelance permit starts from AED 4,000 when the activity and operating model fit a permit route.</p>
             </div>
             <div>
               <p className="text-sm font-semibold text-[#8d7453]">Lowest company route</p>
-              <p className="mt-3 text-[1.05rem] font-medium leading-7 text-[#11232a]/88">A free zone company without a visa starts from AED 7,000, but zone, activity, banking, office, and renewal fit still matter.</p>
+              <p className="mt-3 text-[1.05rem] font-medium leading-7 text-[#011735]/88">A free zone company without a visa starts from AED 7,000, but zone, activity, banking, office, and renewal fit still matter.</p>
             </div>
           </div>
 
           <article className="mt-9 max-w-[58rem] border-t border-[#d9d1c5] pt-8">
-            <h2 className="text-[1.55rem] font-semibold leading-tight text-[#11232a] md:text-[1.75rem]">
+            <h2 className="text-[1.55rem] font-semibold leading-tight text-[#011735] md:text-[1.75rem]">
               What&apos;s the cheapest way to set up in the UAE?
             </h2>
-            <div className="mt-5 space-y-4 text-[1.04rem] font-medium leading-8 text-[#11232a]/84 md:text-[1.08rem]">
+            <div className="mt-5 space-y-4 text-[1.04rem] font-medium leading-8 text-[#011735]/84 md:text-[1.04rem]">
               <p>
                 The cheapest way to set up in the UAE depends on whether you need a
                 registered company or a permit to work as an individual. The cheapest
@@ -152,7 +152,7 @@ export default function BusinessSetupCostDubaiPage() {
         </div>
       </section>
 
-      <section id="cost-drivers" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18">
+      <section id="cost-drivers" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="min-w-0">
           <SectionHeading
@@ -165,13 +165,13 @@ export default function BusinessSetupCostDubaiPage() {
             {setupCostDecisionFactors.map((item, index) => (
               <article
                 key={item.title}
-                className="border-b border-[#d8d0c2] py-7 text-[#11232a]"
+                className="border-b border-[#d8d0c2] py-7 text-[#011735]"
               >
                 <span className="text-sm font-semibold text-[#8d7453]">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="mt-4 text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-[#11232a]">
+                <h3 className="mt-4 text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-[#011735]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-[1rem] font-medium leading-7 text-[#11232a]/84">
+                <p className="mt-3 text-[1rem] font-medium leading-7 text-[#011735]/84">
                   {item.description}
                 </p>
               </article>
@@ -179,10 +179,10 @@ export default function BusinessSetupCostDubaiPage() {
           </div>
 
           <div className="mt-8 border-l-4 border-[#244ba8] bg-[#f3f7ff] px-6 py-6 md:px-7">
-            <h3 className="text-[1.15rem] font-semibold leading-tight tracking-[-0.04em] text-[#11232a]">
+            <h3 className="text-[1.15rem] font-semibold leading-tight tracking-[-0.04em] text-[#011735]">
               Why two Dubai company setup quotes can look different
             </h3>
-            <p className="mt-3 max-w-5xl text-[1rem] font-medium leading-7 text-[#11232a]/82">
+            <p className="mt-3 max-w-5xl text-[1rem] font-medium leading-7 text-[#011735]/82">
               Two founders can both ask about company formation in Dubai and still receive different quotes because the
               practical route is shaped by activity, approvals, visa planning, office requirements, and the compliance
               work that follows setup. A low starting price can be useful for comparison, but the right structure is the
@@ -193,7 +193,7 @@ export default function BusinessSetupCostDubaiPage() {
         </div>
       </section>
 
-      <section id="setup-routes" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-14 md:py-18">
+      <section id="setup-routes" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Starting package options"
@@ -206,7 +206,7 @@ export default function BusinessSetupCostDubaiPage() {
           <div className="mt-8 grid gap-4 lg:grid-cols-2">
             <Link
               href="/mainland-vs-free-zone-dubai"
-              className="group grid overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#11232a] transition-transform duration-200 hover:-translate-y-0.5 md:grid-cols-[18rem_minmax(0,1fr)]"
+              className="group grid overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#011735] transition-transform duration-200 hover:-translate-y-0.5 md:grid-cols-[18rem_minmax(0,1fr)]"
             >
               <div className="relative min-h-[12rem] overflow-hidden bg-[#e9e3d9] md:min-h-[15rem]">
                 <Image
@@ -224,7 +224,7 @@ export default function BusinessSetupCostDubaiPage() {
             </Link>
             <Link
               href="/offshore"
-              className="group grid overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#11232a] transition-transform duration-200 hover:-translate-y-0.5 md:grid-cols-[18rem_minmax(0,1fr)]"
+              className="group grid overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#011735] transition-transform duration-200 hover:-translate-y-0.5 md:grid-cols-[18rem_minmax(0,1fr)]"
             >
               <div className="relative min-h-[12rem] overflow-hidden bg-[#e9e3d9] md:min-h-[15rem]">
                 <Image

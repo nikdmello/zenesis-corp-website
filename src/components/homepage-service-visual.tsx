@@ -22,7 +22,7 @@ export function HomepageServiceVisual({
 
   return (
     <div
-      className="relative h-full overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(216,195,162,0.18),transparent_28%),linear-gradient(145deg,#173039_0%,#11232a_58%,#0b1820_100%)]"
+      className="relative h-full overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(216,195,162,0.18),transparent_28%),linear-gradient(145deg,#173039_0%,#011735_58%,#0b1820_100%)]"
     >
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),transparent_44%)]" />
       <div

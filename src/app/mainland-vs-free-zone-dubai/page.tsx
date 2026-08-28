@@ -16,7 +16,7 @@ import {
   getAbsoluteUrl,
 } from "@/lib/seo";
 
-const pageTitle = "Mainland vs Free Zone Dubai 2026 | Setup Cost, Visas & Banking";
+const pageTitle = "Mainland vs Free Zone Dubai | Cost, Visas & Banking";
 const pageDescription =
   "Compare mainland vs free zone company setup in Dubai by market access, ownership, visas, office needs, banking, cost, renewals, and long-term operating fit.";
 
@@ -185,7 +185,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
       <PageSectionNavMobile items={comparisonPageLinks} />
       <PageGuideLayout items={comparisonPageLinks} credibilityPath="/mainland-vs-free-zone-dubai">
 
-      <section id="route-comparison" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18">
+      <section id="route-comparison" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="min-w-0">
           <SectionHeading
@@ -197,7 +197,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
           <div className="mt-8 overflow-hidden rounded-lg border border-[#d8d0c2] bg-white">
             <div className="overflow-x-auto">
               <table className="min-w-[64rem] border-collapse text-left">
-                <thead className="bg-[#f5efe4] text-[#11232a]">
+                <thead className="bg-[#f5efe4] text-[#011735]">
                   <tr>
                     {["Factor", "Mainland setup", "Free zone setup"].map((heading) => (
                       <th
@@ -215,14 +215,14 @@ export default function MainlandVsFreeZoneDubaiPage() {
                     <tr key={row.factor} className="border-t border-[#e4dacb]">
                       <th
                         scope="row"
-                        className="w-[11rem] px-4 py-4 text-[1rem] font-semibold leading-6 text-[#11232a]"
+                        className="w-[11rem] px-4 py-4 text-[1rem] font-semibold leading-6 text-[#011735]"
                       >
                         {row.factor}
                       </th>
-                      <td className="px-4 py-4 text-[0.98rem] font-medium leading-6 text-[#11232a]/84">
+                      <td className="px-4 py-4 text-[0.98rem] font-medium leading-6 text-[#011735]/84">
                         {row.mainland}
                       </td>
-                      <td className="px-4 py-4 text-[0.98rem] font-medium leading-6 text-[#11232a]/84">
+                      <td className="px-4 py-4 text-[0.98rem] font-medium leading-6 text-[#011735]/84">
                         {row.freeZone}
                       </td>
                     </tr>
@@ -249,7 +249,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
           <div className="mt-9 overflow-hidden rounded-lg border border-[#d8d0c2] bg-white">
             <div className="overflow-x-auto">
               <table className="min-w-[62rem] border-collapse text-left">
-                <thead className="bg-[#11232a] text-white">
+                <thead className="bg-[#011735] text-white">
                   <tr>
                     {["Route", "Typical fit", "Visas and office position"].map((heading) => (
                       <th
@@ -265,13 +265,13 @@ export default function MainlandVsFreeZoneDubaiPage() {
                 <tbody>
                   {routeFitRows.map((row) => (
                     <tr key={row.route} className="border-t border-[#e4dacb]">
-                      <th scope="row" className="w-[10rem] px-5 py-5 text-[1.04rem] font-semibold text-[#11232a]">
+                      <th scope="row" className="w-[10rem] px-5 py-5 text-[1.04rem] font-semibold text-[#011735]">
                         {row.route}
                       </th>
-                      <td className="px-5 py-5 text-[0.98rem] font-medium leading-7 text-[#11232a]/84">
+                      <td className="px-5 py-5 text-[0.98rem] font-medium leading-7 text-[#011735]/84">
                         {row.bestFor}
                       </td>
-                      <td className="px-5 py-5 text-[0.98rem] font-medium leading-7 text-[#11232a]/84">
+                      <td className="px-5 py-5 text-[0.98rem] font-medium leading-7 text-[#011735]/84">
                         {row.visasAndOffice}
                       </td>
                     </tr>
@@ -282,12 +282,12 @@ export default function MainlandVsFreeZoneDubaiPage() {
           </div>
 
           <div className="mt-7 flex flex-col gap-4 border-l-2 border-[#b79248] pl-5 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-4xl text-[1rem] font-medium leading-7 text-[#11232a]/82">
+            <p className="max-w-4xl text-[1rem] font-medium leading-7 text-[#011735]/82">
               Zenesis can compare UAE offshore routes such as Ajman, RAK, and Jebel Ali, as well as international options such as BVI, Nevis, Mauritius, Seychelles, and Hong Kong where relevant. Final suitability depends on the intended use and the rules of the selected registry.
             </p>
             <Link
               href="/offshore"
-              className="inline-flex shrink-0 items-center justify-center border border-[#11232a] bg-[#11232a] px-5 py-3 text-sm font-semibold !text-white transition-colors hover:bg-[#1c343d] hover:!text-white"
+              className="inline-flex shrink-0 items-center justify-center border border-[#011735] bg-[#011735] px-5 py-3 text-sm font-semibold !text-white transition-colors hover:bg-[#1c343d] hover:!text-white"
             >
               Explore offshore options
             </Link>
@@ -297,7 +297,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
 
       <section
         id="mainland-permit"
-        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#11232a] py-16 text-white md:py-20 [&_.eyebrow]:text-[#ead5aa] [&_.section-title]:text-white [&_.text-muted]:text-white/84"
+        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#011735] py-16 text-white md:py-20 [&_.eyebrow]:text-[#ead5aa] [&_.section-title]:text-white [&_.text-muted]:text-white/84"
       >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading

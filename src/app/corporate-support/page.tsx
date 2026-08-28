@@ -86,7 +86,7 @@ function DetailSection({
   ) : null;
 
   return (
-    <section id={id} className={`relative -mt-px w-full scroll-mt-28 py-16 md:py-20 ${dark ? "bg-[#11232a] text-white [&_.eyebrow]:text-white/68 [&_.section-title]:text-white" : "bg-white text-[#11232a]"}`}>
+    <section id={id} className={`relative -mt-px w-full scroll-mt-28 py-16 md:py-20 ${dark ? "bg-[#011735] text-white [&_.eyebrow]:text-white/68 [&_.section-title]:text-white" : "bg-white text-[#011735]"}`}>
       <div className="w-full px-6 md:px-12 xl:px-16">
         <div className="flow-root max-w-[92rem]">
           <div className="mb-5 h-px w-full bg-[#b88d53]/55" />
@@ -99,7 +99,7 @@ function DetailSection({
             {title}
           </h2>
           {image ? <div className="mt-7 md:hidden">{image}</div> : null}
-          <div className={`mt-7 space-y-5 text-[1.08rem] leading-8 ${dark ? "text-white/90" : "text-[#11232a]/86"}`}>{children}</div>
+          <div className={`mt-7 space-y-5 text-[1.04rem] leading-8 ${dark ? "text-white/90" : "text-[#011735]/86"}`}>{children}</div>
         </div>
       </div>
     </section>
@@ -121,14 +121,14 @@ function DetailList({ items }: { items: readonly string[] }) {
 
 function ServiceGroupSection({ id, title, description, items, compact = false }: { id: string; title: string; description: string; items: readonly { label: string; href: string; description: string; imageSrc: string; imageAlt: string }[]; compact?: boolean }) {
   return (
-    <section id={id} className={`relative -mt-px w-full scroll-mt-28 bg-[#244ba8] text-white ${compact ? "py-11 md:py-14" : "py-16 md:py-20"}`}>
+    <section id={id} className={`relative -mt-px w-full scroll-mt-28 bg-[#011735] text-white ${compact ? "py-11 md:py-14" : "py-16 md:py-20"}`}>
       <div className="w-full px-6 md:px-12 xl:px-16">
         <h2 className={`font-semibold leading-[1.14] ${compact ? "text-[1.7rem] sm:text-[1.85rem] md:text-[2rem]" : "text-[1.9rem] sm:text-[2.1rem] md:text-[2.35rem]"}`}>{title}</h2>
-        <p className={`max-w-[48rem] text-white/82 ${compact ? "mt-3 text-[1rem] leading-7" : "mt-5 text-[1.08rem] leading-8"}`}>{description}</p>
+        <p className={`max-w-[48rem] text-white/82 ${compact ? "mt-3 text-[1rem] leading-7" : "mt-5 text-[1.04rem] leading-8"}`}>{description}</p>
         <div className={`grid gap-4 ${compact ? "mt-7 md:grid-cols-2" : `mt-9 ${items.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"}`}`}>
           {items.map((item) => {
-            const className = `group flex min-h-full overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#11232a] shadow-[0_12px_30px_rgba(17,35,42,0.08)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#bca57f] hover:shadow-[0_16px_36px_rgba(17,35,42,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#244ba8] ${compact ? "min-h-36 flex-row" : "flex-col"}`;
-            const content = compact ? <><div className="w-32 shrink-0 overflow-hidden border-r border-[#e4dbce] bg-[#f8f6f1] sm:w-40"><Image src={item.imageSrc} alt={item.imageAlt} width={480} height={480} sizes="(min-width: 640px) 160px, 128px" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" /></div><div className="flex flex-1 flex-col justify-center px-4 py-4"><h3 className="text-[1.05rem] font-semibold leading-6 tracking-[-0.02em] !text-[#07151b]">{item.label}</h3><p className="mt-2 text-[0.92rem] leading-6 text-[#07151b]/76">{item.description}</p><span className="mt-3 inline-flex items-center gap-2 text-[0.78rem] font-semibold text-[#244ba8]">View service <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span></span></div></> : <><div className="overflow-hidden border-b border-[#e4dbce] bg-[#f8f6f1]"><Image src={item.imageSrc} alt={item.imageAlt} width={1200} height={800} sizes={items.length === 3 ? "(min-width: 768px) 33vw, 100vw" : "(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"} className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" /></div><div className="flex flex-1 flex-col p-6"><h3 className="text-[1.18rem] font-semibold leading-7 tracking-[-0.02em] !text-[#07151b]">{item.label}</h3><p className="mt-4 text-[1rem] leading-7 text-[#07151b]/78">{item.description}</p><span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-[#244ba8]">View service <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span></span></div></>;
+            const className = `group flex min-h-full overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#011735] shadow-[0_12px_30px_rgba(17,35,42,0.08)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#bca57f] hover:shadow-[0_16px_36px_rgba(17,35,42,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#244ba8] ${compact ? "min-h-36 flex-row" : "flex-col"}`;
+            const content = compact ? <><div className="w-32 shrink-0 overflow-hidden border-r border-[#e4dbce] bg-[#f8f6f1] sm:w-40"><Image src={item.imageSrc} alt={item.imageAlt} width={480} height={480} sizes="(min-width: 640px) 160px, 128px" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" /></div><div className="flex flex-1 flex-col justify-center px-4 py-4"><h3 className="text-[1.05rem] font-semibold leading-6 tracking-[-0.02em] !text-[#07151b]">{item.label}</h3><p className="mt-2 text-[0.92rem] leading-6 text-[#07151b]/76">{item.description}</p><span className="mt-3 inline-flex items-center gap-2 text-[0.78rem] font-semibold text-[#244ba8]">View service <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span></span></div></> : <><div className="overflow-hidden border-b border-[#e4dbce] bg-[#f8f6f1]"><Image src={item.imageSrc} alt={item.imageAlt} width={1200} height={800} sizes={items.length === 3 ? "(min-width: 768px) 33vw, 100vw" : "(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"} className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" /></div><div className="flex flex-1 flex-col p-6"><h3 className="text-[1.1rem] font-semibold leading-7 tracking-[-0.02em] !text-[#07151b]">{item.label}</h3><p className="mt-4 text-[1rem] leading-7 text-[#07151b]/78">{item.description}</p><span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-[#244ba8]">View service <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span></span></div></>;
 
             return item.href.startsWith("#") ? (
               <CleanSectionLink key={item.label} href={item.href as `#${string}`} className={className}>{content}</CleanSectionLink>
@@ -167,11 +167,11 @@ export default function CorporateSupportPage() {
 
       <PageGuideLayout items={pageLinks} credibilityPath="/corporate-support">
 
-      <section id="overview" className="relative -mt-px w-full scroll-mt-28 bg-white py-14 md:py-18">
+      <section id="overview" className="relative -mt-px w-full scroll-mt-28 bg-white py-11 md:py-14">
         <div className="w-full px-6 md:px-12 xl:px-16">
           <article className="flex max-w-[54rem] flex-col items-start">
-            <h2 className="text-[1.75rem] font-semibold leading-[1.16] tracking-[-0.02em] text-[#11232a] sm:text-[1.9rem] md:text-[2.05rem]">Keep the company record current</h2>
-            <div className="mt-7 w-full space-y-5 text-[1.12rem] leading-[2.08rem] text-[#07151b]/92 md:text-[1.18rem] md:leading-[2.2rem]">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.16] tracking-[-0.02em] text-[#011735] sm:text-[1.9rem] md:text-[2.05rem]">Keep the company record current</h2>
+            <div className="mt-7 w-full space-y-5 text-[1.06rem] leading-[1.9rem] text-[#07151b]/92 md:text-[1.1rem] md:leading-[2rem]">
               <p>Company administration continues after incorporation. Licences renew, ownership or manager details change, documents need attestation, foreign parents open branches, and some companies eventually need formal liquidation or restoration.</p>
               <p>Zenesis starts with the company record and the relevant jurisdiction. That matters because the authority, legal form, current status, outstanding obligations, and requested action determine the real process.</p>
             </div>
@@ -235,8 +235,8 @@ export default function CorporateSupportPage() {
             {process.map((item) => (
               <article key={item.step} className="border-b border-[#d8d0c2] py-7">
                 <div className="text-sm font-semibold text-[#8d7453]">{item.step}</div>
-                <h3 className="mt-4 text-[1.18rem] font-semibold">{item.title}</h3>
-                <p className="mt-4 text-[1.02rem] leading-8 text-[#11232a]/74">{item.description}</p>
+                <h3 className="mt-4 text-[1.1rem] font-semibold">{item.title}</h3>
+                <p className="mt-4 text-[1.02rem] leading-8 text-[#011735]/74">{item.description}</p>
               </article>
             ))}
           </div>

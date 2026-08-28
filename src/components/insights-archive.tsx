@@ -62,8 +62,8 @@ export function InsightsArchive({ posts }: InsightsArchiveProps) {
                   onClick={() => updateCategory(category)}
                   className={`min-h-10 border px-4 py-2 text-sm font-semibold transition-colors ${
                     isActive
-                      ? "border-[#11232a] bg-[#11232a] text-white"
-                      : "border-[#d8d0c2] bg-white text-[#11232a]/72 hover:border-[#8d7453] hover:text-[#11232a]"
+                      ? "border-[#011735] bg-[#011735] text-white"
+                      : "border-[#d8d0c2] bg-white text-[#011735]/72 hover:border-[#8d7453] hover:text-[#011735]"
                   }`}
                 >
                   {category}
@@ -84,7 +84,7 @@ export function InsightsArchive({ posts }: InsightsArchiveProps) {
                 setVisibleCount(initialVisibleCount);
               }}
               placeholder="Search the Insights catalogue"
-              className="h-11 w-full border border-[#cfc5b7] bg-white px-4 text-[0.96rem] text-[#11232a] outline-none transition-colors placeholder:text-[#11232a]/46 focus:border-[#244ba8] focus:ring-2 focus:ring-[#244ba8]/15"
+              className="h-11 w-full border border-[#cfc5b7] bg-white px-4 text-[0.96rem] text-[#011735] outline-none transition-colors placeholder:text-[#011735]/46 focus:border-[#244ba8] focus:ring-2 focus:ring-[#244ba8]/15"
             />
           </label>
           <label className="block">
@@ -95,7 +95,7 @@ export function InsightsArchive({ posts }: InsightsArchiveProps) {
                 setSortOrder(event.target.value as "newest" | "oldest");
                 setVisibleCount(initialVisibleCount);
               }}
-              className="h-11 w-full border border-[#cfc5b7] bg-white px-4 text-[0.96rem] font-medium text-[#11232a] outline-none focus:border-[#244ba8] focus:ring-2 focus:ring-[#244ba8]/15"
+              className="h-11 w-full border border-[#cfc5b7] bg-white px-4 text-[0.96rem] font-medium text-[#011735] outline-none focus:border-[#244ba8] focus:ring-2 focus:ring-[#244ba8]/15"
             >
               <option value="newest">Newest first</option>
               <option value="oldest">Oldest first</option>
@@ -105,7 +105,7 @@ export function InsightsArchive({ posts }: InsightsArchiveProps) {
       </div>
 
       <div className="mt-6 flex items-center justify-between gap-4">
-        <p className="text-sm text-[#11232a]/64" aria-live="polite">
+        <p className="text-sm text-[#011735]/64" aria-live="polite">
           {filteredPosts.length} {filteredPosts.length === 1 ? "article" : "articles"}
         </p>
         {query || activeCategory !== allCategoryLabel ? (
@@ -128,11 +128,11 @@ export function InsightsArchive({ posts }: InsightsArchiveProps) {
             <Link
               key={post.slug}
               href={`/insights/${post.slug}`}
-              className={`group grid min-h-[10.5rem] grid-cols-[6.75rem_minmax(0,1fr)] overflow-hidden border border-[#ddd3c6] bg-white text-[#11232a] transition-[border-color,box-shadow] hover:border-[#bca57f] hover:shadow-[0_10px_26px_rgba(17,35,42,0.08)] sm:grid-cols-[10rem_minmax(0,1fr)] ${
+              className={`group grid min-h-[10.5rem] grid-cols-[6.75rem_minmax(0,1fr)] overflow-hidden border border-[#ddd3c6] bg-white text-[#011735] transition-[border-color,box-shadow] hover:border-[#bca57f] hover:shadow-[0_10px_26px_rgba(17,35,42,0.08)] sm:grid-cols-[10rem_minmax(0,1fr)] ${
                 index >= visibleCount ? "hidden" : ""
               }`}
             >
-              <div className="relative min-h-full overflow-hidden border-r border-[#e4dbce] bg-[#11232a]">
+              <div className="relative min-h-full overflow-hidden border-r border-[#e4dbce] bg-[#011735]">
                 <Image
                   src={post.heroImageSrc}
                   alt={post.heroImageAlt}
@@ -144,15 +144,15 @@ export function InsightsArchive({ posts }: InsightsArchiveProps) {
               </div>
 
               <div className="flex min-w-0 flex-col p-4 sm:p-5">
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.78rem] text-[#11232a]/58 sm:text-sm">
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.78rem] text-[#011735]/58 sm:text-sm">
                   <span className="font-semibold text-[#8d7453]">{post.category}</span>
                   <span aria-hidden="true">/</span>
                   <span>{post.dateLabel}</span>
                 </div>
-                <h2 className="mt-2 text-[1.08rem] font-semibold leading-6 text-[#11232a] sm:text-[1.2rem] sm:leading-7">
+                <h2 className="mt-2 text-[1.04rem] font-semibold leading-6 text-[#011735] sm:text-[1.2rem] sm:leading-7">
                   {post.title}
                 </h2>
-                <p className="mt-2 hidden line-clamp-2 text-[0.94rem] leading-6 text-[#11232a]/68 sm:block">
+                <p className="mt-2 hidden line-clamp-2 text-[0.94rem] leading-6 text-[#011735]/68 sm:block">
                   {post.description}
                 </p>
                 <span className="mt-auto pt-3 text-sm font-semibold text-[#244ba8] group-hover:text-[#1b3c86]">
@@ -164,8 +164,8 @@ export function InsightsArchive({ posts }: InsightsArchiveProps) {
         </div>
       ) : (
         <div className="mt-5 border border-[#ddd3c6] bg-white px-6 py-10 text-center">
-          <h2 className="text-[1.2rem] font-semibold text-[#11232a]">No matching articles</h2>
-          <p className="mt-2 text-[0.98rem] leading-7 text-[#11232a]/68">
+          <h2 className="text-[1.2rem] font-semibold text-[#011735]">No matching articles</h2>
+          <p className="mt-2 text-[0.98rem] leading-7 text-[#011735]/68">
             Try a broader search or choose another topic.
           </p>
         </div>

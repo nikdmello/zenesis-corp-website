@@ -64,7 +64,7 @@ export function ServiceCredibilityPanel({
                   </h2>
                   <p
                     className={`mt-1 text-[0.84rem] font-medium ${
-                      dark ? "text-white/88" : "text-[#11232a]/90"
+                      dark ? "text-white/88" : "text-[#011735]/90"
                     }`}
                   >
                     {credibility.expert.role} <span className="mx-1">•</span>
@@ -72,7 +72,7 @@ export function ServiceCredibilityPanel({
                   </p>
                   <p
                     className={`mt-1.5 max-w-3xl text-[0.92rem] font-medium leading-6 md:line-clamp-2 ${
-                      dark ? "text-white/94" : "text-[#11232a]/90"
+                      dark ? "text-white/94" : "text-[#011735]/90"
                     }`}
                   >
                     {credibility.expert.bio}

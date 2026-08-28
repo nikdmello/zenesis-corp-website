@@ -35,24 +35,24 @@ export default function AboutPage() {
 
       <section
         id="our-background"
-        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-14 md:py-18"
+        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-11 md:py-14"
       >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <article className="flow-root min-w-0">
               <div>
                 <h2 className={articleSectionHeadingClassName}>Who we are</h2>
-                <div className="mb-8 mt-7 xl:float-right xl:ml-12 xl:mt-7 xl:w-[44%] 2xl:w-[48%]">
-                  <div className="overflow-hidden border-y border-[#d9d1c5] bg-[#f8f6f1]">
+                <div className="mb-8 mt-7 xl:float-right xl:ml-12 xl:mt-7 xl:w-[46%] 2xl:w-[48%]">
+                  <div className="relative aspect-[3/2] overflow-hidden border border-[#d9d1c5] bg-[#07151b]">
                     <NextImage
-                      src={versionedAssetPath("/sections/team-photo-cropped.webp")}
-                      alt="Zenesis team"
-                      width={1600}
-                      height={1200}
-                      className="block aspect-[4/3] h-auto w-full object-cover"
+                      src={versionedAssetPath("/recognition/zenesis-irecms-awards.webp")}
+                      alt="Cecilia D'Cunha and the Zenesis team holding awards at IRECMS Dubai"
+                      fill
+                      sizes="(min-width: 1280px) 48vw, 100vw"
+                      className="object-cover object-center"
                     />
                   </div>
                 </div>
-                <div className="mt-7 max-w-[50rem] space-y-5 text-[1.08rem] leading-[2rem] text-[#07151b]/92 md:text-[1.14rem] md:leading-[2.15rem]">
+                <div className="mt-7 max-w-[50rem] space-y-5 text-[1.04rem] leading-[1.9rem] text-[#07151b]/92 md:text-[1.08rem] md:leading-[1.95rem]">
                   <p>
                     Zenesis Corporation supports entrepreneurs, investors, SMEs, and
                     international businesses with company formation, accounting, tax,
@@ -75,6 +75,18 @@ export default function AboutPage() {
                     transparency from start to finish.
                   </p>
                 </div>
+
+                <div className="clear-both mt-10">
+                  <div className="relative aspect-[3/2] overflow-hidden border border-[#d9d1c5] bg-[#07151b] md:aspect-[2/1]">
+                    <NextImage
+                      src={versionedAssetPath("/recognition/zenesis-best-real-estate-management-consultancy.webp")}
+                      alt="Zenesis receiving the Best Real Estate Management Consultancy of the Year award"
+                      fill
+                      sizes="100vw"
+                      className="object-cover object-center"
+                    />
+                  </div>
+                </div>
               </div>
           </article>
         </div>
@@ -82,7 +94,7 @@ export default function AboutPage() {
 
       <section
         id="leadership"
-        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-14 md:py-18"
+        className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-11 md:py-14"
       >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading

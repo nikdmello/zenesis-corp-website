@@ -72,7 +72,7 @@ export function HelpWidget() {
       className="fixed bottom-5 left-5 z-[80] w-fit md:bottom-6 md:left-6"
     >
       {isOpen ? (
-        <div className="fixed inset-x-3 bottom-[calc(5rem+env(safe-area-inset-bottom,0px))] max-h-[min(36rem,calc(100dvh-7rem))] overflow-hidden rounded-lg border border-[#d8d0c2] bg-[#11232a] text-white shadow-[0_24px_64px_rgba(7,21,27,0.28)] sm:absolute sm:inset-x-auto sm:bottom-[calc(100%+0.85rem)] sm:left-0 sm:w-[min(24rem,calc(100vw-2rem))] sm:max-h-none">
+        <div className="fixed inset-x-3 bottom-[calc(5rem+env(safe-area-inset-bottom,0px))] max-h-[min(36rem,calc(100dvh-7rem))] overflow-hidden rounded-lg border border-[#d8d0c2] bg-[#011735] text-white shadow-[0_24px_64px_rgba(7,21,27,0.28)] sm:absolute sm:inset-x-auto sm:bottom-[calc(100%+0.85rem)] sm:left-0 sm:w-[min(24rem,calc(100vw-2rem))] sm:max-h-none">
           <div className="border-b border-white/12 px-4 py-4 sm:px-5">
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -239,7 +239,7 @@ export function HelpWidget() {
 
           setIsOpen(true);
         }}
-        className="inline-flex h-12 w-12 items-center justify-center rounded-lg border border-[#e2cfaa] bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] text-[#11232a] shadow-[0_14px_32px_rgba(7,21,27,0.2),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-lg border border-[#e2cfaa] bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] text-[#011735] shadow-[0_14px_32px_rgba(7,21,27,0.2),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
         aria-label={isOpen ? "Close help panel" : "Open help panel"}
       >
         <HelpIcon className="h-7 w-7" />
@@ -257,7 +257,7 @@ type ActionLinkProps = {
 
 function ActionLink({ href, label, icon, external = false }: ActionLinkProps) {
   const className =
-    "inline-flex items-center justify-between gap-3 rounded-[0.7rem] border border-[#e2cfaa] bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-3.5 py-2.5 text-[0.96rem] font-semibold !text-[#11232a] shadow-[0_8px_20px_rgba(7,21,27,0.16),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9b97e]";
+    "inline-flex items-center justify-between gap-3 rounded-[0.7rem] border border-[#e2cfaa] bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-3.5 py-2.5 text-[0.96rem] font-semibold !text-[#011735] shadow-[0_8px_20px_rgba(7,21,27,0.16),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9b97e]";
 
   if (external) {
     return (

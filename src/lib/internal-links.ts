@@ -103,6 +103,14 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
       imageClassName: "object-[84%_30%]",
     },
     {
+      title: "VAT registration",
+      href: "/vat-registration-services-uae",
+      description: "Assess VAT thresholds, prepare application evidence, and establish the filing process after approval.",
+      imageSrc: versionedAssetPath("/services/vat-filing.webp"),
+      imageAlt: "VAT registration support in the UAE",
+      imageClassName: "object-[84%_32%]",
+    },
+    {
       title: "VAT filing",
       href: "/vat-filing-services-in-the-uae",
       description: "Keep VAT returns accurate, timely, and supported by stronger reconciliations.",

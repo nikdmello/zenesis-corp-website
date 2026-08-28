@@ -34,7 +34,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
             <h1 className="max-w-[18ch] text-[3.2rem] font-semibold leading-[0.94] tracking-[-0.04em] text-foreground sm:text-[4rem] lg:max-w-[20ch] lg:text-[4.55rem]">
               Search Zenesis
             </h1>
-            <p className="mt-6 max-w-3xl text-[1.12rem] leading-8 text-muted md:text-[1.2rem] md:leading-9">
+            <p className="mt-5 max-w-3xl text-[1.02rem] leading-[1.9rem] text-muted md:text-[1.1rem] md:leading-8">
               Search pages, services, and insight articles across business setup,
               accounting and tax, visa and banking, and corporate support.
             </p>
@@ -54,7 +54,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         </div>
       </section>
 
-      <section className="relative z-10 left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#11232a] py-16 md:py-20">
+      <section className="relative z-10 left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#011735] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow=""
@@ -70,11 +70,11 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           />
 
           {query && results.length === 0 ? (
-            <div className="mt-10 rounded-lg border border-[#d8d0c2] bg-white p-8 text-[#11232a] md:p-10">
+            <div className="mt-10 rounded-lg border border-[#d8d0c2] bg-white p-8 text-[#011735] md:p-10">
               <h2 className="text-[1.4rem] font-semibold tracking-[-0.03em] text-foreground">
                 No direct matches found
               </h2>
-              <p className="mt-4 max-w-3xl text-[1.08rem] leading-8 text-muted md:text-[1.12rem] md:leading-9">
+              <p className="mt-4 max-w-3xl text-[1.04rem] leading-8 text-muted md:text-[1.06rem] md:leading-9">
                 Try broader terms like <span className="font-semibold text-foreground">mainland</span>,
                 <span className="font-semibold text-foreground"> free zone</span>,
                 <span className="font-semibold text-foreground"> corporate tax</span>,
@@ -90,7 +90,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               <Link
                 key={`${result.href}-${result.title}`}
                 href={result.href}
-                className="group rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#11232a] transition-transform duration-200 hover:-translate-y-0.5"
+                className="group rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#011735] transition-transform duration-200 hover:-translate-y-0.5"
               >
                 <div
                   title={result.section ? `${result.type} • ${result.section}` : result.type}

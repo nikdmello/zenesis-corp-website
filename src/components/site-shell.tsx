@@ -215,7 +215,7 @@ export function SiteShell({
         className="site-background pointer-events-none fixed inset-0 -z-10"
       />
       <header
-        className="fixed left-0 right-0 top-0 z-50 border-b border-white/12 bg-[rgba(15,31,39,0.94)] backdrop-blur-xl"
+        className="fixed left-0 right-0 top-0 z-50 border-b border-white/12 bg-[rgba(1,23,53,0.94)] backdrop-blur-xl"
       >
         <div
           className={`mx-auto flex ${shellWidthClass} items-center justify-between gap-5 px-6 py-3 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center lg:px-10 xl:px-14 2xl:px-16`}
@@ -327,7 +327,7 @@ export function SiteShell({
                       }`}
                     >
                       <div
-                          className={`overflow-hidden rounded-lg border border-white/12 bg-[rgba(15,31,39,0.99)] shadow-[0_18px_44px_rgba(7,21,27,0.24)] backdrop-blur-xl ${
+                          className={`overflow-hidden rounded-lg border border-white/12 bg-[rgba(1,23,53,0.99)] shadow-[0_18px_44px_rgba(7,21,27,0.24)] backdrop-blur-xl ${
                           isServicesMenu ? "p-4" : "p-2.5"
                         }`}
                       >
@@ -482,7 +482,7 @@ export function SiteShell({
                 </span>
               </summary>
 
-              <div className="absolute right-0 top-[calc(100%+0.75rem)] max-h-[calc(100dvh-5rem)] w-[19.75rem] overflow-y-auto rounded-lg border border-white/12 bg-[rgba(15,31,39,0.99)] p-4 shadow-[0_18px_44px_rgba(7,21,27,0.24)] backdrop-blur-xl">
+              <div className="absolute right-0 top-[calc(100%+0.75rem)] max-h-[calc(100dvh-5rem)] w-[19.75rem] overflow-y-auto rounded-lg border border-white/12 bg-[rgba(1,23,53,0.99)] p-4 shadow-[0_18px_44px_rgba(7,21,27,0.24)] backdrop-blur-xl">
                 <p className="px-1 text-sm font-medium text-white/58">Menu</p>
                 <div className="mt-3">
                   <SiteSearchForm compact className="w-full" />
@@ -662,7 +662,7 @@ export function SiteShell({
             <ConsultationFormButton
               label="Schedule a Free Consultation"
               leadingIcon={
-                <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#11232a] text-[#f4dfb5] shadow-[0_5px_14px_rgba(17,35,42,0.22)] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105">
+                <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#011735] text-[#f4dfb5] shadow-[0_5px_14px_rgba(17,35,42,0.22)] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105">
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 24 24"
@@ -679,7 +679,7 @@ export function SiteShell({
                   </svg>
                 </span>
               }
-              className="group mt-5 inline-flex min-h-14 w-full items-center justify-center rounded-full border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-5 py-3 text-center text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_18px_40px_rgba(17,35,42,0.18),inset_0_1px_0_rgba(255,255,255,0.9)] outline-none ring-1 ring-white/30 transition-all duration-300 hover:-translate-y-1 hover:border-[#fff1d3] hover:brightness-[1.04] hover:shadow-[0_22px_46px_rgba(17,35,42,0.24),inset_0_1px_0_rgba(255,255,255,0.95)] focus-visible:ring-2 focus-visible:ring-[#c6a15f] focus-visible:ring-offset-3 focus-visible:ring-offset-[#f5efe4] active:translate-y-0"
+              className="group mt-5 inline-flex min-h-14 w-full items-center justify-center rounded-full border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-5 py-3 text-center text-sm font-semibold tracking-[0.015em] !text-[#011735] shadow-[0_18px_40px_rgba(17,35,42,0.18),inset_0_1px_0_rgba(255,255,255,0.9)] outline-none ring-1 ring-white/30 transition-all duration-300 hover:-translate-y-1 hover:border-[#fff1d3] hover:brightness-[1.04] hover:shadow-[0_22px_46px_rgba(17,35,42,0.24),inset_0_1px_0_rgba(255,255,255,0.95)] focus-visible:ring-2 focus-visible:ring-[#c6a15f] focus-visible:ring-offset-3 focus-visible:ring-offset-[#f5efe4] active:translate-y-0"
             />
             <div className="mt-5 grid gap-4">
               {contactDetails.map((item) => {
@@ -734,7 +734,7 @@ export function SiteShell({
                     target="_blank"
                     rel="noreferrer"
                     aria-label={item.label}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-foreground/8 bg-[#f8f5ef] text-[#11232a] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:text-[#244ba8]"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-foreground/8 bg-[#f8f5ef] text-[#011735] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:text-[#244ba8]"
                   >
                     {item.label === "Facebook" ? <FacebookIcon className="h-5 w-5 fill-current" /> : null}
                     {item.label === "LinkedIn" ? <LinkedInIcon className="h-5 w-5 fill-current" /> : null}
@@ -907,8 +907,8 @@ export function PageIntro({
         usesFullBackgroundImage
           ? "relative left-1/2 -mt-10 w-screen -translate-x-1/2 overflow-hidden pt-20 pb-10 md:-mt-14 md:pt-28 md:pb-16"
           : usesAmbientBackgroundImage
-            ? "relative left-1/2 -mt-px flex min-h-[17rem] w-screen -translate-x-1/2 items-center overflow-hidden bg-[#f5efe4] py-7 md:min-h-[18rem] md:py-8"
-            : "relative left-1/2 -mt-px flex min-h-[17rem] w-screen -translate-x-1/2 items-center bg-[#f5efe4] py-7 md:min-h-[18rem] md:py-8",
+            ? "relative left-1/2 -mt-px flex min-h-[15rem] w-screen -translate-x-1/2 items-center overflow-hidden bg-[#f5efe4] py-6 md:min-h-[16rem] md:py-7"
+            : "relative left-1/2 -mt-px flex min-h-[15rem] w-screen -translate-x-1/2 items-center bg-[#f5efe4] py-6 md:min-h-[16rem] md:py-7",
         showBottomBorder ? "border-b border-foreground/8" : "",
       ]
         .filter(Boolean)
@@ -916,7 +916,7 @@ export function PageIntro({
     >
       {usesFullBackgroundImage ? (
         <>
-          <div className="absolute inset-0 bg-[#11232a]" />
+          <div className="absolute inset-0 bg-[#011735]" />
           <div className="absolute inset-0">
             <Image
               src={backgroundImageSrc!}
@@ -1009,7 +1009,7 @@ export function PageIntro({
                         {item.label}
                       </Link>
                     ) : (
-                      <span className={usesFullBackgroundImage ? "text-white/86" : "text-[#11232a]/78"}>
+                      <span className={usesFullBackgroundImage ? "text-white/86" : "text-[#011735]/78"}>
                         {item.label}
                       </span>
                     )}
@@ -1038,7 +1038,7 @@ export function PageIntro({
             className={`${breadcrumb ? "mt-4" : "mt-0"} ${
               usesFullBackgroundImage
                 ? "max-w-[20ch] text-[3.05rem] [text-wrap:balance] sm:max-w-[21ch] sm:text-[4.05rem] lg:max-w-[22ch] lg:text-[4.75rem]"
-                : "max-w-[22ch] text-[2.35rem] [text-wrap:balance] sm:max-w-[23ch] sm:text-[3.25rem] lg:max-w-[24ch] lg:text-[4.05rem]"
+                : "max-w-[22ch] text-[2.2rem] [text-wrap:balance] sm:max-w-[23ch] sm:text-[3rem] lg:max-w-[24ch] lg:text-[3.55rem]"
             } page-title-display ${
               usesFullBackgroundImage ? "text-white" : "text-foreground"
             } ${usesFullBackgroundImage ? "hero-reveal hero-reveal-1" : ""} ${titleClassName ?? ""}`}
@@ -1048,9 +1048,9 @@ export function PageIntro({
           {description ? (
             <p
               className={`${
-                usesEditorialIntro ? "mt-5 max-w-[40rem] text-[1rem] leading-7 md:text-[1.08rem] md:leading-8" : "mt-6 max-w-3xl text-[1.14rem] leading-8 md:text-[1.28rem] md:leading-9"
+                usesEditorialIntro ? "mt-4 max-w-[40rem] text-[0.98rem] leading-7 md:text-[1.04rem] md:leading-[1.9rem]" : "mt-6 max-w-3xl text-[1.14rem] leading-8 md:text-[1.28rem] md:leading-9"
               } ${
-                usesFullBackgroundImage ? "font-medium text-white/88" : "font-semibold text-[#11232a] md:font-medium md:text-[#11232a]/90"
+                usesFullBackgroundImage ? "font-medium text-white/88" : "font-semibold text-[#011735] md:font-medium md:text-[#011735]/90"
               } ${usesFullBackgroundImage ? "hero-reveal hero-reveal-2" : ""}`}
             >
               {description}
@@ -1129,7 +1129,7 @@ export function PageIntro({
                   key={`${item.label}-${item.value}`}
                   className={`px-4 py-4 backdrop-blur-sm ${
                     usesFullBackgroundImage
-                      ? "rounded-[1.4rem] border border-white/22 bg-[#11232a]/76 text-white shadow-[0_18px_50px_rgba(0,0,0,0.18)]"
+                      ? "rounded-[1.4rem] border border-white/22 bg-[#011735]/76 text-white shadow-[0_18px_50px_rgba(0,0,0,0.18)]"
                       : "rounded-[1.4rem] border border-white/60 bg-white/55"
                   }`}
                 >
@@ -1207,7 +1207,7 @@ export function SectionHeading({
       {description ? (
         <p
           className={[
-            "text-muted mt-5 max-w-[54rem] !text-[1.06rem] !leading-8 text-[#07151b]/76 md:!text-[1.1rem]",
+            "text-muted mt-4 max-w-[54rem] !text-[1.02rem] !leading-7 text-[#07151b]/76 md:!text-[1.06rem] md:!leading-[1.9rem]",
             descriptionClassName ?? "",
           ]
             .filter(Boolean)
