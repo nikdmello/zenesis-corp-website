@@ -103,12 +103,12 @@ export const legacyServiceMeta = {
   "vat-registration-services-uae": {
     title: "VAT Registration Services UAE | Zenesis Corp",
     description:
-      "Get UAE VAT registration support with threshold assessment, document preparation, EmaraTax application guidance, and a clear handover into ongoing VAT compliance.",
+      "Get UAE VAT registration support with threshold assessment, document preparation, EmaraTax guidance, and handover into ongoing VAT compliance.",
   },
   "professional-bookkeeping-services-in-dubai": {
     title: "Bookkeeping Services Dubai | Outsourced Accounting",
     description:
-      "Outsourced bookkeeping services in Dubai for current books, bank reconciliations, management reporting, payroll support, VAT, corporate tax, and audit readiness.",
+      "Outsourced bookkeeping in Dubai for current books, bank reconciliations, management reporting, payroll, VAT, Corporate Tax, and audit preparation.",
   },
   "golden-visa-services-in-the-uae": {
     title: "UAE Golden Visa Guide for Investors & Professionals",
