@@ -195,7 +195,7 @@ export default function CorporateSupportPage() {
 
       <DetailSection id="company-restoration" eyebrow="Return to good standing" title="Company restoration" imageSrc={versionedAssetPath("/services/restoration.webp")} imageAlt="A UAE company office reopening as the business returns to good standing">
         <p>An expired or struck off company may be eligible for restoration when the relevant authority still permits reinstatement and the business needs to resume operations. Restoration is time-sensitive, costs may increase with delay, and not every company or status is eligible.</p>
-        <p>The route can require payment of penalties, renewal of the license, updated company documents, shareholder or manager resolutions, outstanding compliance filings, and authority approvals. Zenesis first checks the company record and restoration window before confirming whether reinstatement is practical.</p>
+        <p>The route can require payment of penalties, renewal of the license, updated company documents, shareholder or manager resolutions, outstanding compliance filings, and authority approvals. Zenesis first checks the company record and restoration window before confirming whether reinstatement remains available.</p>
       </DetailSection>
 
       <ServiceGroupSection id="corporate-services" title="Corporate Services" description="Ongoing support for company changes, governance, document legalization, and international expansion into the UAE." items={corporateServiceLinks} compact />

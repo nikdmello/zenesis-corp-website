@@ -37,9 +37,9 @@ const accountingServices = [
     imageSrc: "/services/corporate-tax-filing.webp",
     imageAlt: "Corporate tax filing review for a UAE company",
     description:
-      "Once registered, businesses need annual corporate tax return support, accurate calculations, and cleaner documentation around the filing process.",
+      "Once registered, businesses need annual return preparation, accurate tax calculations, and records that support the filing position.",
     points: [
-      "Prepare and file the annual return through the FTA system with cleaner support behind it.",
+      "Prepare and file the annual return through the FTA system with supporting calculations and records.",
       "Review taxable income, deductions, and credits before the filing is submitted.",
       "Manage deadlines, documentation, and follow-through so the filing does not become a last-minute rush.",
     ],
@@ -66,7 +66,7 @@ const accountingServices = [
       "VAT filing support keeps recurring returns, invoice checks, reconciliations, deadlines, and payment follow-through under control.",
     points: [
       "Prepare VAT returns from sales, purchases, invoices, and the records behind them.",
-      "Reconcile input and output VAT before filing so the position is clearer.",
+      "Reconcile input and output VAT before filing and document how the return was calculated.",
       "Support filing periods, payment steps, and any audit-related follow-up.",
     ],
   },
@@ -104,7 +104,7 @@ const whoWeHelp = [
   {
     title: "Cross-border and group structures",
     description:
-      "Businesses that need a cleaner handoff between company structure, reporting obligations, and ongoing filing support.",
+      "Businesses that need company records, reporting obligations, and filing responsibilities managed together.",
   },
 ] as const;
 
@@ -117,7 +117,7 @@ const whyZenesis = [
   {
     title: "Accurate Records",
     description:
-      "Organized bookkeeping and reporting so your filings are based on cleaner financial data.",
+      "Current bookkeeping and reporting records that support VAT and corporate tax filings.",
   },
   {
     title: "Deadline Management",
@@ -130,12 +130,12 @@ const whyZenesis = [
       "Structured records, invoices, reconciliations, and reports when you need them.",
   },
   {
-    title: "End-to-End Support",
+    title: "Registration through filing",
     description:
       "From setup to bookkeeping, VAT, corporate tax, banking, visas, and renewals.",
   },
   {
-    title: "Practical Guidance",
+    title: "Advice tied to the records",
     description:
       "Clear support on what needs to happen next, so filings, records, and follow-up decisions stay manageable.",
   },
@@ -164,7 +164,7 @@ const workingRhythm = [
     step: "04",
     title: "Keep the business ready",
     description:
-      "Maintain clearer records and cleaner documentation so future filings, reviews, and audits are easier to manage.",
+      "Maintain reconciliations, ledgers, invoices, and supporting schedules for future filings, reviews, and audits.",
   },
 ] as const;
 
@@ -172,7 +172,7 @@ const directAnswers = [
   {
     question: "Does every UAE business need bookkeeping and tax support?",
     answer:
-      "Not every business has the same filing position, but every operating business needs cleaner records than most founders expect. Bookkeeping is what keeps VAT, corporate tax, reporting, audit readiness, and management visibility from becoming reactive and error-prone later.",
+      "Filing requirements vary, but every operating business needs current books and supporting records. Regular bookkeeping supports VAT, corporate tax, reporting, audits, and management decisions.",
   },
   {
     question: "What usually causes VAT or corporate tax problems first?",
@@ -182,7 +182,7 @@ const directAnswers = [
   {
     question: "When should a business set its reporting rhythm?",
     answer:
-      "As early as possible. The cleaner approach is to define the monthly, quarterly, and annual reporting rhythm before VAT or corporate tax deadlines become urgent. That makes filings, reviews, and later audits much easier to handle.",
+      "As early as possible. Set the monthly, quarterly, and annual reporting schedule before VAT or corporate tax deadlines become urgent. This gives the team time to reconcile accounts and resolve missing records before filing.",
   },
   {
     question: "What records should stay ready at all times?",
@@ -335,7 +335,7 @@ export default function AccountingTaxPage() {
           <SectionHeading
             eyebrow="Why Zenesis"
             title="How Zenesis helps"
-            description="The goal is not just to file. It is to keep the business organized enough that filing, review, and future growth become easier."
+            description="Current books, reconciliations, and supporting records make filings easier to prepare, review, and defend."
           />
 
           <div className="balanced-editorial-grid balanced-editorial-grid-3 mt-10 grid border-y border-white/18 md:grid-cols-2 xl:grid-cols-3">
@@ -385,7 +385,7 @@ export default function AccountingTaxPage() {
           <SectionHeading
             eyebrow="Working rhythm"
             title="Process"
-            description="Most businesses need the same practical rhythm: review the current position, prepare properly, file accurately, and keep the records ready for what comes next."
+            description="Review the current position, resolve missing records, prepare the filing, and retain the supporting evidence."
           />
 
           <div className="balanced-editorial-grid balanced-editorial-grid-4 mt-10 grid border-y-2 border-[#8d7453]/45 md:grid-cols-2 xl:grid-cols-4">

@@ -120,7 +120,7 @@ export const serviceGroups = [
   {
     title: "Business Setup",
     description:
-      "Company formation support for mainland, offshore, and free zone structures, with practical guidance from incorporation through setup.",
+      "Company formation support for mainland, offshore, and free zone structures, from route selection through licensing and post-setup requirements.",
   },
   {
     title: "Accounting & Tax",
@@ -194,7 +194,7 @@ export const accountingServices = [
   {
     title: "VAT Filing",
     description:
-      "The VAT page provides a clearer compliance service story around return preparation, VAT reconciliation, tax-period management, audit support, and payment assistance.",
+      "VAT support covers return preparation, VAT reconciliation, tax-period management, audit support, and payment assistance.",
   },
   {
     title: "Bookkeeping",
@@ -217,7 +217,7 @@ export const principles = [
   {
     title: "Depth where it matters",
     description:
-      "Client needs should be understood in depth and translated into direct, practical guidance rather than repeated slogans.",
+      "Advice should respond to the client's activity, structure, records, approvals, and deadlines rather than rely on repeated slogans.",
   },
 ] as const;
 
@@ -362,7 +362,7 @@ export const articleHighlights = [
     category: "Accounting and Tax",
     title: "A Complete Guide to Corporate Tax Groups in the UAE",
     summary:
-      "A practical overview of when multiple UAE entities can be treated as one taxable group, what the ownership requirements look like, and where grouping can simplify compliance.",
+      "When multiple UAE entities can be treated as one taxable group, the ownership requirements, and how grouping changes compliance.",
     href: "/accounting-tax",
     imageSrc: versionedAssetPath("/insights/corporate-tax.webp"),
     imageAlt: "Professionals reviewing finance and tax documents",
@@ -381,7 +381,7 @@ export const articleHighlights = [
     title:
       "UAE Free Zone Corporate Tax Rules Clarified: What Businesses Need to Know in 2026",
     summary:
-      "A focused look at qualifying activity, mainland interaction, and the practical implications of updated free zone tax treatment for founders and operating companies.",
+      "How qualifying activities, mainland transactions, and updated free zone tax rules affect founders and operating companies.",
     href: "/business-setup",
     imageSrc: versionedAssetPath("/insights/free-zone.webp"),
     imageAlt: "Business professionals in a Dubai advisory meeting",
@@ -399,8 +399,8 @@ export const teamMembers = [
     paragraphs: [
       "Cecilia's early career included training with multinational companies in India before moving to Hong Kong, where she worked on offshore companies and trusts across jurisdictions including the UK, British Virgin Islands, Mauritius, Seychelles, Anguilla, and Hong Kong.",
       "In 1998, she moved to the UAE to establish operations for a Hong Kong-based company. That period gave her first-hand experience with the licensing, visa, banking, and regulatory issues international businesses faced as the UAE emerged as a global business hub.",
-      "She later helped pioneer early offshore incorporation work in the UAE and built her practice around onshore and offshore structuring, free zone setup, and compliance support. In 2005, she founded Zenesis Corporation to provide boutique corporate services with a more practical, hands-on approach.",
-      "Her work sits at the intersection of company incorporation, corporate structuring, and legal compliance. She is also known for mentoring younger professionals and for sharing practical guidance through speaking, training, and long-form advisory content.",
+      "She later helped pioneer early offshore incorporation work in the UAE and built her practice around onshore and offshore structuring, free zone setup, and compliance support. In 2005, she founded Zenesis Corporation to provide direct, hands-on corporate services.",
+      "Her work covers company incorporation, corporate structuring, and legal compliance. She also mentors younger professionals and shares her experience through speaking, training, and long-form advisory content.",
     ],
     skills: [
       "Offshore Incorporation",
@@ -439,7 +439,7 @@ export const teamMembers = [
       "Accounts Manager and Compliance Officer with more than 6 years of hands-on experience across accounting, taxation, company administration, VAT, corporate tax, and UAE free zone setup.",
     paragraphs: [
       "Glenita oversees management accounts, bookkeeping, VAT and corporate tax compliance, UAE free zone company formations, and HR consultancy support for clients at Zenesis.",
-      "Her background combines strong academic performance in accountancy with practical delivery across compliance management, cash flow control, audit support, and NRI tax advisory.",
+      "Her background combines academic training in accountancy with work across compliance management, cash flow control, audit support, and NRI tax advisory.",
     ],
     skills: [
       "Financial Reporting",
@@ -462,7 +462,7 @@ export const teamMembers = [
     summary:
       "Business Setup Expert and Accounts Manager with extensive experience across UAE free zone, mainland, and offshore company formation, regulatory compliance, and financial reporting.",
     paragraphs: [
-      "Emma manages end-to-end company incorporation, regulatory compliance, and client portfolios across jurisdictions including IFZA, DMCC, Meydan, RAKICC, BVI, Cayman Islands, Panama, and Seychelles.",
+      "Emma manages company incorporation, regulatory compliance, and client portfolios across jurisdictions including IFZA, DMCC, Meydan, RAKICC, BVI, Cayman Islands, Panama, and Seychelles.",
       "Her background combines business setup execution with financial reporting, UAE corporate tax, VAT filing, bank account opening support, offshore structuring, payroll, and process improvement.",
     ],
     skills: [

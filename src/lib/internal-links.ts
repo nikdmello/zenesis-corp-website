@@ -97,7 +97,7 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
     {
       title: "Corporate tax filing",
       href: "/corporate-tax-filing-services-in-the-uae",
-      description: "Prepare annual returns with stronger calculations and supporting records.",
+      description: "Prepare annual returns with documented calculations and supporting records.",
       imageSrc: versionedAssetPath("/services/corporate-tax-filing.webp"),
       imageAlt: "Corporate tax filing support in the UAE",
       imageClassName: "object-[84%_30%]",
@@ -113,7 +113,7 @@ export const serviceLinksByCategory: Record<string, InternalLinkCard[]> = {
     {
       title: "VAT filing",
       href: "/vat-filing-services-in-the-uae",
-      description: "Keep VAT returns accurate, timely, and supported by stronger reconciliations.",
+      description: "Prepare VAT returns from reconciled records and file them by the assigned deadline.",
       imageSrc: versionedAssetPath("/services/vat-filing.webp"),
       imageAlt: "VAT filing support in the UAE",
       imageClassName: "object-[84%_32%]",

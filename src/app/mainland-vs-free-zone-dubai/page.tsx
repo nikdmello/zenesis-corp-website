@@ -44,9 +44,9 @@ const comparisonRows = [
   {
     factor: "Visas",
     mainland:
-      "Visa capacity depends on structure, office position, immigration file, and practical operating plan.",
+      "Visa capacity depends on the structure, office arrangement, immigration file, and staffing plan.",
     freeZone:
-      "Visa packages can be clearer upfront, but limits vary by zone, package, office type, and renewal rules.",
+      "Free zone packages may state visa allocations upfront, but limits vary by zone, package, office type, and renewal rules.",
   },
   {
     factor: "Banking",
@@ -73,7 +73,7 @@ const faqs = [
   {
     question: "Is free zone company setup cheaper than mainland setup?",
     answer:
-      "Free zone setup can be cheaper when the founder wants a packaged route without an initial visa or complex office need. Mainland setup can cost more, but it may be the stronger route when local UAE market access, office presence, or operational flexibility matters.",
+      "Free zone setup can cost less when the founder needs a packaged route without an initial visa or dedicated office. Mainland setup can cost more, but it may suit businesses that need direct UAE market access, local premises, or broader operating permissions.",
   },
   {
     question: "Can a free zone company trade directly in the UAE mainland?",
@@ -175,7 +175,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
           { label: "Comparison" },
         ]}
         title="Mainland vs free zone"
-        description="A practical comparison for founders deciding which Dubai company formation route fits their market access, visa, office, banking, and cost position."
+        description="Compare Dubai company formation routes by market access, visas, office requirements, banking, and cost."
         backgroundImageSrc={versionedAssetPath("/services/mainland-vs-freezone.webp")}
         backgroundImageAlt="Mainland vs free zone company setup comparison in Dubai"
         backgroundImagePosition="!object-[82%_34%]"
@@ -336,7 +336,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
           </div>
 
           <div className="mt-7 border-l-2 border-[#ead5aa] pl-5 text-[1.03rem] leading-8 text-white/86">
-            A permanent mainland company may still be the stronger route where a business needs
+            A permanent mainland company may still be required where a business needs
             broader local operations, regulated activities, a long-term mainland presence, or an
             operating model that falls outside the permit.
           </div>

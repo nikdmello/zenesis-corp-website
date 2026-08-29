@@ -74,7 +74,7 @@ const setupRoutes = [
     points: [
       "Choose the offshore jurisdiction that fits the ownership objective behind the structure.",
       "Handle incorporation documents and the compliance paperwork tied to the setup.",
-      "Get support on banking where the structure and use case make that practical.",
+      "Prepare the company and shareholder documents required for bank review.",
     ],
   },
 ] as const;
@@ -101,7 +101,7 @@ const essentialServices = [
     description:
       "Business owners usually need banking support soon after choosing the formation route, especially when KYC and documentation requirements affect timing.",
     points: [
-      "Prepare for corporate and personal account opening with a cleaner document pack.",
+      "Prepare company, shareholder, KYC, and source-of-funds documents for account opening.",
       "Handle KYC and compliance documentation before the bank asks for multiple revisions.",
       "Support mainland, free zone, and offshore structures with the right banking approach.",
     ],
@@ -238,7 +238,7 @@ const directAnswers = [
   {
     question: "When does the cheapest setup route stop being the best route?",
     answer:
-      "A lower headline setup cost often stops looking attractive when the route creates problems later with visas, office rules, banking expectations, license scope, or renewals. The better question is whether the route still fits once the company starts operating, not just whether the license is issued quickly.",
+      "A low setup price can lead to higher costs when the package does not cover the required visas, office, licence scope, banking documents, or renewals. Compare what the company will need after licensing before choosing a package.",
   },
   {
     question: "What do UAE business setup and company formation services usually include?",
@@ -248,7 +248,7 @@ const directAnswers = [
   {
     question: "Is business setup in Dubai different from business setup elsewhere in the UAE?",
     answer:
-      "Dubai is one of the most common setup locations, but the right route can also depend on the emirate, free zone, authority, activity, visa plan, office needs, and cost position. The better choice is the jurisdiction and structure that fit how the company will operate.",
+      "Dubai is one of the most common setup locations, but the decision also depends on the emirate, free zone, licensing authority, activity, visa plan, office requirements, and budget. Choose the jurisdiction and structure around how the company will operate.",
   },
   {
     question: "Can foreigners own a company in Dubai?",
@@ -291,7 +291,7 @@ const setupServiceCoverage = [
   {
     title: "Banking readiness",
     description:
-      "Build a cleaner bank-ready file with license documents, shareholder records, source-of-funds context, business model notes, and transaction expectations.",
+      "Build the bank file with licence documents, shareholder records, source-of-funds evidence, a business profile, and expected transactions.",
   },
   {
     title: "Tax and accounting setup",
@@ -308,7 +308,7 @@ const setupServiceCoverage = [
 const readinessChecks = [
   "Business activity and whether local UAE, free zone, international, or holding use is expected",
   "Shareholder structure, passport details, manager role, and any overseas company documents",
-  "Visa needs for founders, employees, family sponsorship, and practical timing",
+  "Visa requirements and timing for founders, employees, and family sponsorship",
   "Banking expectations, source-of-funds context, expected currencies, and likely transaction flow",
   "First-year budget, renewal expectations, office needs, tax registration, and bookkeeping readiness",
 ] as const;
@@ -448,7 +448,7 @@ export default function BusinessSetupPage() {
           <SectionHeading
             eyebrow="Why Zenesis"
             title="How Zenesis helps"
-            description="The useful service is not only licence filing. Zenesis connects the route, documents, visas, banking, tax, and renewal position from the start."
+            description="Zenesis plans the setup route alongside documents, visas, banking, tax, and renewals from the start."
           />
 
           <div className="balanced-editorial-grid balanced-editorial-grid-3 mt-10 grid border-y border-white/18 md:grid-cols-2 xl:grid-cols-3">
@@ -764,7 +764,7 @@ export default function BusinessSetupPage() {
           <SectionHeading
             eyebrow="Working rhythm"
             title="Process"
-            description="A practical sequence from the first consultation through licensing, banking, visas, and ongoing compliance support."
+            description="The process runs from the first consultation through licensing, banking, visas, and ongoing compliance."
           />
 
           <div className="balanced-editorial-grid balanced-editorial-grid-3 mt-10 grid border-y-2 border-[#8d7453]/45 md:grid-cols-2 xl:grid-cols-3">

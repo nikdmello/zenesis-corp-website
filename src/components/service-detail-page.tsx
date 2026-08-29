@@ -304,9 +304,11 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
       {config.subpageLinks?.length ? (
         <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-12 md:py-14">
           <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-            <div className="max-w-[78rem]">
-              <h2 className={articleSectionHeadingClassName}>Related services</h2>
-              <div className="mt-7">
+            <div className="max-w-[54rem] border-y border-[#d8d0c2] py-6">
+              <h2 className="text-[1.35rem] font-semibold tracking-[-0.03em] text-foreground">
+                Related services
+              </h2>
+              <div className="mt-4">
                 <ServiceSubpageLinks
                   items={config.subpageLinks}
                   columnsClassName="md:grid-cols-2"

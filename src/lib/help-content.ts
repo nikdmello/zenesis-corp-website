@@ -75,7 +75,7 @@ export const helpTopics: HelpTopic[] = [
     title: "What help do you provide with corporate tax?",
     shortLabel: "Corporate tax",
     answer:
-      "Zenesis supports corporate tax registration, filing preparation, record-readiness, and the practical structure around compliance. The main goal is to keep the business aligned across registration, accounting records, and the actual filing cycle.",
+      "Zenesis supports corporate tax registration, return preparation, tax calculations, record review, and filing deadlines. The work connects the EmaraTax registration position with the accounting records used for each return.",
     href: "/accounting-tax",
     hrefLabel: "View accounting and tax",
     keywords: [
@@ -93,7 +93,7 @@ export const helpTopics: HelpTopic[] = [
     title: "Do you help with VAT and bookkeeping too?",
     shortLabel: "VAT and bookkeeping",
     answer:
-      "Yes. Zenesis covers VAT filing, bookkeeping, reporting structure, and the record discipline that supports both VAT and corporate tax compliance. This is especially useful once a business is already operating and needs cleaner financial follow-through.",
+      "Yes. Zenesis provides bookkeeping, VAT return preparation, reconciliations, reporting, and record support for VAT and corporate tax compliance.",
     href: "/professional-bookkeeping-services-in-dubai",
     hrefLabel: "View bookkeeping support",
     keywords: [
@@ -127,7 +127,7 @@ export const helpTopics: HelpTopic[] = [
     title: "What about company visas for employees or founders?",
     shortLabel: "Company visa",
     answer:
-      "Zenesis helps with the company visa path once the structure, establishment steps, and quota implications are clear. The practical sequence matters, because visa timing depends on how the company was formed and what is already approved.",
+      "Zenesis supports company visa applications after reviewing the company structure, establishment file, labour approvals, and quota position. The application timing depends on which formation and immigration steps have already been approved.",
     href: "/uae-company-visa",
     hrefLabel: "View company visa support",
     keywords: [
@@ -144,7 +144,7 @@ export const helpTopics: HelpTopic[] = [
     title: "Can you help open a business bank account?",
     shortLabel: "Business banking",
     answer:
-      "Yes. Zenesis helps businesses prepare the KYC file, present the company clearly, and line up the banking path with the formation structure. The key is usually not just finding a bank, but preparing the case properly for review.",
+      "Yes. Zenesis prepares the company profile, shareholder KYC, source-of-funds evidence, expected transaction information, and supporting company documents for bank review. The bank makes the final account-opening decision.",
     href: "/open-a-bank-account-easily",
     hrefLabel: "View banking support",
     keywords: [

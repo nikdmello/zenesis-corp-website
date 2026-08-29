@@ -42,8 +42,8 @@ const articleSections = [
   {
     title: "Seeing the UAE opportunity early",
     paragraphs: [
-      "In 1998, Cecilia moved to the UAE to establish operations for a Hong Kong-based company. At the time, the UAE was developing rapidly as an international business hub. Companies were arriving from around the world, but many still found the practical realities difficult: licensing, visas, company structures, local approvals, banking expectations, and how to navigate unfamiliar regulatory systems.",
-      "That environment helped Cecilia identify a real gap in the market. Offshore incorporation was still relatively new in the UAE, and the practical support available to founders and international businesses was limited. She saw that businesses needed more than theory. They needed someone who understood how company setup, local rules, and operational follow-through worked together.",
+      "In 1998, Cecilia moved to the UAE to establish operations for a Hong Kong-based company. International companies entering the UAE often needed help with licensing, visas, company structures, local approvals, banking requirements, and unfamiliar regulations.",
+      "Offshore incorporation was still relatively new in the UAE, and few advisers handled both formation and the work required after registration. Cecilia built her practice around those connected requirements.",
     ],
     quote:
       "Apart from international offshore companies, the UAE saw the establishment of local offshore companies in Jebel Ali, Ras Al Khaimah, and Ajman. The Free Zones were also very attractive for new companies and entrepreneurs as they offered 100% foreign ownership and flexi office packages.",
@@ -58,10 +58,10 @@ const articleSections = [
       "The start was challenging, especially as a woman and full-time mom. There were many barriers that led to inner conflicts. I often questioned whether I was doing enough for my family while also devoting sufficient time to my business, which was like another baby to me.",
   },
   {
-    title: "A practical operating philosophy",
+    title: "How Cecilia works",
     paragraphs: [
-      "One of Cecilia's distinguishing traits is that she does not frame leadership as distance from the work. She is known for understanding the operational detail, not only the high-level advisory layer. That has helped shape Zenesis into a business that is hands-on, process-aware, and grounded in execution rather than presentation.",
-      "That same practical orientation is also visible in how she speaks about compliance. Her legal training and Chartered Secretary background gave her a strong foundation for helping businesses navigate complex regulatory requirements across jurisdictions. Over the years, she has worked with startups, entrepreneurs, and established international businesses that needed to reduce legal risk while staying commercially effective.",
+      "Cecilia remains involved in the operational detail of client work as well as advisory decisions. That approach has shaped Zenesis into a hands-on firm with close attention to process and documentation.",
+      "Her legal training and Chartered Secretary background support her work across corporate and compliance requirements in multiple jurisdictions. She has advised startups, entrepreneurs, and established international businesses on reducing legal risk while meeting commercial needs.",
     ],
     quote:
       "I call myself a Messenger to Manager because I'm not afraid of doing simple tasks. This allows me to guide my clients with the experience and expertise I've gathered along the way.",
@@ -70,7 +70,7 @@ const articleSections = [
     title: "Mentoring and long-term influence",
     paragraphs: [
       "Beyond company setup and compliance work, Cecilia is also known for mentoring younger professionals and encouraging long-term learning in business consultancy and corporate services. Her role has extended beyond direct client work into guidance, knowledge-sharing, and helping others grow inside the profession.",
-      "That combination of technical depth, long-range perspective, and operating resilience is why she has become a visible figure in the UAE business community. Her work reflects not only business setup expertise, but also a broader commitment to helping companies and professionals navigate complexity with more clarity.",
+      "Her work combines company setup, corporate structuring, legal compliance, and professional mentoring in the UAE business community.",
     ],
   },
 ] as const;
@@ -265,14 +265,14 @@ export default function FeaturedProfilePage() {
                   </h2>
                   <div className="mt-5 space-y-5 text-[1.04rem] leading-8 text-[#07151b]/92 md:text-[1.08rem]">
                     <p>
-                      Cecilia&apos;s background is not just a personal profile. It explains why
+                      Cecilia&apos;s background explains why
                       Zenesis is able to guide businesses through company formation,
                       structuring, banking coordination, visas, and compliance with a
-                      practical understanding of how these steps connect in real life.
+                      direct experience of how these steps affect one another.
                     </p>
                     <p>
                       For founders, investors, and operating companies, that experience is
-                      useful when the goal is to make the right setup decision early and
+                      useful when a client needs to choose a setup structure early and
                       avoid fragmented execution later.
                     </p>
                   </div>

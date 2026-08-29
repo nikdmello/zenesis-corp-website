@@ -137,7 +137,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Typical inputs include passport copies, Emirates ID where applicable, shareholder details, trade name options, activity selection, and initial approval requirements",
           "Foreign company branches can need parent-company documents, board resolutions, POAs, and attestation steps",
           "Delays often come from unclear activity selection, missing approvals, office planning, or banking and visa steps being handled too late",
-          "A low mainland quote is only useful if it includes the practical follow-through needed to start operating",
+          "A low mainland quote is only useful if it includes the office, establishment, visa, banking, and compliance work needed to start operating",
         ],
       },
     ],
@@ -170,10 +170,10 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     pointsTitle: "What we handle",
     points: [
-      "Choose the right activity, legal structure, and trade name before the application starts",
+      "Choose the activity, legal structure, and trade name before the application starts",
       "Compare structures such as LLCs, branch offices, representative offices, civil companies, and sole establishments based on the business model",
       "Prepare the license application, supporting documents, and authority submissions properly",
-      "Plan office requirements, establishment steps, visa capacity, and the practical setup sequence after approval",
+      "Plan office requirements, establishment steps, visa capacity, and the setup sequence after approval",
       "Help you understand mainland advantages such as broader UAE market access, flexible office location choices, and eligibility for local operating activity",
       "Stay supported after formation with renewals, amendments, banking, and compliance follow-through",
     ],
@@ -245,9 +245,9 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         intro:
           "Both routes can support trading businesses, but they do not create the same operating position.",
         items: [
-          "Mainland can be a stronger fit when the company needs direct UAE market access, local premises, or broad domestic client and supplier activity",
+          "Mainland can suit companies that need direct UAE market access, local premises, or broad domestic client and supplier activity",
           "A free zone can suit international trade, re-export, logistics, or businesses built around a specific zone ecosystem and facility package",
-          "The right comparison includes permitted activity wording, mainland access, warehouse or office needs, visas, renewal costs, and banking practicality",
+          "Compare permitted activity wording, mainland access, warehouse or office needs, visas, renewal costs, and banking requirements",
           "The cheapest licence can become expensive if it does not match where goods move or where customers are served",
         ],
       },
@@ -348,9 +348,9 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     overviewImagePosition: "object-[70%_24%]",
     introTitle: "Overview",
     introParagraphs: [
-      "Free zone company formation in Dubai is often the best fit for founders who want a faster formation route, clearer package options, and a structure that matches consulting, digital, trade, or investor-led business models.",
+      "Free zone company formation in Dubai can suit consulting, digital, trading, and investor-led businesses that want packaged licensing, office, and visa options.",
       "Many UAE free zones are chosen for 100 per cent foreign ownership, easier setup packaging, repatriation flexibility, and infrastructure designed around trade, services, logistics, media, or international business.",
-      "Zenesis helps you compare the zones that actually fit your business instead of choosing based on price alone. The right zone also affects visas, office requirements, banking documents, and how practical the business will be after setup.",
+      "Zenesis compares free zones by activity, visas, office requirements, banking documents, renewal costs, and where the company will operate. This avoids choosing a zone on price alone.",
     ],
     subpageLinks: [
       {
@@ -411,7 +411,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "A low package may exclude visa allocation, establishment card, office upgrades, activity changes, or renewal charges",
           "Visa availability depends on the package, office type, immigration file, and the zone's current rules",
           "Banking can depend on the zone, activity wording, shareholder profile, source of funds, contracts, and expected trade flow",
-          "The cheapest free zone is not always the best route when the business needs stronger reputation, office substance, or sector fit",
+          "A low-cost free zone package may not provide the location, premises, sector licence, or bank documentation the business needs",
         ],
       },
       {
@@ -420,7 +420,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "The strongest free zone choice is usually the one that still works after licensing, when the founder needs visas, banking, renewals, and client acceptance.",
         items: [
           "Typical inputs include passport copies, shareholder details, proposed activities, company names, address information, and KYC declarations",
-          "Some activities need extra documents, qualifications, third-party approvals, or clearer business-model explanations",
+          "Some activities need extra documents, qualifications, third-party approvals, or a documented business model",
           "Common mistakes include choosing by price only, picking the wrong activity scope, ignoring visa limits, and underestimating renewal cost",
           "Free zone setup should be checked against where clients are, whether mainland access is needed, and how the company will invoice and bank",
         ],
@@ -451,7 +451,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "Can one free zone fit every business equally well?",
         answer:
-          "No. The right zone depends on the activity, licence scope, visa needs, office rules, banking expectations, and what the business needs to do after formation. A popular zone is not automatically the right zone for the operating model.",
+          "No. Compare the activity, licence scope, visa allocation, office rules, banking requirements, renewal costs, and where the company will operate. A well-known zone may still be unsuitable for the business model.",
       },
       {
         question: "Can a free zone company sell directly into the UAE mainland?",
@@ -461,7 +461,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "What do founders usually miss when comparing free zones?",
         answer:
-          "They often compare only setup price. The more important differences are licence fit, visa allocation, office requirements, renewal costs, banking practicality, and whether the zone still works once the business is actually operating.",
+          "They often compare only the setup price. Licence scope, visa allocation, office requirements, renewal costs, banking documents, and mainland access can affect whether the zone works once the company starts operating.",
       },
     ],
     relatedInsightSlugs: [
@@ -472,7 +472,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     pointsTitle: "What we handle",
     points: [
       "Compare free zone company formation options by activity, ownership needs, budget, and operational fit",
-      "Review the practical differences between zones such as DMCC, Dubai South, IFZA, Meydan, Shams, RAKEZ, Fujairah, Ajman, Sharjah Airport, and Umm Al Quwain",
+      "Compare zones such as DMCC, Dubai South, IFZA, Meydan, Shams, RAKEZ, Fujairah, Ajman, Sharjah Airport, and Umm Al Quwain",
       "Review package differences around visas, offices, flexi-desks, and renewal costs",
       "Assess location and ecosystem fit for trade, logistics, aviation, e-commerce, media, consulting, and international holding activity",
       "Prepare the application, supporting documents, and follow-up required for approval",
@@ -538,7 +538,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Holding investments, property, or shares under a dedicated structure",
           "International ownership arrangements, succession planning, or asset protection needs",
           "Commission income or consultancy income generated outside local UAE onshore operations where the structure fits",
-          "Banking support where the use case, due diligence profile, and jurisdiction make that practical",
+          "Banking support where the use case, due diligence profile, and jurisdiction meet the bank's requirements",
         ],
       },
       {
@@ -546,7 +546,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         intro:
           "UAE offshore and international offshore options are not identical, and the right one depends on what the company is meant to hold or do.",
         items: [
-          "Jebel Ali offshore is often chosen for stronger recognition and for structures that may need Dubai property ownership relevance",
+          "Jebel Ali offshore is often considered for its jurisdiction profile and for structures involving eligible Dubai property ownership",
           "RAK ICC is widely used for international business company registration and holding structures",
           "Ajman Offshore is often considered for a more cost-conscious offshore setup route",
           "BVI, Nevis, Mauritius, Seychelles, and Hong Kong are international offshore options where the ownership, holding, or cross-border use case calls for a non-UAE registry",
@@ -556,7 +556,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         title: "Cost, banking, and documents",
         intro:
-          "Offshore setup should be evaluated by use case, jurisdiction recognition, document needs, and banking practicality rather than headline incorporation cost alone.",
+          "Compare offshore routes by intended use, jurisdiction recognition, document requirements, and banking eligibility rather than incorporation cost alone.",
         items: [
           "UAE offshore company setup for Ajman, RAK, and Jebel Ali routes starts from AED 7,500 to AED 15,000",
           "International offshore company setup for BVI, Nevis, Mauritius, Seychelles, and Hong Kong routes starts from AED 8,000 to AED 15,000",
@@ -726,7 +726,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     title: "UAE business bank account support",
     eyebrow: "Bank Accounts",
     description:
-      "Support for UAE business bank account opening, international banking routes, KYC preparation, and practical coordination around the company structure.",
+      "Support for UAE business bank account opening, international banking routes, KYC preparation, and coordination with the company structure.",
     backgroundImageSrc: versionedAssetPath("/services/banking-support.webp"),
     backgroundImageAlt: "UAE business banking support and KYC planning",
     introBackgroundImageSrc: versionedAssetPath("/services/banking-support.webp"),
@@ -740,7 +740,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     introParagraphs: [
       "Banking is often where founders lose time after incorporation. The structure may be ready, but the account opening process depends on how clearly the business model, shareholders, documents, and KYC profile are presented.",
       "Businesses may need UAE corporate banking, personal banking support linked to relocation, or international account opening where currency, trade flow, or holding structures make that necessary.",
-      "Zenesis helps you prepare for the account opening process properly, so you approach the bank with cleaner documentation and a stronger explanation of the business.",
+      "Zenesis prepares the company documents, shareholder KYC, source-of-funds evidence, business profile, and expected transaction information required for bank review.",
     ],
     knowledgeSections: [
       {
@@ -759,10 +759,10 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         intro:
           "Bank delays usually happen because the documentation is incomplete, the business explanation is weak, or the account request does not match the company structure.",
         items: [
-          "A cleaner company profile and business explanation before submission",
+          "A documented company profile and business model before submission",
           "KYC and compliance documentation prepared properly before the bank asks for revisions",
           "Better alignment between mainland, free zone, or offshore structure and the proposed banking route",
-          "Clearer coordination with relationship managers once follow-up questions begin",
+          "Coordination with relationship managers when follow-up questions begin",
         ],
       },
     ],
@@ -805,7 +805,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "Prepare the company profile, shareholder documents, and KYC pack before submission",
       "Coordinate with bank relationship teams and help respond to document follow-up",
       "Align the banking approach with mainland, free zone, or offshore company structures",
-      "Support multi-currency account planning where AED, USD, EUR, GBP, or other practical currency needs matter",
+      "Plan account currencies such as AED, USD, EUR, or GBP around expected payments and receipts",
     ],
     supportTitle: "Talk to Zenesis",
     supportParagraphs: [
@@ -840,7 +840,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     introParagraphs: [
       "A company visa is often one of the first operational priorities after setup because founders and employees need legal residency before the business can function smoothly on the ground.",
       "A valid company visa is what allows founders and employees to live and work in the UAE, complete Emirates ID formalities, access local services, and start operating with the right residency position in place.",
-      "Zenesis helps you plan the visa process in line with the company structure, labor approvals, medical steps, Emirates ID, and the practical timing of when people need to enter and start operating.",
+      "Zenesis plans the visa process around the company structure, labour approvals, medical examination, Emirates ID, entry timing, and the applicant's intended start date.",
     ],
     knowledgeSections: [
       {
@@ -880,7 +880,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "Can founders and employees follow the same visa path?",
         answer:
-          "Not always in exactly the same way. The broad company-sponsored process can look similar, but the supporting documents, sequencing, and practical follow-through can differ depending on whether the applicant is an owner, partner, manager, or employee.",
+          "Not always. Supporting documents and the application sequence can differ depending on whether the applicant is an owner, partner, manager, or employee.",
       },
       {
         question: "What follow-through work usually gets missed after visa approval?",
@@ -925,8 +925,8 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     introBackgroundImagePosition: "!object-[58%_top]",
     introTitle: "Overview",
     introParagraphs: [
-      "Visa and banking needs usually begin as soon as the company structure is clear. Founders may need residency, teams may need company visas, and banks may need a stronger KYC pack before an account can move forward.",
-      "Zenesis helps connect those steps properly so residency planning, company visa support, and business banking are handled as one practical flow instead of separate delays after setup.",
+      "Visa and banking work usually begins once the company structure is confirmed. Founders may need residency, teams may need company visas, and banks require company and shareholder KYC before reviewing an account application.",
+      "Zenesis sequences residency, company visas, and banking around the formation documents and approval dates so the work can proceed without avoidable gaps.",
     ],
     subpageLinks: [
       {
@@ -952,7 +952,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "Which usually comes first: residency planning or banking?",
         answer:
-          "Usually the company structure comes first, then the visa and banking path is sequenced around it. Banks often want a clear license, shareholder documents, and a stronger KYC pack, while founders and staff may need residency steps moving at the same time.",
+          "Usually the company structure comes first, then visa and banking applications follow its approval sequence. Banks commonly request the licence, shareholder documents, KYC, source-of-funds evidence, and information about expected transactions.",
       },
       {
         question: "Who usually needs a company visa instead of a Golden Visa?",
@@ -962,12 +962,12 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "Why do business bank applications get delayed?",
         answer:
-          "Delays usually come from weak KYC preparation, unclear business activity, missing shareholder documents, or a company structure that does not match how the business is actually meant to operate. The cleaner the file is upfront, the fewer rounds of bank questions follow.",
+          "Delays often come from incomplete KYC, unclear business activity, missing shareholder documents, or a company structure that does not match the intended operations. A complete file reduces avoidable follow-up questions, although the bank retains approval authority.",
       },
       {
         question: "What should be ready before starting this process?",
         answer:
-          "The business activity, ownership structure, passport and company documents, and the practical operating plan should all be clear first. That makes it easier to line up bank expectations, visa requirements, and the order in which the follow-through work should happen.",
+          "Confirm the business activity, ownership structure, passport and company documents, expected transactions, and operating plan first. These details determine the bank documents, visa requirements, and application sequence.",
       },
     ],
     relatedInsightSlugs: [
@@ -1031,7 +1031,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         title: "What the service is really for",
         intro:
-          "The main value is not just form filing. It is choosing the right category, preparing the right support, and using the proper channels instead of relying on unreliable shortcuts.",
+          "The work includes identifying the applicable category, preparing its evidence, and submitting through the required channel.",
         items: [
           "Eligibility review before documents are prepared",
           "Document strategy across evidence, attestations, financial support, and category-specific submissions",
@@ -1102,9 +1102,9 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "The most common issue is choosing the wrong category or trying to force a profile into a route without the right evidence. Applications work better when the category, supporting documents, and issuing authority path are aligned from the start.",
       },
       {
-        question: "What is the practical benefit of the Golden Residency?",
+        question: "What are the benefits of the Golden Residency?",
         answer:
-          "The main benefit is longer-term UAE residency without the normal short-cycle company sponsorship dependency, plus clearer stability for living, working, studying, investing, and planning family residency in the UAE where the category is approved.",
+          "Where approved, Golden Residency provides longer-term UAE residency and can support plans to live, work, study, invest, and sponsor eligible family members without the usual short-cycle company sponsorship dependency.",
       },
     ],
     relatedInsightSlugs: [
@@ -1118,7 +1118,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "Prepare the document set and submission path around the correct category",
       "Support application follow-up, status tracking, and approval steps",
       "Help with family sponsorship and post-approval residency follow-through",
-      "Coordinate medical, Emirates ID, and later post-approval practical steps where needed",
+      "Coordinate medical examination, Emirates ID, and post-approval steps where needed",
     ],
     supportTitle: "Talk to Zenesis",
     supportParagraphs: [
@@ -1153,14 +1153,14 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     introTitle: "Overview",
     introParagraphs: [
       "Corporate tax registration is more than an online form. The business should first confirm its position, gather the right documents, and register in a way that fits what the company is actually doing.",
-      "Registration is not only relevant to larger profit-making businesses. Mainland companies, many free zone entities, branches, freelancers, startups, and other businesses with a UAE tax footprint may still need to register or assess whether they must notify the FTA of an exemption position.",
+      "Mainland companies, many free zone entities, branches, freelancers, startups, and other businesses with a UAE tax presence may need to register or assess whether an exemption notification applies. Registration requirements are not limited to large or profitable businesses.",
       "Zenesis helps you complete registration properly and understand what comes next, so you are not registered without being ready for the filing and record-keeping work that follows.",
     ],
     knowledgeSections: [
       {
         title: "Who usually needs to think about registration",
         intro:
-          "Corporate tax registration is not just a profit-threshold question. The business type, tax position, and UAE presence all matter.",
+          "Corporate tax registration depends on the business type, tax position, UAE presence, and applicable thresholds. Profit alone does not determine the registration requirement.",
         items: [
           "Mainland companies and many free zone businesses",
           "Foreign branches and other structures with a UAE taxable presence",
@@ -1199,7 +1199,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "What should the business understand immediately after registration?",
         answer:
-          "Registration is not the finish line. Once registered, the business should understand its filing deadlines, supporting records, financial reporting discipline, and the practical compliance work that will be expected when the first return becomes due.",
+          "After registration, the business must track filing deadlines and maintain the financial records and supporting schedules needed for its first return.",
       },
     ],
     relatedInsightSlugs: [
@@ -1234,7 +1234,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     title: "Tax filing",
     eyebrow: "Corporate Tax Filing",
     description:
-      "Prepare annual corporate tax filings with cleaner records, clearer calculations, FTA portal submission support, and steadier deadline management.",
+      "Prepare annual corporate tax filings with reconciled records, documented calculations, FTA portal submission support, and deadline tracking.",
     backgroundImageSrc: versionedAssetPath("/services/corporate-tax-filing.webp"),
     backgroundImageAlt: "Corporate tax filing support and annual return preparation",
     introBackgroundImageSrc: versionedAssetPath("/services/corporate-tax-filing.webp"),
@@ -1254,7 +1254,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         title: "What the filing really covers",
         intro:
-          "A proper filing is built around the taxable position of the business, not just an accounting export pushed through the portal.",
+          "The filing must reflect the taxable position of the business and be supported by its accounting records and tax calculations.",
         items: [
           "Taxable income and allowable expenses",
           "Net profit subject to corporate tax",
@@ -1306,7 +1306,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     supportTitle: "Talk to Zenesis",
     supportParagraphs: [
-      "Reach out if the business is already registered and you want a cleaner annual filing process instead of rushing through the return at the deadline.",
+      "Reach out if the business is already registered and needs its annual return, calculations, records, and submission schedule prepared before the deadline.",
     ],
     backHref: "/accounting-tax",
     backLabel: "Back to Accounting & Tax",
@@ -1376,7 +1376,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         title: "Documents and application preparation",
         intro:
-          "A cleaner application connects the licence, ownership, activity, turnover, and banking evidence into one consistent file.",
+          "The application should present consistent information across the licence, ownership records, activity, turnover, and banking evidence.",
         items: [
           "Trade licence, constitutional documents, and authorized-signatory information",
           "Owner, shareholder, and contact details required for the tax profile",
@@ -1451,7 +1451,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     title: "VAT filing services",
     eyebrow: "VAT Filing",
     description:
-      "Prepare recurring UAE VAT returns with cleaner reconciliations, invoice checks, deadline management, payment follow-through, and audit-ready records.",
+      "Prepare recurring UAE VAT returns with reconciliations, invoice checks, deadline management, payment follow-through, and records retained for review.",
     backgroundImageSrc: versionedAssetPath("/services/vat-filing.webp"),
     backgroundImageAlt: "VAT filing support and reconciliation review in the UAE",
     introBackgroundImageSrc: versionedAssetPath("/services/vat-filing.webp"),
@@ -1465,7 +1465,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     introParagraphs: [
       "VAT filing becomes difficult when invoices, purchases, and records are not being reviewed in a consistent way before the return is due.",
       "Once a business is VAT registered, the filing cycle becomes recurring. Most businesses file quarterly, some monthly, and the work needs to stay organized between periods rather than only when the deadline approaches.",
-      "Zenesis helps you build a steadier VAT process so returns are prepared from cleaner records, reconciliations are clearer, and the business is in a better position if the FTA asks questions later.",
+      "Zenesis prepares VAT returns from current records, reconciles input and output VAT, checks supporting invoices, and retains the schedules used in the filing if the FTA later requests them.",
     ],
     subpageLinks: [
       {
@@ -1507,7 +1507,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "Do all UAE businesses file VAT on the same schedule?",
         answer:
-          "No. Many businesses file quarterly, while some file monthly depending on their FTA-assigned VAT period. The practical point is that the records have to stay ready throughout the period instead of being rebuilt only when the filing deadline arrives.",
+          "No. Many businesses file quarterly, while some file monthly depending on their FTA-assigned VAT period. Records should be maintained throughout the period rather than reconstructed at the filing deadline.",
       },
       {
         question: "What usually causes VAT mistakes?",
@@ -1528,14 +1528,14 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     pointsTitle: "What we handle",
     points: [
       "Prepare the VAT return from your sales, purchases, and supporting records",
-      "Reconcile input and output VAT before filing so the position is clearer",
+      "Reconcile input and output VAT and retain the supporting calculation before filing",
       "Review tax invoices and supporting documents for filing readiness",
       "Support filing deadlines, payment steps, and audit-related follow-up",
       "Help keep the filing cycle organized across monthly or quarterly VAT periods",
     ],
     supportTitle: "Talk to Zenesis",
     supportParagraphs: [
-      "Reach out if recurring VAT returns, reconciliations, invoice checks, or filing deadlines need a clearer and more reliable process.",
+      "Reach out if the business needs recurring VAT returns, reconciliations, invoice checks, and filing deadlines managed on a set schedule.",
     ],
     backHref: "/accounting-tax",
     backLabel: "Back to Accounting & Tax",
@@ -1552,7 +1552,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     title: "Bookkeeping",
     eyebrow: "Bookkeeping",
     description:
-      "Keep records cleaner and more usable with weekly or monthly bookkeeping, reconciliations, reporting, payroll support, and audit-ready organization.",
+      "Keep financial records current with weekly or monthly bookkeeping, reconciliations, reporting, payroll support, and organized supporting documents.",
     backgroundImageSrc: versionedAssetPath("/services/bookkeeping.webp"),
     backgroundImageAlt: "Bookkeeping and financial reporting support in Dubai",
     introBackgroundImageSrc: versionedAssetPath("/services/bookkeeping.webp"),
@@ -1577,7 +1577,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         label: "VAT filing services",
         href: "/vat-filing-services-in-the-uae",
-        description: "Use current books and reconciliations to prepare stronger recurring VAT returns.",
+        description: "Use current books and reconciliations to prepare recurring VAT returns.",
       },
     ],
     knowledgeSections: [
@@ -1586,16 +1586,16 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         intro:
           "Good bookkeeping is what turns financial records into something the business can actually rely on.",
         items: [
-          "Stronger VAT and corporate tax readiness",
+          "Records prepared for VAT and corporate tax filings",
           "Better visibility over cash flow and operating performance",
           "Earlier detection of reporting gaps or financial red flags",
-          "Cleaner year-round records instead of last-minute reconstruction work",
+          "Current year-round records instead of last-minute reconstruction",
         ],
       },
       {
         title: "What businesses usually expect from outsourced bookkeeping",
         intro:
-          "The value is not only transaction recording. It is having the books, reports, payroll support, and audit trail in a usable shape throughout the year.",
+          "Regular bookkeeping keeps the ledgers, reports, payroll records, reconciliations, and audit trail usable throughout the year.",
         items: [
           "Weekly or monthly posting and reconciliations",
           "Financial reporting such as P&L, balance sheet, and cash flow views",
@@ -1619,7 +1619,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "How often should bookkeeping usually be updated?",
         answer:
-          "That depends on transaction volume and reporting needs, but the practical answer is that the books should be updated regularly enough that VAT, corporate tax, management reporting, and reconciliations never become a year-end reconstruction exercise.",
+          "The frequency depends on transaction volume and reporting needs. Update the books often enough to complete VAT, corporate tax, management reporting, and reconciliations without reconstructing a full year of activity at once.",
       },
       {
         question: "What usually goes wrong when bookkeeping is left too late?",
@@ -1629,7 +1629,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "Is bookkeeping only about entering transactions?",
         answer:
-          "No. Good bookkeeping is what makes the records usable for reporting, VAT, corporate tax, audits, and management decisions. The real value is not just posting entries but keeping the financial picture reliable enough to act on.",
+          "No. Bookkeeping also keeps the records usable for reporting, VAT, corporate tax, audits, cash-flow monitoring, and management decisions.",
       },
       {
         question: "What should a business expect from outsourced bookkeeping?",
@@ -1647,7 +1647,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     supportTitle: "Talk to Zenesis",
     supportParagraphs: [
-      "Reach out if the business has outgrown ad hoc spreadsheets, the books are always behind, or you want cleaner records before tax filings and reporting pressure build up.",
+      "Reach out if the business has outgrown ad hoc spreadsheets, the books are behind, or records need to be brought up to date before tax filings and reporting deadlines.",
     ],
     backHref: "/accounting-tax",
     backLabel: "Back to Accounting & Tax",

@@ -124,7 +124,7 @@ const enquiryShortcuts = [
   {
     label: "Business setup",
     value:
-      "I need help setting up a new company in the UAE and choosing the right route for the business.",
+      "I need help setting up a new company in the UAE and comparing the available routes.",
   },
   {
     label: "Mainland vs free zone",
@@ -139,7 +139,7 @@ const enquiryShortcuts = [
   {
     label: "Business banking support",
     value:
-      "I need support with business banking, KYC documents, and the practical next steps after company formation.",
+      "I need support with business banking, KYC documents, and the required steps after company formation.",
   },
   {
     label: "Accounting, VAT, and corporate tax",

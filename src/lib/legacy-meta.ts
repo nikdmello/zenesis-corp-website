@@ -121,32 +121,32 @@ export const legacyInsightMetaBySlug = {
   "just-registered-uae-company-what-comes-next": {
     title: "UAE Company Registration: What Comes Next?",
     description:
-      "A practical 90-day UAE company checklist covering immigration, visas, banking, Corporate Tax, bookkeeping, VAT, UBO filings, ESR, and renewals.",
+      "A 90-day UAE company checklist covering immigration, visas, banking, Corporate Tax, bookkeeping, VAT, UBO filings, ESR, and renewals.",
   },
   "business-consultant-beyond-company-registration": {
-    title: "Business Consultant Beyond Company Registration | Zenesis",
+    title: "Business Consultant Support After Registration | Zenesis",
     description:
-      "Why company registration is only the first milestone, and how a business consultant helps you structure, scale, and stay compliant.",
+      "What UAE businesses may need after registration, including banking, tax, visas, records, renewals, and changes to the company structure.",
   },
   "corporate-tax-mistakes-trigger-audits-uae": {
     title: "UAE Corporate Tax Audit Guide 2026 | Zenesis",
     description:
-      "How UAE corporate tax audits work, records the FTA can inspect, common risk areas, notice procedures, and practical steps to prepare.",
+      "How UAE Corporate Tax audits work, records the FTA can inspect, common risk areas, notice procedures, and steps to prepare.",
   },
   "why-first-time-entrepreneurs-are-choosing-uae": {
     title: "Why First-Time Entrepreneurs Are Choosing the UAE",
     description:
-      "Why first-time founders are using the UAE as a global launchpad for faster setup, stronger market access, tax efficiency, and cleaner scaling.",
+      "Why first-time founders consider the UAE, including setup routes, ownership, tax, residency, infrastructure, and regional market access.",
   },
   "uae-mandatory-e-invoicing-deadlines-guide": {
     title: "UAE E-Invoicing Deadlines, Penalties & Guide 2026-27",
     description:
-      "UAE e-invoicing becomes mandatory in phases from 2027. See the confirmed deadlines, AED penalties, scope, and practical steps businesses should take now.",
+      "UAE e-invoicing becomes mandatory in phases from 2027. See the confirmed deadlines, administrative penalties, scope, and preparation steps.",
   },
   "complete-guide-to-corporate-tax-groups-uae": {
-    title: "Complete Guide to UAE Corporate Tax Groups",
+    title: "UAE Corporate Tax Groups: Eligibility and Filing",
     description:
-      "Learn how UAE corporate tax groups work, eligibility rules, benefits, and compliance requirements for businesses.",
+      "How UAE Corporate Tax groups work, who can form them, the eligibility rules, and the filing and threshold effects to review.",
   },
   "financial-year-2026-uae-compliance-guide": {
     title: "Financial Year in UAE 2026 | Tax, VAT & Filing Deadlines",
@@ -161,7 +161,7 @@ export const legacyInsightMetaBySlug = {
   "uae-corporate-tax-record-keeping-requirements": {
     title: "UAE Corporate Tax Record-Keeping Requirements",
     description:
-      "Learn what UAE businesses should keep for corporate tax records, the seven-year retention rule, and how to prepare a cleaner compliance file.",
+      "Learn which UAE Corporate Tax records to retain for seven years and how to organize the supporting file.",
   },
   "uae-free-zone-corporate-tax-rules-clarified-2026": {
     title: "UAE Free Zone Corporate Tax Rules Explained",

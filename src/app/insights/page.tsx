@@ -31,7 +31,7 @@ export default function InsightsPage() {
       <PageIntro
         eyebrow="Insights"
         title="Insights"
-        description="Articles and practical guidance across business setup, tax, visa, and banking in the UAE."
+        description="Articles on business setup, tax, visas, and banking in the UAE."
         backgroundImageSrc={versionedAssetPath("/services/insights.webp")}
         backgroundImageAlt="Dubai skyline and Jumeirah Lake Towers viewed from a business setting"
         backgroundImagePosition="!object-[68%_center]"

@@ -66,9 +66,9 @@ const visaBankingServices = [
     description:
       "Account-opening and KYC preparation aligned with the company, shareholders, and expected transactions.",
     points: [
-      "Prepare a clearer company profile, KYC pack, and source-of-funds context.",
+      "Prepare the company profile, KYC documents, and source-of-funds evidence.",
       "Align the proposed account with the mainland, free zone, or offshore structure.",
-      "Support document follow-up and practical coordination with banking teams.",
+      "Coordinate document requests and follow-up questions with banking teams.",
     ],
   },
 ] as const;
@@ -92,13 +92,13 @@ const whoWeHelp = [
   {
     title: "Businesses preparing for banking",
     description:
-      "Mainland, free zone, and offshore companies that need a stronger KYC file and clearer account-opening story.",
+      "Mainland, free zone, and offshore companies that need a complete KYC file and a documented account-opening case.",
   },
 ] as const;
 
 const whyZenesis = [
   {
-    title: "One practical sequence",
+    title: "One coordinated sequence",
     description:
       "Residency and banking steps are planned around the company structure instead of being treated as unrelated tasks.",
   },
@@ -108,7 +108,7 @@ const whyZenesis = [
       "The visa or banking route is narrowed before documents and applications begin.",
   },
   {
-    title: "Cleaner documentation",
+    title: "Complete documentation",
     description:
       "Passport, company, eligibility, KYC, and supporting records are organized around what the authority or bank needs.",
   },
@@ -152,7 +152,7 @@ const processSteps = [
     step: "04",
     title: "Complete the follow-through",
     description:
-      "Finish medicals, Emirates ID, residency issuance, account-opening support, and the practical steps that follow.",
+      "Complete medicals, Emirates ID, residency issuance, account-opening support, and required follow-up.",
   },
 ] as const;
 
@@ -266,7 +266,7 @@ export default function VisaAndBankingPage() {
           <SectionHeading
             eyebrow="Why Zenesis"
             title="How Zenesis helps"
-            description="The goal is to connect company structure, residency, documentation, and banking so each approval supports the next step."
+            description="Zenesis sequences company formation, residency, documentation, and banking around their approval requirements."
           />
           <div className="balanced-editorial-grid balanced-editorial-grid-3 mt-10 grid border-y border-white/18 md:grid-cols-2 xl:grid-cols-3">
             {whyZenesis.map((item, index) => (
@@ -323,7 +323,7 @@ export default function VisaAndBankingPage() {
           <SectionHeading
             eyebrow="Working rhythm"
             title="Process"
-            description="A practical sequence from company and eligibility review through residency, KYC, account-opening support, and final follow-through."
+            description="The process covers company and eligibility review, residency, KYC preparation, account-opening support, and follow-up."
           />
           <div className="balanced-editorial-grid balanced-editorial-grid-4 mt-10 grid border-y-2 border-[#8d7453]/45 md:grid-cols-2 xl:grid-cols-4">
             {processSteps.map((item) => (

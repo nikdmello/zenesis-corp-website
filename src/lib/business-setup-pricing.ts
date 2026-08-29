@@ -83,7 +83,7 @@ export const setupCostDecisionFactors = [
   {
     title: "Banking readiness",
     description:
-      "Bank account opening is not just an introduction. KYC files, business profiles, shareholder documents, and activity clarity all matter.",
+      "Bank account applications require company and shareholder KYC, a business profile, source-of-funds evidence, and information about the licensed activity and expected transactions.",
   },
   {
     title: "Post-setup compliance",

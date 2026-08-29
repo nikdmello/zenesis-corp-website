@@ -59,9 +59,8 @@ export default function AboutPage() {
                     visas, banking support, and ongoing compliance in the UAE.
                   </p>
                   <p>
-                    Founded in the UAE in 2005, Zenesis has more than 21 years of
-                    experience helping businesses navigate the UAE market with
-                    clarity and confidence.
+                    Zenesis was founded in the UAE in 2005 and has supported local
+                    and international businesses for more than 21 years.
                   </p>
                   <p>
                     The firm began with offshore incorporation work and expanded
@@ -70,9 +69,9 @@ export default function AboutPage() {
                     needs evolved with the UAE market.
                   </p>
                   <p>
-                    Zenesis starts by understanding the client&apos;s goals, then
-                    recommends the right structure and manages the process with
-                    transparency from start to finish.
+                    Zenesis reviews the client&apos;s activity, ownership, market,
+                    visa, banking, and compliance needs before recommending a
+                    structure and managing the required applications.
                   </p>
                 </div>
 
