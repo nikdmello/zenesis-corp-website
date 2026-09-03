@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
+import { ConsultationFormButton } from "@/components/consultation-button";
 import { createContextualLinker } from "@/components/contextual-links";
 import { JsonLd } from "@/components/json-ld";
 import { PageGuideLayout } from "@/components/page-guide-layout";
@@ -134,30 +134,33 @@ const essentialServices = [
   },
 ] as const;
 
-const routeSignals = [
+const routeComparisonRows = [
   {
-    title: "Choose mainland if...",
+    route: "Mainland",
     href: "/mainland",
-    imageSrc: versionedAssetPath("/services/mainland.webp"),
-    imageAlt: "Mainland company setup consultation in Dubai",
-    description:
-      "you need local UAE market access, local clients, or a broader operating scope inside the country.",
+    bestFor: "Direct UAE trade, local clients, retail, contracting, and broader onshore operations",
+    marketAccess: "Direct mainland operating access, subject to the licensed activity and approvals",
+    officeAndVisas: "Office or premises position and visa capacity depend on the activity and authority",
+    startingCost: "AED 10,000+",
+    planningSignal: "Usually the strongest fit when local operating access matters more than the lowest entry price",
   },
   {
-    title: "Choose free zone if...",
+    route: "Free zone",
     href: "/free-zones",
-    imageSrc: versionedAssetPath("/services/freezone.webp"),
-    imageAlt: "Free zone company setup consultation in Dubai",
-    description:
-      "you want a structured setup package, a known zone ecosystem, or a route aligned with consulting, digital, trade, or investor-led models.",
+    bestFor: "Consulting, digital, e-commerce, international trade, and founder-led businesses",
+    marketAccess: "Operates under the selected zone and activity; mainland trading arrangements need to be checked",
+    officeAndVisas: "Package, flexi-desk, office, and visa allocation vary materially by free zone",
+    startingCost: "AED 7,000+ without visa; AED 15,000+ with visa",
+    planningSignal: "Often efficient when the zone, package, visa allocation, and banking file match the real business model",
   },
   {
-    title: "Choose offshore if...",
+    route: "Offshore",
     href: "/offshore",
-    imageSrc: versionedAssetPath("/services/offshore.webp"),
-    imageAlt: "Offshore company setup planning in Dubai",
-    description:
-      "your priority is holding, structuring, or international use cases that do not depend on local day-to-day UAE operations.",
+    bestFor: "Holding, ownership, asset structuring, and international arrangements",
+    marketAccess: "Not a substitute for a UAE operating licence and generally not used for local day-to-day trade",
+    officeAndVisas: "Normally does not provide the operating office and residency pathway of an onshore company",
+    startingCost: "AED 7,500-15,000 for UAE offshore routes",
+    planningSignal: "Use only when the ownership or international purpose is clear and banking acceptance has been assessed",
   },
 ] as const;
 
@@ -618,45 +621,78 @@ export default function BusinessSetupPage() {
 
       <section id="route-comparison" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#011735] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
         <div className="mx-auto grid w-full max-w-[100rem] items-stretch gap-5 px-6 md:px-12 lg:grid-cols-2 xl:px-20">
-          <article className="flex h-full flex-col rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#011735] shadow-[0_10px_30px_rgba(17,35,42,0.1)] md:p-8">
+          <article className="flex h-full min-w-0 flex-col rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#011735] shadow-[0_10px_30px_rgba(17,35,42,0.1)] md:p-8 lg:col-span-2">
             <h2 className="section-title mt-5 font-semibold !text-foreground">
-              Route comparison
+              Mainland, free zone, or offshore?
             </h2>
             <p className="mt-4 max-w-3xl text-[1.08rem] font-medium leading-8 !text-foreground/90">
-              Use these quick route signals to narrow the setup path before you compare licenses,
-              visas, banking, and ongoing compliance.
+              Compare the operating fit first. The lowest advertised fee is not useful if the route cannot support the activity, clients, visas, office, or bank application.
             </p>
+            <div className="mt-7 overflow-x-auto border-y border-[#d8d0c2]">
+              <table className="w-full min-w-[74rem] border-collapse text-left">
+                <thead className="bg-[#f3f7ff]">
+                  <tr>
+                    {['Route', 'Best suited to', 'Market access', 'Office and visas', 'Zenesis starting price', 'Decision signal'].map((header) => (
+                      <th key={header} className="px-4 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.04em] text-[#244ba8]">
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#e4dbce]">
+                  {routeComparisonRows.map((item) => (
+                    <tr key={item.route} className="align-top even:bg-[#f8f6f1]">
+                      <td className="px-4 py-5">
+                        <Link href={item.href} className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/30 underline-offset-4">
+                          {item.route}
+                        </Link>
+                      </td>
+                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.bestFor}</td>
+                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.marketAccess}</td>
+                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.officeAndVisas}</td>
+                      <td className="px-4 py-5 text-[0.92rem] font-semibold leading-6">{item.startingCost}</td>
+                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.planningSignal}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-5 text-[0.94rem] leading-7 text-[#07151b]/72">
+              Starting prices are indicative and were last reviewed on August 4, 2026. Final cost and timing depend on the activity, jurisdiction, approvals, office, visas, government fees, and document readiness.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <ConsultationFormButton
+                label="Request a written route recommendation"
+                presetEnquiry="I would like a written recommendation comparing mainland, free zone, and offshore options for my business."
+                className="inline-flex min-h-12 items-center justify-center bg-[#011735] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#244ba8]"
+              />
+              <Link href="/business-setup-cost-dubai" className="text-sm font-semibold text-[#244ba8] underline decoration-[#244ba8]/30 underline-offset-4">
+                Review the full cost guide
+              </Link>
+            </div>
+          </article>
+
+          <article className="flex h-full flex-col rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#011735] shadow-[0_10px_30px_rgba(17,35,42,0.1)] md:p-8">
+            <h2 className="section-title mt-5 font-semibold !text-foreground">
+              Quick route signals
+            </h2>
             <div className="mt-7 grid flex-1 grid-rows-3 divide-y divide-[#d8d0c2] border-y border-[#d8d0c2]">
-              {routeSignals.map((item, index) => (
+              {routeComparisonRows.map((item, index) => (
                 <Link
-                  key={item.title}
+                  key={item.route}
                   href={item.href}
-                  className="group grid content-center gap-4 py-4 md:grid-cols-[5.75rem_1fr_auto] md:items-center"
+                  className="group grid content-center gap-3 py-5 md:grid-cols-[2.5rem_1fr_auto] md:items-start"
                 >
-                  <div className="relative h-[4.5rem] w-full overflow-hidden rounded-md border border-[#d8d0c2] bg-[#eee7dc] md:w-[5.75rem]">
-                    <Image
-                      src={item.imageSrc}
-                      alt={item.imageAlt}
-                      fill
-                      sizes="92px"
-                      className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                    />
-                    <span className="absolute left-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/92 text-[0.72rem] font-semibold text-[#8d7453] shadow-sm">
-                      0{index + 1}
+                  <span className="text-sm font-semibold text-[#8d7453]">0{index + 1}</span>
+                  <span>
+                    <strong className="block text-[1.08rem] font-semibold text-[#011735] transition-colors group-hover:text-[#244ba8]">
+                      {item.route}
+                    </strong>
+                    <span className="mt-2 block text-[0.96rem] leading-7 text-[#07151b]/78">
+                      {item.planningSignal}
                     </span>
-                  </div>
-                  <div>
-                    <h3 className="text-[1.08rem] font-semibold tracking-[-0.03em] !text-foreground transition-colors group-hover:!text-[#244ba8] md:text-[1.1rem]">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-[1.04rem] font-medium leading-7 !text-foreground/92">
-                      {item.description}
-                    </p>
-                  </div>
-                  <span
-                    aria-hidden="true"
-                    className="hidden text-lg text-[#8d7453] transition-transform duration-300 group-hover:translate-x-1 md:inline-flex"
-                  >
+                  </span>
+                  <span aria-hidden="true" className="hidden text-lg text-[#8d7453] group-hover:translate-x-1 md:inline-flex">
                     &rarr;
                   </span>
                 </Link>

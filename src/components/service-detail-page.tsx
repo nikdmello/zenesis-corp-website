@@ -9,6 +9,7 @@ import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
 import { PageIntro, SiteShell } from "@/components/site-shell";
 import { ServiceSubpageLinks } from "@/components/service-subpage-links";
+import { ConsultationFormButton } from "@/components/consultation-button";
 import { articleSectionHeadingClassName } from "@/lib/article-styles";
 import { insightPosts } from "@/lib/insights";
 import { pickInsightLinks } from "@/lib/internal-links";
@@ -57,6 +58,9 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
       href: `#${toSectionId(section.title)}` as `#${string}`,
       label: section.title,
     })),
+    ...(config.comparisonTable
+      ? [{ href: "#comparison", label: config.comparisonTable.title }]
+      : []),
     { href: "#what-we-handle", label: config.pointsTitle },
     ...(config.directAnswers?.length
       ? [{ href: "#direct-answers", label: "Direct answers" }]
@@ -223,6 +227,51 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                 </section>
               ))}
 
+              {config.comparisonTable ? (
+                <section
+                  id="comparison"
+                  className="w-full max-w-[78rem] scroll-mt-28 border-t border-[#e4dbce] pt-10"
+                >
+                  <h2 className={articleSectionHeadingClassName}>
+                    {config.comparisonTable.title}
+                  </h2>
+                  {config.comparisonTable.intro ? (
+                    <p className="mt-6 max-w-[58rem] text-[1.04rem] leading-[1.9rem] text-[#07151b]/84 md:text-[1.08rem] md:leading-[1.95rem]">
+                      {config.comparisonTable.intro}
+                    </p>
+                  ) : null}
+                  <div className="mt-7 overflow-x-auto border-y border-[#d9d1c5]">
+                    <table className="w-full min-w-[52rem] border-collapse text-left">
+                      <thead className="bg-[#011735] text-white">
+                        <tr>
+                          {config.comparisonTable.headers.map((header) => (
+                            <th key={header} className="px-4 py-4 text-[0.82rem] font-semibold uppercase tracking-[0.04em]">
+                              {header}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-[#e4dbce]">
+                        {config.comparisonTable.rows.map((row) => (
+                          <tr key={row.join("|")} className="align-top even:bg-[#f8f6f1]">
+                            {row.map((cell, index) => (
+                              <td key={`${index}-${cell}`} className="px-4 py-4 text-[0.94rem] leading-6 text-[#07151b]/86">
+                                {index === 0 ? <strong className="font-semibold text-[#011735]">{cell}</strong> : cell}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  {config.comparisonTable.note ? (
+                    <p className="mt-5 max-w-[68rem] border-l-4 border-[#244ba8] bg-[#f3f7ff] px-5 py-4 text-[0.94rem] leading-7 text-[#07151b]/82">
+                      {config.comparisonTable.note}
+                    </p>
+                  ) : null}
+                </section>
+              ) : null}
+
               <section
                 id="what-we-handle"
                 className="w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#244ba8] bg-[#f3f7ff] px-6 py-8 md:px-8"
@@ -300,6 +349,30 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
       ) : null}
 
       <ServiceCredibilityPanel path={canonicalPath} variant="sources" />
+
+      {config.supportTitle && config.supportParagraphs?.length ? (
+        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#f3f7ff] py-10 md:py-12">
+          <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
+            <div className="flex max-w-[78rem] flex-col gap-6 border-l-4 border-[#244ba8] bg-white px-6 py-7 md:flex-row md:items-center md:justify-between md:px-8">
+              <div className="max-w-[50rem]">
+                <h2 className="text-[1.45rem] font-semibold text-[#011735] md:text-[1.7rem]">
+                  {config.supportTitle}
+                </h2>
+                <div className="mt-3 space-y-2 text-[1rem] leading-7 text-[#07151b]/78">
+                  {config.supportParagraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+              <ConsultationFormButton
+                label="Request a consultation"
+                presetEnquiry={`I would like help with ${config.title.toLowerCase()}.`}
+                className="inline-flex min-h-12 shrink-0 items-center justify-center bg-[#011735] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#244ba8]"
+              />
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {config.subpageLinks?.length ? (
         <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-12 md:py-14">

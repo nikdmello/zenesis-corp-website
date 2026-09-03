@@ -14,6 +14,14 @@ type ServiceDirectAnswer = {
   answer: string;
 };
 
+type ServiceComparisonTable = {
+  title: string;
+  intro?: string;
+  headers: string[];
+  rows: string[][];
+  note?: string;
+};
+
 export type ServiceDetailConfig = {
   slug: string;
   currentPath: "/business-setup" | "/accounting-tax" | "/visa-and-banking" | "/corporate-support";
@@ -37,6 +45,7 @@ export type ServiceDetailConfig = {
   directAnswers?: ServiceDirectAnswer[];
   relatedInsightSlugs?: string[];
   knowledgeSections?: ServiceKnowledgeSection[];
+  comparisonTable?: ServiceComparisonTable;
   pointsTitle: string;
   points: string[];
   supportTitle?: string;
@@ -766,6 +775,46 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
     ],
+    comparisonTable: {
+      title: "Published UAE business account options",
+      intro:
+        "These are examples of account routes published by the banks, checked on September 3, 2026. They are a starting point for comparison, not a promise that a particular bank will accept a company.",
+      headers: ["Bank", "Published option", "Published balance or fee", "Useful fit signal"],
+      rows: [
+        [
+          "Emirates NBD",
+          "Connect",
+          "No minimum monthly average balance; AED 249 monthly fee",
+          "Startups and professional-licence businesses that primarily need online banking",
+        ],
+        [
+          "Mashreq",
+          "NEO BIZ business account",
+          "No minimum balance; AED 199 monthly fee",
+          "Businesses looking for a digital account with local and WPS transfers",
+        ],
+        [
+          "ADCB",
+          "Business accounts",
+          "Published options vary; some start at AED 10,000 average balance",
+          "UAE-incorporated businesses comparing branch-supported account packages",
+        ],
+        [
+          "Wio",
+          "Essential / Grow",
+          "No minimum average balance; AED 99 or AED 249 monthly subscription",
+          "Freelancers, SMEs, and digital-first businesses needing multi-currency tools",
+        ],
+        [
+          "RAKBANK",
+          "RAKstarter",
+          "No minimum balance; published for eligible companies under 12 months old",
+          "New startups and entrepreneurs that meet the bank's eligibility requirements",
+        ],
+      ],
+      note:
+        "Account features, fees, eligibility, and promotional terms can change. Each bank performs its own KYC, source-of-funds, activity, shareholder, geography, and transaction review. Zenesis can prepare the file, but the bank alone decides whether to open the account and how long its review takes.",
+    },
     directAnswers: [
       {
         question: "Can Zenesis help with corporate USD and AED account setup?",
@@ -1156,6 +1205,18 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "Mainland companies, many free zone entities, branches, freelancers, startups, and other businesses with a UAE tax presence may need to register or assess whether an exemption notification applies. Registration requirements are not limited to large or profitable businesses.",
       "Zenesis helps you complete registration properly and understand what comes next, so you are not registered without being ready for the filing and record-keeping work that follows.",
     ],
+    subpageLinks: [
+      {
+        label: "Corporate tax filing services",
+        href: "/corporate-tax-filing-services-in-the-uae",
+        description: "Move from registration into annual return preparation, supporting calculations, and deadline tracking.",
+      },
+      {
+        label: "Bookkeeping services",
+        href: "/professional-bookkeeping-services-in-dubai",
+        description: "Keep the accounting records and reconciliations behind the first corporate tax return current.",
+      },
+    ],
     knowledgeSections: [
       {
         title: "Who usually needs to think about registration",
@@ -1249,6 +1310,18 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "Corporate tax filing depends on more than sending a return through the portal. The business needs clean figures, defensible calculations, supporting records, and a filing position that can stand up to review.",
       "Once a business is registered and has its TRN, it must file annually with the Federal Tax Authority. The timing, working papers, payment position, and record retention all matter just as much as the return itself.",
       "Zenesis helps you prepare the return around the actual books and tax position of the company, so the filing is accurate, on time, and better supported if questions come later.",
+    ],
+    subpageLinks: [
+      {
+        label: "Corporate tax registration",
+        href: "/corporate-tax-registration-in-the-uae",
+        description: "Confirm the registration position and complete EmaraTax setup before annual filing work begins.",
+      },
+      {
+        label: "Bookkeeping services",
+        href: "/professional-bookkeeping-services-in-dubai",
+        description: "Maintain the books, reconciliations, and supporting records needed for a defensible return.",
+      },
     ],
     knowledgeSections: [
       {
@@ -1578,6 +1651,11 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         label: "VAT filing services",
         href: "/vat-filing-services-in-the-uae",
         description: "Use current books and reconciliations to prepare recurring VAT returns.",
+      },
+      {
+        label: "Corporate tax filing services",
+        href: "/corporate-tax-filing-services-in-the-uae",
+        description: "Use current accounting records and working papers to prepare the annual corporate tax return.",
       },
     ],
     knowledgeSections: [

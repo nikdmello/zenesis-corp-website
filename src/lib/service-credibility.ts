@@ -158,6 +158,31 @@ const sources = {
     publisher: "Central Bank of the UAE Rulebook",
     href: "https://rulebook.centralbank.ae/en/rulebook/guidance-licensed-financial-institutions-customer-due-diligenceknow-your-customer-and",
   },
+  emiratesNbdBusiness: {
+    title: "Business Banking account packages",
+    publisher: "Emirates NBD",
+    href: "https://www.emiratesnbd.com/en/business-banking/open-business-bank-account-online",
+  },
+  mashreqNeoBiz: {
+    title: "NEO BIZ Business Account",
+    publisher: "Mashreq",
+    href: "https://www.mashreq.com/en/uae/neobiz/banking-solution/daily-banking-solutions/business-account/neo-biz/",
+  },
+  adcbBusinessAccounts: {
+    title: "Business account key facts",
+    publisher: "ADCB",
+    href: "https://www.adcb.com/en/multimedia/kfs/business-choice-account-kfs.pdf",
+  },
+  wioBusiness: {
+    title: "Wio Business plans",
+    publisher: "Wio Bank",
+    href: "https://wio.io/business",
+  },
+  rakstarter: {
+    title: "RAKstarter business account",
+    publisher: "RAKBANK",
+    href: "https://www.rakbank.ae/en/business/everyday-banking/accounts/rakstarter-account",
+  },
 } satisfies Record<string, CredibilitySource>;
 
 const checkedLabel = "Sources checked July 31, 2026";
@@ -275,9 +300,16 @@ export function getServiceCredibility(path: string): ServiceCredibility | undefi
     },
     "/open-a-bank-account-easily": {
       expert: experts.cecilia,
-      verificationLabel: checkedLabel,
+      verificationLabel: "Sources checked September 3, 2026",
       note: "Zenesis can help prepare and explain the application file, but bank account approval, timing, account type, and minimum-balance terms remain solely at the bank's discretion.",
-      sources: [sources.bankingKyc],
+      sources: [
+        sources.bankingKyc,
+        sources.emiratesNbdBusiness,
+        sources.mashreqNeoBiz,
+        sources.adcbBusinessAccounts,
+        sources.wioBusiness,
+        sources.rakstarter,
+      ],
     },
   };
 
