@@ -187,6 +187,11 @@ const sourceLibrary = {
     publisher: "General Directorate of Residency and Foreigners Affairs Dubai",
     href: "https://gdrfad.gov.ae/en/services/bf4095ea-56e2-11ea-0320-0050569629e8",
   },
+  smallBusinessReliefFiling: {
+    title: "Small Business Relief filing reminder",
+    publisher: "UAE Federal Tax Authority",
+    href: "https://tax.gov.ae/en/media.centre/news/fta.confirms.taxable.persons.eligible.for.the.small.business.relief.must.submit.simplified.corporate.tax.returns.within.prescribed.legal.deadline.aspx",
+  },
   taxProceduresLaw: {
     title: "Federal Decree-Law No. 28 of 2022 on Tax Procedures",
     publisher: "UAE Ministry of Finance",
@@ -263,12 +268,12 @@ const insightCredibilityBySlug: Record<string, InsightCredibility> = {
     sources: [sourceLibrary.taxGroups, sourceLibrary.corporateTaxGeneral],
   },
   "financial-year-2026-uae-compliance-guide": {
-    updatedLabel: "July 22, 2026",
-    sources: [sourceLibrary.corporateTaxReturns, sourceLibrary.corporateTaxRecords, sourceLibrary.corporateTaxGeneral],
+    updatedLabel: "September 3, 2026",
+    sources: [sourceLibrary.corporateTaxReturns, sourceLibrary.corporateTaxRecords, sourceLibrary.corporateTaxGeneral, sourceLibrary.smallBusinessReliefFiling],
   },
   "uae-corporate-tax-filing-deadlines-2026": {
-    updatedLabel: "July 22, 2026",
-    sources: [sourceLibrary.corporateTaxReturns, sourceLibrary.corporateTaxRecords],
+    updatedLabel: "September 3, 2026",
+    sources: [sourceLibrary.corporateTaxReturns, sourceLibrary.corporateTaxRecords, sourceLibrary.smallBusinessReliefFiling],
   },
   "uae-corporate-tax-record-keeping-requirements": {
     updatedLabel: "July 22, 2026",
@@ -1447,12 +1452,26 @@ export const insightPosts: InsightPost[] = [
             "Preparation point",
           ],
           rows: [
+            ["1 Jan 2025 - 31 Dec 2025", "31 December 2025", "30 September 2026", "Complete the 2025 accounts, tax schedules, and return before the September 2026 deadline"],
             ["1 Jan 2026 - 31 Dec 2026", "31 December 2026", "30 September 2027", "Close 2026 books early enough to prepare tax schedules before September 2027"],
             ["1 Apr 2026 - 31 Mar 2027", "31 March 2027", "31 December 2027", "Plan audit, VAT cut-off, and corporate tax review around the March year-end"],
             ["1 Jul 2025 - 30 Jun 2026", "30 June 2026", "31 March 2027", "Use the second half of 2026 to clean ledgers and supporting records"],
             ["First or extended financial year", "Depends on chosen end date", "Generally 9 months from tax period end", "Confirm the first tax period and filing date before waiting for the deadline"],
           ],
         },
+      },
+      {
+        title: "Small Business Relief still requires a return",
+        paragraphs: [
+          {
+            text: "A business that qualifies for Small Business Relief must still submit its Corporate Tax return by the applicable deadline. The relief is elected through the return and does not remove the filing obligation.",
+            sourceIndexes: [4],
+          },
+          {
+            text: "The revenue threshold is AED 3 million for the relevant tax period and every previous tax period. The business should retain records that support its revenue and eligibility if the FTA asks for evidence.",
+            sourceIndexes: [4],
+          },
+        ],
       },
       {
         title: "VAT Reconciliation and Year-End Cut-Off",
@@ -1604,7 +1623,10 @@ export const insightPosts: InsightPost[] = [
             text: "As a general rule, a UAE corporate tax return is due within nine months after the end of the relevant tax period. For most companies, the tax period follows the financial year used for accounts and reporting.",
             sourceIndexes: [1],
           },
-          "That means the filing deadline changes depending on the company financial year-end. A calendar-year company with a 31 December 2026 year-end would generally work toward a 30 September 2027 corporate tax filing deadline.",
+          {
+            text: "That means the filing deadline changes depending on the company financial year-end. A calendar-year company with a 31 December 2025 year-end must submit its return and settle any Corporate Tax due by 30 September 2026.",
+            sourceIndexes: [3],
+          },
         ],
         callout: {
           type: "deadline",
@@ -1614,12 +1636,26 @@ export const insightPosts: InsightPost[] = [
         table: {
           columns: ["Financial Year-End", "Typical Filing Deadline", "What Should Be Ready Before Filing"],
           rows: [
+            ["31 December 2025", "30 September 2026", "Final accounts, tax computation, supporting schedules, and portal readiness"],
             ["31 December 2026", "30 September 2027", "Final accounts, tax computation, supporting schedules, and portal readiness"],
             ["31 March 2026", "31 December 2026", "Closed books, reconciled VAT periods, and year-end adjustments"],
             ["30 June 2026", "31 March 2027", "Audit position, tax schedules, and free zone classification where relevant"],
             ["Custom first financial year", "9 months from the chosen year-end", "Confirmed tax period, bookkeeping cut-off, and filing calendar"],
           ],
         },
+      },
+      {
+        title: "Small Business Relief does not remove the filing deadline",
+        paragraphs: [
+          {
+            text: "Eligible businesses elect Small Business Relief through their Corporate Tax return. They still have to file by the prescribed deadline, even when the relief results in no taxable income for Corporate Tax purposes.",
+            sourceIndexes: [3],
+          },
+          {
+            text: "The AED 3 million revenue threshold applies to the relevant tax period and every previous tax period. Keep the accounting records and supporting evidence needed to show that revenue remained within the threshold.",
+            sourceIndexes: [3],
+          },
+        ],
       },
       {
         title: "Filing Readiness Is More Than Portal Access",

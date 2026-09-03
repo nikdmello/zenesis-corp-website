@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { insightPosts } from "@/lib/insights";
+import { getInsightCredibility, insightPosts } from "@/lib/insights";
 import { coreIndexableRoutes, getServiceIndexableRoutes } from "@/lib/routes";
 import { siteUrl, toIsoDate } from "@/lib/seo";
 
@@ -20,13 +20,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route.priority,
   }));
 
-  const insights = insightPosts.map((post) => ({
-    url: `${siteUrl}/insights/${post.slug}`,
-    lastModified: toIsoDate(post.dateLabel) ?? now.toISOString(),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-    images: [post.heroImageSrc.startsWith("http") ? post.heroImageSrc : `${siteUrl}${post.heroImageSrc}`],
-  }));
+  const insights = insightPosts.map((post) => {
+    const updatedLabel = getInsightCredibility(post.slug)?.updatedLabel;
+
+    return {
+      url: `${siteUrl}/insights/${post.slug}`,
+      lastModified: toIsoDate(updatedLabel ?? post.dateLabel) ?? now.toISOString(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      images: [post.heroImageSrc.startsWith("http") ? post.heroImageSrc : `${siteUrl}${post.heroImageSrc}`],
+    };
+  });
 
   return [...pages, ...services, ...insights];
 }
