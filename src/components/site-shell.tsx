@@ -209,7 +209,7 @@ export function SiteShell({
 
   return (
     <div className="relative isolate min-h-screen overflow-x-clip">
-      <ConsultationSessionPrompt />
+      {!isHomepage ? <ConsultationSessionPrompt /> : null}
       <div
         aria-hidden="true"
         className="site-background pointer-events-none fixed inset-0 -z-10"
@@ -865,20 +865,13 @@ type PageIntroProps = {
   secondaryLabel?: string;
   showBottomBorder?: boolean;
   footerContent?: ReactNode;
+  leadingContent?: ReactNode;
 };
 
 export function PageIntro({
   breadcrumb,
   title,
   description,
-  backgroundImageSrc,
-  backgroundImageAlt,
-  backgroundImagePosition,
-  backgroundImageMode = "full",
-  preloadBackgroundImage = false,
-  ambientImageClassName,
-  contentClassName,
-  titleClassName,
   highlights,
   ctaHref,
   ctaLabel,
@@ -887,284 +880,64 @@ export function PageIntro({
   secondaryLabel,
   showBottomBorder = true,
   footerContent,
+  leadingContent,
 }: PageIntroProps) {
-  const hasBackgroundImage = Boolean(backgroundImageSrc);
-  const usesFullBackgroundImage = hasBackgroundImage && backgroundImageMode === "full";
-  const usesAmbientBackgroundImage = hasBackgroundImage && backgroundImageMode === "ambient";
-  const usesEditorialIntro = !usesFullBackgroundImage;
   const breadcrumbItems = Array.isArray(breadcrumb) ? breadcrumb : null;
-  const breadcrumbText = typeof breadcrumb === "string" ? breadcrumb : null;
-  const shouldOpenConsultationForm =
-    ctaLabel?.toLowerCase().includes("consultation") ?? false;
-  const primaryCtaClassName =
-    "rounded-full bg-[#244ba8] px-6 py-3 text-center text-sm font-semibold !text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#1b3c86]";
-  const ctaIsSectionLink = ctaHref?.startsWith("#") ?? false;
-  const secondaryIsSectionLink = secondaryHref?.startsWith("#") ?? false;
+  const shouldOpenConsultationForm = ctaLabel?.toLowerCase().includes("consultation");
+  const primaryClassName = "page-intro-primary";
+  const secondaryClassName = "page-intro-secondary";
 
   return (
-    <section
-      className={[
-        usesFullBackgroundImage
-          ? "relative left-1/2 -mt-10 w-screen -translate-x-1/2 overflow-hidden pt-20 pb-10 md:-mt-14 md:pt-28 md:pb-16"
-          : usesAmbientBackgroundImage
-            ? "relative left-1/2 -mt-px flex min-h-[15rem] w-screen -translate-x-1/2 items-center overflow-hidden bg-[#f5efe4] py-6 md:min-h-[16rem] md:py-7"
-            : "relative left-1/2 -mt-px flex min-h-[15rem] w-screen -translate-x-1/2 items-center bg-[#f5efe4] py-6 md:min-h-[16rem] md:py-7",
-        showBottomBorder ? "border-b border-foreground/8" : "",
-      ]
-        .filter(Boolean)
-        .join(" ")}
-    >
-      {usesFullBackgroundImage ? (
-        <>
-          <div className="absolute inset-0 bg-[#011735]" />
-          <div className="absolute inset-0">
-            <Image
-              src={backgroundImageSrc!}
-              alt={backgroundImageAlt ?? ""}
-              fill
-              preload
-              quality={72}
-              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 78vw, 62vw"
-              className={`hero-image translate-x-[12%] scale-110 object-cover saturate-[1.04] contrast-[1.04] md:translate-x-[18%] md:scale-110 ${backgroundImagePosition ?? "object-center"}`}
-            />
+    <section className={`page-intro ${showBottomBorder ? "page-intro-bordered" : ""}`}>
+      <div className="page-intro-container">
+        {breadcrumbItems ? (
+          <nav aria-label="Breadcrumb" className="page-intro-breadcrumb">
+            {breadcrumbItems.map((item, index) => (
+              <Fragment key={`${item.label}-${index}`}>
+                {index > 0 && <span aria-hidden="true">/</span>}
+                {item.href ? <Link href={item.href}>{item.label}</Link> : <span>{item.label}</span>}
+              </Fragment>
+            ))}
+          </nav>
+        ) : null}
+        {leadingContent ? <div className="page-intro-meta">{leadingContent}</div> : null}
+        <h1 className="page-intro-title">{title}</h1>
+        {description ? <p className="page-intro-description">{description}</p> : null}
+        {(ctaHref && ctaLabel) || (secondaryHref && secondaryLabel) ? (
+          <div className="page-intro-actions">
+            {ctaHref && ctaLabel ? (
+              shouldOpenConsultationForm ? (
+                <ConsultationFormButton
+                  label={ctaLabel}
+                  className={primaryClassName}
+                  presetEnquiry={ctaPresetEnquiry ?? "I would like to schedule a free consultation with Zenesis."}
+                />
+              ) : ctaHref.startsWith("#") ? (
+                <CleanSectionLink href={ctaHref as `#${string}`} className={primaryClassName}>{ctaLabel}</CleanSectionLink>
+              ) : (
+                <Link href={ctaHref} className={primaryClassName}>{ctaLabel}</Link>
+              )
+            ) : null}
+            {secondaryHref && secondaryLabel ? (
+              secondaryHref.startsWith("#") ? (
+                <CleanSectionLink href={secondaryHref as `#${string}`} className={secondaryClassName}>{secondaryLabel}</CleanSectionLink>
+              ) : (
+                <Link href={secondaryHref} className={secondaryClassName}>{secondaryLabel}</Link>
+              )
+            ) : null}
           </div>
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,35,42,0.88)_0%,rgba(17,35,42,0.66)_48%,rgba(17,35,42,0.72)_100%)] md:bg-[linear-gradient(90deg,rgba(17,35,42,0.94)_0%,rgba(17,35,42,0.86)_28%,rgba(17,35,42,0.42)_58%,rgba(17,35,42,0.14)_100%)]" />
-        </>
-      ) : null}
-      {usesAmbientBackgroundImage ? (
-        <div
-          className={[
-            "pointer-events-none absolute inset-y-0 right-0 w-[48%] max-w-[52rem] overflow-hidden sm:w-[54%] md:w-[52%] lg:w-[54%] xl:w-[56%]",
-            ambientImageClassName ?? "",
-          ]
-            .filter(Boolean)
-            .join(" ")}
-        >
-          <div
-            className="absolute inset-0 opacity-[0.4] sm:opacity-[0.52] md:opacity-[0.98]"
-            style={{
-              WebkitMaskImage:
-                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 20%, rgba(0,0,0,0.42) 34%, rgba(0,0,0,0.78) 50%, #000 64%)",
-              maskImage:
-                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 20%, rgba(0,0,0,0.42) 34%, rgba(0,0,0,0.78) 50%, #000 64%)",
-            }}
-          >
-            <Image
-              src={backgroundImageSrc!}
-              alt={backgroundImageAlt ?? ""}
-              fill
-              preload={preloadBackgroundImage}
-              loading={preloadBackgroundImage ? undefined : "lazy"}
-              fetchPriority={preloadBackgroundImage ? undefined : "low"}
-              quality={76}
-              sizes="(max-width: 767px) 92vw, (max-width: 1279px) 54vw, 832px"
-              className={`object-cover object-right-top saturate-[0.94] contrast-[0.98] ${backgroundImagePosition ?? "object-[82%_24%]"}`}
-            />
-          </div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_44%,rgba(36,75,168,0.12),transparent_30%),linear-gradient(180deg,rgba(245,239,228,0.02)_0%,rgba(245,239,228,0.08)_72%,rgba(245,239,228,0.22)_100%)]" />
-        </div>
-      ) : null}
-      {usesAmbientBackgroundImage ? (
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#f5efe4_0%,#f5efe4_72%,rgba(245,239,228,0.98)_82%,rgba(245,239,228,0.72)_92%,transparent_100%)] md:bg-none" />
-      ) : null}
-
-      <div
-        className={`relative z-10 ${
-          usesFullBackgroundImage
-            ? "mx-auto flex min-h-[calc(100svh-7.5rem)] w-full max-w-[100rem] flex-col justify-between gap-10 px-6 pt-10 md:px-12 md:pt-16 xl:px-20"
-            : "mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20"
-        }`}
-      >
-        <div
-          className={[
-            usesFullBackgroundImage
-              ? "mt-auto max-w-[48rem] border-l-4 border-[#244ba8] pl-5 pb-10 sm:pl-6 md:pl-7 md:pb-14"
-              : "max-w-[52rem] border-l-4 border-[#244ba8] py-1 pl-5 sm:pl-6 md:pl-7",
-            contentClassName ?? "",
-          ]
-            .filter(Boolean)
-            .join(" ")}
-        >
-          {usesEditorialIntro ? (
-            <div className="mb-5 h-px w-12 bg-[#b88d53]" />
-          ) : null}
-          {breadcrumb ? (
-            breadcrumbItems ? (
-              <div
-                className={`relative z-20 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 pointer-events-auto text-sm font-medium ${
-                  usesFullBackgroundImage ? "text-white/68" : "text-[#244ba8]"
-                }`}
-              >
-                {breadcrumbItems.map((item, index) => (
-                  <Fragment key={`${item.label}-${index}`}>
-                    {item.href ? (
-                      <Link
-                        href={item.href}
-                        className={`relative z-20 inline-flex cursor-pointer pointer-events-auto transition-colors ${
-                          usesFullBackgroundImage
-                            ? "text-white/86 hover:text-white"
-                            : "text-[#244ba8] hover:text-[#1b3c86]"
-                        }`}
-                      >
-                        {item.label}
-                      </Link>
-                    ) : (
-                      <span className={usesFullBackgroundImage ? "text-white/86" : "text-[#011735]/78"}>
-                        {item.label}
-                      </span>
-                    )}
-                    {index < breadcrumbItems.length - 1 ? (
-                      <span
-                        aria-hidden="true"
-                        className={usesFullBackgroundImage ? "text-white/46" : "text-[#244ba8]/58"}
-                      >
-                        →
-                      </span>
-                    ) : null}
-                  </Fragment>
-                ))}
+        ) : null}
+        {highlights?.length ? (
+          <dl className="page-intro-highlights">
+            {highlights.map((item) => (
+              <div key={item.label}>
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
               </div>
-            ) : (
-              <p
-                className={`text-sm font-medium ${
-                  usesFullBackgroundImage ? "text-white/68" : "text-[#244ba8]"
-                }`}
-              >
-                {breadcrumbText}
-              </p>
-            )
-          ) : null}
-          <h1
-            className={`${breadcrumb ? "mt-4" : "mt-0"} ${
-              usesFullBackgroundImage
-                ? "max-w-[20ch] text-[3.05rem] [text-wrap:balance] sm:max-w-[21ch] sm:text-[4.05rem] lg:max-w-[22ch] lg:text-[4.75rem]"
-                : "max-w-[22ch] text-[2.2rem] [text-wrap:balance] sm:max-w-[23ch] sm:text-[3rem] lg:max-w-[24ch] lg:text-[3.55rem]"
-            } page-title-display ${
-              usesFullBackgroundImage ? "text-white" : "text-foreground"
-            } ${usesFullBackgroundImage ? "hero-reveal hero-reveal-1" : ""} ${titleClassName ?? ""}`}
-          >
-            {title}
-          </h1>
-          {description ? (
-            <p
-              className={`${
-                usesEditorialIntro ? "mt-4 max-w-[40rem] text-[0.98rem] leading-7 md:text-[1.04rem] md:leading-[1.9rem]" : "mt-6 max-w-3xl text-[1.14rem] leading-8 md:text-[1.28rem] md:leading-9"
-              } ${
-                usesFullBackgroundImage ? "font-medium text-white/88" : "font-semibold text-[#011735] md:font-medium md:text-[#011735]/90"
-              } ${usesFullBackgroundImage ? "hero-reveal hero-reveal-2" : ""}`}
-            >
-              {description}
-            </p>
-          ) : null}
-        </div>
-
-        <div className={usesFullBackgroundImage ? "mt-auto" : ""}>
-          {(ctaHref || secondaryHref) && (
-            <div className={`flex flex-col gap-4 sm:flex-row ${usesFullBackgroundImage ? "hero-reveal hero-reveal-3" : "mt-9"}`}>
-              {ctaHref && ctaLabel ? (
-                shouldOpenConsultationForm ? (
-                  <ConsultationFormButton
-                    label={ctaLabel}
-                    className={primaryCtaClassName}
-                    presetEnquiry={
-                      ctaPresetEnquiry ??
-                      "I would like to schedule a free consultation with Zenesis."
-                    }
-                  />
-                ) : ctaIsSectionLink ? (
-                  <CleanSectionLink
-                    href={ctaHref as `#${string}`}
-                    className={primaryCtaClassName}
-                  >
-                    {ctaLabel}
-                  </CleanSectionLink>
-                ) : (
-                  <Link
-                    href={ctaHref}
-                    className={primaryCtaClassName}
-                  >
-                    {ctaLabel}
-                  </Link>
-                )
-              ) : null}
-
-              {secondaryHref && secondaryLabel ? (
-                secondaryIsSectionLink ? (
-                  <CleanSectionLink
-                    href={secondaryHref as `#${string}`}
-                    className={`rounded-full px-6 py-3 text-center text-sm font-semibold transition-colors ${
-                      usesFullBackgroundImage
-                        ? "border border-white/24 bg-white/12 !text-white backdrop-blur-md hover:bg-white/20"
-                        : "border border-[#244ba8] bg-[#244ba8] !text-white hover:bg-[#1b3c86]"
-                    }`}
-                  >
-                    {secondaryLabel}
-                  </CleanSectionLink>
-                ) : (
-                  <Link
-                    href={secondaryHref}
-                    className={`rounded-full px-6 py-3 text-center text-sm font-semibold transition-colors ${
-                      usesFullBackgroundImage
-                        ? "border border-white/24 bg-white/12 !text-white backdrop-blur-md hover:bg-white/20"
-                        : "border border-[#244ba8] bg-[#244ba8] !text-white hover:bg-[#1b3c86]"
-                    }`}
-                  >
-                    {secondaryLabel}
-                  </Link>
-                )
-              ) : null}
-            </div>
-          )}
-
-          {highlights?.length ? (
-            <div
-              className={`mt-6 grid gap-0 overflow-hidden ${
-                usesFullBackgroundImage
-                  ? "hero-reveal hero-reveal-4 gap-3 sm:grid-cols-3"
-                  : "gap-3 sm:grid-cols-3"
-              }`}
-            >
-              {highlights.map((item) => (
-                <div
-                  key={`${item.label}-${item.value}`}
-                  className={`px-4 py-4 backdrop-blur-sm ${
-                    usesFullBackgroundImage
-                      ? "rounded-[1.4rem] border border-white/22 bg-[#011735]/76 text-white shadow-[0_18px_50px_rgba(0,0,0,0.18)]"
-                      : "rounded-[1.4rem] border border-white/60 bg-white/55"
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <span
-                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-xl ${
-                        usesFullBackgroundImage ? "bg-white/12" : "bg-[rgba(36,75,168,0.1)]"
-                      }`}
-                    >
-                      {item.icon}
-                    </span>
-                    <div>
-                      <p className={`text-sm font-medium ${usesFullBackgroundImage ? "text-white/66" : "text-muted"}`}>
-                        {item.label}
-                      </p>
-                      <p
-                        className={`mt-1 text-sm font-semibold tracking-normal ${
-                          usesFullBackgroundImage ? "text-white" : "text-foreground"
-                        }`}
-                      >
-                        {item.value}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : null}
-
-          {footerContent ? (
-            <div className={usesFullBackgroundImage ? "mt-6 hero-reveal hero-reveal-4" : "mt-4"}>
-              {footerContent}
-            </div>
-          ) : null}
-        </div>
+            ))}
+          </dl>
+        ) : null}
+        {footerContent ? <div className="page-intro-footer">{footerContent}</div> : null}
       </div>
     </section>
   );

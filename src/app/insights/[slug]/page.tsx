@@ -9,7 +9,7 @@ import { PageRailLayout } from "@/components/page-guide-layout";
 import { JsonLd } from "@/components/json-ld";
 import { PrimarySources } from "@/components/primary-sources";
 import { ReadingProgress } from "@/components/reading-progress";
-import { SiteShell } from "@/components/site-shell";
+import { PageIntro, SiteShell } from "@/components/site-shell";
 import { SourceCitationLink } from "@/components/source-citation-link";
 import { articleSectionHeadingClassName } from "@/lib/article-styles";
 import {
@@ -225,76 +225,22 @@ export default async function InsightArticlePage({
         <JsonLd key={index} data={schema} />
       ))}
       <article>
-        <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-[#011735] py-7 text-white md:py-8">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(36,75,168,0.24),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_44%)]" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-full overflow-hidden md:w-[min(56vw,60rem)]">
-            <div
-              className="absolute inset-0 opacity-[0.34] md:opacity-[0.88]"
-              style={{
-                WebkitMaskImage:
-                  "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 20%, rgba(0,0,0,0.42) 34%, rgba(0,0,0,0.78) 50%, #000 64%)",
-                maskImage:
-                  "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.12) 20%, rgba(0,0,0,0.42) 34%, rgba(0,0,0,0.78) 50%, #000 64%)",
-              }}
-            >
-              <Image
-                src={post.heroImageSrc}
-                alt={post.heroImageAlt}
-                fill
-                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 58vw, 56vw"
-                className={`object-cover object-right saturate-[0.94] contrast-[0.98] ${post.heroImageClassName ?? ""}`}
-                priority
-              />
-            </div>
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,35,42,0.08)_0%,rgba(17,35,42,0.02)_58%,rgba(17,35,42,0.28)_100%)]" />
-          </div>
-          <div className="relative mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-            <Link
-              href="/insights"
-              className="inline-flex items-center gap-2 border border-white/18 bg-white/8 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-[#ead5aa]/60 hover:bg-white/12"
-            >
-              <span aria-hidden="true">←</span>
-              Back to Insights
-            </Link>
-
-            <div className="mt-4 lg:min-h-[16rem] xl:min-h-[17rem]">
-              <header className="relative z-10 max-w-[58rem]">
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.98rem] text-white/72">
-                  <span className="text-sm font-semibold text-[#d8c3a2]">
-                    {post.category}
-                  </span>
-                  <span aria-hidden="true" className="text-white/34">
-                    •
-                  </span>
-                  <span>{post.dateLabel}</span>
-                  {credibility?.updatedLabel ? (
-                    <>
-                      <span aria-hidden="true" className="text-white/34">
-                        •
-                      </span>
-                      <span>Updated {credibility.updatedLabel}</span>
-                    </>
-                  ) : null}
-                </div>
-                <h1
-                  className={`mt-7 font-semibold tracking-[-0.06em] text-white ${
-                    post.heroTitleClassName ??
-                    "w-full text-[2.25rem] leading-[1.08] sm:text-[2.75rem] md:text-[3.15rem] xl:text-[3.5rem]"
-                  }`}
-                >
-                  {post.displayTitle ?? post.title}
-                </h1>
-                <p className="mt-6 max-w-4xl text-[1.06rem] font-medium leading-[1.9rem] text-white/86 md:text-[1.16rem] md:leading-8">
-                  {post.description}
-                </p>
-              </header>
-            </div>
-          </div>
-        </section>
+        <PageIntro
+          title={post.displayTitle ?? post.title}
+          description={post.description}
+          breadcrumb={[{ label: "Insights", href: "/insights" }]}
+          leadingContent={
+            <>
+              <span>{post.category}</span>
+              <span>{post.dateLabel}</span>
+              {credibility?.updatedLabel ? <span>Updated {credibility.updatedLabel}</span> : null}
+            </>
+          }
+        />
         <PageRailLayout rail={articleRail}>
 
         <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-11 md:py-14">
-          <div className="mx-auto w-full max-w-[104rem] px-7 md:px-14 xl:px-24">
+          <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
             <div className="max-w-[78rem]">
               <div className="min-w-0 space-y-12">
               {authorProfile ? (

@@ -1,7 +1,6 @@
 import NextImage from "next/image";
 import Link from "next/link";
 import { ConsultationFormButton } from "@/components/consultation-button";
-import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { AwardsVideoExperience } from "@/components/awards-video-experience";
 import { HomepageReviewsCarousel } from "@/components/homepage-reviews-carousel";
 import { PremierClientsCarousel } from "@/components/premier-clients-carousel";
@@ -10,11 +9,11 @@ import {
   type HomepageInsightCard,
 } from "@/components/homepage-insights-carousel";
 import { HomepageServicesReveal } from "@/components/homepage-services-reveal";
+import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { JsonLd } from "@/components/json-ld";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { SectionHeading, SiteShell } from "@/components/site-shell";
-import { versionedAssetPath } from "@/lib/asset-paths";
 import {
   featuredProfile,
   testimonials,
@@ -88,7 +87,7 @@ const homepageFaqs = [
   {
     question: "How do I choose between mainland, free zone, and offshore setup?",
     answer:
-      "The right route depends on what the business needs to do after incorporation. Mainland usually suits businesses that want UAE market access and broader local operating flexibility. Free zones are often preferred by consultants, startups, digital businesses, and international operators who want a more packaged setup path. Offshore structures are usually considered for holding, asset protection, and specific international ownership arrangements. Zenesis helps compare those routes before you commit.",
+      "The route depends on how the business will operate after incorporation. Mainland usually suits businesses that need direct UAE market access. Free zones often suit consultants, startups, digital businesses, and international operators seeking a packaged setup. Offshore structures are generally used for holding, asset ownership, and specific international arrangements. Zenesis compares these options before an application is filed.",
   },
   {
     question: "How much does business setup in Dubai cost with Zenesis?",
@@ -102,7 +101,7 @@ const homepageFaqs = [
   {
     question: "Can Zenesis help compare specific free zones?",
     answer:
-      "Yes. Zenesis can help compare free zones such as DMCC, Dubai South, IFZA, Meydan, Shams, RAKEZ, Ajman Free Zone, Sharjah Airport International Free Zone, Fujairah Free Zone, and Umm Al Quwain Free Trade Zone. The goal is to narrow the shortlist based on business activity, package fit, visa needs, and how the company will operate after setup.",
+      "Yes. Zenesis compares free zones such as DMCC, Dubai South, IFZA, Meydan, Shams, RAKEZ, Ajman Free Zone, Sharjah Airport International Free Zone, Fujairah Free Zone, and Umm Al Quwain Free Trade Zone. The comparison covers business activity, package terms, visa requirements, and operating needs.",
   },
   {
     question: "Can Zenesis help with business banking and KYC preparation?",
@@ -127,12 +126,12 @@ const homepageFaqs = [
   {
     question: "Can Zenesis help if my business is already running in the UAE?",
     answer:
-      "Yes. The services are not only for first-time incorporation. Existing businesses can use Zenesis for bookkeeping, VAT registration and filing, corporate tax support, renewals, document handling, banking-related support, and other corporate services where the business already exists but needs cleaner execution.",
+      "Yes. Zenesis also supports existing UAE businesses with bookkeeping, VAT registration and filing, corporate tax, renewals, document handling, banking preparation, and other corporate services.",
   },
   {
     question: "What happens after the first consultation?",
     answer:
-      "The usual flow is to understand the activity, ownership, visa needs, and operating goals first, then compare the right route, prepare the documents, handle the licensing or authority process, and support the follow-on needs such as banking, visas, bookkeeping, VAT, and corporate tax. The point is to make the next step clearer before paperwork starts.",
+      "Zenesis first reviews the activity, ownership, visa requirements, and operating plans. The team then compares setup routes, prepares the documents, manages the licensing process, and coordinates follow-on work such as banking, visas, bookkeeping, VAT, and corporate tax.",
   },
 ] as const;
 
@@ -161,8 +160,8 @@ const homepageInsightCards: HomepageInsightCard[] = insightPosts.map(
 const experienceLedger = [
   { value: "20+", label: "years supporting UAE and international business setup" },
   { value: "480+", label: "Google reviews from clients and business owners" },
-  { value: "18", label: "UAE free zone and offshore jurisdictions covered" },
-  { value: "5", label: "service areas managed by one team" },
+  { value: "18", label: "free zone and offshore routes covered in our guidance" },
+  { value: "AED 4,000", label: "starting price for a UAE freelance permit" },
 ] as const;
 
 export default function Home() {
@@ -174,81 +173,51 @@ export default function Home() {
     <SiteShell currentPath="/">
       <JsonLd data={faqSchema} />
       <div className="relative z-10">
-        <section className="photo-hero relative left-1/2 -mt-10 min-h-[100svh] w-screen -translate-x-1/2 overflow-hidden bg-[#11232a] text-white md:-mt-14">
-          <div className="absolute inset-0">
+        <section className="home-editorial-hero relative left-1/2 -mt-10 min-h-[calc(100svh-9rem)] w-screen -translate-x-1/2 overflow-hidden bg-[#011735] text-white md:-mt-14">
+          <div className="hero-medallion-stage absolute inset-0 z-0" aria-hidden="true">
             <HeroBackgroundVideo
-              src={versionedAssetPath("/media/zenesis-video.webm")}
-              poster={versionedAssetPath("/media/zenesis-video-poster.webp")}
-              className="h-full w-full object-cover object-[66%_30%] lg:object-[82%_27%]"
+              webmSrc="/media/z-medallion-120-v2.webm"
+              mp4Src="/media/z-medallion-120-v2.mp4"
+              posterSrc="/media/z-medallion-120-v2-poster.webp"
             />
           </div>
-          <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#11232a] via-[#11232a]/94 via-36% to-transparent md:h-72" />
-
-          <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[100rem] flex-col justify-end px-5 pb-3 pt-26 md:block md:px-12 md:pb-3 md:pt-12 xl:px-20">
-            <div className="bottom-3 mx-auto w-full md:absolute md:bottom-3 md:left-1/2 md:w-[min(100%-6rem,68rem)] md:-translate-x-1/2 xl:w-[min(100%-10rem,72rem)]">
-              <div className="mx-auto w-full max-w-[48rem] px-0 py-4 sm:px-2 md:max-w-none md:px-0 md:py-0">
-                <h1 className="hero-reveal hero-reveal-1 mx-auto max-w-[22rem] px-2 text-center text-[1.4rem] font-medium leading-[1.12] tracking-[0] text-white min-[380px]:text-[1.5rem] sm:max-w-none sm:text-[2.35rem] sm:leading-[1.04] md:px-12 md:text-[2.8rem] lg:text-[3.05rem] xl:whitespace-nowrap xl:text-[2.15rem] min-[1900px]:text-[3rem] min-[2200px]:text-[3.6rem]">
-                  <span className="block sm:whitespace-nowrap xl:inline">Over <span className="relative inline-block">20 years<span aria-hidden="true" className="hero-subtitle-accent absolute inset-x-0 -bottom-1 h-1 scale-x-[-1]" /></span> of </span>
-                  <span className="block xl:inline">
-                    <span className="block sm:whitespace-nowrap xl:inline">UAE and international </span>
-                    <span className="block sm:hidden">business setup</span>
-                    <span className="block sm:hidden">experience</span>
-                    <span className="hidden sm:block sm:whitespace-nowrap xl:inline">business setup experience</span>
-                  </span>
-                </h1>
-
-                <div className="hero-reveal hero-reveal-2 mx-auto mt-5 w-full max-w-[58rem] px-5 text-center sm:px-4 lg:px-1">
-                  <p className="hero-subtitle-copy mx-auto block w-fit max-w-[21rem] whitespace-normal px-0 text-center text-[#f7efe1] [text-wrap:balance] sm:max-w-full lg:max-w-none lg:whitespace-nowrap">
-                    Company formation, licensing, visas, banking, compliance, and ongoing corporate support
-                  </p>
-                </div>
-              </div>
-
-              <div className="hero-reveal hero-reveal-3 mt-2 flex justify-center">
-                <div className="flex flex-col items-center gap-4">
-                  <ConsultationFormButton
-                    label="Schedule a Free Consultation"
-                    leadingIcon={
-                      <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#11232a] text-[#f4dfb5] shadow-[0_5px_14px_rgba(17,35,42,0.22)] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105">
-                        <svg
-                          aria-hidden="true"
-                          viewBox="0 0 24 24"
-                          className="h-3.5 w-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M7 3v3M17 3v3M4.5 9h15" />
-                          <rect x="4.5" y="5" width="15" height="15" rx="3" />
-                          <path d="m9.5 14 1.7 1.7 3.6-4" />
-                        </svg>
-                      </span>
-                    }
-                    className="group inline-flex min-h-12 w-fit max-w-full items-center justify-center whitespace-nowrap rounded-full border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-4 py-2 text-sm font-semibold tracking-[0.015em] !text-[#11232a] shadow-[0_20px_48px_rgba(7,21,27,0.28),inset_0_1px_0_rgba(255,255,255,0.9)] outline-none ring-1 ring-white/20 transition-all duration-300 hover:-translate-y-1 hover:border-[#fff1d3] hover:brightness-[1.04] hover:shadow-[0_24px_56px_rgba(7,21,27,0.34),inset_0_1px_0_rgba(255,255,255,0.95)] focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#11232a] active:translate-y-0 sm:px-6 sm:text-base md:relative md:top-1"
-                  />
-
-                  <div className="hero-reveal hero-reveal-4 flex items-center gap-3.5 text-white">
-                    <div className="origin-left scale-[0.94] sm:scale-[1.02] md:scale-[1.08]">
-                      <NextImage
-                        src="/logos/google.webp"
-                        alt="Google reviews"
-                        width={168}
-                        height={72}
-                        className="h-9 w-auto object-contain md:h-11"
-                      />
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      className="h-7 w-px shrink-0 bg-white/22"
-                    />
-                    <span className="inline-flex min-w-max items-center whitespace-nowrap text-[0.96rem] md:text-[1.12rem]">
-                      <span className="font-semibold text-white">480+</span>
-                      <span className="ml-1.5 font-medium text-white/76">reviews</span>
+          <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_center,transparent_18%,rgba(1,23,53,0.16)_58%,rgba(1,23,53,0.55)_100%)]" aria-hidden="true" />
+          <div className="home-hero-composition relative z-10 mx-auto w-full max-w-[112rem] px-6 md:px-12 xl:px-20">
+            <div className="home-hero-heading text-center">
+              <h1 className="home-hero-display hero-reveal hero-reveal-1 mx-auto text-white">
+                Set up your business in Dubai.
+              </h1>
+            </div>
+            <div className="home-hero-support mx-auto max-w-[48rem] text-center">
+              <p className="hero-reveal hero-reveal-3 mx-auto max-w-[50rem] text-[1rem] leading-7 text-white/78 md:text-[1.16rem] md:leading-8">
+                We provide company formation, licensing, visas, banking, accounting, tax, and ongoing corporate support.
+              </p>
+              <div className="hero-reveal hero-reveal-4 mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-7">
+                <ConsultationFormButton
+                  label="Schedule a Free Consultation"
+                  leadingIcon={
+                    <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#011735] text-[#f4dfb5] shadow-[0_5px_14px_rgba(17,35,42,0.22)] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105">
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        className="h-3.5 w-3.5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M7 3v3M17 3v3M4.5 9h15" />
+                        <rect x="4.5" y="5" width="15" height="15" rx="3" />
+                        <path d="m9.5 14 1.7 1.7 3.6-4" />
+                      </svg>
                     </span>
-                  </div>
-                </div>
+                  }
+                  className="group inline-flex min-h-12 w-fit max-w-full items-center justify-center whitespace-nowrap !rounded-[0.35rem] border border-[#f6e4bd]/90 bg-[#ead5aa] px-4 py-2 text-sm font-semibold !text-[#011735] shadow-[0_18px_42px_rgba(7,21,27,0.25)] outline-none transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f2dfb9] focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#011735] sm:px-5 sm:text-base"
+                />
+                <Link href="/business-setup-cost-dubai" className="inline-flex min-h-12 items-center border-b border-white/45 px-1 text-sm font-semibold text-white transition-colors hover:border-[#ead5aa] hover:text-[#ead5aa] sm:text-base">
+                  View starting prices <span aria-hidden="true" className="ml-2">→</span>
+                </Link>
               </div>
             </div>
           </div>
@@ -333,7 +302,7 @@ export default function Home() {
             eyebrowClassName="!text-white/68"
             title="Latest insights"
             titleClassName="!text-white"
-            description="Practical guidance for setting up, operating, and keeping a business compliant in the UAE."
+            description="Guidance on setting up, operating, and keeping a business compliant in the UAE."
             descriptionClassName="!text-white/84"
           />
         </ScrollReveal>

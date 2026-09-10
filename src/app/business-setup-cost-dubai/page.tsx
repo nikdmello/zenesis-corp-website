@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BusinessSetupCostTable } from "@/components/business-setup-cost-table";
-import { BusinessSetupPriceActions } from "@/components/business-setup-price-actions";
+import { PricingPackages } from "@/components/pricing-packages";
 import { BusinessSetupPricingFaq } from "@/components/business-setup-pricing-faq";
 import { JsonLd } from "@/components/json-ld";
-import { PageGuideLayout } from "@/components/page-guide-layout";
-import { PageSectionNavMobile } from "@/components/page-section-nav";
 import { ReadingProgress } from "@/components/reading-progress";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
@@ -28,16 +26,6 @@ import {
 const pageTitle = "Business Setup Cost in Dubai 2026 | Zenesis Prices";
 const pageDescription =
   "Compare Zenesis business setup prices in Dubai: freelance permits from AED 4,000, free zone from AED 7,000, mainland from AED 10,000.";
-const introDescription =
-  "Published starting prices and the main cost drivers for UAE company formation, with the full quote confirmed before filing begins.";
-
-const pricingPageLinks = [
-  { href: "#starting-prices", label: "Starting prices" },
-  { href: "#cost-drivers", label: "What affects cost" },
-  { href: "#setup-routes", label: "Setup routes" },
-  { href: "#direct-answers", label: "Pricing FAQ" },
-  { href: "#primary-sources", label: "Primary sources" },
-] as const;
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -71,37 +59,27 @@ export default function BusinessSetupCostDubaiPage() {
       ))}
 
       <PageIntro
-        showBottomBorder={false}
-        breadcrumb={[
-          { label: "Business setup", href: "/business-setup" },
-          { label: "Pricing" },
-        ]}
-        title="Business setup cost in Dubai"
-        description={introDescription}
-        backgroundImageSrc={versionedAssetPath("/services/business-setup-cost-uae.webp")}
-        backgroundImageAlt="Dubai business setup cost and company formation pricing"
-        backgroundImagePosition="!object-[82%_32%]"
-        backgroundImageMode="ambient"
+        title="Pricing"
+        description="Choose where your business begins. Explore company formation, freelance permits, and offshore setup with Zenesis."
       />
 
-      <PageSectionNavMobile items={pricingPageLinks} />
-      <PageGuideLayout items={pricingPageLinks} credibilityPath="/business-setup-cost-dubai">
+      <section id="starting-prices" className="pricing-packages-section">
+        <div className="pricing-page-container">
+          <PricingPackages />
+          <p className="pricing-disclaimer">{businessSetupPricingDisclaimer}</p>
+        </div>
+      </section>
 
-      <section id="starting-prices" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 border-b border-[#d9d1c5] bg-white py-11 md:py-14">
+      <section id="compare-prices" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 border-b border-[#d9d1c5] bg-white py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            eyebrow="Pricing overview"
-            title="Compare Zenesis starting prices"
-            description="A full-width comparison of the main setup routes founders ask about when estimating the cost of starting a business in Dubai or the UAE."
+            title="Compare the details"
           />
 
           <div className="mt-8 md:mt-10">
             <BusinessSetupCostTable />
           </div>
 
-          <p className="mt-5 max-w-5xl text-[0.98rem] font-medium leading-7 text-[#011735]/72">
-            {businessSetupPricingDisclaimer}
-          </p>
           <div className="mt-7 grid gap-5 border-t border-[#d9d1c5] pt-7 md:grid-cols-2">
             <div>
               <p className="text-sm font-semibold text-[#8d7453]">Lowest entry price</p>
@@ -196,12 +174,9 @@ export default function BusinessSetupCostDubaiPage() {
       <section id="setup-routes" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            eyebrow="Starting package options"
-            title="Choose the closest setup route"
-            description="These starting points help founders compare routes before the full cost is confirmed. Click a package to open the consultation form with that option already selected."
+            title="Still deciding on the structure?"
           />
 
-          <BusinessSetupPriceActions variant="servicePage" />
 
           <div className="mt-8 grid gap-4 lg:grid-cols-2">
             <Link
@@ -252,7 +227,6 @@ export default function BusinessSetupCostDubaiPage() {
       />
 
       <ServiceCredibilityPanel path="/business-setup-cost-dubai" variant="sources" />
-      </PageGuideLayout>
     </SiteShell>
   );
 }

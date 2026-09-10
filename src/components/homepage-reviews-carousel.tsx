@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { useResponsiveCarouselPage } from "@/components/use-responsive-carousel-page";
 import { googleReviewsHref, type Testimonial } from "@/lib/site-content";
 
 type HomepageReviewsCarouselProps = {
@@ -12,6 +13,8 @@ export function HomepageReviewsCarousel({
 }: HomepageReviewsCarouselProps) {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const { activePage, itemsPerPage, pageCount, startIndexForPage } =
+    useResponsiveCarouselPage(testimonials.length, activeIndex);
 
   const scrollToReview = (index: number) => {
     const track = trackRef.current;
@@ -34,15 +37,11 @@ export function HomepageReviewsCarousel({
         onScroll={(event) => {
           const track = event.currentTarget;
           const cards = Array.from(track.children) as HTMLElement[];
-          const nextIndex = cards.reduce((closestIndex, card, index) => {
-            const currentDistance = Math.abs(card.offsetLeft - track.offsetLeft - track.scrollLeft);
-            const closestCard = cards[closestIndex];
-            const closestDistance = Math.abs(
-              closestCard.offsetLeft - track.offsetLeft - track.scrollLeft,
-            );
-
-            return currentDistance < closestDistance ? index : closestIndex;
-          }, 0);
+          const cardStep = cards.length > 1
+            ? cards[1].offsetLeft - cards[0].offsetLeft
+            : cards[0].offsetWidth;
+          const nextPage = Math.round(track.scrollLeft / (cardStep * itemsPerPage));
+          const nextIndex = startIndexForPage(nextPage);
 
           if (nextIndex !== activeIndex) {
             setActiveIndex(nextIndex);
@@ -103,23 +102,23 @@ export function HomepageReviewsCarousel({
       <div className="mt-6 flex items-center justify-center gap-4">
         <button
           type="button"
-          aria-label="Previous review"
-          disabled={activeIndex === 0}
-          onClick={() => scrollToReview(activeIndex - 1)}
+          aria-label="Previous reviews page"
+          disabled={activePage === 0}
+          onClick={() => scrollToReview(startIndexForPage(activePage - 1))}
           className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#011735]/16 bg-white text-[#011735] transition-colors hover:border-[#011735]/34 disabled:cursor-not-allowed disabled:opacity-35"
         >
           <span aria-hidden="true">←</span>
         </button>
 
         <p className="min-w-[4.5rem] text-center text-sm font-semibold tabular-nums text-[#011735]/66">
-          {String(activeIndex + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}
+          {String(activePage + 1).padStart(2, "0")} / {String(pageCount).padStart(2, "0")}
         </p>
 
         <button
           type="button"
-          aria-label="Next review"
-          disabled={activeIndex === testimonials.length - 1}
-          onClick={() => scrollToReview(activeIndex + 1)}
+          aria-label="Next reviews page"
+          disabled={activePage === pageCount - 1}
+          onClick={() => scrollToReview(startIndexForPage(activePage + 1))}
           className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#011735]/16 bg-white text-[#011735] transition-colors hover:border-[#011735]/34 disabled:cursor-not-allowed disabled:opacity-35"
         >
           <span aria-hidden="true">→</span>

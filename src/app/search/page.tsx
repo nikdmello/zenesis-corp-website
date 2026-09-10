@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SearchHighlight } from "@/components/search-highlight";
 import { SiteSearchForm } from "@/components/site-search-form";
-import { SectionHeading, SiteShell } from "@/components/site-shell";
+import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { getSearchExcerpt, getSearchSuggestions, searchSite } from "@/lib/site-search";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -28,31 +28,20 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   return (
     <SiteShell currentPath="/search">
-      <section className="relative z-20 left-1/2 -mt-px w-screen -translate-x-1/2 overflow-visible border-b border-foreground/8 bg-[#f5efe4] pt-24 pb-10 md:pt-28 md:pb-12">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <div className="max-w-[72rem] border-l-4 border-[#244ba8] pl-5 sm:pl-6 md:pl-7">
-            <h1 className="max-w-[18ch] text-[3.2rem] font-semibold leading-[0.94] tracking-[-0.04em] text-foreground sm:text-[4rem] lg:max-w-[20ch] lg:text-[4.55rem]">
-              Search Zenesis
-            </h1>
-            <p className="mt-5 max-w-3xl text-[1.02rem] leading-[1.9rem] text-muted md:text-[1.1rem] md:leading-8">
-              Search pages, services, and insight articles across business setup,
-              accounting and tax, visa and banking, and corporate support.
-            </p>
-            <div className="mt-8 max-w-[46rem]">
-              <SiteSearchForm
-                defaultValue={query}
-                theme="light"
-                className="w-full"
-              />
-            </div>
-            <p className="mt-4 text-[0.96rem] leading-7 text-muted">
+      <PageIntro
+        title="Search Zenesis"
+        description="Search pages, services, and insight articles across business setup, accounting and tax, visa and banking, and corporate support."
+        footerContent={
+          <div className="max-w-[46rem]">
+            <SiteSearchForm defaultValue={query} theme="light" className="w-full" />
+            <p className="mt-4 text-sm leading-7 text-white/75">
               {query
                 ? `${results.length} result${results.length === 1 ? "" : "s"} for “${query}”.`
-                : "Start with a service, article, visa route, tax topic, or company setup term."}
+                : "Search by service, business activity, or topic."}
             </p>
           </div>
-        </div>
-      </section>
+        }
+      />
 
       <section className="relative z-10 left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#011735] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">

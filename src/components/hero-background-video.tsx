@@ -1,125 +1,58 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 type HeroBackgroundVideoProps = {
-  src: string;
   className?: string;
-  poster?: string;
-  playbackRate?: number;
+  mp4Src: string;
+  posterSrc: string;
+  webmSrc: string;
 };
 
 export function HeroBackgroundVideo({
-  src,
-  className,
-  poster,
-  playbackRate = 1,
+  className = "",
+  mp4Src,
+  posterSrc,
+  webmSrc,
 }: HeroBackgroundVideoProps) {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
-  const [isVideoReady, setIsVideoReady] = useState(false);
-  const sourceType = src.includes(".webm") ? "video/webm" : "video/mp4";
+  const [shouldPlay, setShouldPlay] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    const connection = (
-      navigator as Navigator & {
-        connection?: {
-          saveData?: boolean;
-        };
-      }
-    ).connection;
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    const shouldAvoidVideo =
-      prefersReducedMotion || connection?.saveData;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
 
-    if (shouldAvoidVideo) {
-      return;
-    }
+    if (reducedMotion.matches || connection?.saveData) return;
 
-    const requestIdleCallback = window.requestIdleCallback;
-    const cancelIdleCallback = window.cancelIdleCallback;
-    const loadVideo = () => setShouldLoadVideo(true);
-    let idleId: number | undefined;
-    let loadTimer: number | undefined;
-
-    const scheduleVideoLoad = () => {
-      if (requestIdleCallback) {
-        idleId = requestIdleCallback(loadVideo, { timeout: 600 });
-        return;
-      }
-
-      loadTimer = window.setTimeout(loadVideo, 200);
-    };
-
-    if (document.readyState === "complete") {
-      scheduleVideoLoad();
-    } else {
-      window.addEventListener("load", scheduleVideoLoad, { once: true });
-    }
-
-    return () => {
-      window.removeEventListener("load", scheduleVideoLoad);
-      if (idleId !== undefined) cancelIdleCallback(idleId);
-      if (loadTimer !== undefined) window.clearTimeout(loadTimer);
-    };
+    const timer = window.setTimeout(() => setShouldPlay(true), 0);
+    return () => window.clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    if (!shouldLoadVideo) {
-      return;
-    }
-
-    const video = videoRef.current;
-    if (!video) {
-      return;
-    }
-
-    const applyPlaybackRate = () => {
-      video.playbackRate = playbackRate;
-    };
-
-    applyPlaybackRate();
-    video.addEventListener("loadedmetadata", applyPlaybackRate);
-
-    return () => {
-      video.removeEventListener("loadedmetadata", applyPlaybackRate);
-    };
-  }, [playbackRate, shouldLoadVideo]);
-
   return (
-    <div className="relative h-full w-full overflow-hidden bg-[#11232a]">
-      {poster ? (
-        <Image
-          src={poster}
-          alt=""
-          fill
-          priority
-          quality={68}
-          sizes="100vw"
-          className={className}
-          aria-hidden="true"
-        />
-      ) : null}
-
-      {shouldLoadVideo ? (
+    <div className={`hero-background-video ${className}`} aria-hidden="true">
+      <Image
+        src={posterSrc}
+        alt=""
+        fill
+        priority
+        sizes="(max-width: 767px) 120vw, (max-width: 1073px) 82vw, 880px"
+        className={`hero-background-video-poster ${isReady ? "opacity-0" : "opacity-100"}`}
+      />
+      {shouldPlay ? (
         <video
-          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
           preload="metadata"
-          onCanPlay={() => setIsVideoReady(true)}
-          suppressHydrationWarning
-          className={`${className ?? ""} absolute inset-0 transition-opacity duration-500 ${
-            isVideoReady ? "opacity-100" : "opacity-0"
-          }`}
-          aria-hidden="true"
+          poster={posterSrc}
+          tabIndex={-1}
+          onCanPlay={() => setIsReady(true)}
+          className={`hero-background-video-motion ${isReady ? "opacity-100" : "opacity-0"}`}
         >
-          <source src={src} type={sourceType} />
+          <source src={webmSrc} type="video/webm" />
+          <source src={mp4Src} type="video/mp4" />
         </video>
       ) : null}
     </div>

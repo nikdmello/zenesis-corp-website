@@ -132,7 +132,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
       <PageGuideLayout items={guideLinks} credibilityPath={canonicalPath}>
 
       <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-white py-11 md:py-14">
-        <div className="mx-auto w-full max-w-[104rem] px-7 md:px-14 xl:px-24">
+        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="max-w-[78rem]">
             <div className="min-w-0 space-y-10 md:space-y-12">
               <nav

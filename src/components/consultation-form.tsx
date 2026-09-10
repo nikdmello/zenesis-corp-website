@@ -853,15 +853,32 @@ export function ConsultationInlinePanel({
       }}
       className="overflow-hidden rounded-lg border border-foreground/10 bg-[#fffdfa] shadow-[0_12px_34px_rgba(17,35,42,0.07)]"
     >
-      <div className="relative overflow-hidden bg-[#011735] p-6 text-white md:p-8">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(36,75,168,0.48),transparent_32%),linear-gradient(145deg,rgba(255,255,255,0.08),transparent_42%)]" />
-        <div className="relative z-10">
-          <h2 className="text-[clamp(1.9rem,3vw,3rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
-            Schedule a free consultation.
-          </h2>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-white/88">
-            Send your details to Zenesis first, then choose whether you want to continue on WhatsApp.
-          </p>
+      <div className="border-b border-white/12 bg-[#011735] p-6 text-white md:p-8">
+        <div className="grid items-start gap-5 md:grid-cols-[3.25rem_minmax(0,1fr)] md:gap-6">
+          <span className="flex h-12 w-12 items-center justify-center rounded-md border border-[#ead5aa]/45 bg-white/[0.06] text-[#ead5aa] md:h-[3.25rem] md:w-[3.25rem]">
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M7 3v3M17 3v3M4.5 9h15" />
+              <rect x="4.5" y="5" width="15" height="15" rx="3" />
+              <path d="m9.5 14 1.7 1.7 3.6-4" />
+            </svg>
+          </span>
+          <div>
+            <h2 className="text-[clamp(1.8rem,2.6vw,2.5rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-white">
+              Schedule a free consultation
+            </h2>
+            <p className="mt-3 max-w-[38rem] text-[0.98rem] leading-7 text-white/76 md:text-base">
+              Tell us what you need help with. Our team will review your enquiry and contact you to discuss the right next steps.
+            </p>
+          </div>
         </div>
       </div>
 

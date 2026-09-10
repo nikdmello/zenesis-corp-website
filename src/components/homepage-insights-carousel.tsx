@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
+import { useResponsiveCarouselPage } from "@/components/use-responsive-carousel-page";
 
 type HomepageInsightsCarouselProps = {
   posts: readonly HomepageInsightCard[];
@@ -33,6 +34,8 @@ export function HomepageInsightsCarousel({ posts }: HomepageInsightsCarouselProp
       : posts.filter((post) => post.category === activeCategory),
     [activeCategory, posts],
   );
+  const { activePage, itemsPerPage, pageCount, startIndexForPage } =
+    useResponsiveCarouselPage(filteredPosts.length, activeIndex);
 
   const scrollToCard = (index: number) => {
     const track = trackRef.current;
@@ -75,12 +78,11 @@ export function HomepageInsightsCarousel({ posts }: HomepageInsightsCarouselProp
           const cards = Array.from(track.children) as HTMLElement[];
           if (!cards.length) return;
 
-          const nextIndex = cards.reduce((closestIndex, card, index) => {
-            const distance = Math.abs(card.offsetLeft - track.offsetLeft - track.scrollLeft);
-            const closest = cards[closestIndex];
-            const closestDistance = Math.abs(closest.offsetLeft - track.offsetLeft - track.scrollLeft);
-            return distance < closestDistance ? index : closestIndex;
-          }, 0);
+          const cardStep = cards.length > 1
+            ? cards[1].offsetLeft - cards[0].offsetLeft
+            : cards[0].offsetWidth;
+          const nextPage = Math.round(track.scrollLeft / (cardStep * itemsPerPage));
+          const nextIndex = startIndexForPage(nextPage);
 
           if (nextIndex !== activeIndex) setActiveIndex(nextIndex);
         }}
@@ -125,21 +127,21 @@ export function HomepageInsightsCarousel({ posts }: HomepageInsightsCarouselProp
       <div className="mt-7 flex items-center justify-center gap-4">
         <button
           type="button"
-          aria-label="Previous article"
-          disabled={activeIndex === 0}
-          onClick={() => scrollToCard(activeIndex - 1)}
+          aria-label="Previous insights page"
+          disabled={activePage === 0}
+          onClick={() => scrollToCard(startIndexForPage(activePage - 1))}
           className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/24 text-white transition-colors hover:border-white/55 disabled:cursor-not-allowed disabled:opacity-30"
         >
           <span aria-hidden="true">←</span>
         </button>
         <p className="min-w-[5.5rem] text-center text-sm font-semibold tabular-nums text-white/64">
-          {String(activeIndex + 1).padStart(2, "0")} / {String(filteredPosts.length).padStart(2, "0")}
+          {String(activePage + 1).padStart(2, "0")} / {String(pageCount).padStart(2, "0")}
         </p>
         <button
           type="button"
-          aria-label="Next article"
-          disabled={activeIndex === filteredPosts.length - 1}
-          onClick={() => scrollToCard(activeIndex + 1)}
+          aria-label="Next insights page"
+          disabled={activePage === pageCount - 1}
+          onClick={() => scrollToCard(startIndexForPage(activePage + 1))}
           className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/24 text-white transition-colors hover:border-white/55 disabled:cursor-not-allowed disabled:opacity-30"
         >
           <span aria-hidden="true">→</span>
