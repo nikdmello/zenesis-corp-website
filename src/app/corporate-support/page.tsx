@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRightIcon } from "@/components/arrow-right-icon";
 import { CleanSectionLink } from "@/components/clean-section-link";
 import { JsonLd } from "@/components/json-ld";
 import { PageGuideLayout } from "@/components/page-guide-layout";
@@ -38,7 +39,7 @@ const corporateServiceLinks = [
 ] as const;
 
 const directAnswers = [
-  { question: "Can Zenesis support company liquidation and restoration?", answer: "Yes. Zenesis supports liquidation and restoration in the jurisdictions where it handles company setup. Restoration means bringing an eligible struck off company back to good standing and active status. The route is confirmed against the company record and relevant authority before work begins." },
+  { question: "Can Zenesis support company liquidation and restoration?", answer: "Yes. Zenesis supports liquidation and restoration in the jurisdictions where it handles company setup. Restoration means bringing an eligible struck off company back to good standing and active status. Zenesis confirms the restoration route against the company record and authority requirements before work begins." },
   { question: "How long does liquidation or restoration take?", answer: "There is no universal timeline. The legal form, authority, company status, outstanding renewals, employee or immigration files, liabilities, notices, clearances, and required third party actions can all affect timing." },
   { question: "Is there one document list for every corporate support case?", answer: "No. Documents depend on the jurisdiction, legal form, requested action, current company status, and authority requirements. Zenesis reviews the company file first and confirms the case specific list." },
   { question: "What is usually involved in opening a UAE branch of a foreign company?", answer: "The process normally connects parent company approval, appointment of the branch manager, attested parent documents, activity approvals, local licensing, and Ministry registration where applicable. The exact path depends on the authority and activity." },
@@ -49,9 +50,9 @@ const directAnswers = [
 ] as const;
 
 const process = [
-  { step: "01", title: "Review the company record", description: "Confirm the jurisdiction, legal form, licence status, shareholders, managers, and the corporate action required." },
-  { step: "02", title: "Confirm the authority path", description: "Check the current authority requirements, dependencies, documents, notices, clearances, and third party steps." },
-  { step: "03", title: "Prepare and coordinate", description: "Organize resolutions, applications, attestations, and supporting records, then coordinate the required submissions." },
+  { step: "01", title: "Company record review", description: "Confirm the jurisdiction, legal form, licence status, shareholders, managers, and the corporate action required." },
+  { step: "02", title: "Authority requirements", description: "Check the current authority requirements, dependencies, documents, notices, clearances, and third party steps." },
+  { step: "03", title: "Document preparation and coordination", description: "Organize resolutions, applications, attestations, and supporting records, then coordinate the required submissions." },
   { step: "04", title: "Close the follow through", description: "Track authority responses and complete the resulting licence, register, immigration, or company record updates." },
 ] as const;
 
@@ -128,7 +129,7 @@ function ServiceGroupSection({ id, title, description, items, compact = false }:
         <div className={`grid gap-4 ${compact ? "mt-7 md:grid-cols-2" : `mt-9 ${items.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"}`}`}>
           {items.map((item) => {
             const className = `group flex min-h-full overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#011735] shadow-[0_12px_30px_rgba(17,35,42,0.08)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#bca57f] hover:shadow-[0_16px_36px_rgba(17,35,42,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#244ba8] ${compact ? "min-h-36 flex-row" : "flex-col"}`;
-            const content = compact ? <><div className="w-32 shrink-0 overflow-hidden border-r border-[#e4dbce] bg-[#f8f6f1] sm:w-40"><Image src={item.imageSrc} alt={item.imageAlt} width={480} height={480} sizes="(min-width: 640px) 160px, 128px" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" /></div><div className="flex flex-1 flex-col justify-center px-4 py-4"><h3 className="text-[1.05rem] font-semibold leading-6 tracking-[-0.02em] !text-[#07151b]">{item.label}</h3><p className="mt-2 text-[0.92rem] leading-6 text-[#07151b]/76">{item.description}</p><span className="mt-3 inline-flex items-center gap-2 text-[0.78rem] font-semibold text-[#244ba8]">View service <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span></span></div></> : <><div className="overflow-hidden border-b border-[#e4dbce] bg-[#f8f6f1]"><Image src={item.imageSrc} alt={item.imageAlt} width={1200} height={800} sizes={items.length === 3 ? "(min-width: 768px) 33vw, 100vw" : "(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"} className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" /></div><div className="flex flex-1 flex-col p-6"><h3 className="text-[1.1rem] font-semibold leading-7 tracking-[-0.02em] !text-[#07151b]">{item.label}</h3><p className="mt-4 text-[1rem] leading-7 text-[#07151b]/78">{item.description}</p><span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-[#244ba8]">View service <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span></span></div></>;
+            const content = compact ? <><div className="w-32 shrink-0 overflow-hidden border-r border-[#e4dbce] bg-[#f8f6f1] sm:w-40"><Image src={item.imageSrc} alt={item.imageAlt} width={480} height={480} sizes="(min-width: 640px) 160px, 128px" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" /></div><div className="flex flex-1 flex-col justify-center px-4 py-4"><h3 className="text-[1.05rem] font-semibold leading-6 tracking-[-0.02em] !text-[#07151b]">{item.label}</h3><p className="mt-2 text-[0.92rem] leading-6 text-[#07151b]/76">{item.description}</p><span className="mt-3 inline-flex items-center gap-2 text-[0.78rem] font-semibold text-[#244ba8]">View service <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" /></span></div></> : <><div className="overflow-hidden border-b border-[#e4dbce] bg-[#f8f6f1]"><Image src={item.imageSrc} alt={item.imageAlt} width={1200} height={800} sizes={items.length === 3 ? "(min-width: 768px) 33vw, 100vw" : "(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"} className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" /></div><div className="flex flex-1 flex-col p-6"><h3 className="text-[1.1rem] font-semibold leading-7 tracking-[-0.02em] !text-[#07151b]">{item.label}</h3><p className="mt-4 text-[1rem] leading-7 text-[#07151b]/78">{item.description}</p><span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-[#244ba8]">View service <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" /></span></div></>;
 
             return item.href.startsWith("#") ? (
               <CleanSectionLink key={item.label} href={item.href as `#${string}`} className={className}>{content}</CleanSectionLink>
@@ -170,7 +171,7 @@ export default function CorporateSupportPage() {
       <section id="overview" className="relative -mt-px w-full scroll-mt-28 bg-white py-11 md:py-14">
         <div className="w-full px-6 md:px-12 xl:px-16">
           <article className="flex max-w-[54rem] flex-col items-start">
-            <h2 className="text-[1.75rem] font-semibold leading-[1.16] tracking-[-0.02em] text-[#011735] sm:text-[1.9rem] md:text-[2.05rem]">Keep the company record current</h2>
+            <h2 className="text-[1.75rem] font-semibold leading-[1.16] tracking-[-0.02em] text-[#011735] sm:text-[1.9rem] md:text-[2.05rem]">Current company records</h2>
             <div className="mt-7 w-full space-y-5 text-[1.06rem] leading-[1.9rem] text-[#07151b]/92 md:text-[1.1rem] md:leading-[2rem]">
               <p>Company administration continues after incorporation. Licences renew, ownership or manager details change, documents need attestation, foreign parents open branches, and some companies eventually need formal liquidation or restoration.</p>
               <p>Zenesis starts with the company record and the relevant jurisdiction. That matters because the authority, legal form, current status, outstanding obligations, and requested action determine the real process.</p>
@@ -226,7 +227,7 @@ export default function CorporateSupportPage() {
         <p><Link href="/document-attestation-services-in-uae" className="font-semibold text-[#ead5aa] underline decoration-[#ead5aa]/50 underline-offset-4">View the full document attestation service</Link> for the process, document categories, and common requirements.</p>
       </DetailSection>
 
-      <ServiceAnswerSection title="Direct answers" description="Clear answers before a corporate action is scoped with the relevant authority." items={directAnswers} contained />
+      <ServiceAnswerSection title="Direct answers" description="Requirements vary by authority and corporate action." items={directAnswers} contained />
 
       <section id="process" className="relative -mt-px w-full scroll-mt-28 bg-[#f5efe4] py-16 md:py-20">
         <div className="w-full px-6 md:px-12 xl:px-16">

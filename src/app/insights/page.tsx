@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowRightIcon } from "@/components/arrow-right-icon";
 import { InsightsArchive } from "@/components/insights-archive";
 import { PageGuideLayout } from "@/components/page-guide-layout";
 import { PageSectionNavMobile } from "@/components/page-section-nav";
@@ -11,7 +12,7 @@ import { insightPosts } from "@/lib/insights";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Insights | Zenesis Corporation",
+  title: "Insights: Zenesis Corporation",
   description:
     "Zenesis insights across accounting and tax, business setup, and visa and banking topics in the UAE.",
   path: "/insights",
@@ -60,7 +61,7 @@ export default function InsightsPage() {
                   {featuredPost.category}
                 </span>
                 <span aria-hidden="true" className="text-foreground/28">
-                  •
+                  ,
                 </span>
                 <span>{featuredPost.dateLabel}</span>
               </div>
@@ -77,7 +78,7 @@ export default function InsightsPage() {
               </p>
               <span className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#011735] px-6 py-3 text-sm font-semibold text-white transition-colors group-hover:bg-[#1b3040]">
                 Read featured article
-                <span aria-hidden="true">→</span>
+                <ArrowRightIcon className="h-4 w-4" />
               </span>
             </div>
 
@@ -136,7 +137,7 @@ export default function InsightsPage() {
                   Featured profile
                 </span>
                 <span aria-hidden="true" className="text-foreground/28">
-                  •
+                  ,
                 </span>
                 <span>Global Leaders Today</span>
               </div>
@@ -150,7 +151,7 @@ export default function InsightsPage() {
               </p>
               <span className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#011735] px-6 py-3 text-sm font-semibold text-white transition-colors group-hover:bg-[#1b3040]">
                 Read profile
-                <span aria-hidden="true">→</span>
+                <ArrowRightIcon className="h-4 w-4" />
               </span>
             </div>
           </Link>

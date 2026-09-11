@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { ArrowRightIcon } from "@/components/arrow-right-icon";
 import { useResponsiveCarouselPage } from "@/components/use-responsive-carousel-page";
 import { googleReviewsHref, type Testimonial } from "@/lib/site-content";
 
@@ -121,7 +122,7 @@ export function HomepageReviewsCarousel({
           onClick={() => scrollToReview(startIndexForPage(activePage + 1))}
           className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#011735]/16 bg-white text-[#011735] transition-colors hover:border-[#011735]/34 disabled:cursor-not-allowed disabled:opacity-35"
         >
-          <span aria-hidden="true">→</span>
+          <ArrowRightIcon className="h-4 w-4" />
         </button>
       </div>
     </div>

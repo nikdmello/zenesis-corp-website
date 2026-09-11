@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowRightIcon } from "@/components/arrow-right-icon";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { ConsultationFormButton } from "@/components/consultation-button";
 import { createContextualLinker } from "@/components/contextual-links";
@@ -148,9 +149,9 @@ const routeComparisonRows = [
     route: "Free zone",
     href: "/free-zones",
     bestFor: "Consulting, digital, e-commerce, international trade, and founder-led businesses",
-    marketAccess: "Operates under the selected zone and activity; mainland trading arrangements need to be checked",
+    marketAccess: "Operates under the selected zone and activity. Mainland trading arrangements need to be checked",
     officeAndVisas: "Package, flexi-desk, office, and visa allocation vary materially by free zone",
-    startingCost: "AED 7,000+ without visa; AED 15,000+ with visa",
+    startingCost: "AED 7,000+ without visa, or AED 15,000+ with visa",
     planningSignal: "Often efficient when the zone, package, visa allocation, and banking file match the real business model",
   },
   {
@@ -221,7 +222,7 @@ const directAnswers = [
   {
     question: "What does Zenesis help decide before company setup starts?",
     answer:
-      "Zenesis helps founders choose the right UAE setup route before filing begins: mainland, free zone, or offshore. The recommendation is based on activity, ownership, visa needs, banking expectations, office requirements, cost, and how the company needs to operate after incorporation.",
+      "Zenesis compares mainland, free zone, and offshore structures against the planned activity, ownership, visa needs, banking, office requirements, and cost.",
   },
   {
     question: "How do you usually choose between mainland, free zone, and offshore?",
@@ -236,7 +237,7 @@ const directAnswers = [
   {
     question: "What do founders most often underestimate after incorporation?",
     answer:
-      "Most delays happen after the license is issued, not before. Banking, company visas, Emirates ID steps, renewals, attestation, tax registrations, and record-keeping work all need to be sequenced properly if the company is meant to start operating quickly.",
+      "Banking, visas, Emirates ID, renewals, attestation, tax registration, and bookkeeping continue after licensing. Planning them before filing can prevent avoidable delays.",
   },
   {
     question: "When does the cheapest setup route stop being the best route?",
@@ -438,7 +439,7 @@ export default function BusinessSetupPage() {
               ))}
             </ol>
             <Link href="/business-setup-cost-dubai" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#ead5aa] hover:text-white">
-              Compare starting prices <span aria-hidden="true">→</span>
+              Compare starting prices <ArrowRightIcon className="h-4 w-4" />
             </Link>
           </aside>
           </div>
@@ -610,7 +611,7 @@ export default function BusinessSetupPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Planning tools"
-            title="Compare route, cost, and fit"
+            title="Setup route and cost comparison"
             description="Use these pages when you are deciding whether to prioritize cost, mainland access, free zone flexibility, visas, or banking readiness."
           />
           <div className="mt-7">
@@ -626,7 +627,7 @@ export default function BusinessSetupPage() {
               Mainland, free zone, or offshore?
             </h2>
             <p className="mt-4 max-w-3xl text-[1.08rem] font-medium leading-8 !text-foreground/90">
-              Compare the operating fit first. The lowest advertised fee is not useful if the route cannot support the activity, clients, visas, office, or bank application.
+              A low advertised fee can be misleading when the route does not support the required activity, clients, visas, office, or bank application.
             </p>
             <div className="mt-7 overflow-x-auto border-y border-[#d8d0c2]">
               <table className="w-full min-w-[74rem] border-collapse text-left">
@@ -693,7 +694,7 @@ export default function BusinessSetupPage() {
                     </span>
                   </span>
                   <span aria-hidden="true" className="hidden text-lg text-[#8d7453] group-hover:translate-x-1 md:inline-flex">
-                    &rarr;
+                    <ArrowRightIcon className="h-4 w-4" />
                   </span>
                 </Link>
               ))}

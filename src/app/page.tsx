@@ -1,5 +1,6 @@
 import NextImage from "next/image";
 import Link from "next/link";
+import { ArrowRightIcon } from "@/components/arrow-right-icon";
 import { ConsultationFormButton } from "@/components/consultation-button";
 import { AwardsVideoExperience } from "@/components/awards-video-experience";
 import { HomepageReviewsCarousel } from "@/components/homepage-reviews-carousel";
@@ -216,7 +217,7 @@ export default function Home() {
                   className="group inline-flex min-h-12 w-fit max-w-full items-center justify-center whitespace-nowrap !rounded-[0.35rem] border border-[#f6e4bd]/90 bg-[#ead5aa] px-4 py-2 text-sm font-semibold !text-[#011735] shadow-[0_18px_42px_rgba(7,21,27,0.25)] outline-none transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f2dfb9] focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#011735] sm:px-5 sm:text-base"
                 />
                 <Link href="/business-setup-cost-dubai" className="inline-flex min-h-12 items-center border-b border-white/45 px-1 text-sm font-semibold text-white transition-colors hover:border-[#ead5aa] hover:text-[#ead5aa] sm:text-base">
-                  View starting prices <span aria-hidden="true" className="ml-2">→</span>
+                  View starting prices <ArrowRightIcon className="ml-2 h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -244,7 +245,7 @@ export default function Home() {
               Our premier clients
             </h2>
             <p className="mt-4 max-w-4xl text-[1.06rem] leading-8 text-white/84 md:text-[1.1rem]">
-              Organizations and operators Zenesis supports across incorporation, compliance, residency, and ongoing business administration.
+              Companies that work with Zenesis on incorporation, compliance, residency, and business administration.
             </p>
           </div>
         </ScrollReveal>
@@ -267,7 +268,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="Recognition"
               title="Awards and recognition"
-              description="Ceremony moments and recognition for Zenesis work across business consultancy, company formation, and leadership."
+              description="Zenesis received the Excellence in Company Formation Award in Dubai in 2025."
             />
           </div>
 
@@ -286,7 +287,7 @@ export default function Home() {
               <Link href={featuredProfile.href} className="group border-l-0 border-[#cfc4b4] md:border-l md:pl-7">
                 <p className="text-sm font-semibold text-[#8d7453]">Leadership profile</p>
                 <h3 className="mt-3 text-[1.25rem] font-semibold text-[#011735] transition-colors group-hover:text-[#244ba8]">Cecilia D&apos;Cunha in Global Leaders Today</h3>
-                <span className="mt-3 inline-flex text-sm font-semibold text-[#244ba8]">Read the profile →</span>
+                <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#244ba8]">Read the profile <ArrowRightIcon className="h-4 w-4" /></span>
               </Link>
             </div>
           </div>

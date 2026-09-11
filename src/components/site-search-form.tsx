@@ -154,7 +154,7 @@ export function SiteSearchForm({
                     }`}
                   >
                     <div
-                      title={result.section ? `${result.type} • ${result.section}` : result.type}
+                      title={result.section ? `${result.type}, ${result.section}` : result.type}
                       className={`flex items-center gap-2 whitespace-nowrap text-sm font-semibold ${
                         isLight ? "text-[#8d7453]" : "text-white/48"
                       }`}
@@ -163,7 +163,7 @@ export function SiteSearchForm({
                       {result.section ? (
                         <>
                           <span className={`shrink-0 ${isLight ? "text-[#8d7453]/52" : "text-white/28"}`}>
-                            •
+                            ,
                           </span>
                           <span>{result.section}</span>
                         </>

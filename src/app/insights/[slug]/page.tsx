@@ -92,14 +92,14 @@ export async function generateMetadata({
 
   if (!post) {
     return {
-      title: "Insight Not Found | Zenesis Corporation",
+      title: "Insight Not Found: Zenesis Corporation",
     };
   }
 
   const legacyMeta = legacyInsightMetaBySlug[slug as keyof typeof legacyInsightMetaBySlug];
 
   return buildPageMetadata({
-    title: legacyMeta ? legacyMeta.title : `${post.title} | Zenesis Corporation`,
+    title: legacyMeta ? legacyMeta.title : `${post.title}: Zenesis Corporation`,
     description: legacyMeta ? legacyMeta.description : post.description,
     path: `/insights/${post.slug}`,
     type: "article",
@@ -264,7 +264,7 @@ export default async function InsightArticlePage({
                           {post.author}
                         </h2>
                         <p className="mt-1 text-[0.84rem] font-medium text-foreground/66">
-                          {authorProfile.role} <span className="mx-1">•</span>
+                          {authorProfile.role}<span className="mr-1">,</span>
                           {authorProfile.credentials}
                         </p>
                         <p className="mt-1.5 line-clamp-2 max-w-3xl text-[0.9rem] leading-6 text-foreground/78">
@@ -538,7 +538,7 @@ export default async function InsightArticlePage({
               {credibility?.sources.length ? (
                 <PrimarySources
                   sources={credibility.sources}
-                  note="This guide was checked against the following official UAE sources. Rules, fees, eligibility, and authority procedures can change, so confirm the position that applies to your business before acting."
+                  note="Zenesis checked this guide against the following official UAE sources. Rules, fees, eligibility, and authority procedures can change, so confirm the position that applies to your business before acting."
                   verificationLabel={`Published ${post.dateLabel}. Last updated ${credibility.updatedLabel}. This article provides general information and is not legal or tax advice.`}
                 />
               ) : null}

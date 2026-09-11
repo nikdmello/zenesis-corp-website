@@ -132,7 +132,7 @@ const whyZenesis = [
   {
     title: "Registration through filing",
     description:
-      "From setup to bookkeeping, VAT, corporate tax, banking, visas, and renewals.",
+      "Bookkeeping, VAT, corporate tax, and ongoing compliance for UAE businesses.",
   },
   {
     title: "Advice tied to the records",
@@ -144,25 +144,25 @@ const whyZenesis = [
 const workingRhythm = [
   {
     step: "01",
-    title: "Review the current position",
+    title: "Current accounting and tax position",
     description:
       "Start with registrations, existing books, filing status, and any immediate compliance risks or deadline pressure.",
   },
   {
     step: "02",
-    title: "Set the reporting rhythm",
+    title: "Reporting schedule",
     description:
       "Define what needs to happen monthly, quarterly, and annually across bookkeeping, VAT, and corporate tax.",
   },
   {
     step: "03",
-    title: "Prepare and file accurately",
+    title: "Filing preparation",
     description:
       "Handle the records, reconciliations, calculations, and filing work needed to keep the business current.",
   },
   {
     step: "04",
-    title: "Keep the business ready",
+    title: "Ongoing records and compliance",
     description:
       "Maintain reconciliations, ledgers, invoices, and supporting schedules for future filings, reviews, and audits.",
   },
@@ -359,7 +359,7 @@ export default function AccountingTaxPage() {
           <SectionHeading
             eyebrow="Named expertise"
             title="Accounting and tax leadership"
-            description="The work is supported by named professionals whose experience covers accounting, taxation, audit, reporting, and compliance in the UAE."
+            description="Named Zenesis professionals handle accounting, tax, audit, reporting, and compliance work in the UAE."
           />
           <div className="mt-10 grid max-w-[72rem] border-y border-[#d8d0c2] md:grid-cols-2">
             {accountingExperts.map((expert) => (

@@ -59,8 +59,8 @@ export default function AboutPage() {
                     visas, banking support, and ongoing compliance in the UAE.
                   </p>
                   <p>
-                    Zenesis was founded in the UAE in 2005 and has supported local
-                    and international businesses for more than 21 years.
+                    Cecilia D&apos;Cunha founded Zenesis in the UAE in 2005. The firm has
+                    supported local and international businesses for more than 21 years.
                   </p>
                   <p>
                     The firm began with offshore incorporation work and expanded

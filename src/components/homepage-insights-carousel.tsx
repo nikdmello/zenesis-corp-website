@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRightIcon } from "@/components/arrow-right-icon";
 import { useMemo, useRef, useState } from "react";
 import { useResponsiveCarouselPage } from "@/components/use-responsive-carousel-page";
 
@@ -107,7 +108,7 @@ export function HomepageInsightsCarousel({ posts }: HomepageInsightsCarouselProp
             <div className="flex flex-1 flex-col p-6">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.84rem] text-[#011735]/58">
                 <span className="font-semibold text-[#8d7453]">{item.category}</span>
-                <span aria-hidden="true">•</span>
+                <span aria-hidden="true">,</span>
                 <span>{item.dateLabel}</span>
               </div>
               <h3 className="mt-5 text-[1.5rem] font-semibold leading-[1.08] text-[#011735]">
@@ -117,7 +118,7 @@ export function HomepageInsightsCarousel({ posts }: HomepageInsightsCarouselProp
                 {item.description}
               </p>
               <span className="mt-auto border-t border-[#d8d0c2] pt-5 text-sm font-semibold text-[#244ba8]">
-                Read article <span aria-hidden="true">→</span>
+                Read article <ArrowRightIcon className="h-4 w-4" />
               </span>
             </div>
           </Link>
@@ -144,7 +145,7 @@ export function HomepageInsightsCarousel({ posts }: HomepageInsightsCarouselProp
           onClick={() => scrollToCard(startIndexForPage(activePage + 1))}
           className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/24 text-white transition-colors hover:border-white/55 disabled:cursor-not-allowed disabled:opacity-30"
         >
-          <span aria-hidden="true">→</span>
+          <ArrowRightIcon className="h-4 w-4" />
         </button>
       </div>
     </div>

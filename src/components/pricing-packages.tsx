@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { ArrowRightIcon } from "@/components/arrow-right-icon";
 import { useState } from "react";
 import { businessSetupStartingPrices } from "@/lib/business-setup-pricing";
 import { getCurrentPagePath, trackConversionEvent } from "@/lib/conversion-analytics";
@@ -48,9 +49,9 @@ export function PricingPackages() {
                       setEnquiry(`I am interested in ${item.title} (${item.qualifier}), ${range ? "priced at" : "starting from"} ${item.price}. Please confirm the full cost and next steps.`);
                     }}
                   >
-                    Discuss this option <span aria-hidden="true">&rarr;</span>
+                    Discuss this option <ArrowRightIcon className="h-4 w-4" />
                   </button>
-                  <Link href={item.href} className="pricing-package-details">Service details <span aria-hidden="true">&rarr;</span></Link>
+                  <Link href={item.href} className="pricing-package-details">Service details <ArrowRightIcon className="h-4 w-4" /></Link>
                 </article>
               );
             })}

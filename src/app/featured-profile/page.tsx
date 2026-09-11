@@ -14,7 +14,7 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Cecilia D'Cunha in Global Leaders Today | Zenesis",
+  title: "Cecilia D'Cunha in Global Leaders Today: Zenesis",
   description:
     "An editorial feature on Cecilia D'Cunha covering her background in offshore incorporation, UAE business setup, and corporate compliance.",
   path: "/featured-profile",
@@ -213,10 +213,9 @@ export default function FeaturedProfilePage() {
                   </h2>
                   <div className="mt-5 space-y-5 text-[1.04rem] leading-8 text-[#07151b]/92 md:text-[1.08rem]">
                     <p>
-                      Cecilia&apos;s background explains why
-                      Zenesis is able to guide businesses through company formation,
-                      structuring, banking coordination, visas, and compliance with a
-                      direct experience of how these steps affect one another.
+                      Cecilia brings more than 30 years of experience in company
+                      formation, offshore structuring, banking coordination, visas,
+                      and compliance.
                     </p>
                     <p>
                       For founders, investors, and operating companies, that experience is
@@ -286,7 +285,7 @@ function ProfileIdentity({ profile, compact = false }: { profile: Profile; compa
           Cecilia D&apos;Cunha
         </p>
         <p className="mt-1 text-[0.76rem] text-foreground/62">
-          {profile.role} <span className="mx-1">•</span>
+          {profile.role}<span className="mr-1">,</span>
           {profile.credentials}
         </p>
       </div>

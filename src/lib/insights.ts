@@ -359,7 +359,7 @@ export const insightPosts: InsightPost[] = [
         ],
       },
       {
-        title: "Start With the Establishment Card and Visas",
+        title: "Establishment Card and Visa Applications",
         paragraphs: [
           {
             text: "The establishment card is issued by the Federal Authority for Identity, Citizenship, Customs and Port Security. This electronic card records your trade name, licence number, partners, and activity type, and is a prerequisite for visa processing. It requires a valid trade licence and the Emirates ID, or Unified Number for those without one yet, of an authorised signatory. For free zone companies, the application goes through the specific free zone authority rather than directly through ICP.",
@@ -378,14 +378,14 @@ export const insightPosts: InsightPost[] = [
         ],
       },
       {
-        title: "Understand Residence Permit Fees and Timing",
+        title: "Residence Permit Fees and Timing",
         paragraphs: [
           "For budgeting, allow approximately AED 6,000 to AED 8,000 per person for the residence visa process. This planning range is based on indicative Meydan Free Zone costs of approximately AED 3,500 for the entry permit, AED 1,500 for an in-country change of status when required, and AED 1,000 for the medical examination and Emirates ID, plus applicable professional service fees. Without a change of status, the underlying process cost is lower. This is not a universal UAE price: the final amount depends on the free zone or authority, visa category, applicant circumstances, insurance and work-permit requirements, and the professional support required.",
           "Allow approximately two to four days for the residence visa process once the required application stages and documents are in place. This is an indicative working timeframe, not a guarantee. Timing remains authority and case dependent and can change.",
         ],
       },
       {
-        title: "Open Your Corporate Bank Account",
+        title: "Corporate Bank Account Opening",
         paragraphs: [
           "A trade licence does not come with a bank account attached. UAE banks commonly request documents such as your trade licence, Memorandum of Association, shareholder and signatory Emirates ID or passport copies, and an explanation of your business activity and expected source of funds as part of their KYC review. Exact requirements vary by bank, activity, ownership structure, and risk profile.",
           "Bank account approval is solely at the bank's discretion after KYC, compliance, and risk review. No adviser, including Zenesis, can guarantee approval or a fixed timeline, and a trade licence alone does not guarantee an account. Companies with a clear, well-documented business activity and complete KYC paperwork tend to move through review faster than companies that submit incomplete files.",
@@ -398,7 +398,7 @@ export const insightPosts: InsightPost[] = [
         },
       },
       {
-        title: "Complete Corporate Tax Registration",
+        title: "Corporate Tax Registration",
         paragraphs: [
           {
             text: "Every juridical person subject to UAE Corporate Tax must register with the FTA and obtain a Corporate Tax Registration Number. For newly incorporated UAE juridical persons, the general rule under FTA Decision No. 3 of 2024 is that an entity incorporated, established, or recognised on or after 1 March 2024 must apply within three months of incorporation, establishment, or recognition. Deadlines can vary by entity type and individual circumstance, so confirm the exact deadline that applies through EmaraTax.",
@@ -415,14 +415,14 @@ export const insightPosts: InsightPost[] = [
         ],
       },
       {
-        title: "Maintain Bookkeeping Records From Day One",
+        title: "Bookkeeping From Day One",
         paragraphs: [
           "It is tempting to treat bookkeeping as something to sort out later, once the business has real transaction volume. The problem is that VAT and Corporate Tax registration both depend on accurate revenue figures from your very first transaction, not from whenever you eventually get around to organising your records. Reconstructing six months of invoices under deadline pressure is a common and avoidable source of stress.",
           "Setting up clean records early, whether in QuickBooks, Zoho Books, Tally, or even a well-organised spreadsheet to start, makes the next steps considerably easier. See our bookkeeping services page for what ongoing support looks like.",
         ],
       },
       {
-        title: "Know Your VAT Registration Trigger",
+        title: "VAT Registration Thresholds",
         paragraphs: [
           {
             text: "Per the Federal Tax Authority, VAT registration is mandatory for UAE-resident businesses once the value of taxable supplies and imports exceeds AED 375,000 over the past 12 months, or is expected to exceed that threshold within the next 30 days. Voluntary registration is available once taxable supplies, imports, or taxable expenses exceed AED 187,500. Non-resident businesses making taxable supplies in the UAE face a different, stricter rule with no threshold, unless another UAE party is responsible for settling the VAT.",
@@ -441,14 +441,14 @@ export const insightPosts: InsightPost[] = [
         },
       },
       {
-        title: "Keep Renewals and Amendments on Your Calendar",
+        title: "Renewal and Amendment Calendar",
         paragraphs: [
           "Once the initial setup is done, a few things stay on a recurring clock: trade licence renewal, establishment card renewal, VAT and Corporate Tax filing cycles once registered, and any amendment, such as a change of activity, a new shareholder, or an address change, that needs to be reflected with the relevant authority.",
           "Some recurring renewals may fall later, but deadlines and company changes should be recorded from the outset because an amendment or filing obligation can require earlier action. See our accounting and tax page for how ongoing support is structured.",
         ],
       },
       {
-        title: "Complete the Corporate Housekeeping",
+        title: "Corporate Housekeeping",
         paragraphs: [
           {
             text: "The company's initial beneficial-owner information and KYC records are normally confirmed during the formation process before registration is completed. After registration, the ongoing task is to keep the UBO register and related company records accurate and update the relevant authority when ownership or control changes. Cabinet Decision No. 109 of 2023 sets out the UAE beneficial-owner procedures, including ownership or control tests and the records a legal person must maintain.",
@@ -462,7 +462,7 @@ export const insightPosts: InsightPost[] = [
         ],
         callout: {
           type: "warning",
-          title: "Do not rely on an outdated ESR checklist",
+          title: "Current ESR Requirements",
           text: "Current UBO obligations and historical ESR matters are separate. Confirm the company's actual position rather than assuming both require a new filing.",
         },
       },
@@ -472,11 +472,11 @@ export const insightPosts: InsightPost[] = [
           columns: ["Step", "What it covers", "Published fee or position", "Timing or trigger"],
           rows: [
             ["Establishment card", "Prerequisite for visa processing", "Approximately AED 2,300 total", "ICP states 2 days"],
-            ["Residence visa process, per person", "Entry permit, status change when required, medical examination, Emirates ID, and professional support", "Approximately AED 6,000 to AED 8,000 based on an indicative Meydan Free Zone route", "2 to 4 days; authority and case dependent"],
-            ["Corporate bank account", "KYC review and source of funds", "Bank dependent; not government set", "No fixed timeline; bank discretion"],
-            ["Corporate Tax registration", "Newly incorporated entities: within 3 months of incorporation", "No FTA application fee; professional service fees apply (AED 10,000 penalty if late)", "Approximately 20 business days (FTA)"],
+            ["Residence visa process, per person", "Entry permit, status change when required, medical examination, Emirates ID, and professional support", "Approximately AED 6,000 to AED 8,000 based on an indicative Meydan Free Zone route", "Approximately 2 to 4 days, depending on the authority and case"],
+            ["Corporate bank account", "KYC review and source of funds", "Bank dependent and not government set", "The bank sets the timeline"],
+            ["Corporate Tax registration", "Newly incorporated entities: within 3 months of incorporation", "No FTA application fee. Professional service fees apply, with an AED 10,000 penalty if late", "Approximately 20 business days (FTA)"],
             ["Bookkeeping", "Maintain complete transaction and supporting records", "System and support dependent", "From the first transaction"],
-            ["VAT registration", "Required once taxable supplies and imports cross AED 375,000 or are expected to do so within 30 days", "No FTA application fee; professional service fees apply", "Apply within 30 days once the obligation arises"],
+            ["VAT registration", "Required once taxable supplies and imports cross AED 375,000 or are expected to do so within 30 days", "No FTA application fee. Professional service fees apply", "Apply within 30 days once the obligation arises"],
             ["UBO records", "Maintain the beneficial-owner details completed during formation", "Authority dependent", "Update when ownership or control changes"],
             ["Economic Substance", "Earlier-period ESR obligations or authority follow-up", "Not applicable to a routine current filing", "Review only for historical or exceptional relevance"],
           ],
@@ -507,7 +507,7 @@ export const insightPosts: InsightPost[] = [
       {
         question: "How long is a UAE residence permit valid?",
         answer:
-          "Validity depends on the permit category and sponsor. For the Dubai private-sector route described above, GDRFA publishes a two-year renewable permit; other UAE residence permits may have different validity periods.",
+          "Validity depends on the permit category and sponsor. For the Dubai private-sector route described above, GDRFA publishes a two-year renewable permit. Other UAE residence permits may have different validity periods.",
       },
       {
         question: "Does a newly registered UAE company still need to file an ESR notification or report?",
@@ -515,7 +515,7 @@ export const insightPosts: InsightPost[] = [
           "Not for financial years ending after 31 December 2022. The UAE Ministry of Finance cancelled those ESR notification and reporting requirements. Earlier-period obligations, authority requests, amendments, and penalties can still need attention, so an older company should confirm its historical position.",
       },
     ],
-    closingTitle: "Plan the first 90 days",
+    closingTitle: "The First 90 Days",
     closingParagraphs: [
       "Put immigration, banking, bookkeeping, tax, UBO records, and renewals on one dated plan after registration.",
     ],
@@ -539,7 +539,7 @@ export const insightPosts: InsightPost[] = [
     keyTakeaways: [
       "Businesses with annual revenue of AED 50 million or more must appoint an Accredited Service Provider by 30 October 2026 and implement e-invoicing by 1 January 2027.",
       "Businesses below the AED 50 million threshold must appoint a provider by 31 March 2027 and implement by 1 July 2027.",
-      "A PDF or emailed invoice is not an e-invoice under the UAE system; the required invoice is structured data exchanged through accredited providers.",
+      "A PDF or emailed invoice is not an e-invoice under the UAE system. The required invoice is structured data exchanged through accredited providers.",
     ],
     relatedServiceHrefs: [
       "/accounting-tax",
@@ -741,7 +741,7 @@ export const insightPosts: InsightPost[] = [
       "E-invoicing readiness starts with the same groundwork as any compliance deadline: knowing what your current systems capture, what is missing, and who is responsible for fixing it before the clock runs out.",
       "Connect system preparation with bookkeeping, VAT, and Corporate Tax compliance rather than treating e-invoicing as a standalone software purchase.",
     ],
-    closingTitle: "Prepare for e-invoicing",
+    closingTitle: "E-Invoicing Preparation",
     closingCta:
       "If you want a second set of eyes on where your invoicing and bookkeeping stand against these requirements, Zenesis's accounting and tax team can help you work through it alongside your existing VAT and corporate tax compliance.",
   },
@@ -756,7 +756,7 @@ export const insightPosts: InsightPost[] = [
     heroImageSrc: versionedAssetPath("/insights/corporate-tax-mistakes.webp", insightImageVersion),
     heroImageAlt: "UAE corporate tax compliance visual for common audit-triggering mistakes",
     keyTakeaways: [
-      "The FTA may audit any person to verify compliance; UAE law does not publish a checklist of automatic audit triggers.",
+      "The FTA may audit any person to verify compliance. UAE law does not publish a checklist of automatic audit triggers.",
       "Businesses should be able to reconcile their tax return to financial statements, ledgers, invoices, contracts, bank records, and related-party support.",
       "A standard audit notice is generally issued at least 10 business days before the audit, subject to limited statutory exceptions.",
     ],
@@ -770,7 +770,7 @@ export const insightPosts: InsightPost[] = [
         title: "What a UAE Corporate Tax Audit Is",
         paragraphs: [
           {
-            text: "A tax audit is the Federal Tax Authority's examination of a person's records, information, data, or goods to verify compliance with the Tax Procedures Law and the relevant tax law. The FTA may audit any person; the legislation does not limit audits to large companies or publish a fixed list of automatic audit triggers.",
+            text: "A tax audit is the Federal Tax Authority's examination of a person's records, information, data, or goods to verify compliance with the Tax Procedures Law and the relevant tax law. The FTA may audit any person. The legislation does not limit audits to large companies or publish a fixed list of automatic audit triggers.",
             sourceIndexes: [1],
           },
           "A business should be able to trace each figure in its Corporate Tax return to accounting records and supporting evidence. The file should show how accounting profit became taxable income, why adjustments were made, and how the final tax payable was calculated.",
@@ -822,7 +822,7 @@ export const insightPosts: InsightPost[] = [
         ],
         callout: {
           type: "warning",
-          title: "Keep the evidence behind the return",
+          title: "Evidence Supporting the Return",
           text: "A filed return is the end result. The business must retain the records and working papers that show where every material figure came from.",
         },
       },
@@ -883,7 +883,7 @@ export const insightPosts: InsightPost[] = [
       {
         title: "Common Risk Area 5: VAT and Corporate Tax Tell Different Stories",
         paragraphs: [
-          "VAT taxable supplies, accounting revenue, and Corporate Tax revenue are not identical concepts, so differences can be legitimate. Those differences still need a documented reconciliation. The problem is not that the totals differ; it is being unable to explain why.",
+          "VAT taxable supplies, accounting revenue, and Corporate Tax revenue are not identical concepts, so differences can be legitimate. Those differences still need a documented reconciliation. A business must be able to explain why the totals differ.",
         ],
         bullets: [
           "Reconcile VAT returns to the sales ledger by tax period",
@@ -921,7 +921,7 @@ export const insightPosts: InsightPost[] = [
         ],
         callout: {
           type: "action",
-          title: "Do not improvise separate answers",
+          title: "Consistent Explanations Across Records",
           text: "Use one controlled response file. Figures, explanations, and documents supplied by different team members should agree with each other and with the filed return.",
         },
       },
@@ -968,7 +968,7 @@ export const insightPosts: InsightPost[] = [
       "A business cannot guarantee that it will never be audited. It can make sure that an audit does not begin with missing records, unexplained figures, and conflicting filings.",
       "The best preparation is a clean trail from each filed number to the accounts and evidence behind it, maintained throughout the year rather than assembled after an FTA notice arrives.",
     ],
-    closingTitle: "Prepare Before the Notice",
+    closingTitle: "Tax Audit Preparation",
     closingCta:
       "Zenesis can review the bookkeeping, return reconciliations, supporting schedules, and compliance calendar behind your Corporate Tax position before the next filing deadline or audit request.",
   },
@@ -1024,7 +1024,7 @@ export const insightPosts: InsightPost[] = [
         ],
         callout: {
           type: "action",
-          title: "Decide how the company will operate before choosing a licence",
+          title: "Operating Model Before Licence Selection",
           text: "Map the intended clients, UAE market access, visa needs, office position, ownership plan, and banking profile before comparing mainland and free-zone routes.",
         },
       },
@@ -1580,7 +1580,7 @@ export const insightPosts: InsightPost[] = [
           "A UAE company may be able to change its financial year, but the change should be planned carefully and may require approval or updates with the relevant authority. The business should consider corporate tax periods, VAT cut-off, audit timing, and group reporting before making a change.",
       },
     ],
-    closingTitle: "Prepare the year-end file",
+    closingTitle: "Year-End File Preparation",
     closingParagraphs: [
       "A clear year-end plan keeps bookkeeping, VAT reconciliation, audit preparation, and Corporate Tax filing moving together instead of becoming separate last-minute problems.",
     ],
@@ -2192,7 +2192,7 @@ export const insightPosts: InsightPost[] = [
         ],
         callout: {
           type: "warning",
-          title: "Do not choose the jurisdiction from price alone",
+          title: "Jurisdiction Selection Beyond Price",
           text: "Test the route against the intended activity, clients, market access, visas, office needs, banking profile, renewal cost, and tax position before paying for a package.",
         },
         bullets: [
@@ -2408,7 +2408,7 @@ export const insightPosts: InsightPost[] = [
         ],
         callout: {
           type: "warning",
-          title: "Confirm requirements before applying",
+          title: "Application Requirements",
           text: "Eligibility criteria, documents, service channels, fees, and processing requirements can change. Confirm the current authority requirements for the applicant's category and emirate before submission.",
         },
       },

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRightIcon } from "@/components/arrow-right-icon";
 
 type BusinessSetupRouteCardProps = {
   title: string;
@@ -89,7 +90,7 @@ export function BusinessSetupRouteCard({
           className="relative z-20 mt-auto inline-flex items-center gap-2 pt-5 text-[0.94rem] font-semibold text-[#244ba8] hover:underline"
         >
           <span>{ctaLabel}</span>
-          <span aria-hidden="true">→</span>
+          <ArrowRightIcon className="h-4 w-4" />
         </Link>
       </div>
     </article>

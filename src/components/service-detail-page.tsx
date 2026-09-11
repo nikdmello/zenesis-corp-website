@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRightIcon } from "@/components/arrow-right-icon";
 import { JsonLd } from "@/components/json-ld";
 import { CleanSectionLink } from "@/components/clean-section-link";
 import { createContextualLinker } from "@/components/contextual-links";
@@ -330,7 +331,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                       {post.title}
                     </h3>
                     <span className="mt-4 inline-flex text-[0.9rem] font-semibold text-[#244ba8]">
-                      Read article →
+                      Read article <ArrowRightIcon className="h-4 w-4" />
                     </span>
                   </div>
                 </Link>

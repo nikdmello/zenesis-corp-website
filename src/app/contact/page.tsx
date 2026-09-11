@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import NextImage from "next/image";
+import { ArrowRightIcon } from "@/components/arrow-right-icon";
 import { ConsultationInlinePanel } from "@/components/consultation-form";
 import { PageIntro, SiteShell } from "@/components/site-shell";
 import { versionedAssetPath } from "@/lib/asset-paths";
@@ -19,7 +20,7 @@ export default function ContactPage() {
     <SiteShell currentPath="/contact">
       <PageIntro
         eyebrow="Contact Zenesis"
-        title="Contact us"
+        title="Zenesis contact details"
         description="Get in touch for company setup, tax, visa, banking, and ongoing corporate support in the UAE."
         backgroundImageSrc={versionedAssetPath("/sections/awards-and-recognition.webp")}
         backgroundImageAlt="Zenesis awards and recognition"
@@ -133,7 +134,7 @@ export default function ContactPage() {
                       {item.label === "Instagram" ? <InstagramIcon className="h-5 w-5 stroke-current" /> : null}
                       {item.label}
                     </span>
-                    <span aria-hidden="true" className="text-lg leading-none transition-transform group-hover:translate-x-0.5">→</span>
+                    <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   </a>
                 ))}
               </div>

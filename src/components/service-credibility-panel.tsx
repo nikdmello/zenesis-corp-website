@@ -67,7 +67,7 @@ export function ServiceCredibilityPanel({
                       dark ? "text-white/88" : "text-[#011735]/90"
                     }`}
                   >
-                    {credibility.expert.role} <span className="mx-1">•</span>
+                    {credibility.expert.role}<span className="mr-1">,</span>
                     {credibility.expert.credentials}
                   </p>
                   <p

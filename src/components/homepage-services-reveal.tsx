@@ -108,7 +108,7 @@ export function HomepageServicesReveal({
             </h2>
           </div>
           <p className="mt-5 max-w-[54rem] text-[1.06rem] leading-8 text-[#30434b] md:text-[1.1rem]">
-            From choosing the right setup route to visa, banking, tax, and ongoing compliance, Zenesis supports every stage of operating in the UAE.
+            Zenesis handles company setup, visas, banking, tax, and ongoing compliance for UAE businesses.
           </p>
         </div>
 

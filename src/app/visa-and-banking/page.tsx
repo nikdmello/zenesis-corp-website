@@ -108,7 +108,7 @@ const whyZenesis = [
       "The visa or banking route is narrowed before documents and applications begin.",
   },
   {
-    title: "Complete documentation",
+    title: "Required documents",
     description:
       "Passport, company, eligibility, KYC, and supporting records are organized around what the authority or bank needs.",
   },
@@ -132,25 +132,25 @@ const whyZenesis = [
 const processSteps = [
   {
     step: "01",
-    title: "Review the structure",
+    title: "Company structure review",
     description:
       "Confirm the company, shareholders, visa needs, and expected banking use before choosing the route.",
   },
   {
     step: "02",
-    title: "Set the sequence",
+    title: "Application sequence",
     description:
       "Plan which residency, establishment, KYC, and banking steps can move together and which depend on earlier approvals.",
   },
   {
     step: "03",
-    title: "Prepare and submit",
+    title: "Application preparation and submission",
     description:
       "Organize the required records, complete the relevant applications, and respond to authority or bank follow-up.",
   },
   {
     step: "04",
-    title: "Complete the follow-through",
+    title: "Post-submission support",
     description:
       "Complete medicals, Emirates ID, residency issuance, account-opening support, and required follow-up.",
   },

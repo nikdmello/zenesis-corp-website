@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRightIcon } from "@/components/arrow-right-icon";
 import { CleanSectionLink } from "@/components/clean-section-link";
 import { versionedAssetPath } from "@/lib/asset-paths";
 
@@ -222,7 +223,7 @@ export function ServiceSubpageLinks({
                   aria-hidden="true"
                   className="shrink-0 text-[1rem] font-semibold text-[#244ba8] transition-transform duration-200 group-hover:translate-x-0.5"
                 >
-                  →
+                  <ArrowRightIcon className="h-4 w-4" />
                 </span>
               </div>
             </div>

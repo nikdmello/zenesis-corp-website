@@ -873,7 +873,7 @@ export function ConsultationInlinePanel({
           </span>
           <div>
             <h2 className="text-[clamp(1.8rem,2.6vw,2.5rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-white">
-              Schedule a free consultation
+              Free consultation
             </h2>
             <p className="mt-3 max-w-[38rem] text-[0.98rem] leading-7 text-white/76 md:text-base">
               Tell us what you need help with. Our team will review your enquiry and contact you to discuss the right next steps.
@@ -1264,7 +1264,7 @@ export function ConsultationModal({
               id="consultation-form-title"
               className="mt-3 text-[1.55rem] font-semibold leading-tight tracking-normal text-white md:mt-4 md:text-[2rem]"
             >
-              Schedule a free consultation
+              Free consultation
             </h2>
           </div>
         </div>

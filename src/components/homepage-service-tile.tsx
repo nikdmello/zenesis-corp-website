@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRightIcon } from "@/components/arrow-right-icon";
 
 type HomepageServiceTileProps = {
   title: string;
@@ -22,7 +23,7 @@ export function HomepageServiceTile({
           aria-hidden="true"
           className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#d8d0c2] bg-white/65 text-[1rem] text-[#8d7453] transition-all duration-200 group-hover:translate-x-0.5 group-hover:bg-white group-hover:text-[#07151b]"
         >
-          →
+          <ArrowRightIcon className="h-4 w-4" />
         </span>
       ) : null}
     </>

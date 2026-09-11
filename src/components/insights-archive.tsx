@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRightIcon } from "@/components/arrow-right-icon";
 import { useMemo, useState } from "react";
 import type { InsightPost } from "@/lib/insights";
 
@@ -156,7 +157,7 @@ export function InsightsArchive({ posts }: InsightsArchiveProps) {
                   {post.description}
                 </p>
                 <span className="mt-auto pt-3 text-sm font-semibold text-[#244ba8] group-hover:text-[#1b3c86]">
-                  Read article <span aria-hidden="true">→</span>
+                  Read article <ArrowRightIcon className="h-4 w-4" />
                 </span>
               </div>
             </Link>

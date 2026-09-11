@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowRightIcon } from "@/components/arrow-right-icon";
 import { SearchHighlight } from "@/components/search-highlight";
 import { SiteSearchForm } from "@/components/site-search-form";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
@@ -7,7 +8,7 @@ import { getSearchExcerpt, getSearchSuggestions, searchSite } from "@/lib/site-s
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Search | Zenesis Corporation",
+  title: "Search: Zenesis Corporation",
   description:
     "Search Zenesis pages, services, and insight articles across business setup, accounting and tax, visa and banking, and corporate support.",
   path: "/search",
@@ -82,13 +83,13 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                 className="group rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#011735] transition-transform duration-200 hover:-translate-y-0.5"
               >
                 <div
-                  title={result.section ? `${result.type} • ${result.section}` : result.type}
+                  title={result.section ? `${result.type}, ${result.section}` : result.type}
                   className="flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-[#8d7453]"
                 >
                   <span className="shrink-0">{result.type}</span>
                   {result.section ? (
                     <>
-                      <span className="shrink-0 text-[#8d7453]/58">•</span>
+                      <span className="shrink-0 text-[#8d7453]/58">,</span>
                       <span>{result.section}</span>
                     </>
                   ) : null}
@@ -119,7 +120,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                 </p>
                 <div className="mt-5 inline-flex items-center gap-2 text-[0.96rem] font-semibold text-[#244ba8] transition-colors group-hover:text-[#1b3c86]">
                   Open result
-                  <span aria-hidden="true">→</span>
+                  <ArrowRightIcon className="h-4 w-4" />
                 </div>
               </Link>
             ))}

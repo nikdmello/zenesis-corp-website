@@ -8,27 +8,27 @@ export type LegacyMeta = {
 
 export const legacyRouteMeta = {
   home: {
-    title: "Award-Winning Business Setup in Dubai & UAE | Zenesis Corp",
+    title: "Award-Winning Business Setup in Dubai & UAE: Zenesis Corp",
     description:
       "Zenesis Corp is an award-winning business setup firm in Dubai and the UAE, supporting formation, visas, banking, accounting, tax, and corporate support.",
   },
   about: {
-    title: "Zenesis Corp | Award-Winning UAE Business Consultancy",
+    title: "Zenesis Corp: Award-Winning UAE Business Consultancy",
     description:
       "With over two decades in the UAE market, Zenesis Corp supports businesses through expert consulting, governance, and operational guidance.",
   },
   contact: {
-    title: "Contact Zenesis Corp | Business Consultancy in UAE",
+    title: "Contact Zenesis Corp: Business Consultancy in UAE",
     description:
       "Get in touch with Zenesis Corp for expert business consultancy, company formation, accounting, and corporate services across the UAE.",
   },
   businessSetup: {
-    title: "Business Setup Services in Dubai & UAE | Zenesis Corp",
+    title: "Business Setup Services in Dubai & UAE: Zenesis Corp",
     description:
       "Zenesis supports mainland, free zone, and offshore business setup in Dubai and the UAE, covering licensing, visas, banking, and post-formation support.",
   },
   accountingTax: {
-    title: "Accounting Services Dubai | UAE Business Support",
+    title: "Accounting Services Dubai: UAE Business Support",
     description:
       "Accounting services in Dubai for UAE businesses, covering bookkeeping, financial reporting, VAT, corporate tax, reconciliations, and ongoing compliance.",
   },
@@ -38,7 +38,7 @@ export const legacyRouteMeta = {
       "Get insights on UAE business visas, investor visas, residency options, and application processes for entrepreneurs.",
   },
   corporateSupport: {
-    title: "Corporate Support Services UAE | Zenesis Corp",
+    title: "Corporate Support Services UAE: Zenesis Corp",
     description:
       "UAE corporate support for company renewals, amendments, liquidation, restoration, branch offices, document attestation, UBO filings, and administration.",
   },
@@ -51,62 +51,62 @@ export const legacyRouteMeta = {
 
 export const legacyServiceMeta = {
   mainland: {
-    title: "Mainland Company Formation Dubai | Cost, Visas & Setup",
+    title: "Mainland Company Formation Dubai: Cost, Visas & Setup",
     description:
       "Plan mainland company formation in Dubai, including activities, legal structures, office requirements, visas, banking, approvals, costs, and renewals.",
   },
   "general-trading-license-dubai": {
-    title: "General Trading License Dubai | Setup & Activity Guidance",
+    title: "General Trading License Dubai: Setup & Activity Guidance",
     description:
       "Plan a Dubai general trading licence with guidance on activities, jurisdiction, approvals, documents, customs, banking, tax, and ongoing compliance.",
   },
   "free-zones": {
-    title: "Free Zone Company Formation Dubai | Costs, Visas & Banking",
+    title: "Free Zone Company Formation Dubai: Costs, Visas & Banking",
     description:
       "Set up your free zone company in Dubai or RAK with Zenesis. Support for licensing, documentation, compliance, visas, and banking.",
   },
   offshore: {
-    title: "Offshore Company Formation | UAE & International Options",
+    title: "Offshore Company Formation: UAE & International Options",
     description:
       "Compare UAE and international offshore company formation for holding companies, asset ownership, cross-border structures, and succession planning.",
   },
   "document-attestation-services-in-uae": {
-    title: "Document Attestation Services in UAE | Zenesis Corp",
+    title: "Document Attestation Services in UAE: Zenesis Corp",
     description:
       "Zenesis Corp provides reliable document attestation services in the UAE, ensuring accurate processing and compliance for personal and business documents.",
   },
   "open-a-bank-account-easily": {
-    title: "UAE Business Bank Account Opening Support | Zenesis Corp",
+    title: "UAE Business Bank Account Opening Support: Zenesis Corp",
     description:
       "Prepare for UAE business bank account opening with KYC support, company documents, shareholder records, source-of-funds context, and banking route guidance.",
   },
   "uae-company-visa": {
-    title: "UAE Business Visa Solutions | Zenesis Corp",
+    title: "UAE Business Visa Solutions: Zenesis Corp",
     description:
       "Get expert support for UAE business visas with structured processing and clear guidance, from eligibility checks through visa approval.",
   },
   "corporate-tax-registration-in-the-uae": {
-    title: "Corporate Tax Registration UAE | Free Consultation",
+    title: "Corporate Tax Registration UAE: Free Consultation",
     description:
       "Register for corporate tax in the UAE with expert guidance. Mandatory for eligible businesses. Free consultation and compliance support.",
   },
   "corporate-tax-filing-services-in-the-uae": {
-    title: "Corporate Tax Filing Services UAE | Zenesis Corp",
+    title: "Corporate Tax Filing Services UAE: Zenesis Corp",
     description:
       "Zenesis Corp offers reliable corporate tax filing services in the UAE, ensuring accurate submissions and regulatory compliance.",
   },
   "vat-filing-services-in-the-uae": {
-    title: "VAT Filing Services UAE | Returns & Compliance",
+    title: "VAT Filing Services UAE: Returns & Compliance",
     description:
       "Prepare UAE VAT returns with support for reconciliations, invoice checks, filing deadlines, payment follow-through, corrections, and audit-ready records.",
   },
   "vat-registration-services-uae": {
-    title: "VAT Registration Services UAE | Zenesis Corp",
+    title: "VAT Registration Services UAE: Zenesis Corp",
     description:
       "Get UAE VAT registration support with threshold assessment, document preparation, EmaraTax guidance, and handover into ongoing VAT compliance.",
   },
   "professional-bookkeeping-services-in-dubai": {
-    title: "Bookkeeping Services Dubai | Outsourced Accounting",
+    title: "Bookkeeping Services Dubai: Outsourced Accounting",
     description:
       "Outsourced bookkeeping in Dubai for current books, bank reconciliations, management reporting, payroll, VAT, Corporate Tax, and audit preparation.",
   },
@@ -124,12 +124,12 @@ export const legacyInsightMetaBySlug = {
       "A 90-day UAE company checklist covering immigration, visas, banking, Corporate Tax, bookkeeping, VAT, UBO filings, ESR, and renewals.",
   },
   "business-consultant-beyond-company-registration": {
-    title: "Business Consultant Support After Registration | Zenesis",
+    title: "Business Consultant Support After Registration: Zenesis",
     description:
       "What UAE businesses may need after registration, including banking, tax, visas, records, renewals, and changes to the company structure.",
   },
   "corporate-tax-mistakes-trigger-audits-uae": {
-    title: "UAE Corporate Tax Audit Guide 2026 | Zenesis",
+    title: "UAE Corporate Tax Audit Guide 2026: Zenesis",
     description:
       "How UAE Corporate Tax audits work, records the FTA can inspect, common risk areas, notice procedures, and steps to prepare.",
   },
@@ -149,7 +149,7 @@ export const legacyInsightMetaBySlug = {
       "How UAE Corporate Tax groups work, who can form them, the eligibility rules, and the filing and threshold effects to review.",
   },
   "financial-year-2026-uae-compliance-guide": {
-    title: "Financial Year in UAE 2026 | Tax, VAT & Filing Deadlines",
+    title: "Financial Year in UAE 2026: Tax, VAT & Filing Deadlines",
     description:
       "Understand the financial year in UAE for 2026, including corporate tax filing deadlines, VAT cut-off, audits, record-keeping, and year-end compliance.",
   },
@@ -179,7 +179,7 @@ export const legacyInsightMetaBySlug = {
       "Stay updated on UAE visa reforms 2025, residency changes, and opportunities for entrepreneurs and expats.",
   },
   "business-setup-mistakes-dubai": {
-    title: "Business Setup Mistakes in Dubai | 7 Costly Errors to Avoid",
+    title: "Business Setup Mistakes in Dubai: 7 Costly Errors to Avoid",
     description:
       "Avoid common Dubai business setup mistakes involving route selection, licence scope, visas, banking, tax readiness, renewals, and hidden costs.",
   },

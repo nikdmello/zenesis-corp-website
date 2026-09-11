@@ -295,7 +295,7 @@ export function getServiceCredibility(path: string): ServiceCredibility | undefi
     "/visa-and-banking": {
       expert: experts.cecilia,
       verificationLabel: checkedLabel,
-      note: "Visa eligibility is determined by the relevant authority. Bank account approval is solely at the bank's discretion after KYC, compliance, and risk review; no adviser can guarantee approval.",
+      note: "The relevant authority determines visa eligibility. Each bank decides whether to approve an account after its KYC, compliance, and risk review. No adviser can guarantee approval.",
       sources: [sources.establishmentCard, sources.goldenVisa, sources.bankingKyc],
     },
     "/open-a-bank-account-easily": {

@@ -60,7 +60,7 @@ export default function BusinessSetupCostDubaiPage() {
 
       <PageIntro
         title="Pricing"
-        description="Choose where your business begins. Explore company formation, freelance permits, and offshore setup with Zenesis."
+        description="Starting prices for company formation, freelance permits, and offshore structures."
       />
 
       <section id="starting-prices" className="pricing-packages-section">
@@ -73,7 +73,7 @@ export default function BusinessSetupCostDubaiPage() {
       <section id="compare-prices" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 border-b border-[#d9d1c5] bg-white py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            title="Compare the details"
+            title="Package comparison"
           />
 
           <div className="mt-8 md:mt-10">
@@ -112,10 +112,8 @@ export default function BusinessSetupCostDubaiPage() {
                 required.
               </p>
               <p>
-                The starting price is only the entry point. A realistic setup budget
-                should account for visa costs where needed, the applicable office or
-                flexi-desk package, government and approval fees, and banking preparation
-                or support where required. Licence renewal is a separate recurring cost
+                A complete setup budget may also include visas, an office or flexi-desk
+                package, government approvals, and banking support. Licence renewal is a separate recurring cost
                 when the initial licence term ends and should be planned from the outset.
                 The lowest-priced route is not automatically the right fit if the business
                 needs employees, specific banking support, or broader trading activity.
@@ -161,9 +159,8 @@ export default function BusinessSetupCostDubaiPage() {
               Why two Dubai company setup quotes can look different
             </h3>
             <p className="mt-3 max-w-5xl text-[1rem] font-medium leading-7 text-[#011735]/82">
-              Two founders can both ask about company formation in Dubai and still receive different quotes because the
-              route is shaped by activity, approvals, visa planning, office requirements, and the compliance
-              work that follows setup. A low starting price can be useful for comparison, but the suitable structure is the
+              Quotes vary because business activity, approvals, visa needs, office requirements,
+              and post-setup compliance differ by founder. A low starting price can be useful for comparison, but the suitable structure is the
               one that still works once licensing, banking, and post-setup obligations begin.
             </p>
           </div>

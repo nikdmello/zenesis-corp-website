@@ -347,7 +347,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Next step"
-            title="Move from comparison to route choice"
+            title="Choosing a setup route"
             description="Once the tradeoffs are clear, compare the route pages and cost guide before committing to a package."
           />
           <div className="mt-7">

@@ -78,9 +78,9 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     overviewImagePosition: "object-[68%_24%]",
     introTitle: "Overview",
     introParagraphs: [
-      "Mainland setup is the right route when your business needs to trade directly in the UAE, sign local contracts, hire staff, and operate with broader flexibility across the country.",
+      "Mainland setup can suit businesses that trade directly in the UAE, sign local contracts, hire staff, and need broader operating flexibility.",
       "The most common mainland structures are LLCs, branch offices, representative offices, civil companies, sole proprietorships, and other forms used for more specific ownership or regulatory needs.",
-      "Zenesis helps you choose the right mainland structure, align the business activity correctly, and handle the licensing steps so the company is built around how you actually plan to operate.",
+      "Zenesis compares mainland structures, confirms the licensed activity, and manages the application against the company's planned operations.",
     ],
     subpageLinks: [
       {
@@ -141,7 +141,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         title: "Documents and common delays",
         intro:
-          "The mainland route is smoother when the structure, documents, and post-approval steps are prepared before the application begins.",
+          "Preparing the structure, documents, and post-approval steps before filing reduces revisions and follow-up.",
         items: [
           "Typical inputs include passport copies, Emirates ID where applicable, shareholder details, trade name options, activity selection, and initial approval requirements",
           "Foreign company branches can need parent-company documents, board resolutions, POAs, and attestation steps",
@@ -255,7 +255,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Both routes can support trading businesses, but they do not create the same operating position.",
         items: [
           "Mainland can suit companies that need direct UAE market access, local premises, or broad domestic client and supplier activity",
-          "A free zone can suit international trade, re-export, logistics, or businesses built around a specific zone ecosystem and facility package",
+          "A free zone can suit international trade, re-export, logistics, or businesses that need a zone-specific licence and facility package",
           "Compare permitted activity wording, mainland access, warehouse or office needs, visas, renewal costs, and banking requirements",
           "The cheapest licence can become expensive if it does not match where goods move or where customers are served",
         ],
@@ -400,7 +400,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         intro:
           "The right choice depends less on brand recognition and more on activity fit, visas, office rules, banking expectations, and long-term cost.",
         items: [
-          "DMCC for a premium Dubai ecosystem and strong trade positioning",
+          "DMCC for commodities and trade-related activities, subject to its licence and facility requirements",
           "Dubai South for logistics, aviation, and regional connectivity near Al Maktoum Airport",
           "IFZA for flexible Dubai licensing packages across common consulting, service, and trading activities",
           "Meydan Free Zone for Dubai based founder led and digital business packages",
@@ -519,7 +519,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     introParagraphs: [
       "Offshore setup is usually used for holding companies, asset ownership, succession planning, and international arrangements that do not depend on day-to-day trading inside the UAE.",
       "This route is often used by owners who want a tax-efficient holding structure, privacy around beneficial ownership at the registry level, and a company that is not designed for local UAE operating activity.",
-      "Zenesis helps you decide whether offshore is the right route at all, then guides the jurisdiction choice and setup process so the structure matches the ownership objective behind it. UAE offshore setup for Ajman, RAK, and Jebel Ali routes starts from AED 7,500 to AED 15,000, while international offshore setup for BVI, Nevis, Mauritius, Seychelles, and Hong Kong routes starts from AED 8,000 to AED 15,000.",
+      "Zenesis first checks whether an offshore company suits the ownership purpose, then compares jurisdictions and manages the setup. UAE offshore setup for Ajman, RAK, and Jebel Ali routes starts from AED 7,500 to AED 15,000, while international offshore setup for BVI, Nevis, Mauritius, Seychelles, and Hong Kong routes starts from AED 8,000 to AED 15,000.",
     ],
     subpageLinks: [
       {
@@ -688,7 +688,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "Why do attestation cases usually get delayed?",
         answer:
-          "The biggest delays usually come from starting in the wrong sequence, missing a home-country legalization step, or assuming every document follows the same path. The process becomes much smoother when the required chain is confirmed before the first submission is made.",
+          "The biggest delays usually come from starting in the wrong sequence, missing a home-country legalization step, or assuming every document follows the same path. Confirming the legalization chain before submission prevents missing or out-of-sequence steps.",
       },
       {
         question: "Is MOFA enough on its own?",
@@ -755,7 +755,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         title: "UAE and international banking serve different needs",
         intro:
-          "The right banking setup depends on where the business operates, which currencies it uses, how shareholders are structured, and what banks will expect from the KYC profile.",
+          "Banking requirements depend on the company's markets, currencies, shareholders, and KYC profile.",
         items: [
           "UAE account opening is often tied closely to the trade license, business activity, shareholder profile, and source-of-funds clarity",
           "International accounts can make sense when the business needs wider currency access, cross-border collections, or financial-center coverage outside the UAE",
@@ -784,31 +784,31 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         [
           "Emirates NBD",
           "Connect",
-          "No minimum monthly average balance; AED 249 monthly fee",
+          "No minimum monthly average balance. AED 249 monthly fee",
           "Startups and professional-licence businesses that primarily need online banking",
         ],
         [
           "Mashreq",
           "NEO BIZ business account",
-          "No minimum balance; AED 199 monthly fee",
+          "No minimum balance. AED 199 monthly fee",
           "Businesses looking for a digital account with local and WPS transfers",
         ],
         [
           "ADCB",
           "Business accounts",
-          "Published options vary; some start at AED 10,000 average balance",
+          "Published options vary. Some start at an AED 10,000 average balance",
           "UAE-incorporated businesses comparing branch-supported account packages",
         ],
         [
           "Wio",
           "Essential / Grow",
-          "No minimum average balance; AED 99 or AED 249 monthly subscription",
+          "No minimum average balance. AED 99 or AED 249 monthly subscription",
           "Freelancers, SMEs, and digital-first businesses needing multi-currency tools",
         ],
         [
           "RAKBANK",
           "RAKstarter",
-          "No minimum balance; published for eligible companies under 12 months old",
+          "No minimum balance. Published for eligible companies under 12 months old",
           "New startups and entrepreneurs that meet the bank's eligibility requirements",
         ],
       ],
@@ -824,7 +824,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "Why do some business bank applications take much longer than expected?",
         answer:
-          "Banks usually slow down when the KYC pack is weak, the business explanation is vague, the shareholder profile is unclear, or the requested account does not match the company structure. The delay is often less about the form itself and more about how credible and complete the file looks to the bank.",
+          "Banks may request more information when the file does not clearly document the business model, ownership, source of funds, and expected transactions.",
       },
       {
         question: "Does having the company licence guarantee account approval?",
@@ -895,7 +895,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         title: "Why the company visa matters",
         intro:
-          "For many businesses, incorporation is only the first step. The operating reality starts once the founder or team has the residency position needed to work in the UAE properly.",
+          "Founders and employees may need UAE residency before they can live and work in the country.",
         items: [
           "Legal residency for founders and employees who need to live and work in the UAE",
           "Access to Emirates ID, health insurance, banking, and day-to-day local administration",
@@ -1061,7 +1061,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     overviewImagePosition: "object-[28%_82%]",
     introTitle: "Overview",
     introParagraphs: [
-      "Golden Visa applications work best when the category is identified correctly from the start and the documents are built around the real eligibility basis, not assumptions.",
+      "Golden Visa applications should use the correct category and the evidence required by the relevant authority.",
       "The route can be relevant to investors, entrepreneurs, specialists, researchers, creatives, high-performing graduates, and qualifying family applications, but the documentation path depends heavily on category.",
       "Zenesis helps investors, entrepreneurs, professionals, and families understand which route fits, what evidence is needed, and how to move the application forward with fewer delays.",
     ],
@@ -1201,9 +1201,9 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     overviewImagePosition: "object-[84%_30%]",
     introTitle: "Overview",
     introParagraphs: [
-      "Corporate tax registration is more than an online form. The business should first confirm its position, gather the right documents, and register in a way that fits what the company is actually doing.",
+      "Before registering for corporate tax, a business should confirm its tax position and gather documents that reflect its activities.",
       "Mainland companies, many free zone entities, branches, freelancers, startups, and other businesses with a UAE tax presence may need to register or assess whether an exemption notification applies. Registration requirements are not limited to large or profitable businesses.",
-      "Zenesis helps you complete registration properly and understand what comes next, so you are not registered without being ready for the filing and record-keeping work that follows.",
+      "Zenesis supports registration, annual filing deadlines, and the records required after registration.",
     ],
     subpageLinks: [
       {
@@ -1408,7 +1408,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     overviewImagePosition: "object-[84%_32%]",
     introTitle: "Overview",
     introParagraphs: [
-      "VAT registration is a threshold and evidence decision, not a box to tick simply because a company has been incorporated. The business needs to understand which supplies count, whether the mandatory or voluntary rules apply, and what records support the position.",
+      "VAT registration depends on taxable supplies, the applicable threshold, and supporting records.",
       "Zenesis reviews the business activity and turnover evidence, prepares the application information, and helps organize the supporting documents needed for submission through EmaraTax.",
       "The registration decision also starts an ongoing compliance cycle. The filing period, invoice controls, bookkeeping rhythm, and responsibility for future returns should be clear before the first deadline arrives.",
     ],
@@ -1639,7 +1639,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     introParagraphs: [
       "Bookkeeping is the base layer for VAT, corporate tax, reporting, and daily financial control. If the books are weak, every filing and management decision on top of them becomes harder.",
       "Clean books are what help a business stay audit-ready, understand cash flow, catch financial issues earlier, and avoid last-minute accounting pressure before VAT or corporate tax deadlines.",
-      "Zenesis helps you keep records current, reconcile accounts properly, and produce reports that are actually useful for compliance and running the business.",
+      "Zenesis maintains records, reconciles accounts, and prepares reports for tax filings and management decisions.",
     ],
     subpageLinks: [
       {
@@ -1712,7 +1712,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "What should a business expect from outsourced bookkeeping?",
         answer:
-          "A good outsourced setup should keep the books current, reconcile the main accounts, support payroll records where needed, and produce reports that are actually usable for compliance and decision-making rather than just existing for formality.",
+          "Outsourced bookkeeping should maintain current books, reconcile the main accounts, support payroll records, and produce reports for compliance and management decisions.",
       },
     ],
     pointsTitle: "What we handle",
