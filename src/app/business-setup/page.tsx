@@ -5,6 +5,7 @@ import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { ConsultationFormButton } from "@/components/consultation-button";
 import { createContextualLinker } from "@/components/contextual-links";
 import { JsonLd } from "@/components/json-ld";
+import { HowZenesisHelpsSection } from "@/components/how-zenesis-helps-section";
 import { PageGuideLayout } from "@/components/page-guide-layout";
 import { PageSectionNavMobile } from "@/components/page-section-nav";
 import { ReadingProgress } from "@/components/reading-progress";
@@ -167,16 +168,34 @@ const routeComparisonRows = [
 
 const businessSetupPageLinks = [
   { href: "#overview", label: "Overview" },
+  { href: "#route-comparison", label: "Route comparison" },
   { href: "#how-zenesis-helps", label: "How Zenesis helps" },
   { href: "#jurisdiction-support", label: "Jurisdiction support" },
   { href: "#setup-routes", label: "Setup routes" },
   { href: "#sme-business-setup", label: "SME setup" },
   { href: "#before-the-quote", label: "Before the quote" },
   { href: "#planning-tools", label: "Planning tools" },
-  { href: "#route-comparison", label: "Route comparison" },
   { href: "#direct-answers", label: "Direct answers" },
   { href: "#process", label: "Process" },
   { href: "#primary-sources", label: "Primary sources" },
+] as const;
+
+const howZenesisHelps = [
+  {
+    title: "Route selection",
+    description:
+      "Zenesis compares mainland, free zone, and offshore structures against the activity, ownership plan, visa needs, banking, office requirements, and cost.",
+  },
+  {
+    title: "Application preparation",
+    description:
+      "Zenesis prepares the trade name, licensed activities, shareholder documents, forms, and authority submissions required for the chosen route.",
+  },
+  {
+    title: "Post-setup coordination",
+    description:
+      "Zenesis connects licensing with visas, banking, bookkeeping, tax registration, renewals, and later company changes.",
+  },
 ] as const;
 
 const processSteps = [
@@ -273,39 +292,6 @@ const directAnswers = [
     question: "Is business setup different for a small or medium-sized business?",
     answer:
       "The core process is the same, but SME-scale setups can differ in visa allocation, activity scope, and route selection depending on the business. Zenesis sizes the structure to the business rather than defaulting to a general enterprise package.",
-  },
-] as const;
-
-const setupServiceCoverage = [
-  {
-    title: "Company formation route",
-    description:
-      "Compare mainland, free zone, and offshore structures based on market access, ownership, visas, office needs, banking, and the activity you plan to run.",
-  },
-  {
-    title: "Licensing and filings",
-    description:
-      "Prepare trade name options, activity selection, application forms, shareholder documents, authority submissions, and approval follow-up.",
-  },
-  {
-    title: "Visa and residency sequence",
-    description:
-      "Plan founder and employee visas, establishment steps, Emirates ID, medical, insurance, and family sponsorship needs around the company setup.",
-  },
-  {
-    title: "Banking readiness",
-    description:
-      "Build the bank file with licence documents, shareholder records, source-of-funds evidence, a business profile, and expected transactions.",
-  },
-  {
-    title: "Tax and accounting setup",
-    description:
-      "Connect the new company to bookkeeping, VAT, corporate tax registration, corporate tax filing, records, and recurring compliance work.",
-  },
-  {
-    title: "Renewals and changes",
-    description:
-      "Keep the structure supported after setup through renewals, amendments, document updates, shareholder changes, and ongoing corporate service work.",
   },
 ] as const;
 
@@ -447,32 +433,154 @@ export default function BusinessSetupPage() {
         </div>
       </section>
 
-      <section id="how-zenesis-helps" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#011735] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
+      <section id="route-comparison" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 border-t border-[#d8d0c2] bg-white py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <SectionHeading
-            eyebrow="Why Zenesis"
-            title="How Zenesis helps"
-            description="Zenesis plans the setup route alongside documents, visas, banking, tax, and renewals from the start."
-          />
+          <article className="min-w-0 text-[#011735]">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.16] text-[#011735] sm:text-[1.9rem] md:text-[2.05rem]">
+              Mainland, free zone, or offshore?
+            </h2>
+            <p className="mt-4 max-w-3xl text-[1.08rem] font-medium leading-8 !text-foreground/90">
+              A low advertised fee can be misleading when the route does not support the required activity, clients, visas, office, or bank application.
+            </p>
+            <div className="mt-7 overflow-x-auto border-y border-[#d8d0c2]">
+              <table className="w-full min-w-[74rem] border-collapse text-left">
+                <thead className="bg-[#f3f7ff]">
+                  <tr>
+                    {['Route', 'Best suited to', 'Market access', 'Office and visas', 'Zenesis starting price', 'Decision signal'].map((header) => (
+                      <th key={header} className="px-4 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.04em] text-[#244ba8]">
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#e4dbce]">
+                  {routeComparisonRows.map((item) => (
+                    <tr key={item.route} className="align-top even:bg-[#f8f6f1]">
+                      <td className="px-4 py-5">
+                        <Link href={item.href} className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/30 underline-offset-4">
+                          {item.route}
+                        </Link>
+                      </td>
+                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.bestFor}</td>
+                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.marketAccess}</td>
+                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.officeAndVisas}</td>
+                      <td className="px-4 py-5 text-[0.92rem] font-semibold leading-6">{item.startingCost}</td>
+                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.planningSignal}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-5 text-[0.94rem] leading-7 text-[#07151b]/72">
+              Starting prices are indicative and were last reviewed on August 4, 2026. Final cost and timing depend on the activity, jurisdiction, approvals, office, visas, government fees, and document readiness.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <ConsultationFormButton
+                label="Request a written route recommendation"
+                presetEnquiry="I would like a written recommendation comparing mainland, free zone, and offshore options for my business."
+                className="inline-flex min-h-12 items-center justify-center bg-[#011735] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#244ba8]"
+              />
+              <Link href="/business-setup-cost-dubai" className="text-sm font-semibold text-[#244ba8] underline decoration-[#244ba8]/30 underline-offset-4">
+                Review the full cost guide
+              </Link>
+            </div>
+          </article>
 
-          <div className="balanced-editorial-grid balanced-editorial-grid-3 mt-10 grid border-y border-white/18 md:grid-cols-2 xl:grid-cols-3">
-            {setupServiceCoverage.map((item, index) => (
-              <article
-                key={item.title}
-                className="border-b border-white/18 py-7 text-white"
-              >
-                <span className="text-sm font-semibold text-[#ead5aa]">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="mt-4 text-[1.1rem] font-semibold leading-tight text-white md:text-[1.24rem]">
-                  {item.title}
+          <article className="mt-10 border-t border-[#d8d0c2] pt-8 text-[#011735]">
+            <h2 className="text-[1.35rem] font-semibold leading-tight text-[#011735] md:text-[1.5rem]">
+              Quick route signals
+            </h2>
+            <div className="mt-5 grid border-y border-[#d8d0c2] md:grid-cols-3 md:divide-x md:divide-[#d8d0c2]">
+              {routeComparisonRows.map((item, index) => (
+                <Link
+                  key={item.route}
+                  href={item.href}
+                  className="group grid min-w-0 grid-cols-[2.25rem_1fr_auto] items-start gap-3 border-b border-[#d8d0c2] py-5 last:border-b-0 md:border-b-0 md:px-5 md:first:pl-0 md:last:pr-0"
+                >
+                  <span className="text-sm font-semibold text-[#8d7453]">0{index + 1}</span>
+                  <span>
+                    <strong className="block text-[1.08rem] font-semibold text-[#011735] transition-colors group-hover:text-[#244ba8]">
+                      {item.route}
+                    </strong>
+                    <span className="mt-2 block text-[0.96rem] leading-7 text-[#07151b]/78">
+                      {item.planningSignal}
+                    </span>
+                  </span>
+                  <span aria-hidden="true" className="hidden text-lg text-[#8d7453] group-hover:translate-x-1 md:inline-flex">
+                    <ArrowRightIcon className="h-4 w-4" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </article>
+
+          <article className="mt-10 border-t border-[#d8d0c2] pt-8 text-[#011735]">
+            <h2 className="text-[1.35rem] font-semibold leading-tight text-[#011735] md:text-[1.5rem]">
+              Route reference
+            </h2>
+            <div className="mt-5 grid border-y border-[#d8d0c2] md:grid-cols-3 md:divide-x md:divide-[#d8d0c2]">
+              <div className="py-5 md:pr-6">
+                <h3 className="text-base font-semibold text-[#011735]">
+                  Structures
                 </h3>
-                <p className="mt-4 text-[1.04rem] leading-8 text-white/76">
-                  {item.description}
-                </p>
-              </article>
-            ))}
-          </div>
+                <ul className="mt-3 space-y-2.5 text-[1.04rem] leading-7 !text-foreground/92">
+                  {setupStructures.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-[#8d7453]"
+                      >
+                      </span>
+                      <span className="font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="border-t border-[#d8d0c2] py-5 md:border-t-0 md:px-6">
+                <h3 className="text-base font-semibold text-[#011735]">
+                  Popular free zones
+                </h3>
+                <ul className="mt-3 space-y-2.5 text-[1.04rem] leading-7 !text-foreground/92">
+                  {freeZoneExamples.slice(0, 6).map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-[#8d7453]"
+                      >
+                      </span>
+                      <span className="font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="border-t border-[#d8d0c2] py-5 md:border-t-0 md:pl-6">
+                <h3 className="text-base font-semibold text-[#011735]">
+                  Offshore options
+                </h3>
+                <ul className="mt-3 space-y-2.5 text-[1.04rem] leading-7 !text-foreground/92">
+                  {offshoreOptions.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-[#8d7453]"
+                      >
+                      </span>
+                      <span className="font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
+
+      <HowZenesisHelpsSection
+        description="Zenesis compares the available setup routes, prepares the application, and coordinates the work that follows incorporation."
+        items={howZenesisHelps}
+      />
 
       <section
         id="jurisdiction-support"
@@ -617,150 +725,6 @@ export default function BusinessSetupPage() {
           <div className="mt-7">
             <ServiceSubpageLinks items={decisionResources} columnsClassName="md:grid-cols-2 xl:grid-cols-4" />
           </div>
-        </div>
-      </section>
-
-      <section id="route-comparison" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#011735] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
-        <div className="mx-auto grid w-full max-w-[100rem] items-stretch gap-5 px-6 md:px-12 lg:grid-cols-2 xl:px-20">
-          <article className="flex h-full min-w-0 flex-col rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#011735] shadow-[0_10px_30px_rgba(17,35,42,0.1)] md:p-8 lg:col-span-2">
-            <h2 className="section-title mt-5 font-semibold !text-foreground">
-              Mainland, free zone, or offshore?
-            </h2>
-            <p className="mt-4 max-w-3xl text-[1.08rem] font-medium leading-8 !text-foreground/90">
-              A low advertised fee can be misleading when the route does not support the required activity, clients, visas, office, or bank application.
-            </p>
-            <div className="mt-7 overflow-x-auto border-y border-[#d8d0c2]">
-              <table className="w-full min-w-[74rem] border-collapse text-left">
-                <thead className="bg-[#f3f7ff]">
-                  <tr>
-                    {['Route', 'Best suited to', 'Market access', 'Office and visas', 'Zenesis starting price', 'Decision signal'].map((header) => (
-                      <th key={header} className="px-4 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.04em] text-[#244ba8]">
-                        {header}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[#e4dbce]">
-                  {routeComparisonRows.map((item) => (
-                    <tr key={item.route} className="align-top even:bg-[#f8f6f1]">
-                      <td className="px-4 py-5">
-                        <Link href={item.href} className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/30 underline-offset-4">
-                          {item.route}
-                        </Link>
-                      </td>
-                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.bestFor}</td>
-                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.marketAccess}</td>
-                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.officeAndVisas}</td>
-                      <td className="px-4 py-5 text-[0.92rem] font-semibold leading-6">{item.startingCost}</td>
-                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.planningSignal}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="mt-5 text-[0.94rem] leading-7 text-[#07151b]/72">
-              Starting prices are indicative and were last reviewed on August 4, 2026. Final cost and timing depend on the activity, jurisdiction, approvals, office, visas, government fees, and document readiness.
-            </p>
-            <div className="mt-6 flex flex-wrap items-center gap-4">
-              <ConsultationFormButton
-                label="Request a written route recommendation"
-                presetEnquiry="I would like a written recommendation comparing mainland, free zone, and offshore options for my business."
-                className="inline-flex min-h-12 items-center justify-center bg-[#011735] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#244ba8]"
-              />
-              <Link href="/business-setup-cost-dubai" className="text-sm font-semibold text-[#244ba8] underline decoration-[#244ba8]/30 underline-offset-4">
-                Review the full cost guide
-              </Link>
-            </div>
-          </article>
-
-          <article className="flex h-full flex-col rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#011735] shadow-[0_10px_30px_rgba(17,35,42,0.1)] md:p-8">
-            <h2 className="section-title mt-5 font-semibold !text-foreground">
-              Quick route signals
-            </h2>
-            <div className="mt-7 grid flex-1 grid-rows-3 divide-y divide-[#d8d0c2] border-y border-[#d8d0c2]">
-              {routeComparisonRows.map((item, index) => (
-                <Link
-                  key={item.route}
-                  href={item.href}
-                  className="group grid content-center gap-3 py-5 md:grid-cols-[2.5rem_1fr_auto] md:items-start"
-                >
-                  <span className="text-sm font-semibold text-[#8d7453]">0{index + 1}</span>
-                  <span>
-                    <strong className="block text-[1.08rem] font-semibold text-[#011735] transition-colors group-hover:text-[#244ba8]">
-                      {item.route}
-                    </strong>
-                    <span className="mt-2 block text-[0.96rem] leading-7 text-[#07151b]/78">
-                      {item.planningSignal}
-                    </span>
-                  </span>
-                  <span aria-hidden="true" className="hidden text-lg text-[#8d7453] group-hover:translate-x-1 md:inline-flex">
-                    <ArrowRightIcon className="h-4 w-4" />
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </article>
-
-          <article className="h-full rounded-lg border border-[#d8d0c2] bg-white p-7 text-[#011735] shadow-[0_10px_30px_rgba(17,35,42,0.1)] md:p-8">
-            <h2 className="section-title mt-5 font-semibold !text-foreground">
-              Route reference
-            </h2>
-            <div className="mt-7 divide-y divide-[#d8d0c2] border-y border-[#d8d0c2]">
-              <div className="py-5">
-                <h3 className="text-base font-semibold text-[#011735]">
-                  Structures
-                </h3>
-                <ul className="mt-3 space-y-2.5 text-[1.04rem] leading-7 !text-foreground/92">
-                  {setupStructures.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span
-                        aria-hidden="true"
-                        className="mt-2 inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-[#8d7453]"
-                      >
-                      </span>
-                      <span className="font-medium">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="py-5">
-                <h3 className="text-base font-semibold text-[#011735]">
-                  Popular free zones
-                </h3>
-                <ul className="mt-3 space-y-2.5 text-[1.04rem] leading-7 !text-foreground/92">
-                  {freeZoneExamples.slice(0, 6).map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span
-                        aria-hidden="true"
-                        className="mt-2 inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-[#8d7453]"
-                      >
-                      </span>
-                      <span className="font-medium">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="py-5">
-                <h3 className="text-base font-semibold text-[#011735]">
-                  Offshore options
-                </h3>
-                <ul className="mt-3 space-y-2.5 text-[1.04rem] leading-7 !text-foreground/92">
-                  {offshoreOptions.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span
-                        aria-hidden="true"
-                        className="mt-2 inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-[#8d7453]"
-                      >
-                      </span>
-                      <span className="font-medium">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </article>
         </div>
       </section>
 

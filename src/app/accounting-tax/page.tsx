@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { createContextualLinker } from "@/components/contextual-links";
 import { JsonLd } from "@/components/json-ld";
+import { HowZenesisHelpsSection } from "@/components/how-zenesis-helps-section";
 import { PageGuideLayout } from "@/components/page-guide-layout";
 import { PageSectionNavMobile } from "@/components/page-section-nav";
 import { ReadingProgress } from "@/components/reading-progress";
@@ -110,34 +111,19 @@ const whoWeHelp = [
 
 const whyZenesis = [
   {
-    title: "Experienced Team",
+    title: "Books and reconciliations",
     description:
-      "Support from professionals familiar with UAE business, accounting, VAT, and corporate tax workflows.",
+      "Zenesis maintains the books, reconciles the main accounts, and organizes the records behind each reporting period.",
   },
   {
-    title: "Accurate Records",
+    title: "Tax registration and filing",
     description:
-      "Current bookkeeping and reporting records that support VAT and corporate tax filings.",
+      "Zenesis prepares VAT and corporate tax registrations, calculations, returns, and the supporting schedules required for filing.",
   },
   {
-    title: "Deadline Management",
+    title: "Ongoing compliance",
     description:
-      "Support tracking key filing and renewal timelines across the reporting cycle.",
-  },
-  {
-    title: "Audit-Ready Documentation",
-    description:
-      "Structured records, invoices, reconciliations, and reports when you need them.",
-  },
-  {
-    title: "Registration through filing",
-    description:
-      "Bookkeeping, VAT, corporate tax, and ongoing compliance for UAE businesses.",
-  },
-  {
-    title: "Advice tied to the records",
-    description:
-      "Clear support on what needs to happen next, so filings, records, and follow-up decisions stay manageable.",
+      "Zenesis tracks the reporting cycle and keeps invoices, reconciliations, ledgers, and filing evidence ready for review.",
   },
 ] as const;
 
@@ -330,29 +316,10 @@ export default function AccountingTaxPage() {
         </div>
       </section>
 
-      <section id="how-zenesis-helps" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#011735] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <SectionHeading
-            eyebrow="Why Zenesis"
-            title="How Zenesis helps"
-            description="Current books, reconciliations, and supporting records make filings easier to prepare, review, and defend."
-          />
-
-          <div className="balanced-editorial-grid balanced-editorial-grid-3 mt-10 grid border-y border-white/18 md:grid-cols-2 xl:grid-cols-3">
-            {whyZenesis.map((item, index) => (
-              <article key={item.title} className="border-b border-white/18 py-7 text-white">
-                <span className="text-sm font-semibold text-[#ead5aa]">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="mt-4 text-[1.1rem] font-semibold leading-tight !text-white md:text-[1.24rem]">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-[1.04rem] leading-8 !text-white/74">
-                  {item.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HowZenesisHelpsSection
+        description="Zenesis keeps the records behind each filing current, reconciled, and ready for review."
+        items={whyZenesis}
+      />
 
       <section id="accounting-expertise" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">

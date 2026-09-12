@@ -28,6 +28,8 @@ export function HomepageInsightsCarousel({ posts }: HomepageInsightsCarouselProp
   const [activeCategory, setActiveCategory] = useState(allCategoryLabel);
   const [activeIndex, setActiveIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement | null>(null);
+  const programmaticScrollTimerRef = useRef<number | null>(null);
+  const programmaticScrollRef = useRef(false);
 
   const filteredPosts = useMemo(
     () => activeCategory === allCategoryLabel
@@ -35,7 +37,7 @@ export function HomepageInsightsCarousel({ posts }: HomepageInsightsCarouselProp
       : posts.filter((post) => post.category === activeCategory),
     [activeCategory, posts],
   );
-  const { activePage, itemsPerPage, pageCount, startIndexForPage } =
+  const { activePage, pageCount, isReady, startIndexForPage } =
     useResponsiveCarouselPage(filteredPosts.length, activeIndex);
 
   const scrollToCard = (index: number) => {
@@ -45,8 +47,16 @@ export function HomepageInsightsCarousel({ posts }: HomepageInsightsCarouselProp
 
     if (!track || !card) return;
 
+    programmaticScrollRef.current = true;
+    if (programmaticScrollTimerRef.current !== null) {
+      window.clearTimeout(programmaticScrollTimerRef.current);
+    }
     track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
     setActiveIndex(nextIndex);
+    programmaticScrollTimerRef.current = window.setTimeout(() => {
+      programmaticScrollRef.current = false;
+      programmaticScrollTimerRef.current = null;
+    }, 500);
   };
 
   return (
@@ -76,14 +86,17 @@ export function HomepageInsightsCarousel({ posts }: HomepageInsightsCarouselProp
         ref={trackRef}
         onScroll={(event) => {
           const track = event.currentTarget;
+          if (programmaticScrollRef.current) return;
           const cards = Array.from(track.children) as HTMLElement[];
           if (!cards.length) return;
 
           const cardStep = cards.length > 1
             ? cards[1].offsetLeft - cards[0].offsetLeft
             : cards[0].offsetWidth;
-          const nextPage = Math.round(track.scrollLeft / (cardStep * itemsPerPage));
-          const nextIndex = startIndexForPage(nextPage);
+          const nextIndex = Math.min(
+            filteredPosts.length - 1,
+            Math.max(0, Math.round(track.scrollLeft / cardStep)),
+          );
 
           if (nextIndex !== activeIndex) setActiveIndex(nextIndex);
         }}
@@ -136,7 +149,7 @@ export function HomepageInsightsCarousel({ posts }: HomepageInsightsCarouselProp
           <span aria-hidden="true">←</span>
         </button>
         <p className="min-w-[5.5rem] text-center text-sm font-semibold tabular-nums text-white/64">
-          {String(activePage + 1).padStart(2, "0")} / {String(pageCount).padStart(2, "0")}
+          {isReady ? `${String(activePage + 1).padStart(2, "0")} / ${String(pageCount).padStart(2, "0")}` : "\u00a0"}
         </p>
         <button
           type="button"

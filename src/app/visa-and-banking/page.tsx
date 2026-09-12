@@ -1,6 +1,7 @@
 import { BusinessSetupRouteCard } from "@/components/business-setup-route-card";
 import { createContextualLinker } from "@/components/contextual-links";
 import { JsonLd } from "@/components/json-ld";
+import { HowZenesisHelpsSection } from "@/components/how-zenesis-helps-section";
 import { PageGuideLayout } from "@/components/page-guide-layout";
 import { PageSectionNavMobile } from "@/components/page-section-nav";
 import { ReadingProgress } from "@/components/reading-progress";
@@ -98,34 +99,19 @@ const whoWeHelp = [
 
 const whyZenesis = [
   {
-    title: "One coordinated sequence",
+    title: "Eligibility and route review",
     description:
-      "Residency and banking steps are planned around the company structure instead of being treated as unrelated tasks.",
+      "Zenesis reviews the company structure, visa category, eligibility evidence, and intended banking use before applications begin.",
   },
   {
-    title: "Category and route clarity",
+    title: "Application preparation",
     description:
-      "The visa or banking route is narrowed before documents and applications begin.",
+      "Zenesis organizes the passport, company, eligibility, and supporting records required by the relevant authority.",
   },
   {
-    title: "Required documents",
+    title: "Banking file preparation",
     description:
-      "Passport, company, eligibility, KYC, and supporting records are organized around what the authority or bank needs.",
-  },
-  {
-    title: "Banking readiness",
-    description:
-      "The business model, shareholders, source of funds, and expected transaction profile are presented more clearly.",
-  },
-  {
-    title: "Family and team planning",
-    description:
-      "Founder, employee, and family residency needs are considered early enough to avoid fragmented follow-through.",
-  },
-  {
-    title: "Post-approval support",
-    description:
-      "Medical, Emirates ID, renewals, document follow-up, and later corporate support remain connected after approval.",
+      "Zenesis prepares the company profile, ownership records, source-of-funds evidence, and expected transaction information for bank review.",
   },
 ] as const;
 
@@ -261,31 +247,10 @@ export default function VisaAndBankingPage() {
         </div>
       </section>
 
-      <section id="how-zenesis-helps" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#011735] py-16 md:py-20 [&_.eyebrow]:text-white/68 [&_.section-title]:text-white [&_.text-muted]:text-white/94">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <SectionHeading
-            eyebrow="Why Zenesis"
-            title="How Zenesis helps"
-            description="Zenesis sequences company formation, residency, documentation, and banking around their approval requirements."
-          />
-          <div className="balanced-editorial-grid balanced-editorial-grid-3 mt-10 grid border-y border-white/18 md:grid-cols-2 xl:grid-cols-3">
-            {whyZenesis.map((item, index) => (
-              <article
-                key={item.title}
-                className="border-b border-white/18 py-7 text-white"
-              >
-                <span className="text-sm font-semibold text-[#ead5aa]">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="mt-4 text-[1.1rem] font-semibold leading-tight text-white md:text-[1.24rem]">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-[1.04rem] leading-8 text-white/74">
-                  {item.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HowZenesisHelpsSection
+        description="Zenesis prepares visa and banking applications around the company structure, eligibility requirements, and evidence each reviewer needs."
+        items={whyZenesis}
+      />
 
       <section id="case-study" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">

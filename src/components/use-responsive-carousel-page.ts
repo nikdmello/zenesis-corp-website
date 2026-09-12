@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export function useResponsiveCarouselPage(itemCount: number, activeIndex: number) {
-  const [itemsPerPage, setItemsPerPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState<number | null>(null);
 
   useEffect(() => {
     const tabletQuery = window.matchMedia("(min-width: 640px)");
@@ -23,14 +23,16 @@ export function useResponsiveCarouselPage(itemCount: number, activeIndex: number
     };
   }, []);
 
-  const pageCount = Math.max(1, Math.ceil(itemCount / itemsPerPage));
-  const activePage = Math.min(pageCount - 1, Math.floor(activeIndex / itemsPerPage));
+  const resolvedItemsPerPage = itemsPerPage ?? 1;
+  const pageCount = Math.max(1, Math.ceil(itemCount / resolvedItemsPerPage));
+  const activePage = Math.min(pageCount - 1, Math.floor(activeIndex / resolvedItemsPerPage));
 
   return {
     activePage,
-    itemsPerPage,
+    itemsPerPage: resolvedItemsPerPage,
     pageCount,
+    isReady: itemsPerPage !== null,
     startIndexForPage: (page: number) =>
-      Math.min(Math.max(0, page) * itemsPerPage, Math.max(0, itemCount - 1)),
+      Math.min(Math.max(0, page) * resolvedItemsPerPage, Math.max(0, itemCount - 1)),
   };
 }

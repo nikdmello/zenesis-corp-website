@@ -1702,7 +1702,7 @@ export const insightPosts: InsightPost[] = [
         },
       },
       {
-        title: "How Zenesis Helps",
+        title: "How Zenesis helps",
         paragraphs: [
           "Zenesis connects the filing deadline with bookkeeping, reconciliations, tax registration status, return preparation, and the evidence supporting each figure.",
           "The return should be submitted on time and supported by records that explain the company's tax position.",
@@ -1819,7 +1819,7 @@ export const insightPosts: InsightPost[] = [
         },
       },
       {
-        title: "How Zenesis Helps",
+        title: "How Zenesis helps",
         paragraphs: [
           "Zenesis helps businesses organize their bookkeeping, accounting records, VAT files, and corporate tax support so the annual filing process becomes easier to manage.",
           "The record system should support filing and review while remaining usable for the people running the company.",

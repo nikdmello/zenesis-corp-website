@@ -20,7 +20,7 @@ export default function ContactPage() {
     <SiteShell currentPath="/contact">
       <PageIntro
         eyebrow="Contact Zenesis"
-        title="Zenesis contact details"
+        title="Contact Us"
         description="Get in touch for company setup, tax, visa, banking, and ongoing corporate support in the UAE."
         backgroundImageSrc={versionedAssetPath("/sections/awards-and-recognition.webp")}
         backgroundImageAlt="Zenesis awards and recognition"
