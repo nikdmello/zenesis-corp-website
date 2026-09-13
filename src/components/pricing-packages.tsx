@@ -13,8 +13,14 @@ const ConsultationModal = dynamic(
 );
 
 const groups = [
-  { title: "UAE company formation", indexes: [0, 1, 2] },
-  { title: "Freelance and offshore", indexes: [3, 4, 5] },
+  {
+    title: "UAE company formation",
+    indexes: [0, 1, 2],
+  },
+  {
+    title: "Freelance and offshore",
+    indexes: [3, 4, 5],
+  },
 ];
 
 export function PricingPackages() {
@@ -22,36 +28,50 @@ export function PricingPackages() {
 
   return (
     <>
+      <header className="pricing-packages-header">
+        <h2>Choose your starting point</h2>
+        <p>Start with the route closest to your plans. Zenesis confirms the full scope and cost before filing.</p>
+      </header>
       {groups.map((group) => (
         <div key={group.title} className="pricing-package-group">
-          <h2>{group.title}</h2>
+          <div className="pricing-package-group-heading">
+            <h2>{group.title}</h2>
+          </div>
           <div className="pricing-package-grid">
             {group.indexes.map((index) => {
               const item = businessSetupStartingPrices[index];
               const range = "maxNumericPrice" in item;
               return (
                 <article className="pricing-package" key={item.title}>
-                  <h3>{item.title}</h3>
-                  <p className="pricing-package-qualifier">{item.qualifier}</p>
+                  <div className="pricing-package-identity">
+                    <p className="pricing-package-qualifier">{item.qualifier}</p>
+                    <h3>{item.title}</h3>
+                  </div>
+                  <ul className="pricing-package-highlights" aria-label={`${item.title} details`}>
+                    {item.highlights.map((highlight) => (
+                      <li key={highlight}><span aria-hidden="true" />{highlight}</li>
+                    ))}
+                  </ul>
                   <div className="pricing-package-price">
                     <span>{range ? "Price range" : "Starting from"}</span>
                     <strong><small>AED</small> {item.price.replace(/^AED\s*/, "")}</strong>
                   </div>
-                  <p className="pricing-package-description">{item.description}</p>
-                  <button
-                    type="button"
-                    className="pricing-package-cta"
-                    onClick={() => {
-                      trackConversionEvent("consultation_cta_click", {
-                        cta_label: `${item.title} pricing card`,
-                        page_path: getCurrentPagePath(),
-                      });
-                      setEnquiry(`I am interested in ${item.title} (${item.qualifier}), ${range ? "priced at" : "starting from"} ${item.price}. Please confirm the full cost and next steps.`);
-                    }}
-                  >
-                    Discuss this option <ArrowRightIcon className="h-4 w-4" />
-                  </button>
-                  <Link href={item.href} className="pricing-package-details">Service details <ArrowRightIcon className="h-4 w-4" /></Link>
+                  <div className="pricing-package-actions">
+                    <button
+                      type="button"
+                      className="pricing-package-cta"
+                      onClick={() => {
+                        trackConversionEvent("consultation_cta_click", {
+                          cta_label: `${item.title} pricing card`,
+                          page_path: getCurrentPagePath(),
+                        });
+                        setEnquiry(`I am interested in ${item.title} (${item.qualifier}), ${range ? "priced at" : "starting from"} ${item.price}. Please confirm the full cost and next steps.`);
+                      }}
+                    >
+                      Discuss this option <ArrowRightIcon className="h-4 w-4" />
+                    </button>
+                    <Link href={item.href} className="pricing-package-details">View service</Link>
+                  </div>
                 </article>
               );
             })}

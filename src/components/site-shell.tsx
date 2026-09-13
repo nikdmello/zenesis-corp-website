@@ -10,7 +10,7 @@ import {
   ConsultationSessionPrompt,
 } from "@/components/consultation-button";
 import { HelpWidget } from "@/components/help-widget";
-import { SiteSearchForm } from "@/components/site-search-form";
+import { HeaderSearch, SiteSearchForm } from "@/components/site-search-form";
 import { contactDetails, navigation, socialLinks, whatsappHref } from "@/lib/site-content";
 
 type SiteShellProps = {
@@ -442,7 +442,7 @@ export function SiteShell({
 
           <div className="flex items-center gap-2 justify-self-end">
             <div className="hidden lg:block">
-              <SiteSearchForm compact className="w-[11.75rem] xl:w-[12rem] 2xl:w-[17rem]" />
+              <HeaderSearch />
             </div>
             <div className="hidden h-10 items-center gap-3 border-l border-white/14 pl-3 text-[0.9rem] font-medium text-white/86 lg:flex 2xl:text-[0.94rem]">
               <a

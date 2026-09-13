@@ -22,6 +22,68 @@ type SiteSearchFormProps = {
   theme?: "dark" | "light";
 };
 
+export function HeaderSearch() {
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!containerRef.current?.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsOpen(false);
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
+  return (
+    <div ref={containerRef} className="relative">
+      <button
+        type="button"
+        aria-label="Search Zenesis"
+        aria-expanded={isOpen}
+        title="Search Zenesis"
+        onClick={() => setIsOpen((current) => !current)}
+        className={`flex h-10 w-10 items-center justify-center rounded-md border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ead5aa] ${
+          isOpen
+            ? "border-[#ead5aa]/55 bg-white/12 text-[#ead5aa]"
+            : "border-white/16 bg-white/[0.055] text-white/78 hover:border-[#ead5aa]/42 hover:text-[#ead5aa]"
+        }`}
+      >
+        <SearchIcon className="h-[1.05rem] w-[1.05rem]" />
+      </button>
+
+      {isOpen ? (
+        <div className="absolute right-0 top-[calc(100%+0.75rem)] z-[80] w-[min(30rem,calc(100vw-2rem))] border border-white/12 bg-[#011735] p-4 shadow-[0_24px_60px_rgba(0,10,28,0.38)]">
+          <div className="mb-3 flex items-center justify-between gap-4">
+            <p className="text-sm font-semibold text-white">Search Zenesis</p>
+            <button
+              type="button"
+              aria-label="Close search"
+              title="Close search"
+              onClick={() => setIsOpen(false)}
+              className="flex h-8 w-8 items-center justify-center rounded-sm text-white/58 transition-colors hover:bg-white/8 hover:text-white"
+            >
+              <CloseIcon className="h-4 w-4" />
+            </button>
+          </div>
+          <SiteSearchForm compact autoFocus className="w-full" />
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 export function SiteSearchForm({
   defaultValue = "",
   placeholder = "Search the site",
@@ -228,6 +290,14 @@ export function SearchIcon({ className }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+    </svg>
+  );
+}
+
+function CloseIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" className={className}>
+      <path d="m5 5 10 10M15 5 5 15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
     </svg>
   );
 }

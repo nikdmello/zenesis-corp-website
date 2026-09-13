@@ -101,6 +101,11 @@ export const businessSetupStartingPrices = [
     href: "/business-setup",
     description:
       "For founders who want a UAE free zone company route without an initial visa requirement.",
+    highlights: [
+      "UAE free zone company",
+      "No initial visa",
+      "Activity and free zone fit reviewed",
+    ],
   },
   {
     title: "Free Zone Company Setup + Visa",
@@ -110,6 +115,11 @@ export const businessSetupStartingPrices = [
     href: "/business-setup",
     description:
       "For entrepreneurs who need company formation aligned with UAE residency planning.",
+    highlights: [
+      "UAE free zone company",
+      "Founder visa planning",
+      "Medical and Emirates ID steps considered",
+    ],
   },
   {
     title: "Mainland Company Setup",
@@ -119,6 +129,11 @@ export const businessSetupStartingPrices = [
     href: "/business-setup",
     description:
       "For businesses that need mainland licensing and broader access to the UAE market.",
+    highlights: [
+      "UAE mainland licence",
+      "Broader UAE market access",
+      "Office and visa needs reviewed",
+    ],
   },
   {
     title: "Freelance Permit",
@@ -128,6 +143,11 @@ export const businessSetupStartingPrices = [
     href: "/business-setup",
     description:
       "For independent professionals who need a lean UAE permit route before expanding.",
+    highlights: [
+      "Independent professionals",
+      "Permit-based route",
+      "Activity eligibility reviewed",
+    ],
   },
   {
     title: "UAE Offshore Company Setup",
@@ -138,6 +158,11 @@ export const businessSetupStartingPrices = [
     href: "/offshore",
     description:
       "For Ajman, RAK, or Jebel Ali offshore routes where a UAE offshore structure fits the intended use.",
+    highlights: [
+      "Ajman, RAK, or Jebel Ali",
+      "Holding and ownership needs",
+      "UAE offshore structure review",
+    ],
   },
   {
     title: "International Offshore Company Setup",
@@ -148,6 +173,11 @@ export const businessSetupStartingPrices = [
     href: "/offshore",
     description:
       "For BVI, Nevis, Mauritius, Seychelles, or Hong Kong structures where an international offshore route fits.",
+    highlights: [
+      "BVI, Nevis, Mauritius, Seychelles, or Hong Kong",
+      "International holding or ownership",
+      "Jurisdiction fit reviewed",
+    ],
   },
 ] as const;
 

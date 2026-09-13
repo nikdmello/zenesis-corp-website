@@ -70,7 +70,7 @@ export default function BusinessSetupCostDubaiPage() {
         </div>
       </section>
 
-      <section id="compare-prices" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 border-b border-[#d9d1c5] bg-white py-11 md:py-14">
+      <section id="compare-prices" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 border-b border-[#d9d1c5] bg-white py-12 md:py-16">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             title="Package comparison"
@@ -128,11 +128,10 @@ export default function BusinessSetupCostDubaiPage() {
         </div>
       </section>
 
-      <section id="cost-drivers" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-11 md:py-14">
+      <section id="cost-drivers" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-12 md:py-16">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="min-w-0">
           <SectionHeading
-            eyebrow="2026 cost guide"
             title="What affects the real setup budget"
             description="The lowest advertised license price rarely tells the whole story. These are the factors that usually change the real business setup cost in Dubai, free zone setup cost, or mainland company formation budget after the headline quote."
           />

@@ -161,8 +161,6 @@ const homepageInsightCards: HomepageInsightCard[] = insightPosts.map(
 const experienceLedger = [
   { value: "20+", label: "years supporting UAE and international business setup" },
   { value: "480+", label: "Google reviews from clients and business owners" },
-  { value: "18", label: "free zone and offshore routes covered in our guidance" },
-  { value: "AED 4,000", label: "starting price for a UAE freelance permit" },
 ] as const;
 
 export default function Home() {
@@ -225,11 +223,11 @@ export default function Home() {
         </section>
 
         <section className="relative left-1/2 w-screen -translate-x-1/2 border-y border-white/12 bg-[#011735] text-white">
-          <div className="mx-auto grid w-full max-w-[100rem] grid-cols-2 px-4 md:px-12 xl:grid-cols-4 xl:px-20">
+          <div className="mx-auto grid w-full max-w-[84rem] grid-cols-2 px-5 md:px-12 xl:px-20">
             {experienceLedger.map((item, index) => (
-              <ScrollReveal key={item.value} delay={index * 70} className="flex flex-col items-center border-b border-r border-white/12 px-3 py-5 text-center even:border-r-0 [&:nth-last-child(-n+2)]:border-b-0 md:px-6 xl:border-b-0 xl:border-r xl:py-8 xl:even:border-r xl:last:border-r-0">
-                <p className="text-[1.8rem] font-semibold leading-none text-[#ead5aa] md:text-[2.15rem]">{item.value}</p>
-                <p className="mt-2 max-w-[19rem] text-[0.78rem] leading-5 text-white/64 md:mt-3 md:text-[0.88rem] md:leading-6">{item.label}</p>
+              <ScrollReveal key={item.value} delay={index * 90} className="flex flex-col items-center justify-center border-r border-white/14 px-4 py-6 text-center last:border-r-0 md:min-h-[9.5rem] md:px-12 md:py-8">
+                <p className="text-[2rem] font-semibold leading-none text-[#ead5aa] md:text-[2.65rem]">{item.value}</p>
+                <p className="mt-3 max-w-[22rem] text-[0.75rem] leading-5 text-white/68 md:mt-4 md:text-[0.92rem] md:leading-6">{item.label}</p>
               </ScrollReveal>
             ))}
           </div>
