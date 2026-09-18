@@ -442,11 +442,11 @@ export default function BusinessSetupPage() {
             <p className="mt-4 max-w-3xl text-[1.08rem] font-medium leading-8 !text-foreground/90">
               A low advertised fee can be misleading when the route does not support the required activity, clients, visas, office, or bank application.
             </p>
-            <div className="mt-7 overflow-x-auto border-y border-[#d8d0c2]">
-              <table className="w-full min-w-[74rem] border-collapse text-left">
+            <div className="route-comparison-table-wrap mt-7 border-y border-[#d8d0c2]">
+              <table className="route-comparison-table w-full border-collapse text-left">
                 <thead className="bg-[#f3f7ff]">
                   <tr>
-                    {['Route', 'Best suited to', 'Market access', 'Office and visas', 'Zenesis starting price', 'Decision signal'].map((header) => (
+                    {['Route', 'Best suited to', 'Market access', 'Office and visas', 'Our starting price', 'Decision signal'].map((header) => (
                       <th key={header} className="px-4 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.04em] text-[#244ba8]">
                         {header}
                       </th>
@@ -455,17 +455,17 @@ export default function BusinessSetupPage() {
                 </thead>
                 <tbody className="divide-y divide-[#e4dbce]">
                   {routeComparisonRows.map((item) => (
-                    <tr key={item.route} className="align-top even:bg-[#f8f6f1]">
-                      <td className="px-4 py-5">
+                    <tr key={item.route} className="route-comparison-row align-top even:bg-[#f8f6f1]">
+                      <td data-label="Route" className="route-comparison-name px-4 py-5">
                         <Link href={item.href} className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/30 underline-offset-4">
                           {item.route}
                         </Link>
                       </td>
-                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.bestFor}</td>
-                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.marketAccess}</td>
-                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.officeAndVisas}</td>
-                      <td className="px-4 py-5 text-[0.92rem] font-semibold leading-6">{item.startingCost}</td>
-                      <td className="px-4 py-5 text-[0.92rem] leading-6">{item.planningSignal}</td>
+                      <td data-label="Best suited to" className="px-4 py-5 text-[0.92rem] leading-6">{item.bestFor}</td>
+                      <td data-label="Market access" className="px-4 py-5 text-[0.92rem] leading-6">{item.marketAccess}</td>
+                      <td data-label="Office and visas" className="px-4 py-5 text-[0.92rem] leading-6">{item.officeAndVisas}</td>
+                      <td data-label="Our starting price" className="route-comparison-price px-4 py-5 text-[0.92rem] font-semibold leading-6">{item.startingCost}</td>
+                      <td data-label="Decision signal" className="px-4 py-5 text-[0.92rem] leading-6">{item.planningSignal}</td>
                     </tr>
                   ))}
                 </tbody>

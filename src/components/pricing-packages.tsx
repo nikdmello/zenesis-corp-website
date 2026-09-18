@@ -52,7 +52,7 @@ export function PricingPackages() {
                       <li key={highlight}><span aria-hidden="true" />{highlight}</li>
                     ))}
                   </ul>
-                  <div className="pricing-package-price">
+                  <div className={`pricing-package-price ${range ? "pricing-package-price-range" : ""}`}>
                     <span>{range ? "Price range" : "Starting from"}</span>
                     <strong><small>AED</small> {item.price.replace(/^AED\s*/, "")}</strong>
                   </div>

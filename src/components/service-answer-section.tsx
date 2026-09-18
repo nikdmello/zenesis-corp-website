@@ -49,7 +49,7 @@ export function ServiceAnswerSection({
                     +
                   </span>
                 </summary>
-                <p className="ml-9 mt-4 text-[1.02rem] leading-8 text-[#07151b]/82 md:text-[1.04rem]">
+                <p className="mt-4 text-[1.02rem] leading-8 text-[#07151b]/82 md:ml-9 md:text-[1.04rem]">
                   {item.answer}
                 </p>
               </details>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Manrope } from "next/font/google";
+import { IBM_Plex_Mono, Roboto } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -9,9 +9,10 @@ import { buildPageMetadata, getOrganizationSchemas, siteUrl } from "@/lib/seo";
 import { legacyRouteMeta } from "@/lib/legacy-meta";
 import "./globals.css";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -47,7 +48,7 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={`${manrope.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${roboto.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {organizationSchemas.map((schema, index) => (

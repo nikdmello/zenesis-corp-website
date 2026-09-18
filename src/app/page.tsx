@@ -158,24 +158,24 @@ export default function Home() {
             />
           </div>
           <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_center,transparent_18%,rgba(1,23,53,0.16)_58%,rgba(1,23,53,0.55)_100%)]" aria-hidden="true" />
-          <div className="home-hero-composition relative z-10 mx-auto w-full max-w-[112rem] px-6 md:px-12 xl:px-20">
+          <div className="home-hero-composition relative z-10 mx-auto w-full max-w-[112rem] px-4 sm:px-6 md:px-12 xl:px-20">
             <div className="home-hero-heading text-center">
               <h1 className="home-hero-display hero-reveal hero-reveal-1 mx-auto text-white">
-                Set up your business in Dubai.
+                Set up and run your business in Dubai.
               </h1>
             </div>
-            <div className="home-hero-support mx-auto max-w-[48rem] text-center">
-              <p className="hero-reveal hero-reveal-2 text-[1.18rem] font-semibold leading-7 text-[#ead5aa] md:text-[1.5rem] md:leading-9">
-                20+ years of UAE business experience
+            <div className="home-hero-support mx-auto max-w-[70rem] text-center">
+              <p className="hero-reveal hero-reveal-2 font-[family-name:var(--font-roboto)] text-[1.08rem] font-light leading-7 text-[#ead5aa] sm:text-[1.18rem] md:text-[1.5rem] md:leading-[1.1]">
+                Business setup and ongoing compliance, since 2005
               </p>
-              <p className="hero-reveal hero-reveal-3 mx-auto mt-3 max-w-[58rem] text-[1.12rem] leading-8 text-white/92 md:mt-3.5 md:text-[1.35rem] md:leading-9">
+              <p className="hero-reveal hero-reveal-3 mx-auto mt-3 hidden max-w-[58rem] font-[family-name:var(--font-roboto)] text-[1.12rem] font-light leading-[1.1] text-white/92 md:mt-3.5 md:block md:text-[2rem]">
                 We help founders and businesses set up and operate in the UAE. From formation and licensing to visas, banking, accounting, tax and ongoing corporate support, we keep every stage connected.
               </p>
-              <div className="hero-reveal hero-reveal-4 mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-7">
+              <div className="hero-reveal hero-reveal-4 mt-5 flex flex-nowrap items-center justify-center gap-3 md:mt-7 md:gap-4">
                 <ConsultationFormButton
                   label="Free Consultation"
                   leadingIcon={
-                    <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#011735] text-[#f4dfb5] shadow-[0_5px_14px_rgba(17,35,42,0.22)] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105">
+                    <span className="hidden h-7 w-7 items-center justify-center rounded-md bg-[#011735] text-[#f4dfb5] shadow-[0_5px_14px_rgba(17,35,42,0.22)] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105 sm:flex">
                       <svg
                         aria-hidden="true"
                         viewBox="0 0 24 24"
@@ -192,9 +192,9 @@ export default function Home() {
                       </svg>
                     </span>
                   }
-                  className="group inline-flex min-h-12 w-fit max-w-full items-center justify-center whitespace-nowrap !rounded-[0.35rem] border border-[#f6e4bd]/90 bg-[#ead5aa] px-4 py-2 text-sm font-semibold !text-[#011735] shadow-[0_18px_42px_rgba(7,21,27,0.25)] outline-none transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f2dfb9] focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#011735] sm:px-5 sm:text-base"
+                  className="group inline-flex min-h-12 min-w-0 flex-1 items-center justify-center whitespace-nowrap !rounded-[0.35rem] border border-[#f6e4bd]/90 bg-[#ead5aa] px-3 py-2 text-sm font-semibold !text-[#011735] shadow-[0_18px_42px_rgba(7,21,27,0.25)] outline-none transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f2dfb9] focus-visible:ring-2 focus-visible:ring-[#f4dfb5] focus-visible:ring-offset-4 focus-visible:ring-offset-[#011735] sm:flex-none sm:px-5 sm:text-base"
                 />
-                <Link href="/business-setup-cost-dubai" className="inline-flex min-h-12 items-center border-b border-white/45 px-1 text-sm font-semibold text-white transition-colors hover:border-[#ead5aa] hover:text-[#ead5aa] sm:text-base">
+                <Link href="/business-setup-cost-dubai" className="inline-flex min-h-12 min-w-0 flex-1 items-center justify-center border-b border-white/45 px-1 text-sm font-semibold text-white transition-colors hover:border-[#ead5aa] hover:text-[#ead5aa] sm:flex-none sm:text-base">
                   View starting prices <ArrowRightIcon className="ml-2 h-4 w-4" />
                 </Link>
               </div>
