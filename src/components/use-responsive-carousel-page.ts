@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from "react";
 
-export function useResponsiveCarouselPage(itemCount: number, activeIndex: number) {
+export function useResponsiveCarouselPage(
+  itemCount: number,
+  activeIndex: number,
+  desktopItemsPerPage = 3,
+) {
   const [itemsPerPage, setItemsPerPage] = useState<number | null>(null);
 
   useEffect(() => {
@@ -10,7 +14,7 @@ export function useResponsiveCarouselPage(itemCount: number, activeIndex: number
     const desktopQuery = window.matchMedia("(min-width: 1280px)");
 
     const updateItemsPerPage = () => {
-      setItemsPerPage(desktopQuery.matches ? 3 : tabletQuery.matches ? 2 : 1);
+      setItemsPerPage(desktopQuery.matches ? desktopItemsPerPage : tabletQuery.matches ? 2 : 1);
     };
 
     updateItemsPerPage();
@@ -21,7 +25,7 @@ export function useResponsiveCarouselPage(itemCount: number, activeIndex: number
       tabletQuery.removeEventListener("change", updateItemsPerPage);
       desktopQuery.removeEventListener("change", updateItemsPerPage);
     };
-  }, []);
+  }, [desktopItemsPerPage]);
 
   const resolvedItemsPerPage = itemsPerPage ?? 1;
   const pageCount = Math.max(1, Math.ceil(itemCount / resolvedItemsPerPage));

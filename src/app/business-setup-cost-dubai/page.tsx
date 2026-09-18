@@ -5,6 +5,8 @@ import { BusinessSetupCostTable } from "@/components/business-setup-cost-table";
 import { PricingPackages } from "@/components/pricing-packages";
 import { BusinessSetupPricingFaq } from "@/components/business-setup-pricing-faq";
 import { JsonLd } from "@/components/json-ld";
+import { PageGuideLayout } from "@/components/page-guide-layout";
+import { PageSectionNavMobile } from "@/components/page-section-nav";
 import { ReadingProgress } from "@/components/reading-progress";
 import { ServiceCredibilityPanel } from "@/components/service-credibility-panel";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
@@ -26,6 +28,14 @@ import {
 const pageTitle = "Business Setup Cost in Dubai 2026 | Zenesis Prices";
 const pageDescription =
   "Compare Zenesis business setup prices in Dubai: freelance permits from AED 4,000, free zone from AED 7,000, mainland from AED 10,000.";
+
+const pricingPageLinks = [
+  { href: "#starting-prices", label: "Starting prices" },
+  { href: "#compare-prices", label: "Package comparison" },
+  { href: "#cost-drivers", label: "What affects the budget" },
+  { href: "#setup-routes", label: "Compare setup routes" },
+  { href: "#direct-answers", label: "Pricing FAQ" },
+] as const;
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -59,9 +69,17 @@ export default function BusinessSetupCostDubaiPage() {
       ))}
 
       <PageIntro
+        showBottomBorder={false}
+        breadcrumb={[
+          { label: "Business setup", href: "/business-setup" },
+          { label: "Pricing" },
+        ]}
         title="Pricing"
         description="Starting prices for company formation, freelance permits, and offshore structures."
       />
+
+      <PageSectionNavMobile items={pricingPageLinks} />
+      <PageGuideLayout items={pricingPageLinks} credibilityPath="/business-setup-cost-dubai">
 
       <section id="starting-prices" className="pricing-packages-section">
         <div className="pricing-page-container">
@@ -70,7 +88,7 @@ export default function BusinessSetupCostDubaiPage() {
         </div>
       </section>
 
-      <section id="compare-prices" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 border-b border-[#d9d1c5] bg-white py-12 md:py-16">
+      <section id="compare-prices" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 border-b border-[#d9d1c5] bg-[#fbfaf7] py-12 md:py-16">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             title="Package comparison"
@@ -128,7 +146,7 @@ export default function BusinessSetupCostDubaiPage() {
         </div>
       </section>
 
-      <section id="cost-drivers" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-12 md:py-16">
+      <section id="cost-drivers" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-12 md:py-16">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="min-w-0">
           <SectionHeading
@@ -167,7 +185,7 @@ export default function BusinessSetupCostDubaiPage() {
         </div>
       </section>
 
-      <section id="setup-routes" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#f8f6f1] py-11 md:py-14">
+      <section id="setup-routes" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#fbfaf7] py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             title="Still deciding on the structure?"
@@ -177,7 +195,7 @@ export default function BusinessSetupCostDubaiPage() {
           <div className="mt-8 grid gap-4 lg:grid-cols-2">
             <Link
               href="/mainland-vs-free-zone-dubai"
-              className="group grid overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#011735] transition-transform duration-200 hover:-translate-y-0.5 md:grid-cols-[18rem_minmax(0,1fr)]"
+              className="group grid overflow-hidden border border-[#d8d0c2] bg-white text-[#011735] transition-transform duration-200 hover:-translate-y-0.5 md:grid-cols-[18rem_minmax(0,1fr)]"
             >
               <div className="relative min-h-[12rem] overflow-hidden bg-[#e9e3d9] md:min-h-[15rem]">
                 <Image
@@ -195,7 +213,7 @@ export default function BusinessSetupCostDubaiPage() {
             </Link>
             <Link
               href="/offshore"
-              className="group grid overflow-hidden rounded-lg border border-[#d8d0c2] bg-white text-[#011735] transition-transform duration-200 hover:-translate-y-0.5 md:grid-cols-[18rem_minmax(0,1fr)]"
+              className="group grid overflow-hidden border border-[#d8d0c2] bg-white text-[#011735] transition-transform duration-200 hover:-translate-y-0.5 md:grid-cols-[18rem_minmax(0,1fr)]"
             >
               <div className="relative min-h-[12rem] overflow-hidden bg-[#e9e3d9] md:min-h-[15rem]">
                 <Image
@@ -223,6 +241,7 @@ export default function BusinessSetupCostDubaiPage() {
       />
 
       <ServiceCredibilityPanel path="/business-setup-cost-dubai" variant="sources" />
+      </PageGuideLayout>
     </SiteShell>
   );
 }

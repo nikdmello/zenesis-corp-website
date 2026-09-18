@@ -38,7 +38,7 @@ export function HomepageInsightsCarousel({ posts }: HomepageInsightsCarouselProp
     [activeCategory, posts],
   );
   const { activePage, pageCount, isReady, startIndexForPage } =
-    useResponsiveCarouselPage(filteredPosts.length, activeIndex);
+    useResponsiveCarouselPage(filteredPosts.length, activeIndex, 4);
 
   const scrollToCard = (index: number) => {
     const track = trackRef.current;
@@ -100,38 +100,40 @@ export function HomepageInsightsCarousel({ posts }: HomepageInsightsCarouselProp
 
           if (nextIndex !== activeIndex) setActiveIndex(nextIndex);
         }}
-        className="mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="mt-7 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {filteredPosts.map((item) => (
           <Link
             key={item.slug}
             href={`/insights/${item.slug}`}
-            className="group flex min-h-[34rem] w-[88%] shrink-0 snap-start flex-col overflow-hidden rounded-[0.35rem] border border-white/18 bg-white text-[#011735] transition-transform duration-300 hover:-translate-y-0.5 sm:w-[calc((100%-1.25rem)/2)] xl:w-[calc((100%-2.5rem)/3)]"
+            className="group relative flex min-h-[28rem] w-[88%] shrink-0 snap-start flex-col overflow-hidden border border-[#d8d0c2] bg-white text-[#011735] sm:w-[calc((100%-1.25rem)/2)] xl:w-[calc((100%-3.75rem)/4)]"
           >
-            <div className="relative h-52 shrink-0 overflow-hidden bg-[#011735] md:h-56">
+            <div className="relative h-44 shrink-0 overflow-hidden bg-[#011735] md:h-48">
               <Image
                 src={item.heroImageSrc}
                 alt={item.heroImageAlt}
                 fill
-                sizes="(min-width: 1280px) 30vw, (min-width: 640px) 46vw, 88vw"
-                className={`object-cover transition-transform duration-700 group-hover:scale-[1.025] ${item.heroImageClassName ?? "object-center"}`}
+                sizes="(min-width: 1280px) 22vw, (min-width: 640px) 46vw, 88vw"
+                className={`object-cover transition-transform duration-700 ease-out group-hover:scale-[1.018] ${item.heroImageClassName ?? "object-center"}`}
               />
+              <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 border border-white/70" />
             </div>
 
-            <div className="flex flex-1 flex-col p-6">
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.84rem] text-[#011735]/58">
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.78rem] text-[#011735]/58">
                 <span className="font-semibold text-[#8d7453]">{item.category}</span>
                 <span aria-hidden="true">,</span>
                 <span>{item.dateLabel}</span>
               </div>
-              <h3 className="mt-5 text-[1.5rem] font-semibold leading-[1.08] text-[#011735]">
+              <h3 className="mt-4 text-[1.24rem] font-semibold leading-[1.13] text-[#011735]">
                 {item.title}
               </h3>
-              <p className="mt-4 line-clamp-4 text-[1rem] leading-7 text-[#30434b]">
+              <p className="mt-3 line-clamp-3 text-[0.94rem] leading-6 text-[#30434b]">
                 {item.description}
               </p>
-              <span className="mt-auto border-t border-[#d8d0c2] pt-5 text-sm font-semibold text-[#244ba8]">
-                Read article <ArrowRightIcon className="h-4 w-4" />
+              <span className="mt-auto flex items-center justify-between gap-3 border-t border-[#d8d0c2] pt-4 text-sm font-semibold text-[#244ba8]">
+                <span>Read article</span>
+                <ArrowRightIcon className="h-4 w-4 shrink-0" />
               </span>
             </div>
           </Link>

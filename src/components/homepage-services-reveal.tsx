@@ -100,14 +100,14 @@ export function HomepageServicesReveal({
       </div>
 
       <div className="relative mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-        <div className="max-w-[62rem] border-b border-[#cfc5b7] pb-8">
+        <div className="mx-auto max-w-[70rem] border-b border-[#cfc5b7] pb-10 text-center">
           <div>
-            <div className="h-px w-16 bg-[#b88d53]/75" />
-            <h2 className="section-title mt-5 w-full !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-[#07151b] sm:!text-[1.9rem] md:!text-[2.05rem]">
+            <div className="mx-auto h-px w-16 bg-[#b88d53]/75" />
+            <h2 className="home-section-display mt-5 text-[#07151b]">
             Our services
             </h2>
           </div>
-          <p className="mt-5 max-w-[54rem] text-[1.06rem] leading-8 text-[#30434b] md:text-[1.1rem]">
+          <p className="mx-auto mt-5 max-w-[54rem] text-[1.06rem] leading-8 text-[#30434b] md:text-[1.1rem]">
             Zenesis handles company setup, visas, banking, tax, and ongoing compliance for UAE businesses.
           </p>
         </div>

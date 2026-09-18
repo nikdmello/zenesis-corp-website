@@ -947,6 +947,7 @@ type SectionHeadingProps = {
   eyebrow?: string;
   title: string;
   description?: string;
+  display?: boolean;
   eyebrowClassName?: string;
   titleClassName?: string;
   descriptionClassName?: string;
@@ -959,6 +960,7 @@ type CardAccentProps = {
 export function SectionHeading({
   title,
   description,
+  display = false,
   titleClassName,
   descriptionClassName,
 }: SectionHeadingProps) {
@@ -968,7 +970,9 @@ export function SectionHeading({
         <div className="h-px w-16 bg-[#b88d53]/75" />
         <h2
           className={[
-            "section-title mt-5 w-full !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-foreground sm:!text-[1.9rem] md:!text-[2.05rem]",
+            display
+              ? "home-section-display mt-5 w-full text-foreground"
+              : "section-title mt-5 w-full !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-foreground sm:!text-[1.9rem] md:!text-[2.05rem]",
             titleClassName ?? "",
           ]
             .filter(Boolean)

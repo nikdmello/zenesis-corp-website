@@ -21,20 +21,12 @@ export function HeroBackgroundVideo({
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
-
-    if (reducedMotion.matches || connection?.saveData) return;
-
     const timer = window.setTimeout(() => setShouldPlay(true), 0);
     return () => window.clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     if (!shouldPlay) return;
-
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reducedMotion.matches) return;
 
     let frameId = 0;
     let phase: "slow" | "fast" | "fast-settle" = "slow";
@@ -112,6 +104,8 @@ export function HeroBackgroundVideo({
               event.currentTarget.currentTime = 0;
               event.currentTarget.playbackRate = 0.42;
             }
+            event.currentTarget.muted = true;
+            void event.currentTarget.play().catch(() => undefined);
             setIsReady(true);
           }}
           className={`hero-background-video-motion ${isReady ? "opacity-100" : "opacity-0"}`}

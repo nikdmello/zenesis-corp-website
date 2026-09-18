@@ -140,7 +140,7 @@ a {
 }
 
 .pricing-page-container { width: 100%; max-width: 1600px; margin-inline: auto; padding-inline: 24px; }
-.page-intro, .pricing-packages-section {
+.page-intro {
   position: relative; left: 50%; width: 100vw; transform: translateX(-50%);
 }
 .page-intro { background: #011735; color: white; margin-top: -56px; padding: 128px 0 48px; text-align: left; }
@@ -164,9 +164,9 @@ a {
 .page-intro-highlights dt { font-size: 13px; color: #b5c5d6; }
 .page-intro-highlights dd { margin-top: 6px; font-size: 16px; }
 .page-intro-footer { margin-top: 24px; }
-.pricing-packages-section { background: #f8f6f1; padding: 54px 0 64px; }
+.pricing-packages-section { position: relative; width: 100%; background: #fff; padding: 54px 0 64px; }
 .pricing-packages-header { display: grid; grid-template-columns: minmax(0, .8fr) minmax(320px, 1fr); align-items: end; gap: 48px; padding-bottom: 34px; }
-.pricing-packages-header h2 { font-size: clamp(2rem, 3vw, 3rem); font-weight: 560; line-height: 1.04; color: #011735; letter-spacing: -.035em; }
+.pricing-packages-header h2 { font-size: clamp(1.75rem, 2.2vw, 2.05rem); font-weight: 600; line-height: 1.16; color: #011735; letter-spacing: -.02em; }
 .pricing-packages-header > p { max-width: 650px; color: #45586b; font-size: 17px; line-height: 1.65; }
 .pricing-package-group { overflow: hidden; border: 1px solid #cfc5b7; background: white; }
 .pricing-package-group + .pricing-package-group { margin-top: 24px; }
@@ -219,7 +219,7 @@ a {
   .pricing-comparison-table td::before { content: attr(data-label); color: #8d7453; font-size: 11px; font-weight: 750; line-height: 1.45; text-transform: uppercase; letter-spacing: .08em; }
   .pricing-comparison-table .pricing-comparison-price { white-space: normal; font-size: 19px; }
 }
-@media (max-width: 1100px) and (min-width: 768px) {
+@media (max-width: 1350px) and (min-width: 768px) {
   .pricing-package { grid-template-columns: minmax(170px, .8fr) minmax(200px, 1fr) minmax(220px, .8fr); }
   .pricing-package-price strong { font-size: 27px; }
   .pricing-package-actions { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: flex-end; }
@@ -237,7 +237,7 @@ a {
   .page-intro-description { font-size: 16px; }
   .pricing-packages-section { padding-top: 30px; }
   .pricing-packages-header { display: block; padding-bottom: 28px; }
-  .pricing-packages-header h2 { font-size: 30px; }
+  .pricing-packages-header h2 { font-size: 28px; }
   .pricing-packages-header > p { font-size: 16px; }
   .pricing-packages-header h2 + p { margin-top: 12px; }
   .pricing-package-group-heading { padding: 20px; }
@@ -255,7 +255,8 @@ a {
 }
 
 .home-hero-composition {
-  min-height: calc(100svh - 9rem);
+  min-height: 100svh;
+  min-height: 100dvh;
   display: grid;
   grid-template-rows: minmax(360px, 1fr) auto;
   padding-bottom: 40px;
@@ -275,7 +276,54 @@ a {
   max-width: 900px;
   text-wrap: balance;
 }
-.home-hero-support { padding-top: 20px; }
+.home-section-display {
+  font-family: "Century Expanded LT Std", "Century Schoolbook", Georgia, serif !important;
+  font-size: clamp(2.65rem, 5.2vw, 4.75rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.04 !important;
+  letter-spacing: 0 !important;
+  text-wrap: balance;
+}
+.home-section-heading .home-section-display {
+  font-family: "Century Expanded LT Std", "Century Schoolbook", Georgia, serif !important;
+  font-size: clamp(2.65rem, 5.2vw, 4.75rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.04 !important;
+  letter-spacing: 0 !important;
+}
+.home-section-heading > div {
+  margin-inline: auto;
+  max-width: 70rem;
+  text-align: center;
+}
+.home-section-heading > div > div > div {
+  margin-inline: auto;
+}
+.home-section-heading p {
+  margin-inline: auto;
+}
+.homepage-direct-answers > div {
+  text-align: center;
+}
+.homepage-direct-answers h2 {
+  font-family: "Century Expanded LT Std", "Century Schoolbook", Georgia, serif !important;
+  font-size: clamp(2.65rem, 5.2vw, 4.75rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.04 !important;
+  letter-spacing: 0 !important;
+  text-wrap: balance;
+}
+.homepage-direct-answers > div > p {
+  margin-inline: auto;
+  max-width: 54rem;
+}
+.homepage-direct-answers details {
+  text-align: left;
+}
+.home-hero-support {
+  padding-top: 20px;
+  transform: translateY(12px);
+}
 .home-editorial-hero .hero-medallion-stage {
   --medallion-y: 43%;
   --medallion-size: min(82vw, 880px);
@@ -285,17 +333,19 @@ a {
 }
 @media (max-width: 767px) {
   .home-hero-composition {
-    min-height: calc(100svh - 120px);
+    min-height: 100svh;
+    min-height: 100dvh;
     grid-template-rows: minmax(310px, 1fr) auto;
     padding-bottom: 28px;
   }
   .home-hero-display { font-size: 36px; max-width: 520px; }
   .home-hero-heading { transform: translateY(78px); }
+  .home-hero-support { transform: none; }
   .home-editorial-hero .hero-medallion-stage {
     --medallion-size: min(120vw, 650px);
     --medallion-y: 38%;
   }
-  .home-hero-support p { font-size: 15px; line-height: 1.65; }
+  .home-hero-support p { line-height: 1.65; }
 }
 @media (max-width: 767px) and (max-height: 720px) {
   .home-hero-heading { transform: translateY(48px); }

@@ -64,7 +64,7 @@ const legacyZenesisAeRedirects = legacyZenesisAeHosts.flatMap((host) =>
 
 const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
-  allowedDevOrigins: ["192.168.8.67", "192.168.8.69"],
+  allowedDevOrigins: ["192.168.8.67", "192.168.8.69", "192.168.8.126"],
   images: {
     qualities: [68, 75, 76],
     remotePatterns: [

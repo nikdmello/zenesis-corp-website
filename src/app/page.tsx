@@ -15,27 +15,10 @@ import { JsonLd } from "@/components/json-ld";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ServiceAnswerSection } from "@/components/service-answer-section";
 import { SectionHeading, SiteShell } from "@/components/site-shell";
-import {
-  featuredProfile,
-  testimonials,
-} from "@/lib/site-content";
+import { testimonials } from "@/lib/site-content";
 import { insightPosts } from "@/lib/insights";
 import { businessSetupPricingAnswer } from "@/lib/business-setup-pricing";
 import { buildFaqSchema } from "@/lib/seo";
-
-const trustSignals = [
-  {
-    label: "Excellence in company formation",
-    value: "Excellence in Company Formation Award",
-    detail: "Dubai, UAE · 2025",
-  },
-  {
-    label: "Featured Profile",
-    value: "Cecilia D'Cunha in Global Leaders Today",
-    detail:
-      "A full-length profile on Cecilia D'Cunha covering her early offshore incorporation work, her move into the UAE in 1998, and the leadership path that led to Zenesis.",
-  },
-] as const;
 
 const customerPaths = [
   {
@@ -158,21 +141,15 @@ const homepageInsightCards: HomepageInsightCard[] = insightPosts.map(
   }),
 );
 
-const experienceLedger = [
-  { value: "20+", label: "years supporting UAE and international business setup" },
-  { value: "480+", label: "Google reviews from clients and business owners" },
-] as const;
-
 export default function Home() {
-  const googleReviewCountLabel = "480+ reviews";
-  const [companyFormationAward] = trustSignals;
+  const googleReviewCountLabel = "490+ reviews";
   const faqSchema = buildFaqSchema(homepageFaqs);
 
   return (
     <SiteShell currentPath="/">
       <JsonLd data={faqSchema} />
       <div className="relative z-10">
-        <section className="home-editorial-hero relative left-1/2 -mt-10 min-h-[calc(100svh-9rem)] w-screen -translate-x-1/2 overflow-hidden bg-[#011735] text-white md:-mt-14">
+        <section className="home-editorial-hero relative left-1/2 -mt-10 min-h-[100dvh] w-screen -translate-x-1/2 overflow-hidden bg-[#011735] text-white md:-mt-14">
           <div className="hero-medallion-stage absolute inset-0 z-0" aria-hidden="true">
             <HeroBackgroundVideo
               webmSrc="/media/z-medallion-120-v2.webm"
@@ -188,12 +165,15 @@ export default function Home() {
               </h1>
             </div>
             <div className="home-hero-support mx-auto max-w-[48rem] text-center">
-              <p className="hero-reveal hero-reveal-3 mx-auto max-w-[50rem] text-[1rem] leading-7 text-white/78 md:text-[1.16rem] md:leading-8">
-                We provide company formation, licensing, visas, banking, accounting, tax, and ongoing corporate support.
+              <p className="hero-reveal hero-reveal-2 text-[1.18rem] font-semibold leading-7 text-[#ead5aa] md:text-[1.5rem] md:leading-9">
+                20+ years of UAE business experience
+              </p>
+              <p className="hero-reveal hero-reveal-3 mx-auto mt-3 max-w-[58rem] text-[1.12rem] leading-8 text-white/92 md:mt-3.5 md:text-[1.35rem] md:leading-9">
+                We help founders and businesses set up and operate in the UAE. From formation and licensing to visas, banking, accounting, tax and ongoing corporate support, we keep every stage connected.
               </p>
               <div className="hero-reveal hero-reveal-4 mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-7">
                 <ConsultationFormButton
-                  label="Schedule a Free Consultation"
+                  label="Free Consultation"
                   leadingIcon={
                     <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#011735] text-[#f4dfb5] shadow-[0_5px_14px_rgba(17,35,42,0.22)] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105">
                       <svg
@@ -218,18 +198,19 @@ export default function Home() {
                   View starting prices <ArrowRightIcon className="ml-2 h-4 w-4" />
                 </Link>
               </div>
+              <div className="hero-reveal hero-reveal-4 mt-6 flex items-center justify-center gap-3 text-left md:mt-7">
+                <NextImage
+                  src="/logos/google.webp"
+                  alt="Google reviews"
+                  width={168}
+                  height={72}
+                  className="h-9 w-auto object-contain md:h-10"
+                />
+                <p className="text-sm font-semibold text-white/88 md:text-base">
+                  {googleReviewCountLabel}
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
-
-        <section className="relative left-1/2 w-screen -translate-x-1/2 border-y border-white/12 bg-[#011735] text-white">
-          <div className="mx-auto grid w-full max-w-[84rem] grid-cols-2 px-5 md:px-12 xl:px-20">
-            {experienceLedger.map((item, index) => (
-              <ScrollReveal key={item.value} delay={index * 90} className="flex flex-col items-center justify-center border-r border-white/14 px-4 py-6 text-center last:border-r-0 md:min-h-[9.5rem] md:px-12 md:py-8">
-                <p className="text-[2rem] font-semibold leading-none text-[#ead5aa] md:text-[2.65rem]">{item.value}</p>
-                <p className="mt-3 max-w-[22rem] text-[0.75rem] leading-5 text-white/68 md:mt-4 md:text-[0.92rem] md:leading-6">{item.label}</p>
-              </ScrollReveal>
-            ))}
           </div>
         </section>
 
@@ -238,11 +219,12 @@ export default function Home() {
       <section id="premier-clients" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#011735] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
-          <div className="max-w-[50rem]">
-            <h2 className="section-title w-full border-t border-[#b88d53]/55 pt-5 !text-[1.75rem] font-semibold !leading-[1.16] !tracking-[-0.02em] text-white sm:!text-[1.9rem] md:!text-[2.05rem]">
+          <div className="mx-auto max-w-[70rem] text-center">
+            <div className="mx-auto h-px w-16 bg-[#b88d53]/75" />
+            <h2 className="home-section-display mt-5 text-white">
               Our premier clients
             </h2>
-            <p className="mt-4 max-w-4xl text-[1.06rem] leading-8 text-white/84 md:text-[1.1rem]">
+            <p className="mx-auto mt-5 max-w-4xl text-[1.06rem] leading-8 text-white/84 md:text-[1.1rem]">
               Companies that work with Zenesis on incorporation, compliance, residency, and business administration.
             </p>
           </div>
@@ -262,9 +244,10 @@ export default function Home() {
       >
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
-          <div className="mb-9">
+          <div className="home-section-heading mb-9">
             <SectionHeading
-              eyebrow="Recognition"
+              eyebrow="recognition"
+              display
               title="Awards and recognition"
               description="Zenesis received the Excellence in Company Formation Award in Dubai in 2025."
             />
@@ -277,17 +260,6 @@ export default function Home() {
               Best Real Estate Management Consultancy of the Year
             </h3>
 
-            <div className="mt-8 grid gap-6 border-t border-[#cfc4b4] pt-7 md:grid-cols-2">
-              <div>
-                <p className="text-sm font-semibold text-[#8d7453]">{companyFormationAward.detail}</p>
-                <h3 className="mt-3 text-[1.25rem] font-semibold text-[#011735]">{companyFormationAward.value}</h3>
-              </div>
-              <Link href={featuredProfile.href} className="group border-l-0 border-[#cfc4b4] md:border-l md:pl-7">
-                <p className="text-sm font-semibold text-[#8d7453]">Leadership profile</p>
-                <h3 className="mt-3 text-[1.25rem] font-semibold text-[#011735] transition-colors group-hover:text-[#244ba8]">Cecilia D&apos;Cunha in Global Leaders Today</h3>
-                <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#244ba8]">Read the profile <ArrowRightIcon className="h-4 w-4" /></span>
-              </Link>
-            </div>
           </div>
         </ScrollReveal>
         </div>
@@ -296,14 +268,17 @@ export default function Home() {
       <section id="homepage-insights" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 bg-[#011735] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
+          <div className="home-section-heading">
           <SectionHeading
             eyebrow="Blog"
+            display
             eyebrowClassName="!text-white/68"
             title="Latest insights"
             titleClassName="!text-white"
             description="Guidance on setting up, operating, and keeping a business compliant in the UAE."
             descriptionClassName="!text-white/84"
           />
+          </div>
         </ScrollReveal>
 
         <div className="mt-10">
@@ -317,29 +292,16 @@ export default function Home() {
       <section id="client-reviews" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-20 border-y border-[#d8d0c2] bg-[#f8f6f1] py-16 md:py-20">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <ScrollReveal>
-          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <div className="home-section-heading">
             <SectionHeading
               eyebrow="Google Reviews"
+              display
               eyebrowClassName="!text-[#8d7453]"
               title="Client reviews"
               titleClassName="!text-[#07151b]"
               description="What clients say about working with Zenesis across company formation, visas, banking, and long-term business support."
               descriptionClassName="!text-muted"
             />
-            <div className="flex items-center gap-4 md:shrink-0">
-              <NextImage
-                src="/logos/google.webp"
-                alt="Google reviews"
-                width={168}
-                height={72}
-                className="h-14 w-auto object-contain md:h-16"
-              />
-              <div>
-                <p className="text-[1.35rem] font-semibold tracking-[-0.03em] text-[#07151b] md:text-[1.55rem]">
-                  {googleReviewCountLabel}
-                </p>
-              </div>
-            </div>
           </div>
         </ScrollReveal>
 
@@ -355,6 +317,7 @@ export default function Home() {
         title="Direct answers"
         description="Common questions on setup routes, structures, visas, banking, attestation, and ongoing compliance in the UAE."
         items={homepageFaqs}
+        contentClassName="homepage-direct-answers"
       />
 
       </div>
