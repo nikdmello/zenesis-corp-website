@@ -192,6 +192,11 @@ const sourceLibrary = {
     publisher: "UAE Federal Tax Authority",
     href: "https://tax.gov.ae/en/media.centre/news/fta.confirms.taxable.persons.eligible.for.the.small.business.relief.must.submit.simplified.corporate.tax.returns.within.prescribed.legal.deadline.aspx",
   },
+  smallBusinessReliefExtension: {
+    title: "Extension of Small Business Relief through 2029",
+    publisher: "UAE Ministry of Finance",
+    href: "https://mof.gov.ae/en/news/ministry-of-finance-announces-extension-of-small-business-relief-for-corporate-tax-purposes-until-31-december-2029/",
+  },
   taxProceduresLaw: {
     title: "Federal Decree-Law No. 28 of 2022 on Tax Procedures",
     publisher: "UAE Ministry of Finance",
@@ -272,8 +277,13 @@ const insightCredibilityBySlug: Record<string, InsightCredibility> = {
     sources: [sourceLibrary.corporateTaxReturns, sourceLibrary.corporateTaxRecords, sourceLibrary.corporateTaxGeneral, sourceLibrary.smallBusinessReliefFiling],
   },
   "uae-corporate-tax-filing-deadlines-2026": {
-    updatedLabel: "September 3, 2026",
-    sources: [sourceLibrary.corporateTaxReturns, sourceLibrary.corporateTaxRecords, sourceLibrary.smallBusinessReliefFiling],
+    updatedLabel: "September 15, 2026",
+    sources: [
+      sourceLibrary.corporateTaxReturns,
+      sourceLibrary.corporateTaxRecords,
+      sourceLibrary.smallBusinessReliefFiling,
+      sourceLibrary.smallBusinessReliefExtension,
+    ],
   },
   "uae-corporate-tax-record-keeping-requirements": {
     updatedLabel: "July 22, 2026",
@@ -1599,9 +1609,10 @@ export const insightPosts: InsightPost[] = [
     heroImageAlt: "Corporate tax filing preparation and deadline planning for UAE businesses",
     heroImageClassName: "object-center",
     keyTakeaways: [
+      "Companies whose financial year ended on 31 December 2025 must file their Corporate Tax return and pay any Corporate Tax due by 30 September 2026.",
       "The corporate tax return is generally due within nine months after the end of the relevant tax period.",
+      "Eligible businesses must elect Small Business Relief through the return, even when the relief results in no taxable income.",
       "The deadline is only useful if the books, calculations, and supporting documents are ready before the filing window becomes urgent.",
-      "Free zone companies, mainland companies, and group structures should all confirm filing readiness early.",
     ],
     relatedServiceHrefs: [
       "/corporate-tax-filing-services-in-the-uae",
@@ -1654,6 +1665,10 @@ export const insightPosts: InsightPost[] = [
           {
             text: "The AED 3 million revenue threshold applies to the relevant tax period and every previous tax period. Keep the accounting records and supporting evidence needed to show that revenue remained within the threshold.",
             sourceIndexes: [3],
+          },
+          {
+            text: "Small Business Relief has been extended to tax periods ending on or before 31 December 2029. It is not available to Qualifying Free Zone Persons or members of multinational enterprise groups with consolidated group revenue above AED 3.15 billion.",
+            sourceIndexes: [4],
           },
         ],
       },
