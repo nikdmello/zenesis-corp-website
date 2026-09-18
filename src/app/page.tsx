@@ -166,7 +166,7 @@ export default function Home() {
             </div>
             <div className="home-hero-support mx-auto max-w-[70rem] text-center">
               <p className="hero-reveal hero-reveal-2 font-[family-name:var(--font-roboto)] text-[1.08rem] font-light leading-7 text-[#ead5aa] sm:text-[1.18rem] md:text-[1.5rem] md:leading-[1.1]">
-                Business setup and ongoing compliance, since 2005
+                Supporting businesses since 2005.
               </p>
               <p className="hero-reveal hero-reveal-3 mx-auto mt-3 hidden max-w-[58rem] font-[family-name:var(--font-roboto)] text-[1.12rem] font-light leading-[1.1] text-white/92 md:mt-3.5 md:block md:text-[2rem]">
                 We help founders and businesses set up and operate in the UAE. From formation and licensing to visas, banking, accounting, tax and ongoing corporate support, we keep every stage connected.
