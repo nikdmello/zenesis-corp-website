@@ -52,7 +52,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
     config.relatedInsightSlugs,
   );
   const canonicalPath = `/${config.slug}`;
-  const linkContext = createContextualLinker(canonicalPath, 5);
+  const linkContext = createContextualLinker(canonicalPath, 8);
   const guideLinks: PageGuideItem[] = [
     { href: "#overview", label: config.introTitle },
     ...knowledgeSections.map((section) => ({
@@ -188,7 +188,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                   </div>
 
                   {config.overviewImageSrc ? (
-                    <div className="overflow-hidden border-y border-[#d9d1c5] bg-[#f8f6f1] py-4 lg:mt-0">
+                    <div className="overflow-hidden lg:mt-0">
                       <Image
                         src={config.overviewImageSrc}
                         alt={config.overviewImageAlt ?? config.title}
@@ -221,7 +221,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                         className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b]/92 md:text-[1.04rem]"
                       >
                         <span className="mt-[0.72rem] h-2 w-2 shrink-0 rounded-full bg-[#8d7453]" />
-                        <span>{item}</span>
+                        <span>{linkContext(item)}</span>
                       </li>
                     ))}
                   </ul>
@@ -287,7 +287,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                       className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b]/92 md:text-[1.04rem]"
                     >
                       <span className="mt-[0.72rem] h-2 w-2 shrink-0 rounded-full bg-[#244ba8]" />
-                      <span>{point}</span>
+                      <span>{linkContext(point)}</span>
                     </li>
                   ))}
                 </ul>
@@ -361,7 +361,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
                 </h2>
                 <div className="mt-3 space-y-2 text-[1rem] leading-7 text-[#07151b]/78">
                   {config.supportParagraphs.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
+                    <p key={paragraph}>{linkContext(paragraph)}</p>
                   ))}
                 </div>
               </div>

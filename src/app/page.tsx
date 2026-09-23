@@ -248,17 +248,13 @@ export default function Home() {
             <SectionHeading
               eyebrow="recognition"
               display
-              title="Awards and recognition"
-              description="Zenesis received the Excellence in Company Formation Award in Dubai in 2025."
+              title="Recognised and celebrated"
+              description="Zenesis was named Best Real Estate Management Consultancy of the Year."
             />
           </div>
 
           <div className="border-y border-[#cfc4b4] py-6 md:py-8">
             <AwardsVideoExperience />
-
-            <h3 className="mt-4 text-[1.35rem] font-semibold leading-[1.16] text-[#011735] sm:hidden">
-              Best Real Estate Management Consultancy of the Year
-            </h3>
 
           </div>
         </ScrollReveal>

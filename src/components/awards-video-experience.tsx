@@ -48,14 +48,6 @@ export function AwardsVideoExperience() {
             <span className="ml-1 block h-0 w-0 border-y-[9px] border-l-[15px] border-y-transparent border-l-white md:border-y-[11px] md:border-l-[18px]" aria-hidden="true" />
           </span>
 
-          <span className="absolute inset-x-5 bottom-5 hidden max-w-[48rem] text-white sm:block md:inset-x-8 md:bottom-8">
-            <span className="block text-[1.45rem] font-semibold leading-[1.08] md:text-[2.35rem]">
-              Best Real Estate Management Consultancy of the Year
-            </span>
-            <span className="mt-3 hidden max-w-[40rem] text-[0.95rem] leading-6 text-white/78 sm:block">
-              Watch Zenesis receive the award and founder Cecilia D&apos;Cunha share a few words from the stage.
-            </span>
-          </span>
         </button>
       ) : null}
     </div>

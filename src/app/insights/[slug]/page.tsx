@@ -117,7 +117,7 @@ export default async function InsightArticlePage({
     notFound();
   }
 
-  const linkContext = createContextualLinker(`/insights/${post.slug}`, 6);
+  const linkContext = createContextualLinker(`/insights/${post.slug}`, 10);
 
   const credibility = getInsightCredibility(post.slug);
   const authorProfile =
@@ -353,7 +353,7 @@ export default async function InsightArticlePage({
                         className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b] md:text-[1.04rem]"
                       >
                         <span className="mt-[0.7rem] h-2 w-2 shrink-0 rounded-full bg-[#8d7453]" />
-                        <span>{item}</span>
+                        <span>{linkContext(item)}</span>
                       </li>
                     ))}
                   </ul>
@@ -436,7 +436,7 @@ export default async function InsightArticlePage({
                         {section.callout.title}
                       </h3>
                       <p className="mt-2 text-[0.98rem] leading-7 text-[#07151b]/82">
-                        {section.callout.text}
+                        {linkContext(section.callout.text)}
                       </p>
                     </aside>
                   ) : null}
@@ -449,7 +449,7 @@ export default async function InsightArticlePage({
                           className="flex gap-3 py-4 text-[1.02rem] leading-8 text-[#07151b]/92 md:text-[1.04rem]"
                         >
                           <span className="mt-[0.7rem] h-2 w-2 shrink-0 rounded-full bg-[#8d7453]" />
-                          <span>{item}</span>
+                          <span>{linkContext(item)}</span>
                         </li>
                       ))}
                     </ul>
@@ -462,7 +462,7 @@ export default async function InsightArticlePage({
                           key={item}
                           className="py-4 pl-2 text-[1.02rem] leading-8 text-[#07151b]/92 md:text-[1.04rem]"
                         >
-                          {item}
+                          {linkContext(item)}
                         </li>
                       ))}
                     </ol>
@@ -527,7 +527,7 @@ export default async function InsightArticlePage({
                           </span>
                         </summary>
                         <p className="mt-4 max-w-5xl text-[1.02rem] leading-8 text-[#07151b]/84 md:text-[1.04rem]">
-                          {item.answer}
+                          {linkContext(item.answer)}
                         </p>
                       </details>
                     ))}
@@ -589,7 +589,7 @@ export default async function InsightArticlePage({
                         key={paragraph}
                         className="text-[1.08rem] leading-[1.9rem] text-[#07151b] md:text-[1.22rem] md:leading-[2.3rem]"
                       >
-                        {paragraph}
+                        {linkContext(paragraph)}
                       </p>
                     ))}
                   </div>

@@ -1,5 +1,6 @@
 import NextImage from "next/image";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ReadingProgress } from "@/components/reading-progress";
 import { PageIntro, SectionHeading, SiteShell } from "@/components/site-shell";
 import { PageGuideLayout } from "@/components/page-guide-layout";
@@ -45,8 +46,10 @@ export default function AboutPage() {
                   <div className="space-y-5 text-[1.04rem] leading-[1.9rem] text-[#07151b]/92 md:text-[1.08rem] md:leading-[1.95rem]">
                     <p>
                       Zenesis Corporation supports entrepreneurs, investors, SMEs, and
-                      international businesses with company formation, accounting, tax,
-                      visas, banking support, and ongoing compliance in the UAE.
+                      international businesses with <Link href="/business-setup" className="font-semibold !text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4 transition-colors hover:!text-[#17377f]">company formation</Link>,{" "}
+                      <Link href="/accounting-tax" className="font-semibold !text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4 transition-colors hover:!text-[#17377f]">accounting and tax</Link>,{" "}
+                      <Link href="/visa-and-banking" className="font-semibold !text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4 transition-colors hover:!text-[#17377f]">visas and banking support</Link>, and{" "}
+                      <Link href="/corporate-support" className="font-semibold !text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4 transition-colors hover:!text-[#17377f]">ongoing compliance</Link> in the UAE.
                     </p>
                     <p>
                       Cecilia D&apos;Cunha founded Zenesis in the UAE in 2005. The firm has

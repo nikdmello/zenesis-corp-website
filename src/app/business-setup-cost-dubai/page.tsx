@@ -123,15 +123,24 @@ export default function BusinessSetupCostDubaiPage() {
                 the way a licensed company does.
               </p>
               <p>
-                If the business needs a registered company, Zenesis Free Zone Company
-                Setup without a visa starts from AED 7,000. The final cost depends on
+                If the business needs a registered company, Zenesis{" "}
+                <Link className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4" href="/free-zones">
+                  Free Zone Company Setup
+                </Link>{" "}
+                without a visa starts from AED 7,000. The final cost depends on
                 the selected free zone, business activity, office or flexi-desk package,
-                government fees, approvals, and any additional visa or banking support
+                government fees, approvals, and any additional{" "}
+                <Link className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4" href="/visa-and-banking">
+                  visa or banking support
+                </Link>{" "}
                 required.
               </p>
               <p>
                 A complete setup budget may also include visas, an office or flexi-desk
-                package, government approvals, and banking support. Licence renewal is a separate recurring cost
+                package, government approvals, and{" "}
+                <Link className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4" href="/open-a-bank-account-easily">
+                  banking support
+                </Link>. Licence renewal is a separate recurring cost
                 when the initial licence term ends and should be planned from the outset.
                 The lowest-priced route is not automatically the right fit if the business
                 needs employees, specific banking support, or broader trading activity.

@@ -10,6 +10,7 @@ import {
   ConsultationSessionPrompt,
 } from "@/components/consultation-button";
 import { HelpWidget } from "@/components/help-widget";
+import { NewsletterSignup } from "@/components/newsletter-signup";
 import { HeaderSearch, SiteSearchForm } from "@/components/site-search-form";
 import { contactDetails, navigation, socialLinks, whatsappHref } from "@/lib/site-content";
 
@@ -563,6 +564,8 @@ export function SiteShell({
       >
         {children}
       </main>
+
+      <NewsletterSignup />
 
       <footer
         className="relative left-1/2 w-screen -translate-x-1/2 border-t border-[#d8d0c2] bg-[#f8f6f1]"

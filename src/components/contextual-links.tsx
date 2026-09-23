@@ -11,6 +11,18 @@ type ContextualLinkRule = {
 };
 
 const contextualLinkRules: readonly ContextualLinkRule[] = [
+  { href: "/insights/just-registered-uae-company-what-comes-next", phrases: ["after company registration", "after incorporation", "post-registration", "first 30 to 90 days"] },
+  { href: "/insights/uae-mandatory-e-invoicing-deadlines-guide", phrases: ["e-invoicing deadlines", "UAE e-invoicing", "e-invoicing"] },
+  { href: "/insights/corporate-tax-mistakes-trigger-audits-uae", phrases: ["corporate tax audit readiness", "corporate tax audit", "tax audit"] },
+  { href: "/insights/complete-guide-to-corporate-tax-groups-uae", phrases: ["corporate tax group", "tax group"] },
+  { href: "/insights/financial-year-2026-uae-compliance-guide", phrases: ["financial year", "tax period end", "year-end compliance"] },
+  { href: "/insights/uae-corporate-tax-filing-deadlines-2026", phrases: ["corporate tax filing deadline", "filing deadlines", "nine months from the end"] },
+  { href: "/insights/uae-corporate-tax-record-keeping-requirements", phrases: ["seven-year retention", "record-keeping requirements", "supporting records"] },
+  { href: "/insights/uae-free-zone-corporate-tax-rules-clarified-2026", phrases: ["free zone corporate tax", "qualifying free zone person", "0% corporate tax"] },
+  { href: "/insights/business-setup-mistakes-dubai", phrases: ["business setup mistakes", "common setup mistakes", "cheapest setup package"] },
+  { href: "/insights/business-consultant-beyond-company-registration", phrases: ["after registration", "after setup", "business consultant"] },
+  { href: "/insights/complete-dubai-golden-visa-guide", phrases: ["Golden Visa categories", "Golden Residency categories", "Golden Visa requirements"] },
+  { href: "/insights/uae-visa-reforms-2025-entrepreneurs-expats", phrases: ["visa reforms", "residency reforms"] },
   { href: "/business-setup-cost-dubai", phrases: ["business setup pricing", "starting prices"] },
   { href: "/general-trading-license-dubai", phrases: ["general trading licence", "general trading license"] },
   { href: "/corporate-tax-registration-in-the-uae", phrases: ["corporate tax registration"] },
@@ -58,7 +70,7 @@ function renderInlineLinks(text: string, inlineLinks: readonly InlineLink[]) {
   return parts;
 }
 
-export function createContextualLinker(currentPath: string, maxLinks = 5) {
+export function createContextualLinker(currentPath: string, maxLinks = 8) {
   const usedDestinations = new Set<string>();
   let linksAdded = 0;
 
