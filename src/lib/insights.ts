@@ -122,6 +122,16 @@ const sourceLibrary = {
     publisher: "The Official Platform of the UAE Government",
     href: "https://u.ae/en/information-and-services/business/doing-business-in-free-zones/starting-a-business-in-a-free-zone",
   },
+  dubaiTradeLicenceRenewal: {
+    title: "Request to renew trade licence",
+    publisher: "Invest in Dubai",
+    href: "https://www.investindubai.gov.ae/en/business-setup/business-setup-services/renew-trade-licence",
+  },
+  ddaCommercialLicenceRenewal: {
+    title: "Commercial License Renewal",
+    publisher: "Dubai Development Authority",
+    href: "https://dda.gov.ae/en/registration-licensing/existing-businesses/license-renewal/commercial-license-renewal",
+  },
   goldenVisa: {
     title: "Golden visa eligibility and benefits",
     publisher: "The Official Platform of the UAE Government",
@@ -225,6 +235,15 @@ const sourceLibrary = {
 } satisfies Record<string, InsightSource>;
 
 const insightCredibilityBySlug: Record<string, InsightCredibility> = {
+  "uae-trade-licence-renewal-guide": {
+    updatedLabel: "September 25, 2026",
+    sources: [
+      sourceLibrary.dubaiTradeLicenceRenewal,
+      sourceLibrary.ddaCommercialLicenceRenewal,
+      sourceLibrary.mainlandSetup,
+      sourceLibrary.freeZoneSetup,
+    ],
+  },
   "just-registered-uae-company-what-comes-next": {
     updatedLabel: "August 12, 2026",
     sources: [
@@ -316,6 +335,143 @@ export function getInsightCredibility(slug: string) {
 }
 
 export const insightPosts: InsightPost[] = [
+  {
+    slug: "uae-trade-licence-renewal-guide",
+    category: "Business Setup",
+    title: "UAE Trade Licence Renewal Guide: What to Check Before Expiry",
+    displayTitle: "Renewing a UAE Trade Licence",
+    description:
+      "A practical UAE trade licence renewal checklist covering mainland and free zone routes, documents, approvals, amendments, timing, and common causes of delay.",
+    dateLabel: "September 25, 2026",
+    author: "Cecilia D'Cunha",
+    heroImageSrc: versionedAssetPath("/services/license-renewals.webp"),
+    heroImageAlt: "UAE business team reviewing trade licence renewal requirements before expiry",
+    heroImageClassName: "object-center",
+    keyTakeaways: [
+      "A trade licence renewal is authority-specific. The route, documents, fees, and external approvals depend on the jurisdiction and licensed activity.",
+      "Review the company record before paying the renewal invoice, especially if the business needs to change an activity, manager, shareholder, trade name, or office details.",
+      "Starting the review around 30 days before expiry gives time to resolve tenancy, approval, immigration, and company-record issues.",
+    ],
+    relatedServiceHrefs: [
+      "/corporate-support",
+      "/business-setup",
+      "/document-attestation-services-in-uae",
+    ],
+    relatedInsightSlugs: [
+      "just-registered-uae-company-what-comes-next",
+      "business-setup-mistakes-dubai",
+    ],
+    sections: [
+      {
+        title: "UAE Trade Licence Renewal: Quick Answer",
+        paragraphs: [
+          "To renew a UAE trade licence, confirm the licensing authority, review the current company record, clear any authority-specific requirements, upload the requested documents, pay the renewal fees, and download the renewed licence. The exact process depends on whether the company is mainland, free zone, or offshore and on the activity it carries out.",
+          "For Dubai mainland companies, Invest in Dubai offers renewal through its portal, service centres, and SMS channel. Free zone companies renew through the relevant free zone authority or its online portal. Other emirates and offshore jurisdictions follow their own procedures.",
+        ],
+        callout: {
+          type: "action",
+          title: "Start with the company record",
+          text: "Check the expiry date, licensed activities, shareholders, manager, office details, immigration position, and any external approvals before starting the renewal request.",
+        },
+      },
+      {
+        title: "When Should You Start the Renewal?",
+        paragraphs: [
+          "Zenesis recommends reviewing the file around 30 days before expiry. This is a planning recommendation, not one universal government deadline. A simple renewal may be processed quickly, but a tenancy issue, external approval, amendment, expired supporting record, or outstanding authority requirement can add time.",
+          "Invest in Dubai states that its Dubai mainland renewal service can be completed instantly when the file is ready. Dubai Development Authority also lists immediate delivery for its online commercial licence renewal service. Those published service times do not account for the time needed to fix an incomplete or inaccurate company file.",
+        ],
+      },
+      {
+        title: "Mainland and Free Zone Renewal Routes",
+        table: {
+          columns: ["Route", "Where renewal is handled", "What to confirm"],
+          rows: [
+            ["Dubai mainland", "Invest in Dubai or an authorised service channel", "Business activity, licence details, premises position, and any external approval"],
+            ["Other mainland emirates", "The relevant emirate's economic development or licensing authority", "Local renewal steps, fees, premises requirements, and activity approvals"],
+            ["Free zone", "The company's free zone authority or portal", "Licence package, office or desk arrangement, establishment card, visas, and zone-specific requirements"],
+            ["Offshore", "The registered agent and relevant offshore registry", "Registered-agent requirements, company records, good standing, and annual fees"],
+          ],
+        },
+        paragraphs: [
+          "There is no single UAE renewal checklist that applies unchanged to every company. A mainland commercial licence, a free zone professional licence, and an offshore company may all have different documents, payment routes, and connected requirements.",
+        ],
+      },
+      {
+        title: "Trade Licence Renewal Checklist",
+        bullets: [
+          "Confirm the licence expiry date and renewal window",
+          "Check that the trade name, activities, legal form, shareholders, and manager details are accurate",
+          "Review the tenancy, office, flexi-desk, or registered-office position where applicable",
+          "Check whether the licensed activity requires an external authority approval or no-objection certificate",
+          "Confirm the establishment card, immigration file, and visa position if they are connected to the renewal",
+          "Prepare the current trade licence and the documents requested by the relevant authority",
+          "Review any outstanding authority fees, penalties, or filing requirements",
+          "Pay through the authority's approved channel and save the renewed licence and receipt",
+          "Update the renewed licence with banks, tax records, insurers, clients, and other parties where required",
+        ],
+      },
+      {
+        title: "What Can Delay a Trade Licence Renewal?",
+        paragraphs: [
+          "Most renewal delays come from a connected requirement rather than the payment itself. Dubai Development Authority, for example, lists external authority approval as a possible requirement based on the licensed activity and asks for current good-standing or licence evidence for certain branch renewals.",
+        ],
+        bullets: [
+          "An expired or unsuitable tenancy, office, or desk arrangement",
+          "An external approval that has not been renewed",
+          "Company details that no longer match the authority record",
+          "A shareholder, manager, activity, or trade-name change that needs a separate amendment",
+          "Outstanding penalties, compliance requirements, or authority queries",
+          "Expired passport, establishment card, or immigration documents where relevant",
+          "A branch document or foreign parent-company record that needs updating or attestation",
+        ],
+      },
+      {
+        title: "When Renewal Is Not Enough",
+        paragraphs: [
+          "A renewal keeps the existing licence active. It does not automatically change the company structure or correct an outdated record. If the business has changed its activities, ownership, manager, trade name, legal form, or office details, the authority may require an amendment before or alongside renewal.",
+          "Treating a material company change as a routine renewal can leave the licence inconsistent with the way the business actually operates. Review the intended changes first so the amendment and renewal can be sequenced correctly.",
+        ],
+      },
+      {
+        title: "What to Do After Renewal",
+        numberedBullets: [
+          "Save the renewed licence and payment receipt in the company records.",
+          "Share the updated licence with the bank, landlord, insurer, key clients, or other parties that require it.",
+          "Update connected government and tax records where the relevant authority requires the renewed document.",
+          "Check the next expiry dates for the establishment card, visas, office arrangement, external approvals, and insurance.",
+          "Record the next renewal date and start the review before it becomes urgent.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can a UAE trade licence be renewed online?",
+        answer: "Many authorities provide an online renewal route. Dubai mainland companies can use Invest in Dubai, while free zone companies normally use their zone's portal or service channel. The route depends on the licensing authority.",
+      },
+      {
+        question: "How much does a UAE trade licence renewal cost?",
+        answer: "There is no single UAE-wide renewal price. Fees depend on the authority, activity, legal form, office arrangement, external approvals, visa or immigration requirements, and any outstanding penalties or amendments.",
+      },
+      {
+        question: "What documents are needed for trade licence renewal?",
+        answer: "The authority may request the current licence, tenancy or office evidence, shareholder or manager documents, external approvals, branch good-standing evidence, or other company records. The exact list depends on the jurisdiction and activity.",
+      },
+      {
+        question: "Can company details be changed during renewal?",
+        answer: "Some changes require a separate licence amendment. Review changes to the activity, ownership, manager, trade name, legal form, or office before submitting the renewal so the authority process is handled in the right order.",
+      },
+      {
+        question: "What happens if a trade licence expires?",
+        answer: "An expired licence can interrupt lawful operations and may affect authority standing, visas, banking, contracts, and future transactions. Penalties and consequences vary by jurisdiction, so the company record should be checked with the relevant authority.",
+      },
+    ],
+    closingTitle: "Keep the licence and the company record aligned",
+    closingParagraphs: [
+      "A clean renewal starts before the invoice is paid. The licence, company details, premises, approvals, immigration position, and supporting records should all tell the same story.",
+      "Zenesis can review the company file, identify the connected requirements, and coordinate the renewal route for the UAE jurisdictions it supports.",
+    ],
+    closingCta: "Book a consultation to review your trade licence renewal before expiry.",
+  },
   {
     slug: "just-registered-uae-company-what-comes-next",
     category: "Business Setup",
