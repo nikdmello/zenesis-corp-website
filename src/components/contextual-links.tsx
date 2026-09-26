@@ -11,6 +11,7 @@ type ContextualLinkRule = {
 };
 
 const contextualLinkRules: readonly ContextualLinkRule[] = [
+  { href: "/insights/uae-trade-licence-renewal-guide", phrases: ["trade licence renewal", "trade license renewal", "licence renewal checklist", "license renewal checklist"] },
   { href: "/insights/just-registered-uae-company-what-comes-next", phrases: ["after company registration", "after incorporation", "post-registration", "first 30 to 90 days"] },
   { href: "/insights/uae-mandatory-e-invoicing-deadlines-guide", phrases: ["e-invoicing deadlines", "UAE e-invoicing", "e-invoicing"] },
   { href: "/insights/corporate-tax-mistakes-trigger-audits-uae", phrases: ["corporate tax audit readiness", "corporate tax audit", "tax audit"] },

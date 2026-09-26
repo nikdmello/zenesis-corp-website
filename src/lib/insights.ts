@@ -236,7 +236,7 @@ const sourceLibrary = {
 
 const insightCredibilityBySlug: Record<string, InsightCredibility> = {
   "uae-trade-licence-renewal-guide": {
-    updatedLabel: "September 25, 2026",
+    updatedLabel: "September 26, 2026",
     sources: [
       sourceLibrary.dubaiTradeLicenceRenewal,
       sourceLibrary.ddaCommercialLicenceRenewal,
@@ -338,10 +338,10 @@ export const insightPosts: InsightPost[] = [
   {
     slug: "uae-trade-licence-renewal-guide",
     category: "Business Setup",
-    title: "UAE Trade Licence Renewal Guide: What to Check Before Expiry",
-    displayTitle: "Renewing a UAE Trade Licence",
+    title: "Trade Licence Renewal Dubai: Process, Documents and Costs",
+    displayTitle: "Trade Licence Renewal in Dubai and the UAE",
     description:
-      "A practical UAE trade licence renewal checklist covering mainland and free zone routes, documents, approvals, amendments, timing, and common causes of delay.",
+      "Planning a trade licence renewal in Dubai? Check the process, documents, costs, approvals, amendments, and free zone differences before expiry.",
     dateLabel: "September 25, 2026",
     author: "Cecilia D'Cunha",
     heroImageSrc: versionedAssetPath("/services/license-renewals.webp"),
@@ -363,10 +363,17 @@ export const insightPosts: InsightPost[] = [
     ],
     sections: [
       {
-        title: "UAE Trade Licence Renewal: Quick Answer",
+        title: "Trade Licence Renewal in Dubai: Quick Answer",
         paragraphs: [
-          "To renew a UAE trade licence, confirm the licensing authority, review the current company record, clear any authority-specific requirements, upload the requested documents, pay the renewal fees, and download the renewed licence. The exact process depends on whether the company is mainland, free zone, or offshore and on the activity it carries out.",
-          "For Dubai mainland companies, Invest in Dubai offers renewal through its portal, service centres, and SMS channel. Free zone companies renew through the relevant free zone authority or its online portal. Other emirates and offshore jurisdictions follow their own procedures.",
+          "Trade licence renewal in Dubai starts with the licensing authority. Review the current company record, clear any authority-specific requirements, upload the requested documents, pay the renewal fees, and download the renewed licence. The exact process depends on whether the company is mainland, free zone, or offshore and on the activity it carries out.",
+          {
+            text: "For Dubai mainland companies, Invest in Dubai offers renewal through its portal, service centres, and SMS channel. Free zone companies renew through the relevant free zone authority or its online portal. Other emirates and offshore jurisdictions follow their own procedures.",
+            inlineLinks: [
+              { text: "Dubai mainland companies", href: "/mainland" },
+              { text: "Free zone companies", href: "/free-zones" },
+              { text: "offshore jurisdictions", href: "/offshore" },
+            ],
+          },
         ],
         callout: {
           type: "action",
@@ -429,11 +436,26 @@ export const insightPosts: InsightPost[] = [
         title: "When Renewal Is Not Enough",
         paragraphs: [
           "A renewal keeps the existing licence active. It does not automatically change the company structure or correct an outdated record. If the business has changed its activities, ownership, manager, trade name, legal form, or office details, the authority may require an amendment before or alongside renewal.",
-          "Treating a material company change as a routine renewal can leave the licence inconsistent with the way the business actually operates. Review the intended changes first so the amendment and renewal can be sequenced correctly.",
+          {
+            text: "Treating a material company change as a routine renewal can leave the licence inconsistent with the way the business actually operates. Review the intended changes first so the amendment and renewal can be sequenced correctly.",
+            inlineLinks: [
+              { text: "amendment and renewal", href: "/corporate-support#company-amendments" },
+            ],
+          },
         ],
       },
       {
         title: "What to Do After Renewal",
+        paragraphs: [
+          {
+            text: "Renewing the licence does not replace the company's separate accounting, tax, immigration, and ongoing corporate support obligations. Check each connected record against the renewed licence rather than assuming the systems update automatically.",
+            inlineLinks: [
+              { text: "accounting, tax", href: "/accounting-tax" },
+              { text: "immigration", href: "/uae-company-visa" },
+              { text: "corporate support", href: "/corporate-support" },
+            ],
+          },
+        ],
         numberedBullets: [
           "Save the renewed licence and payment receipt in the company records.",
           "Share the updated licence with the bank, landlord, insurer, key clients, or other parties that require it.",
@@ -501,6 +523,7 @@ export const insightPosts: InsightPost[] = [
     relatedInsightSlugs: [
       "business-consultant-beyond-company-registration",
       "business-setup-mistakes-dubai",
+      "uae-trade-licence-renewal-guide",
       "uae-corporate-tax-filing-deadlines-2026",
       "uae-corporate-tax-record-keeping-requirements",
     ],
@@ -2314,6 +2337,7 @@ export const insightPosts: InsightPost[] = [
     ],
     relatedInsightSlugs: [
       "business-consultant-beyond-company-registration",
+      "uae-trade-licence-renewal-guide",
       "uae-corporate-tax-filing-deadlines-2026",
     ],
     sections: [

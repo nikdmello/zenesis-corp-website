@@ -181,9 +181,9 @@ export default async function InsightArticlePage({
     <aside className="sticky top-24 hidden max-h-[calc(100vh-7rem)] overflow-y-auto py-8 lg:block">
       {authorProfile ? (
         <section className="border-b border-[#d9d1c5] pb-6">
-          <div className="flex items-center gap-3">
-            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-[#d8d0c2] bg-[#f5efe4]">
-              <Image src={authorProfile.imageSrc} alt={post.author} fill sizes="48px" className="scale-[1.15] object-cover object-center" />
+          <div className="flex items-center gap-4">
+            <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-[#d8d0c2] bg-[#f5efe4]">
+              <Image src={authorProfile.imageSrc} alt={post.author} fill sizes="64px" quality={90} className="object-cover object-center" />
             </div>
             <div className="min-w-0">
               <p className="text-sm font-medium text-[#8d7453]">Written by</p>
@@ -247,13 +247,14 @@ export default async function InsightArticlePage({
                 <section className="border-y border-[#e4dbce] py-5 lg:hidden">
                   <div className="flex items-center">
                     <div className="flex min-w-0 items-center gap-4">
-                      <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-[#d8d0c2] bg-[#f5efe4]">
+                      <div className="relative h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden rounded-full border border-[#d8d0c2] bg-[#f5efe4]">
                         <Image
                           src={authorProfile.imageSrc}
                           alt={post.author}
                           fill
-                          sizes="56px"
-                          className="scale-[1.15] object-cover object-center"
+                          sizes="72px"
+                          quality={90}
+                          className="object-cover object-center"
                         />
                       </div>
                       <div className="min-w-0">
