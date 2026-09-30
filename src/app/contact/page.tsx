@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import NextImage from "next/image";
-import { ArrowRightIcon } from "@/components/arrow-right-icon";
 import { ConsultationInlinePanel } from "@/components/consultation-form";
 import { PageIntro, SiteShell } from "@/components/site-shell";
 import { versionedAssetPath } from "@/lib/asset-paths";
@@ -29,7 +28,7 @@ export default function ContactPage() {
         preloadBackgroundImage
       />
 
-      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-white pb-0 pt-14 md:pt-18">
+      <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 overflow-hidden bg-white pb-0 pt-10 md:pt-12">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 right-0 w-[68%] max-w-[56rem] sm:w-[60%] lg:w-[52%]"
@@ -43,129 +42,87 @@ export default function ContactPage() {
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,#ffffff_0%,rgba(255,255,255,0.78)_18%,rgba(255,255,255,0.24)_52%,rgba(255,255,255,0.08)_100%)]" />
         </div>
-        <div className="relative z-10 mx-auto grid w-full max-w-[100rem] gap-8 px-6 md:px-12 lg:grid-cols-[1.02fr_0.98fr] xl:px-20">
+        <div className="relative z-10 mx-auto grid w-full max-w-[100rem] gap-7 px-6 md:px-12 lg:grid-cols-[1.08fr_0.92fr] xl:px-20">
           <ConsultationInlinePanel />
 
-          <div className="flex flex-col gap-6">
-            <div className="grid gap-4 sm:grid-cols-2">
-              {contactDetails.map((item) => {
+          <div className="flex h-full flex-col gap-5">
+            <div className="border border-[#d8d0c2] bg-white shadow-[0_10px_28px_rgba(17,35,42,0.06)]">
+              <div className="grid sm:grid-cols-2">
+              {contactDetails.map((item, index) => {
                 const isOffice = item.label === "Office";
                 const isWhatsApp = item.label === "Mobile / WhatsApp";
-
-                if (isOffice) {
-                  return (
-                    <a
-                      key={item.label}
-                      href={googleMapsHref}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#011735] shadow-[0_10px_28px_rgba(17,35,42,0.06)] transition-transform duration-200 hover:-translate-y-0.5"
-                    >
-                      <h2 className="text-[1.04rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.08rem]">
-                        {item.label}
-                      </h2>
-                      <p className="mt-4 text-[1.02rem] font-semibold leading-7 tracking-[-0.03em] text-foreground md:text-[1.04rem]">
-                        {item.value}
-                      </p>
-                      <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors group-hover:text-accent-strong">
-                        Open in Google Maps
-                        <span aria-hidden="true">↗</span>
-                      </span>
-                    </a>
-                  );
-                }
-
-                if (isWhatsApp) {
-                  return (
-                    <a
-                      key={item.label}
-                      href={whatsappHref}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#011735] shadow-[0_10px_28px_rgba(17,35,42,0.06)] transition-transform duration-200 hover:-translate-y-0.5"
-                    >
-                      <h2 className="text-[1.04rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.08rem]">
-                        {item.label}
-                      </h2>
-                      <div className="mt-4 flex items-center gap-3">
-                        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_24px_rgba(37,211,102,0.22)]">
-                          <WhatsAppIcon className="h-5 w-5 fill-current" />
-                        </span>
-                        <p className="text-[1.06rem] font-semibold leading-8 tracking-[-0.03em] text-foreground md:text-[1.1rem]">
-                          {item.value}
-                        </p>
-                      </div>
-                    </a>
-                  );
-                }
-
+                const href = isOffice
+                  ? googleMapsHref
+                  : isWhatsApp
+                    ? whatsappHref
+                    : item.label === "Email"
+                      ? `mailto:${item.value}`
+                      : `tel:${item.value.replace(/\s/g, "")}`;
                 return (
-                  <div
+                  <a
                     key={item.label}
-                    className="rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#011735] shadow-[0_10px_28px_rgba(17,35,42,0.06)]"
+                    href={href}
+                    target={isOffice || isWhatsApp ? "_blank" : undefined}
+                    rel={isOffice || isWhatsApp ? "noreferrer" : undefined}
+                    className={`group p-5 !text-[#011735] transition-colors hover:bg-[#f8f6f1] ${index < contactDetails.length - 1 ? "border-b border-[#e4dbce]" : ""} ${index % 2 === 0 ? "sm:border-r sm:border-[#e4dbce]" : ""} ${index === 2 ? "sm:border-b-0" : ""}`}
                   >
-                    <h2 className="text-[1.04rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.08rem]">
+                    <h2 className="text-[0.82rem] font-semibold text-[#8d7453]">
                       {item.label}
                     </h2>
-                    <p className="mt-4 text-[1.06rem] font-semibold leading-8 tracking-[-0.03em] text-foreground md:text-[1.1rem]">
-                      {item.value}
-                    </p>
-                  </div>
+                    <div className="mt-2 flex items-start gap-2.5">
+                      {isWhatsApp ? (
+                        <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white">
+                          <WhatsAppIcon className="h-4 w-4 fill-current" />
+                        </span>
+                      ) : null}
+                      <p className={`${isOffice ? "text-[0.92rem] leading-6" : "text-[1rem] leading-7"} font-semibold tracking-[-0.02em] text-foreground`}>
+                        {item.value}
+                      </p>
+                    </div>
+                    {isOffice ? <span className="mt-2 inline-flex text-xs font-semibold text-accent">Open in Maps ↗</span> : null}
+                  </a>
                 );
               })}
-            </div>
+              </div>
 
-            <article className="rounded-lg border border-[#d8d0c2] bg-white p-6 text-[#011735] shadow-[0_10px_28px_rgba(17,35,42,0.06)]">
-              <h2 className="text-[1.24rem] font-semibold tracking-[-0.04em] text-foreground md:text-[1.32rem]">
-                Social Media
-              </h2>
-              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-[#e4dbce] px-5 py-4">
+                <span className="text-[0.82rem] font-semibold text-[#8d7453]">Follow Zenesis</span>
                 {socialLinks.map((item) => (
                   <a
                     key={item.label}
                     href={item.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group inline-flex min-h-12 items-center justify-between gap-3 rounded-[0.7rem] border border-[#e2cfaa] bg-[linear-gradient(135deg,#fffaf0_0%,#f1dfbd_58%,#dfc48f_100%)] px-4 py-3 text-[0.96rem] font-semibold text-[#011735] shadow-[0_10px_24px_rgba(17,35,42,0.09),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-[1.025] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
+                    className="inline-flex items-center gap-2 text-sm font-semibold !text-[#011735] transition-colors hover:!text-[#244ba8]"
                   >
-                    <span className="inline-flex items-center gap-2.5">
-                      {item.label === "Facebook" ? <FacebookIcon className="h-5 w-5 fill-current" /> : null}
-                      {item.label === "LinkedIn" ? <LinkedInIcon className="h-5 w-5 fill-current" /> : null}
-                      {item.label === "Instagram" ? <InstagramIcon className="h-5 w-5 stroke-current" /> : null}
-                      {item.label}
-                    </span>
-                    <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                    {item.label === "Facebook" ? <FacebookIcon className="h-4 w-4 fill-current" /> : null}
+                    {item.label === "LinkedIn" ? <LinkedInIcon className="h-4 w-4 fill-current" /> : null}
+                    {item.label === "Instagram" ? <InstagramIcon className="h-4 w-4 stroke-current" /> : null}
+                    {item.label}
                   </a>
                 ))}
               </div>
-            </article>
+            </div>
 
-            <article className="overflow-hidden rounded-lg border border-[#d8d0c2] bg-white p-4 shadow-[0_10px_28px_rgba(17,35,42,0.06)] md:p-5">
-              <div className="flex items-center justify-between gap-4 px-2 pb-4 pt-1">
-                <div>
-                  <h2 className="text-[1.04rem] font-semibold tracking-[-0.03em] text-foreground md:text-[1.08rem]">
-                    Office Map
-                  </h2>
-                  <p className="mt-3 text-[clamp(1.7rem,2.6vw,2.6rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-foreground">
-                    Visit the Dubai office.
-                  </p>
-                </div>
+            <article className="flex flex-col overflow-hidden border border-[#d8d0c2] bg-white shadow-[0_10px_28px_rgba(17,35,42,0.06)] lg:flex-1">
+              <div className="flex items-center justify-between gap-4 px-5 py-4">
+                <h2 className="text-[1rem] font-semibold tracking-[-0.02em] text-foreground">Dubai office</h2>
                 <a
                   href={googleMapsHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="group shrink-0 inline-flex min-h-11 items-center gap-2 border border-[#c7a66a] bg-[#011735] px-4 py-2 text-sm font-semibold !text-white shadow-[0_10px_24px_rgba(17,35,42,0.16)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#dfc488] hover:bg-[#18313a] hover:!text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2"
+                  className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold !text-[#244ba8] hover:underline"
                 >
                   <span>Open in Maps</span>
                   <span aria-hidden="true" className="text-base leading-none transition-transform group-hover:translate-x-0.5">↗</span>
                 </a>
               </div>
-              <div className="overflow-hidden rounded-md border border-foreground/10">
+              <div className="overflow-hidden border-t border-[#e4dbce] lg:flex-1">
                 <iframe
                   src={googleMapsEmbedHref}
                   title="Zenesis location on Google Maps"
                   suppressHydrationWarning
-                  className="h-[34rem] w-full border-0"
+                  className="h-[18rem] w-full border-0 md:h-[20rem] lg:h-full lg:min-h-[18rem]"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />

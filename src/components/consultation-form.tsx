@@ -851,11 +851,11 @@ export function ConsultationInlinePanel({
           page_path: getCurrentPagePath(),
         });
       }}
-      className="overflow-hidden rounded-lg border border-foreground/10 bg-[#fffdfa] shadow-[0_12px_34px_rgba(17,35,42,0.07)]"
+      className="overflow-hidden border border-foreground/10 bg-[#fffdfa] shadow-[0_12px_34px_rgba(17,35,42,0.07)]"
     >
-      <div className="border-b border-white/12 bg-[#011735] p-6 text-white md:p-8">
-        <div className="grid items-start gap-5 md:grid-cols-[3.25rem_minmax(0,1fr)] md:gap-6">
-          <span className="flex h-12 w-12 items-center justify-center rounded-md border border-[#ead5aa]/45 bg-white/[0.06] text-[#ead5aa] md:h-[3.25rem] md:w-[3.25rem]">
+      <div className="border-b border-white/12 bg-[#011735] p-5 text-white md:p-6">
+        <div className="grid items-start gap-4 md:grid-cols-[2.75rem_minmax(0,1fr)] md:gap-5">
+          <span className="flex h-11 w-11 items-center justify-center border border-[#ead5aa]/45 bg-white/[0.06] text-[#ead5aa]">
             <svg
               aria-hidden="true"
               viewBox="0 0 24 24"
@@ -872,17 +872,17 @@ export function ConsultationInlinePanel({
             </svg>
           </span>
           <div>
-            <h2 className="text-[clamp(1.8rem,2.6vw,2.5rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-white">
+            <h2 className="text-[clamp(1.65rem,2.2vw,2.15rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-white">
               Free consultation
             </h2>
-            <p className="mt-3 max-w-[38rem] text-[0.98rem] leading-7 text-white/76 md:text-base">
-              Tell us what you need help with. Our team will review your enquiry and contact you to discuss the right next steps.
+            <p className="mt-2 max-w-[38rem] text-[0.94rem] leading-6 text-white/76">
+              Tell us what you need help with and our team will contact you about the next steps.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="p-6 md:p-8">
+      <div className="p-5 md:p-6">
         {submittedPayload ? (
           <div className="grid gap-5">
             <div className="rounded-md border border-foreground/10 bg-[#f8f6f1] p-5">
@@ -917,7 +917,7 @@ export function ConsultationInlinePanel({
           </div>
         ) : (
           <>
-            <div className="mt-7 grid gap-4">
+            <div className="grid gap-3.5">
               <div className="grid gap-2">
                 <p className="text-[1.02rem] font-semibold text-foreground md:text-[1.08rem]">
                   What do you need help with?
@@ -932,7 +932,7 @@ export function ConsultationInlinePanel({
                       : `Request: ${presetEnquiry}`}
                   </p>
                 ) : null}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {enquiryShortcuts.map((item) => (
                     <button
                       key={item.label}
@@ -946,7 +946,7 @@ export function ConsultationInlinePanel({
 
                         setSelectedShortcutLabels(nextLabels);
                       }}
-                      className={`rounded-full border px-4 py-2.5 text-[0.98rem] font-medium transition-colors ${
+                      className={`rounded-full border px-3 py-2 text-[0.9rem] font-medium transition-colors ${
                         selectedShortcutLabels.includes(item.label)
                           ? "border-accent bg-[rgba(36,75,168,0.08)] text-accent"
                           : "border-foreground/10 bg-white text-foreground hover:border-accent/40 hover:bg-[rgba(36,75,168,0.04)]"
@@ -966,7 +966,7 @@ export function ConsultationInlinePanel({
                 <select
                   name="preferredJurisdiction"
                   defaultValue=""
-                  className="rounded-[0.55rem] border border-[#8d7453]/22 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-all focus:border-[#b79056] focus:shadow-[0_0_0_4px_rgba(183,144,86,0.12)]"
+                  className="rounded-[0.4rem] border border-[#8d7453]/22 bg-white px-4 py-2.5 text-base font-normal text-foreground shadow-inner outline-none transition-all focus:border-[#b79056] focus:shadow-[0_0_0_4px_rgba(183,144,86,0.12)]"
                 >
                   <option value="">Select a jurisdiction</option>
                   {jurisdictionOptions.map((option) => (
@@ -977,16 +977,30 @@ export function ConsultationInlinePanel({
                 </select>
               </label>
 
-              <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={nameId}>
-                Name
-                <input
-                  id={nameId}
-                  name="name"
-                  required
-                  className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
-                  autoComplete="name"
-                />
-              </label>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={nameId}>
+                  Name
+                  <input
+                    id={nameId}
+                    name="name"
+                    required
+                    className="rounded-[0.4rem] border border-foreground/12 bg-white px-4 py-2.5 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                    autoComplete="name"
+                  />
+                </label>
+
+                <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={emailId}>
+                  Email
+                  <input
+                    id={emailId}
+                    name="email"
+                    type="email"
+                    required
+                    className="rounded-[0.4rem] border border-foreground/12 bg-white px-4 py-2.5 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                    autoComplete="email"
+                  />
+                </label>
+              </div>
 
               <div className="grid gap-2">
                 <p className="text-sm font-semibold text-foreground">Mobile number</p>
@@ -1005,24 +1019,12 @@ export function ConsultationInlinePanel({
                     id={mobileId}
                     name="mobile"
                     required
-                    className="min-w-0 rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                    className="min-w-0 rounded-[0.4rem] border border-foreground/12 bg-white px-4 py-2.5 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
                     autoComplete="tel-national"
                     inputMode="tel"
                   />
                 </div>
               </div>
-
-              <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={emailId}>
-                Email
-                <input
-                  id={emailId}
-                  name="email"
-                  type="email"
-                  required
-                  className="rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
-                  autoComplete="email"
-                />
-              </label>
 
               <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={noteId}>
                 <span>
@@ -1033,7 +1035,7 @@ export function ConsultationInlinePanel({
                   value={additionalNote}
                   onChange={(event) => setAdditionalNote(event.currentTarget.value)}
                   rows={2}
-                  className="resize-none rounded-xl border border-foreground/12 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
+                  className="resize-none rounded-[0.4rem] border border-foreground/12 bg-white px-4 py-2.5 text-base font-normal text-foreground shadow-inner outline-none transition-colors focus:border-accent focus:shadow-[0_0_0_4px_rgba(36,75,168,0.1)]"
                   placeholder="Add any short detail you want included."
                 />
               </label>
@@ -1058,7 +1060,7 @@ export function ConsultationInlinePanel({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="mt-6 w-full rounded-[0.7rem] border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3.5 text-sm font-semibold tracking-[0.015em] !text-[#011735] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0"
+              className="mt-5 w-full border border-[#f6e4bd]/90 bg-[linear-gradient(135deg,#fff9ec_0%,#edd9b2_52%,#d9b97e_100%)] px-6 py-3 text-sm font-semibold tracking-[0.015em] !text-[#011735] shadow-[0_14px_30px_rgba(17,35,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all hover:-translate-y-0.5 hover:brightness-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79056] focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0"
             >
               {isSubmitting ? "Submitting..." : "Submit enquiry"}
             </button>
