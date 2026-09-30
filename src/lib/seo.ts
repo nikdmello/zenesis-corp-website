@@ -178,7 +178,7 @@ export function getOrganizationSchemas() {
       name: siteName,
       url: siteUrl,
       description:
-        "Dubai-based business setup, accounting, tax, visa, banking, and corporate support for UAE companies, founders, investors, and SMEs.",
+        "Dubai-based business setup, accounting, tax, visa, banking, corporate support, and professional training.",
       image: getAbsoluteUrl(defaultSocialImage),
       telephone: phone,
       email,
@@ -215,6 +215,9 @@ export function getOrganizationSchemas() {
         "VAT filing in the UAE",
         "Business bank account opening in the UAE",
         "UAE company visas",
+        "Professional training in Dubai",
+        "Community management training",
+        "Leadership development",
       ],
       contactPoint: [
         {

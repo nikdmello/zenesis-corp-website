@@ -65,6 +65,16 @@ const customerPaths = [
     lead: "Maintain or change a company",
     items: ["Renewals and amendments", "Liquidation and restoration", "Document attestation"],
   },
+  {
+    title: "Professional training",
+    href: "/training",
+    icon: "training",
+    cta: "Training programmes",
+    imageSrc: "/services/jeevan-professional-training.webp",
+    imageAlt: "Jeevan D'Mello leading a professional training session",
+    lead: "Develop people and teams",
+    items: ["Community management", "Leadership development", "Workshops and university sessions"],
+  },
 ] as const;
 
 const homepageFaqs = [
@@ -169,7 +179,7 @@ export default function Home() {
                 Supporting businesses since 2005.
               </p>
               <p className="hero-reveal hero-reveal-3 mx-auto mt-3 hidden max-w-[58rem] font-[family-name:var(--font-roboto)] text-[1.12rem] font-light leading-[1.1] text-white/92 md:mt-3.5 md:block md:text-[2rem]">
-                We help founders and businesses set up and operate in the UAE. From formation and licensing to visas, banking, accounting, tax and ongoing corporate support, we keep every stage connected.
+                We help founders, businesses, and professional teams operate with more confidence in the UAE. Our work covers formation, visas, banking, accounting, tax, corporate support, and training.
               </p>
               <div className="hero-reveal hero-reveal-4 mt-5 flex flex-nowrap items-center justify-center gap-3 md:mt-7 md:gap-4">
                 <ConsultationFormButton

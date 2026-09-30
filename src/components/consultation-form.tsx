@@ -152,6 +152,11 @@ const enquiryShortcuts = [
       "I need help with renewals, company changes, PRO support, or ongoing corporate administration in the UAE.",
   },
   {
+    label: "Professional training",
+    value:
+      "I would like to discuss a professional training programme for an organisation, university, team, or student group.",
+  },
+  {
     label: "General consultation",
     value:
       "I would like a consultation to understand the right next step for my business in the UAE.",

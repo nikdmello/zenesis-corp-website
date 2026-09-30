@@ -83,6 +83,10 @@ export const navigation = [
           { label: "Branch and representative offices", href: "/corporate-support#branch-representative-office" },
         ],
       },
+      {
+        title: "Professional Training",
+        links: [{ label: "Training programmes", href: "/training" }],
+      },
     ],
   },
   { label: "Pricing", href: "/business-setup-cost-dubai" },
@@ -136,6 +140,11 @@ export const serviceGroups = [
     title: "Investor and Residency Support",
     description:
       "Business banking guidance and UAE visa-related support, including company visa and Golden Visa services for businesses and founders operating through the UAE.",
+  },
+  {
+    title: "Professional Training",
+    description:
+      "Practical programmes in community management, leadership, customer experience, and professional development led by Prof. Jeevan D'Mello.",
   },
 ] as const;
 

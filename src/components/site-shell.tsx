@@ -335,7 +335,7 @@ export function SiteShell({
                         <div
                           className={`grid gap-2.5 ${
                             isServicesMenu
-                              ? "md:grid-cols-[0.9fr_1fr_0.9fr_1.1fr_1.1fr] md:gap-0"
+                              ? "md:grid-cols-[0.9fr_1fr_0.9fr_1.05fr_1.05fr_0.9fr] md:gap-0"
                               : groupCount > 1
                                 ? "md:grid-cols-2"
                                 : "md:grid-cols-1"
@@ -582,8 +582,8 @@ export function SiteShell({
               className="h-10 w-auto object-contain brightness-0 saturate-0"
             />
             <p className="mt-4 max-w-md text-[1.08rem] leading-8 text-foreground/78">
-              Business setup, accounting and tax, and corporate support for
-              companies operating through Dubai and the UAE.
+              Business setup, accounting and tax, corporate support, and
+              professional training in Dubai and the UAE.
             </p>
           </div>
 
@@ -770,6 +770,8 @@ function getServiceGroupHref(groupTitle: string) {
       return "/corporate-support";
     case "Visa and Banking":
       return "/visa-and-banking";
+    case "Professional Training":
+      return "/training";
     default:
       return "/";
   }

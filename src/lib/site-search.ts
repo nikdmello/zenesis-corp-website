@@ -164,6 +164,24 @@ const topLevelPages: SearchDocument[] = [
       "corporate support UAE corporate secretarial compliance UBO ultimate beneficial owner records filings register ESR economic substance regulations historical review renewals amendments liquidation restoration branch representative office document attestation legalization",
   },
   {
+    href: "/training",
+    title: "Professional training",
+    description:
+      "Training led by Prof. Jeevan D'Mello for community-management professionals, leadership teams, universities, and students.",
+    type: "Service",
+    section: "Services",
+    keywords: [
+      "training",
+      "professional training",
+      "Jeevan D'Mello",
+      "community management training",
+      "leadership workshops",
+      "university teaching",
+    ],
+    searchText:
+      "professional training Jeevan D'Mello community management education leadership workshops masterclasses university students property managers boards associations Dubai UAE Zenesis",
+  },
+  {
     href: "/insights",
     title: "Insights",
     description:

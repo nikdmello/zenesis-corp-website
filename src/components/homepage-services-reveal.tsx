@@ -6,7 +6,7 @@ type ServiceRevealItem = {
   title: string;
   href: string;
   items: readonly string[];
-  icon: "business" | "accounting" | "visa" | "support";
+  icon: "business" | "accounting" | "visa" | "support" | "training";
   imageSrc: string;
   imageAlt: string;
   lead: string;
@@ -21,6 +21,7 @@ const stageNumberByIndex: Record<number, string> = {
   1: "02",
   2: "03",
   3: "04",
+  4: "05",
 };
 
 function ServiceIcon({ type }: { type: ServiceRevealItem["icon"] }) {
@@ -58,11 +59,21 @@ function ServiceIcon({ type }: { type: ServiceRevealItem["icon"] }) {
     );
   }
 
+  if (type === "support") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className={common}>
+        <circle cx="12" cy="12" r="4.25" strokeWidth="1.5" />
+        <path d="M12 5.25v2.5M12 16.25v2.5M5.25 12h2.5M16.25 12h2.5" strokeWidth="1.6" strokeLinecap="round" />
+        <path d="M12 9.8v2.4l1.7 1.2" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className={common}>
-      <circle cx="12" cy="12" r="4.25" strokeWidth="1.5" />
-      <path d="M12 5.25v2.5M12 16.25v2.5M5.25 12h2.5M16.25 12h2.5" strokeWidth="1.6" strokeLinecap="round" />
-      <path d="M12 9.8v2.4l1.7 1.2" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="m4 9 8-4 8 4-8 4-8-4Z" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M7 11v4.2c1.4 1.2 3.1 1.8 5 1.8s3.6-.6 5-1.8V11" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M20 9v5" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
