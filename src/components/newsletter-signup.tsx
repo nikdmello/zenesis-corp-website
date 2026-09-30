@@ -77,6 +77,7 @@ export function NewsletterSignup() {
     <section className="relative left-1/2 -mt-px w-screen -translate-x-1/2 border-y border-[#d8d0c2] bg-[#f8f6f1] py-11 md:py-14">
       <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
         <div className="text-center">
+          <div aria-hidden="true" className="mx-auto mb-5 h-px w-16 bg-[#b88d53]/75" />
           <h2 className="home-section-display text-[#07151b]">Join our newsletter</h2>
         </div>
 

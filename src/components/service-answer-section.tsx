@@ -28,6 +28,10 @@ export function ServiceAnswerSection({
     >
       <div className={`mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20 ${contentClassName}`}>
         <div>
+          <div
+            aria-hidden="true"
+            className={`mb-5 h-px w-16 bg-[#b88d53]/75 ${contentClassName.includes("homepage-direct-answers") ? "mx-auto" : ""}`}
+          />
           <h2 className={articleSectionHeadingClassName}>{title}</h2>
           <p className="mt-4 text-[1.02rem] leading-8 text-[#07151b]/76 md:text-[1.06rem]">
             {description}
