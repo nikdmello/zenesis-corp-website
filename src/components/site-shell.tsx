@@ -688,13 +688,10 @@ export function SiteShell({
               {contactDetails.map((item) => {
                 const isEmail = item.label === "Email";
                 const isWhatsApp = item.label === "Mobile / WhatsApp";
-                const isPhone = item.label === "Main line";
                 const href = isEmail
                   ? `mailto:${item.value}`
                   : isWhatsApp
                     ? whatsappHref
-                  : isPhone
-                    ? `tel:${item.value.replace(/\s+/g, "")}`
                     : null;
 
                 return (

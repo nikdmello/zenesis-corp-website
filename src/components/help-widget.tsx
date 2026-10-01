@@ -12,8 +12,8 @@ const quickQuestionTopics = helpTopics.filter((topic) =>
 );
 
 const mobilePhoneNumber =
-  contactDetails.find((item) => item.label === "Main line")?.value.replace(/\s+/g, "") ??
-  "+97144474997";
+  contactDetails.find((item) => item.label === "Mobile / WhatsApp")?.value.replace(/\s+/g, "") ??
+  "+971589142200";
 
 export function HelpWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -110,7 +110,7 @@ export function HelpWidget() {
                     />
                     <ActionLink
                       href={`tel:${mobilePhoneNumber}`}
-                      label="Call the office"
+                      label="Call Zenesis"
                       icon={<PhoneIcon className="h-4 w-4" />}
                     />
                     <ActionLink

@@ -55,16 +55,14 @@ export default function ContactPage() {
                   ? googleMapsHref
                   : isWhatsApp
                     ? whatsappHref
-                    : item.label === "Email"
-                      ? `mailto:${item.value}`
-                      : `tel:${item.value.replace(/\s/g, "")}`;
+                    : `mailto:${item.value}`;
                 return (
                   <a
                     key={item.label}
                     href={href}
                     target={isOffice || isWhatsApp ? "_blank" : undefined}
                     rel={isOffice || isWhatsApp ? "noreferrer" : undefined}
-                    className={`group p-5 !text-[#011735] transition-colors hover:bg-[#f8f6f1] ${index < contactDetails.length - 1 ? "border-b border-[#e4dbce]" : ""} ${index % 2 === 0 ? "sm:border-r sm:border-[#e4dbce]" : ""} ${index === 2 ? "sm:border-b-0" : ""}`}
+                    className={`group p-5 !text-[#011735] transition-colors hover:bg-[#f8f6f1] ${isOffice ? "sm:col-span-2 sm:border-t sm:border-[#e4dbce]" : "border-b border-[#e4dbce] sm:border-b-0"} ${index === 0 ? "sm:border-r sm:border-[#e4dbce]" : ""}`}
                   >
                     <h2 className="text-[0.82rem] font-semibold text-[#8d7453]">
                       {item.label}

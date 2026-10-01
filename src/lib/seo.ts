@@ -138,7 +138,6 @@ export function stringifyJsonLd(data: unknown) {
 }
 
 export function getOrganizationSchemas() {
-  const phone = getContactValue("Main line");
   const whatsapp = getContactValue("Mobile / WhatsApp");
   const email = getContactValue("Email");
   const officeAddress = getContactValue("Office");
@@ -154,7 +153,7 @@ export function getOrganizationSchemas() {
       url: siteUrl,
       logo: getAbsoluteUrl("/icon.png"),
       email,
-      telephone: phone,
+      telephone: whatsapp,
       sameAs: socialLinks.map((item) => item.href),
       founder: {
         "@type": "Person",
@@ -180,7 +179,7 @@ export function getOrganizationSchemas() {
       description:
         "Dubai-based business setup, accounting, tax, visa, banking, corporate support, and professional training.",
       image: getAbsoluteUrl(defaultSocialImage),
-      telephone: phone,
+      telephone: whatsapp,
       email,
       priceRange: "AED 4,000+",
       address: {
@@ -223,7 +222,7 @@ export function getOrganizationSchemas() {
         {
           "@type": "ContactPoint",
           contactType: "customer service",
-          telephone: phone,
+          telephone: whatsapp,
           email,
           areaServed: "AE",
           availableLanguage: ["English"],

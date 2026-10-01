@@ -235,7 +235,6 @@ export const officeLocations = [
 ] as const;
 
 export const contactDetails = [
-  { label: "Main line", value: "+971 4 4474997" },
   { label: "Mobile / WhatsApp", value: "+971 58 914 2200" },
   { label: "Email", value: "info@zenesiscorp.com" },
   {
