@@ -38,7 +38,7 @@ export const helpTopics: HelpTopic[] = [
     title: "Should I choose mainland or free zone?",
     shortLabel: "Mainland vs free zone",
     answer:
-      "Mainland usually fits businesses that need direct UAE market access and broader local operating flexibility. Free zone is often better for founder-led setups that want a simpler package, 100% foreign ownership, and a route aligned to services, trade, or international activity.",
+      "Mainland usually fits businesses that will operate directly across the UAE, need local premises, pursue local contracts, or carry out an activity that requires mainland licensing. Free zone is often better for founder-led companies that want a packaged setup and do not need the same mainland operating position.",
     href: "/free-zones",
     hrefLabel: "Compare setup routes",
     keywords: [
@@ -57,7 +57,7 @@ export const helpTopics: HelpTopic[] = [
     title: "When is offshore setup used?",
     shortLabel: "Offshore setup",
     answer:
-      "Offshore is typically used for holding structures, asset ownership, and international arrangements rather than day-to-day local UAE operating activity. It is usually the wrong route if the business needs local trading, office presence, or staff visas.",
+      "UAE offshore routes such as Ajman, RAK, and Jebel Ali provide a UAE registry for suitable holding, ownership, and international uses. International routes such as BVI, Nevis, Mauritius, Seychelles, and Hong Kong use a non-UAE registry for cross-border ownership, assets, or business. Neither is the normal route for local UAE trading, office operations, or residence visas.",
     href: "/offshore",
     hrefLabel: "View offshore setup",
     keywords: [

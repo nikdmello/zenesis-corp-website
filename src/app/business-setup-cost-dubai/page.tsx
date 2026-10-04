@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { BusinessSetupCostTable } from "@/components/business-setup-cost-table";
 import { PricingPackages } from "@/components/pricing-packages";
 import { BusinessSetupPricingFaq } from "@/components/business-setup-pricing-faq";
 import { JsonLd } from "@/components/json-ld";
@@ -30,9 +29,8 @@ const pageDescription =
   "Compare Zenesis business setup prices in Dubai: freelance permits from AED 4,000, free zone from AED 7,000, mainland from AED 10,000.";
 
 const pricingPageLinks = [
-  { href: "#starting-prices", label: "Starting prices" },
-  { href: "#compare-prices", label: "Package comparison" },
-  { href: "#cost-drivers", label: "What affects the budget" },
+  { href: "#starting-prices", label: "Choose your setup" },
+  { href: "#cost-drivers", label: "Pricing factors" },
   { href: "#setup-routes", label: "Compare setup routes" },
   { href: "#direct-answers", label: "Pricing FAQ" },
 ] as const;
@@ -75,7 +73,7 @@ export default function BusinessSetupCostDubaiPage() {
           { label: "Pricing" },
         ]}
         title="Pricing"
-        description="Starting prices for company formation, freelance permits, and offshore structures."
+        description="Compare freelance, free zone, mainland, and offshore routes by how you plan to work, trade, and live in the UAE."
       />
 
       <PageSectionNavMobile items={pricingPageLinks} />
@@ -88,79 +86,12 @@ export default function BusinessSetupCostDubaiPage() {
         </div>
       </section>
 
-      <section id="compare-prices" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 border-b border-[#d9d1c5] bg-[#fbfaf7] py-12 md:py-16">
-        <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <SectionHeading
-            title="Package comparison"
-          />
-
-          <div className="mt-8 md:mt-10">
-            <BusinessSetupCostTable />
-          </div>
-
-          <div className="mt-7 grid gap-5 border-t border-[#d9d1c5] pt-7 md:grid-cols-2">
-            <div>
-              <p className="text-sm font-semibold text-[#8d7453]">Lowest entry price</p>
-              <p className="mt-3 text-[1.05rem] font-medium leading-7 text-[#011735]/88">A freelance permit starts from AED 4,000 when the activity and operating model fit a permit route.</p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-[#8d7453]">Lowest company route</p>
-              <p className="mt-3 text-[1.05rem] font-medium leading-7 text-[#011735]/88">A free zone company without a visa starts from AED 7,000, but zone, activity, banking, office, and renewal fit still matter.</p>
-            </div>
-          </div>
-
-          <article className="mt-9 max-w-[58rem] border-t border-[#d9d1c5] pt-8">
-            <h2 className="text-[1.55rem] font-semibold leading-tight text-[#011735] md:text-[1.75rem]">
-              What&apos;s the cheapest way to set up in the UAE?
-            </h2>
-            <div className="mt-5 space-y-4 text-[1.04rem] font-medium leading-8 text-[#011735]/84 md:text-[1.04rem]">
-              <p>
-                The cheapest way to set up in the UAE depends on whether you need a
-                registered company or a permit to work as an individual. The cheapest
-                Zenesis route overall is the Freelance Permit, starting from AED 4,000.
-                This is a permit to work under approved activities as an individual,
-                not a registered company, and it does not carry a company visa quota
-                the way a licensed company does.
-              </p>
-              <p>
-                If the business needs a registered company, Zenesis{" "}
-                <Link className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4" href="/free-zones">
-                  Free Zone Company Setup
-                </Link>{" "}
-                without a visa starts from AED 7,000. The final cost depends on
-                the selected free zone, business activity, office or flexi-desk package,
-                government fees, approvals, and any additional{" "}
-                <Link className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4" href="/visa-and-banking">
-                  visa or banking support
-                </Link>{" "}
-                required.
-              </p>
-              <p>
-                A complete setup budget may also include visas, an office or flexi-desk
-                package, government approvals, and{" "}
-                <Link className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4" href="/open-a-bank-account-easily">
-                  banking support
-                </Link>. Licence renewal is a separate recurring cost
-                when the initial licence term ends and should be planned from the outset.
-                The lowest-priced route is not automatically the right fit if the business
-                needs employees, specific banking support, or broader trading activity.
-                Compare the full route options above, or learn{" "}
-                <Link className="font-semibold text-[#244ba8] underline decoration-[#244ba8]/35 underline-offset-4" href="/insights/business-setup-mistakes-dubai">
-                  where cost decisions go wrong
-                </Link>{" "}
-                before deciding on cost alone.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="cost-drivers" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-12 md:py-16">
+      <section id="cost-drivers" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#fbfaf7] py-12 md:py-16">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="min-w-0">
           <SectionHeading
-            title="What affects the real setup budget"
-            description="The lowest advertised license price rarely tells the whole story. These are the factors that usually change the real business setup cost in Dubai, free zone setup cost, or mainland company formation budget after the headline quote."
+            title="Pricing factors"
+            description="Your final quote depends on the jurisdiction, activity, visas, premises, banking preparation, and work required after setup."
           />
 
           <div className="balanced-editorial-grid balanced-editorial-grid-2 mt-9 grid border-y border-[#cfc5b7] md:grid-cols-2">
@@ -194,10 +125,10 @@ export default function BusinessSetupCostDubaiPage() {
         </div>
       </section>
 
-      <section id="setup-routes" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-[#fbfaf7] py-11 md:py-14">
+      <section id="setup-routes" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            title="Still deciding on the structure?"
+            title="Compare setup routes"
           />
 
 
@@ -246,7 +177,7 @@ export default function BusinessSetupCostDubaiPage() {
       <BusinessSetupPricingFaq
         dark
         title="Business setup cost FAQ"
-        description="Direct answers for founders comparing company formation, free zone, mainland, and freelance permit costs in Dubai."
+        description="Answers about setup routes, starting prices, visas, and applying from outside the UAE."
       />
 
       <ServiceCredibilityPanel path="/business-setup-cost-dubai" variant="sources" />

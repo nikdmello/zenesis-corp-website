@@ -114,10 +114,10 @@ export const businessSetupStartingPrices = [
     qualifier: "with visa",
     href: "/business-setup",
     description:
-      "For entrepreneurs who need company formation aligned with UAE residency planning.",
+      "For founders who need both a registered free zone company and a UAE residence visa.",
     highlights: [
       "UAE free zone company",
-      "Founder visa planning",
+      "UAE residence visa route",
       "Medical and Emirates ID steps considered",
     ],
   },
@@ -128,11 +128,11 @@ export const businessSetupStartingPrices = [
     qualifier: "mainland route",
     href: "/business-setup",
     description:
-      "For businesses that need mainland licensing and broader access to the UAE market.",
+      "For businesses that will operate directly across the UAE, need local premises, or require mainland licensing for their activity.",
     highlights: [
       "UAE mainland licence",
-      "Broader UAE market access",
-      "Office and visa needs reviewed",
+      "Direct UAE operating access",
+      "Activity, premises, and visa needs reviewed",
     ],
   },
   {
@@ -142,11 +142,11 @@ export const businessSetupStartingPrices = [
     qualifier: "permit route",
     href: "/business-setup",
     description:
-      "For independent professionals who need a lean UAE permit route before expanding.",
+      "For eligible independent professionals applying from inside or outside the UAE, with an optional linked residence visa where available.",
     highlights: [
-      "Independent professionals",
-      "Permit-based route",
-      "Activity eligibility reviewed",
+      "Remote application available",
+      "UAE residence visa option where eligible",
+      "Profession and activity eligibility reviewed",
     ],
   },
   {
@@ -157,11 +157,11 @@ export const businessSetupStartingPrices = [
     qualifier: "UAE offshore",
     href: "/offshore",
     description:
-      "For Ajman, RAK, or Jebel Ali offshore routes where a UAE offshore structure fits the intended use.",
+      "For founders who want a UAE-registered Ajman, RAK, or Jebel Ali offshore structure for holding, ownership, or approved international use.",
     highlights: [
       "Ajman, RAK, or Jebel Ali",
-      "Holding and ownership needs",
-      "UAE offshore structure review",
+      "UAE registry",
+      "No normal local trading or residence visas",
     ],
   },
   {
@@ -172,11 +172,11 @@ export const businessSetupStartingPrices = [
     qualifier: "international offshore",
     href: "/offshore",
     description:
-      "For BVI, Nevis, Mauritius, Seychelles, or Hong Kong structures where an international offshore route fits.",
+      "For cross-border ownership, assets, or international business where a non-UAE registry such as BVI, Nevis, Mauritius, Seychelles, or Hong Kong fits.",
     highlights: [
       "BVI, Nevis, Mauritius, Seychelles, or Hong Kong",
-      "International holding or ownership",
-      "Jurisdiction fit reviewed",
+      "Non-UAE registry",
+      "Jurisdiction, banking, and use reviewed",
     ],
   },
 ] as const;
@@ -189,22 +189,27 @@ export const businessSetupPricingFaqs = [
   {
     question: "How much does free zone company setup cost with Zenesis?",
     answer:
-      "Zenesis free zone company setup starts from AED 7,000 without visa and AED 15,000 with visa. The final cost depends on the selected free zone, activity, visa requirement, office package, government fees, and approvals.",
+      "Zenesis free zone company setup starts from AED 7,000 without a visa and AED 15,000 when the founder needs both a registered company and a UAE residence visa. The final cost depends on the selected free zone, activity, visa requirement, office package, government fees, and approvals.",
   },
   {
     question: "How much does mainland company setup cost with Zenesis?",
     answer:
-      "Zenesis mainland company setup starts from AED 10,000. The final cost depends on the business activity, license requirements, government fees, approvals, office needs, and visa planning.",
+      "Zenesis mainland company setup starts from AED 10,000. Mainland is often considered when the business will operate directly across the UAE, needs local premises, plans to pursue local contracts, or carries out an activity that requires mainland licensing. The final cost depends on the activity, licence requirements, government fees, approvals, office needs, and visa planning.",
   },
   {
     question: "How much does a freelance permit cost with Zenesis?",
     answer:
-      "Zenesis freelance permit support starts from AED 4,000. The final cost depends on the relevant permit route, activity, authority requirements, visa needs, and approvals.",
+      "Zenesis freelance permit support starts from AED 4,000. Eligible applicants can apply remotely from outside the UAE for a freelance permit and, where the selected route allows it, a linked UAE residence visa. The final cost depends on the profession, activity, authority requirements, visa choice, and approvals.",
+  },
+  {
+    question: "Can I apply for a UAE freelance permit from outside the country?",
+    answer:
+      "Yes. Eligible applicants can apply remotely from outside the UAE for a freelance permit and, where the selected route allows it, a linked UAE residence visa. Eligibility depends on the profession, approved activity, documents, authority rules, and visa requirements.",
   },
   {
     question: "How much does offshore company setup cost with Zenesis?",
     answer:
-      "Zenesis UAE offshore company setup for Ajman, RAK, and Jebel Ali routes starts from AED 7,500 to AED 15,000. International offshore company setup for BVI, Nevis, Mauritius, Seychelles, and Hong Kong routes starts from AED 8,000 to AED 15,000. The confirmed quote depends on the jurisdiction, intended use, registered agent, documentation, compliance, and renewal requirements.",
+      "Zenesis UAE offshore company setup for Ajman, RAK, and Jebel Ali routes starts from AED 7,500 to AED 15,000 and suits founders who want a UAE registry for an eligible holding, ownership, or international use. International offshore setup for BVI, Nevis, Mauritius, Seychelles, and Hong Kong starts from AED 8,000 to AED 15,000 and uses a non-UAE registry for suitable cross-border ownership, assets, or business. The confirmed quote depends on the jurisdiction, intended use, registered agent, documentation, compliance, and renewal requirements.",
   },
   {
     question: "Why can the final business setup cost change?",
@@ -213,7 +218,7 @@ export const businessSetupPricingFaqs = [
   {
     question: "What is the cheapest way to set up a business in Dubai or the UAE?",
     answer:
-      "It depends on whether you need a registered company or a permit to work as an individual. The cheapest option overall is the Freelance Permit, starting from AED 4,000: a permit to work under approved activities individually, not a registered company. If you need a company, Zenesis Free Zone Company Setup without a visa starts from AED 7,000. The final cost depends on the selected free zone, activity, office or flexi-desk package, government fees, approvals, and any additional visa or banking support required.",
+      "It depends on whether you need a registered company or a permit to work independently. The cheapest option overall is the Freelance Permit, starting from AED 4,000. Eligible applicants can apply remotely from outside the UAE and may add a linked residence visa where the selected route allows it. A freelance permit is not a registered company. If you need a company, Zenesis Free Zone Company Setup without a visa starts from AED 7,000. The final cost depends on the selected free zone, activity, office or flexi-desk package, government fees, approvals, and any additional visa or banking support required.",
   },
   {
     question: "Is mainland or free zone setup cheaper in Dubai?",
@@ -226,8 +231,8 @@ export const businessSetupCostComparisonRows = [
   {
     setupType: "Freelance Permit",
     startingPrice: "AED 4,000",
-    bestFor: "Independent professionals who need a lean UAE permit route.",
-    includes: "Permit-route guidance and documentation support.",
+    bestFor: "Eligible independent professionals applying from inside or outside the UAE, with or without a linked residence visa.",
+    includes: "Eligibility review, permit-route guidance, and remote application support.",
     finalCostDependsOn: "Activity, authority requirements, visa needs, and approvals.",
   },
   {
@@ -240,28 +245,28 @@ export const businessSetupCostComparisonRows = [
   {
     setupType: "Free Zone Company Setup + Visa",
     startingPrice: "AED 15,000",
-    bestFor: "Entrepreneurs who need company formation aligned with UAE residency planning.",
-    includes: "Company setup support with visa-route planning.",
+    bestFor: "Founders who need both a UAE free zone company and a UAE residence visa.",
+    includes: "Company setup support and the linked residence visa route.",
     finalCostDependsOn: "Free zone, visa requirements, office package, medical/ID steps, and approvals.",
   },
   {
     setupType: "Mainland Company Setup",
     startingPrice: "AED 10,000",
-    bestFor: "Businesses that need mainland licensing and broader UAE market access.",
+    bestFor: "Businesses operating directly across the UAE, using local premises, or carrying out activities that require mainland licensing.",
     includes: "Mainland setup route guidance, activity review, and documentation support.",
     finalCostDependsOn: "Business activity, license requirements, government fees, office needs, and visa planning.",
   },
   {
     setupType: "UAE Offshore Company Setup",
     startingPrice: "AED 7,500-15,000",
-    bestFor: "Ajman, RAK, or Jebel Ali offshore structures used for holding, ownership, and international arrangements.",
+    bestFor: "Founders who want a UAE registry for holding, ownership, eligible property structures, or approved international use.",
     includes: "Jurisdiction review, structure guidance, and incorporation-document support.",
     finalCostDependsOn: "UAE offshore jurisdiction, intended use, registered agent, documents, compliance, and renewals.",
   },
   {
     setupType: "International Offshore Company Setup",
     startingPrice: "AED 8,000-15,000",
-    bestFor: "BVI, Nevis, Mauritius, Seychelles, or Hong Kong structures for international holding or ownership needs.",
+    bestFor: "Cross-border ownership, assets, or international business where a non-UAE registry fits the intended use.",
     includes: "Jurisdiction review, structure guidance, and incorporation-document support.",
     finalCostDependsOn: "International jurisdiction, intended use, registry and agent requirements, documents, compliance, and renewals.",
   },

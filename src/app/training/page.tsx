@@ -140,7 +140,7 @@ export default function TrainingPage() {
         <section id="overview" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-11 md:py-14">
           <div className="mx-auto grid w-full max-w-[100rem] items-start gap-9 px-6 md:px-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(24rem,1.1fr)] lg:gap-12 xl:px-20">
             <div className="max-w-[48rem]">
-              <SectionHeading title="Learning grounded in practice" />
+              <SectionHeading title="About the training" />
               <div className="mt-7 space-y-5 text-[1.04rem] leading-[1.9rem] text-[#07151b]/92 md:text-[1.08rem] md:leading-[1.95rem]">
                 <p>
                   Zenesis provides professional training led by Prof. Jeevan D&apos;Mello for organisations, universities, working professionals, and students.
@@ -218,7 +218,7 @@ export default function TrainingPage() {
         <section id="how-it-works" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-12 md:py-16">
           <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
             <SectionHeading
-              title="How programmes are arranged"
+              title="Programme format"
               description="There is no generic package to force onto every group. The programme is scoped before it is scheduled."
             />
             <div className="mt-9 grid border-y-2 border-[#8d7453]/45 md:grid-cols-3">

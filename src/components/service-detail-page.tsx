@@ -35,7 +35,7 @@ export function ServiceDetailPage({ config }: { config: ServiceDetailConfig }) {
       ? config.knowledgeSections
       : [
           {
-            title: "What this usually involves",
+            title: "Overview",
             intro: config.description,
             items: config.points.slice(0, Math.min(4, config.points.length)),
           },

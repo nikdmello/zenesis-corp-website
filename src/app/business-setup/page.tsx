@@ -408,7 +408,7 @@ export default function BusinessSetupPage() {
             </div>
           </article>
           <aside className="border-t-4 border-[#244ba8] bg-[#011735] px-6 py-7 text-white md:px-8 md:py-9">
-            <h2 className="text-[1.45rem] font-semibold leading-tight text-white md:text-[1.7rem]">The setup route starts with five decisions</h2>
+            <h2 className="text-[1.45rem] font-semibold leading-tight text-white md:text-[1.7rem]">Five setup decisions</h2>
             <ol className="mt-6 divide-y divide-white/14 border-y border-white/14">
               {[
                 ["01", "Activity", "What the company will actually sell or deliver."],
@@ -589,7 +589,7 @@ export default function BusinessSetupPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Delivery model"
-            title="Direct and partner supported setup routes"
+            title="Setup routes"
             description="The way Zenesis supports an application depends on the jurisdiction. We make that delivery model clear before the setup process begins."
           />
 
@@ -687,7 +687,7 @@ export default function BusinessSetupPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Readiness check"
-            title="What to clarify before the quote"
+            title="Before you request a quote"
             description="A useful quote starts with the operating details that affect the route, documents, visas, banking, and total first-year position."
           />
           <div className="mt-8 grid gap-8 lg:grid-cols-2">
@@ -702,7 +702,7 @@ export default function BusinessSetupPage() {
               </ul>
             </article>
             <article className="border-t border-[#d8d0c2] pt-6">
-              <h3 className="text-[1.25rem] font-semibold text-[#011735]">Documents usually checked early</h3>
+              <h3 className="text-[1.25rem] font-semibold text-[#011735]">Documents to prepare</h3>
               <ul className="mt-5 divide-y divide-[#e4dbce] border-y border-[#e4dbce]">
                 {formationDocuments.map((item) => (
                   <li key={item} className="py-4 text-[1rem] font-medium leading-7 text-[#011735]/84">
@@ -719,7 +719,7 @@ export default function BusinessSetupPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Planning tools"
-            title="Setup route and cost comparison"
+            title="Compare setup routes"
             description="Use these pages when you are deciding whether to prioritize cost, mainland access, free zone flexibility, visas, or banking readiness."
           />
           <div className="mt-7">

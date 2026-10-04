@@ -108,6 +108,11 @@ const sources = {
     publisher: "UAE Ministry of Foreign Affairs",
     href: "https://www.mofa.gov.ae/Services/Attestation",
   },
+  freeZoneCorporateTax: {
+    title: "Corporate Tax Guide: Free Zone Persons",
+    publisher: "UAE Federal Tax Authority",
+    href: "https://tax.gov.ae/Datafolder/Files/Guides/CT/Free%20Zone%20Persons%20-%2020%2005%202024%20final%20for%20GCD.pdf",
+  },
   businessClosure: {
     title: "Closing a business on the mainland",
     publisher: "The Official Platform of the UAE Government",
@@ -211,10 +216,12 @@ export function getServiceCredibility(path: string): ServiceCredibility | undefi
   if (setupPaths.has(path)) {
     return {
       expert: experts.cecilia,
-      verificationLabel: checkedLabel,
+      verificationLabel: path === "/mainland-vs-free-zone-dubai"
+        ? "Sources checked October 4, 2026"
+        : checkedLabel,
       note: setupNote,
       sources: path === "/mainland-vs-free-zone-dubai"
-        ? [sources.mainlandSetup, sources.freeZoneSetup, sources.freeZoneMainlandPermit]
+        ? [sources.mainlandSetup, sources.freeZoneSetup, sources.freeZoneOperations, sources.freeZoneMainlandPermit, sources.freeZoneCorporateTax]
         : [sources.mainlandSetup, sources.freeZoneSetup],
     };
   }
@@ -264,9 +271,9 @@ export function getServiceCredibility(path: string): ServiceCredibility | undefi
     },
     "/business-setup-cost-dubai": {
       expert: experts.cecilia,
-      verificationLabel: "Zenesis starting prices and sources checked July 22, 2026",
+      verificationLabel: "Zenesis starting prices and sources checked October 4, 2026",
       note: "Published figures are starting prices, not universal authority quotes. Final cost depends on activity, jurisdiction, approvals, visas, office needs, government fees, and selected support.",
-      sources: [sources.mainlandSetup, sources.freeZoneSetup],
+      sources: [sources.mainlandSetup, sources.freeZoneSetup, sources.freeZoneOperations, sources.freeZoneMainlandPermit, sources.freeZoneCorporateTax],
     },
     "/document-attestation-services-in-uae": {
       expert: experts.cecilia,

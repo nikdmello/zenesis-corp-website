@@ -11,13 +11,16 @@ function TeamCard({
   return (
     <article className="flex h-full min-w-0 flex-col">
       <div className="flex h-[19rem] w-full shrink-0 justify-center md:h-[21rem] xl:h-[19rem] 2xl:h-[21rem]">
-        <div className="relative h-full aspect-[4/5]">
+        <div className="relative h-full aspect-[4/5] overflow-hidden">
           <Image
             src={member.imageSrc}
             alt={member.name}
             fill
             sizes="(min-width: 1280px) 26vw, (min-width: 768px) 42vw, 100vw"
-            className="object-cover object-center"
+            className={[
+              "object-cover object-center",
+              "imageClassName" in member ? member.imageClassName : "",
+            ].join(" ")}
           />
         </div>
       </div>

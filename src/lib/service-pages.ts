@@ -117,7 +117,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "Why mainland is usually chosen",
+        title: "Why choose mainland",
         intro:
           "Mainland tends to suit businesses that want fewer restrictions on where they operate and who they can serve in the UAE.",
         items: [
@@ -239,7 +239,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "Decisions to make before applying",
+        title: "Before you apply",
         intro:
           "The application should start with a clear trading model. A broad licence name does not replace accurate activity and product planning.",
         items: [
@@ -261,7 +261,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "Application and approval sequence",
+        title: "Application process",
         intro:
           "Official UAE guidance places activity selection, legal form, trade name, initial approval, constitutional documents, premises, and any additional approvals before final licence issuance.",
         items: [
@@ -272,7 +272,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "What comes after the licence",
+        title: "After licensing",
         intro:
           "A trading company still needs an operating file that makes sense to customs, banks, tax authorities, suppliers, and customers.",
         items: [
@@ -385,7 +385,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "What usually makes a free zone attractive",
+        title: "Why choose a free zone",
         intro:
           "Free zones are not interchangeable, but they are often chosen for a similar set of ownership, formation, and operating advantages.",
         items: [
@@ -396,7 +396,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "Zones businesses often compare",
+        title: "Popular free zones",
         intro:
           "The right choice depends less on brand recognition and more on activity fit, visas, office rules, banking expectations, and long-term cost.",
         items: [
@@ -424,7 +424,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "Documents and common mistakes",
+        title: "Documents and mistakes to avoid",
         intro:
           "The strongest free zone choice is usually the one that still works after licensing, when the founder needs visas, banking, renewals, and client acceptance.",
         items: [
@@ -435,7 +435,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "How Zenesis supports different jurisdictions",
+        title: "How Zenesis helps",
         intro:
           "The delivery model depends on the authority involved, so Zenesis makes the distinction clear before an application begins.",
         items: [
@@ -540,7 +540,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "Why offshore is used",
+        title: "Why choose offshore",
         intro:
           "Offshore structures are usually chosen for ownership and international planning rather than local UAE operating activity.",
         items: [
@@ -576,7 +576,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "When offshore is not the right route",
+        title: "When offshore does not fit",
         intro:
           "Offshore can be useful, but it should not be treated as a cheaper substitute for an operating UAE company.",
         items: [
@@ -601,7 +601,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         question: "What usually drives the choice between UAE offshore routes and BVI?",
         answer:
-          "The choice depends on what the company is meant to hold, whether a UAE or international registry is more suitable, whether Dubai property relevance matters, how the structure will be presented to banks or counterparties, and the cost, administration, and recognition tradeoffs behind the setup. Zenesis UAE offshore setup for Ajman, RAK, and Jebel Ali routes starts from AED 7,500 to AED 15,000, while international offshore setup for BVI, Nevis, Mauritius, Seychelles, and Hong Kong routes starts from AED 8,000 to AED 15,000.",
+          "Choose a UAE offshore route when a UAE registry is useful for an eligible holding, ownership, property, or international purpose. Choose an international route when a non-UAE registry better fits the assets, owners, counterparties, or cross-border business. Banking, recognition, reporting, administration, and the rules of each jurisdiction still need to be checked. UAE offshore setup starts from AED 7,500 to AED 15,000, while international offshore setup starts from AED 8,000 to AED 15,000.",
       },
       {
         question: "What do people most often misunderstand about offshore structures?",
@@ -668,7 +668,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "How the process usually moves",
+        title: "Process",
         intro:
           "The sequence matters. Skipping a stage or starting in the wrong country can create rework and delay the final UAE submission.",
         items: [
@@ -753,7 +753,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "UAE and international banking serve different needs",
+        title: "UAE and international banking",
         intro:
           "Banking requirements depend on the company's markets, currencies, shareholders, and KYC profile.",
         items: [
@@ -764,7 +764,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "Where preparation usually matters most",
+        title: "Preparing the bank application",
         intro:
           "Bank delays usually happen because the documentation is incomplete, the business explanation is weak, or the account request does not match the company structure.",
         items: [
@@ -893,7 +893,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "Why the company visa matters",
+        title: "Company visa requirements",
         intro:
           "Founders and employees may need UAE residency before they can live and work in the country.",
         items: [
@@ -904,7 +904,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "How the process usually moves",
+        title: "Process",
         intro:
           "The visa process is sequential, and delays often come from trying to move before the company, establishment, or quota position is ready.",
         items: [
@@ -1067,7 +1067,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "Who usually explores the Golden Visa route",
+        title: "Who qualifies",
         intro:
           "The category matters because each route has different evidence requirements, approval logic, and supporting documents.",
         items: [
@@ -1078,7 +1078,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "What the service is really for",
+        title: "What the service covers",
         intro:
           "The work includes identifying the applicable category, preparing its evidence, and submitting through the required channel.",
         items: [
@@ -1112,7 +1112,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "Current five-year and ten-year routes",
+        title: "Visa categories",
         intro:
           "Golden Residency duration and evidence depend on the category. The route should be identified before documents are prepared.",
         items: [
@@ -1123,7 +1123,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "Evidence checked before submission",
+        title: "Required evidence",
         intro:
           "Zenesis helps organise the file around the selected route rather than relying on one generic checklist.",
         items: [
@@ -1219,7 +1219,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "Who usually needs to think about registration",
+        title: "Who needs to register",
         intro:
           "Corporate tax registration depends on the business type, tax position, UAE presence, and applicable thresholds. Profit alone does not determine the registration requirement.",
         items: [
@@ -1230,7 +1230,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "How the process usually moves",
+        title: "Process",
         intro:
           "The cleanest registration process starts with confirming the position first, then preparing the submission around the real structure of the business.",
         items: [
@@ -1325,7 +1325,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "What the filing really covers",
+        title: "What filing covers",
         intro:
           "The filing must reflect the taxable position of the business and be supported by its accounting records and tax calculations.",
         items: [
@@ -1336,7 +1336,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "What businesses need to stay aware of",
+        title: "Filing requirements",
         intro:
           "The filing obligation continues beyond registration, and poor timing or weak records can create avoidable penalties.",
         items: [
@@ -1554,7 +1554,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "What a VAT return usually needs",
+        title: "What a VAT return needs",
         intro:
           "The return is only as strong as the supporting invoice trail and the reconciliations behind it.",
         items: [
@@ -1565,7 +1565,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "Where businesses usually get exposed",
+        title: "Common VAT risks",
         intro:
           "VAT problems usually come from rushed filings, weak invoice review, or leaving the payment position too late.",
         items: [
@@ -1660,7 +1660,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "Why bookkeeping matters beyond data entry",
+        title: "Why bookkeeping matters",
         intro:
           "Good bookkeeping is what turns financial records into something the business can actually rely on.",
         items: [
@@ -1671,7 +1671,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "What businesses usually expect from outsourced bookkeeping",
+        title: "What bookkeeping includes",
         intro:
           "Regular bookkeeping keeps the ledgers, reports, payroll records, reconciliations, and audit trail usable throughout the year.",
         items: [
@@ -1682,7 +1682,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "When outsourced accounting makes sense",
+        title: "When to outsource bookkeeping",
         intro:
           "An outsourced finance rhythm can suit businesses that need reliable monthly control and reporting without building a full internal accounting team.",
         items: [

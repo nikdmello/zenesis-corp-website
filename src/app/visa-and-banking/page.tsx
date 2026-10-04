@@ -257,7 +257,7 @@ export default function VisaAndBankingPage() {
           <div className="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1fr)] lg:items-start">
             <SectionHeading
               eyebrow="Client case"
-              title="When Every Minute Matters"
+              title="Urgent re-entry permit approval"
               description="An urgent visa follow-through case where fast coordination helped a family resolve a re-entry issue the same day."
             />
             <article className="border-l-4 border-[#244ba8] bg-[#f8f6f1] px-6 py-7 text-[#011735] md:px-8 md:py-8">

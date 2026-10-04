@@ -20,47 +20,28 @@ const pageTitle = "Mainland vs Free Zone Dubai | Cost, Visas & Banking";
 const pageDescription =
   "Compare mainland vs free zone company setup in Dubai by market access, ownership, visas, office needs, banking, cost, renewals, and long-term operating fit.";
 
-const comparisonRows = [
+const companyRouteComparison = [
   {
-    factor: "Market access",
-    mainland: "Usually better for direct UAE market access, local contracts, and broader operating flexibility.",
-    freeZone:
-      "Usually better for free zone or international activity. Eligible Dubai free zone companies may obtain a separate mainland operating permit for approved activities.",
+    name: "Free zone",
+    summary: "A company licensed by an individual free zone authority.",
+    bestFor: "Consulting, digital services, e-commerce, international trade, and founder-led businesses that do not need unrestricted mainland access.",
+    facts: [
+      ["UAE trading", "Operate in the free zone and internationally. Mainland access needs an applicable distributor, branch, licence, or permit."],
+      ["Office", "Flexible options may include a flexi-desk, co-working space, serviced office, or warehouse, depending on the zone and activity."],
+      ["Visas", "Residence visas are available through eligible packages. The quota depends on the package and workspace."],
+      ["Tax", "0% is not automatic. It applies only to qualifying income when all Qualifying Free Zone Person conditions are met."],
+    ],
   },
   {
-    factor: "Ownership",
-    mainland:
-      "Full foreign ownership is available across many activities, while some strategic or regulated activities follow specific rules.",
-    freeZone:
-      "100% foreign ownership is a common free zone advantage within the relevant free zone structure.",
-  },
-  {
-    factor: "Office needs",
-    mainland:
-      "Often tied to mainland office or Ejari requirements depending on activity, emirate, and license route.",
-    freeZone:
-      "May offer flexi-desk, shared office, or package-based office options depending on the chosen zone.",
-  },
-  {
-    factor: "Visas",
-    mainland:
-      "Visa capacity depends on the structure, office arrangement, immigration file, and staffing plan.",
-    freeZone:
-      "Free zone packages may state visa allocations upfront, but limits vary by zone, package, office type, and renewal rules.",
-  },
-  {
-    factor: "Banking",
-    mainland:
-      "Can be easier to explain for local UAE operations when activity, contracts, and office position are clear.",
-    freeZone:
-      "Can work well, but banks usually review zone choice, activity, shareholder profile, substance, and transaction model.",
-  },
-  {
-    factor: "Cost",
-    mainland:
-      "Can cost more when approvals, office requirements, and visa planning are included, but may fit broader local activity.",
-    freeZone:
-      "Can be leaner for packaged setup, especially without visa, but the cheapest zone is not always the best operating fit.",
+    name: "Mainland",
+    summary: "A company licensed by the relevant emirate's economic department, such as Dubai DET.",
+    bestFor: "Retail, restaurants, local services, direct UAE sales, government tenders, regulated activities, and businesses that need local premises.",
+    facts: [
+      ["UAE trading", "Trade directly across the UAE and internationally, subject to the licensed activity and any sector approvals."],
+      ["Office", "Most businesses need registered premises with the required tenancy documents. The exact rule depends on the activity and authority."],
+      ["Visas", "The company can sponsor eligible owners and employees. Visa capacity is linked to premises and authority rules."],
+      ["Tax", "Standard UAE corporate tax rules apply."],
+    ],
   },
 ] as const;
 
@@ -134,7 +115,7 @@ const routeFitRows = [
 ] as const;
 
 const comparisonPageLinks = [
-  { href: "#route-comparison", label: "Route comparison" },
+  { href: "#route-comparison", label: "Mainland vs free zone" },
   { href: "#where-offshore-fits", label: "Where offshore fits" },
   { href: "#mainland-permit", label: "Mainland permit" },
   { href: "#next-steps", label: "Next steps" },
@@ -187,50 +168,35 @@ export default function MainlandVsFreeZoneDubaiPage() {
 
       <section id="route-comparison" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
-          <div className="min-w-0">
-          <SectionHeading
-            eyebrow="Decision table"
-            title="Route comparison"
-            description="Use this as a decision tool before comparing license packages. The right setup route should match how the company will actually operate."
-          />
-
-          <div className="mt-8 overflow-hidden rounded-lg border border-[#d8d0c2] bg-white">
-            <div className="overflow-x-auto">
-              <table className="min-w-[64rem] border-collapse text-left">
-                <thead className="bg-[#f5efe4] text-[#011735]">
-                  <tr>
-                    {["Factor", "Mainland setup", "Free zone setup"].map((heading) => (
-                      <th
-                        key={heading}
-                        scope="col"
-                        className="px-4 py-3 text-[0.78rem] font-semibold uppercase tracking-[0.16em]"
-                      >
-                        {heading}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparisonRows.map((row) => (
-                    <tr key={row.factor} className="border-t border-[#e4dacb]">
-                      <th
-                        scope="row"
-                        className="w-[11rem] px-4 py-4 text-[1rem] font-semibold leading-6 text-[#011735]"
-                      >
-                        {row.factor}
-                      </th>
-                      <td className="px-4 py-4 text-[0.98rem] font-medium leading-6 text-[#011735]/84">
-                        {row.mainland}
-                      </td>
-                      <td className="px-4 py-4 text-[0.98rem] font-medium leading-6 text-[#011735]/84">
-                        {row.freeZone}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+          <div className="pricing-route-guide !mb-0">
+            <div className="pricing-route-guide-intro">
+              <p className="pricing-route-guide-label">The simple difference</p>
+              <h2>Which one do you need?</h2>
+              <p>Mainland is for direct UAE operations. Free zone is for businesses that fit a zone&apos;s activities and can use the available routes for any mainland work.</p>
             </div>
-          </div>
+            <div className="pricing-route-guide-grid">
+              {companyRouteComparison.map((route) => (
+                <article className="pricing-route-guide-card" key={route.name}>
+                  <header>
+                    <h3>{route.name}</h3>
+                    <p>{route.summary}</p>
+                  </header>
+                  <dl>
+                    {route.facts.map(([label, value]) => (
+                      <div key={label}>
+                        <dt>{label}</dt>
+                        <dd>{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <div className="pricing-route-best-for">
+                    <span>Usually best for</span>
+                    <p>{route.bestFor}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <p className="pricing-route-guide-note">Both structures allow 100% foreign ownership for most activities. The right route still depends on the activity, customers, premises, visas, and tax position.</p>
           </div>
         </div>
       </section>
