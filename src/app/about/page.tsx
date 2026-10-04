@@ -24,7 +24,7 @@ export default function AboutPage() {
       <PageIntro
         eyebrow="About Zenesis"
         title="About"
-        description="The background, experience, and working approach behind Zenesis in the UAE."
+        description="Zenesis has supported UAE and international businesses with formation, tax, visas, banking, and compliance since 2005."
         backgroundImageSrc={versionedAssetPath("/sections/awards-and-recognition.webp")}
         backgroundImageAlt="Zenesis awards and recognition"
         backgroundImagePosition="!object-[58%_48%]"
@@ -91,7 +91,7 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="The team"
             title="Leadership"
-            description="The leadership team brings cross-border experience in incorporation, tax, real estate management, people and culture, and risk and crisis management."
+            description="Meet the people responsible for incorporation, tax, real estate management, people and culture, and risk and crisis management."
           />
 
           <div className="mt-9">

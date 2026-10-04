@@ -50,7 +50,7 @@ export function PricingPackages() {
       </aside>
 
       <header className="pricing-packages-header">
-        <h2>Choose your setup</h2>
+        <h2>Setup options</h2>
         <p>Pick the outcome you need. Zenesis will confirm the licence, authority, and full cost before filing.</p>
       </header>
       {groups.map((group) => (

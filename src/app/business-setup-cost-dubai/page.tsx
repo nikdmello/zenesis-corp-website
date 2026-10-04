@@ -29,9 +29,9 @@ const pageDescription =
   "Compare Zenesis business setup prices in Dubai: freelance permits from AED 4,000, free zone from AED 7,000, mainland from AED 10,000.";
 
 const pricingPageLinks = [
-  { href: "#starting-prices", label: "Choose your setup" },
+  { href: "#starting-prices", label: "Setup options" },
   { href: "#cost-drivers", label: "Pricing factors" },
-  { href: "#setup-routes", label: "Compare setup routes" },
+  { href: "#setup-routes", label: "Route comparison" },
   { href: "#direct-answers", label: "Pricing FAQ" },
 ] as const;
 
@@ -128,7 +128,7 @@ export default function BusinessSetupCostDubaiPage() {
       <section id="setup-routes" className="relative left-1/2 -mt-px w-screen -translate-x-1/2 scroll-mt-28 bg-white py-11 md:py-14">
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
-            title="Compare setup routes"
+            title="Route comparison"
           />
 
 
@@ -148,7 +148,7 @@ export default function BusinessSetupCostDubaiPage() {
               </div>
               <div className="px-5 py-6 md:px-7 md:py-7">
                 <h2 className="text-[1.2rem] font-semibold leading-tight tracking-[-0.04em] text-foreground">Mainland vs free zone Dubai</h2>
-                <p className="mt-3 text-[1rem] font-medium leading-7 text-foreground/84">See when mainland flexibility is worth the cost and when a free zone package is the better fit.</p>
+                <p className="mt-3 text-[1rem] font-medium leading-7 text-foreground/84">Compare market access, office requirements, visas, and costs for mainland and free zone companies.</p>
               </div>
             </Link>
             <Link

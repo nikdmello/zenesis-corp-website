@@ -24,18 +24,18 @@ export function PrimarySources({
   return (
     <section
       id="primary-sources"
-      className="scroll-mt-28 border-y border-[#d9d1c5] bg-[#f8f6f1] px-6 py-9 md:px-8"
+      className="scroll-mt-28 border-y border-[#d9d1c5] bg-[#f8f6f1] px-5 py-7 md:px-7"
     >
       <h2 className={articleSectionHeadingClassName}>Primary sources</h2>
       <p className="mt-4 max-w-4xl text-[1.04rem] leading-8 text-[#07151b]/78">
         {note}
       </p>
-      <ul className="mt-6 divide-y divide-[#e4dbce] border-y border-[#e4dbce]">
+      <ul className="mt-5 divide-y divide-[#e4dbce] border-y border-[#e4dbce]">
         {sources.map((source, index) => (
           <li
             key={source.href}
             id={`source-${index + 1}`}
-            className="scroll-mt-28 py-4"
+            className="scroll-mt-28 py-3"
           >
             <a
               href={source.href}

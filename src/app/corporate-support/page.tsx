@@ -232,7 +232,7 @@ export default function CorporateSupportPage() {
 
       <section id="process" className="relative -mt-px w-full scroll-mt-28 bg-[#f5efe4] py-16 md:py-20">
         <div className="w-full px-6 md:px-12 xl:px-16">
-          <SectionHeading eyebrow="Working rhythm" title="Process" description="A case specific path from company record review through authority completion." />
+          <SectionHeading eyebrow="Working rhythm" title="Process" description="Zenesis reviews the company record, prepares the documents, coordinates submissions, and tracks the authority response." />
           <div className="balanced-editorial-grid balanced-editorial-grid-4 mt-10 grid border-y-2 border-[#8d7453]/45 md:grid-cols-2 xl:grid-cols-4">
             {process.map((item) => (
               <article key={item.step} className="border-b border-[#d8d0c2] py-7">

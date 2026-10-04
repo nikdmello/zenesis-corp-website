@@ -124,12 +124,12 @@ export const serviceGroups = [
   {
     title: "Business Setup",
     description:
-      "Company formation support for mainland, offshore, and free zone structures, from route selection through licensing and post-setup requirements.",
+      "Mainland, free zone, and offshore company formation, including licensing and post-setup requirements.",
   },
   {
     title: "Accounting & Tax",
     description:
-      "Bookkeeping, VAT filing, corporate tax filing, and tax planning support to help businesses stay compliant and organized.",
+      "Bookkeeping, VAT, corporate tax registration and filing, and tax planning for UAE businesses.",
   },
   {
     title: "Corporate Services",
@@ -139,7 +139,7 @@ export const serviceGroups = [
   {
     title: "Investor and Residency Support",
     description:
-      "Business banking guidance and UAE visa-related support, including company visa and Golden Visa services for businesses and founders operating through the UAE.",
+      "Business banking, company visas, and Golden Visa support for UAE businesses and founders.",
   },
   {
     title: "Professional Training",
@@ -180,7 +180,7 @@ export const operationalServices = [
   {
     title: "Company Visa",
     description:
-      "The live service page lays out a four-step company visa process from registration and labor approvals through Emirates ID and visa stamping.",
+      "Company visa support covers registration, labour approvals, Emirates ID, and visa stamping.",
   },
   {
     title: "Golden Visa",
@@ -198,7 +198,7 @@ export const accountingServices = [
   {
     title: "Corporate Tax Filing",
     description:
-      "The filing page adds annual return preparation, FTA portal filing, tax calculations, deadline management, and documentation support.",
+      "Corporate tax filing covers annual return preparation, tax calculations, FTA submission, deadlines, and supporting records.",
   },
   {
     title: "VAT Filing",
@@ -208,25 +208,25 @@ export const accountingServices = [
   {
     title: "Bookkeeping",
     description:
-      "The bookkeeping page expands the accounting offer into weekly or monthly bookkeeping, reporting, payroll support, and audit-ready records.",
+      "Weekly or monthly bookkeeping, reporting, payroll support, and records prepared for tax filings and audits.",
   },
 ] as const;
 
 export const principles = [
   {
-    title: "Clarity first",
+    title: "Clear advice",
     description:
-      "Zenesis works best when the message stays clear: explain the process well, reduce uncertainty, and help clients make better decisions.",
+      "Zenesis explains the requirements, costs, and next steps before work begins.",
   },
   {
-    title: "Results grounded in delivery",
+    title: "Application support",
     description:
-      "Zenesis is better presented as a firm that executes company setup, compliance, and corporate support work carefully rather than as a broad transformation brand.",
+      "The team prepares applications, coordinates submissions, and follows each matter through to completion.",
   },
   {
-    title: "Depth where it matters",
+    title: "Case-specific advice",
     description:
-      "Advice should respond to the client's activity, structure, records, approvals, and deadlines rather than rely on repeated slogans.",
+      "Recommendations account for the client's activity, structure, records, approvals, and deadlines.",
   },
 ] as const;
 

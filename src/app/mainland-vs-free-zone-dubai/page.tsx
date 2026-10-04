@@ -18,7 +18,7 @@ import {
 
 const pageTitle = "Mainland vs Free Zone Dubai | Cost, Visas & Banking";
 const pageDescription =
-  "Compare mainland vs free zone company setup in Dubai by market access, ownership, visas, office needs, banking, cost, renewals, and long-term operating fit.";
+  "Compare mainland vs free zone company setup in Dubai by market access, ownership, visas, office needs, banking, setup cost, and renewals.";
 
 const companyRouteComparison = [
   {
@@ -74,7 +74,7 @@ const faqs = [
   {
     question: "Is an offshore company an alternative to mainland or free zone setup?",
     answer:
-      "Only when the company does not need a normal UAE operating licence. Offshore structures are generally used for holding, ownership, or international activity rather than local UAE operations, residence visas, or a local office. The right jurisdiction depends on the intended activity, ownership, banking, and substance requirements.",
+      "Only when the company does not need a normal UAE operating licence. Offshore structures are generally used for holding, ownership, or international activity rather than local UAE operations, residence visas, or a local office. Jurisdiction suitability depends on the intended activity, ownership, banking, and substance requirements.",
   },
 ] as const;
 
@@ -170,7 +170,6 @@ export default function MainlandVsFreeZoneDubaiPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <div className="pricing-route-guide !mb-0">
             <div className="pricing-route-guide-intro">
-              <p className="pricing-route-guide-label">The simple difference</p>
               <h2>Which one do you need?</h2>
               <p>Mainland is for direct UAE operations. Free zone is for businesses that fit a zone&apos;s activities and can use the available routes for any mainland work.</p>
             </div>
@@ -196,7 +195,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
                 </article>
               ))}
             </div>
-            <p className="pricing-route-guide-note">Both structures allow 100% foreign ownership for most activities. The right route still depends on the activity, customers, premises, visas, and tax position.</p>
+            <p className="pricing-route-guide-note">Both structures allow 100% foreign ownership for most activities. Choose based on the activity, customers, premises, visas, and tax position.</p>
           </div>
         </div>
       </section>
@@ -268,7 +267,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Current Dubai framework"
-            title="A new route from a Dubai free zone to the mainland"
+            title="Free Zone Mainland Operating Permit"
             description="The Free Zone Mainland Operating Permit changes the comparison for some companies, but it does not make mainland access automatic."
           />
 
@@ -313,8 +312,8 @@ export default function MainlandVsFreeZoneDubaiPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Next step"
-            title="Choosing a setup route"
-            description="Once the tradeoffs are clear, compare the route pages and cost guide before committing to a package."
+            title="Route guides and prices"
+            description="Compare the route pages and starting costs before selecting a package."
           />
           <div className="mt-7">
             <ServiceSubpageLinks items={nextStepLinks} columnsClassName="md:grid-cols-2 xl:grid-cols-4" />
@@ -324,7 +323,7 @@ export default function MainlandVsFreeZoneDubaiPage() {
 
       <ServiceAnswerSection
         title="Direct answers"
-        description="Short answers for founders comparing mainland and free zone setup before choosing a route."
+        description="Market access, ownership, office requirements, visas, tax, and setup costs."
         items={faqs}
       />
 

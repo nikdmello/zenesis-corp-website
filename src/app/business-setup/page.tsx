@@ -394,7 +394,7 @@ export default function BusinessSetupPage() {
             <div className="mt-7 max-w-[50rem] space-y-5 text-[1.06rem] leading-[1.9rem] text-[#07151b]/92 md:text-[1.1rem] md:leading-[2rem]">
               <p>
                 {linkContext(
-                  "Zenesis provides business setup services in Dubai and the wider UAE for founders, investors, SMEs, and international companies comparing mainland, free zone, and offshore company formation routes. The right structure depends on your activity, ownership plan, target market, visa requirements, office needs, banking expectations, and tax position. Zenesis supports businesses across a range of sectors, including technology, professional services, and other industries entering the UAE.",
+                  "Zenesis sets up mainland, free zone, and offshore companies for founders, SMEs, investors, and international businesses entering the UAE. The suitable structure depends on the activity, customers, ownership, visas, office requirements, banking, and tax position.",
                   [
                     { text: "mainland", href: "/mainland" },
                     { text: "free zone", href: "/free-zones" },
@@ -403,7 +403,7 @@ export default function BusinessSetupPage() {
                 )}
               </p>
               <p>
-                {linkContext("As a business setup consultant in Dubai, Zenesis helps you compare the route before paperwork starts, prepare the documents properly, and keep company formation, licensing, visas, banking, accounting, tax, and renewals connected after incorporation.")}
+                {linkContext("Zenesis compares the available routes, prepares the documents, coordinates licensing, and supports visas, banking, accounting, tax, and renewals after incorporation.")}
               </p>
             </div>
           </article>
@@ -687,7 +687,7 @@ export default function BusinessSetupPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Readiness check"
-            title="Before you request a quote"
+            title="Quote requirements"
             description="A useful quote starts with the operating details that affect the route, documents, visas, banking, and total first-year position."
           />
           <div className="mt-8 grid gap-8 lg:grid-cols-2">
@@ -719,7 +719,7 @@ export default function BusinessSetupPage() {
         <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
           <SectionHeading
             eyebrow="Planning tools"
-            title="Compare setup routes"
+            title="Setup route comparison"
             description="Use these pages when you are deciding whether to prioritize cost, mainland access, free zone flexibility, visas, or banking readiness."
           />
           <div className="mt-7">
@@ -756,7 +756,7 @@ export default function BusinessSetupPage() {
 
       <ServiceAnswerSection
         title="Direct answers"
-        description="Short answers to the questions that usually shape the setup route before paperwork begins."
+        description="Ownership, market access, visas, banking, office requirements, costs, and timelines."
         items={directAnswers}
       />
 
@@ -765,7 +765,7 @@ export default function BusinessSetupPage() {
           <SectionHeading
             eyebrow="Working rhythm"
             title="Process"
-            description="The process runs from the first consultation through licensing, banking, visas, and ongoing compliance."
+            description="Zenesis reviews the business plan, recommends a structure, prepares the application, and coordinates licensing and post-setup work."
           />
 
           <div className="balanced-editorial-grid balanced-editorial-grid-3 mt-10 grid border-y-2 border-[#8d7453]/45 md:grid-cols-2 xl:grid-cols-3">

@@ -874,6 +874,8 @@ export function PageIntro({
   breadcrumb,
   title,
   description,
+  contentClassName,
+  titleClassName,
   highlights,
   ctaHref,
   ctaLabel,
@@ -891,7 +893,7 @@ export function PageIntro({
 
   return (
     <section className={`page-intro ${showBottomBorder ? "page-intro-bordered" : ""}`}>
-      <div className="page-intro-container">
+      <div className={["page-intro-container", contentClassName ?? ""].filter(Boolean).join(" ")}>
         {breadcrumbItems ? (
           <nav aria-label="Breadcrumb" className="page-intro-breadcrumb">
             {breadcrumbItems.map((item, index) => (
@@ -903,7 +905,7 @@ export function PageIntro({
           </nav>
         ) : null}
         {leadingContent ? <div className="page-intro-meta">{leadingContent}</div> : null}
-        <h1 className="page-intro-title">{title}</h1>
+        <h1 className={["page-intro-title", titleClassName ?? ""].filter(Boolean).join(" ")}>{title}</h1>
         {description ? <p className="page-intro-description">{description}</p> : null}
         {(ctaHref && ctaLabel) || (secondaryHref && secondaryLabel) ? (
           <div className="page-intro-actions">

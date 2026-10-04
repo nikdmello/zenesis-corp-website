@@ -90,7 +90,7 @@ const profileGuideLinks = [
     href: `#${toSectionId(section.title)}`,
     label: section.title,
   })),
-  { href: "#why-this-matters-for-clients", label: "Why this matters for clients" },
+  { href: "#client-work", label: "Client work" },
   { href: "#her-advice", label: "Her advice" },
 ];
 
@@ -205,11 +205,11 @@ export default function FeaturedProfilePage() {
                 ))}
 
                 <section
-                  id="why-this-matters-for-clients"
+                  id="client-work"
                   className="w-full max-w-[54rem] scroll-mt-28 border-l-4 border-[#1f7652] bg-[#edf7f1] px-6 py-7 md:px-8"
                 >
                   <h2 className={articleSectionHeadingClassName}>
-                    Why this matters for clients
+                    Client work
                   </h2>
                   <div className="mt-5 space-y-5 text-[1.04rem] leading-8 text-[#07151b]/92 md:text-[1.08rem]">
                     <p>
@@ -218,9 +218,8 @@ export default function FeaturedProfilePage() {
                       and compliance.
                     </p>
                     <p>
-                      For founders, investors, and operating companies, that experience is
-                      useful when a client needs to choose a setup structure early and
-                      avoid fragmented execution later.
+                      That experience helps founders, investors, and operating companies
+                      choose a suitable structure and coordinate the work that follows.
                     </p>
                   </div>
                 </section>

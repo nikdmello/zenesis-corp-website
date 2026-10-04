@@ -149,7 +149,7 @@ export default function TrainingPage() {
                   Jeevan brings decades of work across architecture, property handover, customer experience, community management, leadership, and professional education into the classroom. His training connects standards and theory to decisions participants face at work.
                 </p>
                 <p>
-                  Programmes are arranged around the audience and objective. Zenesis can support a focused workshop, a longer course, a university session, or a tailored programme for an organisation.
+                  Zenesis plans each programme around the audience, subject, duration, and learning objective. Formats include focused workshops, longer courses, and university sessions.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -181,7 +181,7 @@ export default function TrainingPage() {
           <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
             <SectionHeading
               title="Training areas"
-              description="The subject and level are agreed around the people attending and what they need to take back into practice."
+              description="The subject and level depend on the audience and the skills they need to use at work."
             />
             <div className="mt-9 grid border-l border-t border-[#d8d0c2] md:grid-cols-2">
               {trainingAreas.map((area, index) => (
@@ -219,7 +219,7 @@ export default function TrainingPage() {
           <div className="mx-auto w-full max-w-[100rem] px-6 md:px-12 xl:px-20">
             <SectionHeading
               title="Programme format"
-              description="There is no generic package to force onto every group. The programme is scoped before it is scheduled."
+              description="Zenesis confirms the audience, subject, format, and duration before scheduling the programme."
             />
             <div className="mt-9 grid border-y-2 border-[#8d7453]/45 md:grid-cols-3">
               {process.map((item) => (
@@ -245,7 +245,7 @@ export default function TrainingPage() {
 
         <ServiceAnswerSection
           title="Direct answers"
-          description="The practical details people usually ask before discussing a training programme."
+          description="Answers about formats, audiences, scheduling, and fees."
           items={faqs}
         />
       </PageGuideLayout>

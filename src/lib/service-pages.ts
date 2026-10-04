@@ -117,7 +117,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "Why choose mainland",
+        title: "Mainland fit",
         intro:
           "Mainland tends to suit businesses that want fewer restrictions on where they operate and who they can serve in the UAE.",
         items: [
@@ -177,7 +177,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "business-consultant-beyond-company-registration",
       "business-setup-mistakes-dubai",
     ],
-    pointsTitle: "What we handle",
+    pointsTitle: "Zenesis support",
     points: [
       "Choose the activity, legal structure, and trade name before the application starts",
       "Compare structures such as LLCs, branch offices, representative offices, civil companies, and sole establishments based on the business model",
@@ -315,7 +315,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "just-registered-uae-company-what-comes-next",
       "why-first-time-entrepreneurs-are-choosing-uae",
     ],
-    pointsTitle: "What we handle",
+    pointsTitle: "Zenesis support",
     points: [
       "Review the intended products, markets, suppliers, customers, and transaction model before activity selection",
       "Compare mainland and relevant free zone routes against the real operating plan",
@@ -385,9 +385,9 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "Why choose a free zone",
+        title: "Free zone fit",
         intro:
-          "Free zones are not interchangeable, but they are often chosen for a similar set of ownership, formation, and operating advantages.",
+          "Each free zone has its own activities, facilities, visa rules, fees, and operating conditions.",
         items: [
           "100% foreign ownership in the relevant free zone structure",
           "Simplified setup packages that can be easier to start with than mainland routes",
@@ -398,7 +398,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         title: "Popular free zones",
         intro:
-          "The right choice depends less on brand recognition and more on activity fit, visas, office rules, banking expectations, and long-term cost.",
+          "Compare free zones by activity fit, visa allocation, office rules, banking requirements, and long-term cost.",
         items: [
           "DMCC for commodities and trade-related activities, subject to its licence and facility requirements",
           "Dubai South for logistics, aviation, and regional connectivity near Al Maktoum Airport",
@@ -415,7 +415,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       {
         title: "Cost, visas, and banking",
         intro:
-          "Free zone packages can look simple, but the real fit depends on what is included, what renews later, and whether the company can satisfy banking and visa expectations.",
+          "Check what the package includes, its renewal cost, visa allocation, office terms, and the documents banks may require.",
         items: [
           "A low package may exclude visa allocation, establishment card, office upgrades, activity changes, or renewal charges",
           "Visa availability depends on the package, office type, immigration file, and the zone's current rules",
@@ -478,7 +478,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "why-first-time-entrepreneurs-are-choosing-uae",
       "business-setup-mistakes-dubai",
     ],
-    pointsTitle: "What we handle",
+    pointsTitle: "Zenesis support",
     points: [
       "Compare free zone company formation options by activity, ownership needs, budget, and operational fit",
       "Compare zones such as DMCC, Dubai South, IFZA, Meydan, Shams, RAKEZ, Fujairah, Ajman, Sharjah Airport, and Umm Al Quwain",
@@ -490,7 +490,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     supportTitle: "Talk to Zenesis",
     supportParagraphs: [
       "Reach out if you are comparing DMCC, IFZA, Meydan, Dubai South, RAKEZ, or other zones and want a free zone company formation recommendation based on how the business will function after approval.",
-      "Zenesis can help you separate headline pricing from the real differences in visas, office requirements, licensing scope, banking expectations, and long-term operating fit.",
+      "Zenesis compares package inclusions, visa allocation, office requirements, licence scope, banking requirements, and renewal costs.",
     ],
     backHref: "/business-setup",
     backLabel: "Back to Business Setup",
@@ -540,7 +540,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "Why choose offshore",
+        title: "Offshore fit",
         intro:
           "Offshore structures are usually chosen for ownership and international planning rather than local UAE operating activity.",
         items: [
@@ -589,9 +589,9 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     directAnswers: [
       {
-        question: "When is offshore usually the right route?",
+        question: "When does an offshore company fit?",
         answer:
-          "Offshore is usually the right route when the main goal is holding assets, shares, property-related structures, or international ownership planning rather than running day-to-day operating activity inside the UAE.",
+          "An offshore company can fit holding assets, shares, property-related structures, or international ownership planning. It does not provide the same operating position as a mainland or free zone company.",
       },
       {
         question: "Can an offshore company trade directly inside the UAE mainland?",
@@ -614,7 +614,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "why-first-time-entrepreneurs-are-choosing-uae",
       "business-setup-mistakes-dubai",
     ],
-    pointsTitle: "What we handle",
+    pointsTitle: "Zenesis support",
     points: [
       "Compare offshore jurisdictions that suit holding, protection, or international ownership goals, including Ajman, RAK, Jebel Ali, BVI, Nevis, Mauritius, Seychelles, and Hong Kong",
       "Handle incorporation documents, registered-agent coordination, and compliance paperwork",
@@ -658,7 +658,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "Why attestation matters",
+        title: "When attestation is required",
         intro:
           "Without proper legalization, a foreign-issued document can be rejected even if the document itself is genuine.",
         items: [
@@ -706,7 +706,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "uae-visa-reforms-2025-entrepreneurs-expats",
       "complete-dubai-golden-visa-guide",
     ],
-    pointsTitle: "What we handle",
+    pointsTitle: "Zenesis support",
     points: [
       "Document review and eligibility checks before submission, including any home-country pre-legalization requirements",
       "Home-country attestation steps, public authority legalization, and embassy or consulate handling where required",
@@ -718,7 +718,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     supportTitle: "Talk to Zenesis",
     supportParagraphs: [
       "Reach out before submitting documents to a UAE authority if you want clarity on the attestation path, expected steps, and whether home-country, embassy, or MOFA action is required.",
-      "Zenesis can help you avoid rejected submissions by checking the legalization path first and handling the process in the right order.",
+      "Zenesis checks the legalization path before submission and coordinates the required steps in sequence.",
     ],
     backHref: "/corporate-support",
     backLabel: "Back to Corporate Support",
@@ -847,7 +847,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "uae-visa-reforms-2025-entrepreneurs-expats",
       "business-consultant-beyond-company-registration",
     ],
-    pointsTitle: "What we handle",
+    pointsTitle: "Zenesis support",
     points: [
       "Support UAE bank account opening across corporate and related personal banking requirements where applicable",
       "Help with international banking routes where the business model, geography, or currency profile supports that need",
@@ -942,7 +942,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "uae-corporate-tax-registrations-cross-640000-businesses",
       "financial-year-2026-uae-compliance-guide",
     ],
-    pointsTitle: "What we handle",
+    pointsTitle: "Zenesis support",
     points: [
       "Align the visa plan with the trade license, establishment setup, and quota requirements",
       "Manage work permit, entry permit, medical, and Emirates ID coordination",
@@ -1024,7 +1024,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "financial-year-2026-uae-compliance-guide",
       "complete-guide-to-corporate-tax-groups-uae",
     ],
-    pointsTitle: "What we handle",
+    pointsTitle: "Zenesis support",
     points: [
       "Guide Golden Visa planning for investors, founders, professionals, and qualifying family applications",
       "Support company visa processing through permits, medical steps, Emirates ID, and residency issuance",
@@ -1078,7 +1078,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "What the service covers",
+        title: "Golden Visa support",
         intro:
           "The work includes identifying the applicable category, preparing its evidence, and submitting through the required channel.",
         items: [
@@ -1161,7 +1161,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "uae-visa-reforms-2025-entrepreneurs-expats",
       "business-consultant-beyond-company-registration",
     ],
-    pointsTitle: "What we handle",
+    pointsTitle: "Zenesis support",
     points: [
       "Review eligibility across investor, entrepreneur, professional, and other qualifying categories",
       "Prepare the document set and submission path around the correct category",
@@ -1268,7 +1268,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
       "corporate-tax-mistakes-trigger-audits-uae",
       "uae-corporate-tax-registrations-cross-640000-businesses",
     ],
-    pointsTitle: "What we handle",
+    pointsTitle: "Zenesis support",
     points: [
       "Review whether the business should register now and what information needs to support that position",
       "Prepare and check the documents needed for EmaraTax registration",
@@ -1325,7 +1325,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "What filing covers",
+        title: "Corporate tax return scope",
         intro:
           "The filing must reflect the taxable position of the business and be supported by its accounting records and tax calculations.",
         items: [
@@ -1369,7 +1369,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "The financial statements, taxable income review, deduction analysis, any relevant relief or exemption treatment, and the working papers behind the final position should all be ready before the return is filed. Filing first and explaining later is the weak approach.",
       },
     ],
-    pointsTitle: "What we handle",
+    pointsTitle: "Zenesis support",
     points: [
       "Prepare and file the annual corporate tax return through the FTA system",
       "Review taxable income, deductions, and supporting calculations before submission",
@@ -1458,7 +1458,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "What happens after approval",
+        title: "After VAT registration",
         intro:
           "Registration creates recurring obligations, so the first filing period should not be the first time the records are reviewed.",
         items: [
@@ -1491,7 +1491,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "The business receives a TRN and assigned tax periods, then has to issue compliant tax invoices, maintain supporting records, prepare returns, and meet filing and payment deadlines. The bookkeeping and filing process should be set before the first return becomes urgent.",
       },
     ],
-    pointsTitle: "What we handle",
+    pointsTitle: "Zenesis support",
     points: [
       "Review the mandatory or voluntary VAT registration position",
       "Calculate and document the taxable turnover basis used for the decision",
@@ -1554,7 +1554,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "What a VAT return needs",
+        title: "VAT return records",
         intro:
           "The return is only as strong as the supporting invoice trail and the reconciliations behind it.",
         items: [
@@ -1598,7 +1598,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Sales, purchases, tax invoices, input VAT recovery position, output VAT calculations, and the final payable or refundable balance should all be reviewed and reconciled before submission. That is what makes the return more defensible if the FTA asks questions later.",
       },
     ],
-    pointsTitle: "What we handle",
+    pointsTitle: "Zenesis support",
     points: [
       "Prepare the VAT return from your sales, purchases, and supporting records",
       "Reconcile input and output VAT and retain the supporting calculation before filing",
@@ -1660,7 +1660,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
     ],
     knowledgeSections: [
       {
-        title: "Why bookkeeping matters",
+        title: "Bookkeeping requirements",
         intro:
           "Good bookkeeping is what turns financial records into something the business can actually rely on.",
         items: [
@@ -1671,7 +1671,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
         ],
       },
       {
-        title: "What bookkeeping includes",
+        title: "Bookkeeping scope",
         intro:
           "Regular bookkeeping keeps the ledgers, reports, payroll records, reconciliations, and audit trail usable throughout the year.",
         items: [
@@ -1715,7 +1715,7 @@ export const serviceDetailPages: Record<string, ServiceDetailConfig> = {
           "Outsourced bookkeeping should maintain current books, reconcile the main accounts, support payroll records, and produce reports for compliance and management decisions.",
       },
     ],
-    pointsTitle: "What we handle",
+    pointsTitle: "Zenesis support",
     points: [
       "Maintain weekly or monthly books and reconcile the main bank activity",
       "Prepare reporting such as profit and loss, balance sheet, and cash flow views",

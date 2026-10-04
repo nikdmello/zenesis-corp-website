@@ -238,7 +238,7 @@ export default function AccountingTaxPage() {
           { label: "Accounting and tax" },
         ]}
         title="Accounting and tax"
-        description="Accounting services in Dubai for UAE businesses that need reliable bookkeeping, financial reporting, VAT, corporate tax, and ongoing compliance support."
+        description="Bookkeeping, financial reporting, VAT, corporate tax, and ongoing compliance for UAE businesses."
         backgroundImageSrc={versionedAssetPath("/services/accounting-and-tax.webp")}
         backgroundImageAlt="Financial professional reviewing accounting and tax records"
         backgroundImagePosition="!object-[66%_center]"
@@ -256,10 +256,10 @@ export default function AccountingTaxPage() {
             </h2>
             <div className="mt-7 max-w-[50rem] space-y-5 text-[1.06rem] leading-[1.9rem] text-[#07151b]/92 md:text-[1.1rem] md:leading-[2rem]">
               <p>
-                {linkContext("UAE businesses need accounting records that work for day-to-day decisions as well as VAT, corporate tax, reporting, and regulatory review. Zenesis provides accounting services in Dubai for businesses that need their books, reconciliations, reports, and filing responsibilities managed as one connected process.")}
+                {linkContext("UAE businesses need current accounting records for management decisions, VAT, corporate tax, reporting, and regulatory review. Zenesis maintains the books, prepares reconciliations and reports, and manages filing responsibilities.")}
               </p>
               <p>
-                {linkContext("Whether you are newly incorporated or already operating, the team can support your day-to-day accounting and ongoing tax compliance.")}
+                {linkContext("The team supports newly incorporated and operating businesses with day-to-day accounting and tax compliance.")}
               </p>
             </div>
           </article>
@@ -271,7 +271,7 @@ export default function AccountingTaxPage() {
           <SectionHeading
             eyebrow="Who it helps"
             title="Who it's for"
-            description="These are the businesses most likely to need structured help across corporate tax, VAT, bookkeeping, and reporting."
+            description="Support for new companies, operating businesses, founder-led SMEs, and cross-border groups."
           />
 
           <div className="balanced-editorial-grid balanced-editorial-grid-2 mt-10 grid border-y border-white/18 md:grid-cols-2">
@@ -295,7 +295,7 @@ export default function AccountingTaxPage() {
           <SectionHeading
             eyebrow="Service lines"
             title="Core services"
-            description="Each service line is a concrete part of the compliance and reporting stack."
+            description="Bookkeeping and reconciliations support VAT, corporate tax, financial reporting, and audit preparation."
           />
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -326,7 +326,7 @@ export default function AccountingTaxPage() {
           <SectionHeading
             eyebrow="Named expertise"
             title="Accounting and tax leadership"
-            description="Named Zenesis professionals handle accounting, tax, audit, reporting, and compliance work in the UAE."
+            description="Meet the Zenesis professionals responsible for accounting, tax, audit, reporting, and compliance work."
           />
           <div className="mt-10 grid max-w-[72rem] border-y border-[#d8d0c2] md:grid-cols-2">
             {accountingExperts.map((expert) => (
@@ -343,7 +343,7 @@ export default function AccountingTaxPage() {
 
       <ServiceAnswerSection
         title="Direct answers"
-        description="Short answers to the questions businesses usually need clarified before registrations, filings, and reporting work begin."
+        description="Registration, filing, bookkeeping, records, and reporting requirements."
         items={directAnswers}
       />
 
@@ -352,7 +352,7 @@ export default function AccountingTaxPage() {
           <SectionHeading
             eyebrow="Working rhythm"
             title="Process"
-            description="Review the current position, resolve missing records, prepare the filing, and retain the supporting evidence."
+            description="Zenesis reviews the current position, resolves missing records, prepares the filing, and retains the supporting evidence."
           />
 
           <div className="balanced-editorial-grid balanced-editorial-grid-4 mt-10 grid border-y-2 border-[#8d7453]/45 md:grid-cols-2 xl:grid-cols-4">

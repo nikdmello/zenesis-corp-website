@@ -201,7 +201,7 @@ export default function VisaAndBankingPage() {
           <SectionHeading
             eyebrow="Who it helps"
             title="Who it's for"
-            description="The founders, teams, investors, and operating companies most likely to need residency and banking support connected properly."
+            description="Support for founders relocating, companies hiring, investors applying for residency, and businesses opening bank accounts."
           />
           <div className="balanced-editorial-grid balanced-editorial-grid-2 mt-10 grid border-y border-white/18 md:grid-cols-2">
             {whoWeHelp.map((item, index) => (
@@ -227,7 +227,7 @@ export default function VisaAndBankingPage() {
           <SectionHeading
             eyebrow="Service lines"
             title="Core services"
-            description="Three connected service lines for residency, company visas, and business banking."
+            description="Golden Visa, company visa, and business bank account support."
           />
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {visaBankingServices.map((item) => (
@@ -258,7 +258,7 @@ export default function VisaAndBankingPage() {
             <SectionHeading
               eyebrow="Client case"
               title="Urgent re-entry permit approval"
-              description="An urgent visa follow-through case where fast coordination helped a family resolve a re-entry issue the same day."
+              description="Zenesis secured an urgent re-entry permit within one hour, allowing the applicant to enter the UAE that day."
             />
             <article className="border-l-4 border-[#244ba8] bg-[#f8f6f1] px-6 py-7 text-[#011735] md:px-8 md:py-8">
               <p className="text-[1.16rem] font-semibold leading-8 tracking-[-0.02em] text-[#011735]">
@@ -270,7 +270,7 @@ export default function VisaAndBankingPage() {
                 <p>The permit was approved within one hour, including document collection time, and the client&apos;s wife was able to enter the UAE the same day.</p>
               </div>
               <p className="mt-6 border-t border-[#d8d0c2] pt-5 text-[0.95rem] font-medium leading-7 text-[#011735]/68">
-                Approval times depend on the authority, case facts, documents, and eligibility. This case reflects one urgent situation where the right process and immediate follow-through made the difference.
+                Approval times depend on the authority, case facts, documents, and eligibility. The one-hour result applies only to this completed client matter.
               </p>
             </article>
           </div>
@@ -279,7 +279,7 @@ export default function VisaAndBankingPage() {
 
       <ServiceAnswerSection
         title="Direct answers"
-        description="Short answers to the questions founders and companies usually need clarified before residency and banking work begins."
+        description="Eligibility, application timing, company visas, Golden Visa routes, and bank KYC requirements."
         items={config.directAnswers ?? []}
       />
 
@@ -288,7 +288,7 @@ export default function VisaAndBankingPage() {
           <SectionHeading
             eyebrow="Working rhythm"
             title="Process"
-            description="The process covers company and eligibility review, residency, KYC preparation, account-opening support, and follow-up."
+            description="Zenesis reviews eligibility and company records, prepares the residency or KYC file, coordinates submission, and follows up."
           />
           <div className="balanced-editorial-grid balanced-editorial-grid-4 mt-10 grid border-y-2 border-[#8d7453]/45 md:grid-cols-2 xl:grid-cols-4">
             {processSteps.map((item) => (

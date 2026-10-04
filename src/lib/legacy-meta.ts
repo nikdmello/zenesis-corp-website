@@ -15,12 +15,12 @@ export const legacyRouteMeta = {
   about: {
     title: "Zenesis Corp: Award-Winning UAE Business Consultancy",
     description:
-      "With over two decades in the UAE market, Zenesis Corp supports businesses through expert consulting, governance, and operational guidance.",
+      "Meet the Zenesis team and learn about its work in UAE company formation, accounting, tax, visas, banking, and corporate support since 2005.",
   },
   contact: {
     title: "Contact Zenesis Corp: Business Consultancy in UAE",
     description:
-      "Get in touch with Zenesis Corp for expert business consultancy, company formation, accounting, and corporate services across the UAE.",
+      "Contact Zenesis in Dubai about company formation, accounting, tax, visas, banking, corporate support, or professional training.",
   },
   businessSetup: {
     title: "Business Setup Services in Dubai & UAE: Zenesis Corp",
@@ -33,9 +33,9 @@ export const legacyRouteMeta = {
       "Accounting services in Dubai for UAE businesses, covering bookkeeping, financial reporting, VAT, corporate tax, reconciliations, and ongoing compliance.",
   },
   visaAndBanking: {
-    title: "UAE Business Visa & Residency Guide",
+    title: "UAE Visa and Business Banking Support",
     description:
-      "Get insights on UAE business visas, investor visas, residency options, and application processes for entrepreneurs.",
+      "Company visa, Golden Visa, and business bank account support for founders, investors, employees, and UAE companies.",
   },
   corporateSupport: {
     title: "Corporate Support Services UAE: Zenesis Corp",
@@ -43,9 +43,9 @@ export const legacyRouteMeta = {
       "UAE corporate support for company renewals, amendments, liquidation, restoration, branch offices, document attestation, UBO filings, and administration.",
   },
   goldenVisaServices: {
-    title: "UAE Golden Visa Guide for Investors & Professionals",
+    title: "UAE Golden Visa Services for Investors and Professionals",
     description:
-      "Discover UAE Golden Visa eligibility, benefits, residency options, and application guidance for professionals and investors.",
+      "Check UAE Golden Visa eligibility and prepare the application documents for investor, entrepreneur, professional, and other qualifying routes.",
   },
 } satisfies Record<string, LegacyMeta>;
 
@@ -73,7 +73,7 @@ export const legacyServiceMeta = {
   "document-attestation-services-in-uae": {
     title: "Document Attestation Services in UAE: Zenesis Corp",
     description:
-      "Zenesis Corp provides reliable document attestation services in the UAE, ensuring accurate processing and compliance for personal and business documents.",
+      "Attestation support for personal, educational, and commercial documents, including home-country, embassy, and UAE MOFA steps where required.",
   },
   "open-a-bank-account-easily": {
     title: "UAE Business Bank Account Opening Support: Zenesis Corp",
@@ -81,19 +81,19 @@ export const legacyServiceMeta = {
       "Prepare for UAE business bank account opening with KYC support, company documents, shareholder records, source-of-funds context, and banking route guidance.",
   },
   "uae-company-visa": {
-    title: "UAE Business Visa Solutions: Zenesis Corp",
+    title: "UAE Company Visa Services: Zenesis Corp",
     description:
-      "Get expert support for UAE business visas with structured processing and clear guidance, from eligibility checks through visa approval.",
+      "Company visa support for owners and employees, including eligibility checks, labour approvals, medical testing, Emirates ID, and stamping.",
   },
   "corporate-tax-registration-in-the-uae": {
-    title: "Corporate Tax Registration UAE: Free Consultation",
+    title: "Corporate Tax Registration UAE: Zenesis Corp",
     description:
-      "Register for corporate tax in the UAE with expert guidance. Mandatory for eligible businesses. Free consultation and compliance support.",
+      "UAE Corporate Tax registration support, including eligibility review, EmaraTax setup, document preparation, and FTA submission tracking.",
   },
   "corporate-tax-filing-services-in-the-uae": {
     title: "Corporate Tax Filing Services UAE: Zenesis Corp",
     description:
-      "Zenesis Corp offers reliable corporate tax filing services in the UAE, ensuring accurate submissions and regulatory compliance.",
+      "UAE Corporate Tax return preparation, tax calculations, FTA filing, deadline management, and supporting records for businesses.",
   },
   "vat-filing-services-in-the-uae": {
     title: "VAT Filing Services UAE: Returns & Compliance",
@@ -111,9 +111,9 @@ export const legacyServiceMeta = {
       "Outsourced bookkeeping in Dubai for current books, bank reconciliations, management reporting, payroll, VAT, Corporate Tax, and audit preparation.",
   },
   "golden-visa-services-in-the-uae": {
-    title: "UAE Golden Visa Guide for Investors & Professionals",
+    title: "UAE Golden Visa Services for Investors and Professionals",
     description:
-      "Discover UAE Golden Visa eligibility, benefits, residency options, and application guidance for professionals and investors.",
+      "Check UAE Golden Visa eligibility and prepare the application documents for investor, entrepreneur, professional, and other qualifying routes.",
   },
 } satisfies Record<string, LegacyMeta>;
 

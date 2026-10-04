@@ -749,7 +749,7 @@ export const insightPosts: InsightPost[] = [
             text: "The UAE is rolling out mandatory electronic invoicing in phases between 2026 and 2027. The rules are set out in Ministerial Decision No. 244 of 2025, and the Ministry of Finance has since confirmed a change to one of the key dates. As of 29 July 2026, the first deadline is about three months away.",
             sourceIndexes: [2, 3],
           },
-          "This guide sets out exactly what has been decided, what changed recently, what the penalties are for missing a deadline, and what to do depending on the size of your business. Where a figure is likely to change over time, the live official source should always be checked.",
+          "Deadlines differ by annual revenue. Check the current Ministry of Finance guidance before appointing a provider or setting the implementation timetable.",
         ],
       },
       {
@@ -815,7 +815,7 @@ export const insightPosts: InsightPost[] = [
         },
       },
       {
-        title: "What Changed Recently?",
+        title: "Recent e-invoicing changes",
         paragraphs: [
           {
             text: "The Phase 1 Accredited Service Provider deadline was originally set at 31 July 2026. Ministerial Resolution No. 66 of 2026 replaced that date with 30 October 2026. The mandatory 1 January 2027 go-live date for Phase 1 is unchanged.",
@@ -869,7 +869,7 @@ export const insightPosts: InsightPost[] = [
         ],
       },
       {
-        title: "What to Do Now, by Revenue Band",
+        title: "Preparation by revenue band",
         paragraphs: [
           "If your annual revenue is AED 50 million or more, the deadline to appoint an Accredited Service Provider is 30 October 2026. Confirm which billing systems issue invoices, identify which transactions fall in scope, and begin evaluating providers before the deadline.",
           "If your annual revenue is below AED 50 million, your deadlines are further out: appoint a provider by 31 March 2027 and go live by 1 July 2027. But the preparation work is the same regardless of company size. Mapping invoicing systems, understanding data gaps, and choosing a provider all take time. Starting now avoids a rushed decision under deadline pressure.",
@@ -1098,7 +1098,7 @@ export const insightPosts: InsightPost[] = [
         },
       },
       {
-        title: "What to Do When an Audit Notice Arrives",
+        title: "Responding to an audit notice",
         numberedBullets: [
           "Verify the notice through the official FTA channel and note every response date.",
           "Inform the directors, finance lead, and appointed tax adviser or registered tax agent.",
@@ -1276,7 +1276,7 @@ export const insightPosts: InsightPost[] = [
         ],
       },
       {
-        title: "What to look for in an adviser",
+        title: "Adviser selection",
         bullets: [
           "Review tax and banking requirements before registration, alongside the licence timeline",
           "Build the structure around the operating plan instead of starting with a fixed package",
@@ -1526,9 +1526,6 @@ export const insightPosts: InsightPost[] = [
       },
       {
         title: "Benefits of Corporate Tax Groups",
-        paragraphs: [
-          "Forming a corporate tax group offers several strategic and financial advantages.",
-        ],
         bullets: [
           "Losses from one entity can offset profits of another within the group",
           "The group files one consolidated return instead of multiple returns",
@@ -1538,7 +1535,7 @@ export const insightPosts: InsightPost[] = [
         ],
       },
       {
-        title: "Key Consideration Before Opting for a Tax Group",
+        title: "Tax group checks",
         paragraphs: [
           "Before applying, compare the filing benefit with the effect of treating the companies as one Taxable Person.",
           "When companies form a tax group, they are treated as a single taxable entity. That means the AED 375,000 tax-free threshold applies to the entire group, not to each individual entity.",
@@ -1583,9 +1580,8 @@ export const insightPosts: InsightPost[] = [
       {
         title: "How the financial year affects filing",
         paragraphs: [
-          "The financial year in UAE is no longer just an accounting label. For companies operating in 2026, it affects corporate tax filing deadlines, VAT reconciliation, audit timing, accounting close, management reporting, and the record file a business may need to defend later.",
+          "A UAE company's financial year determines its corporate tax filing deadline and affects VAT reconciliation, audits, accounting close, management reporting, and record-keeping.",
           "Most UAE businesses use a 12-month financial year, often the calendar year from 1 January to 31 December. Some companies use a different year-end to align with a parent company, group reporting cycle, or operating model. That choice affects filing deadlines, reporting, and audit timing.",
-          "This guide explains how the financial year works in the UAE, how it connects to corporate tax and VAT, what deadlines usually follow, and what businesses should prepare before the year-end becomes urgent.",
         ],
       },
       {
@@ -1607,15 +1603,15 @@ export const insightPosts: InsightPost[] = [
         paragraphs: [
           "A financial year is the 12-month period used to record activity, prepare financial statements, and calculate taxable income. Regulatory, audit, and tax deadlines are set against that reporting period.",
           "In the UAE, many companies follow the calendar year from January to December because it is simple, familiar, and easier to manage across bookkeeping, VAT, corporate tax, and audit planning. A different financial year can also be used where it fits the business or group reporting structure.",
-          "The important point is consistency. Once the financial year is set, it becomes the anchor for accounting close, tax period, filing deadlines, audit planning, and the records that must be retained after the period ends.",
+          "Once the company sets its financial year, that period determines the accounting close, tax period, filing deadlines, audit planning, and record-retention dates.",
         ],
       },
       {
-        title: "Choosing Your Financial Year at Incorporation",
+        title: "Financial year selection at incorporation",
         paragraphs: [
-          "When setting up a company in the UAE, selecting a financial year is one of the first strategic decisions you will make.",
+          "A company usually selects its financial year during formation.",
           "Many businesses default to the calendar year due to its simplicity and widespread use, while multinational groups often choose a custom financial year to align with global reporting cycles.",
-          "In some cases, newly incorporated businesses may have their first financial year extended up to 18 months. This provides flexibility during the initial phase of operations, but it also requires careful planning because it directly impacts tax and reporting timelines.",
+          "Some newly incorporated businesses may use a first financial year of up to 18 months. The longer period changes the related tax and reporting dates.",
           "Changing a selected financial year can require regulatory approval and a valid business reason. Review the group reporting cycle, audit timing, and tax deadlines before setting it.",
         ],
       },
@@ -1716,9 +1712,9 @@ export const insightPosts: InsightPost[] = [
       {
         title: "Changing Your Financial Year",
         paragraphs: [
-          "Although businesses can change their financial year, the process is regulated and requires approval from the relevant authorities.",
-          "Companies must provide a valid business reason, such as aligning with a parent entity or restructuring operations, and frequent changes are not permitted.",
-          "Because a change in financial year affects corporate tax periods, VAT reconciliation, and audit timelines, it must be carefully planned to avoid disruptions.",
+          "A business can change its financial year only with the required authority approval.",
+          "The company must provide a valid reason, such as alignment with a parent entity or a restructuring. The rules restrict frequent changes.",
+          "The change affects corporate tax periods, VAT reconciliation, and audit dates, so the company should confirm the new timetable before applying.",
         ],
       },
       {
@@ -1883,7 +1879,7 @@ export const insightPosts: InsightPost[] = [
       {
         title: "2026 filing calendar",
         paragraphs: [
-          "A smoother filing process starts months before the statutory deadline. The aim is to make the return a review-and-submit exercise rather than a last-minute reconstruction of the business.",
+          "Start preparing several months before the statutory deadline so the team can resolve bookkeeping gaps and missing records before filing.",
         ],
         table: {
           columns: ["Timing", "Action", "Why It Matters"],
@@ -1997,7 +1993,7 @@ export const insightPosts: InsightPost[] = [
         ],
       },
       {
-        title: "How to organize the record file",
+        title: "Corporate tax record file",
         paragraphs: [
           "Organize the file so a business owner, accountant, tax adviser, auditor, or authority reviewer can understand the period without reconstructing it from separate records.",
         ],
@@ -2057,7 +2053,7 @@ export const insightPosts: InsightPost[] = [
         ],
       },
       {
-        title: "Understanding the Context",
+        title: "Free zone tax context",
         paragraphs: [
           "When the UAE introduced the federal corporate tax regime in 2023, free zone businesses were initially promised continued benefits under certain conditions.",
           "However, many grey areas remained, particularly around what counts as qualifying income, economic substance, and interactions with mainland entities.",
@@ -2065,7 +2061,7 @@ export const insightPosts: InsightPost[] = [
         ],
       },
       {
-        title: "Key Highlights of Ministerial Decisions No. 229 and 230 (2025)",
+        title: "Ministerial Decisions No. 229 and 230 of 2025",
         paragraphs: [
           "The Ministry's rulings address three areas that affect whether a business can continue applying the 0% Corporate Tax rate.",
         ],
@@ -2106,7 +2102,7 @@ export const insightPosts: InsightPost[] = [
         },
       },
       {
-        title: "What Does Not Qualify for 0% Corporate Tax",
+        title: "Income that does not qualify for 0% Corporate Tax",
         bullets: [
           "Mainland-derived income, unless within approved frameworks or structures",
           "Passive income without sufficient UAE presence",
@@ -2278,7 +2274,7 @@ export const insightPosts: InsightPost[] = [
       {
         title: "What Expats and Skilled Professionals Should Watch",
         paragraphs: [
-          "For expats, the most important question is not simply whether a new visa category exists. It is whether the category genuinely fits employment status, income profile, qualifications, and long-term residency goals.",
+          "Expats should check whether a visa category fits their employment status, income, qualifications, and residency plans.",
           "The application issues usually involve the sponsorship route, eligibility documents, medical examination, Emirates ID timing, and family sponsorship after the principal applicant is approved.",
         ],
       },
@@ -2299,7 +2295,7 @@ export const insightPosts: InsightPost[] = [
         ],
       },
       {
-        title: "How to Approach Visa Planning Properly",
+        title: "Visa planning",
         bullets: [
           "Start with the right visa category rather than forcing documents into the wrong route",
           "Check whether the immigration path depends on company formation, employment, investment, or talent criteria",
@@ -2463,7 +2459,7 @@ export const insightPosts: InsightPost[] = [
         ],
       },
       {
-        title: "What Founders Should Do Instead",
+        title: "Checks founders should complete",
         paragraphs: [
           "The better approach is to start with the operating model rather than the cheapest license. Before filing, founders should understand who the company will serve, how it will invoice, whether it needs visas, what the bank will need to see, and what compliance starts after incorporation.",
         ],
