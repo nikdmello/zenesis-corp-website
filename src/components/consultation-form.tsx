@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { createPortal } from "react-dom";
 import { type ConsultationLeadPayload } from "@/lib/consultation-lead";
 import {
@@ -120,92 +120,11 @@ function markHomepageConsultationPromptSeen() {
     // Ignore storage access issues and fall back to in-memory behavior.
   }
 }
-const enquiryShortcuts = [
-  {
-    label: "Business setup",
-    value:
-      "I need help setting up a new company in the UAE and comparing the available routes.",
-  },
-  {
-    label: "Mainland vs free zone",
-    value:
-      "I would like guidance on whether mainland or free zone setup is a better fit for how I plan to operate.",
-  },
-  {
-    label: "Golden Visa and company visas",
-    value:
-      "I need help with Golden Visa eligibility, company visa support, or the related residency steps in the UAE.",
-  },
-  {
-    label: "Business banking support",
-    value:
-      "I need support with business banking, KYC documents, and the required steps after company formation.",
-  },
-  {
-    label: "Accounting, VAT, and corporate tax",
-    value:
-      "I need help with corporate tax, VAT, registrations, or filing support for a UAE business.",
-  },
-  {
-    label: "Corporate support and renewals",
-    value:
-      "I need help with renewals, company changes, PRO support, or ongoing corporate administration in the UAE.",
-  },
-  {
-    label: "Professional training",
-    value:
-      "I would like to discuss a professional training programme for an organisation, university, team, or student group.",
-  },
-  {
-    label: "General consultation",
-    value:
-      "I would like a consultation to understand the right next step for my business in the UAE.",
-  },
-] as const;
-
-const jurisdictionOptions = [
-  "Not decided",
-  "Ajman",
-  "Ras Al Khaimah",
-  "Abu Dhabi or ADGM",
-  "Jebel Ali",
-  "Dubai mainland",
-  "Another UAE jurisdiction",
-] as const;
-
 function buildEnquiryMessage(
-  selectedShortcutLabels: string[],
   presetEnquiry?: string,
   additionalNote?: string,
 ) {
-  const selectedShortcuts = enquiryShortcuts.filter((item) =>
-    selectedShortcutLabels.includes(item.label),
-  );
-
-  const trimmedAdditionalNote = additionalNote?.trim();
-
-  if (!selectedShortcuts.length) {
-    const fallbackLines = [presetEnquiry?.trim(), trimmedAdditionalNote].filter(Boolean);
-    return fallbackLines.join("\n\n");
-  }
-
-  const lines = [
-    "I would like help with the following:",
-    ...selectedShortcuts.map((item) => `- ${item.label}`),
-  ];
-
-  if (
-    presetEnquiry &&
-    !selectedShortcuts.some((item) => item.value === presetEnquiry)
-  ) {
-    lines.push("", presetEnquiry);
-  }
-
-  if (trimmedAdditionalNote) {
-    lines.push("", `Additional note: ${trimmedAdditionalNote}`);
-  }
-
-  return lines.join("\n");
+  return [presetEnquiry?.trim(), additionalNote?.trim()].filter(Boolean).join("\n\n");
 }
 
 function buildWhatsAppConsultationMessage(payload: ConsultationLeadPayload) {
@@ -766,9 +685,6 @@ export function ConsultationInlinePanel({
   const [selectedCountryLabel, setSelectedCountryLabel] = useState<string>(
     countryCodes[0].label,
   );
-  const [selectedShortcutLabels, setSelectedShortcutLabels] = useState<string[]>(
-    [],
-  );
   const [additionalNote, setAdditionalNote] = useState("");
   const [submitError, setSubmitError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -778,32 +694,16 @@ export function ConsultationInlinePanel({
   const selectedCountryValue =
     countryCodes.find((item) => item.label === selectedCountryLabel)?.value ??
     "+971";
-  const enquiryValue = useMemo(
-    () =>
-      buildEnquiryMessage(selectedShortcutLabels, presetEnquiry, additionalNote),
-    [additionalNote, presetEnquiry, selectedShortcutLabels],
-  );
-
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const form = new FormData(event.currentTarget);
-    const preferredJurisdiction = String(
-      form.get("preferredJurisdiction") ?? "",
-    ).trim();
     const payload: ConsultationLeadPayload = {
       name: String(form.get("name") ?? "").trim(),
       countryCode: selectedCountryValue,
       mobile: String(form.get("mobile") ?? "").trim(),
       email: String(form.get("email") ?? "").trim(),
-      enquiry: [
-        enquiryValue.trim(),
-        preferredJurisdiction
-          ? `Preferred jurisdiction: ${preferredJurisdiction}`
-          : "",
-      ]
-        .filter(Boolean)
-        .join("\n\n"),
+      enquiry: buildEnquiryMessage(presetEnquiry, additionalNote),
       source: "inline-panel",
       pagePath: getCurrentPagePath(),
       pageTitle: document.title,
@@ -911,7 +811,6 @@ export function ConsultationInlinePanel({
                 onClick={() => {
                   setSubmittedPayload(null);
                   setSubmitError("");
-                  setSelectedShortcutLabels([]);
                   setAdditionalNote("");
                 }}
                 className="inline-flex flex-1 items-center justify-center rounded-full border border-foreground/12 bg-white px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-[#f8f5ef]"
@@ -923,65 +822,6 @@ export function ConsultationInlinePanel({
         ) : (
           <>
             <div className="grid gap-3.5">
-              <div className="grid gap-2">
-                <p className="text-[1.02rem] font-semibold text-foreground md:text-[1.08rem]">
-                  What do you need help with?
-                </p>
-                <p className="text-sm leading-6 text-muted md:text-[0.98rem]">
-                  Select the topics that apply and we will build the message for you.
-                </p>
-                {presetEnquiry || selectedShortcutLabels.length ? (
-                  <p className="rounded-xl border border-accent/12 bg-[rgba(36,75,168,0.06)] px-4 py-3 text-sm font-medium leading-6 text-foreground">
-                    {selectedShortcutLabels.length
-                      ? `Selected topics: ${selectedShortcutLabels.join(", ")}`
-                      : `Request: ${presetEnquiry}`}
-                  </p>
-                ) : null}
-                <div className="flex flex-wrap gap-1.5">
-                  {enquiryShortcuts.map((item) => (
-                    <button
-                      key={item.label}
-                      type="button"
-                      onClick={() => {
-                        const nextLabels = selectedShortcutLabels.includes(item.label)
-                          ? selectedShortcutLabels.filter(
-                              (label) => label !== item.label,
-                            )
-                          : [...selectedShortcutLabels, item.label];
-
-                        setSelectedShortcutLabels(nextLabels);
-                      }}
-                      className={`rounded-full border px-3 py-2 text-[0.9rem] font-medium transition-colors ${
-                        selectedShortcutLabels.includes(item.label)
-                          ? "border-accent bg-[rgba(36,75,168,0.08)] text-accent"
-                          : "border-foreground/10 bg-white text-foreground hover:border-accent/40 hover:bg-[rgba(36,75,168,0.04)]"
-                      }`}
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <label className="grid gap-2 text-sm font-semibold text-foreground">
-                <span>
-                  Preferred jurisdiction{" "}
-                  <span className="font-normal text-muted">(optional)</span>
-                </span>
-                <select
-                  name="preferredJurisdiction"
-                  defaultValue=""
-                  className="rounded-[0.4rem] border border-[#8d7453]/22 bg-white px-4 py-2.5 text-base font-normal text-foreground shadow-inner outline-none transition-all focus:border-[#b79056] focus:shadow-[0_0_0_4px_rgba(183,144,86,0.12)]"
-                >
-                  <option value="">Select a jurisdiction</option>
-                  {jurisdictionOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </label>
-
               <div className="grid gap-3 sm:grid-cols-2">
                 <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={nameId}>
                   Name
@@ -1097,9 +937,6 @@ export function ConsultationModal({
   const [selectedCountryLabel, setSelectedCountryLabel] = useState<string>(
     countryCodes[0].label,
   );
-  const [selectedShortcutLabels, setSelectedShortcutLabels] = useState<string[]>(
-    [],
-  );
   const [additionalNote, setAdditionalNote] = useState("");
   const [submitError, setSubmitError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -1109,12 +946,6 @@ export function ConsultationModal({
   const selectedCountryValue =
     countryCodes.find((item) => item.label === selectedCountryLabel)?.value ??
     "+971";
-  const enquiryValue = useMemo(
-    () =>
-      buildEnquiryMessage(selectedShortcutLabels, presetEnquiry, additionalNote),
-    [additionalNote, presetEnquiry, selectedShortcutLabels],
-  );
-
   useEffect(() => {
     if (!isOpen) {
       return;
@@ -1143,22 +974,12 @@ export function ConsultationModal({
     event.preventDefault();
 
     const form = new FormData(event.currentTarget);
-    const preferredJurisdiction = String(
-      form.get("preferredJurisdiction") ?? "",
-    ).trim();
     const payload: ConsultationLeadPayload = {
       name: String(form.get("name") ?? "").trim(),
       countryCode: selectedCountryValue,
       mobile: String(form.get("mobile") ?? "").trim(),
       email: String(form.get("email") ?? "").trim(),
-      enquiry: [
-        enquiryValue.trim(),
-        preferredJurisdiction
-          ? `Preferred jurisdiction: ${preferredJurisdiction}`
-          : "",
-      ]
-        .filter(Boolean)
-        .join("\n\n"),
+      enquiry: buildEnquiryMessage(presetEnquiry, additionalNote),
       source: "modal",
       pagePath: getCurrentPagePath(),
       pageTitle: document.title,
@@ -1307,65 +1128,6 @@ export function ConsultationModal({
           ) : (
             <>
               <div className="grid gap-3 md:gap-3.5">
-                <div className="grid gap-2">
-                  <p className="text-[1.02rem] font-semibold text-foreground md:text-[1.08rem]">
-                    What do you need help with?
-                  </p>
-                  <p className="text-sm leading-6 text-muted md:text-[0.98rem] md:leading-6">
-                    Select the topics that apply and we will build the message for you.
-                  </p>
-                  {presetEnquiry || selectedShortcutLabels.length ? (
-                    <p className="rounded-[0.6rem] border border-accent/12 bg-[rgba(36,75,168,0.06)] px-4 py-3 text-sm font-medium leading-6 text-foreground">
-                      {selectedShortcutLabels.length
-                        ? `Selected topics: ${selectedShortcutLabels.join(", ")}`
-                        : `Request: ${presetEnquiry}`}
-                    </p>
-                  ) : null}
-                  <div className="flex flex-wrap gap-2">
-                    {enquiryShortcuts.map((item) => (
-                      <button
-                        key={item.label}
-                        type="button"
-                        onClick={() => {
-                          const nextLabels = selectedShortcutLabels.includes(item.label)
-                            ? selectedShortcutLabels.filter(
-                                (label) => label !== item.label,
-                              )
-                            : [...selectedShortcutLabels, item.label];
-
-                          setSelectedShortcutLabels(nextLabels);
-                        }}
-                        className={`rounded-[0.55rem] border px-4 py-2.5 text-[0.98rem] font-medium transition-colors md:px-4 md:py-2 md:text-[0.95rem] ${
-                          selectedShortcutLabels.includes(item.label)
-                            ? "border-accent bg-[rgba(36,75,168,0.08)] text-accent"
-                            : "border-foreground/10 bg-white text-foreground hover:border-accent/40 hover:bg-[rgba(36,75,168,0.04)]"
-                        }`}
-                      >
-                        {item.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <label className="grid gap-2 text-sm font-semibold text-foreground">
-                  <span>
-                    Preferred jurisdiction{" "}
-                    <span className="font-normal text-muted">(optional)</span>
-                  </span>
-                  <select
-                    name="preferredJurisdiction"
-                    defaultValue=""
-                    className="rounded-[0.55rem] border border-[#8d7453]/22 bg-white px-4 py-3 text-base font-normal text-foreground shadow-inner outline-none transition-all focus:border-[#b79056] focus:shadow-[0_0_0_4px_rgba(183,144,86,0.12)]"
-                  >
-                    <option value="">Select a jurisdiction</option>
-                    {jurisdictionOptions.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-
                 <div className="grid gap-3 md:grid-cols-2">
                   <label className="grid gap-2 text-sm font-semibold text-foreground" htmlFor={nameId}>
                     Name

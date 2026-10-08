@@ -402,6 +402,7 @@ export const teamMembers = [
     title: "Founder",
     credentials: "BCom, LLB, ACS",
     imageSrc: versionedAssetPath("/people/Cecilia_DCunha.webp"),
+    imageClassName: "scale-[1.12] object-[center_46%]",
     summary:
       "A qualified Chartered Secretary with degrees in Commerce and Law, with more than 30 years of experience across offshore incorporation, UAE company setup, and corporate compliance.",
     paragraphs: [
@@ -424,6 +425,7 @@ export const teamMembers = [
     title: "Chief Executive Officer",
     credentials: "GDArch, CMCA, AMS, LSM, PCAM, D. Litt.",
     imageSrc: versionedAssetPath("/people/Jeevan_DMello.webp"),
+    imageClassName: "scale-[1.2] object-[center_43%]",
     summary:
       "Chief Executive Officer with an international, award-winning career across architectural design, customer experience, community management, real estate management, and international relations.",
     paragraphs: [
@@ -467,7 +469,7 @@ export const teamMembers = [
     title: "Administrative & Accounts Assistant",
     credentials: "BCom",
     imageSrc: versionedAssetPath("/people/Jeslia_Rodrigues.webp"),
-    imageClassName: "scale-x-[1.035]",
+    imageClassName: "scale-x-[1.2] scale-y-[1.16] object-[center_43%]",
     summary:
       "An administrative and accounts professional with more than four years of UAE experience supporting office operations, financial administration, documentation, and compliance coordination.",
   },
@@ -489,6 +491,14 @@ export const teamMembers = [
       "Reviews and Due Diligence",
       "Training",
     ],
+  },
+  {
+    name: "Nikhil D'Mello",
+    title: "Technology and Digital Strategy",
+    credentials: "BS in Computer Science and Business Administration",
+    imageSrc: versionedAssetPath("/people/Nikhil_DMello.webp"),
+    summary:
+      "A software engineer working across backend systems, cloud infrastructure, AI-assisted products, and digital strategy, supporting Zenesis's website, marketing systems, and wider digital operations.",
   },
 ] as const;
 
