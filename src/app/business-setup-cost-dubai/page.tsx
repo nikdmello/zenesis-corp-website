@@ -79,7 +79,7 @@ export default function BusinessSetupCostDubaiPage() {
       <PageSectionNavMobile items={pricingPageLinks} />
       <PageGuideLayout items={pricingPageLinks} credibilityPath="/business-setup-cost-dubai">
 
-      <section id="starting-prices" className="pricing-packages-section">
+      <section id="starting-prices" className="pricing-packages-section pricing-premium">
         <div className="pricing-page-container">
           <PricingPackages />
           <p className="pricing-disclaimer">{businessSetupPricingDisclaimer}</p>

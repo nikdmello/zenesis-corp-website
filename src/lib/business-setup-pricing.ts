@@ -100,11 +100,12 @@ export const businessSetupStartingPrices = [
     qualifier: "without visa",
     href: "/business-setup",
     description:
-      "For founders who want a UAE free zone company route without an initial visa requirement.",
+      "For founders who need a company without a residence visa. Selected partner packages offer up to 10 shareholders, 10 business activities, and 24/7 flexi-desk access. Availability depends on the free zone and package.",
     highlights: [
-      "UAE free zone company",
+      "Company registration and trade licence",
       "No initial visa",
-      "Activity and free zone fit reviewed",
+      "Shareholder and activity options",
+      "Flexi-desk options",
     ],
   },
   {
@@ -114,11 +115,12 @@ export const businessSetupStartingPrices = [
     qualifier: "with visa",
     href: "/business-setup",
     description:
-      "For founders who need both a registered free zone company and a UAE residence visa.",
+      "For founders who need a company and UAE residency. Selected partner packages offer one or two visas, up to 10 shareholders, 10 business activities, and 24/7 flexi-desk access. Zenesis confirms visa costs and package inclusions before you proceed.",
     highlights: [
-      "UAE free zone company",
-      "UAE residence visa route",
-      "Medical and Emirates ID steps considered",
+      "Company registration and trade licence",
+      "One- or two-visa package options",
+      "Establishment card and e-channel options",
+      "Flexi-desk options",
     ],
   },
   {

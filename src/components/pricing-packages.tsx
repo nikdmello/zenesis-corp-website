@@ -14,8 +14,8 @@ const ConsultationModal = dynamic(
 
 const groups = [
   {
-    title: "Work or run a business in the UAE",
-    description: "Start with what you need the licence to do.",
+    title: "Company formation and freelance permits",
+    description: "Choose whether you need a company, a residence visa, or a permit to work independently.",
     options: [
       { index: 3, question: "Work independently" },
       { index: 0, question: "Start a company without a visa" },
@@ -38,20 +38,9 @@ export function PricingPackages() {
 
   return (
     <>
-      <aside className="pricing-route-callout">
-        <div>
-          <p>Need help choosing?</p>
-          <h2>Free zone or mainland?</h2>
-          <span>Mainland is usually for direct UAE operations. Free zone suits businesses that fit a zone&apos;s activities and operating rules.</span>
-        </div>
-        <Link href="/mainland-vs-free-zone-dubai" className="pricing-route-callout-link">
-          Compare the two routes <ArrowRightIcon className="h-4 w-4" />
-        </Link>
-      </aside>
-
       <header className="pricing-packages-header">
-        <h2>Setup options</h2>
-        <p>Pick the outcome you need. Zenesis will confirm the licence, authority, and full cost before filing.</p>
+        <h2>Setup pricing</h2>
+        <p>Compare starting prices below. We confirm your package inclusions and full quote before you proceed.</p>
       </header>
       {groups.map((group) => (
         <div key={group.title} className="pricing-package-group">
@@ -90,7 +79,7 @@ export function PricingPackages() {
                         setEnquiry(`I am interested in ${item.title} (${item.qualifier}), ${range ? "priced at" : "starting from"} ${item.price}. Please confirm the full cost and next steps.`);
                       }}
                     >
-                      Check my full cost <ArrowRightIcon className="h-4 w-4" />
+                      Get a quote <ArrowRightIcon className="h-4 w-4" />
                     </button>
                     <Link href={item.href} className="pricing-package-details">View service</Link>
                   </div>
@@ -100,6 +89,15 @@ export function PricingPackages() {
           </div>
         </div>
       ))}
+      <aside className="pricing-route-callout">
+        <div>
+          <h2>Free zone or mainland?</h2>
+          <span>Compare where you can operate, office requirements, and visa options.</span>
+        </div>
+        <Link href="/mainland-vs-free-zone-dubai" className="pricing-route-callout-link">
+          Compare routes <ArrowRightIcon className="h-4 w-4" />
+        </Link>
+      </aside>
       {enquiry && (
         <ConsultationModal
           isOpen
