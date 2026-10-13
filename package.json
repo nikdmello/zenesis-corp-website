@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/generate-search-content.cjs",
+    "predev:webpack": "node scripts/generate-search-content.cjs",
+    "prebuild": "node scripts/generate-search-content.cjs",
+    "test:search": "node scripts/generate-search-content.cjs && node scripts/check-site-search.cjs",
     "dev": "next dev",
     "dev:webpack": "next dev --webpack",
     "build": "next build",

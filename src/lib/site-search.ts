@@ -1,4 +1,6 @@
-import { featuredProfile } from "@/lib/site-content";
+import { featuredProfile, freeZoneExamples, offshoreOptions, setupStructures, teamMembers } from "@/lib/site-content";
+import pageSearchContent from "@/lib/page-search-content.json";
+import { businessSetupStartingPrices, businessSetupPricingFaqs, setupCostDecisionFactors } from "@/lib/business-setup-pricing";
 import { insightPosts } from "@/lib/insights";
 import { serviceDetailPages } from "@/lib/service-pages";
 
@@ -64,8 +66,12 @@ const topLevelPages: SearchDocument[] = [
       "free zone",
       "offshore",
     ],
-    searchText:
+    searchText: [
       "business setup company dubai business setup services in uae business setup consultants in dubai company formation dubai mainland free zone offshore document attestation uae dubai",
+      ...freeZoneExamples,
+      ...offshoreOptions,
+      ...setupStructures,
+    ].join(" "),
   },
   {
     href: "/business-setup-cost-dubai",
@@ -209,6 +215,12 @@ const serviceDocuments: SearchDocument[] = Object.values(serviceDetailPages).map
   const searchFields = [
     service.title,
     service.description,
+    service.introTitle,
+    service.pointsTitle,
+    service.supportTitle ?? "",
+    ...(service.supportParagraphs ?? []),
+    ...(service.directAnswers?.flatMap((answer) => [answer.question, answer.answer]) ?? []),
+    ...(service.comparisonTable ? [service.comparisonTable.title, service.comparisonTable.intro ?? "", ...service.comparisonTable.headers, ...service.comparisonTable.rows.flat(), service.comparisonTable.note ?? ""] : []),
     ...service.introParagraphs,
     ...service.points,
     ...(service.knowledgeSections?.flatMap((section) => [
@@ -290,7 +302,19 @@ export const searchDocuments: SearchDocument[] = [
   ...serviceDocuments,
   ...insightDocuments,
   profileDocument,
-];
+].map((document) => ({
+  ...document,
+  searchText: [
+    document.searchText,
+    pageSearchContent[document.href as keyof typeof pageSearchContent] ?? "",
+    document.href === "/about" ? teamMembers.flatMap((member) => [member.name, member.title, member.credentials, member.summary, ...("paragraphs" in member ? member.paragraphs : []), ...("skills" in member ? member.skills : [])]).join(" ") : "",
+    document.href === "/business-setup-cost-dubai" ? [
+      ...businessSetupStartingPrices.flatMap((item) => [item.title, item.price, item.qualifier, item.description, ...item.highlights]),
+      ...businessSetupPricingFaqs.flatMap((item) => [item.question, item.answer]),
+      ...setupCostDecisionFactors.flatMap((item) => [item.title, item.description]),
+    ].join(" ") : "",
+  ].filter(Boolean).join(" "),
+}));
 
 function normalizeText(value: string) {
   return value
@@ -305,7 +329,7 @@ function tokenize(value: string) {
   return normalizeText(value)
     .split(" ")
     .map((token) => token.trim())
-    .filter(Boolean);
+    .filter((token) => token.length > 1 || /^\d$/.test(token));
 }
 
 function getTokenVariants(token: string) {
@@ -344,7 +368,8 @@ function includesSearchToken(value: string, token: string) {
     return false;
   }
 
-  return getTokenVariants(token).some((variant) => normalizedValue.includes(variant));
+  const words = normalizedValue.split(" ");
+  return getTokenVariants(token).some((variant) => words.includes(variant));
 }
 
 export function tokenizeSearchQuery(value: string) {
@@ -500,12 +525,6 @@ export function searchSite(query: string, limit = 24): SearchResult[] {
 
       if (primaryFieldMatches > 0) {
         score += 18 + primaryFieldMatches * 8;
-      } else if (bodyFieldMatches > 0) {
-        score -= 18;
-      }
-
-      if (primaryFieldMatches === 0 && bodyFieldMatches > 0 && queryTokens.length <= 2) {
-        score -= 12;
       }
 
       if (document.type === "Service" && primaryFieldMatches > 0) {
@@ -524,7 +543,7 @@ export function searchSite(query: string, limit = 24): SearchResult[] {
         score -= 8;
       }
 
-      return { ...document, score };
+      return { ...document, score: matchedTokens === queryTokens.length ? score : 0 };
     })
     .filter((document) => document.score > 0)
     .sort((a, b) => {
