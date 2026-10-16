@@ -2,12 +2,12 @@ export const businessSetupPricingDisclaimer =
   "Starting prices are indicative. Your confirmed quote will reflect the jurisdiction, business activity, visa requirements, government fees, office package, approvals, and the exact sequence needed for your setup.";
 
 export const businessSetupPricingLastUpdated = {
-  label: "August 4, 2026",
-  isoDate: "2026-08-04",
+  label: "October 16, 2026",
+  isoDate: "2026-10-16",
 } as const;
 
 export const businessSetupPricingSummary =
-  "Zenesis business setup consultancy prices start from AED 4,000 for freelance permits, AED 7,000 for free zone company setup without visa, AED 15,000 for free zone company setup with visa, AED 10,000 for mainland company setup, AED 7,500 to AED 15,000 for UAE offshore company setup, and AED 8,000 to AED 15,000 for international offshore company setup.";
+  "Zenesis business setup consultancy prices start from AED 4,000 for freelance permits, AED 7,000 for free zone company setup without visa, AED 9,000 for free zone company setup with visa, AED 10,000 for mainland company setup, AED 7,500 to AED 15,000 for UAE offshore company setup, and AED 8,000 to AED 15,000 for international offshore company setup.";
 
 export const businessSetupPricingAnswer =
   `${businessSetupPricingSummary} Final pricing depends on jurisdiction, business activity, visa requirements, government fees, office package, and approvals.`;
@@ -29,10 +29,10 @@ export const marketCostGuideRows = [
   },
   {
     route: "Free zone company with visa",
-    typicalRange: "AED 15,000+",
+    typicalRange: "AED 9,000+",
     costDrivers:
       "Visa allocation, establishment card, medical and Emirates ID steps, health insurance, office package, and free zone requirements.",
-    zenesisPosition: "Zenesis free zone company setup with visa starts from AED 15,000.",
+    zenesisPosition: "Zenesis free zone company setup with visa starts from AED 9,000.",
   },
   {
     route: "Mainland company setup",
@@ -110,8 +110,8 @@ export const businessSetupStartingPrices = [
   },
   {
     title: "Free Zone Company Setup + Visa",
-    price: "AED 15,000",
-    numericPrice: 15000,
+    price: "AED 9,000",
+    numericPrice: 9000,
     qualifier: "with visa",
     href: "/business-setup",
     description:
@@ -191,7 +191,7 @@ export const businessSetupPricingFaqs = [
   {
     question: "How much does free zone company setup cost with Zenesis?",
     answer:
-      "Zenesis free zone company setup starts from AED 7,000 without a visa and AED 15,000 when the founder needs both a registered company and a UAE residence visa. The final cost depends on the selected free zone, activity, visa requirement, office package, government fees, and approvals.",
+      "Zenesis free zone company setup starts from AED 7,000 without a visa and AED 9,000 when the founder needs both a registered company and a UAE residence visa. The final cost depends on the selected free zone, activity, visa requirement, office package, government fees, and approvals.",
   },
   {
     question: "How much does mainland company setup cost with Zenesis?",
@@ -246,7 +246,7 @@ export const businessSetupCostComparisonRows = [
   },
   {
     setupType: "Free Zone Company Setup + Visa",
-    startingPrice: "AED 15,000",
+    startingPrice: "AED 9,000",
     bestFor: "Founders who need both a UAE free zone company and a UAE residence visa.",
     includes: "Company setup support and the linked residence visa route.",
     finalCostDependsOn: "Free zone, visa requirements, office package, medical/ID steps, and approvals.",

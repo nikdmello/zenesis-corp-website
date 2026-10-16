@@ -152,7 +152,7 @@ const routeComparisonRows = [
     bestFor: "Consulting, digital, e-commerce, international trade, and founder-led businesses",
     marketAccess: "Operates under the selected zone and activity. Mainland trading arrangements need to be checked",
     officeAndVisas: "Package, flexi-desk, office, and visa allocation vary materially by free zone",
-    startingCost: "AED 7,000+ without visa, or AED 15,000+ with visa",
+    startingCost: "AED 7,000+ without visa, or AED 9,000+ with visa",
     planningSignal: "Often efficient when the zone, package, visa allocation, and banking file match the real business model",
   },
   {
